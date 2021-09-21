@@ -8,7 +8,6 @@ namespace Project1.BlockComponents
 {
     public interface IBlock
     {
-        Dictionary<int, Rectangle> sourceRectangle { get; set; }
         Texture2D Texture { get; set; }
         void PreviousBlock();
         void NextBlock();

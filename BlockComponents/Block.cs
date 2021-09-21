@@ -7,11 +7,9 @@ namespace Project1.BlockComponents
 {
     class Block : IBlock
     {
-        public Dictionary<int, Rectangle> sourceRectangle { get; set; }
         public Texture2D Texture { get; set; }
         private Game1 Game;
-        private int counter = 1;
-        private Rectangle[] source = new Rectangle[10] { new Rectangle(0, 0, 16, 16), new Rectangle(16, 0, 16, 16), new Rectangle(32, 0, 16, 16), new Rectangle(48, 0, 16, 16), new Rectangle(64, 0, 16, 16), new Rectangle(80, 0, 16, 16), new Rectangle(96, 0, 16, 16), new Rectangle(112, 0, 16, 16), new Rectangle(128, 0, 16, 16), new Rectangle(144, 0, 16, 16) };
+        private int counter = 0;
         public Block(Game1 game)
         {
             Game = game;
@@ -44,14 +42,15 @@ namespace Project1.BlockComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Rectangle sourceRectangle = new Rectangle(counter*16, 0, 16, 16);
             Rectangle destinationRectangle = new Rectangle(100, 100, 32, 32);
             if (counter >= 1 && counter <= 8)
             {
-                spriteBatch.Draw(Texture, destinationRectangle, source[counter - 1], Color.White);
+                spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             }
             else
             {
-                spriteBatch.Draw(Texture, destinationRectangle, source[0], Color.White);
+                spriteBatch.Draw(Texture, destinationRectangle, new Rectangle(0, 0, 16, 16), Color.White);
             }
         }
     }
