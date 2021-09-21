@@ -23,10 +23,12 @@ namespace Project1.SpriteFactory
         struct SpriteData
         {
             public Texture2D Texture;
+            public int TotalFrames;
 
-            public SpriteData(Texture2D texture)
+            public SpriteData(Texture2D texture, int totalFrames)
             {
                 Texture = texture;
+                TotalFrames = totalFrames;
             }
         }
 
@@ -36,9 +38,10 @@ namespace Project1.SpriteFactory
         public void LoadAllTextures(ContentManager content)
         {
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
+            CreateDict();
         }
 
-        public void CreateDict()
+        private static void CreateDict()
         {
             sheetMappings = new Dictionary<string, SpriteData>();
         }
@@ -46,7 +49,9 @@ namespace Project1.SpriteFactory
         {
             string key = Direction.ID + Item.ID;
             SpriteData data = sheetMappings[key];
+
             Link.Texture = data.Texture;
+            Link.TotalFrames = data.TotalFrames;
         }
 
         //The following method will not be used

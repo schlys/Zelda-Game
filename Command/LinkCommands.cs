@@ -63,6 +63,20 @@ namespace Project1.Command
         }
     }
 
+    public class LinkStopMovingCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public LinkStopMovingCmd(Game1 game)
+        {
+            Game = game;
+        }
+
+        public void Execute()
+        {
+            Game.Link.StopMoving();
+        }
+    }
+
     public class LinkSwordAttackCmd : ICommand
     {
         public Game1 Game { get; set; }

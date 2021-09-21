@@ -21,6 +21,7 @@ namespace Project1.LinkComponents
         void MoveDown();
         void MoveRight();
         void MoveLeft();
+        void StopMoving();
         void Attack();
         void TakeDamage();
         void UseNoItem();

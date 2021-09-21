@@ -11,6 +11,6 @@ namespace Project1.Controller
     public interface IController
     {
         void RegisterCommand(ICommand command, Keys key);
-        void Update();
+        void Update(Game1 game);
     }
 }

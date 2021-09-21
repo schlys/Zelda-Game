@@ -115,7 +115,7 @@ namespace Project1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            keyboard.Update();
+            keyboard.Update(this);
             Link.Update();
             base.Update(gameTime);
         }

@@ -78,6 +78,11 @@ namespace Project1.LinkComponents
             }
         }
 
+        public void StopMoving()
+        {
+            TotalFrames = 1;
+        }
+
         public void Attack()
         {
             LinkItemState.Attack(); 
