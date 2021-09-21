@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Project1.Command;
 using Project1.Controller;
 using Project1.LinkComponents;
+using Project1.BlockComponents;
 using Project1.SpriteFactory;
 
 namespace Project1
@@ -26,6 +27,7 @@ namespace Project1
         {
             keyboard = new KeyboardController();
             Link = new Link(this);
+            Block = new Block(this);
             base.Initialize();
         }
 
@@ -33,8 +35,9 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link(this);
-
+            Block = new Block(this);
             // Register keyboard commands 
             // Requirement - Arrow and "wasd" keys should move Link and change his facing direction.
             keyboard.RegisterCommand(new LinkMoveUpCmd(this), Keys.W);
@@ -86,6 +89,8 @@ namespace Project1
              * shown (i.e. think of the obstacles as being in a list where the game's current 
              * obstacle is being drawn, "t" switches to the previous item and "y" switches to the next)
              */
+            keyboard.RegisterCommand(new PreviousBlockCmd(this), Keys.T);
+            keyboard.RegisterCommand(new NextBlockCmd(this), Keys.Y);
 
             /* Requirement - Use keys "u" and "i" to cycle between which item is currently being shown 
              * (i.e. think of the items as being in a list where the game's current item is being drawn, 
@@ -121,6 +126,7 @@ namespace Project1
 
             _spriteBatch.Begin();
             Link.Draw(_spriteBatch);
+            Block.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

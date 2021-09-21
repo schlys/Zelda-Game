@@ -15,7 +15,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            
+            Game.Block.PreviousBlock();
         }
     }
 
@@ -30,7 +30,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            
+            Game.Block.NextBlock();
         }
     }
 }
