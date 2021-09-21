@@ -19,7 +19,7 @@ namespace Project1.LinkComponents
         public int CurrentFrame { get; set; }
         private Vector2 position;
         private Game1 game;
-        private int Step = 2;
+        private int Step = 4;
 
         public Link(Game1 game)
         {
@@ -120,7 +120,7 @@ namespace Project1.LinkComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRectangle = new Rectangle((CurrentFrame-1) * 40, Row * 40, 40, 40);
-            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 100, 100);
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 125, 125);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
