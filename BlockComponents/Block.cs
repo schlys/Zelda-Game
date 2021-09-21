@@ -44,7 +44,7 @@ namespace Project1.BlockComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle destinationRectangle = new Rectangle(100, 100, 16, 16);
+            Rectangle destinationRectangle = new Rectangle(100, 100, 32, 32);
             if (counter >= 1 && counter <= 8)
             {
                 spriteBatch.Draw(Texture, destinationRectangle, source[counter - 1], Color.White);
