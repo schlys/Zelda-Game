@@ -20,6 +20,7 @@ namespace Project1.LinkComponents
         private Vector2 position;
         private Game1 game;
         private int Step = 4;
+        private int delay;
 
         public Link(Game1 game)
         {
@@ -28,6 +29,7 @@ namespace Project1.LinkComponents
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             this.game = game;
             LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            delay = 0;
         }
         public void MoveDown()
         {
@@ -126,14 +128,19 @@ namespace Project1.LinkComponents
 
         public void Update()
         {
-            if (CurrentFrame < TotalFrames)
+            delay++;
+            if (delay > 6)
             {
-                CurrentFrame++;
-            } else
-            {
-                CurrentFrame = 1;
-            }
-                
+                if (CurrentFrame < TotalFrames)
+                {
+                    CurrentFrame++;
+                }
+                else
+                {
+                    CurrentFrame = 1;
+                }
+                delay = 0;
+            }  
         }
     }
 }
