@@ -11,6 +11,8 @@ namespace Project1.LinkComponents
     {
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkItemState LinkItemState { get; set; }
+        public LinkHealth Health { get; set; }
+
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }
         public int Row { get; set; }
@@ -23,6 +25,7 @@ namespace Project1.LinkComponents
         {
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
             LinkItemState = new LinkStateNoItem(this);      // default state is no item
+            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             this.game = game;
             LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
         }
@@ -86,7 +89,7 @@ namespace Project1.LinkComponents
 
         public void TakeDamage()
         {
-
+            Health.DecreaseHealth(0.5);             // need determine value to decrease by  
         }
 
         public void UseNoItem()

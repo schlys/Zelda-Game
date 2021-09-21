@@ -176,11 +176,11 @@ namespace Project1.Command
             }
         }
 
-    public class LinkTakeDamage : ICommand
+    public class LinkTakeDamageCmd : ICommand
         {
             public Game1 Game { get; set; }
 
-            public LinkTakeDamage(Game1 game)
+            public LinkTakeDamageCmd(Game1 game)
             {
                 Game = game;
             }

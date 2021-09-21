@@ -58,6 +58,8 @@ namespace Project1
             keyboard.RegisterCommand(new LinkSwordAttackCmd(this), Keys.Z);
             keyboard.RegisterCommand(new LinkSwordAttackCmd(this), Keys.N);
 
+            keyboard.RegisterCommand(new LinkTakeDamageCmd(this), Keys.E);
+
             keyboard.RegisterCommand(new LinkUseNoItemCmd(this), Keys.NumPad0);
             keyboard.RegisterCommand(new LinkUseNoItemCmd(this), Keys.D0);
 
