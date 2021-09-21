@@ -31,7 +31,7 @@ namespace Project1.LinkComponents
             if ((int)position.Y < game.GraphicsDevice.Viewport.Height)
                 position.Y+= Step;
 
-            if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 0)
+            if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveDown();
                 LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
@@ -43,7 +43,7 @@ namespace Project1.LinkComponents
             if ((int)position.X > 0)
                 position.X-= Step;
 
-            if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 0)
+            if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveLeft();
                 LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
@@ -55,7 +55,7 @@ namespace Project1.LinkComponents
             if ((int)position.X < game.GraphicsDevice.Viewport.Width)
                 position.X+= Step;
 
-            if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 0)
+            if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveRight();
                 LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
@@ -67,7 +67,7 @@ namespace Project1.LinkComponents
             if ((int)position.Y > 0)
                 position.Y-= Step;
 
-            if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 0)
+            if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveUp();
                 LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
@@ -76,7 +76,7 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
-            TotalFrames = 0;
+            TotalFrames = 1;
         }
 
         public void Attack()
@@ -116,7 +116,7 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(CurrentFrame * 40, Row * 40, 40, 40);
+            Rectangle sourceRectangle = new Rectangle((CurrentFrame-1) * 40, Row * 40, 40, 40);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 100, 100);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
@@ -128,7 +128,7 @@ namespace Project1.LinkComponents
                 CurrentFrame++;
             } else
             {
-                CurrentFrame = 0;
+                CurrentFrame = 1;
             }
                 
         }

@@ -49,10 +49,10 @@ namespace Project1.SpriteFactory
         {
             sheetMappings = new Dictionary<string, SpriteData>();
 
-            sheetMappings.Add("Up", new SpriteData(directions, 2, 0, 2));
-            sheetMappings.Add("Down", new SpriteData(directions, 2, 0, 0));
-            sheetMappings.Add("Right", new SpriteData(directions, 2, 0, 1));
-            sheetMappings.Add("Left", new SpriteData(directions, 2, 0, 3));
+            sheetMappings.Add("Up", new SpriteData(directions, 2, 1, 2));
+            sheetMappings.Add("Down", new SpriteData(directions, 2, 1, 0));
+            sheetMappings.Add("Right", new SpriteData(directions, 2, 1, 1));
+            sheetMappings.Add("Left", new SpriteData(directions, 2, 1, 3));
         }
         public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item)
         {
