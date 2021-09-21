@@ -34,32 +34,48 @@ namespace Project1.LinkComponents
         {
             if ((int)position.Y < game.GraphicsDevice.Viewport.Height)
                 position.Y+= Step;
-            
-            LinkDirectionState.MoveDown();
+
+            if (!LinkDirectionState.Equals(new LinkStateDown(this)))
+            {
+                LinkDirectionState.MoveDown();
+                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            }
         }
 
         public void MoveLeft()
         {
             if ((int)position.X > 0)
                 position.X-= Step;
-            
-            LinkDirectionState.MoveLeft();
+
+            if (!LinkDirectionState.Equals(new LinkStateLeft(this)))
+            {
+                LinkDirectionState.MoveLeft();
+                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            }
         }
 
         public void MoveRight()
         {
             if ((int)position.X < game.GraphicsDevice.Viewport.Width)
                 position.X+= Step;
-            
-            LinkDirectionState.MoveRight();
+
+            if (!LinkDirectionState.Equals(new LinkStateRight(this)))
+            {
+                LinkDirectionState.MoveRight();
+                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            }
         }
 
         public void MoveUp()
         {
             if ((int)position.Y > 0)
                 position.Y-= Step;
-            
-            LinkDirectionState.MoveUp();
+
+            if (!LinkDirectionState.Equals(new LinkStateUp(this)))
+            {
+                LinkDirectionState.MoveUp();
+                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            }
         }
 
         public void Attack()

@@ -7,6 +7,7 @@ namespace Project1.LinkComponents
     public interface ILinkDirectionState
     {
         ILink Link { get; set; }
+        string ID { get; set; }
         void Update();
         void MoveUp();
         void MoveDown();

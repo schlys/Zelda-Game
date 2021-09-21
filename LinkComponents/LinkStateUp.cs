@@ -9,11 +9,12 @@ namespace Project1.LinkComponents
     class LinkStateUp : ILinkDirectionState
     {
         public ILink Link { get; set; }
+        public string ID { get; set; }
 
         public LinkStateUp(ILink link)
         {
             Link = link;
-            
+            ID = "Up";
             Update();
         }
         public void Update()

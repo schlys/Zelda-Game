@@ -11,6 +11,7 @@ namespace Project1.LinkComponents
     {
         public ILink Link { get; set; }
         public Boolean IsAttaking { get; set; }
+        public string ID { get; set; }
         public LinkStateMagicalSheild(ILink link)
         {
             Link = link;

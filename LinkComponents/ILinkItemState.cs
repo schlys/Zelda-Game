@@ -8,6 +8,7 @@ namespace Project1.LinkComponents
     {
         ILink Link { get; set; }
         Boolean IsAttaking { get; set; }
+        string ID { get; set; }
         void Attack();
         void TakeDamage();
         void UseNoItem();
