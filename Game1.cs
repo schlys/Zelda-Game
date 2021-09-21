@@ -26,8 +26,8 @@ namespace Project1
         protected override void Initialize()
         {
             keyboard = new KeyboardController();
-            Link = new Link(this);
-            Block = new Block(this);
+            //Link = new Link(this);
+            //Block = new Block(this);
             base.Initialize();
         }
 

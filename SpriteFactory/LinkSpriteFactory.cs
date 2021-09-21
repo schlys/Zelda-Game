@@ -24,11 +24,15 @@ namespace Project1.SpriteFactory
         {
             public Texture2D Texture;
             public int TotalFrames;
+            public int CurrentFrame;
+            public int Row;
 
-            public SpriteData(Texture2D texture, int totalFrames)
+            public SpriteData(Texture2D texture, int totalFrames, int currentFrame, int row)
             {
                 Texture = texture;
                 TotalFrames = totalFrames;
+                CurrentFrame = currentFrame;
+                Row = row;
             }
         }
 
@@ -44,6 +48,11 @@ namespace Project1.SpriteFactory
         private static void CreateDict()
         {
             sheetMappings = new Dictionary<string, SpriteData>();
+
+            sheetMappings.Add("Up", new SpriteData(directions, 2, 0, 2));
+            sheetMappings.Add("Down", new SpriteData(directions, 2, 0, 0));
+            sheetMappings.Add("Right", new SpriteData(directions, 2, 0, 1));
+            sheetMappings.Add("Left", new SpriteData(directions, 2, 0, 3));
         }
         public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item)
         {
@@ -52,16 +61,10 @@ namespace Project1.SpriteFactory
 
             Link.Texture = data.Texture;
             Link.TotalFrames = data.TotalFrames;
+            Link.CurrentFrame = data.CurrentFrame;
+            Link.Row = data.Row;
         }
 
-        //The following method will not be used
-        public Texture2D DirectionSpriteSheet(ILink Link)
-        {
-            Link.Columns = 8;
-            Link.Rows = 1;
-            Link.TotalFrames = 2;
-            return directions;
-        }
 
 
     }

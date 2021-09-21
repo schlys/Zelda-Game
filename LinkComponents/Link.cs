@@ -12,13 +12,11 @@ namespace Project1.LinkComponents
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkItemState LinkItemState { get; set; }
         public Texture2D Texture { get; set; }
-        public int Columns { get; set; }
         public int TotalFrames { get; set; }
-        public int Rows { get; set; }
-        private int currentFrame;
+        public int Row { get; set; }
+        public int CurrentFrame { get; set; }
         private Vector2 position;
         private Game1 game;
-        public int start { get; set; }
         private int Step = 2;
 
         public Link(Game1 game)
@@ -26,19 +24,17 @@ namespace Project1.LinkComponents
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
             LinkItemState = new LinkStateNoItem(this);      // default state is no item
             this.game = game;
-            Texture = LinkSpriteFactory.Instance.DirectionSpriteSheet(this);
-            start = 4;
-            currentFrame = 0;
+            LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
         }
         public void MoveDown()
         {
             if ((int)position.Y < game.GraphicsDevice.Viewport.Height)
                 position.Y+= Step;
 
-            if (!LinkDirectionState.Equals(new LinkStateDown(this)))
+            if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 0)
             {
                 LinkDirectionState.MoveDown();
-                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -47,10 +43,10 @@ namespace Project1.LinkComponents
             if ((int)position.X > 0)
                 position.X-= Step;
 
-            if (!LinkDirectionState.Equals(new LinkStateLeft(this)))
+            if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 0)
             {
                 LinkDirectionState.MoveLeft();
-                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -59,10 +55,10 @@ namespace Project1.LinkComponents
             if ((int)position.X < game.GraphicsDevice.Viewport.Width)
                 position.X+= Step;
 
-            if (!LinkDirectionState.Equals(new LinkStateRight(this)))
+            if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 0)
             {
                 LinkDirectionState.MoveRight();
-                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -71,16 +67,16 @@ namespace Project1.LinkComponents
             if ((int)position.Y > 0)
                 position.Y-= Step;
 
-            if (!LinkDirectionState.Equals(new LinkStateUp(this)))
+            if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 0)
             {
                 LinkDirectionState.MoveUp();
-                //LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
-            }
+                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            } 
         }
 
         public void StopMoving()
         {
-            TotalFrames = 1;
+            TotalFrames = 0;
         }
 
         public void Attack()
@@ -120,24 +116,19 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = Texture.Width / Columns;
-            int height = Texture.Height/Rows;
-            //int column = start % Columns;
-            int row = currentFrame / Columns;
-            Rectangle sourceRectangle = new Rectangle(start*width, height*row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 50, 50);
+            Rectangle sourceRectangle = new Rectangle(CurrentFrame * 40, Row * 40, 40, 40);
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 100, 100);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public void Update()
         {
-            currentFrame++;
-            start++;
-            if (currentFrame == TotalFrames)
+            if (CurrentFrame < TotalFrames)
             {
-                currentFrame = 0;
-                start -= TotalFrames;
-               
+                CurrentFrame++;
+            } else
+            {
+                CurrentFrame = 0;
             }
                 
         }

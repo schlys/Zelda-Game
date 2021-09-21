@@ -11,11 +11,10 @@ namespace Project1.LinkComponents
     {
         ILinkDirectionState LinkDirectionState { get; set; }
         ILinkItemState LinkItemState { get; set; }
-        int Columns { get; set; }
-        int Rows { get; set; }
+        int Row { get; set; }
         int TotalFrames { get; set; }
+        int CurrentFrame { get; set; }
         Texture2D Texture { get; set; }
-        int start { get; set; }
 
         void MoveUp();
         void MoveDown();

@@ -29,7 +29,7 @@ namespace Project1.Controller
             ICommand stop = new LinkStopMovingCmd(game);
             if (!(pressedKeys.Length > 0))
             {
-                stop.Execute();
+               stop.Execute();
             }
 
             foreach (Keys key in pressedKeys)
@@ -37,10 +37,6 @@ namespace Project1.Controller
                 if (controllerMappings.ContainsKey(key))
                 {
                     controllerMappings[key].Execute();
-                }
-                else
-                {
-                    stop.Execute();
                 }
                 break;
             }
