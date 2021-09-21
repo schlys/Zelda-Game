@@ -15,14 +15,10 @@ namespace Project1.LinkComponents
         {
             Link = link;
             ID = "Left";
-            //Update();
+           
         }
 
-        public void Update()
-        {
-            //Link.Texture = LinkSpriteFactory.Instance.DirectionSpriteSheet(Link);
-            //Link.start = 6;
-        }
+       
         public void MoveDown()
         {
             Link.LinkDirectionState = new LinkStateDown(Link);

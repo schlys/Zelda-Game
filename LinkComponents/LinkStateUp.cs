@@ -15,13 +15,9 @@ namespace Project1.LinkComponents
         {
             Link = link;
             ID = "Up";
-            //Update();
+           
         }
-        public void Update()
-        {
-            //Link.Texture = LinkSpriteFactory.Instance.DirectionSpriteSheet(Link);
-            //Link.start = 4;
-        }
+        
 
         public void MoveDown()
         {
