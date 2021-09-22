@@ -13,7 +13,7 @@ namespace Project1.BlockComponents
         public Block(Game1 game)
         {
             Game = game;
-            Texture = BlockSpriteFactory.Instance.BlockSpriteSheet(this);
+            Texture = LinkSpriteFactory.Instance.BlockSpriteSheet();
         }
 
         public void PreviousBlock()
