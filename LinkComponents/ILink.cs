@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.SpriteFactory;
+using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.LinkComponents

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.SpriteFactory;
+using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.LinkComponents
@@ -28,7 +28,7 @@ namespace Project1.LinkComponents
             LinkItemState = new LinkStateNoItem(this);      // default state is no item
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             this.game = game;
-            LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             delay = 0;
         }
         public void MoveDown()
@@ -39,7 +39,7 @@ namespace Project1.LinkComponents
             if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveDown();
-                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -51,7 +51,7 @@ namespace Project1.LinkComponents
             if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveLeft();
-                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -63,7 +63,7 @@ namespace Project1.LinkComponents
             if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveRight();
-                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Project1.LinkComponents
             if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 1)
             {
                 LinkDirectionState.MoveUp();
-                LinkSpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             } 
         }
 

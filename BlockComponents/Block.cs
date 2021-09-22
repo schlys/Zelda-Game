@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Project1.SpriteFactory;
+using Project1.SpriteFactoryComponents;
 
 namespace Project1.BlockComponents
 {
@@ -13,7 +13,7 @@ namespace Project1.BlockComponents
         public Block(Game1 game)
         {
             Game = game;
-            Texture = LinkSpriteFactory.Instance.BlockSpriteSheet();
+            Texture = SpriteFactory.Instance.BlockSpriteSheet();
         }
 
         public void PreviousBlock()

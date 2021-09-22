@@ -5,7 +5,7 @@ using Project1.Command;
 using Project1.Controller;
 using Project1.LinkComponents;
 using Project1.BlockComponents;
-using Project1.SpriteFactory;
+using Project1.SpriteFactoryComponents;
 
 namespace Project1
 {
@@ -34,7 +34,7 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            SpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link(this);
             Block = new Block(this);
             // Register keyboard commands 

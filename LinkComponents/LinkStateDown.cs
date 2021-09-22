@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Project1.SpriteFactory;
+using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
