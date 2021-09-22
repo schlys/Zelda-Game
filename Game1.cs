@@ -35,7 +35,6 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            BlockSpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link(this);
             Block = new Block(this);
             // Register keyboard commands 
