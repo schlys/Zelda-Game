@@ -9,7 +9,7 @@ namespace Project1.BlockComponents
     {
         public Texture2D Texture { get; set; }
         private Game1 Game;
-        private int counter = 0;
+        private double counter = 0.0;
         public Block(Game1 game)
         {
             Game = game;
@@ -18,33 +18,33 @@ namespace Project1.BlockComponents
 
         public void PreviousBlock()
         {
-            if (counter >= 1)
+            if (counter >= 0)
             {
-                counter--;
+                counter-=0.1;
             }
             else
             {
-                counter = 8;
+                counter = 10;
             }
         }
 
         public void NextBlock()
         {
-            if (counter <= 8)
+            if (counter <= 10)
             {
-                counter++;
+                counter+=0.1;
             }
             else
             {
-                counter = 1;
+                counter = 0;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(counter*16, 0, 16, 16);
+            Rectangle sourceRectangle = new Rectangle((int)counter*16, 0, 16, 16);
             Rectangle destinationRectangle = new Rectangle(100, 100, 32, 32);
-            if (counter >= 1 && counter <= 8)
+            if (counter >= 0 && counter <= 10)
             {
                 spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             }
