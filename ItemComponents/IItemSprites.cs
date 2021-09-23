@@ -6,13 +6,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.ItemComponents
 {
-    public interface IItem
+    public interface IItemSprites
     {
-        IItemSprites ItemSprites { get; set; }
+        // ISprite ItemSprite { get; set; }
+        IItem IItem { get; set; }
         string ID { get; set; }
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, Texture2D texture);
         void Update();
-        void NextItem();
-        void PreviousItem(); 
     }
 }

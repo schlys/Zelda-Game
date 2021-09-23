@@ -8,23 +8,29 @@ namespace Project1.ItemComponents
     class Item : IItem
     {
         public Texture2D Texture { get; set; }
-        // public ISprite ItemSprite {get; set; }
+        public IItemSprites ItemSprites {get; set; }
+        public string ID { get; set; }
         private Game1 Game;
-        private double counter = 0.0;
+        private double counter = 1.0;
         private string[] ItemTypes = { "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", 
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb", 
             "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food", 
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing", 
-            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" }; 
+            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
+
+        public Item1 item1=new Item1();
+        public Item2 item2 = new Item2();
+        public Item3 item3 = new Item3();
+
         public Item(Game1 game)
         {
             Game = game;
-            Texture = SpriteFactory.Instance.BlockSpriteSheet();
+            Texture = SpriteFactory.Instance.ItemSpriteSheet();
         }
 
         public void PreviousItem()
         {
-            if (counter >= 0)
+            if (counter >= 1)
             {
                 counter-=0.1;
             }
@@ -42,22 +48,26 @@ namespace Project1.ItemComponents
             }
             else
             {
-                counter = 0;
+                counter = 1;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle((int)counter*16, 0, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(100, 100, 32, 32);
-
-            if (counter >= 0 && counter <= 10)
+            switch ((int)counter)
             {
-                spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(Texture, destinationRectangle, new Rectangle(0, 0, 16, 16), Color.White);
+                case 1:
+                    item1.Draw(spriteBatch, Texture);
+                    item1.Update();
+                    break;
+                case 2:
+                    item2.Draw(spriteBatch, Texture);
+                    item2.Update();
+                    break;
+                case 3:
+                    item3.Draw(spriteBatch, Texture);
+                    item3.Update();
+                    break;
             }
         }
 

@@ -39,11 +39,13 @@ namespace Project1.SpriteFactoryComponents
         private static Dictionary<string, SpriteData> sheetMappings;
         private static Texture2D directions;
         private static Texture2D blocks;
+        private static Texture2D items;
 
         public void LoadAllTextures(ContentManager content)
         {
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
             blocks = content.Load<Texture2D>("Blocks");
+            items = content.Load<Texture2D>("LinkSprites/Items");
             CreateDict();
         }
 
@@ -70,6 +72,11 @@ namespace Project1.SpriteFactoryComponents
         public Texture2D BlockSpriteSheet()
         {
             return blocks;
+        }
+
+        public Texture2D ItemSpriteSheet()
+        {
+            return items;
         }
 
     }
