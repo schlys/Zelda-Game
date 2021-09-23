@@ -88,6 +88,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
+            Game.Link.Weapon = "WoodenSword";
             Game.Link.Attack();
         }
 
@@ -158,7 +159,8 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseMagicalSword();
+                Game.Link.Weapon = "MagicalSword";
+                Game.Link.Attack();
             }
         }
 

@@ -12,6 +12,7 @@ namespace Project1.LinkComponents
         ILinkDirectionState LinkDirectionState { get; set; }
         ILinkItemState LinkItemState { get; set; }
         public LinkHealth Health { get; set; }
+        public string Weapon { get; set; }
         int Row { get; set; }
         int TotalFrames { get; set; }
         int CurrentFrame { get; set; }

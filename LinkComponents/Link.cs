@@ -21,7 +21,7 @@ namespace Project1.LinkComponents
         private Game1 game;
         private int Step = 4;
         private int delay;
-        public string weapon;
+        public string Weapon { get; set; }
         private bool isAttacking;
 
         public Link(Game1 game)
@@ -32,7 +32,7 @@ namespace Project1.LinkComponents
             this.game = game;
             SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             delay = 0;
-            weapon = "WoodenSword";
+            Weapon = "WoodenSword";
         }
         public void MoveDown()
         {
@@ -99,8 +99,11 @@ namespace Project1.LinkComponents
         public void Attack()
         {
             //LinkItemState.Attack();
-            isAttacking = true;
-            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState, weapon);
+            if (!isAttacking)
+            {
+                isAttacking = true;
+                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState, Weapon);
+            }
         }
 
         public void TakeDamage()
