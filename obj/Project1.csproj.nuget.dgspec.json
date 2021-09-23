@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tianm\\Project\\Project1.csproj": {}
+    "C:\\Users\\Elise\\Source\\Repos\\3902-dream-team\\Project\\Project1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tianm\\Project\\Project1.csproj": {
+    "C:\\Users\\Elise\\Source\\Repos\\3902-dream-team\\Project\\Project1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tianm\\Project\\Project1.csproj",
+        "projectUniqueName": "C:\\Users\\Elise\\Source\\Repos\\3902-dream-team\\Project\\Project1.csproj",
         "projectName": "Project1",
-        "projectPath": "C:\\Users\\tianm\\Project\\Project1.csproj",
-        "packagesPath": "C:\\Users\\tianm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tianm\\Project\\obj\\",
+        "projectPath": "C:\\Users\\Elise\\Source\\Repos\\3902-dream-team\\Project\\Project1.csproj",
+        "packagesPath": "C:\\Users\\Elise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elise\\Source\\Repos\\3902-dream-team\\Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tianm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Elise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

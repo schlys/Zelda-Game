@@ -99,8 +99,8 @@ namespace Project1
              * "u" switches to the previous item and "i" switches to the next)
              * Items should move and animate as they do in the final game, but should not interact with any other objects
              */
-            KeyboardController.RegisterCommand(new PreviousItemCmd(this), Keys.U);
-            KeyboardController.RegisterCommand(new NextItemCmd(this), Keys.I);
+            KeyboardController.RegisterCommand(new PreviousItemCmd(Item), Keys.U);
+            KeyboardController.RegisterCommand(new NextItemCmd(Item), Keys.I);
 
             /* Requirement - Use keys "o" and "p" to cycle between which enemy or npc is currently being shown 
              * (i.e. think of these characters as being in a list where the game's current character is being drawn, 
@@ -121,6 +121,7 @@ namespace Project1
 
             KeyboardController.Update(this);
             Link.Update();
+            Item.Update(); 
             base.Update(gameTime);
         }
 

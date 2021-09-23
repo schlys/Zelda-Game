@@ -6,14 +6,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.ItemComponents
 {
-    public interface IItem
+    public interface IItemState
     {
-        //IItemSprites ItemSprites { get; set; }
-        IItemState ItemState { get; set; }
+        IItem Item { get; set; }
+        Texture2D Texture { get; set; }     //change to ISprite later 
+        Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
-        void Draw(SpriteBatch spriteBatch);
         void Update();
-        void NextItem();
         void PreviousItem();
+        void NextItem();
     }
 }
