@@ -27,7 +27,7 @@ namespace Project1.ItemComponents
         public Item(Game1 game)
         {
             Game = game;
-            ItemState = new ItemWoodenSwordState(this);
+            ItemState = new ItemWoodenSwordState(this);        // Wooden Sword by default 
             //Texture = SpriteFactory.Instance.ItemSpriteSheet();
         }
 
