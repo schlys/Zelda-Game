@@ -11,7 +11,11 @@ namespace Project1.ItemComponents
         // public ISprite ItemSprite {get; set; }
         private Game1 Game;
         private double counter = 0.0;
-
+        private string[] ItemTypes = { "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", 
+            "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb", 
+            "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food", 
+            "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing", 
+            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" }; 
         public Item(Game1 game)
         {
             Game = game;
