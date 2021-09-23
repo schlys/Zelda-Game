@@ -21,6 +21,8 @@ namespace Project1.LinkComponents
         private Game1 game;
         private int Step = 4;
         private int delay;
+        public string weapon;
+        private bool isAttacking;
 
         public Link(Game1 game)
         {
@@ -30,63 +32,75 @@ namespace Project1.LinkComponents
             this.game = game;
             SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
             delay = 0;
+            weapon = "WoodenSword";
         }
         public void MoveDown()
         {
-            if ((int)position.Y < game.GraphicsDevice.Viewport.Height)
-                position.Y+= Step;
-
-            if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 1)
+            if (!isAttacking)
             {
-                LinkDirectionState.MoveDown();
-                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                position.Y += Step;
+
+                if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 1)
+                {
+                    LinkDirectionState.MoveDown();
+                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                }
             }
         }
 
         public void MoveLeft()
         {
-            if ((int)position.X > 0)
-                position.X-= Step;
-
-            if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 1)
+            if (!isAttacking)
             {
-                LinkDirectionState.MoveLeft();
-                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                position.X -= Step;
+
+                if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 1)
+                {
+                    LinkDirectionState.MoveLeft();
+                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                }
             }
         }
 
         public void MoveRight()
         {
-            if ((int)position.X < game.GraphicsDevice.Viewport.Width)
-                position.X+= Step;
-
-            if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 1)
+            if (!isAttacking)
             {
-                LinkDirectionState.MoveRight();
-                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                position.X += Step;
+
+                if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 1)
+                {
+                    LinkDirectionState.MoveRight();
+                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                }
             }
         }
 
         public void MoveUp()
         {
-            if ((int)position.Y > 0)
-                position.Y-= Step;
-
-            if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 1)
+            if (!isAttacking)
             {
-                LinkDirectionState.MoveUp();
-                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
-            } 
+                position.Y -= Step;
+
+                if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 1)
+                {
+                    LinkDirectionState.MoveUp();
+                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                }
+            }
         }
 
         public void StopMoving()
         {
-            TotalFrames = 1;
+            if (!isAttacking)
+                TotalFrames = 1;
         }
 
         public void Attack()
         {
-            LinkItemState.Attack(); 
+            //LinkItemState.Attack();
+            isAttacking = true;
+            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState, weapon);
         }
 
         public void TakeDamage()
@@ -137,6 +151,11 @@ namespace Project1.LinkComponents
                 }
                 else
                 {
+                    if (isAttacking)
+                    {
+                        isAttacking = false;
+                        SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                    }
                     CurrentFrame = 1;
                 }
                 delay = 0;

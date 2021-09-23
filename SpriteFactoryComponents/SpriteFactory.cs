@@ -40,12 +40,14 @@ namespace Project1.SpriteFactoryComponents
         private static Texture2D directions;
         private static Texture2D blocks;
         private static Texture2D items;
+        private static Texture2D woodenSword;
 
         public void LoadAllTextures(ContentManager content)
         {
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
             blocks = content.Load<Texture2D>("Blocks");
             items = content.Load<Texture2D>("LinkSprites/Items");
+            woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
             CreateDict();
         }
 
@@ -57,10 +59,15 @@ namespace Project1.SpriteFactoryComponents
             sheetMappings.Add("Down", new SpriteData(directions, 2, 1, 0));
             sheetMappings.Add("Right", new SpriteData(directions, 2, 1, 1));
             sheetMappings.Add("Left", new SpriteData(directions, 2, 1, 3));
+
+            sheetMappings.Add("WoodenSwordUp", new SpriteData(woodenSword, 4, 1, 2));
+            sheetMappings.Add("WoodenSwordDown", new SpriteData(woodenSword, 4, 1, 0));
+            sheetMappings.Add("WoodenSwordRight", new SpriteData(woodenSword, 4, 1, 1));
+            sheetMappings.Add("WoodenSwordLeft", new SpriteData(woodenSword, 4, 1, 3));
         }
-        public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item)
+        public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item, string Weapon = "")
         {
-            string key = Direction.ID + Item.ID;
+            string key = Weapon + Direction.ID + Item.ID;
             SpriteData data = sheetMappings[key];
 
             Link.Texture = data.Texture;
