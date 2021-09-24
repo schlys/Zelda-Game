@@ -13,23 +13,25 @@ namespace Project1.SpriteComponents
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }
         public int CurrentFrame { get; set; }
-        public int xPos { get; set; }
-        public int yPos { get; set; }
+        public int XPos { get; set; }
+        public int YPos { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         public int Row { get; set; }
         public int Col { get; set; }
         public Rectangle SourceRectangle { get; set; }
         public Rectangle DestinationRectangle { get; set; }
 
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, Rectangle source, Rectangle destination)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h)
         {
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
             Row = row;
-            xPos = x;
-            yPos = y;
-            SourceRectangle = source;
-            DestinationRectangle = destination; 
+            XPos = x;
+            YPos = y;
+            Width = w;
+            Height = h; 
         }
 
         public void Draw(SpriteBatch spriteBatch)
