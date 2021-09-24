@@ -12,7 +12,7 @@ namespace Project1.BlockComponents
         public Texture2D Texture { get; set; }
         private Game1 Game;
         private double counter = 0.0;
-        public ISprite Sprite { get; set; }
+        public Sprite Sprite { get; set; }
         public Block(Game1 game)
         {
             Game = game;

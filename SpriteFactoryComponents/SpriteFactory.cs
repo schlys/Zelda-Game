@@ -5,14 +5,14 @@ using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Project1.SpriteFactoryComponents
 {
     class SpriteFactory : ISpriteFactory
     {
         private static SpriteFactory instance = new SpriteFactory();
-
-
         public static SpriteFactory Instance
         {
             get
@@ -22,8 +22,6 @@ namespace Project1.SpriteFactoryComponents
         }
         private SpriteFactory() { }
         
-        
-
         private static Dictionary<string, Sprite> sheetMappings;
         private static Texture2D directions;
         private static Texture2D blocks;
@@ -46,20 +44,21 @@ namespace Project1.SpriteFactoryComponents
         {
             sheetMappings = new Dictionary<string, Sprite>();
 
-            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
-            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
-            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
-            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
+            // NEED to Update data for sprites 
+            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 1, 40, 40, new Rectangle(40, 40, 40, 40), new Rectangle(40, 40, 125, 125)));
+            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 1, 40, 40, new Rectangle(40, 40, 40, 40), new Rectangle(40, 40, 125, 125)));
+            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 1, 40, 40, new Rectangle(40, 40, 40, 40), new Rectangle(40, 40, 125, 125)));
+            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 1, 40, 40, new Rectangle(40, 40, 40, 40), new Rectangle(40, 40, 125, 125)));
 
-            sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2));
-            sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0));
-            sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1));
-            sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3));
+            //sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2));
+            //sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0));
+            //sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1));
+            //sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3));
 
-            sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2));
-            sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0));
-            sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
-            sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
+            //sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2));
+            //sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0));
+            //sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
+            //sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
         }
         public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item, string Weapon = "")
         {

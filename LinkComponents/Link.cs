@@ -12,7 +12,7 @@ namespace Project1.LinkComponents
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkItemState LinkItemState { get; set; }
         public LinkHealth Health { get; set; }
-        public ISprite Sprite { get; set; }
+        public Sprite Sprite { get; set; }
 
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }
