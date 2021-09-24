@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
+
 
 namespace Project1.BlockComponents
 {
@@ -10,6 +12,7 @@ namespace Project1.BlockComponents
         public Texture2D Texture { get; set; }
         private Game1 Game;
         private double counter = 0.0;
+        public ISprite Sprite { get; set; }
         public Block(Game1 game)
         {
             Game = game;

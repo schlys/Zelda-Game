@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
-
+using Project1.SpriteComponents;
 namespace Project1.LinkComponents
 {
     class Link : ILink
@@ -12,6 +12,7 @@ namespace Project1.LinkComponents
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkItemState LinkItemState { get; set; }
         public LinkHealth Health { get; set; }
+        public ISprite Sprite { get; set; }
 
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }

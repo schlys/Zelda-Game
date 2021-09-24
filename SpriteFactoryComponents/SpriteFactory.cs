@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
+using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Project1.SpriteFactoryComponents
     {
         private static SpriteFactory instance = new SpriteFactory();
 
+
         public static SpriteFactory Instance
         {
             get
@@ -19,24 +21,10 @@ namespace Project1.SpriteFactoryComponents
             }
         }
         private SpriteFactory() { }
+        
+        
 
-        struct SpriteData
-        {
-            public Texture2D Texture;
-            public int TotalFrames;
-            public int CurrentFrame;
-            public int Row;
-
-            public SpriteData(Texture2D texture, int totalFrames, int currentFrame, int row)
-            {
-                Texture = texture;
-                TotalFrames = totalFrames;
-                CurrentFrame = currentFrame;
-                Row = row;
-            }
-        }
-
-        private static Dictionary<string, SpriteData> sheetMappings;
+        private static Dictionary<string, Sprite> sheetMappings;
         private static Texture2D directions;
         private static Texture2D blocks;
         private static Texture2D items;
@@ -56,27 +44,27 @@ namespace Project1.SpriteFactoryComponents
 
         private static void CreateDict()
         {
-            sheetMappings = new Dictionary<string, SpriteData>();
+            sheetMappings = new Dictionary<string, Sprite>();
 
-            sheetMappings.Add("Up", new SpriteData(directions, 2, 1, 2));
-            sheetMappings.Add("Down", new SpriteData(directions, 2, 1, 0));
-            sheetMappings.Add("Right", new SpriteData(directions, 2, 1, 1));
-            sheetMappings.Add("Left", new SpriteData(directions, 2, 1, 3));
+            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
+            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
+            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
+            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
 
-            sheetMappings.Add("WoodenSwordUp", new SpriteData(woodenSword, 4, 1, 2));
-            sheetMappings.Add("WoodenSwordDown", new SpriteData(woodenSword, 4, 1, 0));
-            sheetMappings.Add("WoodenSwordRight", new SpriteData(woodenSword, 4, 1, 1));
-            sheetMappings.Add("WoodenSwordLeft", new SpriteData(woodenSword, 4, 1, 3));
+            sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2));
+            sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0));
+            sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1));
+            sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3));
 
-            sheetMappings.Add("MagicalSwordUp", new SpriteData(magicalSword, 4, 1, 2));
-            sheetMappings.Add("MagicalSwordDown", new SpriteData(magicalSword, 4, 1, 0));
-            sheetMappings.Add("MagicalSwordRight", new SpriteData(magicalSword, 4, 1, 1));
-            sheetMappings.Add("MagicalSwordLeft", new SpriteData(magicalSword, 4, 1, 3));
+            sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2));
+            sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0));
+            sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
+            sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
         }
         public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item, string Weapon = "")
         {
             string key = Weapon + Direction.ID + Item.ID;
-            SpriteData data = sheetMappings[key];
+            Sprite data = sheetMappings[key];
 
             Link.Texture = data.Texture;
             Link.TotalFrames = data.TotalFrames;

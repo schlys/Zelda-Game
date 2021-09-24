@@ -4,26 +4,26 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/samch/source/repos/Project/Content/Blocks.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/BasicMovement.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/Items.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/MagicalRod.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/MagicalShield.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/MagicalSword.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/PickUpItem.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/UseItem.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/WhiteSword.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/LinkSprites/WoodenSword.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Armos.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Ghini.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Leever.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Lynel.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Octorok.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Peahat.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Rock.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Tektite.png</File>
-    <File>C:/Users/samch/source/repos/Project/Content/OverworldEnemies/Zora.png</File>
+    <File>C:/Users/tianm/Project/Content/Blocks.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/BasicMovement.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/Items.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/MagicalRod.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/MagicalShield.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/MagicalSword.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/PickUpItem.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/UseItem.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/WhiteSword.png</File>
+    <File>C:/Users/tianm/Project/Content/LinkSprites/WoodenSword.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Armos.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Ghini.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Leever.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Lynel.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Octorok.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Peahat.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Rock.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Tektite.png</File>
+    <File>C:/Users/tianm/Project/Content/OverworldEnemies/Zora.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
