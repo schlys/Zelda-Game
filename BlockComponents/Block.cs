@@ -43,6 +43,11 @@ namespace Project1.BlockComponents
             }
         }
 
+        public void Reset()
+        {
+            counter = 0.0;      // default first block in sheet 
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRectangle = new Rectangle((int)counter*16, 0, 16, 16);

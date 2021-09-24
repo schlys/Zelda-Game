@@ -11,6 +11,7 @@ namespace Project1.BlockComponents
         Texture2D Texture { get; set; }
         void PreviousBlock();
         void NextBlock();
+        void Reset();
         void Draw(SpriteBatch spriteBatch);
     }
 }

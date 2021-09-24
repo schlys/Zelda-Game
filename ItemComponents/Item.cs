@@ -207,6 +207,10 @@ namespace Project1.ItemComponents
             }
         }
 
+        public void Reset()
+        {
+            ItemState = new ItemWoodenSwordState(this);        // Wooden Sword by default 
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
 

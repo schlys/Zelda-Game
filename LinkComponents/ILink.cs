@@ -31,7 +31,8 @@ namespace Project1.LinkComponents
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
-        void Draw(SpriteBatch spriteBatch);
+        void Reset();
         void Update();
+        void Draw(SpriteBatch spriteBatch);
     }
 }

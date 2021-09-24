@@ -15,5 +15,6 @@ namespace Project1.ItemComponents
         void Update();
         void NextItem();
         void PreviousItem();
+        void Reset();
     }
 }

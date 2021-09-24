@@ -91,16 +91,16 @@ namespace Project1
              * shown (i.e. think of the obstacles as being in a list where the game's current 
              * obstacle is being drawn, "t" switches to the previous item and "y" switches to the next)
              */
-            KeyboardController.RegisterCommand(new PreviousBlockCmd(this), Keys.T);
-            KeyboardController.RegisterCommand(new NextBlockCmd(this), Keys.Y);
+            KeyboardController.RegisterCommand(new PreviousBlockCmd(this, Block), Keys.T);
+            KeyboardController.RegisterCommand(new NextBlockCmd(this, Block), Keys.Y);
 
             /* Requirement - Use keys "u" and "i" to cycle between which item is currently being shown 
              * (i.e. think of the items as being in a list where the game's current item is being drawn, 
              * "u" switches to the previous item and "i" switches to the next)
              * Items should move and animate as they do in the final game, but should not interact with any other objects
              */
-            KeyboardController.RegisterCommand(new PreviousItemCmd(Item), Keys.U);
-            KeyboardController.RegisterCommand(new NextItemCmd(Item), Keys.I);
+            KeyboardController.RegisterCommand(new PreviousItemCmd(this, Item), Keys.U);
+            KeyboardController.RegisterCommand(new NextItemCmd(this, Item), Keys.I);
 
             /* Requirement - Use keys "o" and "p" to cycle between which enemy or npc is currently being shown 
              * (i.e. think of these characters as being in a list where the game's current character is being drawn, 
@@ -108,8 +108,6 @@ namespace Project1
              * characters should move, animate, fire projectiles, etc. as they do in the final game, but should not 
              * interact with any other objects
              */
-
-
 
             // Load sprite images 
         }
@@ -141,7 +139,10 @@ namespace Project1
 
         public void Restart()
         {
-
+            // IDEA - add restart methods to each item 
+            Link.Reset();
+            Block.Reset();
+            Item.Reset();
         }
     }
 }

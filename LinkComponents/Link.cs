@@ -14,14 +14,18 @@ namespace Project1.LinkComponents
         public LinkHealth Health { get; set; }
         public Sprite Sprite { get; set; }
 
+        // moved into Sprite 
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }
         public int Row { get; set; }
         public int CurrentFrame { get; set; }
         private Vector2 position;
+        private Vector2 initialPositoin = new Vector2(40, 40); 
+        private int delay;
+
+
         private Game1 game;
         private int Step = 4;
-        private int delay;
         public string Weapon { get; set; }
         private bool isAttacking;
 
@@ -135,6 +139,17 @@ namespace Project1.LinkComponents
         public void UseWoodenSword()
         {
             LinkItemState.UseWoodenSword();
+        }
+
+        public void Reset()
+        {
+            position = initialPositoin;
+            LinkDirectionState = new LinkStateUp(this);     // default state is up 
+            LinkItemState = new LinkStateNoItem(this);      // default state is no item
+            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
+            delay = 0;
+            Weapon = "WoodenSword";
         }
 
         public void Draw(SpriteBatch spriteBatch)

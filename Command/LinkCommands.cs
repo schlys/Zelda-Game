@@ -179,17 +179,32 @@ namespace Project1.Command
         }
 
     public class LinkTakeDamageCmd : ICommand
-        {
-            public Game1 Game { get; set; }
+    {
+        public Game1 Game { get; set; }
 
-            public LinkTakeDamageCmd(Game1 game)
-            {
-                Game = game;
-            }
-            public void Execute()
-            {
-                Game.Link.TakeDamage();
-            }
+        public LinkTakeDamageCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.TakeDamage();
         }
     }
+
+    public class LinkResetCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkResetCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.Reset();
+        }
+    }
+}
+
 
