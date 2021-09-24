@@ -31,18 +31,5 @@ namespace Project1.ItemComponents
         {
             // animate sword 
         }
-
-        public void PreviousItem()
-        {
-            // Change to next designated item 
-            Item.ItemState = new ItemWhiteSwordState(Item); 
-        }
-
-        public void NextItem()
-        {
-            Item.ItemState = new ItemWhiteSwordState(Item);
-        }
-
-        
     }
 }

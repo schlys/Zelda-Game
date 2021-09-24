@@ -9,7 +9,7 @@ namespace Project1.ItemComponents
     {
         public IItemState ItemState { get; set; }
         //public Texture2D Texture { get; set; }
-        public IItemSprites ItemSprites { get; set; }
+        //public Sprite ItemSprite { get; set; }
         public string ID { get; set; }
         private Game1 Game;
         private double counter = 1.0;
@@ -33,28 +33,178 @@ namespace Project1.ItemComponents
 
         public void PreviousItem()
         {
-            /*if (counter >= 1)
+            switch (ItemState.ID)
             {
-                counter-=0.1;
+                case "Arrow":
+                    ItemState = new ItemWoodenSwordState(this);
+                    break;
+                case "BlueCandle":
+                    ItemState = new ItemArrowState(this);
+                    break;
+                case "BlueRing":
+                    ItemState = new ItemBlueCandleState(this);
+                    break;
+                case "Bomb":
+                    ItemState = new ItemBlueRingState(this);
+                    break;
+                case "BookOfMagic":
+                    ItemState = new ItemBombState(this);
+                    break;
+                case "Boomerang":
+                    ItemState = new ItemBookOfMagicState(this);
+                    break;
+                case "Bow":
+                    ItemState = new ItemBoomerangState(this);
+                    break;
+                case "Food":
+                    ItemState = new ItemBowState(this);
+                    break;
+                case "HeartContainer":
+                    ItemState = new ItemFoodState(this);
+                    break;
+                case "LifePotion":
+                    ItemState = new ItemHeartContainerState(this);
+                    break;
+                case "MagicalBoomerang":
+                    ItemState = new ItemLifePotionState(this);
+                    break;
+                case "MagicalKey":
+                    ItemState = new ItemMagicalBoomerangState(this);
+                    break;
+                case "MagicalRod":
+                    ItemState = new ItemMagicalKeyState(this);
+                    break;
+                case "MagicalSheild":
+                    ItemState = new ItemMagicalRodState(this);
+                    break;
+                case "MagicalSword":
+                    ItemState = new ItemMagicalSheildState(this);
+                    break;
+                case "PowerBracelet":
+                    ItemState = new ItemMagicalSwordState(this);
+                    break;
+                case "Raft":
+                    ItemState = new ItemPowerBraceletState(this);
+                    break;
+                case "Recorder":
+                    ItemState = new ItemRaftState(this);
+                    break;
+                case "RedCandle":
+                    ItemState = new ItemRecorderState(this);
+                    break;
+                case "RedRing":
+                    ItemState = new ItemRedCandleState(this);
+                    break;
+                case "SecondLifePotion":
+                    ItemState = new ItemRedRingState(this);
+                    break;
+                case "SilverArrow":
+                    ItemState = new ItemSecondLifePotionState(this);
+                    break;
+                case "SmallSheild":
+                    ItemState = new ItemSilverArrowState(this);
+                    break;
+                case "StepLadder":
+                    ItemState = new ItemSmallSheildState(this);
+                    break;
+                case "WhiteSword":
+                    ItemState = new ItemStepLadderState(this);
+                    break;
+                case "WoodenSword":
+                    ItemState = new ItemWhiteSwordState(this);
+                    break;
+                default:
+                    ItemState = new ItemArrowState(this);
+                    break;
             }
-            else
-            {
-                counter = 10;
-            }*/
-            ItemState.PreviousItem();
         }
 
         public void NextItem()
         {
-            /*if (counter <= 10)
+            switch(ItemState.ID)
             {
-                counter+=0.1;
+                case "Arrow":
+                    ItemState = new ItemBlueCandleState(this);
+                    break; 
+                case "BlueCandle":
+                    ItemState = new ItemBlueRingState(this);
+                    break;
+                case "BlueRing":
+                    ItemState = new ItemBombState(this);
+                    break;
+                case "Bomb":
+                    ItemState = new ItemBookOfMagicState(this);
+                    break;
+                case "BookOfMagic":
+                    ItemState = new ItemBoomerangState(this);
+                    break;
+                case "Boomerang":
+                    ItemState = new ItemBowState(this);
+                    break;
+                case "Bow":
+                    ItemState = new ItemFoodState(this);
+                    break;
+                case "Food":
+                    ItemState = new ItemHeartContainerState(this);
+                    break;
+                case "HeartContainer":
+                    ItemState = new ItemLifePotionState(this);
+                    break;
+                case "LifePotion":
+                    ItemState = new ItemMagicalBoomerangState(this);
+                    break;
+                case "MagicalBoomerang":
+                    ItemState = new ItemMagicalKeyState(this);
+                    break;
+                case "MagicalKey":
+                    ItemState = new ItemMagicalRodState(this);
+                    break;
+                case "MagicalRod":
+                    ItemState = new ItemMagicalSheildState(this);
+                    break;
+                case "MagicalSheild":
+                    ItemState = new ItemMagicalSwordState(this);
+                    break;
+                case "MagicalSword":
+                    ItemState = new ItemPowerBraceletState(this);
+                    break;
+                case "PowerBracelet":
+                    ItemState = new ItemRaftState(this);
+                    break;
+                case "Raft":
+                    ItemState = new ItemRecorderState(this);
+                    break;
+                case "Recorder":
+                    ItemState = new ItemRedCandleState(this);
+                    break;
+                case "RedCandle":
+                    ItemState = new ItemRedRingState(this);
+                    break;
+                case "RedRing":
+                    ItemState = new ItemSecondLifePotionState(this);
+                    break;
+                case "SecondLifePotion":
+                    ItemState = new ItemSilverArrowState(this);
+                    break;
+                case "SilverArrow":
+                    ItemState = new ItemSmallSheildState(this);
+                    break;
+                case "SmallSheild":
+                    ItemState = new ItemStepLadderState(this);
+                    break;
+                case "StepLadder":
+                    ItemState = new ItemWhiteSwordState(this);
+                    break;
+                case "WhiteSword":
+                    ItemState = new ItemWoodenSwordState(this);
+                    break;
+                case "WoodenSword":
+                    ItemState = new ItemArrowState(this);
+                    break;
+                default:
+                    ItemState = new ItemArrowState(this);
+                    break;
             }
-            else
-            {
-                counter = 1;
-            }*/
-            ItemState.PreviousItem();
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -13,7 +13,6 @@ namespace Project1.ItemComponents
         Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
         void Update();
-        void PreviousItem();
-        void NextItem();
+       
     }
 }
