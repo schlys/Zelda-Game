@@ -59,5 +59,10 @@ namespace Project1.SpriteComponents
                 delay = 0;
             }
         }
+
+        public void Reset()
+        {
+
+        }
     }
 }
