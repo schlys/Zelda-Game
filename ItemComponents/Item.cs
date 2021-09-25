@@ -14,9 +14,9 @@ namespace Project1.ItemComponents
         private Game1 Game;
         private double counter = 1.0;
 
-        private string[] ItemTypes = { "Angel", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod",
+        private string[] ItemTypes = { "Angel", "Sword", "WhiteSword", "MagicalSword", "MagicalRod",
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb",
-            "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food",
+            "Bow", "Arrow", "SilverArrow", "Candle", "RedCandle", "Recorder", "Food",
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
@@ -24,21 +24,39 @@ namespace Project1.ItemComponents
         public Item2 item2 = new Item2();
         public Item3 item3 = new Item3();
 
-        //public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 0,0,0,0,0,0,0,0);
-
         public Item(Game1 game)
         {
             Game = game;
-            ItemState = new ItemAngel(this);        // Wooden Sword by default 
+            ItemState = new ItemAngelState(this);        // Wooden Sword by default 
             //Texture = SpriteFactory.Instance.ItemSpriteSheet();
         }
 
         public void PreviousItem()
         {
+            switch ((int)counter)
+            {
+                case 1:
+                    ItemState = new ItemAngelState(this);
+                    break;
+                case 2:
+                    ItemState = new ItemSwordState(this);
+                    break;
+                case 3:
+                    ItemState = new ItemCandleState(this);
+                    break;
+            }
+
+            counter -= 0.1;
+            if (counter < 1)
+            {
+                counter = 3;
+            }
+
+            /*
             switch (ItemState.ID)
             {
                 case "Arrow":
-                    ItemState = new ItemWoodenSwordState(this);
+                    ItemState = new ItemSwordState(this);
                     break;
                 case "BlueCandle":
                     ItemState = new ItemArrowState(this);
@@ -122,10 +140,30 @@ namespace Project1.ItemComponents
                     ItemState = new ItemArrowState(this);
                     break;
             }
+            */
         }
 
         public void NextItem()
         {
+            switch ((int) counter)
+            {
+                case 1:
+                    ItemState = new ItemAngelState(this);
+                    break;
+                case 2:
+                    ItemState = new ItemSwordState(this);
+                    break;
+                case 3:
+                    ItemState = new ItemCandleState(this);
+                    break;
+            }
+
+            counter += 0.1;
+            if (counter > 4)
+            {
+                counter = 1;
+            }
+            /*
             switch(ItemState.ID)
             {
                 case "Arrow":
@@ -201,7 +239,7 @@ namespace Project1.ItemComponents
                     ItemState = new ItemWhiteSwordState(this);
                     break;
                 case "WhiteSword":
-                    ItemState = new ItemWoodenSwordState(this);
+                    ItemState = new ItemSwordState(this);
                     break;
                 case "WoodenSword":
                     ItemState = new ItemArrowState(this);
@@ -213,30 +251,16 @@ namespace Project1.ItemComponents
                     ItemState = new ItemArrowState(this);
                     break;
             }
+            */
         }
 
         public void Reset()
         {
-            ItemState = new ItemAngel(this);        // Wooden Sword by default 
+            ItemState = new ItemAngelState(this);        // Wooden Sword by default 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            /*switch ((int)counter)
-            {
-                case 1:
-                    item1.Draw(spriteBatch, Texture);
-                    item1.Update();
-                    break;
-                case 2:
-                    item2.Draw(spriteBatch, Texture);
-                    item2.Update();
-                    break;
-                case 3:
-                    item3.Draw(spriteBatch, Texture);
-                    item3.Update();
-                    break;
-            }*/
             Rectangle sourceRectangle = new Rectangle(0, 40, 40, 40);
             Rectangle destinationRectangle = new Rectangle(600, 100, 80, 80);
             //spriteBatch.Draw(ItemState.Texture, destinationRectangle, ItemState.SourceRectangle, Color.White);
