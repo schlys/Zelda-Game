@@ -14,7 +14,7 @@ namespace Project1.ItemComponents
         private Game1 Game;
         private double counter = 1.0;
 
-        private string[] ItemTypes = { "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod",
+        private string[] ItemTypes = { "Angel", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod",
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb",
             "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food",
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
@@ -24,10 +24,12 @@ namespace Project1.ItemComponents
         public Item2 item2 = new Item2();
         public Item3 item3 = new Item3();
 
+        //public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 0,0,0,0,0,0,0,0);
+
         public Item(Game1 game)
         {
             Game = game;
-            ItemState = new ItemWoodenSwordState(this);        // Wooden Sword by default 
+            ItemState = new ItemAngel(this);        // Wooden Sword by default 
             //Texture = SpriteFactory.Instance.ItemSpriteSheet();
         }
 
@@ -112,6 +114,9 @@ namespace Project1.ItemComponents
                     break;
                 case "WoodenSword":
                     ItemState = new ItemWhiteSwordState(this);
+                    break;
+                case "Angel":
+                    ItemState = new ItemAngel(this);
                     break;
                 default:
                     ItemState = new ItemArrowState(this);
@@ -201,6 +206,9 @@ namespace Project1.ItemComponents
                 case "WoodenSword":
                     ItemState = new ItemArrowState(this);
                     break;
+                case "Angel":
+                    ItemState = new ItemAngel(this);
+                    break;
                 default:
                     ItemState = new ItemArrowState(this);
                     break;
@@ -209,7 +217,7 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
-            ItemState = new ItemWoodenSwordState(this);        // Wooden Sword by default 
+            ItemState = new ItemAngel(this);        // Wooden Sword by default 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -231,7 +239,10 @@ namespace Project1.ItemComponents
             }*/
             Rectangle sourceRectangle = new Rectangle(0, 40, 40, 40);
             Rectangle destinationRectangle = new Rectangle(600, 100, 80, 80);
-            spriteBatch.Draw(ItemState.Texture, destinationRectangle, ItemState.SourceRectangle, Color.White);
+            //spriteBatch.Draw(ItemState.Texture, destinationRectangle, ItemState.SourceRectangle, Color.White);
+
+            ItemState.Draw(spriteBatch);
+            
         }
 
         public void Update()

@@ -33,7 +33,8 @@ namespace Project1.SpriteFactoryComponents
         {
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
             blocks = content.Load<Texture2D>("Blocks");
-            items = content.Load<Texture2D>("LinkSprites/Items");
+            //items = content.Load<Texture2D>("LinkSprites/Items");
+            items = content.Load<Texture2D>("ItemsAndWeapons");
             woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
             magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
 
@@ -45,10 +46,10 @@ namespace Project1.SpriteFactoryComponents
             sheetMappings = new Dictionary<string, Sprite>();
 
             // NEED to Update data for sprites 
-            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 1, 40, 40, 40, 40));
-            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 1, 40, 40, 40, 40));
-            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 1, 40, 40, 40, 40));
-            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 1, 40, 40, 40, 40));
+            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 1, 40, 40, 40, 40, 6));
+            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 1, 40, 40, 40, 40, 6));
+            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 1, 40, 40, 40, 40, 6));
+            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 1, 40, 40, 40, 40, 6));
 
             //sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2));
             //sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0));

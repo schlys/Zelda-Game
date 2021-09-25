@@ -12,6 +12,7 @@ namespace Project1.ItemComponents
         Texture2D Texture { get; set; }     //change to ISprite later 
         Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
+        void Draw(SpriteBatch spriteBatch);
         void Update();
        
     }

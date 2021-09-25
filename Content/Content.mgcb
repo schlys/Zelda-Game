@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:Blocks.png
 
+#begin ItemsAndWeapons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ItemsAndWeapons.png
+
 #begin LinkSprites/BasicMovement.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -120,18 +132,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:LinkSprites/WhiteSword.png
-
-#begin LinkSprites/WoodenSword.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:LinkSprites/WoodenSword.png
 
 #begin LinkSprites/WoodenSword.png
 /importer:TextureImporter

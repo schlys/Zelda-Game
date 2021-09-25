@@ -169,3 +169,4 @@ C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
 C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb

@@ -25,6 +25,12 @@ namespace Project1.ItemComponents
             SourceRectangle = new Rectangle(0, 560, 40, 40);
             ID = "WhiteSword";
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            //
+        }
+
         public void Update()
         {
             // animate sword 

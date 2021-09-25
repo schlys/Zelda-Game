@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/Blocks.png</File>
+    <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/ItemsAndWeapons.png</File>
     <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/LinkSprites/BasicMovement.png</File>
     <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/LinkSprites/Items.png</File>
     <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/LinkSprites/MagicalRod.png</File>
@@ -26,6 +27,7 @@
     <File>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Content/OverworldEnemies/Zora.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -27,6 +27,11 @@ namespace Project1.ItemComponents
             ID = "WoodenSword";
         }
 
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            //
+        }
+
         public void Update()
         {
             // animate sword 
