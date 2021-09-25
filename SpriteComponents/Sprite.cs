@@ -22,6 +22,9 @@ namespace Project1.SpriteComponents
         public Rectangle SourceRectangle { get; set; }
         public Rectangle DestinationRectangle { get; set; }
 
+        private int delay; //delay for animation
+        public double count=0.0; //delay for block/item switching
+
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h)
         {
             Texture = texture;
@@ -40,7 +43,19 @@ namespace Project1.SpriteComponents
         }
         public void Update()
         {
-
+            delay++;
+            if (delay > 6)
+            {
+                if (CurrentFrame < TotalFrames)
+                {
+                    CurrentFrame++;
+                }
+                else
+                {
+                    CurrentFrame=1;
+                }
+                delay = 0;
+            }
         }
     }
 }
