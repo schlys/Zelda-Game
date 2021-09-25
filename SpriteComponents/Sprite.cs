@@ -20,13 +20,14 @@ namespace Project1.SpriteComponents
         public int Row { get; set; }
         public int Col { get; set; }
         public int MaxDelay { get; set; }
+        public double DelayRate { get; set; }
         public Rectangle SourceRectangle { get; set; }
         public Rectangle DestinationRectangle { get; set; }
 
-        private int delay; //delay for animation
+        private double delay; //delay for animation
         public double count=0.0; //delay for block/item switching
 
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h, int maxDelay)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h, int maxDelay, double delayRate)
         {
             Texture = texture;
             TotalFrames = totalFrames;
@@ -37,6 +38,7 @@ namespace Project1.SpriteComponents
             Width = w;
             Height = h;
             MaxDelay = maxDelay;
+            DelayRate = delayRate;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -45,7 +47,7 @@ namespace Project1.SpriteComponents
         }
         public void Update()
         {
-            delay++;
+            delay+=DelayRate;
             if (delay > MaxDelay)
             {
                 if (CurrentFrame < TotalFrames)

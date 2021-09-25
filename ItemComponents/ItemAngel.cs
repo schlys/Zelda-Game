@@ -17,7 +17,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 2, 1, 1, 2, 0, 0, 40, 40, 2);
+        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 2, 1, 1, 2, 0, 0, 40, 40, 2, 0.1);
 
         public ItemAngel(IItem item)
         {
