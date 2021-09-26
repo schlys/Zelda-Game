@@ -103,7 +103,6 @@ C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\na
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
-C:\Users\samch\source\repos\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
 C:\Users\samch\source\repos\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\samch\source\repos\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
 C:\Users\samch\source\repos\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
@@ -170,3 +169,5 @@ C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\tianm\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
 C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\samch\source\repos\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache

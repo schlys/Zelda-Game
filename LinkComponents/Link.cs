@@ -14,28 +14,19 @@ namespace Project1.LinkComponents
         public LinkHealth Health { get; set; }
         public Sprite Sprite { get; set; }
 
-        // moved into Sprite 
-        public Texture2D Texture { get; set; }
-        public int TotalFrames { get; set; }
-        public int Row { get; set; }
-        public int CurrentFrame { get; set; }
         private Vector2 position = new Vector2(40, 40);
         private Vector2 initialPositoin = new Vector2(40, 40); 
         private int delay;
-
-
-        private Game1 game;
         private int Step = 4;
         public string Weapon { get; set; }
         private bool isAttacking;
 
-        public Link(Game1 game)
+        public Link()
         {
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
             LinkItemState = new LinkStateNoItem(this);      // default state is no item
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            this.game = game;
-            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+            Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
             delay = 0;
             Weapon = "WoodenSword";
         }
@@ -45,10 +36,10 @@ namespace Project1.LinkComponents
             {
                 position.Y += Step;
 
-                if (!LinkDirectionState.ID.Equals("Down") || TotalFrames == 1)
+                if (!LinkDirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveDown();
-                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                    Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
                 }
             }
         }
@@ -59,10 +50,10 @@ namespace Project1.LinkComponents
             {
                 position.X -= Step;
 
-                if (!LinkDirectionState.ID.Equals("Left") || TotalFrames == 1)
+                if (!LinkDirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveLeft();
-                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                    Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
                 }
             }
         }
@@ -73,10 +64,10 @@ namespace Project1.LinkComponents
             {
                 position.X += Step;
 
-                if (!LinkDirectionState.ID.Equals("Right") || TotalFrames == 1)
+                if (!LinkDirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveRight();
-                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                    Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
                 }
             }
         }
@@ -87,10 +78,10 @@ namespace Project1.LinkComponents
             {
                 position.Y -= Step;
 
-                if (!LinkDirectionState.ID.Equals("Up") || TotalFrames == 1)
+                if (!LinkDirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveUp();
-                    SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                    Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
                 }
             }
         }
@@ -98,16 +89,15 @@ namespace Project1.LinkComponents
         public void StopMoving()
         {
             if (!isAttacking)
-                TotalFrames = 1;
+                Sprite.TotalFrames = 1;
         }
 
         public void Attack()
         {
-            //LinkItemState.Attack();
             if (!isAttacking)
             {
                 isAttacking = true;
-                SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState, Weapon);
+                Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState, Weapon);
             }
         }
 
@@ -141,22 +131,9 @@ namespace Project1.LinkComponents
             LinkItemState.UseWoodenSword();
         }
 
-        public void Reset()
-        {
-            position = initialPositoin;
-            LinkDirectionState = new LinkStateUp(this);     // default state is up 
-            LinkItemState = new LinkStateNoItem(this);      // default state is no item
-            SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
-            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            delay = 0;
-            Weapon = "WoodenSword";
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle((CurrentFrame-1) * 40, Row * 40, 40, 40);
-            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 125, 125);
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            Sprite.Draw(spriteBatch, position, 125);
         }
 
         public void Update()
@@ -164,21 +141,31 @@ namespace Project1.LinkComponents
             delay++;
             if (delay > 6)
             {
-                if (CurrentFrame < TotalFrames)
+                if (Sprite.CurrentFrame < Sprite.TotalFrames)
                 {
-                    CurrentFrame++;
+                    Sprite.CurrentFrame++;
                 }
                 else
                 {
                     if (isAttacking)
                     {
                         isAttacking = false;
-                        SpriteFactory.Instance.GetSpriteData(this, LinkDirectionState, LinkItemState);
+                        Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
                     }
-                    CurrentFrame = 1;
+                    Sprite.CurrentFrame = 1;
                 }
                 delay = 0;
             }  
+        }
+        public void Reset()
+        {
+            position = initialPositoin;
+            LinkDirectionState = new LinkStateUp(this);     // default state is up 
+            LinkItemState = new LinkStateNoItem(this);      // default state is no item
+            Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState, LinkItemState);
+            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
+            delay = 0;
+            Weapon = "WoodenSword";
         }
     }
 }

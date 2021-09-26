@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 
 namespace Project1.ItemComponents
 {
@@ -17,7 +18,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 2, 1, 1, 2, 0, 0, 40, 40, 2, 0.1);
+        public SpriteComponents.Sprite sprite = new Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 2, 1, 1, 2, 0, 0, 40, 40, 2, 0.1);
 
         public ItemAngelState(IItem item)
         {
@@ -31,7 +32,7 @@ namespace Project1.ItemComponents
         {
             sprite.SourceRectangle = new Rectangle(40*(sprite.CurrentFrame-1), 0, 40, 40);
             sprite.DestinationRectangle = new Rectangle(600, 200, 80, 80);
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
 
         public void Update()

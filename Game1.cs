@@ -28,9 +28,7 @@ namespace Project1
         protected override void Initialize()
         {
             KeyboardController = new KeyboardController();
-            //Link = new Link(this);
-            //Block = new Block(this);
-            //Item = new Item(this); 
+            
             base.Initialize();
         }
 
@@ -38,7 +36,7 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFactory.Instance.LoadAllTextures(Content);
-            Link = new Link(this);
+            Link = new Link();
             Block = new Block(this);
             Item = new Item(this); 
             // Register keyboard commands 

@@ -30,7 +30,7 @@ namespace Project1.ItemComponents
         {
             sprite.SourceRectangle = new Rectangle(40 * (sprite.CurrentFrame +3), 120, 40, 40);
             sprite.DestinationRectangle = new Rectangle(600, 200, 80, 80);
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
 
         public void Update()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.SpriteComponents;
 
 namespace Project1.LinkComponents
 {
@@ -11,12 +12,13 @@ namespace Project1.LinkComponents
     {
         ILinkDirectionState LinkDirectionState { get; set; }
         ILinkItemState LinkItemState { get; set; }
+        Sprite Sprite { get; set; }
         public LinkHealth Health { get; set; }
         public string Weapon { get; set; }
-        int Row { get; set; }
-        int TotalFrames { get; set; }
-        int CurrentFrame { get; set; }
-        Texture2D Texture { get; set; }
+        //int Row { get; set; }
+        //int TotalFrames { get; set; }
+        //int CurrentFrame { get; set; }
+        //Texture2D Texture { get; set; }
 
         void MoveUp();
         void MoveDown();
