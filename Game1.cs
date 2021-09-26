@@ -7,6 +7,8 @@ using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.SpriteFactoryComponents;
+using Project1.Content.EnemyComponents;
+using Project1.EnemyComponents;
 
 namespace Project1
 {
@@ -17,6 +19,7 @@ namespace Project1
         public ILink Link;
         public IBlock Block;
         public IItem Item;
+        public IEnemy Enemy;
         private IController KeyboardController;
         public Game1()
         {
@@ -38,7 +41,8 @@ namespace Project1
             SpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link();
             Block = new Block(this);
-            Item = new Item(this); 
+            Item = new Item(this);
+            Enemy = new Enemy(this);
             // Register keyboard commands 
             // Requirement - Arrow and "wasd" keys should move Link and change his facing direction.
             KeyboardController.RegisterCommand(new LinkMoveUpCmd(this), Keys.W);
@@ -106,6 +110,8 @@ namespace Project1
              * characters should move, animate, fire projectiles, etc. as they do in the final game, but should not 
              * interact with any other objects
              */
+            KeyboardController.RegisterCommand(new PreviousEnemyCmd(this, Enemy), Keys.O);
+            KeyboardController.RegisterCommand(new NextEnemyCmd(this, Enemy), Keys.P);
 
             // Load sprite images 
         }
@@ -117,7 +123,8 @@ namespace Project1
 
             KeyboardController.Update(this);
             Link.Update();
-            Item.Update(); 
+            Item.Update();
+            Enemy.Update();
             base.Update(gameTime);
         }
 
@@ -129,7 +136,8 @@ namespace Project1
             
             Link.Draw(_spriteBatch);
             Block.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch); 
+            Item.Draw(_spriteBatch);
+            Enemy.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);
@@ -141,6 +149,7 @@ namespace Project1
             Link.Reset();
             Block.Reset();
             Item.Reset();
+            Enemy.Reset();
         }
     }
 }
