@@ -94,6 +94,28 @@ namespace Project1.Command
 
     }
 
+    public class LinkUseItemCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        private int index;
+        public LinkUseItemCmd(Game1 game, int index)
+        {
+            Game = game;
+            this.index = index;
+        }
+        public void Execute()
+        {
+            if (index < Game.Items.Length)
+            {
+                Game.Link.CurrentItem = Game.Items[index];
+            }
+            else
+            {
+                Game.Link.CurrentItem = "";
+            }
+            Game.Link.UseItem();
+        }
+    }
     public class LinkUseNoItemCmd : ICommand
         {
             public Game1 Game { get; set; }
@@ -104,7 +126,7 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseNoItem();
+                Game.Link.UseItem();
             }
         }
     public class LinkUseWoodenSwordCmd : ICommand
@@ -131,7 +153,7 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseMagicalRod();
+                Game.Link.UseItem();
             }
         }
 
@@ -145,7 +167,7 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseMagicalSheild();
+                Game.Link.UseItem();
             }
         }
 

@@ -5,7 +5,6 @@ using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Project1.Content.EnemyComponents;
 using Project1.EnemyComponents;
@@ -31,6 +30,8 @@ namespace Project1.SpriteFactoryComponents
         private static Texture2D woodenSword;
         private static Texture2D magicalSword;
         private static Texture2D moblin;
+        private static Texture2D useItem;
+        private static Texture2D linkItems;
 
         public void LoadAllTextures(ContentManager content)
         {
@@ -38,6 +39,8 @@ namespace Project1.SpriteFactoryComponents
             blocks = content.Load<Texture2D>("Blocks");
             //items = content.Load<Texture2D>("LinkSprites/Items");
             items = content.Load<Texture2D>("ItemsAndWeapons");
+            linkItems = content.Load<Texture2D>("LinkSprites/Items");
+            useItem = content.Load<Texture2D>("LinkSprites/UseItem");
             woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
             magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
             moblin = content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin");
@@ -70,14 +73,24 @@ namespace Project1.SpriteFactoryComponents
             sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
             sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
 
+            sheetMappings.Add("UseItemUp", new Sprite(useItem, 1, 1, 2));
+            sheetMappings.Add("UseItemDown", new Sprite(useItem, 1, 1, 0));
+            sheetMappings.Add("UseItemRight", new Sprite(useItem, 1, 1, 1));
+            sheetMappings.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3));
+
+            sheetMappings.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
+            sheetMappings.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));
+            sheetMappings.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));
+            sheetMappings.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14));
+
             sheetMappings.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
             sheetMappings.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
             sheetMappings.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
             sheetMappings.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
         }
-        public Sprite GetSpriteData(ILinkDirectionState Direction, ILinkItemState Item, string Weapon = "")
+        public Sprite GetSpriteData(string key)
         {
-            Sprite data = sheetMappings[Weapon + Direction.ID + Item.ID];
+            Sprite data = sheetMappings[key];
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row);
         }
 

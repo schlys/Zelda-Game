@@ -21,6 +21,7 @@ namespace Project1
         public IItem Item;
         public IEnemy Enemy;
         private IController KeyboardController;
+        public string[] Items = {"", "Arrow"};
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -68,14 +69,14 @@ namespace Project1
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.NumPad0);
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.D0);
 
-            KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.NumPad1);
-            KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.D1);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.NumPad1);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.D1);
 
-            KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.NumPad2);
-            KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.D2);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.NumPad2);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.D2);
 
-            KeyboardController.RegisterCommand(new LinkUseMagicalSheildCmd(this), Keys.NumPad3);
-            KeyboardController.RegisterCommand(new LinkUseMagicalSheildCmd(this), Keys.D3);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.NumPad3);
+            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.D3);
 
             KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.NumPad4);
             KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.D4);

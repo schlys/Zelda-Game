@@ -15,10 +15,7 @@ namespace Project1.LinkComponents
         Sprite Sprite { get; set; }
         public LinkHealth Health { get; set; }
         public string Weapon { get; set; }
-        //int Row { get; set; }
-        //int TotalFrames { get; set; }
-        //int CurrentFrame { get; set; }
-        //Texture2D Texture { get; set; }
+        public string CurrentItem { get; set; }
 
         void MoveUp();
         void MoveDown();
@@ -27,6 +24,7 @@ namespace Project1.LinkComponents
         void StopMoving();
         void Attack();
         void TakeDamage();
+        void UseItem();
         void UseNoItem();
         void UseMagicalRod();
         void UseMagicalSheild();
