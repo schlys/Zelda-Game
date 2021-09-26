@@ -14,8 +14,6 @@ namespace Project1.EnemyComponents
         public IEnemyDirectionState EnemyDirectionState { get; set; }
         public EnemyHealth Health { get; set; }
         public Sprite Sprite { get; set; }
-
-        // moved into Sprite 
         public Texture2D Texture { get; set; }
         public int TotalFrames { get; set; }
         public int Row { get; set; }
@@ -23,6 +21,8 @@ namespace Project1.EnemyComponents
         private Vector2 position = new Vector2(300, 300);
         private Vector2 initialPosition = new Vector2(300, 300);
         private int delay;
+        private int moveDelay = 0;
+        Random r = new Random();
 
 
         private Game1 game;
@@ -101,7 +101,6 @@ namespace Project1.EnemyComponents
 
         public void Attack()
         {
-            //LinkItemState.Attack();
             if (!isAttacking)
             {
                 isAttacking = true;
@@ -116,18 +115,18 @@ namespace Project1.EnemyComponents
 
         public void PreviousEnemy()
         {
-
+            throw new NotImplementedException();
         }
 
         public void NextEnemy()
         {
-
+            throw new NotImplementedException();
         }
 
         public void Reset()
         {
             position = initialPosition;
-            EnemyDirectionState = new EnemyStateUp(this);     // default state is up 
+            EnemyDirectionState = new EnemyStateLeft(this);     // default state is up 
             SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
             delay = 0;
@@ -143,6 +142,8 @@ namespace Project1.EnemyComponents
         public void Update()
         {
             delay++;
+            moveDelay++;
+            Console.WriteLine(moveDelay);
             if (delay > 6)
             {
                 if (CurrentFrame < TotalFrames)
@@ -160,6 +161,7 @@ namespace Project1.EnemyComponents
                 }
                 delay = 0;
             }
+            
         }
     }
 }
