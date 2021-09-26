@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Project1.Content.EnemyComponents;
+using Project1.EnemyComponents;
 
 namespace Project1.SpriteFactoryComponents
 {
@@ -28,6 +30,7 @@ namespace Project1.SpriteFactoryComponents
         private static Texture2D items;
         private static Texture2D woodenSword;
         private static Texture2D magicalSword;
+        private static Texture2D moblin;
 
         public void LoadAllTextures(ContentManager content)
         {
@@ -37,6 +40,7 @@ namespace Project1.SpriteFactoryComponents
             items = content.Load<Texture2D>("ItemsAndWeapons");
             woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
             magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
+            moblin = content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin");
 
             CreateDict();
         }
@@ -60,6 +64,11 @@ namespace Project1.SpriteFactoryComponents
             //sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0));
             //sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
             //sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
+
+            sheetMappings.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
         }
         public void GetSpriteData(ILink Link, ILinkDirectionState Direction, ILinkItemState Item, string Weapon = "")
         {
@@ -70,6 +79,17 @@ namespace Project1.SpriteFactoryComponents
             Link.TotalFrames = data.TotalFrames;
             Link.CurrentFrame = data.CurrentFrame;
             Link.Row = data.Row;
+        }
+
+        public void GetSpriteData(IEnemy Enemy, IEnemyDirectionState Direction)
+        {
+            string key = "Moblin" + Direction.ID;
+            Sprite data = sheetMappings[key];
+
+            Enemy.Texture = data.Texture;
+            Enemy.TotalFrames = data.TotalFrames;
+            Enemy.CurrentFrame = data.CurrentFrame;
+            Enemy.Row = data.Row;
         }
 
         public Texture2D BlockSpriteSheet()
