@@ -19,7 +19,7 @@ namespace Project1.LinkComponents
         public int TotalFrames { get; set; }
         public int Row { get; set; }
         public int CurrentFrame { get; set; }
-        private Vector2 position;
+        private Vector2 position = new Vector2(40, 40);
         private Vector2 initialPositoin = new Vector2(40, 40); 
         private int delay;
 
