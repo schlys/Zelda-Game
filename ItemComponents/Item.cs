@@ -49,7 +49,7 @@ namespace Project1.ItemComponents
             counter -= 0.1;
             if (counter < 1)
             {
-                counter = 3;
+                counter = 4;
             }
 
             /*
