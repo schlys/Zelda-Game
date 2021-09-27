@@ -28,12 +28,14 @@ namespace Project1.SpriteComponents
 
         private double delay; //delay for animation
         public double count=0.0; //delay for block/item switching
+        private int StartFrame;
         
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h, int maxDelay, double delayRate)
         {
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
+            StartFrame = currentFrame;
             Row = row;
             XPos = x;
             YPos = y;
@@ -70,7 +72,7 @@ namespace Project1.SpriteComponents
                 }
                 else
                 {
-                    CurrentFrame=1;
+                    CurrentFrame=StartFrame;
                 }
                 delay = 0;
             }

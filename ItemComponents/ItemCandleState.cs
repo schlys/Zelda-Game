@@ -18,7 +18,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 2, 1, 1, 2, 160, 120, 40, 40, 2, 0.1);
+        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 6, 5, 3, 2, 160, 120, 40, 40, 2, 0.1);
 
         public ItemCandleState(IItem item)
         {
@@ -28,8 +28,8 @@ namespace Project1.ItemComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.SourceRectangle = new Rectangle(40 * (sprite.CurrentFrame +3), 120, 40, 40);
-            sprite.DestinationRectangle = new Rectangle(600, 200, 80, 80);
+            //sprite.SourceRectangle = new Rectangle(40 * (sprite.CurrentFrame +3), 120, 40, 40);
+            //sprite.DestinationRectangle = new Rectangle(600, 200, 80, 80);
             sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
 
