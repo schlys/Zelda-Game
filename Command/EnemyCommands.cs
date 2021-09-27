@@ -3,15 +3,14 @@ using Project1.ItemComponents;
 
 namespace Project1.Command
 {
-    // Change so operate on a single Item given when initialized, not 'Item' of Game 
     class PreviousEnemyCmd : ICommand
     {
         public Game1 Game { get; set; }
         public IEnemy Enemy { get; set; }
         public PreviousEnemyCmd(Game1 game, IEnemy enemy)
         {
-            Game = game; 
-            Enemy = enemy; 
+            Game = game;
+            Enemy = enemy;
         }
 
         public void Execute()
@@ -29,7 +28,7 @@ namespace Project1.Command
         public NextEnemyCmd(Game1 game, IEnemy enemy)
         {
             Game = game;
-            Enemy = enemy; 
+            Enemy = enemy;
         }
 
         public void Execute()

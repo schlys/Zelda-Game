@@ -18,16 +18,15 @@ namespace Project1.EnemyComponents
         public int TotalFrames { get; set; }
         public int Row { get; set; }
         public int CurrentFrame { get; set; }
-        private Vector2 position = new Vector2(300, 300);
-        private Vector2 initialPosition = new Vector2(300, 300);
-        private int delay;
-        private int moveDelay = 0;
-        Random r = new Random();
-
+        private Vector2 position = new Vector2(300, 200);
+        private Vector2 initialPosition = new Vector2(300, 200);
+        private int animationTimer;
+        private int movementTimer;
+        private Random r = new Random();
+        private int randomInt;
 
         private Game1 game;
-        private int Step = 4;
-        private bool isAttacking;
+        private int Step = 1;
 
         public Enemy(Game1 game)
         {
@@ -35,77 +34,62 @@ namespace Project1.EnemyComponents
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
             this.game = game;
             SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-            delay = 0;
+            animationTimer = 0;
+            movementTimer = 0;
+            randomInt = r.Next(0, 4);
         }
         public void MoveDown()
         {
-            if (!isAttacking)
-            {
-                position.Y += Step;
+            position.Y += Step;
 
-                if (!EnemyDirectionState.ID.Equals("Down") || TotalFrames == 1)
-                {
-                    EnemyDirectionState.MoveDown();
-                    SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-                }
+            if (!EnemyDirectionState.ID.Equals("Down") || TotalFrames == 1)
+            {
+                EnemyDirectionState.MoveDown();
+                SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             }
         }
 
         public void MoveLeft()
         {
-            if (!isAttacking)
-            {
-                position.X -= Step;
+            position.X -= Step;
 
-                if (!EnemyDirectionState.ID.Equals("Left") || TotalFrames == 1)
-                {
-                    EnemyDirectionState.MoveLeft();
-                    SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-                }
+            if (!EnemyDirectionState.ID.Equals("Left") || TotalFrames == 1)
+            {
+                EnemyDirectionState.MoveLeft();
+                SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             }
         }
 
         public void MoveRight()
         {
-            if (!isAttacking)
-            {
-                position.X += Step;
+            position.X += Step;
 
-                if (!EnemyDirectionState.ID.Equals("Right") || TotalFrames == 1)
-                {
-                    EnemyDirectionState.MoveRight();
-                    SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-                }
+            if (!EnemyDirectionState.ID.Equals("Right") || TotalFrames == 1)
+            {
+                EnemyDirectionState.MoveRight();
+                SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             }
         }
 
         public void MoveUp()
         {
-            if (!isAttacking)
-            {
-                position.Y -= Step;
+            position.Y -= Step;
 
-                if (!EnemyDirectionState.ID.Equals("Up") || TotalFrames == 1)
-                {
-                    EnemyDirectionState.MoveUp();
-                    SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-                }
+            if (!EnemyDirectionState.ID.Equals("Up") || TotalFrames == 1)
+            {
+                EnemyDirectionState.MoveUp();
+                SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             }
         }
 
         public void StopMoving()
         {
-            if (!isAttacking)
-                TotalFrames = 1;
+            TotalFrames = 1;
         }
 
         public void Attack()
         {
-            if (!isAttacking)
-            {
-                isAttacking = true;
-                SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-            }
+            throw new NotImplementedException();
         }
 
         public void TakeDamage()
@@ -126,10 +110,10 @@ namespace Project1.EnemyComponents
         public void Reset()
         {
             position = initialPosition;
-            EnemyDirectionState = new EnemyStateLeft(this);     // default state is up 
+            EnemyDirectionState = new EnemyStateUp(this);     // default state is up 
             SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
-            delay = 0;
+            animationTimer = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -141,10 +125,32 @@ namespace Project1.EnemyComponents
 
         public void Update()
         {
-            delay++;
-            moveDelay++;
-            Console.WriteLine(moveDelay);
-            if (delay > 6)
+            animationTimer++;
+            movementTimer++;
+            if (movementTimer > 90)
+            {
+                randomInt = r.Next(0, 4);
+                movementTimer = 0;
+            }
+            switch (randomInt)
+            {
+                case 0:
+                    MoveUp();
+                    break;
+                case 1:
+                    MoveDown();
+                    break;
+                case 2:
+                    MoveLeft();
+                    break;
+                case 3:
+                    MoveRight();
+                    break;
+                case 4:
+                    StopMoving();
+                    break;
+            }
+            if (animationTimer > 6)
             {
                 if (CurrentFrame < TotalFrames)
                 {
@@ -152,16 +158,11 @@ namespace Project1.EnemyComponents
                 }
                 else
                 {
-                    if (isAttacking)
-                    {
-                        isAttacking = false;
-                        SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
-                    }
                     CurrentFrame = 1;
                 }
-                delay = 0;
+                animationTimer = 0;
             }
-            
+
         }
     }
 }
