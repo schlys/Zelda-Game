@@ -12,7 +12,7 @@ namespace Project1.LinkComponents
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkItemState LinkItemState { get; set; }
         public string CurrentItem { get; set; }
-        public CurrentItem Item { get; set; }
+        public ICurrentItem Item { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite Sprite { get; set; }
 
@@ -32,7 +32,8 @@ namespace Project1.LinkComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
             delay = 0;
             Weapon = "WoodenSword";
-            Item = new CurrentItem();
+            Item = new NoItem();
+            CurrentItem = ""; 
         }
         public void MoveDown()
         {
@@ -112,14 +113,15 @@ namespace Project1.LinkComponents
 
         public void UseItem()
         {
-            if (!lockFrame)
+            if (!lockFrame && CurrentItem.Length > 0)
             {
-                lockFrame = true;
-                Sprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID);
-                Item.Sprite = SpriteFactory.Instance.GetSpriteData(CurrentItem + LinkDirectionState.ID);
-                Item.Position = position;
-                Item.direction = LinkDirectionState.ID;
-                restart = 36;
+                if (!Item.isUsing)
+                {
+                    lockFrame = true;
+                    Sprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID);
+                    Item = SpriteFactory.Instance.GetCurrentItem(CurrentItem, LinkDirectionState.ID, position);
+                    restart = 36;
+                }
             }
         }
         public void UseNoItem()

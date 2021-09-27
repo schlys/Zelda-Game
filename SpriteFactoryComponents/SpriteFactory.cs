@@ -115,6 +115,21 @@ namespace Project1.SpriteFactoryComponents
             return items;
         }
 
+        public ICurrentItem GetCurrentItem(string name, string direction, Vector2 position)
+        {
+            ICurrentItem item;
+            switch (name)
+            {
+                case "Arrow":
+                    item = new Arrow(direction, position);
+                    break;
+                default:
+                    item = new NoItem();
+                    break;
+            }
+            return item;
+        }
+
     }
 }
 
