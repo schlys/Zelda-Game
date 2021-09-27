@@ -36,7 +36,7 @@ namespace Project1.EnemyComponents
             SpriteFactory.Instance.GetSpriteData(this, EnemyDirectionState);
             animationTimer = 0;
             movementTimer = 0;
-            randomInt = r.Next(0, 4);
+            randomInt = r.Next(0, 5);
         }
         public void MoveDown()
         {
@@ -129,7 +129,7 @@ namespace Project1.EnemyComponents
             movementTimer++;
             if (movementTimer > 90)
             {
-                randomInt = r.Next(0, 4);
+                randomInt = r.Next(0, 5);
                 movementTimer = 0;
             }
             switch (randomInt)

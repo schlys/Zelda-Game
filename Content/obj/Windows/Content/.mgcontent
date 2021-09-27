@@ -4,27 +4,27 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Andy/Desktop/New folder/Content/Blocks.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/ItemsAndWeapons.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/BasicMovement.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/Items.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/MagicalRod.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/MagicalShield.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/MagicalSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/PickUpItem.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/UseItem.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/WhiteSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/LinkSprites/WoodenSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Armos.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Ghini.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Leever.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Lynel.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/MoblinAndMolblin.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Octorok.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Peahat.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Rock.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Tektite.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Content/OverworldEnemies/Zora.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/Blocks.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/ItemsAndWeapons.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/BasicMovement.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/Items.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/MagicalRod.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/MagicalShield.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/MagicalSword.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/PickUpItem.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/UseItem.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/WhiteSword.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/LinkSprites/WoodenSword.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Armos.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Ghini.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Leever.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Lynel.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/MoblinAndMolblin.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Octorok.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Peahat.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Rock.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Tektite.png</File>
+    <File>C:/Users/Andy/Desktop/New folder2/Content/OverworldEnemies/Zora.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
