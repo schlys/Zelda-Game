@@ -10,9 +10,7 @@ namespace Project1.LinkComponents
     class Link : ILink
     {
         public ILinkDirectionState LinkDirectionState { get; set; }
-        //public ILinkItemState LinkItemState { get; set; }      
         public ILinkWeaponState LinkWeaponState { get; set; } 
-        //public string CurrentItem { get; set; }
         public ILinkItemState LinkItemState { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
@@ -40,6 +38,7 @@ namespace Project1.LinkComponents
             {
                 Position.Y += Step;
 
+                // TODO: move frame change logic to sprite class 
                 if (!LinkDirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveDown();
@@ -108,7 +107,8 @@ namespace Project1.LinkComponents
 
         public void TakeDamage()
         {
-            Health.DecreaseHealth(0.5);             // need determine value to decrease by  
+            Health.DecreaseHealth(0.5);             // TODO: determine value to decrease by  
+                                                    // TODO: update sprite to show damaged link 
         }
 
         public void UseNoItem()
@@ -153,9 +153,8 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            LinkSprite.Draw(spriteBatch, Position, 125);        // NOT hardcode 125 
-            LinkItemState.Draw(spriteBatch, 80);                // MOVE size from method to class  
-            //ItemSprite.Draw(spriteBatch, 80);               
+            LinkSprite.Draw(spriteBatch, Position, 125);        // TODO: not hardcode 125, move to sprite class  
+            LinkItemState.Draw(spriteBatch, 80);                // TODO: move size from method to sprite class  
         }
 
         public void Update()
@@ -164,6 +163,7 @@ namespace Project1.LinkComponents
             LinkSprite.Update(); 
             LinkItemState.Update(); 
 
+            // TODO: move delat and frame logic to sprite class 
             Delay++;
             if (Delay > Restart)
             {

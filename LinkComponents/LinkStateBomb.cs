@@ -41,7 +41,6 @@ namespace Project1.LinkComponents
         {
             if (Sprite != null)
             {
-                
                     switch (Direction)
                     {
                         case "Up":

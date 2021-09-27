@@ -79,6 +79,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
             SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
+            // Key = ItemName + Direction 
             SpriteDict.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
             SpriteDict.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));
             SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));

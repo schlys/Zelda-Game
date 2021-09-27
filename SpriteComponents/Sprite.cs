@@ -15,6 +15,7 @@ namespace Project1.SpriteComponents
         public int CurrentFrame;
         public int Row;
 
+        // TODO: remove x and y position, given for draw method 
         public int XPos { get; set; }
         public int YPos { get; set; }
         public int Width { get; set; }
@@ -53,7 +54,7 @@ namespace Project1.SpriteComponents
             Row = row;
         }
 
-        
+        // TODO: make size property given at instantiation 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, int size)
         {
             //spriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
@@ -81,7 +82,7 @@ namespace Project1.SpriteComponents
 
         public void Reset()
         {
-
+            //TODO: reset to initial frame, delay, and count 
         }
     }
 }
