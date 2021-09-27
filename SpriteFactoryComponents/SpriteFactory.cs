@@ -53,30 +53,30 @@ namespace Project1.SpriteFactoryComponents
             sheetMappings = new Dictionary<string, Sprite>();
 
             // NEED to Update data for sprites 
-            //sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
-            //sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
-            //sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
-            //sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
-            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
-            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
-            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
+            //sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
+            //sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
+            //sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
+            //sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
 
-            sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2));
-            sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0));
-            sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1));
-            sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3));
+            sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2));
-            sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0));
-            sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1));
-            sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3));
+            sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("UseItemUp", new Sprite(useItem, 1, 1, 2));
-            sheetMappings.Add("UseItemDown", new Sprite(useItem, 1, 1, 0));
-            sheetMappings.Add("UseItemRight", new Sprite(useItem, 1, 1, 1));
-            sheetMappings.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3));
+            sheetMappings.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            sheetMappings.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            sheetMappings.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            sheetMappings.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
             sheetMappings.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
             sheetMappings.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));

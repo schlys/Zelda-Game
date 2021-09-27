@@ -37,6 +37,7 @@ namespace Project1.SpriteComponents
             CurrentFrame = currentFrame;
             StartFrame = currentFrame;
             Row = row;
+            Col = col;
             XPos = x;
             YPos = y;
             Width = w;
