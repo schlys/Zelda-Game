@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Project1.LinkComponents
 {
-    class Arrow : ICurrentItem
+    class LinkStateFire : ILinkItemState
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position;
@@ -16,11 +16,11 @@ namespace Project1.LinkComponents
         public string Direction { get; set; }
         private int speed = 4;
         int counter;
-        public Arrow(string direction, Vector2 position)
+        public LinkStateFire(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Fire" + Direction);
             counter = 0;
             isUsing = true;
         }

@@ -12,10 +12,8 @@ namespace Project1.LinkComponents
     {
         ILinkDirectionState LinkDirectionState { get; set; }
         ILinkItemState LinkItemState { get; set; }
-        ILinkItemState LinkWeaponState { get; set; } 
+        ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
-        Sprite ItemSprite { get; set; }
-
         public LinkHealth Health { get; set; }
         //public string Weapon { get; set; }
         //public string CurrentItem { get; set; }

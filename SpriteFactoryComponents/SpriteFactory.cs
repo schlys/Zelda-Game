@@ -53,7 +53,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict = new Dictionary<string, Sprite>();
 
             // NEED to Update data for sprites 
-            // Key = LinkItemState.ID + LinkDirectionState.ID
+            // Key = LinkWeaponState.ID + LinkDirectionState.ID
             SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
             SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
             SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
@@ -89,14 +89,15 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
             SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
 
-            // Add Item sprites 
+            // TODO: Add Item sprites 
 
-            // Add enemy sprites 
+            // TODO: Add enemy sprites 
 
-            // Add block sprites 
+            // TODO: Add block sprites 
         }
         public Sprite GetSpriteData(string key)
         {
+            // TODO: check if sprite not found 
             Sprite data = SpriteDict[key];
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row);
         }
@@ -122,16 +123,16 @@ namespace Project1.SpriteFactoryComponents
             return items;
         }
 
-        public ICurrentItem GetCurrentItem(string name, string direction, Vector2 position)
+        public ILinkItemState GetCurrentItem(string name, string direction, Vector2 position)
         {
-            ICurrentItem item;
+            ILinkItemState item;
             switch (name)
             {
                 case "Arrow":
-                    item = new Arrow(direction, position);
+                    item = new LinkStateArrow(direction, position);
                     break;
                 default:
-                    item = new NoItem();
+                    item = new LinkStateNoItem();
                     break;
             }
             return item;

@@ -10,38 +10,36 @@ namespace Project1.LinkComponents
     class Link : ILink
     {
         public ILinkDirectionState LinkDirectionState { get; set; }
-        public ILinkItemState LinkItemState { get; set; }       // can have weapon and item? need make new item 
-        public ILinkItemState LinkWeaponState { get; set; }
+        //public ILinkItemState LinkItemState { get; set; }      
+        public ILinkWeaponState LinkWeaponState { get; set; } 
         //public string CurrentItem { get; set; }
-        //public CurrentItem Item { get; set; }
+        public ILinkItemState LinkItemState { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
-        public Sprite ItemSprite { get; set; }
 
-        private Vector2 position = new Vector2(40, 40);
-        private Vector2 initialPositoin = new Vector2(40, 40); 
-        private int delay;          // belong in sprite draw 
+        private Vector2 Position = new Vector2(40, 40);
+        private Vector2 InitialPositoin = new Vector2(40, 40); 
+        private int Delay;          // belong in sprite draw 
         private int Step = 4;   
         //public string Weapon { get; set; }
-        private bool lockFrame;     // belong in sprite draw 
-        private int restart = 6;    // belong in sprite draw 
+        private bool LockFrame;     // belong in sprite draw 
+        private int Restart = 6;    // belong in sprite draw 
 
         public Link()
         {
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
-            LinkItemState = new LinkStateNoItem(this);      // default item state is no item
-            LinkWeaponState = new LinkStateNoItem(this);    // default weapon state is no item
+            LinkItemState = new LinkStateNoItem();      // default item state is no item
+            LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
-            delay = 0;
+            Delay = 0;
             //Weapon = "WoodenSword";
-            //Item = new CurrentItem();
         }
         public void MoveDown()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                position.Y += Step;
+                Position.Y += Step;
 
                 if (!LinkDirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
@@ -53,9 +51,9 @@ namespace Project1.LinkComponents
 
         public void MoveLeft()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                position.X -= Step;
+                Position.X -= Step;
 
                 if (!LinkDirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
@@ -67,9 +65,9 @@ namespace Project1.LinkComponents
 
         public void MoveRight()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                position.X += Step;
+                Position.X += Step;
 
                 if (!LinkDirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
@@ -81,9 +79,9 @@ namespace Project1.LinkComponents
 
         public void MoveUp()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                position.Y -= Step;
+                Position.Y -= Step;
 
                 if (!LinkDirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
                 {
@@ -95,15 +93,15 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
-            if (!lockFrame)
+            if (!LockFrame)
                 LinkSprite.TotalFrames = 1;
         }
 
         public void Attack()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                lockFrame = true;
+                LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this); 
                 //Sprite = SpriteFactory.Instance.GetSpriteData(Weapon + LinkDirectionState.ID);
             }
@@ -116,19 +114,19 @@ namespace Project1.LinkComponents
 
         public void UseItem()
         {
-            if (!lockFrame)
+            if (!LockFrame)
             {
-                lockFrame = true;
+                LockFrame = true;
                 //Sprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID);
                 //Item.Sprite = SpriteFactory.Instance.GetSpriteData(CurrentItem + LinkDirectionState.ID);
                 //Item.Position = position;
                 //Item.direction = LinkDirectionState.ID;
-                restart = 36;
+                Restart = 36;
             }
         }
         public void UseNoItem()
         {
-            LinkWeaponState.UseNoItem();
+            LinkItemState = new LinkStateNoItem();
         }
         public void UseMagicalRod()
         {
@@ -153,34 +151,36 @@ namespace Project1.LinkComponents
 
         public void UseArrow()
         {
-            // load arrow sprite 
-            
+            LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
         }
 
         public void UseBomb()
         {
-            // load bomb sprite 
+            LinkItemState = new LinkStateBomb(LinkDirectionState.ID, Position);
         }
 
         public void UseFire()
         {
-            // load fire sprite 
+            LinkItemState = new LinkStateFire(LinkDirectionState.ID, Position);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            LinkSprite.Draw(spriteBatch, position, 125);        // NOT hardcode 125 
+            LinkSprite.Draw(spriteBatch, Position, 125);        // NOT hardcode 125 
+            LinkItemState.Draw(spriteBatch, 80);                // MOVE size from method to class  
             //ItemSprite.Draw(spriteBatch, 80);               
         }
 
         public void Update()
         {
             //Item.Update();
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkItemState.ID + LinkDirectionState.ID);
+            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
+            LinkSprite.Update(); 
+            LinkItemState.Update(); 
             // get item sprite 
 
-            delay++;
-            if (delay > restart)
+            Delay++;
+            if (Delay > Restart)
             {
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
@@ -188,30 +188,29 @@ namespace Project1.LinkComponents
                 }
                 else
                 {
-                    if (lockFrame)
+                    if (LockFrame)
                     {
-                        lockFrame = false;
-                        //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
-                        LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkItemState.ID + LinkDirectionState.ID); 
+                        LockFrame = false;
+                        // Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                        LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID); 
                     }
                     LinkSprite.CurrentFrame = 1;
                 }
-                delay = 0;      // belong in sprite 
-                restart = 6;    // belong in sprite 
+                Delay = 0;      // belong in sprite 
+                Restart = 6;    // belong in sprite 
             }  
         }
         public void Reset()
         {
-            position = initialPositoin;
-            LinkDirectionState = new LinkStateUp(this);     // default state is up 
-            LinkItemState = new LinkStateNoItem(this);      // default item state is no item
-            LinkWeaponState = new LinkStateNoItem(this);    // default weapon state is no item
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkItemState.ID + LinkDirectionState.ID);
-            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
+            Position = InitialPositoin;
+            LinkDirectionState = new LinkStateUp(this);             // default state is up 
+            LinkItemState = new LinkStateNoItem();                  // default item state is no item
+            LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
+            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
+            Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             
-            delay = 0;                 
-            //Weapon = "WoodenSword";
-            lockFrame = false;
+            Delay = 0;                 
+            LockFrame = false;
         }
     }
 }

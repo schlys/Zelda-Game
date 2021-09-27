@@ -7,7 +7,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateDamage : ILinkItemState
+    class LinkStateDamage : ILinkWeaponState
     {
         public ILink Link { get; set; }
         public Boolean IsAttaking { get; set; }

@@ -7,7 +7,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateMagicalSheild : ILinkItemState
+    class LinkStateMagicalSheild : ILinkWeaponState
     {
         public ILink Link { get; set; }
         public Boolean IsAttaking { get; set; }
@@ -25,31 +25,27 @@ namespace Project1.LinkComponents
 
         public void TakeDamage()
         {
-            Link.LinkItemState = new LinkStateDamage(Link);
-        }
-        public void UseNoItem()
-        {
-            // Link.LinkItemState = new LinkNoItem(Link);
+            Link.LinkWeaponState = new LinkStateDamage(Link);
         }
         public void UseMagicalRod()
         {
-            Link.LinkItemState = new LinkStateMagicalRod(Link);
+            Link.LinkWeaponState = new LinkStateMagicalRod(Link);
         }
         public void UseMagicalSheild()
         {
-            Link.LinkItemState = new LinkStateMagicalSheild(Link); 
+            Link.LinkWeaponState = new LinkStateMagicalSheild(Link); 
         }
         public void UseMagicalSword()
         {
-            Link.LinkItemState = new LinkStateMagicalSword(Link);
+            Link.LinkWeaponState = new LinkStateMagicalSword(Link);
         }
         public void UseWhiteSword()
         {
-            Link.LinkItemState = new LinkStateWhiteSword(Link);
+            Link.LinkWeaponState = new LinkStateWhiteSword(Link);
         }
         public void UseWoodenSword()
         {
-            Link.LinkItemState = new LinkStateWoodenSword(Link);
+            Link.LinkWeaponState = new LinkStateWoodenSword(Link);
         }
     }
 }

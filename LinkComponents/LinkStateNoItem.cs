@@ -1,58 +1,29 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework.Graphics;
+using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.SpriteFactoryComponents;
-
 
 namespace Project1.LinkComponents
 {
     class LinkStateNoItem : ILinkItemState
     {
-        public ILink Link { get; set; }
-        public Boolean IsAttaking { get; set; }
-        public string ID { get; set; }
-        public LinkStateNoItem(ILink link)
-        {
-            Link = link;
-            IsAttaking = false;
-            ID = "";
-        }
+        public Sprite Sprite { get; set; }
+        public string Direction { get; set; }
+        public bool isUsing { get; set; }
 
-        public void Attack()
-        {
-        }
-
-        public void TakeDamage()
-        {
-            Link.LinkItemState = new LinkStateDamage(Link);
-        }
-
-        public void UseNoItem()
+        public LinkStateNoItem()
         {
 
         }
-        public void UseMagicalRod()
+        public void Draw(SpriteBatch spriteBatch, int size)
         {
-            Link.LinkItemState = new LinkStateMagicalRod(Link);
+            
         }
-        public void UseMagicalSheild()
-        {
-            Link.LinkItemState = new LinkStateMagicalSheild(Link);
 
-        }
-        public void UseMagicalSword()
+        public void Update()
         {
-            Link.LinkItemState = new LinkStateMagicalSword(Link);
-
-        }
-        public void UseWhiteSword()
-        {
-            Link.LinkItemState = new LinkStateWhiteSword(Link);
-        }
-        public void UseWoodenSword()
-        {
-            Link.LinkItemState = new LinkStateWoodenSword(Link);
+            
         }
     }
 }
