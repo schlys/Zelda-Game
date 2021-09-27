@@ -88,7 +88,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Game.Link.Weapon = "WoodenSword";
+            //Game.Link.LinkItemState = new LinkStateWoodenSword();
             Game.Link.Attack();
         }
 
@@ -105,7 +105,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            if (index < Game.Items.Length)
+            /*if (index < Game.Items.Length)
             {
                 Game.Link.CurrentItem = Game.Items[index];
             }
@@ -113,7 +113,7 @@ namespace Project1.Command
             {
                 Game.Link.CurrentItem = "";
             }
-            Game.Link.UseItem();
+            Game.Link.UseItem();*/
         }
     }
     public class LinkUseNoItemCmd : ICommand
@@ -126,7 +126,7 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseItem();
+                Game.Link.UseNoItem();
             }
         }
     public class LinkUseWoodenSwordCmd : ICommand
@@ -153,7 +153,7 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseItem();
+                Game.Link.UseMagicalRod();
             }
         }
 
@@ -167,24 +167,25 @@ namespace Project1.Command
             }
             public void Execute()
             {
-                Game.Link.UseItem();
+                Game.Link.UseMagicalSheild();
             }
         }
 
     public class LinkUseMagicalSwordCmd : ICommand
-        {
-            public Game1 Game { get; set; }
+    {
+        public Game1 Game { get; set; }
 
-            public LinkUseMagicalSwordCmd(Game1 game)
-            {
-                Game = game;
-            }
-            public void Execute()
-            {
-                Game.Link.Weapon = "MagicalSword";
-                Game.Link.Attack();
-            }
+        public LinkUseMagicalSwordCmd(Game1 game)
+        {
+            Game = game;
         }
+        public void Execute()
+        {
+            //Game.Link.Weapon = "MagicalSword";
+            //Game.Link.Attack();
+            Game.Link.UseMagicalSword(); 
+        }
+    }
 
     public class LinkUseWhiteSwordCmd : ICommand
         {
@@ -199,6 +200,48 @@ namespace Project1.Command
                 Game.Link.UseWhiteSword();
             }
         }
+
+    public class LinkUseArrowCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseArrowCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseArrow();
+        }
+    }
+
+    public class LinkUseFireCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseFireCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseFire();
+        }
+    }
+
+    public class LinkUseBombCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseBombCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseBomb();
+        }
+    }
 
     public class LinkTakeDamageCmd : ICommand
     {

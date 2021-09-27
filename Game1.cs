@@ -39,11 +39,13 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
             SpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link();
             Block = new Block(this);
             Item = new Item(this);
             Enemy = new Enemy(this);
+            
             // Register keyboard commands 
             // Requirement - Arrow and "wasd" keys should move Link and change his facing direction.
             KeyboardController.RegisterCommand(new LinkMoveUpCmd(this), Keys.W);
@@ -69,20 +71,38 @@ namespace Project1
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.NumPad0);
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.D0);
 
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.NumPad1);
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.D1);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.NumPad1);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 1), Keys.D1);
 
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.NumPad2);
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.D2);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.NumPad2);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 2), Keys.D2);
 
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.NumPad3);
-            KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.D3);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.NumPad3);
+            //KeyboardController.RegisterCommand(new LinkUseItemCmd(this, 3), Keys.D3);
 
-            KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.NumPad4);
-            KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.D4);
+            KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.NumPad1);
+            KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.D1);
 
-            KeyboardController.RegisterCommand(new LinkUseWhiteSwordCmd(this), Keys.NumPad5);
-            KeyboardController.RegisterCommand(new LinkUseWhiteSwordCmd(this), Keys.D5);
+            KeyboardController.RegisterCommand(new LinkUseMagicalSheildCmd(this), Keys.NumPad2);
+            KeyboardController.RegisterCommand(new LinkUseMagicalSheildCmd(this), Keys.D2);
+
+            KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.NumPad3);
+            KeyboardController.RegisterCommand(new LinkUseMagicalSwordCmd(this), Keys.D3);
+
+            KeyboardController.RegisterCommand(new LinkUseWhiteSwordCmd(this), Keys.NumPad4);
+            KeyboardController.RegisterCommand(new LinkUseWhiteSwordCmd(this), Keys.D4);
+
+            KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.NumPad5);
+            KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.D5);
+
+            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.NumPad6);
+            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.D6);
+
+            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.NumPad7);
+            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.D7);
+
+            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.NumPad8);
+            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.D8);
 
             /* Requirement - Use 'q' to quit 
              * and 'r' to reset the program back to its initial state.

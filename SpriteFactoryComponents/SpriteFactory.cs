@@ -23,7 +23,7 @@ namespace Project1.SpriteFactoryComponents
         }
         private SpriteFactory() { }
         
-        private static Dictionary<string, Sprite> sheetMappings;
+        private static Dictionary<string, Sprite> SpriteDict;
         private static Texture2D directions;
         private static Texture2D blocks;
         private static Texture2D items;
@@ -50,54 +50,61 @@ namespace Project1.SpriteFactoryComponents
 
         private static void CreateDict()
         {
-            sheetMappings = new Dictionary<string, Sprite>();
+            SpriteDict = new Dictionary<string, Sprite>();
 
             // NEED to Update data for sprites 
-            sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            // Key = LinkItemState.ID + LinkDirectionState.ID
+            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
             //sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
             //sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
             //sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
             //sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
 
-            sheetMappings.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            sheetMappings.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            sheetMappings.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            sheetMappings.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            sheetMappings.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            sheetMappings.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            sheetMappings.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
 
-            sheetMappings.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
-            sheetMappings.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));
-            sheetMappings.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));
-            sheetMappings.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14));
+            SpriteDict.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
+            SpriteDict.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));
+            SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));
+            SpriteDict.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14));
 
-            sheetMappings.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
-            sheetMappings.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
+
+            // Add Item sprites 
+
+            // Add enemy sprites 
+
+            // Add block sprites 
         }
         public Sprite GetSpriteData(string key)
         {
-            Sprite data = sheetMappings[key];
+            Sprite data = SpriteDict[key];
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row);
         }
 
         public void GetSpriteData(IEnemy Enemy, IEnemyDirectionState Direction)
         {
             string key = "Moblin" + Direction.ID;
-            Sprite data = sheetMappings[key];
+            Sprite data = SpriteDict[key];
 
             Enemy.Texture = data.Texture;
             Enemy.TotalFrames = data.TotalFrames;

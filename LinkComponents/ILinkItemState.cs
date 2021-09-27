@@ -16,6 +16,6 @@ namespace Project1.LinkComponents
         void UseMagicalSheild();
         void UseMagicalSword();
         void UseWhiteSword();
-        void UseWoodenSword();
+        void UseWoodenSword(); 
     }
 }

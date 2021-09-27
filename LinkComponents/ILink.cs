@@ -14,8 +14,8 @@ namespace Project1.LinkComponents
         ILinkItemState LinkItemState { get; set; }
         Sprite Sprite { get; set; }
         public LinkHealth Health { get; set; }
-        public string Weapon { get; set; }
-        public string CurrentItem { get; set; }
+        //public string Weapon { get; set; }
+        //public string CurrentItem { get; set; }
 
         void MoveUp();
         void MoveDown();
@@ -31,6 +31,9 @@ namespace Project1.LinkComponents
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
+        void UseArrow();
+        void UseBomb();
+        void UseFire();
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);
