@@ -19,9 +19,9 @@ namespace Project1.LinkComponents
 
         private Vector2 Position = new Vector2(40, 40);
         private Vector2 InitialPositoin = new Vector2(40, 40); 
+        
         private int Delay;          // belong in sprite draw 
         private int Step = 4;   
-        //public string Weapon { get; set; }
         private bool LockFrame;     // belong in sprite draw 
         private int Restart = 6;    // belong in sprite draw 
 
@@ -33,7 +33,6 @@ namespace Project1.LinkComponents
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
             Delay = 0;
-            //Weapon = "WoodenSword";
         }
         public void MoveDown()
         {
@@ -112,18 +111,6 @@ namespace Project1.LinkComponents
             Health.DecreaseHealth(0.5);             // need determine value to decrease by  
         }
 
-        public void UseItem()
-        {
-            if (!LockFrame)
-            {
-                LockFrame = true;
-                //Sprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID);
-                //Item.Sprite = SpriteFactory.Instance.GetSpriteData(CurrentItem + LinkDirectionState.ID);
-                //Item.Position = position;
-                //Item.direction = LinkDirectionState.ID;
-                Restart = 36;
-            }
-        }
         public void UseNoItem()
         {
             LinkItemState = new LinkStateNoItem();
@@ -173,11 +160,9 @@ namespace Project1.LinkComponents
 
         public void Update()
         {
-            //Item.Update();
             LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
             LinkSprite.Update(); 
             LinkItemState.Update(); 
-            // get item sprite 
 
             Delay++;
             if (Delay > Restart)

@@ -94,28 +94,6 @@ namespace Project1.Command
 
     }
 
-    public class LinkUseItemCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        private int index;
-        public LinkUseItemCmd(Game1 game, int index)
-        {
-            Game = game;
-            this.index = index;
-        }
-        public void Execute()
-        {
-            /*if (index < Game.Items.Length)
-            {
-                Game.Link.CurrentItem = Game.Items[index];
-            }
-            else
-            {
-                Game.Link.CurrentItem = "";
-            }
-            Game.Link.UseItem();*/
-        }
-    }
     public class LinkUseNoItemCmd : ICommand
         {
             public Game1 Game { get; set; }

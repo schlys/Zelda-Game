@@ -25,7 +25,6 @@ namespace Project1.LinkComponents
         void StopMoving();
         void Attack();
         void TakeDamage();
-        void UseItem();
         void UseNoItem();
         void UseMagicalRod();
         void UseMagicalSheild();

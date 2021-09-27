@@ -7,6 +7,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.LinkComponents
 {
+    // TODO: SHould not extend ILinkWeaponState. is a seperate class neccesary? 
     class LinkStateDamage : ILinkWeaponState
     {
         public ILink Link { get; set; }
