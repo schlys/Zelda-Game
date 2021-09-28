@@ -18,6 +18,8 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
+        public Vector2 position = new Vector2(600, 200);
+
         public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Angel");
 
         public ItemAngelState(IItem item)
@@ -27,7 +29,7 @@ namespace Project1.ItemComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
+            sprite.Draw(spriteBatch, position, 80);
         }
 
         public void Update()
@@ -35,6 +37,12 @@ namespace Project1.ItemComponents
             sprite.MaxDelay = 2;
             sprite.DelayRate = 0.1;
             sprite.Update();
+
+            position.X++;
+            if(position.X>800)
+            {
+                position.X = 600;
+            }
         }
     }
 }

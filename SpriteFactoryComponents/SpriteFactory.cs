@@ -92,7 +92,7 @@ namespace Project1.SpriteFactoryComponents
 
             // TODO: Add Item sprites 
             SpriteDict.Add("Angel", new Sprite(items, 2, 1, 0, 2, 40, 40, 2, 0.1, 40));
-            SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 5, 40, 40, 5, 0.1, 40));
+            SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 5, 40, 40, 5, 0.5, 40));
             SpriteDict.Add("Jewelry", new Sprite(items, 2, 1, 1, 2, 40, 40, 2, 0.1, 40));
             SpriteDict.Add("LifePotion", new Sprite(items, 4, 3, 1, 2, 40, 40, 2, 0.1, 40));
             SpriteDict.Add("Book", new Sprite(items, 6, 5, 1, 2, 40, 40, 2, 0.1, 40));

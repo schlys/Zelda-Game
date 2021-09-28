@@ -33,7 +33,7 @@ namespace Project1.ItemComponents
         public void Update()
         { 
             sprite.MaxDelay = 5;
-            sprite.DelayRate = 0.1;
+            sprite.DelayRate = 0.5;
             sprite.Update();
         }
     }
