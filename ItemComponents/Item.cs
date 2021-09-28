@@ -7,7 +7,7 @@ namespace Project1.ItemComponents
 {
     class Item : IItem
     {
-        public IItemState ItemState { get; set; }
+        public IEnemyState ItemState { get; set; }
         //public Texture2D Texture { get; set; }
         //public Sprite ItemSprite { get; set; }
         public string ID { get; set; }

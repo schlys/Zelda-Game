@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.Content.EnemyComponents;
+using Project1.EnemyComponents;
 
 namespace Project1.EnemyComponents
 {

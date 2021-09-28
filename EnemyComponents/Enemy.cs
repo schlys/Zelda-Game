@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.SpriteComponents;
-using Project1.Content.EnemyComponents;
+using Project1.EnemyComponents;
 
 namespace Project1.EnemyComponents
 {
@@ -92,6 +91,7 @@ namespace Project1.EnemyComponents
             throw new NotImplementedException();
         }
 
+        // NOTE: not need to have enemies take damage 
         public void TakeDamage()
         {
             Health.DecreaseHealth(0.5);             // need determine value to decrease by  

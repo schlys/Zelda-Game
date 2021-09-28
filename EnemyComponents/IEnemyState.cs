@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.SpriteFactoryComponents;
+using Project1.EnemyComponents; 
 
-namespace Project1.ItemComponents
+namespace Project1.EnemyComponents
 {
     public interface IEnemyState
     {
-        IItem Item { get; set; }
-        Texture2D Texture { get; set; }     //change to ISprite later 
+        IEnemy Enemy { get; set; }
+        Sprite EnemySprite { get; set; }     //change to ISprite later 
         Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
         void Draw(SpriteBatch spriteBatch);

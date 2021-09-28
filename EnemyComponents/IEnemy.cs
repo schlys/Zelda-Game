@@ -6,7 +6,7 @@ using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.EnemyComponents;
 
-namespace Project1.Content.EnemyComponents
+namespace Project1.EnemyComponents
 {
     public interface IEnemy
     {

@@ -5,7 +5,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemRingState : IItemState
+    class ItemRingState : IEnemyState
     {
         public IItem Item { get; set; }
         public Texture2D Texture { get; set; }     //change to ISprite later 
@@ -18,7 +18,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Ring");
+        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Ring");
 
         public ItemRingState(IItem item)
         {

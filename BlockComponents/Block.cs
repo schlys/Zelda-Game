@@ -2,8 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
-using Project1.SpriteComponents;
-
 
 namespace Project1.BlockComponents
 {

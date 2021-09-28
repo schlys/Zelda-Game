@@ -1,4 +1,4 @@
-﻿using Project1.Content.EnemyComponents;
+﻿using Project1.EnemyComponents;
 using Project1.ItemComponents;
 
 namespace Project1.Command

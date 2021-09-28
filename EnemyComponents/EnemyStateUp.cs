@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
-using Project1.Content.EnemyComponents;
+using Project1.EnemyComponents;
 
 namespace Project1.EnemyComponents
 {

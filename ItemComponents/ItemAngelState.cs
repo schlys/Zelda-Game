@@ -2,11 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
-using Project1.SpriteComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemAngelState : IItemState
+    class ItemAngelState : IEnemyState
     {
         public IItem Item { get; set; }
         public Texture2D Texture { get; set; }     //change to ISprite later 
@@ -20,7 +19,7 @@ namespace Project1.ItemComponents
 
         public Vector2 position = new Vector2(600, 200);
 
-        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Angel");
+        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Angel");
 
         public ItemAngelState(IItem item)
         {

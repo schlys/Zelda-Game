@@ -9,7 +9,7 @@ namespace Project1.ItemComponents
     public interface IItem
     {
         //IItemSprites ItemSprites { get; set; }
-        IItemState ItemState { get; set; }
+        IEnemyState ItemState { get; set; }
         string ID { get; set; }
         void Draw(SpriteBatch spriteBatch);
         void Update();

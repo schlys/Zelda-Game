@@ -7,7 +7,6 @@ using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.SpriteFactoryComponents;
-using Project1.Content.EnemyComponents;
 using Project1.EnemyComponents;
 
 namespace Project1

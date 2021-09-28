@@ -11,7 +11,7 @@ namespace Project1.BlockComponents
     {
         public IBlock IBlock { get; set; }
 
-        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Base");
+        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Base");
 
         public BlockBaseState(IBlock block)
         {

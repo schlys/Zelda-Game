@@ -2,11 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
-using Project1.SpriteComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemJewelryState : IItemState
+    class ItemJewelryState : IEnemyState
     {
         public IItem Item { get; set; }
         public Texture2D Texture { get; set; }     //change to ISprite later 
@@ -18,7 +17,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Jewelry");
+        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Jewelry");
 
         public ItemJewelryState(IItem item)
         {

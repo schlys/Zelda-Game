@@ -5,7 +5,7 @@ using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Project1.SpriteComponents
+namespace Project1.SpriteFactoryComponents
 {
     public class Sprite
     {
