@@ -30,6 +30,7 @@ namespace Project1.SpriteFactoryComponents
         private double delay; //delay for animation
         public double count=0.0; //delay for block/item switching
         private int StartFrame;
+        private int startDelay;
         
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int w, int h, int maxDelay, double delayRate, int s)
         {
@@ -44,6 +45,7 @@ namespace Project1.SpriteFactoryComponents
             MaxDelay = maxDelay;
             DelayRate = delayRate;
             OriginalSize = s;
+            startDelay = maxDelay;
         }
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
@@ -55,8 +57,9 @@ namespace Project1.SpriteFactoryComponents
             Row = row;
             OriginalSize = s;
             // TODO: make global variable and remove these from first constructor 
-            MaxDelay = 2;           // default value 
-            DelayRate = 0.2;        // default value 
+            MaxDelay = 6;           // default value 
+            DelayRate = 1;        // default value 
+            startDelay = MaxDelay;
         }
 
         // TODO: make size property given at instantiation - remove from all draw calls 
@@ -71,7 +74,8 @@ namespace Project1.SpriteFactoryComponents
         
         public void Update()
         {
-            delay+=DelayRate;
+            //delay+=DelayRate;
+            delay++;
             if (delay > MaxDelay)
             {
                 if (CurrentFrame < TotalFrames)
@@ -83,6 +87,7 @@ namespace Project1.SpriteFactoryComponents
                     CurrentFrame=StartFrame;
                 }
                 delay = 0;
+                MaxDelay = startDelay;
             }
         }
 

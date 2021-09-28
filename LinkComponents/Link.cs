@@ -102,7 +102,7 @@ namespace Project1.LinkComponents
             {
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this); 
-                //Sprite = SpriteFactory.Instance.GetSpriteData(Weapon + LinkDirectionState.ID);
+                LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
             }
         }
 
@@ -139,7 +139,8 @@ namespace Project1.LinkComponents
 
         public void UseArrow()
         {
-            LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
+            if (!LinkItemState.isUsing)
+                LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
         }
 
         public void UseBomb()
@@ -149,7 +150,8 @@ namespace Project1.LinkComponents
 
         public void UseFire()
         {
-            LinkItemState = new LinkStateFire(LinkDirectionState.ID, Position);
+            if (!LinkItemState.isUsing)
+                LinkItemState = new LinkStateFire(LinkDirectionState.ID, Position);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -186,6 +188,14 @@ namespace Project1.LinkComponents
                 Delay = 0;      // belong in sprite 
                 Restart = 6;    // belong in sprite 
             }  */
+            if (LinkSprite.CurrentFrame == LinkSprite.TotalFrames)
+            {
+                if (LockFrame)
+                {
+                    LockFrame = false;
+                    LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                }
+            }
         }
         public void Reset()
         {

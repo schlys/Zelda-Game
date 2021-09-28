@@ -19,7 +19,7 @@ namespace Project1.LinkComponents
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Fire" + Direction);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
             counter = 0;
             isUsing = true;
         }
@@ -40,22 +40,22 @@ namespace Project1.LinkComponents
         {
             if (Sprite != null)
             {
-                
-                    switch (Direction)
-                    {
-                        case "Up":
-                            Position.Y -= speed;
-                            break;
-                        case "Down":
-                            Position.Y += speed;
-                            break;
-                        case "Right":
-                            Position.X += speed;
-                            break;
-                        default:
-                            Position.X -= speed;
-                            break;
-                    }
+                Sprite.Update();
+                switch (Direction)
+                {
+                    case "Up":
+                        Position.Y -= speed;
+                        break;
+                    case "Down":
+                        Position.Y += speed;
+                        break;
+                    case "Right":
+                        Position.X += speed;
+                        break;
+                    default:
+                        Position.X -= speed;
+                        break;
+                }
                 
             }
         }
