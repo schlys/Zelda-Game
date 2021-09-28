@@ -54,30 +54,30 @@ namespace Project1.SpriteFactoryComponents
 
             // NEED to Update data for sprites 
             // Key = LinkWeaponState.ID + LinkDirectionState.ID
-            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 0,  40, 40, 6, 1.0));
 
             //sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
             //sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
             //sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
             //sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
 
-            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 40, 40, 6, 1.0));
 
-            SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0,  40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 40, 40, 6, 1.0));
 
-            SpriteDict.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 0, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 0, 80, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 0, 120, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 40, 40, 6, 1.0));
 
             // Key = ItemName + Direction 
             SpriteDict.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
@@ -85,10 +85,10 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));
             SpriteDict.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14));
 
-            SpriteDict.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1, 40, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1,40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 6, 1.0));
 
             // TODO: Add Item sprites 
 

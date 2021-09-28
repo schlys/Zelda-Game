@@ -31,7 +31,7 @@ namespace Project1.SpriteComponents
         public double count=0.0; //delay for block/item switching
         private int StartFrame;
         
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int x, int y, int w, int h, int maxDelay, double delayRate)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int w, int h, int maxDelay, double delayRate)
         {
             Texture = texture;
             TotalFrames = totalFrames;
@@ -39,8 +39,6 @@ namespace Project1.SpriteComponents
             StartFrame = currentFrame;
             Row = row;
             Col = col;
-            XPos = x;
-            YPos = y;
             Width = w;
             Height = h;
             MaxDelay = maxDelay;
