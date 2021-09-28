@@ -131,10 +131,10 @@ namespace Project1.SpriteFactoryComponents
             string key = "Moblin" + Direction.ID;
             Sprite data = SpriteDict[key];
 
-            Enemy.Texture = data.Texture;
-            Enemy.TotalFrames = data.TotalFrames;
-            Enemy.CurrentFrame = data.CurrentFrame;
-            Enemy.Row = data.Row;
+            //Enemy.Texture = data.Texture;
+            //Enemy.TotalFrames = data.TotalFrames;
+            //Enemy.CurrentFrame = data.CurrentFrame;
+            //Enemy.Row = data.Row;
         }
 
         public Texture2D BlockSpriteSheet()

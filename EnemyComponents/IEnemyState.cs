@@ -11,7 +11,7 @@ namespace Project1.EnemyComponents
     public interface IEnemyState
     {
         IEnemy Enemy { get; set; }
-        Sprite EnemySprite { get; set; }     //change to ISprite later 
+        Sprite Sprite { get; set; }     //change to ISprite later 
         Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
         void Draw(SpriteBatch spriteBatch);

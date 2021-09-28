@@ -11,11 +11,13 @@ namespace Project1.EnemyComponents
     public interface IEnemy
     {
         IEnemyDirectionState EnemyDirectionState { get; set; }
-        public EnemyHealth Health { get; set; }
-        int Row { get; set; }
-        int TotalFrames { get; set; }
-        int CurrentFrame { get; set; }
-        Texture2D Texture { get; set; }
+        IEnemyState EnemyState { get; set; }
+        EnemyHealth Health { get; set; }
+        Vector2 Position { get; set; }
+        //int Row { get; set; }
+        //int TotalFrames { get; set; }
+        //int CurrentFrame { get; set; }
+        //Texture2D Texture { get; set; }
 
         void MoveUp();
         void MoveDown();
@@ -26,8 +28,8 @@ namespace Project1.EnemyComponents
         void TakeDamage();
         void PreviousEnemy();
         void NextEnemy();
-        void Reset();
-        void Update();
         void Draw(SpriteBatch spriteBatch);
+        void Update();
+        void Reset();
     }
 }
