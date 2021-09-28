@@ -91,6 +91,20 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 6, 1.0));
 
             // TODO: Add Item sprites 
+            SpriteDict.Add("Angel", new Sprite(items, 2, 1, 0, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 5, 40, 40, 5, 0.1));
+            SpriteDict.Add("Jewelry", new Sprite(items, 2, 1, 1, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("LifePotion", new Sprite(items, 4, 3, 1, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Book", new Sprite(items, 6, 5, 1, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Food", new Sprite(items, 8, 7, 1, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Triangle", new Sprite(items, 2, 1, 2, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Sword", new Sprite(items, 5, 3, 2, 3, 40, 40, 3, 0.1));
+            SpriteDict.Add("Boomerang", new Sprite(items, 8, 7, 2, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Bomb", new Sprite(items, 1, 1, 3, 1, 40, 40, 1, 0.1));
+            SpriteDict.Add("Arrow", new Sprite(items, 4, 2, 3, 3, 40, 40, 3, 0.1));
+            SpriteDict.Add("Candle", new Sprite(items, 6, 5, 3, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Ring", new Sprite(items, 8, 7, 3, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Key", new Sprite(items, 8, 7, 4, 2, 40, 40, 2, 0.1));
 
             // TODO: Add enemy sprites 
 

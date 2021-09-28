@@ -20,10 +20,6 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public Item1 item1 = new Item1();
-        public Item2 item2 = new Item2();
-        public Item3 item3 = new Item3();
-
         public Item(Game1 game)
         {
             Game = game;
@@ -39,17 +35,53 @@ namespace Project1.ItemComponents
                     ItemState = new ItemAngelState(this);
                     break;
                 case 2:
-                    ItemState = new ItemSwordState(this);
+                    ItemState = new ItemHeartState(this);
                     break;
                 case 3:
+                    ItemState = new ItemJewelryState(this);
+                    break;
+                case 4:
+                    ItemState = new ItemLifePotionState(this);
+                    break;
+                case 5:
+                    ItemState = new ItemBookState(this);
+                    break;
+                case 6:
+                    ItemState = new ItemFoodState(this);
+                    break;
+                case 7:
+                    ItemState = new ItemTriangleState(this);
+                    break;
+                case 8:
+                    ItemState = new ItemSwordState(this);
+                    break;
+                case 9:
+                    ItemState = new ItemBoomerangState(this);
+                    break;
+                case 10:
+                    ItemState = new ItemBombState(this);
+                    break;
+                case 11:
+                    ItemState = new ItemArrowState(this);
+                    break;
+                case 12:
                     ItemState = new ItemCandleState(this);
+                    break;
+                case 13:
+                    ItemState = new ItemRingState(this);
+                    break;
+                case 14:
+                    ItemState = new ItemKeyState(this);
+                    break;
+                default:
+                    ItemState = new ItemAngelState(this);
                     break;
             }
 
             counter -= 0.1;
             if (counter < 1)
             {
-                counter = 4;
+                counter = 15;
             }
 
             /*
@@ -151,15 +183,51 @@ namespace Project1.ItemComponents
                     ItemState = new ItemAngelState(this);
                     break;
                 case 2:
-                    ItemState = new ItemSwordState(this);
+                    ItemState = new ItemHeartState(this);
                     break;
                 case 3:
+                    ItemState = new ItemJewelryState(this);
+                    break;
+                case 4:
+                    ItemState = new ItemLifePotionState(this);
+                    break;
+                case 5:
+                    ItemState = new ItemBookState(this);
+                    break;
+                case 6:
+                    ItemState = new ItemFoodState(this);
+                    break;
+                case 7:
+                    ItemState = new ItemTriangleState(this);
+                    break;
+                case 8:
+                    ItemState = new ItemSwordState(this);
+                    break;
+                case 9:
+                    ItemState = new ItemBoomerangState(this);
+                    break;
+                case 10:
+                    ItemState = new ItemBombState(this);
+                    break;
+                case 11:
+                    ItemState = new ItemArrowState(this);
+                    break;
+                case 12:
                     ItemState = new ItemCandleState(this);
+                    break;
+                case 13:
+                    ItemState = new ItemRingState(this);
+                    break;
+                case 14:
+                    ItemState = new ItemKeyState(this);
+                    break;
+                default:
+                    ItemState = new ItemAngelState(this);
                     break;
             }
 
             counter += 0.1;
-            if (counter > 4)
+            if (counter > 15)
             {
                 counter = 1;
             }

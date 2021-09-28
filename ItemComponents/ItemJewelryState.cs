@@ -2,36 +2,44 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemMagicalSwordState : IItemState
+    class ItemJewelryState : IItemState
     {
         public IItem Item { get; set; }
         public Texture2D Texture { get; set; }     //change to ISprite later 
         public Rectangle SourceRectangle { get; set; }
         public string ID { get; set; }
-
-        private string[] ItemTypes = { "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod",
+        private string[] ItemTypes = { "Angel", "Sword", "WhiteSword", "MagicalSword", "MagicalRod",
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb",
             "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food",
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
-            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" }; 
+            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public ItemMagicalSwordState(IItem item)
+        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Jewelry");
+
+        public ItemJewelryState(IItem item)
         {
             Item = item;
-            Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            SourceRectangle = new Rectangle(0, 80, 40, 40);
-            ID = "WhiteSword";
+            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
+            ID = "Jewelry";
+            
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            //
+            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
+
         public void Update()
         {
             // animate sword 
+            sprite.MaxDelay = 2;
+            sprite.DelayRate = 0.1;
+            sprite.Update();
         }
     }
 }
+

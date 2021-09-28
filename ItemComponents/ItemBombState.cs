@@ -16,22 +16,23 @@ namespace Project1.ItemComponents
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb",
             "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food",
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
-            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" }; 
+            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
+
+        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Bomb");
 
         public ItemBombState(IItem item)
         {
             Item = item;
-            Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            SourceRectangle = new Rectangle(0, 400, 40, 40);
-            ID = "WhiteSword";
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //
+            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
         public void Update()
         {
-            // animate sword 
+            sprite.MaxDelay = 1;
+            sprite.DelayRate = 0.1;
+            sprite.Update();
         }
     }
 }

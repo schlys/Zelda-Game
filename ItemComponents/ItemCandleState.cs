@@ -18,7 +18,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public SpriteComponents.Sprite sprite = new SpriteComponents.Sprite(SpriteFactory.Instance.ItemSpriteSheet(), 6, 5, 3, 2, 40, 40, 2, 0.1);
+        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Candle");
 
         public ItemCandleState(IItem item)
         {
@@ -37,6 +37,7 @@ namespace Project1.ItemComponents
         {
             // animate sword 
             sprite.MaxDelay = 2;
+            sprite.DelayRate = 0.1;
             sprite.Update();
         }
 

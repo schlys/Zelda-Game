@@ -49,6 +49,7 @@ namespace Project1.SpriteComponents
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
+            StartFrame = currentFrame;
             Row = row;
         }
 

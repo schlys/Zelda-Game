@@ -5,7 +5,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemMagicalKeyState : IItemState
+    class ItemHeartState : IItemState
     {
         public IItem Item { get; set; }
         public Texture2D Texture { get; set; }     //change to ISprite later 
@@ -16,22 +16,29 @@ namespace Project1.ItemComponents
             "SmallSheild", "MagicalSheild", "Boomerang", "MagicalBoomerang", "Bomb",
             "Bow", "Arrow", "SilverArrow", "BlueCandle", "RedCandle", "Recorder", "Food",
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
-            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" }; 
+            "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public ItemMagicalKeyState(IItem item)
+        public SpriteComponents.Sprite sprite = SpriteFactory.Instance.GetSpriteData("Heart");
+
+        public ItemHeartState(IItem item)
         {
             Item = item;
-            Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            SourceRectangle = new Rectangle(0, 40, 40, 40);
-            ID = "WhiteSword";
+            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
+            ID = "Heart";
+
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            //
+            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
+
         public void Update()
         {
             // animate sword 
+            sprite.MaxDelay = 5;
+            sprite.DelayRate = 0.1;
+            sprite.Update();
         }
     }
 }
