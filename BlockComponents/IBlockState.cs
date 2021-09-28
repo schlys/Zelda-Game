@@ -6,12 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.BlockComponents
 {
-    public interface IBlock
+    public interface IBlockState
     {
-        IBlockState BlockState { get; set; }
-        void PreviousBlock();
-        void NextBlock();
-        void Reset();
+        IBlock IBlock { get; set; }
         void Draw(SpriteBatch spriteBatch);
     }
 }

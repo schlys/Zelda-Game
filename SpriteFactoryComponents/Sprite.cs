@@ -20,7 +20,7 @@ namespace Project1.SpriteComponents
         public int YPos { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
-        
+        public int OriginalSize { get; set; }
         public int Col { get; set; }
         public int MaxDelay { get; set; }
         public double DelayRate { get; set; }
@@ -31,7 +31,7 @@ namespace Project1.SpriteComponents
         public double count=0.0; //delay for block/item switching
         private int StartFrame;
         
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int w, int h, int maxDelay, double delayRate)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int w, int h, int maxDelay, double delayRate, int s)
         {
             Texture = texture;
             TotalFrames = totalFrames;
@@ -43,21 +43,23 @@ namespace Project1.SpriteComponents
             Height = h;
             MaxDelay = maxDelay;
             DelayRate = delayRate;
+            OriginalSize = s;
         }
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
             StartFrame = currentFrame;
             Row = row;
+            OriginalSize = s;
         }
 
         // TODO: make size property given at instantiation 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, int size)
         {
             //spriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
-            Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * 40, Row * 40, 40, 40);
+            Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * OriginalSize, Row * OriginalSize, OriginalSize, OriginalSize);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }

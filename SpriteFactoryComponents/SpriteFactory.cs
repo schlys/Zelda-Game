@@ -54,67 +54,77 @@ namespace Project1.SpriteFactoryComponents
 
             // NEED to Update data for sprites 
             // Key = LinkWeaponState.ID + LinkDirectionState.ID
-            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 0,  40, 40, 6, 1.0));
+            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 0,  40, 40, 6, 1.0, 40));
 
             //sheetMappings.Add("Up", new Sprite(directions, 2, 1, 2));
             //sheetMappings.Add("Down", new Sprite(directions, 2, 1, 0));
             //sheetMappings.Add("Right", new Sprite(directions, 2, 1, 1));
             //sheetMappings.Add("Left", new Sprite(directions, 2, 1, 3));
 
-            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 0, 40, 40, 6, 1.0, 40));
 
-            SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0,  40, 40, 6, 1.0));
-            SpriteDict.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MagicalSwordRight", new Sprite(magicalSword, 4, 1, 1, 0,  40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MagicalSwordLeft", new Sprite(magicalSword, 4, 1, 3, 0, 40, 40, 6, 1.0, 40));
 
-            SpriteDict.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 40, 40, 6, 1.0));
-            SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 40, 40, 6, 1.0));
+            SpriteDict.Add("UseItemUp", new Sprite(useItem, 1, 1, 2, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("UseItemDown", new Sprite(useItem, 1, 1, 0, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("UseItemRight", new Sprite(useItem, 1, 1, 1, 0, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("UseItemLeft", new Sprite(useItem, 1, 1, 3, 0, 40, 40, 6, 1.0, 40));
 
             // Key = ItemName + Direction 
-            SpriteDict.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14));
-            SpriteDict.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14));
-            SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14));
-            SpriteDict.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14));
+            SpriteDict.Add("ArrowUp", new Sprite(linkItems, 3, 3, 14, 40));
+            SpriteDict.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14, 40));
+            SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14, 40));
+            SpriteDict.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14, 40));
 
-            SpriteDict.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1,40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 6, 1.0));
-            SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 6, 1.0));
+            SpriteDict.Add("MoblinUp", new Sprite(moblin, 2, 1, 2, 1,40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MoblinDown", new Sprite(moblin, 2, 1, 0, 1, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 1, 40, 40, 6, 1.0, 40));
+            SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 1, 40, 40, 6, 1.0, 40));
 
             // TODO: Add Item sprites 
-            SpriteDict.Add("Angel", new Sprite(items, 2, 1, 0, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 5, 40, 40, 5, 0.1));
-            SpriteDict.Add("Jewelry", new Sprite(items, 2, 1, 1, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("LifePotion", new Sprite(items, 4, 3, 1, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Book", new Sprite(items, 6, 5, 1, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Food", new Sprite(items, 8, 7, 1, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Triangle", new Sprite(items, 2, 1, 2, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Sword", new Sprite(items, 5, 3, 2, 3, 40, 40, 3, 0.1));
-            SpriteDict.Add("Boomerang", new Sprite(items, 8, 7, 2, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Bomb", new Sprite(items, 1, 1, 3, 1, 40, 40, 1, 0.1));
-            SpriteDict.Add("Arrow", new Sprite(items, 4, 2, 3, 3, 40, 40, 3, 0.1));
-            SpriteDict.Add("Candle", new Sprite(items, 6, 5, 3, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Ring", new Sprite(items, 8, 7, 3, 2, 40, 40, 2, 0.1));
-            SpriteDict.Add("Key", new Sprite(items, 8, 7, 4, 2, 40, 40, 2, 0.1));
+            SpriteDict.Add("Angel", new Sprite(items, 2, 1, 0, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 5, 40, 40, 5, 0.1, 40));
+            SpriteDict.Add("Jewelry", new Sprite(items, 2, 1, 1, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("LifePotion", new Sprite(items, 4, 3, 1, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Book", new Sprite(items, 6, 5, 1, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Food", new Sprite(items, 8, 7, 1, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Triangle", new Sprite(items, 2, 1, 2, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Sword", new Sprite(items, 5, 3, 2, 3, 40, 40, 3, 0.1, 40));
+            SpriteDict.Add("Boomerang", new Sprite(items, 8, 7, 2, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Bomb", new Sprite(items, 1, 1, 3, 1, 40, 40, 1, 0.1, 40));
+            SpriteDict.Add("Arrow", new Sprite(items, 4, 2, 3, 3, 40, 40, 3, 0.1, 40));
+            SpriteDict.Add("Candle", new Sprite(items, 6, 5, 3, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Ring", new Sprite(items, 8, 7, 3, 2, 40, 40, 2, 0.1, 40));
+            SpriteDict.Add("Key", new Sprite(items, 8, 7, 4, 2, 40, 40, 2, 0.1, 40));
 
             // TODO: Add enemy sprites 
 
-            // TODO: Add block sprites 
+            // TODO: Add block sprites
+            SpriteDict.Add("Base", new Sprite(blocks, 1, 1, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Stripe", new Sprite(blocks, 2, 2, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Brick", new Sprite(blocks, 3, 3, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Stair", new Sprite(blocks, 4, 4, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Blue", new Sprite(blocks, 5, 5, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Dots", new Sprite(blocks, 6, 6, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Black", new Sprite(blocks, 7, 7, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Dragon", new Sprite(blocks, 8, 8, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Fish", new Sprite(blocks, 9, 9, 0, 1, 40, 40, 1, 1, 16));
+            SpriteDict.Add("Last", new Sprite(blocks, 10, 10, 0, 1, 40, 40, 1, 1, 16));
         }
         public Sprite GetSpriteData(string key)
         {
             // TODO: check if sprite not found 
             Sprite data = SpriteDict[key];
-            return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row);
+            return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize);
         }
 
         public void GetSpriteData(IEnemy Enemy, IEnemyDirectionState Direction)

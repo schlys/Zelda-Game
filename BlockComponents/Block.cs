@@ -9,57 +9,115 @@ namespace Project1.BlockComponents
 {
     class Block : IBlock
     {
-        public Texture2D Texture { get; set; }
+        public IBlockState BlockState { get; set; }
         private Game1 Game;
-        private double counter = 0.0;
-        public Sprite Sprite { get; set; }
+        private double counter = 1.0;
+        
         public Block(Game1 game)
         {
             Game = game;
-            Texture = SpriteFactory.Instance.BlockSpriteSheet();
+            BlockState = new BlockBaseState(this);
         }
 
         public void PreviousBlock()
         {
-            if (counter >= 0)
+            switch ((int)counter)
+            {
+                case 1:
+                    BlockState = new BlockBaseState(this);
+                    break;
+                case 2:
+                    BlockState = new BlockStripeState(this);
+                    break;
+                case 3:
+                    BlockState = new BlockBrickState(this);
+                    break;
+                case 4:
+                    BlockState = new BlockStairState(this);
+                    break;
+                case 5:
+                    BlockState = new BlockBlueState(this);
+                    break;
+                case 6:
+                    BlockState = new BlockDotsState(this);
+                    break;
+                case 7:
+                    BlockState = new BlockBlackState(this);
+                    break;
+                case 8:
+                    BlockState = new BlockDragonState(this);
+                    break;
+                case 9:
+                    BlockState = new BlockFishState(this);
+                    break;
+                case 10:
+                    BlockState = new BlockLastState(this);
+                    break;
+            }
+
+            if (counter >= 1)
             {
                 counter-=0.1;
             }
             else
             {
-                counter = 10;
+                counter = 11;
             }
         }
 
         public void NextBlock()
         {
-            if (counter <= 10)
+            switch ((int)counter)
+            {
+                case 1:
+                    BlockState = new BlockBaseState(this);
+                    break;
+                case 2:
+                    BlockState = new BlockStripeState(this);
+                    break;
+                case 3:
+                    BlockState = new BlockBrickState(this);
+                    break;
+                case 4:
+                    BlockState = new BlockStairState(this);
+                    break;
+                case 5:
+                    BlockState = new BlockBlueState(this);
+                    break;
+                case 6:
+                    BlockState = new BlockDotsState(this);
+                    break;
+                case 7:
+                    BlockState = new BlockBlackState(this);
+                    break;
+                case 8:
+                    BlockState = new BlockDragonState(this);
+                    break;
+                case 9:
+                    BlockState = new BlockFishState(this);
+                    break;
+                case 10:
+                    BlockState = new BlockLastState(this);
+                    break;
+            }
+            if (counter <= 11)
             {
                 counter+=0.1;
             }
             else
             {
-                counter = 0;
+                counter = 1;
             }
         }
 
         public void Reset()
         {
-            counter = 0.0;      // default first block in sheet 
+            BlockState = new BlockBaseState(this);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle((int)counter*16, 0, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(100, 100, 32, 32);
-            if (counter >= 0 && counter <= 10)
-            {
-                spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(Texture, destinationRectangle, new Rectangle(0, 0, 16, 16), Color.White);
-            }
+            BlockState.Draw(spriteBatch);
         }
     }
 }
