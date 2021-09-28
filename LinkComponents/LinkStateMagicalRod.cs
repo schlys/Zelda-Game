@@ -15,7 +15,8 @@ namespace Project1.LinkComponents
         public LinkStateMagicalRod(ILink link)
         {
             Link = link;
-            IsAttaking = false; 
+            IsAttaking = false;
+            ID = "MagicalRod"; 
         }
 
         public void Attack()

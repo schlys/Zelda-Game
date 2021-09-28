@@ -15,7 +15,8 @@ namespace Project1.LinkComponents
         public LinkStateWoodenSword(ILink link)
         {
             Link = link;
-            IsAttaking = false; 
+            IsAttaking = false;
+            ID = "WoodenSword"; 
         }
         public void Attack()
         {

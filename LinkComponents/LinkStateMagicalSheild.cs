@@ -15,7 +15,8 @@ namespace Project1.LinkComponents
         public LinkStateMagicalSheild(ILink link)
         {
             Link = link;
-            IsAttaking = false; 
+            IsAttaking = false;
+            ID = "MagicalSheild"; 
         }
 
         public void Attack()

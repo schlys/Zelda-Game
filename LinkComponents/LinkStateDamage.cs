@@ -17,6 +17,7 @@ namespace Project1.LinkComponents
         {
             Link = link;
             IsAttaking = false;
+            ID = "Damage"; 
         }
 
         public void Attack()

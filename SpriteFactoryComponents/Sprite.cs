@@ -47,17 +47,22 @@ namespace Project1.SpriteComponents
         }
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
+            // TODO: add col parameter here (some sprites are in a grid) 
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
             StartFrame = currentFrame;
             Row = row;
             OriginalSize = s;
+            // TODO: make global variable and remove these from first constructor 
+            MaxDelay = 2;           // default value 
+            DelayRate = 0.2;        // default value 
         }
 
-        // TODO: make size property given at instantiation 
+        // TODO: make size property given at instantiation - remove from all draw calls 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, int size)
         {
+            // TODO: need to consider sprites that are in a row AND col, can use mod here 
             //spriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
             Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * OriginalSize, Row * OriginalSize, OriginalSize, OriginalSize);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);

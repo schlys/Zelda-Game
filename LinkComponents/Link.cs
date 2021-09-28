@@ -42,7 +42,7 @@ namespace Project1.LinkComponents
                 if (!LinkDirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveDown();
-                    //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                    LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace Project1.LinkComponents
                 if (!LinkDirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveLeft();
-                    //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                    LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
                 }
             }
         }
@@ -65,12 +65,13 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             {
+                
                 Position.X += Step;
 
                 if (!LinkDirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveRight();
-                    //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                    LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
                 }
             }
         }
@@ -84,7 +85,7 @@ namespace Project1.LinkComponents
                 if (!LinkDirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
                 {
                     LinkDirectionState.MoveUp();
-                    //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                    LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
                 }
             }
         }
@@ -159,12 +160,13 @@ namespace Project1.LinkComponents
 
         public void Update()
         {
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
+            
+            //LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
             LinkSprite.Update(); 
             LinkItemState.Update(); 
 
             // TODO: move delat and frame logic to sprite class 
-            Delay++;
+            /*Delay++;
             if (Delay > Restart)
             {
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
@@ -176,14 +178,14 @@ namespace Project1.LinkComponents
                     if (LockFrame)
                     {
                         LockFrame = false;
-                        // Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
+                        //Sprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
                         LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID); 
                     }
                     LinkSprite.CurrentFrame = 1;
                 }
                 Delay = 0;      // belong in sprite 
                 Restart = 6;    // belong in sprite 
-            }  
+            }  */
         }
         public void Reset()
         {
@@ -191,7 +193,7 @@ namespace Project1.LinkComponents
             LinkDirectionState = new LinkStateUp(this);             // default state is up 
             LinkItemState = new LinkStateNoItem();                  // default item state is no item
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
+            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             
             Delay = 0;                 
