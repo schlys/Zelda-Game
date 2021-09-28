@@ -23,19 +23,15 @@ namespace Project1.ItemComponents
         public ItemCandleState(IItem item)
         {
             Item = item;
-            ID = "Candle";
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //sprite.SourceRectangle = new Rectangle(40 * (sprite.CurrentFrame +3), 120, 40, 40);
-            //sprite.DestinationRectangle = new Rectangle(600, 200, 80, 80);
             sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
         }
 
         public void Update()
         {
-            // animate sword 
             sprite.MaxDelay = 2;
             sprite.DelayRate = 0.1;
             sprite.Update();

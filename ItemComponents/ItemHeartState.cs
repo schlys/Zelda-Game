@@ -23,9 +23,6 @@ namespace Project1.ItemComponents
         public ItemHeartState(IItem item)
         {
             Item = item;
-            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            ID = "Heart";
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -34,8 +31,7 @@ namespace Project1.ItemComponents
         }
 
         public void Update()
-        {
-            // animate sword 
+        { 
             sprite.MaxDelay = 5;
             sprite.DelayRate = 0.1;
             sprite.Update();

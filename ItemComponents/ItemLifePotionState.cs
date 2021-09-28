@@ -23,9 +23,6 @@ namespace Project1.ItemComponents
         public ItemLifePotionState(IItem item)
         {
             Item = item;
-            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            ID = "LifePotion";
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -35,7 +32,6 @@ namespace Project1.ItemComponents
 
         public void Update()
         {
-            // animate sword 
             sprite.MaxDelay = 2;
             sprite.DelayRate = 0.1;
             sprite.Update();

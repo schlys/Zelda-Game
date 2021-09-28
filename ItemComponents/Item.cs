@@ -23,8 +23,7 @@ namespace Project1.ItemComponents
         public Item(Game1 game)
         {
             Game = game;
-            ItemState = new ItemAngelState(this);        // Wooden Sword by default 
-            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
+            ItemState = new ItemAngelState(this);
         }
 
         public void PreviousItem()
@@ -324,14 +323,10 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
-            ItemState = new ItemAngelState(this);        // Wooden Sword by default 
+            ItemState = new ItemAngelState(this);  
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            Rectangle sourceRectangle = new Rectangle(0, 40, 40, 40);
-            Rectangle destinationRectangle = new Rectangle(600, 100, 80, 80);
-            //spriteBatch.Draw(ItemState.Texture, destinationRectangle, ItemState.SourceRectangle, Color.White);
 
             ItemState.Draw(spriteBatch);
             

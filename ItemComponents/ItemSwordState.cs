@@ -24,9 +24,6 @@ namespace Project1.ItemComponents
         public ItemSwordState(IItem item)
         {
             Item = item;
-            //Texture = SpriteFactory.Instance.ItemSpriteSheet();
-            //SourceRectangle = new Rectangle(0, 0, 40, 40);
-            ID = "Sword";
         }
 
         public void Draw(SpriteBatch spriteBatch)
