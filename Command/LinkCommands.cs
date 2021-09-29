@@ -221,6 +221,20 @@ namespace Project1.Command
         }
     }
 
+    public class LinkUseBoomerangCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseBoomerangCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseBoomerang();
+        }
+    }
+
     public class LinkTakeDamageCmd : ICommand
     {
         public Game1 Game { get; set; }

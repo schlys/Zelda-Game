@@ -145,13 +145,20 @@ namespace Project1.LinkComponents
 
         public void UseBomb()
         {
-            LinkItemState = new LinkStateBomb(LinkDirectionState.ID, Position);
+            if (!LinkItemState.isUsing)
+                LinkItemState = new LinkStateBomb(LinkDirectionState.ID, Position);
         }
 
         public void UseFire()
         {
             if (!LinkItemState.isUsing)
                 LinkItemState = new LinkStateFire(LinkDirectionState.ID, Position);
+        }
+
+        public void UseBoomerang()
+        {
+            if (!LinkItemState.isUsing)
+                LinkItemState = new LinkStateBoomerang(LinkDirectionState.ID, Position);
         }
 
         public void Draw(SpriteBatch spriteBatch)

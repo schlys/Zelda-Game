@@ -18,7 +18,7 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
+        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("BoomerangSolid");
 
         public ItemBoomerangState(IItem item)
         {

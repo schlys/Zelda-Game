@@ -93,6 +93,9 @@ namespace Project1
             KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.NumPad8);
             KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.D8);
 
+            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.NumPad9);
+            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.D9);
+
             /* Requirement - Use 'q' to quit 
              * and 'r' to reset the program back to its initial state.
              */

@@ -33,6 +33,7 @@ namespace Project1.LinkComponents
         void UseArrow();
         void UseBomb();
         void UseFire();
+        void UseBoomerang();
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);

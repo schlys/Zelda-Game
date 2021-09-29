@@ -7,48 +7,51 @@ using System.Text;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateBomb : ILinkItemState
+    class LinkStateBoomerang : ILinkItemState
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position;
         public bool isUsing { get; set; }
         public string Direction { get; set; }
-        
-        private int counter;
-        public LinkStateBomb(string direction, Vector2 position)
+        private int speed = 6;
+        private Vector2 originalPosition;
+        int counter;
+        public LinkStateBoomerang(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Bomb");
+            Sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
             counter = 0;
             isUsing = true;
-
 
             switch (Direction)
             {
                 case "Up":
                     Position.X+=20;
-                    Position.Y -= 20;
+                    Position.Y -= 5;
                     break;
                 case "Down":
                     Position.X += 20;
-                    Position.Y += 60;
+                    Position.Y += 50;
                     break;
                 case "Right":
-                    Position.X += 60;
+                    Position.X += 50;
                     Position.Y += 20;
                     break;
                 default:
-                    Position.X -= 20;
+                    Position.X -= 10;
                     Position.Y += 20;
                     break;
             }
+
+            originalPosition.X = Position.X;
+            originalPosition.Y = Position.Y;
 
         }
         public void Draw(SpriteBatch spriteBatch, int size)
         {
             if (Sprite != null)
-                if (counter < 100)
+                if (counter < 50)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, size);
@@ -62,23 +65,31 @@ namespace Project1.LinkComponents
         {
             
             if (Sprite != null)
-            {
+            {           
+                Sprite.Update();
 
-                Sprite.DelayRate = 0.1;
-                Sprite.MaxDelay = 1;
-                if (counter < 70)
+                switch (Direction)
+                 {
+                    case "Up":
+                        Position.Y -= speed;         
+                        break;
+                    case "Down":
+                        Position.Y += speed;
+                        break;
+                    case "Right":
+                        Position.X += speed;
+                        break;
+                    default:
+                        Position.X -= speed;
+                        break;
+                 }
+
+                if(Position.Y<originalPosition.Y-120 || Position.Y > originalPosition.Y+120 || Position.X < originalPosition.X - 120 || Position.X > originalPosition.X + 120)
                 {
-                    counter++;
+                    speed = -4;
                 }
-                else
-                {
-                    Sprite.Update();
-                }
-                
-               
-                
+
             }
-
         }
     }
 }

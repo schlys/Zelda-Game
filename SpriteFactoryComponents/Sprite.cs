@@ -74,8 +74,8 @@ namespace Project1.SpriteFactoryComponents
         
         public void Update()
         {
-            //delay+=DelayRate;
-            delay++;
+            delay+=DelayRate;
+            //delay++;
             if (delay > MaxDelay)
             {
                 if (CurrentFrame < TotalFrames)
