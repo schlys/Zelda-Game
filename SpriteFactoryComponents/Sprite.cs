@@ -33,22 +33,7 @@ namespace Project1.SpriteFactoryComponents
         private int StartFrame;
         private int startDelay;
         
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int col, int w, int h, int maxDelay, double delayRate, int s)
-        {
-            Texture = texture;
-            TotalFrames = totalFrames;
-            CurrentFrame = currentFrame;
-            StartFrame = currentFrame;
-            Row = row;
-            Col = col;
-            Width = w;
-            Height = h;
-            MaxDelay = maxDelay;
-            DelayRate = delayRate;
-            OriginalSize = s;
-            startDelay = maxDelay;
-            color = Color.White;
-        }
+
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
             // TODO: add col parameter here (some sprites are in a grid) 
