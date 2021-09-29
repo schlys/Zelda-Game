@@ -106,7 +106,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("Sword", new Sprite(items, 5, 3, 2, 3, 40, 40, 3, 0.1, 40));
             SpriteDict.Add("BoomerangSolid", new Sprite(items, 8, 7, 2, 2, 40, 40, 2, 0.1, 40));
             SpriteDict.Add("BombSolid", new Sprite(items, 1, 1, 3, 1, 40, 40, 1, 0.1, 40));
-            SpriteDict.Add("Arrow", new Sprite(items, 4, 2, 3, 3, 40, 40, 3, 0.1, 40));
+            SpriteDict.Add("Arrow", new Sprite(items, 4, 3, 3, 3, 40, 40, 3, 0.1, 40));
             SpriteDict.Add("Candle", new Sprite(items, 6, 5, 3, 2, 40, 40, 2, 0.1, 40));
             SpriteDict.Add("Ring", new Sprite(items, 8, 7, 3, 2, 40, 40, 2, 0.1, 40));
             SpriteDict.Add("Key", new Sprite(items, 8, 7, 4, 2, 40, 40, 2, 0.1, 40));
