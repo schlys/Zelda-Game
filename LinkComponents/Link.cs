@@ -12,6 +12,10 @@ namespace Project1.LinkComponents
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkWeaponState LinkWeaponState { get; set; } 
         public ILinkItemState LinkItemState { get; set; }
+        public ILinkItemState LinkItemStateArrow { get; set; }
+        public ILinkItemState LinkItemStateBomb { get; set; }
+        public ILinkItemState LinkItemStateFire { get; set; }
+        public ILinkItemState LinkItemStateBoomerang { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
 
@@ -27,6 +31,10 @@ namespace Project1.LinkComponents
         {
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
             LinkItemState = new LinkStateNoItem();      // default item state is no item
+            LinkItemStateArrow = new LinkStateNoItem();      // default item state is no item
+            LinkItemStateBomb = new LinkStateNoItem();      // default item state is no item
+            LinkItemStateFire = new LinkStateNoItem();      // default item state is no item
+            LinkItemStateBoomerang = new LinkStateNoItem();
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
@@ -109,7 +117,7 @@ namespace Project1.LinkComponents
         public void TakeDamage()
         {
             Health.DecreaseHealth(0.5);             // TODO: determine value to decrease by  
-                                                    // TODO: update sprite to show damaged link 
+            LinkSprite.ColorUpdate();               // TODO: update sprite to show damaged link 
         }
 
         public void UseNoItem()
@@ -140,31 +148,37 @@ namespace Project1.LinkComponents
         public void UseArrow()
         {
             if (!LinkItemState.isUsing)
-                LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
+            LinkSprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID); // change Link pose to use the item.
+            LinkItemStateArrow = new LinkStateArrow(LinkDirectionState.ID, Position);
+            //LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
         }
 
         public void UseBomb()
         {
             if (!LinkItemState.isUsing)
-                LinkItemState = new LinkStateBomb(LinkDirectionState.ID, Position);
+                LinkItemStateBomb = new LinkStateBomb(LinkDirectionState.ID, Position);
         }
 
         public void UseFire()
         {
             if (!LinkItemState.isUsing)
-                LinkItemState = new LinkStateFire(LinkDirectionState.ID, Position);
+                LinkItemStateFire = new LinkStateFire(LinkDirectionState.ID, Position);
         }
 
         public void UseBoomerang()
         {
             if (!LinkItemState.isUsing)
-                LinkItemState = new LinkStateBoomerang(LinkDirectionState.ID, Position);
+                LinkItemStateBoomerang = new LinkStateBoomerang(LinkDirectionState.ID, Position);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             LinkSprite.Draw(spriteBatch, Position, 125);        // TODO: not hardcode 125, move to sprite class  
             LinkItemState.Draw(spriteBatch, 80);                // TODO: move size from method to sprite class  
+            LinkItemStateArrow.Draw(spriteBatch, 80);
+            LinkItemStateBomb.Draw(spriteBatch, 80);
+            LinkItemStateFire.Draw(spriteBatch, 80);
+            LinkItemStateBoomerang.Draw(spriteBatch, 80);
         }
 
         public void Update()
@@ -172,8 +186,11 @@ namespace Project1.LinkComponents
             
             //LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkWeaponState.ID + LinkDirectionState.ID);
             LinkSprite.Update(); 
-            LinkItemState.Update(); 
-
+            LinkItemState.Update();
+            LinkItemStateArrow.Update();
+            LinkItemStateBomb.Update();
+            LinkItemStateFire.Update();
+            LinkItemStateBoomerang.Update();
             // TODO: move delat and frame logic to sprite class 
             /*Delay++;
             if (Delay > Restart)

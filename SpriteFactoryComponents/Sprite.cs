@@ -27,6 +27,7 @@ namespace Project1.SpriteFactoryComponents
         public Rectangle SourceRectangle { get; set; }
         public Rectangle DestinationRectangle { get; set; }
 
+        private Color color;
         private double delay; //delay for animation
         public double count=0.0; //delay for block/item switching
         private int StartFrame;
@@ -46,6 +47,7 @@ namespace Project1.SpriteFactoryComponents
             DelayRate = delayRate;
             OriginalSize = s;
             startDelay = maxDelay;
+            color = Color.White;
         }
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
@@ -60,6 +62,7 @@ namespace Project1.SpriteFactoryComponents
             MaxDelay = 6;           // default value 
             DelayRate = 1;        // default value 
             startDelay = MaxDelay;
+            color = Color.White;
         }
 
         // TODO: make size property given at instantiation - remove from all draw calls 
@@ -69,7 +72,7 @@ namespace Project1.SpriteFactoryComponents
             //spriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
             Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * OriginalSize, Row * OriginalSize, OriginalSize, OriginalSize);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, color);
         }
         
         public void Update()
@@ -89,6 +92,22 @@ namespace Project1.SpriteFactoryComponents
                 delay = 0;
                 MaxDelay = startDelay;
             }
+        }
+
+        public void ColorUpdate()
+        {
+            if (count == 0)
+            {
+                color = Color.CornflowerBlue;
+                count += 1;
+            }
+            else
+            {
+                color = Color.Red;
+                count = 0;
+            }
+
+
         }
 
         public void Reset()
