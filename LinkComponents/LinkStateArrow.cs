@@ -22,6 +22,26 @@ namespace Project1.LinkComponents
             Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction);
             counter = 0;
             isUsing = true;
+
+            switch (Direction)
+            {
+                case "Up":
+                    Position.X += 20;
+                    Position.Y -= 20;
+                    break;
+                case "Down":
+                    Position.X += 20;
+                    Position.Y += 60;
+                    break;
+                case "Right":
+                    Position.X += 60;
+                    Position.Y += 20;
+                    break;
+                default:
+                    Position.X -= 20;
+                    Position.Y += 20;
+                    break;
+            }
         }
         public void Draw(SpriteBatch spriteBatch, int size)
         {
