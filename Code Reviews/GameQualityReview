@@ -1,0 +1,8 @@
+
+Author of code review: Mulan Blum
+Date of Code Review: 9/29/2021
+Sprint Number: 2
+Name of file: Game1.cs
+Author of file: Sam and Chaeun
+Number of minutes taken:  10 minutes
+Quality Review: registering commands all in game1.cs- maybe move to its own separate class, data clump in update draw, and restart- create new class to update all objects and draw all objects, have game1.cs call a method in separate class that will do the updating/drawing, 
