@@ -1,0 +1,7 @@
+Author of code review: Mulan Blum
+Date of Code Review: 9/29/2021
+Sprint Number: 2
+Name of file: Link.cs
+Author of file: Sam and Elise
+Number of minutes taken: 10 minutes
+Quality Review: hard coding data-move data to link factory and have draw methods get data from sprite factory, use constants instead of magic numbers in reset method for health and creation of Vectors, 
