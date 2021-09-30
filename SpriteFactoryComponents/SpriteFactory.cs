@@ -105,11 +105,13 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("ArrowDown", new Sprite(linkItems, 1, 1, 14, 40));
             SpriteDict.Add("ArrowRight", new Sprite(linkItems, 2, 2, 14, 40));
             SpriteDict.Add("ArrowLeft", new Sprite(linkItems, 4, 4, 14, 40));
+            SpriteDict.Add("ArrowPoof", new Sprite(linkItems, 5, 5, 14, 40));
 
             SpriteDict.Add("BlueArrowUp", new Sprite(linkItems, 3, 3, 15, 40));
             SpriteDict.Add("BlueArrowDown", new Sprite(linkItems, 1, 1, 15, 40));
             SpriteDict.Add("BlueArrowRight", new Sprite(linkItems, 2, 2, 15, 40));
             SpriteDict.Add("BlueArrowLeft", new Sprite(linkItems, 4, 4, 15, 40));
+            SpriteDict.Add("BlueArrowPoof", new Sprite(linkItems, 5, 5, 15, 40));
 
             SpriteDict.Add("Fire", new Sprite(linkItems, 2, 1, 11, 40));
 
