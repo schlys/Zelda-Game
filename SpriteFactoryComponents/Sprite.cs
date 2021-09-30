@@ -21,10 +21,10 @@ namespace Project1.SpriteFactoryComponents
         public double DelayRate { get; set; }
 
         public Color Color = Color.White;
-        private double delay; //delay for animation
+        public double delay; //delay for animation
         public double count=0.0; //delay for block/item switching
-        private int StartFrame;
-        private int startDelay;
+        public int StartFrame;
+        public int startDelay;
         
 
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)

@@ -46,7 +46,7 @@ namespace Project1.LinkComponents
         public void Draw(SpriteBatch spriteBatch, int size)
         {
             if (Sprite != null)
-                if (counter < 50)
+                if (counter < 45)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, size);
@@ -61,20 +61,24 @@ namespace Project1.LinkComponents
             if (Sprite != null)
             {
                 Sprite.Update();
-                switch (Direction)
+                if (counter < 25)
                 {
-                    case "Up":
-                        Position.Y -= speed;
-                        break;
-                    case "Down":
-                        Position.Y += speed;
-                        break;
-                    case "Right":
-                        Position.X += speed;
-                        break;
-                    default:
-                        Position.X -= speed;
-                        break;
+                   
+                    switch (Direction)
+                    {
+                        case "Up":
+                            Position.Y -= speed;
+                            break;
+                        case "Down":
+                            Position.Y += speed;
+                            break;
+                        case "Right":
+                            Position.X += speed;
+                            break;
+                        default:
+                            Position.X -= speed;
+                            break;
+                    }
                 }
                 
             }
