@@ -26,69 +26,43 @@ namespace Project1.SpriteFactoryComponents
         
         private static Dictionary<string, Sprite> SpriteDict;
         private static Dictionary<string, Texture2D> TextureDict;
-        private static Texture2D directions;
-        private static Texture2D blocks;
-        private static Texture2D items;
-        private static Texture2D woodenSword;
-        private static Texture2D magicalSword;
-        private static Texture2D moblin;
-        private static Texture2D useItem;
-        private static Texture2D linkItems;
-        private static Texture2D stalfos;
-        private static Texture2D keese;
 
         public void LoadAllTextures(ContentManager content)
         {
             TextureDict = new Dictionary<string, Texture2D>();
-            directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
-            TextureDict.Add("directions", directions);
-            blocks = content.Load<Texture2D>("Blocks");
-            TextureDict.Add("blocks", blocks);
-            items = content.Load<Texture2D>("ItemsAndWeapons");
-            TextureDict.Add("items", items);
-            linkItems = content.Load<Texture2D>("LinkSprites/Items");
-            TextureDict.Add("linkItems", linkItems);
-            useItem = content.Load<Texture2D>("LinkSprites/UseItem");
-            TextureDict.Add("useItem", useItem);
-            woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
-            TextureDict.Add("woodenSword", woodenSword);
-            magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
-            TextureDict.Add("magicalSword", magicalSword);
-            moblin = content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin");
-            TextureDict.Add("moblin", moblin);
-            stalfos = content.Load<Texture2D>("DungeonEnemies/Stalfos");
-            TextureDict.Add("stalfos", stalfos);
-            keese = content.Load<Texture2D>("DungeonEnemies/Keese");
-            TextureDict.Add("keese", keese);
 
-            CreateDict(content);
+            TextureDict.Add("directions", content.Load<Texture2D>("LinkSprites/BasicMovement"));
+            TextureDict.Add("blocks", content.Load<Texture2D>("Blocks"));
+            TextureDict.Add("items", content.Load<Texture2D>("ItemsAndWeapons"));
+            TextureDict.Add("linkItems", content.Load<Texture2D>("LinkSprites/Items"));
+            TextureDict.Add("useItem", content.Load<Texture2D>("LinkSprites/UseItem"));
+            TextureDict.Add("woodenSword", content.Load<Texture2D>("LinkSprites/WoodenSword"));
+            TextureDict.Add("magicalSword", content.Load<Texture2D>("LinkSprites/MagicalSword"));
+            TextureDict.Add("moblin", content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin"));
+            TextureDict.Add("stalfos", content.Load<Texture2D>("DungeonEnemies/Stalfos"));
+            TextureDict.Add("keese", content.Load<Texture2D>("DungeonEnemies/Keese"));
+
+            CreateDict();
         }
 
-        private static void CreateDict(ContentManager content)
+        private static void CreateDict()
         {
             SpriteDict = new Dictionary<string, Sprite>();
 
-            // NEED to Update data for sprites 
-            // Key = LinkWeaponState.ID + LinkDirectionState.ID
-            //SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 40));
-
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLFile1.xml";
-           
             XMLData.Load(path);
-           
-
             XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Sprites/Sprite");
+
             foreach (XmlNode node in Sprites)
             {
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
-                Texture2D texture = TextureDict[sheet];
                 int currentFrame = Int16.Parse(node.SelectSingleNode("totalFrames").InnerText);
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
-                SpriteDict.Add(name, new Sprite(texture, currentFrame, startFrame, row, size));
+                SpriteDict.Add(name, new Sprite(TextureDict[sheet], currentFrame, startFrame, row, size));
             }
 
         }

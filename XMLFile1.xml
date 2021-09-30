@@ -36,7 +36,7 @@
 	<Sprite>
 		<name>WoodenSwordUp</name>
 		<sheet>woodenSword</sheet>
-		<totalFrames>2</totalFrames>
+		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
@@ -44,7 +44,7 @@
 	<Sprite>
 		<name>WoodenSwordDown</name>
 		<sheet>woodenSword</sheet>
-		<totalFrames>2</totalFrames>
+		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
@@ -52,7 +52,7 @@
 	<Sprite>
 		<name>WoodenSwordRight</name>
 		<sheet>woodenSword</sheet>
-		<totalFrames>2</totalFrames>
+		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
@@ -60,7 +60,7 @@
 		<Sprite>
 		<name>WoodenSwordLeft</name>
 		<sheet>woodenSword</sheet>
-		<totalFrames>2</totalFrames>
+		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
@@ -121,7 +121,7 @@
 		<sheet>useItem</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
-		<row>1</row>
+		<row>3</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
@@ -129,7 +129,7 @@
 		<sheet>useItem</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
-		<row>3</row>
+		<row>1</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 
@@ -179,15 +179,15 @@
 		<sheet>linkItems</sheet>
 		<totalFrames>3</totalFrames>
 		<startFrame>3</startFrame>
-		<row>14</row>
+		<row>15</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BLueArrowDown</name>
+		<name>BlueArrowDown</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
-		<row>14</row>
+		<row>15</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
@@ -195,7 +195,7 @@
 		<sheet>linkItems</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>2</startFrame>
-		<row>14</row>
+		<row>15</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
@@ -203,7 +203,7 @@
 		<sheet>linkItems</sheet>
 		<totalFrames>4</totalFrames>
 		<startFrame>4</startFrame>
-		<row>14</row>
+		<row>15</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
@@ -323,7 +323,7 @@
 	</Sprite>
 	
 	<Sprite>
-		<name>Keesse</name>
+		<name>Keese</name>
 		<sheet>keese</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
@@ -331,7 +331,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>KeesseUp</name>
+		<name>KeeseUp</name>
 		<sheet>keese</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
@@ -339,7 +339,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>KeesseDown</name>
+		<name>KeeseDown</name>
 		<sheet>keese</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
@@ -347,7 +347,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>KeesseRight</name>
+		<name>KeeseRight</name>
 		<sheet>keese</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
@@ -355,7 +355,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>KeesseLeft</name>
+		<name>KeeseLeft</name>
 		<sheet>keese</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>

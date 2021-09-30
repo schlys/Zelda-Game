@@ -162,7 +162,7 @@ namespace Project1.LinkComponents
 
         public void UseArrow()
         {
-            if (!LinkItemStateArrow.isUsing)
+            if (!LinkItemStateArrow.isUsing && !LockFrame)
             {
 
                 UseItem();
@@ -172,7 +172,7 @@ namespace Project1.LinkComponents
 
         public void UseBomb()
         {
-            if (!LinkItemStateBomb.isUsing)
+            if (!LinkItemStateBomb.isUsing && !LockFrame)
             {
                 UseItem();
                 LinkItemStateBomb = new LinkStateBomb(LinkDirectionState.ID, Position);
@@ -181,7 +181,7 @@ namespace Project1.LinkComponents
 
         public void UseFire()
         {
-            if (!LinkItemStateFire.isUsing)
+            if (!LinkItemStateFire.isUsing && !LockFrame)
             {
                 UseItem();
                 LinkItemStateFire = new LinkStateFire(LinkDirectionState.ID, Position);
@@ -190,7 +190,7 @@ namespace Project1.LinkComponents
 
         public void UseBoomerang()
         {
-            if (!LinkItemStateBoomerang.isUsing)
+            if (!LinkItemStateBoomerang.isUsing && !LockFrame)
             {
                 UseItem();
                 LinkItemStateBoomerang = new LinkStateBoomerang(LinkDirectionState.ID, Position);
@@ -198,7 +198,7 @@ namespace Project1.LinkComponents
         }
         public void UseBlueArrow()
         {
-            if (!LinkItemStateBlueArrow.isUsing)
+            if (!LinkItemStateBlueArrow.isUsing && !LockFrame)
             {
                 UseItem();
                 LinkItemStateBlueArrow = new LinkStateBlueArrow(LinkDirectionState.ID, Position);
@@ -207,7 +207,7 @@ namespace Project1.LinkComponents
         }
         public void UseBlueBoomerang()
         {
-            if (!LinkItemStateBlueBoomerang.isUsing)
+            if (!LinkItemStateBlueBoomerang.isUsing && !LockFrame)
             {
                 UseItem();
                 LinkItemStateBlueBoomerang = new LinkStateBlueBoomerang(LinkDirectionState.ID, Position);
