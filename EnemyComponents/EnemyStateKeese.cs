@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    class EnemyStateKees: IEnemyState
+    class EnemyStateKeese: IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
-        public EnemyStateKees(IEnemy enemy)
+        public EnemyStateKeese(IEnemy enemy)
         {
             Enemy = enemy;
             ID = "Keese";
