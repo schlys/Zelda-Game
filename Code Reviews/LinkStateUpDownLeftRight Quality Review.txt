@@ -1,0 +1,17 @@
+Author of the code review: Andrew Kroh
+
+Date of the code review: 9/30/21
+
+Sprint number: 2
+
+Name of the .cs file(s) being reviewed: LinkStateUp.cs, LinkStateDown.cs, LinkStateLeft.cs, LinkStateRight.cs 
+
+Author of the .cs file(s) being reviewed: Sam Chlystek and Chaeun Hong
+
+Number of minutes taken to complete the review: 5
+
+Code Quality Review:
+These are short and simple classes that implement the ILinkDirectionState interface.
+Nothing to complain about here. Each method has 1 short line of code updating the direction state.
+
+
