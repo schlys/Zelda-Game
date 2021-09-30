@@ -31,9 +31,11 @@ namespace Project1.LinkComponents
         void UseWhiteSword();
         void UseWoodenSword();
         void UseArrow();
+        void UseBlueArrow();
         void UseBomb();
         void UseFire();
         void UseBoomerang();
+        void UseBlueBoomerang();
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);

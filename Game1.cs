@@ -68,7 +68,7 @@ namespace Project1
 
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.NumPad0);
             KeyboardController.RegisterCommand(new LinkUseNoItemCmd(this), Keys.D0);
-
+            /*
             KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.NumPad1);
             KeyboardController.RegisterCommand(new LinkUseMagicalRodCmd(this), Keys.D1);
 
@@ -83,18 +83,24 @@ namespace Project1
 
             KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.NumPad5);
             KeyboardController.RegisterCommand(new LinkUseWoodenSwordCmd(this), Keys.D5);
+            */
+            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.NumPad1);
+            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.D1);
 
-            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.NumPad6);
-            KeyboardController.RegisterCommand(new LinkUseArrowCmd(this), Keys.D6);
+            KeyboardController.RegisterCommand(new LinkUseBlueArrowCmd(this), Keys.NumPad2);
+            KeyboardController.RegisterCommand(new LinkUseBlueArrowCmd(this), Keys.D2);
 
-            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.NumPad7);
-            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.D7);
+            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.NumPad3);
+            KeyboardController.RegisterCommand(new LinkUseFireCmd(this), Keys.D3);
 
-            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.NumPad8);
-            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.D8);
+            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.NumPad4);
+            KeyboardController.RegisterCommand(new LinkUseBombCmd(this), Keys.D4);
 
-            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.NumPad9);
-            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.D9);
+            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.NumPad5);
+            KeyboardController.RegisterCommand(new LinkUseBoomerangCmd(this), Keys.D5);
+
+            KeyboardController.RegisterCommand(new LinkUseBlueBoomerangCmd(this), Keys.NumPad6);
+            KeyboardController.RegisterCommand(new LinkUseBlueBoomerangCmd(this), Keys.D6);
 
             /* Requirement - Use 'q' to quit 
              * and 'r' to reset the program back to its initial state.

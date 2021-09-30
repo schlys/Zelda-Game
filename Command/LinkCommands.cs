@@ -193,6 +193,20 @@ namespace Project1.Command
         }
     }
 
+    public class LinkUseBlueArrowCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseBlueArrowCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseBlueArrow();
+        }
+    }
+
     public class LinkUseFireCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -232,6 +246,20 @@ namespace Project1.Command
         public void Execute()
         {
             Game.Link.UseBoomerang();
+        }
+    }
+
+    public class LinkUseBlueBoomerangCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+
+        public LinkUseBlueBoomerangCmd(Game1 game)
+        {
+            Game = game;
+        }
+        public void Execute()
+        {
+            Game.Link.UseBlueBoomerang();
         }
     }
 
