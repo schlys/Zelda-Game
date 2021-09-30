@@ -13,7 +13,7 @@ namespace Project1.LinkComponents
         public Vector2 Position;
         public bool isUsing { get; set; }
         public string Direction { get; set; }
-        private int speed = 5;
+        private int speed = 4;
         private Vector2 originalPosition;
         int counter;
         public LinkStateBlueBoomerang(string direction, Vector2 position)
@@ -88,7 +88,6 @@ namespace Project1.LinkComponents
                 {
                     speed = -4;
                 }
-
             }
         }
     }

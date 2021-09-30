@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/samch/source/repos/Project/Content/ItemsAndWeapons.png</SourceFile>
   <SourceTime>2021-09-26T13:58:27.6923671-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/ItemsAndWeapons.xnb</DestFile>
   <DestTime>2021-09-29T22:52:26.8605609-04:00</DestTime>
+=======
+  <SourceFile>C:/Users/chaew/source/repos/3902-dream-team/Project/Content/ItemsAndWeapons.png</SourceFile>
+  <SourceTime>2021-09-29T23:11:40.4801263-04:00</SourceTime>
+  <DestFile>C:/Users/chaew/source/repos/3902-dream-team/Project/Content/bin/Windows/Content/ItemsAndWeapons.xnb</DestFile>
+  <DestTime>2021-09-29T23:32:03.6076624-04:00</DestTime>
+>>>>>>> 3ebd9a4928fade6aa6e8799aa7b57e4b20ecd797
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

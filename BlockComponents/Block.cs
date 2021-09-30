@@ -9,8 +9,10 @@ namespace Project1.BlockComponents
     {
         public IBlockState BlockState { get; set; }
         private Game1 Game;
-        private double counter = 1.0;
-        
+        private double counter = 0.0;
+
+        private string[] ID = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
+
         public Block(Game1 game)
         {
             Game = game;
@@ -19,92 +21,92 @@ namespace Project1.BlockComponents
 
         public void PreviousBlock()
         {
-            switch ((int)counter)
+            switch (ID[(int)counter])
             {
-                case 1:
+                case "Base":
                     BlockState = new BlockBaseState(this);
                     break;
-                case 2:
+                case "Stripe":
                     BlockState = new BlockStripeState(this);
                     break;
-                case 3:
+                case "Brick":
                     BlockState = new BlockBrickState(this);
                     break;
-                case 4:
+                case "Stair":
                     BlockState = new BlockStairState(this);
                     break;
-                case 5:
+                case "Blue":
                     BlockState = new BlockBlueState(this);
                     break;
-                case 6:
+                case "Dots":
                     BlockState = new BlockDotsState(this);
                     break;
-                case 7:
+                case "Black":
                     BlockState = new BlockBlackState(this);
                     break;
-                case 8:
+                case "Dragon":
                     BlockState = new BlockDragonState(this);
                     break;
-                case 9:
+                case "Fish":
                     BlockState = new BlockFishState(this);
                     break;
-                case 10:
+                case "Last":
                     BlockState = new BlockLastState(this);
                     break;
             }
 
-            if (counter >= 1)
+            if (counter >= 0)
             {
-                counter-=0.1;
+                counter -= 0.1;
             }
             else
             {
-                counter = 11;
+                counter = 10;
             }
         }
 
         public void NextBlock()
         {
-            switch ((int)counter)
+            switch (ID[(int)counter])
             {
-                case 1:
+                case "Base":
                     BlockState = new BlockBaseState(this);
                     break;
-                case 2:
+                case "Stripe":
                     BlockState = new BlockStripeState(this);
                     break;
-                case 3:
+                case "Brick":
                     BlockState = new BlockBrickState(this);
                     break;
-                case 4:
+                case "Stair":
                     BlockState = new BlockStairState(this);
                     break;
-                case 5:
+                case "Blue":
                     BlockState = new BlockBlueState(this);
                     break;
-                case 6:
+                case "Dots":
                     BlockState = new BlockDotsState(this);
                     break;
-                case 7:
+                case "Black":
                     BlockState = new BlockBlackState(this);
                     break;
-                case 8:
+                case "Dragon":
                     BlockState = new BlockDragonState(this);
                     break;
-                case 9:
+                case "Fish":
                     BlockState = new BlockFishState(this);
                     break;
-                case 10:
+                case "Last":
                     BlockState = new BlockLastState(this);
                     break;
             }
-            if (counter <= 11)
+            if (counter <= 9.9)
             {
-                counter+=0.1;
+                counter += 0.1;
             }
             else
             {
-                counter = 1;
+                counter = 0;
             }
         }
 

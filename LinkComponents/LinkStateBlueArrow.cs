@@ -10,6 +10,7 @@ namespace Project1.LinkComponents
     class LinkStateBlueArrow : ILinkItemState
     {
         public Sprite Sprite { get; set; }
+        public Sprite Poof { get; set; }
         public Vector2 Position;
         public bool isUsing { get; set; }
         public string Direction { get; set; }
@@ -20,6 +21,7 @@ namespace Project1.LinkComponents
             Position = position;
             Direction = direction;
             Sprite = SpriteFactory.Instance.GetSpriteData("BlueArrow" + Direction);
+            Poof = SpriteFactory.Instance.GetSpriteData("BlueArrowPoof");
             counter = 0;
             isUsing = true;
 
@@ -50,7 +52,13 @@ namespace Project1.LinkComponents
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, size);
-                }else
+                }
+                else if (counter < 60)
+                {
+                    Poof.Draw(spriteBatch, Position, size);
+                    counter++;
+                }
+                else
                 {
                     isUsing = false;
                 }
