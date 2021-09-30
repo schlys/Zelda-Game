@@ -14,7 +14,7 @@ namespace Project1.ItemComponents
         private Game1 Game;
         private double counter = 0.0;
 
-        private string[] ItemTypes = { "Angel", "Heart", "Jewelry", "LifePotion", "Book", "Food", "Triangle", "Sword", "Boomerang", "Bomb", "Arrow", "Candle", "Ring", "Key", "Empty" };
+        private string[] ItemTypes = { "Angel", "Heart", "Jewelry", "LifePotion", "Book", "Food", "Triangle", "Sword", "Bomb", "Arrow", "Candle", "Ring", "Key", "Empty" };
 
         public Item(Game1 game)
         {
@@ -49,9 +49,6 @@ namespace Project1.ItemComponents
                     break;
                 case "Sword":
                     ItemState = new ItemSwordState(this);
-                    break;
-                case "Boomerang":
-                    ItemState = new ItemBoomerangState(this);
                     break;
                 case "Bomb":
                     ItemState = new ItemBombState(this);
@@ -107,9 +104,6 @@ namespace Project1.ItemComponents
                     break;
                 case "Sword":
                     ItemState = new ItemSwordState(this);
-                    break;
-                case "Boomerang":
-                    ItemState = new ItemBoomerangState(this);
                     break;
                 case "Bomb":
                     ItemState = new ItemBombState(this);
