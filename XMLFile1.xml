@@ -372,42 +372,66 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Heart</name>
+		<name>RecoveryHeart</name>
 		<sheet>items</sheet>
-		<totalFrames>7</totalFrames>
+		<totalFrames>6</totalFrames>
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Jewelry</name>
+		<name>HeartContainer</name>
 		<sheet>items</sheet>
-		<totalFrames>2</totalFrames>
+		<totalFrames>7</totalFrames>
+		<startFrame>7</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>PowerBracelet</name>
+		<sheet>items</sheet>
+		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
-		<row>1</row>
+		<row>4</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
 		<name>LifePotion</name>
 		<sheet>items</sheet>
 		<totalFrames>4</totalFrames>
+		<startFrame>4</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>SecondLifePotion</name>
+		<sheet>items</sheet>
+		<totalFrames>3</totalFrames>
 		<startFrame>3</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Book</name>
+		<name>BookOfMagic</name>
 		<sheet>items</sheet>
 		<totalFrames>6</totalFrames>
-		<startFrame>5</startFrame>
-		<row>1</row>
+		<startFrame>6</startFrame>
+		<row>4</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
 		<name>Food</name>
 		<sheet>items</sheet>
-		<totalFrames>8</totalFrames>
+		<totalFrames>7</totalFrames>
 		<startFrame>7</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Compass</name>
+		<sheet>items</sheet>
+		<totalFrames>8</totalFrames>
+		<startFrame>8</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
 	</Sprite>
@@ -420,18 +444,90 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Sword</name>
+		<name>Stepladder</name>
 		<sheet>items</sheet>
-		<totalFrames>5</totalFrames>
+		<totalFrames>4</totalFrames>
+		<startFrame>4</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Raft</name>
+		<sheet>items</sheet>
+		<totalFrames>3</totalFrames>
+		<startFrame>3</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Recorder</name>
+		<sheet>items</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>2</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSword</name>
+		<sheet>items</sheet>
+		<totalFrames>3</totalFrames>
 		<startFrame>3</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BloomerangSolid</name>
+		<name>WhiteSword</name>
+		<sheet>items</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>4</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MagicalSword</name>
+		<sheet>items</sheet>
+		<totalFrames>5</totalFrames>
+		<startFrame>5</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRod</name>
+		<sheet>items</sheet>
+		<totalFrames>5</totalFrames>
+		<startFrame>5</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MagicalSheild</name>
+		<sheet>items</sheet>
+		<totalFrames>6</totalFrames>
+		<startFrame>6</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Bow</name>
+		<sheet>items</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>2</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>BoomerangSolid</name>
+		<sheet>items</sheet>
+		<totalFrames>7</totalFrames>
+		<startFrame>7</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MagicalBoomerangSolid</name>
 		<sheet>items</sheet>
 		<totalFrames>8</totalFrames>
-		<startFrame>7</startFrame>
+		<startFrame>8</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
 	</Sprite>
@@ -444,38 +540,93 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Arrow</name>
+		<name>OrangeRupee</name>
 		<sheet>items</sheet>
-		<totalFrames>4</totalFrames>
-		<startFrame>3</startFrame>
-		<row>3</row>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Candle</name>
+		<name>BlueRupee</name>
 		<sheet>items</sheet>
-		<totalFrames>6</totalFrames>
+		<totalFrames>2</totalFrames>
+		<startFrame>2</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>RedCandle</name>
+		<sheet>items</sheet>
+		<totalFrames>5</totalFrames>
 		<startFrame>5</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Ring</name>
+		<name>BlueCandle</name>
 		<sheet>items</sheet>
-		<totalFrames>8</totalFrames>
+		<totalFrames>6</totalFrames>
+		<startFrame>6</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>RedRing</name>
+		<sheet>items</sheet>
+		<totalFrames>7</totalFrames>
 		<startFrame>7</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>Key</name>
+		<name>BlueRing</name>
 		<sheet>items</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
+		<totalFrames>8</totalFrames>
+		<startFrame>8</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>SmallKey</name>
+		<sheet>items</sheet>
+		<totalFrames>7</totalFrames>
+		<startFrame>7</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MagicalKey</name>
+		<sheet>items</sheet>
+		<totalFrames>8</totalFrames>
+		<startFrame>8</startFrame>
+		<row>4</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Letter</name>
+		<sheet>items</sheet>
+		<totalFrames>6</totalFrames>
+		<startFrame>6</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>DungeonMap</name>
+		<sheet>items</sheet>
+		<totalFrames>5</totalFrames>
+		<startFrame>5</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>Clock</name>
+		<sheet>items</sheet>
+		<totalFrames>8</totalFrames>
+		<startFrame>8</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
 	</Sprite>
-	
 		
 		
 	<Sprite>

@@ -8,9 +8,7 @@ namespace Project1.ItemComponents
 {
     public interface IItem
     {
-        //IItemSprites ItemSprites { get; set; }
         IItemState ItemState { get; set; }
-        string ID { get; set; }
         Vector2 Position { get; set; }
         void Draw(SpriteBatch spriteBatch);
         void Update();
