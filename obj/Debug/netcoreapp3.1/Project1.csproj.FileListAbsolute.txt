@@ -345,3 +345,4 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Proj
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml

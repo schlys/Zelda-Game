@@ -7,6 +7,12 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Project1.EnemyComponents;
+using System.Xml;
+using System.IO;
+
+
+
+
 
 namespace Project1.SpriteFactoryComponents
 {
@@ -53,7 +59,27 @@ namespace Project1.SpriteFactoryComponents
 
             // NEED to Update data for sprites 
             // Key = LinkWeaponState.ID + LinkDirectionState.ID
-            SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 40));
+            //SpriteDict.Add("Up", new Sprite(directions, 2, 1, 2, 40));
+
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLFile1.xml";
+           
+            XMLData.Load(path);
+           
+
+            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Sprite");
+            foreach (XmlNode node in Sprites)
+            {
+                string name = node.SelectSingleNode("name").InnerText;
+                string sheet = node.SelectSingleNode("sheet").InnerText;
+                
+                int currentFrame = Int16.Parse(node.SelectSingleNode("currentFrame").InnerText);
+                int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
+                int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
+                int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
+                SpriteDict.Add(name, new Sprite(directions, currentFrame, startFrame,row, size));
+            }
+
             SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 40));
             SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 40));
             SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 40));
@@ -119,7 +145,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("Black", new Sprite(blocks, 7, 7, 0, 16));
             SpriteDict.Add("Dragon", new Sprite(blocks, 8, 8, 0, 16));
             SpriteDict.Add("Fish", new Sprite(blocks, 9, 9, 0, 16));
-            SpriteDict.Add("Last", new Sprite(blocks, 10, 10, 0, 16));
+            SpriteDict.Add("Last", new Sprite(blocks, 10, 10, 0, 216));
         }
         public Sprite GetSpriteData(string key)
         {

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sprite>
+	<name>Up</name>
+	<sheet>directions</sheet>
+	<currentFrame>2</currentFrame>
+	<startFrame>1</startFrame>
+	<row>2</row>
+	<originalSize>40</originalSize>
+
+</Sprite>
