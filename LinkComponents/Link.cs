@@ -161,7 +161,7 @@ namespace Project1.LinkComponents
         {
             if (!LinkItemState.isUsing)
                 LinkSprite = SpriteFactory.Instance.GetSpriteData("UseItem" + LinkDirectionState.ID); // change Link pose to use the item.
-            LinkItemStateArrow = new LinkStateBlueArrow(LinkDirectionState.ID, Position);
+            LinkItemStateBlueArrow = new LinkStateBlueArrow(LinkDirectionState.ID, Position);
             //LinkItemState = new LinkStateArrow(LinkDirectionState.ID, Position);
         }
 
