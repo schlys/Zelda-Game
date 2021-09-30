@@ -7,23 +7,26 @@ namespace Project1.ItemComponents
 {
     class Item : IItem
     {
-        public IEnemyState ItemState { get; set; }
+        public IItemState ItemState { get; set; }
         //public Texture2D Texture { get; set; }
         //public Sprite ItemSprite { get; set; }
         public string ID { get; set; }
-        private Game1 Game;
+        //private Game1 Game;
         private double counter = 0.0;
+        public Vector2 Position { get; set; }
+        public Vector2 InitialPosition = new Vector2(600, 200); 
 
         private string[] ItemTypes = { "Angel", "Heart", "Jewelry", "LifePotion", "Book", "Food", "Triangle", "Sword", "Bomb", "Arrow", "Candle", "Ring", "Key", "Empty" };
 
-        public Item(Game1 game)
+        public Item()
         {
-            Game = game;
             ItemState = new ItemAngelState(this);
+            Position = InitialPosition; 
         }
 
         public void PreviousItem()
         {
+                
             switch (ItemTypes[(int)counter])
             {
                 case "Angel":
@@ -73,7 +76,7 @@ namespace Project1.ItemComponents
             counter -= 0.1;
             if (counter < 0)
             {
-                counter = 14;
+                counter = 13;
             }
         }
 
@@ -126,7 +129,7 @@ namespace Project1.ItemComponents
             }
 
             counter += 0.1;
-            if (counter > 14)
+            if (counter > 13)
             {
                 counter = 0;
             }
@@ -136,12 +139,11 @@ namespace Project1.ItemComponents
         public void Reset()
         {
             ItemState = new ItemAngelState(this);
+            Position = InitialPosition;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
             ItemState.Draw(spriteBatch);
-
         }
 
         public void Update()

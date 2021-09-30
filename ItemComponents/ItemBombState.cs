@@ -5,11 +5,12 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.ItemComponents
 {
-    class ItemBombState : IEnemyState
+    public class ItemBombState : IItemState
     {
         public IItem Item { get; set; }
-        public Texture2D Texture { get; set; }     //change to ISprite later 
-        public Rectangle SourceRectangle { get; set; }
+        //public Texture2D Texture { get; set; }     //change to ISprite later 
+        //public Rectangle SourceRectangle { get; set; }
+        public Sprite Sprite { get; set; }
         public string ID { get; set; }
 
         private string[] ItemTypes = { "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod",
@@ -18,21 +19,22 @@ namespace Project1.ItemComponents
             "LifePotion", "SecondLifePotion", "MagicalRod", "Raft", "BookOfMagic", "BlueRing",
             "RedRing", "Stepladder", "MagicalKey", "PowerBracelet", "HeartContainer" };
 
-        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("BombSolid");
+        //public Sprite sprite = SpriteFactory.Instance.GetSpriteData("BombSolid");
 
         public ItemBombState(IItem item)
         {
             Item = item;
+            Sprite = SpriteFactory.Instance.GetSpriteData("BombSolid");
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, new Vector2(600, 200), 80);
+            Sprite.Draw(spriteBatch, Item.Position, 80);
         }
         public void Update()
         {
-            sprite.MaxDelay = 1;
-            sprite.DelayRate = 0.1;
-            sprite.Update();
+            //sprite.MaxDelay = 1;
+            //sprite.DelayRate = 0.1;
+            Sprite.Update();
         }
     }
 }

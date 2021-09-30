@@ -41,7 +41,7 @@ namespace Project1
             SpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link();
             Block = new Block(this);
-            Item = new Item(this);
+            Item = new Item();
             Enemy = new Enemy(this);
             
             // Register keyboard commands 
@@ -149,7 +149,7 @@ namespace Project1
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkGray);
 
             _spriteBatch.Begin();
             

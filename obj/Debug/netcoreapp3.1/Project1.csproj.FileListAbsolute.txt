@@ -288,7 +288,19 @@ C:\Users\Andy\Desktop\New folder2\obj\Debug\netcoreapp3.1\Project1.csproj.CopyCo
 C:\Users\Andy\Desktop\New folder2\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Andy\Desktop\New folder2\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Andy\Desktop\New folder2\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
+C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
+C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
@@ -337,6 +349,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\runt
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
@@ -345,12 +358,3 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Proj
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
-C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
-C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
-C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
-C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
-C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
-C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
-C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
-C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
-C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
