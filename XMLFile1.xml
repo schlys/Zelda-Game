@@ -2,7 +2,7 @@
 <Sprite>
 	<name>Up</name>
 	<sheet>directions</sheet>
-	<currentFrame>2</currentFrame>
+	<totalFrames>2</totalFrames>
 	<startFrame>1</startFrame>
 	<row>2</row>
 	<originalSize>40</originalSize>

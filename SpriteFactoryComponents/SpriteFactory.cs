@@ -72,8 +72,8 @@ namespace Project1.SpriteFactoryComponents
             {
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
-                
-                int currentFrame = Int16.Parse(node.SelectSingleNode("currentFrame").InnerText);
+
+                int currentFrame = Int16.Parse(node.SelectSingleNode("totalFrames").InnerText);
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
