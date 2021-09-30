@@ -13,11 +13,8 @@ namespace Project1.EnemyComponents
         IEnemyDirectionState EnemyDirectionState { get; set; }
         IEnemyState EnemyState { get; set; }
         EnemyHealth Health { get; set; }
-        Vector2 Position { get; set; }
-        //int Row { get; set; }
-        //int TotalFrames { get; set; }
-        //int CurrentFrame { get; set; }
-        //Texture2D Texture { get; set; }
+        //Vector2 Position { get; set; }
+        
 
         void MoveUp();
         void MoveDown();

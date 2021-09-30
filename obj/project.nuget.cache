@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "4D0TWHNAv0pIkTPYg8K+1UHOXAHM5xq3cjXwGDvfbBHBue45BlH3qqiTmife6tE1hhgbpBb9aMFIhJABN59gaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\samch\\source\\repos\\Project\\Project1.csproj",
-=======
-  "dgSpecHash": "kJTK4fStWS5h2dWkIxYw85ubyotwvFFRVpntGhzZpIQ6kPhvTpNnABwJKOrb6j0T2c9w3fq9rbtObI0lFuW8pA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\chaew\\source\\repos\\3902-dream-team\\Project\\Project1.csproj",
->>>>>>> 3ebd9a4928fade6aa6e8799aa7b57e4b20ecd797
   "expectedPackageFiles": [
     "C:\\Users\\samch\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\samch\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
@@ -132,5 +126,12 @@
     "C:\\Users\\samch\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\samch\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\samch\\source\\repos\\Project\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

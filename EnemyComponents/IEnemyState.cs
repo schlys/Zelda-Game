@@ -12,9 +12,8 @@ namespace Project1.EnemyComponents
     {
         IEnemy Enemy { get; set; }
         Sprite Sprite { get; set; }     //change to ISprite later 
-        Rectangle SourceRectangle { get; set; }
         string ID { get; set; }
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
        
     }

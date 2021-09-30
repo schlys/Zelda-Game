@@ -67,7 +67,8 @@ namespace Project1.LinkComponents
         {
             if (Sprite != null)
             {
-                
+                if (counter < 50)
+                {
                     switch (Direction)
                     {
                         case "Up":
@@ -83,7 +84,7 @@ namespace Project1.LinkComponents
                             Position.X -= speed;
                             break;
                     }
-                
+                }
             }
         }
     }

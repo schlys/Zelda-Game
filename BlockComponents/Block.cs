@@ -57,7 +57,7 @@ namespace Project1.BlockComponents
 
             if (counter >= 0)
             {
-                counter -= 0.1;
+                counter -= 0.25;
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Project1.BlockComponents
             }
             if (counter <= 9.9)
             {
-                counter += 0.1;
+                counter += 0.25;
             }
             else
             {

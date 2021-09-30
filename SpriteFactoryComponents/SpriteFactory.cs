@@ -37,23 +37,26 @@ namespace Project1.SpriteFactoryComponents
         private static Texture2D moblin;
         private static Texture2D useItem;
         private static Texture2D linkItems;
+        private static Texture2D stalfos;
+        private static Texture2D keese;
 
         public void LoadAllTextures(ContentManager content)
         {
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
             blocks = content.Load<Texture2D>("Blocks");
-            //items = content.Load<Texture2D>("LinkSprites/Items");
             items = content.Load<Texture2D>("ItemsAndWeapons");
             linkItems = content.Load<Texture2D>("LinkSprites/Items");
             useItem = content.Load<Texture2D>("LinkSprites/UseItem");
             woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
             magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
             moblin = content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin");
+            stalfos = content.Load<Texture2D>("DungeonEnemies/Stalfos");
+            keese = content.Load<Texture2D>("DungeonEnemies/Keese");
 
-            CreateDict();
+            CreateDict(content);
         }
 
-        private static void CreateDict()
+        private static void CreateDict(ContentManager content)
         {
             SpriteDict = new Dictionary<string, Sprite>();
 
@@ -126,6 +129,18 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("MoblinRight", new Sprite(moblin, 2, 1, 1, 40));
             SpriteDict.Add("MoblinLeft", new Sprite(moblin, 2, 1, 3, 40));
 
+            SpriteDict.Add("Stalfos", new Sprite(stalfos, 2, 1, 0, 40));
+            SpriteDict.Add("StalfosUp", new Sprite(stalfos, 2, 1, 0, 40));
+            SpriteDict.Add("StalfosDown", new Sprite(stalfos, 2, 1, 0, 40));
+            SpriteDict.Add("StalfosRight", new Sprite(stalfos, 2, 1, 0, 40));
+            SpriteDict.Add("StalfosLeft", new Sprite(stalfos, 2, 1, 0, 40));
+
+            SpriteDict.Add("Keese", new Sprite(keese, 2, 1, 0, 40));
+            SpriteDict.Add("KeeseUp", new Sprite(keese, 2, 1, 0, 40));
+            SpriteDict.Add("KeeseDown", new Sprite(keese, 2, 1, 0, 40));
+            SpriteDict.Add("KeeseRight", new Sprite(keese, 2, 1, 0, 40));
+            SpriteDict.Add("KeeseLeft", new Sprite(keese, 2, 1, 0, 40));
+
             // TODO: Add Item sprites 
             SpriteDict.Add("Angel", new Sprite(items, 2, 1, 0, 40));
             SpriteDict.Add("Heart", new Sprite(items, 7, 3, 0, 40));
@@ -163,26 +178,6 @@ namespace Project1.SpriteFactoryComponents
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize);
         }
 
-        public void GetSpriteData(IEnemy Enemy, IEnemyDirectionState Direction)
-        {
-            string key = "Moblin" + Direction.ID;
-            Sprite data = SpriteDict[key];
-
-            //Enemy.Texture = data.Texture;
-            //Enemy.TotalFrames = data.TotalFrames;
-            //Enemy.CurrentFrame = data.CurrentFrame;
-            //Enemy.Row = data.Row;
-        }
-
-        public Texture2D BlockSpriteSheet()
-        {
-            return blocks;
-        }
-
-        public Texture2D ItemSpriteSheet()
-        {
-            return items;
-        }
 
         public ILinkItemState GetCurrentItem(string name, string direction, Vector2 position)
         {

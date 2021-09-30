@@ -9,7 +9,6 @@ namespace Project1.EnemyComponents
     {
         public IEnemy Enemy { get; set; }
         public Sprite Sprite { get; set; }     
-        public Rectangle SourceRectangle { get; set; }
         public string ID { get; set; }
         public EnemyStateMoblin(IEnemy enemy)
         {
@@ -18,15 +17,13 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(ID + Enemy.EnemyDirectionState.ID); 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, Enemy.Position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
         }
 
         public void Update()
         {
-            //Sprite.MaxDelay = 2;
-            //Sprite.DelayRate = 0.1;
             Sprite.Update();
         }
     }

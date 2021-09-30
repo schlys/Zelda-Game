@@ -44,9 +44,9 @@ namespace Project1.LinkComponents
             LinkItemStateBlueArrow = new LinkStateNoItem();
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
             weapon = "";
             useItem = "";
+            UpdateSprite();
         }
         public void MoveDown()
         {
@@ -271,11 +271,11 @@ namespace Project1.LinkComponents
             LinkDirectionState = new LinkStateUp(this);             // default state is up 
             LinkItemState = new LinkStateNoItem();                  // default item state is no item
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
-            LinkSprite = SpriteFactory.Instance.GetSpriteData(LinkDirectionState.ID);
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             weapon = "";
             useItem = "";
             LockFrame = false;
+            UpdateSprite();
         }
 
         
