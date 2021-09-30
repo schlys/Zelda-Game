@@ -10,10 +10,6 @@ using Project1.EnemyComponents;
 using System.Xml;
 using System.IO;
 
-
-
-
-
 namespace Project1.SpriteFactoryComponents
 {
     class SpriteFactory : ISpriteFactory
@@ -51,6 +47,7 @@ namespace Project1.SpriteFactoryComponents
             linkItems = content.Load<Texture2D>("LinkSprites/Items");
             useItem = content.Load<Texture2D>("LinkSprites/UseItem");
             woodenSword = content.Load<Texture2D>("LinkSprites/WoodenSword");
+            TextureDict.Add("woodenSword", woodenSword);
             magicalSword = content.Load<Texture2D>("LinkSprites/MagicalSword");
             moblin = content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin");
             stalfos = content.Load<Texture2D>("DungeonEnemies/Stalfos");
@@ -73,7 +70,7 @@ namespace Project1.SpriteFactoryComponents
             XMLData.Load(path);
            
 
-            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Sprite");
+            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Sprites/Sprite");
             foreach (XmlNode node in Sprites)
             {
                 string name = node.SelectSingleNode("name").InnerText;
@@ -83,18 +80,9 @@ namespace Project1.SpriteFactoryComponents
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
-                SpriteDict.Add(name, new Sprite(texture, currentFrame, startFrame,row, size));
+                SpriteDict.Add(name, new Sprite(texture, currentFrame, startFrame, row, size));
             }
 
-            SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 40));
-            SpriteDict.Add("Right", new Sprite(directions, 2, 1, 1, 40));
-            SpriteDict.Add("Left", new Sprite(directions, 2, 1, 3, 40));
-
-
-            SpriteDict.Add("WoodenSwordUp", new Sprite(woodenSword, 4, 1, 2, 40));
-            SpriteDict.Add("WoodenSwordDown", new Sprite(woodenSword, 4, 1, 0, 40));
-            SpriteDict.Add("WoodenSwordRight", new Sprite(woodenSword, 4, 1, 1, 40));
-            SpriteDict.Add("WoodenSwordLeft", new Sprite(woodenSword, 4, 1, 3, 40));
 
             SpriteDict.Add("MagicalSwordUp", new Sprite(magicalSword, 4, 1, 2, 40));
             SpriteDict.Add("MagicalSwordDown", new Sprite(magicalSword, 4, 1, 0, 40));

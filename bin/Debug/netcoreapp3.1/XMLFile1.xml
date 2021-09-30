@@ -1,10 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Sprite>
-	<name>Up</name>
-	<sheet>directions</sheet>
-	<totalFrames>2</totalFrames>
-	<startFrame>1</startFrame>
-	<row>2</row>
-	<originalSize>40</originalSize>
+<Sprites>
+	<Sprite>
+		<name>Up</name>
+		<sheet>directions</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+		<Sprite>
+		<name>Down</name>
+		<sheet>directions</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>	
+	<Sprite>
+		<name>Right</name>
+		<sheet>directions</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+		<Sprite>
+		<name>Left</name>
+		<sheet>directions</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	
+	<Sprite>
+		<name>WoodenSwordUp</name>
+		<sheet>woodenSword</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordDown</name>
+		<sheet>woodenSword</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>	
+	<Sprite>
+		<name>WoodenSwordRight</name>
+		<sheet>woodenSword</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+		<Sprite>
+		<name>WoodenSwordLeft</name>
+		<sheet>woodenSword</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
 
-</Sprite>
+</Sprites>
