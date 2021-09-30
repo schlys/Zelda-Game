@@ -21,6 +21,8 @@ namespace Project1.ItemComponents
 
         public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Angel");
 
+        private int speed = 2;
+
         public ItemAngelState(IItem item)
         {
             Item = item;           
@@ -37,11 +39,16 @@ namespace Project1.ItemComponents
             sprite.DelayRate = 0.1;
             sprite.Update();
 
-            position.X++;
-            if(position.X>800)
+            if (position.Y < 0)
             {
-                position.X = 600;
+                speed = speed * (-1);
             }
+            else if (position.Y > 200)
+            {
+                speed = 2;
+            }
+
+            position.Y -= speed;
         }
     }
 }
