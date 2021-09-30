@@ -350,3 +350,5 @@ C:\Users\chaew\Source\Repos\3902-dream-team\Project\bin\Debug\netcoreapp3.1\XMLF
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
 C:\Users\samch\source\repos\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\blum1\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb

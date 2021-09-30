@@ -29,6 +29,7 @@ namespace Project1.SpriteFactoryComponents
         private SpriteFactory() { }
         
         private static Dictionary<string, Sprite> SpriteDict;
+        private static Dictionary<string, Texture2D> TextureDict;
         private static Texture2D directions;
         private static Texture2D blocks;
         private static Texture2D items;
@@ -42,7 +43,9 @@ namespace Project1.SpriteFactoryComponents
 
         public void LoadAllTextures(ContentManager content)
         {
+            TextureDict = new Dictionary<string, Texture2D>();
             directions = content.Load<Texture2D>("LinkSprites/BasicMovement");
+            TextureDict.Add("directions", directions);
             blocks = content.Load<Texture2D>("Blocks");
             items = content.Load<Texture2D>("ItemsAndWeapons");
             linkItems = content.Load<Texture2D>("LinkSprites/Items");
@@ -75,12 +78,12 @@ namespace Project1.SpriteFactoryComponents
             {
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
-
+                Texture2D texture = TextureDict[sheet];
                 int currentFrame = Int16.Parse(node.SelectSingleNode("totalFrames").InnerText);
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
-                SpriteDict.Add(name, new Sprite(directions, currentFrame, startFrame,row, size));
+                SpriteDict.Add(name, new Sprite(texture, currentFrame, startFrame,row, size));
             }
 
             SpriteDict.Add("Down", new Sprite(directions, 2, 1, 0, 40));
