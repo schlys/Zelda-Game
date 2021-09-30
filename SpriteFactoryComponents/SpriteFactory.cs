@@ -152,7 +152,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict.Add("Black", new Sprite(blocks, 7, 7, 0, 16));
             SpriteDict.Add("Dragon", new Sprite(blocks, 8, 8, 0, 16));
             SpriteDict.Add("Fish", new Sprite(blocks, 9, 9, 0, 16));
-            SpriteDict.Add("Last", new Sprite(blocks, 10, 10, 0, 216));
+            SpriteDict.Add("Last", new Sprite(blocks, 10, 10, 0, 16));
         }
         public Sprite GetSpriteData(string key)
         {
