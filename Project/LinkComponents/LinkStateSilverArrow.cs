@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateBlueArrow : ILinkItemState
+    class LinkStateSilverArrow : ILinkItemState
     {
         public Sprite Sprite { get; set; }
         public Sprite Poof { get; set; }
@@ -16,12 +16,12 @@ namespace Project1.LinkComponents
         public string Direction { get; set; }
         private int speed = 4;
         int counter;
-        public LinkStateBlueArrow(string direction, Vector2 position)
+        public LinkStateSilverArrow(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("BlueArrow" + Direction);
-            Poof = SpriteFactory.Instance.GetSpriteData("BlueArrowPoof");
+            Sprite = SpriteFactory.Instance.GetSpriteData("SilverArrow" + Direction);
+            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
             isUsing = true;
 

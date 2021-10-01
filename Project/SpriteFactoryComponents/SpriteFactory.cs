@@ -69,6 +69,13 @@ namespace Project1.SpriteFactoryComponents
         }
         public Sprite GetSpriteData(string key)
         {
+            /* Link Key = Weapon (optional) + UseItem(optional) + Direction 
+             * Items Used by Link = Item Name + Direction 
+             * Block Key = Block Name 
+             * Item Key = Item Name 
+             * Enemy Key = Enemy Name + Direction 
+             */
+            
             // TODO: check if sprite not found 
             Sprite data = SpriteDict[key];
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize);

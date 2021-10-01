@@ -25,28 +25,24 @@ namespace Project1.SpriteFactoryComponents
         public double count=0.0; //delay for block/item switching
         public int StartFrame;
         public int startDelay;
-        
 
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
-            // TODO: add col parameter here (some sprites are in a grid) 
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;
             StartFrame = currentFrame;
             Row = row;
             OriginalSize = s;
-            // TODO: make global variable and remove these from first constructor 
-            MaxDelay = 6;           // NOTE - changed from 6 // default value 
-            DelayRate = 1;        // NOTE - changed from 1 // default value 
+            MaxDelay = 6;           // default value 
+            DelayRate = 1;          // default value 
             startDelay = MaxDelay;
             Color = Color.White;
         }
 
-        // TODO: make size property given at instantiation - remove from all draw calls 
+        // TODO: should add size as poroperty of sprite? 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, int size)
         {
-            // TODO: need to consider sprites that are in a row AND col, can use mod here 
             Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * OriginalSize, Row * OriginalSize, OriginalSize, OriginalSize);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);

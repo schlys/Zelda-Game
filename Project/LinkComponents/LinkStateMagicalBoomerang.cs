@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateBlueBoomerang : ILinkItemState
+    class LinkStateMagicalBoomerang : ILinkItemState
     {
         public Sprite Sprite { get; set; }
         public Vector2 Position;
@@ -16,11 +16,11 @@ namespace Project1.LinkComponents
         private int speed = 6;
         private Vector2 originalPosition;
         int counter;
-        public LinkStateBlueBoomerang(string direction, Vector2 position)
+        public LinkStateMagicalBoomerang(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("BlueBoomerang");
+            Sprite = SpriteFactory.Instance.GetSpriteData("MagicalBoomerang");
             counter = 0;
             isUsing = true;
 

@@ -175,7 +175,7 @@
 	</Sprite>
 	
 	<Sprite>
-		<name>BlueArrowUp</name>
+		<name>SilverArrowUp</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>3</totalFrames>
 		<startFrame>3</startFrame>
@@ -183,7 +183,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BlueArrowDown</name>
+		<name>SilverArrowDown</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
@@ -191,7 +191,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BlueArrowRight</name>
+		<name>SilverArrowRight</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>2</startFrame>
@@ -199,7 +199,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BlueArrowLeft</name>
+		<name>SilverArrowLeft</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>4</totalFrames>
 		<startFrame>4</startFrame>
@@ -207,7 +207,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BlueArrowPoof</name>
+		<name>SilverArrowPoof</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>5</totalFrames>
 		<startFrame>5</startFrame>
@@ -240,7 +240,7 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
-		<name>BlueBoomerang</name>
+		<name>MagicalBoomerang</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>3</totalFrames>
 		<startFrame>1</startFrame>

@@ -14,9 +14,6 @@ namespace Project1.LinkComponents
         ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
         public LinkHealth Health { get; set; }
-        //public string Weapon { get; set; }
-        //public string CurrentItem { get; set; }
-
         void MoveUp();
         void MoveDown();
         void MoveRight();

@@ -8,105 +8,77 @@ namespace Project1.BlockComponents
     class Block : IBlock
     {
         public IBlockState BlockState { get; set; }
-        private Game1 Game;
-        private double counter = 0.0;
+        private double Counter = 0.0;
+        private double Step = 0.2; 
 
-        private string[] ID = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
+        private string[] BlockTypeKeys = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
 
-        public Block(Game1 game)
+        public Block()
         {
-            Game = game;
             BlockState = new BlockBaseState(this);
+        }
+
+        private void SetBlockState(int i)
+        {
+            // TODO: change to jump table 
+            switch (BlockTypeKeys[i])
+            {
+                case "Base":
+                    BlockState = new BlockBaseState(this);
+                    break;
+                case "Stripe":
+                    BlockState = new BlockStripeState(this);
+                    break;
+                case "Brick":
+                    BlockState = new BlockBrickState(this);
+                    break;
+                case "Stair":
+                    BlockState = new BlockStairState(this);
+                    break;
+                case "Blue":
+                    BlockState = new BlockBlueState(this);
+                    break;
+                case "Dots":
+                    BlockState = new BlockDotsState(this);
+                    break;
+                case "Black":
+                    BlockState = new BlockBlackState(this);
+                    break;
+                case "Dragon":
+                    BlockState = new BlockDragonState(this);
+                    break;
+                case "Fish":
+                    BlockState = new BlockFishState(this);
+                    break;
+                case "Last":
+                    BlockState = new BlockLastState(this);
+                    break;
+            }
         }
 
         public void PreviousBlock()
         {
-            switch (ID[(int)counter])
-            {
-                case "Base":
-                    BlockState = new BlockBaseState(this);
-                    break;
-                case "Stripe":
-                    BlockState = new BlockStripeState(this);
-                    break;
-                case "Brick":
-                    BlockState = new BlockBrickState(this);
-                    break;
-                case "Stair":
-                    BlockState = new BlockStairState(this);
-                    break;
-                case "Blue":
-                    BlockState = new BlockBlueState(this);
-                    break;
-                case "Dots":
-                    BlockState = new BlockDotsState(this);
-                    break;
-                case "Black":
-                    BlockState = new BlockBlackState(this);
-                    break;
-                case "Dragon":
-                    BlockState = new BlockDragonState(this);
-                    break;
-                case "Fish":
-                    BlockState = new BlockFishState(this);
-                    break;
-                case "Last":
-                    BlockState = new BlockLastState(this);
-                    break;
-            }
-
-            if (counter >= 0)
-            {
-                counter -= 0.2;
-            }
-            else
-            {
-                counter = 10;
-            }
+            SetBlockState((int)Counter);
+            IncrementCounter(-Step); 
         }
 
         public void NextBlock()
         {
-            switch (ID[(int)counter])
+            SetBlockState((int)Counter);
+            IncrementCounter(Step); 
+        }
+
+        // Increment the field Counter by i and ensure counter stays within the bounds [0, ItemTypeKeys.Length] 
+        private void IncrementCounter(double i)
+        {
+            Counter += i;
+            if (Counter > (BlockTypeKeys.Length - Step / 2))
             {
-                case "Base":
-                    BlockState = new BlockBaseState(this);
-                    break;
-                case "Stripe":
-                    BlockState = new BlockStripeState(this);
-                    break;
-                case "Brick":
-                    BlockState = new BlockBrickState(this);
-                    break;
-                case "Stair":
-                    BlockState = new BlockStairState(this);
-                    break;
-                case "Blue":
-                    BlockState = new BlockBlueState(this);
-                    break;
-                case "Dots":
-                    BlockState = new BlockDotsState(this);
-                    break;
-                case "Black":
-                    BlockState = new BlockBlackState(this);
-                    break;
-                case "Dragon":
-                    BlockState = new BlockDragonState(this);
-                    break;
-                case "Fish":
-                    BlockState = new BlockFishState(this);
-                    break;
-                case "Last":
-                    BlockState = new BlockLastState(this);
-                    break;
+                Counter = 0;
             }
-            if (counter <= 9.9)
+            else if (Counter < -Step / 2)
             {
-                counter += 0.2;
-            }
-            else
-            {
-                counter = 0;
+                Counter = BlockTypeKeys.Length - 1;
             }
         }
 
