@@ -93,7 +93,7 @@ namespace Project1.Controller
 
         public void RegisterCommand(ICommand command, Keys key)
         {
-            // TODO: add fails for a reason - should not force it 
+            // TODO: fails for a reason - should not force it 
             if (!controllerMappings.TryAdd(key, command))
             {
                 controllerMappings[key] = command;

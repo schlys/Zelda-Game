@@ -15,6 +15,8 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        // TODO: create a game object to house all items like link, item, block... 
+        // TODO: create a list for all items so can easily add multiple 
         public ILink Link;
         public IBlock Block;
         public IItem Item;
@@ -39,7 +41,7 @@ namespace Project1
             
             SpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link();
-            Block = new Block(this);
+            Block = new Block();
             Item = new Item();
             Enemy = new Enemy(this);
 
@@ -81,7 +83,6 @@ namespace Project1
 
         public void Restart()
         {
-            // IDEA - add restart methods to each item 
             Link.Reset();
             Block.Reset();
             Item.Reset();
