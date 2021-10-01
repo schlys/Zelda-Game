@@ -11,6 +11,9 @@ https://app.zenhub.com/workspaces/3902-dream-team-613ffa4f2ca7870010eda966/board
 # Description 
 This program is a replication of the legend of Zelda. 
 
+Sprites sourced from https://www.spriters-resource.com/nes/legendofzelda/
+Credit: Mister Mike
+
 # Sprint 2 
 Submitted on 10/2/21
 
