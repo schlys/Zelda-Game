@@ -7,7 +7,7 @@ namespace Project1.EnemyComponents
 {
     public interface IEnemyDirectionState
     {
-        IEnemy Enemy { get; set; }
+        IEnemyState Enemy { get; set; }
         string ID { get; set; }
         void MoveUp();
         void MoveDown();

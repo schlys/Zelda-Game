@@ -8,9 +8,9 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateLeft : IEnemyDirectionState
     {
-        public IEnemy Enemy { get; set; }
+        public IEnemyState Enemy { get; set; }
         public string ID { get; set; }
-        public EnemyStateLeft(IEnemy enemy)
+        public EnemyStateLeft(IEnemyState enemy)
         {
             Enemy = enemy;
             ID = "Left";
@@ -18,7 +18,7 @@ namespace Project1.EnemyComponents
 
         public void MoveDown()
         {
-            Enemy.EnemyDirectionState = new EnemyStateDown(Enemy);
+            Enemy.DirectionState = new EnemyStateDown(Enemy);
         }
 
         public void MoveLeft()
@@ -28,12 +28,12 @@ namespace Project1.EnemyComponents
 
         public void MoveRight()
         {
-            Enemy.EnemyDirectionState = new EnemyStateRight(Enemy);
+            Enemy.DirectionState = new EnemyStateRight(Enemy);
         }
 
         public void MoveUp()
         {
-            Enemy.EnemyDirectionState = new EnemyStateUp(Enemy);
+            Enemy.DirectionState = new EnemyStateUp(Enemy);
         }
     }
 }

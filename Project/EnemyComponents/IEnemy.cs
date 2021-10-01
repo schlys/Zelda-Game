@@ -10,18 +10,11 @@ namespace Project1.EnemyComponents
 {
     public interface IEnemy
     {
-        IEnemyDirectionState EnemyDirectionState { get; set; }
+       
         IEnemyState EnemyState { get; set; }
         EnemyHealth Health { get; set; }
-        //Vector2 Position { get; set; }
+        Vector2 Position { get; set; }
         
-
-        void MoveUp();
-        void MoveDown();
-        void MoveRight();
-        void MoveLeft();
-        void StopMoving();
-        void Attack();
         void TakeDamage();
         void PreviousEnemy();
         void NextEnemy();
