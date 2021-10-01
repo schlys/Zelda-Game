@@ -1,10 +1,12 @@
 # Project
-
 Names: Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh. 
 Course: CSE 3902 
 
-# Description 
+# Project Planning 
+We used ZenHub to track our planning and progress. You can find it below: 
+https://app.zenhub.com/workspaces/3902-dream-team-613ffa4f2ca7870010eda966/board 
 
+# Description 
 This program is a replication of the legend of Zelda. 
 
 # Sprint 2 
