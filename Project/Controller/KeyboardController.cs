@@ -12,7 +12,8 @@ namespace Project1.Controller
     {
         public Game1 Game { get; set; }
         private Dictionary<Keys, ICommand> controllerMappings;
-        
+        private Keys LinkStopKey = Keys.B;          // a key not used in the game 
+
         public KeyboardController(Game1 game)
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
@@ -33,41 +34,44 @@ namespace Project1.Controller
              * Use number keys(1, 2, 3, etc.) should be used to have Link use a different item
              * Use 'e' to cause Link to become damaged
             */
-            RegisterCommand(new LinkMoveUpCmd(Game), Keys.W);
-            RegisterCommand(new LinkMoveDownCmd(Game), Keys.S);
-            RegisterCommand(new LinkMoveRightCmd(Game), Keys.D);
-            RegisterCommand(new LinkMoveLeftCmd(Game), Keys.A);
+            RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
+            RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.S);
+            RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.D);
+            RegisterCommand(new LinkMoveLeftCmd(Game, Link), Keys.A);
 
-            RegisterCommand(new LinkMoveUpCmd(Game), Keys.Up);
-            RegisterCommand(new LinkMoveDownCmd(Game), Keys.Down);
-            RegisterCommand(new LinkMoveRightCmd(Game), Keys.Right);
-            RegisterCommand(new LinkMoveLeftCmd(Game), Keys.Left);
+            RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.Up);
+            RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.Down);
+            RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.Right);
+            RegisterCommand(new LinkMoveLeftCmd(Game, Link), Keys.Left);
 
-            RegisterCommand(new LinkSwordAttackCmd(Game), Keys.Z);
-            RegisterCommand(new LinkSwordAttackCmd(Game), Keys.N);
+            RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.Z);
+            RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.N);
 
-            RegisterCommand(new LinkTakeDamageCmd(Game), Keys.E);
+            RegisterCommand(new LinkTakeDamageCmd(Game, Link), Keys.E);
 
-            RegisterCommand(new LinkUseNoItemCmd(Game), Keys.NumPad0);
-            RegisterCommand(new LinkUseNoItemCmd(Game), Keys.D0);
+            RegisterCommand(new LinkUseNoItemCmd(Game, Link), Keys.NumPad0);
+            RegisterCommand(new LinkUseNoItemCmd(Game, Link), Keys.D0);
 
-            RegisterCommand(new LinkUseArrowCmd(Game), Keys.NumPad1);
-            RegisterCommand(new LinkUseArrowCmd(Game), Keys.D1);
+            RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
+            RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
 
-            RegisterCommand(new LinkUseBlueArrowCmd(Game), Keys.NumPad2);
-            RegisterCommand(new LinkUseBlueArrowCmd(Game), Keys.D2);
+            RegisterCommand(new LinkUseBlueArrowCmd(Game, Link), Keys.NumPad2);
+            RegisterCommand(new LinkUseBlueArrowCmd(Game, Link), Keys.D2);
 
-            RegisterCommand(new LinkUseFireCmd(Game), Keys.NumPad3);
-            RegisterCommand(new LinkUseFireCmd(Game), Keys.D3);
+            RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.NumPad3);
+            RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.D3);
 
-            RegisterCommand(new LinkUseBombCmd(Game), Keys.NumPad4);
-            RegisterCommand(new LinkUseBombCmd(Game), Keys.D4);
+            RegisterCommand(new LinkUseBombCmd(Game, Link), Keys.NumPad4);
+            RegisterCommand(new LinkUseBombCmd(Game, Link), Keys.D4);
 
-            RegisterCommand(new LinkUseBoomerangCmd(Game), Keys.NumPad5);
-            RegisterCommand(new LinkUseBoomerangCmd(Game), Keys.D5);
+            RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.NumPad5);
+            RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.D5);
 
-            RegisterCommand(new LinkUseBlueBoomerangCmd(Game), Keys.NumPad6);
-            RegisterCommand(new LinkUseBlueBoomerangCmd(Game), Keys.D6); 
+            RegisterCommand(new LinkUseBlueBoomerangCmd(Game, Link), Keys.NumPad6);
+            RegisterCommand(new LinkUseBlueBoomerangCmd(Game, Link), Keys.D6);
+
+            // Command so link does not animate in place 
+            RegisterCommand(new LinkStopMovingCmd(Game, Link), LinkStopKey); 
         }
 
         public void InitializeBlockCommands(IBlock Block)
@@ -102,9 +106,9 @@ namespace Project1.Controller
 
         public void Update(Game1 game)
         {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys(); 
 
-            ICommand stop = new LinkStopMovingCmd(game);
+            ICommand stop = controllerMappings[LinkStopKey];
             if (!(pressedKeys.Length > 0))
             {
                stop.Execute();

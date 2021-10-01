@@ -1,95 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.LinkComponents; 
 
 namespace Project1.Command
 {
     public class LinkMoveUpCmd : ICommand
     {
         public Game1 Game { get; set; }
-
-        public LinkMoveUpCmd(Game1 game)
+        public ILink Link { get; set; }
+        public LinkMoveUpCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link; 
         }
 
         public void Execute()
         {
-            Game.Link.MoveUp();
+            Link.MoveUp();
         }
     }
 
     public class LinkMoveDownCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkMoveDownCmd(Game1 game)
+        public LinkMoveDownCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
 
         public void Execute()
         {
-            Game.Link.MoveDown();
+            Link.MoveDown();
         }
     }
 
     public class LinkMoveRightCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkMoveRightCmd(Game1 game)
+        public LinkMoveRightCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
 
         public void Execute()
         {
-            Game.Link.MoveRight();
+            Link.MoveRight();
         }
     }
 
     public class LinkMoveLeftCmd : ICommand
     {
         public Game1 Game { get; set; }
-        public LinkMoveLeftCmd(Game1 game)
+        public ILink Link { get; set; }
+
+        public LinkMoveLeftCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
 
         public void Execute()
         {
-            Game.Link.MoveLeft();
+            Link.MoveLeft();
         }
     }
 
     public class LinkStopMovingCmd : ICommand
     {
         public Game1 Game { get; set; }
-        public LinkStopMovingCmd(Game1 game)
+        public ILink Link { get; set; }
+
+        public LinkStopMovingCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
 
         public void Execute()
         {
-            Game.Link.StopMoving();
+            Link.StopMoving();
         }
     }
 
     public class LinkSwordAttackCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
 
-        public LinkSwordAttackCmd(Game1 game)
+        public LinkSwordAttackCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            //Game.Link.LinkItemState = new LinkStateWoodenSword();
-            Game.Link.Attack();
+            Link.Attack();
         }
 
     }
@@ -97,197 +110,223 @@ namespace Project1.Command
     public class LinkUseNoItemCmd : ICommand
         {
             public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-            public LinkUseNoItemCmd(Game1 game)
+        public LinkUseNoItemCmd(Game1 game, ILink link)
             {
                 Game = game;
-            }
+            Link = link;
+        }
             public void Execute()
             {
-                Game.Link.UseNoItem();
+                Link.UseNoItem();
             }
         }
     public class LinkUseWoodenSwordCmd : ICommand
         {
             public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-            public LinkUseWoodenSwordCmd(Game1 game)
+        public LinkUseWoodenSwordCmd(Game1 game, ILink link)
             {
                 Game = game;
-            }
+            Link = link;
+        }
             public void Execute()
             {
-                Game.Link.UseWoodenSword();
+                Link.UseWoodenSword();
             }
         }
 
     public class LinkUseMagicalRodCmd : ICommand
         {
             public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-            public LinkUseMagicalRodCmd(Game1 game)
+        public LinkUseMagicalRodCmd(Game1 game, ILink link)
             {
                 Game = game;
-            }
+            Link = link;
+        }
             public void Execute()
             {
-                Game.Link.UseMagicalRod();
+                Link.UseMagicalRod();
             }
         }
 
     public class LinkUseMagicalSheildCmd : ICommand
         {
             public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-            public LinkUseMagicalSheildCmd(Game1 game)
+        public LinkUseMagicalSheildCmd(Game1 game, ILink link)
             {
                 Game = game;
-            }
+            Link = link;
+        }
             public void Execute()
             {
-                Game.Link.UseMagicalSheild();
+                Link.UseMagicalSheild();
             }
         }
 
     public class LinkUseMagicalSwordCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseMagicalSwordCmd(Game1 game)
+        public LinkUseMagicalSwordCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            //Game.Link.Weapon = "MagicalSword";
-            //Game.Link.Attack();
-            Game.Link.UseMagicalSword(); 
+            Link.UseMagicalSword(); 
         }
     }
 
     public class LinkUseWhiteSwordCmd : ICommand
         {
             public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-            public LinkUseWhiteSwordCmd(Game1 game)
+        public LinkUseWhiteSwordCmd(Game1 game, ILink link)
             {
                 Game = game;
-            }
+            Link = link;
+        }
             public void Execute()
             {
-                Game.Link.UseWhiteSword();
+                Link.UseWhiteSword();
             }
         }
 
     public class LinkUseArrowCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseArrowCmd(Game1 game)
+        public LinkUseArrowCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseArrow();
+            Link.UseArrow();
         }
     }
 
     public class LinkUseBlueArrowCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseBlueArrowCmd(Game1 game)
+        public LinkUseBlueArrowCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseBlueArrow();
+            Link.UseBlueArrow();
         }
     }
 
     public class LinkUseFireCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseFireCmd(Game1 game)
+        public LinkUseFireCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseFire();
+            Link.UseFire();
         }
     }
 
     public class LinkUseBombCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseBombCmd(Game1 game)
+        public LinkUseBombCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseBomb();
+            Link.UseBomb();
         }
     }
 
     public class LinkUseBoomerangCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseBoomerangCmd(Game1 game)
+        public LinkUseBoomerangCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseBoomerang();
+            Link.UseBoomerang();
         }
     }
 
     public class LinkUseBlueBoomerangCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkUseBlueBoomerangCmd(Game1 game)
+        public LinkUseBlueBoomerangCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.UseBlueBoomerang();
+            Link.UseBlueBoomerang();
         }
     }
 
     public class LinkTakeDamageCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkTakeDamageCmd(Game1 game)
+        public LinkTakeDamageCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.TakeDamage();
+            Link.TakeDamage();
         }
     }
 
     public class LinkResetCmd : ICommand
     {
         public Game1 Game { get; set; }
+        public ILink Link { get; set; }
 
-        public LinkResetCmd(Game1 game)
+        public LinkResetCmd(Game1 game, ILink link)
         {
             Game = game;
+            Link = link;
         }
         public void Execute()
         {
-            Game.Link.Reset();
+            Link.Reset();
         }
     }
 }
