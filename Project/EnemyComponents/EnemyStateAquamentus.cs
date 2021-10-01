@@ -19,6 +19,10 @@ namespace Project1.EnemyComponents
         private int timer = 0;
         private int rand;
 
+        private IAquamentusProjectile up = new NoAquamentusProjectile();
+        private IAquamentusProjectile straight = new NoAquamentusProjectile();
+        private IAquamentusProjectile down = new NoAquamentusProjectile();
+
         public EnemyStateAquamentus(IEnemy enemy)
         {
             Enemy = enemy;
@@ -63,19 +67,29 @@ namespace Project1.EnemyComponents
                 isAttacking = true;
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
                 Sprite.MaxDelay = 30;
+                up = new AquamentusProjectile(Enemy.Position, "Up");
+                straight = new AquamentusProjectile(Enemy.Position, "Straight");
+                down = new AquamentusProjectile(Enemy.Position, "Down");
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, 110);   // TODO: not hardcode 80 
+            up.Draw(spriteBatch);
+            straight.Draw(spriteBatch);
+            down.Draw(spriteBatch);
         }
 
         public void Update()
         {
             Sprite.Update();
+            up.Update();
+            straight.Update();
+            down.Update();
+
             timer++;
 
-            if (timer > 300)
+            if (timer > 250)
             {
                 Attack();
                 timer = 0;
