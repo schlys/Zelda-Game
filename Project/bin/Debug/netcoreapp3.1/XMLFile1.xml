@@ -280,6 +280,46 @@
 		<row>3</row>
 		<originalSize>40</originalSize>
 	</Sprite>
+	<Sprite>
+		<name>MoblinProjectileDown</name>
+		<sheet>moblin</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MoblinProjectileRight</name>
+		<sheet>moblin</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>2</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MoblinProjectileUp</name>
+		<sheet>moblin</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>3</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MoblinProjectileLeft</name>
+		<sheet>moblin</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>4</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>MoblinProjectilePoof</name>
+		<sheet>moblin</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>5</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+	</Sprite>
 
 	<Sprite>
 		<name>GoriyaUp</name>
