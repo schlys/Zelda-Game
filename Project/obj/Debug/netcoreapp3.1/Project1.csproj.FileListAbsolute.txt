@@ -59,7 +59,6 @@ C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.csp
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
-C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
@@ -84,6 +83,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.exe
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
