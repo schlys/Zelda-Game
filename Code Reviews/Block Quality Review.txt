@@ -1,0 +1,39 @@
+﻿
+Author of the code review: 
+Elise Kosmides 
+
+Date of the code review: 
+9-30-21
+
+Sprint number: 
+Sprint 2
+
+Name of the .cs file being reviewed: 
+Block.cs
+
+Author of the .cs file being reviewed:
+Chaeun 
+
+Number of minutes taken to complete the review:
+10 minutes 
+
+Code Quality Review-  
+
+- the Game parameter is never used and should be removed 
+
+PrevBlock() and NextBlock methods: 
+
+- group the switch case from these methods into a single method to reduce duplicated code. 
+This could be done by passing the index as a parameter, and the method would change the 
+BlockState. 
+
+- group the increment changes to counter from these methods into a single method to reduce 
+duplicated code. You could pass the step to reduce/increase it by as a parameter. 
+
+(See Item.cs for similar implementations of both of the above)
+
+- create a step field rather than using the magic number 0.2 
+
+
+
+

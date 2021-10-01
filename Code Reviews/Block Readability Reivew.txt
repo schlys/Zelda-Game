@@ -1,0 +1,26 @@
+﻿
+Author of the code review: 
+Elise Kosmides
+
+Date of the code review: 
+9-30-21
+
+Sprint number: 
+Sprint 2
+
+Name of the .cs file being reviewed: 
+Block.cs
+
+Author of the .cs file being reviewed:
+Chaeun 
+
+Number of minutes taken to complete the review:
+
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+- parameter names BlockState and counter are descriptive and readable 
+- parameter ID is vague and should be changed to something like BlockStateKeys since it's describing the keys for the sprite factory 
+- PrevBlock() and NextBlock() use a magic number to increment which should be changed to a field 
+- could add an overall comment to describe the purpose of the file 
+
+
