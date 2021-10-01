@@ -16,20 +16,20 @@ namespace Project1.EnemyComponents
         public EnemyHealth Health { get; set; }
         
         public Vector2 Position { get; set; }
-        private Vector2 initialPosition;
+        public Vector2 InitialPosition { get; set; }
         
         private double Step = .1;
         private double counter = 0.0;
 
         // NOTE: for personal reference, remove before submission 
-        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Empty"};
+        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Aquamentus"};
 
         public Enemy(Game1 game)
         {
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
             Position = new Vector2(400, 200);
-            initialPosition = Position;
+            InitialPosition = Position;
         }
        
     
@@ -66,6 +66,9 @@ namespace Project1.EnemyComponents
                 case "Keese":
                     EnemyState = new EnemyStateKeese(this);
                     break;
+                case "Aquamentus":
+                    EnemyState = new EnemyStateAquamentus(this);
+                    break;
             }
         }
         public void IncrementCounter(double i)
@@ -90,7 +93,7 @@ namespace Project1.EnemyComponents
         }
         public void ResetPosition()
         {
-            Position = initialPosition;
+            Position = InitialPosition;
         }
 
         public void Draw(SpriteBatch spriteBatch)

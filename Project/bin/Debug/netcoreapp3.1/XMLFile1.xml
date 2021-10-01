@@ -289,38 +289,7 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 	</Sprite>
-	<Sprite>
-		<name>StalfosUp</name>
-		<sheet>stalfos</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>StalfosDown</name>
-		<sheet>stalfos</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>StalfosRight</name>
-		<sheet>stalfos</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>StalfosLeft</name>
-		<sheet>stalfos</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
+	
 	
 	<Sprite>
 		<name>Keese</name>
@@ -330,38 +299,7 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 	</Sprite>
-	<Sprite>
-		<name>KeeseUp</name>
-		<sheet>keese</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>KeeseDown</name>
-		<sheet>keese</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>KeeseRight</name>
-		<sheet>keese</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
-	<Sprite>
-		<name>KeeseLeft</name>
-		<sheet>keese</sheet>
-		<totalFrames>2</totalFrames>
-		<startFrame>1</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-	</Sprite>
+	
 
 	<Sprite>
 		<name>Aquamentus</name>
@@ -369,7 +307,7 @@
 		<totalFrames>4</totalFrames>
 		<startFrame>3</startFrame>
 		<row>0</row>
-		<originalSize>100</originalSize>
+		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
 		<name>AttackAquamentus</name>
@@ -377,7 +315,7 @@
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
-		<originalSize>100</originalSize>
+		<originalSize>40</originalSize>
 	</Sprite>
 	<Sprite>
 		<name>AquamentusProjectile</name>

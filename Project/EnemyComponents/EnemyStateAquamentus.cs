@@ -7,35 +7,54 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    class EnemyAquamentus
+    class EnemyStateAquamentus : IEnemyState
     {
         public IEnemy Enemy { get; set; }
+        public IEnemyDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         private bool isAttacking;
-        private Vector2 position;
-        private int step = 3;
+        private int step = 1;
         private Random r = new Random();
         private int timer = 0;
         private int rand;
 
-        public EnemyAquamentus(IEnemy enemy)
+        public EnemyStateAquamentus(IEnemy enemy)
         {
             Enemy = enemy;
             ID = "Aquamentus";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             isAttacking = false;
-            rand = r.Next(1);
+            //rand = r.Next(3);
         }
         public void MoveLeft()
         {
-            if (!isAttacking)
-                position.X-=step;
+            if (!isAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - 50)
+            {
+                Sprite.TotalFrames = 4;
+                Enemy.Position += new Vector2(-step, 0);
+            } else
+            {
+                StopMoving();
+            }
+           
         }
+
         public void MoveRight()
         {
-            if (!isAttacking)
-                position.X+=step;
+            if (!isAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + 50)
+            {
+                Sprite.TotalFrames = 4;
+                Enemy.Position += new Vector2(step, 0);
+            } else
+            {
+                StopMoving();
+            }
+           
+        }
+        private void StopMoving()
+        {
+            Sprite.TotalFrames = 3;
         }
         public void Attack()
         {
@@ -43,11 +62,12 @@ namespace Project1.EnemyComponents
             {
                 isAttacking = true;
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
+                Sprite.MaxDelay = 30;
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, 110);   // TODO: not hardcode 80 
         }
 
         public void Update()
@@ -55,22 +75,25 @@ namespace Project1.EnemyComponents
             Sprite.Update();
             timer++;
 
-            if (timer % 10 == 0)
+            if (timer > 300)
             {
                 Attack();
+                timer = 0;
             }
+            
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
+                
                 if (isAttacking)
                 {
                     isAttacking = false;
                     Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+                    Sprite.MaxDelay = Sprite.startDelay;
                 }
             }
-            if (timer > 10)
+            if (timer % 100 == 0)
             {
-                rand = r.Next(1);
-                timer = 0;
+                rand = r.Next(3);
             }
             switch (rand)
             {
@@ -79,6 +102,9 @@ namespace Project1.EnemyComponents
                     break;
                 case 1:
                     MoveRight();
+                    break;
+                case 2:
+                    StopMoving();
                     break;
             }
         }
