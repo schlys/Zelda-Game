@@ -1,0 +1,25 @@
+Author of the code review: 
+Sam Chlystek
+
+Date of the code review: 
+9/30/2021
+
+Sprint number: 
+Sprint 2
+
+Name of the .cs file being reviewed: 
+Item.cs
+
+Author of the .cs file being reviewed:
+Chaeun, Elise
+
+Number of minutes taken to complete the review:
+20 minutes
+
+
+Code Quality Review-  
+
+Look into if a jump table could be used instead of a switch case block.
+The grouping of code to prevent duplicates is well done.
+
+

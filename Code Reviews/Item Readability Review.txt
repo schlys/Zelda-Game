@@ -1,0 +1,24 @@
+Author of the code review: 
+Sam Chlystek
+
+Date of the code review: 
+9/30/2021
+
+Sprint number: 
+Sprint 2
+
+Name of the .cs file being reviewed: 
+Item.cs
+
+Author of the .cs file being reviewed:
+Chaeun, Elise
+
+Number of minutes taken to complete the review:
+20 minutes
+
+Readabiliity Review-
+- The array of items is very clear and shows each item that there is
+- Some of the instance variables like "Counter" and "Step" are vague to outside readers
+- "Magic Numbers" are minimized which is good for readability
+- Comments are present and effective in describing functionality
+
