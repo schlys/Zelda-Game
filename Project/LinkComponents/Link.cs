@@ -202,7 +202,7 @@ namespace Project1.LinkComponents
             if (!LinkItemStateBlueArrow.isUsing && !LockFrame)
             {
                 UseItem();
-                LinkItemStateBlueArrow = new LinkStateBlueArrow(LinkDirectionState.ID, Position);
+                LinkItemStateBlueArrow = new LinkStateSilverArrow(LinkDirectionState.ID, Position);
             }
             
         }
@@ -211,7 +211,7 @@ namespace Project1.LinkComponents
             if (!LinkItemStateBlueBoomerang.isUsing && !LockFrame)
             {
                 UseItem();
-                LinkItemStateBlueBoomerang = new LinkStateBlueBoomerang(LinkDirectionState.ID, Position);
+                LinkItemStateBlueBoomerang = new LinkStateMagicalBoomerang(LinkDirectionState.ID, Position);
             }
         }
 
