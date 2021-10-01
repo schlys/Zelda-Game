@@ -20,17 +20,18 @@ namespace Project1.LinkComponents
         public ILinkItemState LinkItemStateBlueBoomerang { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
-        private string weapon;
-        private string useItem;
+        private string WeaponName;
+        private string UseItemName;
 
         private Vector2 Position = new Vector2(40, 40);
         private Vector2 InitialPositoin = new Vector2(40, 40);
-        
-        
+
+        private int LinkSize = 125;
+        private int LinkItemSize = 80; 
+
         private int Step = 4;   
         private bool LockFrame;     // belong in sprite draw 
-        
-
+      
         public Link()
         {
             LinkDirectionState = new LinkStateUp(this);     // default state is up 
@@ -44,8 +45,8 @@ namespace Project1.LinkComponents
             LinkItemStateBlueArrow = new LinkStateNoItem();
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            weapon = "";
-            useItem = "";
+            WeaponName = "";
+            UseItemName = "";
             UpdateSprite();
         }
         public void MoveDown()
@@ -113,7 +114,7 @@ namespace Project1.LinkComponents
             {
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this);
-                weapon = LinkWeaponState.ID;
+                WeaponName = LinkWeaponState.ID;
                 UpdateSprite();
                 LinkSprite.MaxDelay = 1;
             }
@@ -124,7 +125,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 LockFrame = true;
-                useItem = "UseItem";
+                UseItemName = "UseItem";
                 UpdateSprite();
                 LinkSprite.MaxDelay = 12;
             }
@@ -218,19 +219,18 @@ namespace Project1.LinkComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             //LinkSprite.Color = Health.UpdateColor();
-            LinkSprite.Draw(spriteBatch, Position, 125);        // TODO: not hardcode 125, move to sprite class  
-            LinkItemState.Draw(spriteBatch, 80);                // TODO: move size from method to sprite class  
-            LinkItemStateArrow.Draw(spriteBatch, 80);
-            LinkItemStateBomb.Draw(spriteBatch, 80);
-            LinkItemStateFire.Draw(spriteBatch, 80);
-            LinkItemStateBoomerang.Draw(spriteBatch, 80);
-            LinkItemStateBlueArrow.Draw(spriteBatch, 80);
-            LinkItemStateBlueBoomerang.Draw(spriteBatch, 80);
+            LinkSprite.Draw(spriteBatch, Position, LinkSize);      
+            LinkItemState.Draw(spriteBatch, LinkItemSize);                
+            LinkItemStateArrow.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateBomb.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateFire.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateBoomerang.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateBlueArrow.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateBlueBoomerang.Draw(spriteBatch, LinkItemSize);
         }
 
         public void Update()
         {
-            //LinkSprite.Update(); 
             LinkItemState.Update();
             LinkItemStateArrow.Update();
             LinkItemStateBomb.Update();
@@ -252,8 +252,8 @@ namespace Project1.LinkComponents
                     if (LockFrame)
                     {
                         LockFrame = false;
-                        weapon = "";
-                        useItem = "";
+                        WeaponName = "";
+                        UseItemName = "";
                         UpdateSprite();
                         StopMoving();
                     }
@@ -265,7 +265,7 @@ namespace Project1.LinkComponents
         }
         private void UpdateSprite()
         {
-            LinkSprite =  SpriteFactory.Instance.GetSpriteData(weapon + useItem + LinkDirectionState.ID);
+            LinkSprite =  SpriteFactory.Instance.GetSpriteData(WeaponName + UseItemName + LinkDirectionState.ID);
         }
         public void Reset()
         {
@@ -274,8 +274,8 @@ namespace Project1.LinkComponents
             LinkItemState = new LinkStateNoItem();                  // default item state is no item
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
-            weapon = "";
-            useItem = "";
+            WeaponName = "";
+            UseItemName = "";
             LockFrame = false;
             UpdateSprite();
         }
