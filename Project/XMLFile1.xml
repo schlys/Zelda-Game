@@ -280,6 +280,39 @@
 		<row>3</row>
 		<originalSize>40</originalSize>
 	</Sprite>
+
+	<Sprite>
+		<name>GoriyaUp</name>
+		<sheet>goriya</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>GoriyaDown</name>
+		<sheet>goriya</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>GoriyaRight</name>
+		<sheet>goriya</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	<Sprite>
+		<name>GoriyaLeft</name>
+		<sheet>goriya</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+	</Sprite>
 	
 	<Sprite>
 		<name>Stalfos</name>
@@ -290,7 +323,6 @@
 		<originalSize>40</originalSize>
 	</Sprite>
 	
-	
 	<Sprite>
 		<name>Keese</name>
 		<sheet>keese</sheet>
@@ -299,7 +331,15 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 	</Sprite>
-	
+
+	<Sprite>
+		<name>Gel</name>
+		<sheet>gel</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>
 
 	<Sprite>
 		<name>Aquamentus</name>

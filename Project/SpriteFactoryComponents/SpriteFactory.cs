@@ -42,6 +42,8 @@ namespace Project1.SpriteFactoryComponents
             TextureDict.Add("stalfos", content.Load<Texture2D>("DungeonEnemies/Stalfos"));
             TextureDict.Add("keese", content.Load<Texture2D>("DungeonEnemies/Keese"));
             TextureDict.Add("aquamentus", content.Load<Texture2D>("DungeonEnemies/Aquamentus"));
+            TextureDict.Add("gel", content.Load<Texture2D>("DungeonEnemies/Gel"));
+            TextureDict.Add("goriya", content.Load<Texture2D>("DungeonEnemies/Goriya"));
 
             CreateDict();
         }
