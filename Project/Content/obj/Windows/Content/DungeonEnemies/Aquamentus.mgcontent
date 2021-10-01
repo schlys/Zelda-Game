@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD:Project/Content/obj/Windows/Content/DungeonEnemies/Aquamentus.mgcontent
   <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/DungeonEnemies/Aquamentus.png</SourceFile>
   <SourceTime>2021-09-24T13:45:26.3943515-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/DungeonEnemies/Aquamentus.xnb</DestFile>
   <DestTime>2021-09-30T22:21:24.064426-04:00</DestTime>
+=======
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Content/DungeonEnemies/Aquamentus.png</SourceFile>
+  <SourceTime>2021-09-23T17:08:16.403239-04:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Content/bin/Windows/Content/DungeonEnemies/Aquamentus.xnb</DestFile>
+  <DestTime>2021-09-30T22:16:23.9935809-04:00</DestTime>
+>>>>>>> 37f28e17f23d1298cbbee700242286d4ae09a281:Content/obj/Windows/Content/DungeonEnemies/Aquamentus.mgcontent
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

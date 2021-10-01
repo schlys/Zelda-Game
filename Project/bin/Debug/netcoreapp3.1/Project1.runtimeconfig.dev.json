@@ -1,10 +1,16 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD:Project/bin/Debug/netcoreapp3.1/Project1.runtimeconfig.dev.json
       "C:\\Users\\samch\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\samch\\.nuget\\packages",
+=======
+      "C:\\Users\\Elise\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Elise\\.nuget\\packages",
+>>>>>>> 37f28e17f23d1298cbbee700242286d4ae09a281:bin/Debug/netcoreapp3.1/Project1.runtimeconfig.dev.json
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }
