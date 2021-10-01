@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.EnemyComponents;
+using Project1.SpriteFactoryComponents;
+using System;
 
 namespace Project1.EnemyComponents
 {
@@ -20,16 +17,16 @@ namespace Project1.EnemyComponents
         public int TotalFrames { get; set; }
         public Vector2 Position;
         private Vector2 initialPosition = new Vector2(100, 200);
-        
+
         private int movementTimer;
         private Random r = new Random();
         private int randomInt;
 
         private int Step = 1;
-        private double counter= 0.0;
+        private double counter = 0.0;
 
         // NOTE: for personal reference, remove before submission 
-        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos"};
+        private string[] EnemyTypes = { "Moblin", "Keese", "Stalfos" };
 
         public Enemy(Game1 game)
         {
@@ -37,7 +34,7 @@ namespace Project1.EnemyComponents
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
             UpdateSprite();
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
-            Position = new Vector2(100, 200);           
+            Position = new Vector2(100, 200);
             movementTimer = 0;
             randomInt = r.Next(0, 5);
         }
@@ -115,7 +112,7 @@ namespace Project1.EnemyComponents
                     EnemyState = new EnemyStateKeese(this);
                     break;
             }
-           
+
             if (counter >= 0)
             {
                 counter -= .1;
@@ -162,18 +159,18 @@ namespace Project1.EnemyComponents
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
             UpdateSprite();
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
-        
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            EnemyState.Draw(spriteBatch, Position); 
+            EnemyState.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
-            EnemyState.Update(); 
-            
+            EnemyState.Update();
+
             movementTimer++;
             if (movementTimer > 90)
             {

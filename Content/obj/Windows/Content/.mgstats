@@ -1,5 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/samch/source/repos/Project/Content/Blocks.png","C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/Blocks.xnb","TextureProcessor","Texture2DContent",1447,10325,0.2847618
+"C:/Users/samch/source/repos/Project/Content/DungeonEnemies/Aquamentus.png","C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/DungeonEnemies/Aquamentus.xnb","TextureProcessor","Texture2DContent",10719,51285,0.2429817
 "C:/Users/samch/source/repos/Project/Content/DungeonEnemies/Keese.png","C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/DungeonEnemies/Keese.xnb","TextureProcessor","Texture2DContent",8319,25685,0.004443
 "C:/Users/samch/source/repos/Project/Content/DungeonEnemies/Stalfos.png","C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/DungeonEnemies/Stalfos.xnb","TextureProcessor","Texture2DContent",10961,128085,0.0117527
 "C:/Users/samch/source/repos/Project/Content/ItemsAndWeapons.png","C:/Users/samch/source/repos/Project/Content/bin/Windows/Content/ItemsAndWeapons.xnb","TextureProcessor","Texture2DContent",14753,256085,0.0152409
