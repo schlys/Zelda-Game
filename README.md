@@ -1,9 +1,11 @@
 # Project
 Names: Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh. 
+
 Course: CSE 3902 
 
 # Project Planning 
 We used ZenHub to track our planning and progress. You can find it below: 
+
 https://app.zenhub.com/workspaces/3902-dream-team-613ffa4f2ca7870010eda966/board 
 
 # Description 
@@ -12,7 +14,7 @@ This program is a replication of the legend of Zelda.
 # Sprint 2 
 Submitted on 10/2/21
 
-This was the intial creation of the basics of the Zelda game. We creates Link, Items, Enemys, NPCs, and Blocks. The screen shows a single Link, Block, Enemy, and Item. The controls for the game at this time are as follow: 
+This was the intial creation of the basics of the Zelda game. We created Link, Items, Enemys, NPCs, and Blocks. The screen shows a single Link, Block, Enemy, and Item. The controls for the game at this time are as follow: 
 
 Player controls
 - Arrow and "wasd" keys should move Link and change his facing direction.
