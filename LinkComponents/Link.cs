@@ -133,6 +133,7 @@ namespace Project1.LinkComponents
         public void TakeDamage()
         {
             Health.DecreaseHealth(0.5);             // TODO: determine value to decrease by  
+            LinkSprite.Color = Color.Red;
         }
 
         public void UseNoItem()
@@ -216,7 +217,7 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            LinkSprite.Color = Health.UpdateColor();
+            //LinkSprite.Color = Health.UpdateColor();
             LinkSprite.Draw(spriteBatch, Position, 125);        // TODO: not hardcode 125, move to sprite class  
             LinkItemState.Draw(spriteBatch, 80);                // TODO: move size from method to sprite class  
             LinkItemStateArrow.Draw(spriteBatch, 80);
@@ -241,6 +242,7 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
+                LinkSprite.Color = Color.White;
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
                     LinkSprite.CurrentFrame++;

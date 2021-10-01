@@ -29,6 +29,7 @@ namespace Project1.LinkComponents
             CurrNumHearts -= x; 
         }
 
+        /*
         public Color UpdateColor()
         {
             Color color = Color.White;
@@ -49,7 +50,7 @@ namespace Project1.LinkComponents
                 }
             }
             return color;
-        }
+        }*/
         public void Update()
         {
             throw new NotImplementedException();

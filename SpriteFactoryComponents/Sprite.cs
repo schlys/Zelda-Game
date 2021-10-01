@@ -37,8 +37,8 @@ namespace Project1.SpriteFactoryComponents
             Row = row;
             OriginalSize = s;
             // TODO: make global variable and remove these from first constructor 
-            MaxDelay = 2;           // NOTE - changed from 6 // default value 
-            DelayRate = .1;        // NOTE - changed from 1 // default value 
+            MaxDelay = 6;           // NOTE - changed from 6 // default value 
+            DelayRate = 1;        // NOTE - changed from 1 // default value 
             startDelay = MaxDelay;
             Color = Color.White;
         }
