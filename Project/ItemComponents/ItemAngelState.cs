@@ -13,7 +13,8 @@ namespace Project1.ItemComponents
         private Random R = new Random();
         private int Timer = 0;
         private int Rand;
-        private int Step = 1; 
+        private int Step = 1;
+        private int PositionBounds = 50; 
 
         public ItemAngelState(IItem item)
         {
@@ -56,19 +57,31 @@ namespace Project1.ItemComponents
         }
         public void MoveUp()
         {
-            Item.Position = new Vector2(Item.Position.X, Item.Position.Y - Step); 
+            if (Item.Position.Y - Step > Item.InitialPosition.Y - PositionBounds)
+            {
+                Item.Position = new Vector2(Item.Position.X, Item.Position.Y - Step);
+            }
         }
         public void MoveDown()
         {
-            Item.Position = new Vector2(Item.Position.X, Item.Position.Y + Step);
+            if (Item.Position.Y + Step < Item.InitialPosition.Y + PositionBounds)
+            {
+                Item.Position = new Vector2(Item.Position.X, Item.Position.Y + Step);
+            }
         }
         public void MoveLeft()
         {
-            Item.Position = new Vector2(Item.Position.X - Step, Item.Position.Y);
+            if (Item.Position.X - Step > Item.InitialPosition.X - PositionBounds)
+            {
+                Item.Position = new Vector2(Item.Position.X - Step, Item.Position.Y);
+            }
         }
         public void MoveRight()
         {
-            Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
+            if (Item.Position.X + Step < Item.InitialPosition.X + PositionBounds)
+            {
+                Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
+            }
         }
     }
 }

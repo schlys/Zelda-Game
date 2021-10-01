@@ -9,8 +9,7 @@ namespace Project1.ItemComponents
     {
         public IItemState ItemState { get; set; }
         public Vector2 Position { get; set; }
-
-        private Vector2 InitialPosition = new Vector2(600, 200);
+        public Vector2 InitialPosition { get; set; }
 
         private double Counter = 0.0;
         private double Step = 0.1;
@@ -22,6 +21,7 @@ namespace Project1.ItemComponents
         public Item()
         {
             ItemState = new ItemAngelState(this);
+            InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition; 
         }
 
