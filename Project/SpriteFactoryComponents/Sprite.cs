@@ -29,7 +29,6 @@ namespace Project1.SpriteFactoryComponents
 
         public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
         {
-            // TODO: add col parameter here (some sprites are in a grid) 
             Texture = texture;
             TotalFrames = totalFrames;
             CurrentFrame = currentFrame;

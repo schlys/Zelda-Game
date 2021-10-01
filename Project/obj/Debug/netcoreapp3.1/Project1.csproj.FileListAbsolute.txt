@@ -112,6 +112,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs

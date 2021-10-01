@@ -51,7 +51,6 @@ namespace Project1
             KeyboardController.InitializeBlockCommands(Block);
             KeyboardController.InitializeItemCommands(Item);
             KeyboardController.InitializeEnemyCommands(Enemy);
-
         }
 
         protected override void Update(GameTime gameTime)
