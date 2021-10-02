@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.LinkComponents
+namespace Project1.ProjectileComponents
 {
-    class LinkStateBoomerang : ILinkItemState
+    class MagicalBoomerangProjectile : IProjectile
     {
+        public bool InMotion { get; set; }
         public Sprite Sprite { get; set; }
         public Vector2 Position;
         public bool isUsing { get; set; }
@@ -16,13 +17,13 @@ namespace Project1.LinkComponents
         private int speed = 6;
         private Vector2 originalPosition;
         int counter;
-        public LinkStateBoomerang(string direction, Vector2 position)
+        public MagicalBoomerangProjectile(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
+            Sprite = SpriteFactory.Instance.GetSpriteData("MagicalBoomerang");
             counter = 0;
-            isUsing = true;
+            InMotion = true;
 
             switch (Direction)
             {
@@ -48,24 +49,22 @@ namespace Project1.LinkComponents
             originalPosition.Y = Position.Y;
 
         }
-        public void Draw(SpriteBatch spriteBatch, int size)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (Sprite != null)
-                if (counter < 50)
+            if (InMotion)
+                if (counter < 90)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, size);
+                    Sprite.Draw(spriteBatch, Position, 80);
                 }else
                 {
-                    isUsing = false;
+                    InMotion = false;
                 }
         }
 
         public void Update()
         {
-            
-            if (Sprite != null)
-            {           
+                    
                 Sprite.Update();
 
                 switch (Direction)
@@ -84,12 +83,11 @@ namespace Project1.LinkComponents
                         break;
                  }
 
-                if(Position.Y<originalPosition.Y-120 || Position.Y > originalPosition.Y+120 || Position.X < originalPosition.X - 120 || Position.X > originalPosition.X + 120)
+                if(Position.Y<originalPosition.Y-200 || Position.Y > originalPosition.Y+200 || Position.X < originalPosition.X - 200 || Position.X > originalPosition.X + 200)
                 {
                     speed = -4;
                 }
-
-            }
+            
         }
     }
 }

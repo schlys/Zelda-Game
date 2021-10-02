@@ -106,22 +106,6 @@ namespace Project1.Command
         }
 
     }
-
-    public class LinkUseNoItemCmd : ICommand
-        {
-            public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseNoItemCmd(Game1 game, ILink link)
-            {
-                Game = game;
-            Link = link;
-        }
-            public void Execute()
-            {
-                Link.UseNoItem();
-            }
-        }
     public class LinkUseWoodenSwordCmd : ICommand
         {
             public Game1 Game { get; set; }

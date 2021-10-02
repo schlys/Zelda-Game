@@ -5,21 +5,25 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.LinkComponents
+namespace Project1.ProjectileComponents
 {
-    class LinkStateFire : ILinkItemState
+    class ArrowProjectile : IProjectile
     {
+        public bool InMotion { get; set; }
         public Sprite Sprite { get; set; }
+        public Sprite Poof { get; set; }
         public Vector2 Position;
         public bool isUsing { get; set; }
         public string Direction { get; set; }
         private int speed = 4;
         int counter;
-        public LinkStateFire(string direction, Vector2 position)
+        public ArrowProjectile(string direction, Vector2 position)
         {
+            InMotion = true;
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
+            Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction);
+            Poof = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
             counter = 0;
             isUsing = true;
 
@@ -43,27 +47,29 @@ namespace Project1.LinkComponents
                     break;
             }
         }
-        public void Draw(SpriteBatch spriteBatch, int size)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (Sprite != null)
-                if (counter < 45)
+            if (InMotion)
+                if (counter < 50)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, size);
-                }else
+                    Sprite.Draw(spriteBatch, Position, 80);
+                }else if(counter<60)
+                {                  
+                    Poof.Draw(spriteBatch, Position, 80);
+                    counter++;
+                }
+                else
                 {
-                    isUsing = false;
+                    InMotion = false;
                 }
         }
 
         public void Update()
         {
-            if (Sprite != null)
-            {
-                Sprite.Update();
-                if (counter < 25)
+            
+                if (counter < 50)
                 {
-                   
                     switch (Direction)
                     {
                         case "Up":
@@ -80,8 +86,7 @@ namespace Project1.LinkComponents
                             break;
                     }
                 }
-                
-            }
+            
         }
     }
 }

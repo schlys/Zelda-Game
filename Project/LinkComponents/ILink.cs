@@ -10,7 +10,6 @@ namespace Project1.LinkComponents
     public interface ILink
     {
         ILinkDirectionState LinkDirectionState { get; set; }
-        ILinkItemState LinkItemState { get; set; }
         ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
         public LinkHealth Health { get; set; }
@@ -21,7 +20,6 @@ namespace Project1.LinkComponents
         void StopMoving();
         void Attack();
         void TakeDamage();
-        void UseNoItem();
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();

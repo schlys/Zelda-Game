@@ -1,29 +1,32 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.ProjectileComponents;
 using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.LinkComponents
+namespace Project1.ProjectileComponents
 {
-    class LinkStateArrow : ILinkItemState
+    class SilverArrowProjectile : IProjectile
     {
+        public bool InMotion {get;set;}
         public Sprite Sprite { get; set; }
         public Sprite Poof { get; set; }
         public Vector2 Position;
-        public bool isUsing { get; set; }
+     
         public string Direction { get; set; }
         private int speed = 4;
         int counter;
-        public LinkStateArrow(string direction, Vector2 position)
+        public SilverArrowProjectile(string direction, Vector2 position)
         {
+            InMotion = true;
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction);
-            Poof = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
+            Sprite = SpriteFactory.Instance.GetSpriteData("SilverArrow" + Direction);
+            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
-            isUsing = true;
+         
 
             switch (Direction)
             {
@@ -45,28 +48,28 @@ namespace Project1.LinkComponents
                     break;
             }
         }
-        public void Draw(SpriteBatch spriteBatch, int size)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (Sprite != null & Poof !=null)
+            if (InMotion)
                 if (counter < 50)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, size);
-                }else if(counter<60)
-                {                  
-                    Poof.Draw(spriteBatch, Position, size);
+                    Sprite.Draw(spriteBatch, Position, 80);
+                }
+                else if (counter < 60)
+                {
+                    Poof.Draw(spriteBatch, Position, 80);
                     counter++;
                 }
                 else
                 {
-                    isUsing = false;
+                    InMotion = false;
                 }
         }
 
         public void Update()
         {
-            if (Sprite != null)
-            {
+           
                 if (counter < 50)
                 {
                     switch (Direction)
@@ -85,7 +88,7 @@ namespace Project1.LinkComponents
                             break;
                     }
                 }
-            }
+            
         }
     }
 }

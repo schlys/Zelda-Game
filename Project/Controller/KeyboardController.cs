@@ -49,9 +49,6 @@ namespace Project1.Controller
 
             RegisterCommand(new LinkTakeDamageCmd(Game, Link), Keys.E);
 
-            RegisterCommand(new LinkUseNoItemCmd(Game, Link), Keys.NumPad0);
-            RegisterCommand(new LinkUseNoItemCmd(Game, Link), Keys.D0);
-
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
 

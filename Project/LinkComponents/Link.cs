@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.ProjectileComponents;
 
 namespace Project1.LinkComponents
 {
@@ -11,43 +12,30 @@ namespace Project1.LinkComponents
     {
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkWeaponState LinkWeaponState { get; set; } 
-        public ILinkItemState LinkItemState { get; set; }
-        public ILinkItemState LinkItemStateArrow { get; set; }
-        public ILinkItemState LinkItemStateBomb { get; set; }
-        public ILinkItemState LinkItemStateFire { get; set; }
-        public ILinkItemState LinkItemStateBoomerang { get; set; }
-        public ILinkItemState LinkItemStateSilverArrow { get; set; }
-        public ILinkItemState LinkItemStateMagicalBoomerang { get; set; }
+       
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
         private string WeaponName;
         private string UseItemName;
 
-        private Vector2 Position = new Vector2(40, 40);
-        private Vector2 InitialPositoin = new Vector2(40, 40);
+        private Vector2 Position;
+        private Vector2 InitialPosition = new Vector2(40, 40);
 
         private int LinkSize = 125;
-        private int LinkItemSize = 80; 
+        //private int LinkItemSize = 80; 
 
         private int Step = 4;   
         private bool LockFrame;     // belong in sprite draw 
       
         public Link()
         {
-            LinkDirectionState = new LinkStateUp(this);     // default state is up 
-            LinkItemState = new LinkStateNoItem();      // default item state is no item
-            LinkItemStateArrow = new LinkStateNoItem();      // default item state is no item
-            LinkItemStateBomb = new LinkStateNoItem();      // default item state is no item
-            LinkItemStateFire = new LinkStateNoItem();      // default item state is no item
-            LinkItemStateBoomerang = new LinkStateNoItem();
-            LinkItemStateBoomerang = new LinkStateNoItem();
-            LinkItemStateMagicalBoomerang = new LinkStateNoItem();
-            LinkItemStateSilverArrow = new LinkStateNoItem();
+            LinkDirectionState = new LinkStateUp(this);     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             WeaponName = "";
             UseItemName = "";
             UpdateSprite();
+            Position = InitialPosition;
         }
         public void MoveDown()
         {
@@ -127,7 +115,7 @@ namespace Project1.LinkComponents
                 LockFrame = true;
                 UseItemName = "UseItem";
                 UpdateSprite();
-                LinkSprite.MaxDelay = 12;
+                LinkSprite.MaxDelay = 25;
             }
         }
 
@@ -135,11 +123,6 @@ namespace Project1.LinkComponents
         {
             Health.DecreaseHealth(0.5);             // TODO: determine value to decrease by  
             LinkSprite.Color = Color.Red;
-        }
-
-        public void UseNoItem()
-        {
-            LinkItemState = new LinkStateNoItem();
         }
         public void UseMagicalRod()
         {
@@ -164,80 +147,69 @@ namespace Project1.LinkComponents
 
         public void UseArrow()
         {
-            if (!LinkItemStateArrow.isUsing && !LockFrame)
+            if (!LockFrame)
             {
-
                 UseItem();
-                LinkItemStateArrow = new LinkStateArrow(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new ArrowProjectile(LinkDirectionState.ID, Position));
             }
         }
 
         public void UseBomb()
         {
-            if (!LinkItemStateBomb.isUsing && !LockFrame)
+            if (!LockFrame)
             {
                 UseItem();
-                LinkItemStateBomb = new LinkStateBomb(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new BombProjectile(LinkDirectionState.ID, Position));
             }
         }
 
         public void UseFire()
         {
-            if (!LinkItemStateFire.isUsing && !LockFrame)
+            if (!LockFrame)
             {
                 UseItem();
-                LinkItemStateFire = new LinkStateFire(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new FireProjectile(LinkDirectionState.ID, Position));
             }
         }
 
         public void UseBoomerang()
         {
-            if (!LinkItemStateBoomerang.isUsing && !LockFrame)
+            if (!LockFrame)
             {
                 UseItem();
-                LinkItemStateBoomerang = new LinkStateBoomerang(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new BoomerangProjectile(LinkDirectionState.ID, Position));
             }
         }
         public void UseSilverArrow()
         {
-            if (!LinkItemStateSilverArrow.isUsing && !LockFrame)
+            if (!LockFrame)
             {
                 UseItem();
-                LinkItemStateSilverArrow = new LinkStateSilverArrow(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new SilverArrowProjectile(LinkDirectionState.ID, Position));
             }
-            
+          
         }
         public void UseMagicalBoomerang()
         {
-            if (!LinkItemStateMagicalBoomerang.isUsing && !LockFrame)
+            if (!LockFrame)
             {
                 UseItem();
-                LinkItemStateMagicalBoomerang = new LinkStateMagicalBoomerang(LinkDirectionState.ID, Position);
+                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(LinkDirectionState.ID, Position));
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //LinkSprite.Color = Health.UpdateColor();
+            
             LinkSprite.Draw(spriteBatch, Position, LinkSize);      
-            LinkItemState.Draw(spriteBatch, LinkItemSize);                
-            LinkItemStateArrow.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateBomb.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateFire.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateBoomerang.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateSilverArrow.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateMagicalBoomerang.Draw(spriteBatch, LinkItemSize);
+                          
+            
         }
 
         public void Update()
         {
-            LinkItemState.Update();
-            LinkItemStateArrow.Update();
-            LinkItemStateBomb.Update();
-            LinkItemStateFire.Update();
-            LinkItemStateBoomerang.Update();
-            LinkItemStateSilverArrow.Update();
-            LinkItemStateMagicalBoomerang.Update();
+            
+            
             
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
@@ -269,9 +241,8 @@ namespace Project1.LinkComponents
         }
         public void Reset()
         {
-            Position = InitialPositoin;
-            LinkDirectionState = new LinkStateUp(this);             // default state is up 
-            LinkItemState = new LinkStateNoItem();                  // default item state is no item
+            Position = InitialPosition;
+            LinkDirectionState = new LinkStateUp(this);             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             WeaponName = "";

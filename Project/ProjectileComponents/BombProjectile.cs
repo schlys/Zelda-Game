@@ -5,23 +5,24 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.LinkComponents
+namespace Project1.ProjectileComponents
 {
-    class LinkStateBomb : ILinkItemState
+    class BombProjectile : IProjectile
     {
+        public bool InMotion { get; set; }
         public Sprite Sprite { get; set; }
         public Vector2 Position;
-        public bool isUsing { get; set; }
+        
         public string Direction { get; set; }
         
         private int counter;
-        public LinkStateBomb(string direction, Vector2 position)
+        public BombProjectile(string direction, Vector2 position)
         {
             Position = position;
             Direction = direction;
             Sprite = SpriteFactory.Instance.GetSpriteData("Bomb");
             counter = 0;
-            isUsing = true;
+            InMotion = true;
 
 
             switch (Direction)
@@ -45,24 +46,23 @@ namespace Project1.LinkComponents
             }
 
         }
-        public void Draw(SpriteBatch spriteBatch, int size)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (Sprite != null)
+            if (InMotion)
                 if (counter < 100)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, size);
+                    Sprite.Draw(spriteBatch, Position, 80);
                 }else
                 {
-                    isUsing = false;
+                    InMotion = false;
                 }
         }
 
         public void Update()
         {
             
-            if (Sprite != null)
-            {
+            
 
                 Sprite.DelayRate = 0.1;
                 Sprite.MaxDelay = 1;
@@ -77,7 +77,7 @@ namespace Project1.LinkComponents
                 
                
                 
-            }
+            
 
         }
     }

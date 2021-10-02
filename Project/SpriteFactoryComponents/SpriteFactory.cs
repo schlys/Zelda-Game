@@ -84,7 +84,7 @@ namespace Project1.SpriteFactoryComponents
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize);
         }
 
-
+        /*
         public ILinkItemState GetCurrentItem(string name, string direction, Vector2 position)
         {
             ILinkItemState item;
@@ -98,7 +98,7 @@ namespace Project1.SpriteFactoryComponents
                     break;
             }
             return item;
-        }
+        }*/
 
     }
 }
