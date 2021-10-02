@@ -12,7 +12,7 @@ namespace Project1.ItemComponents
         public ItemSilverArrowState(IItem item)
         {
             Item = item;
-            Sprite = SpriteFactory.Instance.GetSpriteData("BlueArrowUp");
+            Sprite = SpriteFactory.Instance.GetSpriteData("SilverArrowUp");
         }
         public void Draw(SpriteBatch spriteBatch)
         {

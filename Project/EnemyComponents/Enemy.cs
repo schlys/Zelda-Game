@@ -44,7 +44,7 @@ namespace Project1.EnemyComponents
         {
             ResetPosition();
             SetEnemyState((int)counter);
-            IncrementCounter(Step);
+            IncrementCounter(-Step);
         }
 
         public void NextEnemy()
