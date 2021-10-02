@@ -70,10 +70,10 @@ namespace Project1.EnemyComponents
                     EnemyState = new EnemyStateAquamentus(this);
                     break;
                 case "Gel":
-                    //EnemyState = new EnemyStateGel(this);
+                    EnemyState = new EnemyStateGel(this);
                     break;
                 case "Goriya":
-                    //EnemyState = new EnemyStateGoriya(this);
+                    EnemyState = new EnemyStateGoriya(this);
                     break;
             }
         }
