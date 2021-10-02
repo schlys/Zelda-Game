@@ -134,6 +134,15 @@
 	</Sprite>
 
 	<Sprite>
+		<name>OldMan</name>
+		<sheet>oldMan</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+	</Sprite>
+	
+	<Sprite>
 		<name>ArrowUp</name>
 		<sheet>linkItems</sheet>
 		<totalFrames>3</totalFrames>

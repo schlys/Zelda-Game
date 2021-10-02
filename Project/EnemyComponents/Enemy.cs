@@ -22,7 +22,7 @@ namespace Project1.EnemyComponents
         private double counter = 0.0;
 
         // NOTE: for personal reference, remove before submission 
-        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya"};
+        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
         public Enemy(Game1 game)
         {
@@ -74,6 +74,9 @@ namespace Project1.EnemyComponents
                     break;
                 case "Goriya":
                     EnemyState = new EnemyStateGoriya(this);
+                    break;
+                case "OldMan":
+                    EnemyState = new EnemyStateOldMan(this);
                     break;
             }
         }
