@@ -16,8 +16,8 @@ namespace Project1.LinkComponents
         public ILinkItemState LinkItemStateBomb { get; set; }
         public ILinkItemState LinkItemStateFire { get; set; }
         public ILinkItemState LinkItemStateBoomerang { get; set; }
-        public ILinkItemState LinkItemStateBlueArrow { get; set; }
-        public ILinkItemState LinkItemStateBlueBoomerang { get; set; }
+        public ILinkItemState LinkItemStateSilverArrow { get; set; }
+        public ILinkItemState LinkItemStateMagicalBoomerang { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
         private string WeaponName;
@@ -41,8 +41,8 @@ namespace Project1.LinkComponents
             LinkItemStateFire = new LinkStateNoItem();      // default item state is no item
             LinkItemStateBoomerang = new LinkStateNoItem();
             LinkItemStateBoomerang = new LinkStateNoItem();
-            LinkItemStateBlueBoomerang = new LinkStateNoItem();
-            LinkItemStateBlueArrow = new LinkStateNoItem();
+            LinkItemStateMagicalBoomerang = new LinkStateNoItem();
+            LinkItemStateSilverArrow = new LinkStateNoItem();
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             WeaponName = "";
@@ -198,21 +198,21 @@ namespace Project1.LinkComponents
                 LinkItemStateBoomerang = new LinkStateBoomerang(LinkDirectionState.ID, Position);
             }
         }
-        public void UseBlueArrow()
+        public void UseSilverArrow()
         {
-            if (!LinkItemStateBlueArrow.isUsing && !LockFrame)
+            if (!LinkItemStateSilverArrow.isUsing && !LockFrame)
             {
                 UseItem();
-                LinkItemStateBlueArrow = new LinkStateSilverArrow(LinkDirectionState.ID, Position);
+                LinkItemStateSilverArrow = new LinkStateSilverArrow(LinkDirectionState.ID, Position);
             }
             
         }
-        public void UseBlueBoomerang()
+        public void UseMagicalBoomerang()
         {
-            if (!LinkItemStateBlueBoomerang.isUsing && !LockFrame)
+            if (!LinkItemStateMagicalBoomerang.isUsing && !LockFrame)
             {
                 UseItem();
-                LinkItemStateBlueBoomerang = new LinkStateMagicalBoomerang(LinkDirectionState.ID, Position);
+                LinkItemStateMagicalBoomerang = new LinkStateMagicalBoomerang(LinkDirectionState.ID, Position);
             }
         }
 
@@ -225,8 +225,8 @@ namespace Project1.LinkComponents
             LinkItemStateBomb.Draw(spriteBatch, LinkItemSize);
             LinkItemStateFire.Draw(spriteBatch, LinkItemSize);
             LinkItemStateBoomerang.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateBlueArrow.Draw(spriteBatch, LinkItemSize);
-            LinkItemStateBlueBoomerang.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateSilverArrow.Draw(spriteBatch, LinkItemSize);
+            LinkItemStateMagicalBoomerang.Draw(spriteBatch, LinkItemSize);
         }
 
         public void Update()
@@ -236,8 +236,8 @@ namespace Project1.LinkComponents
             LinkItemStateBomb.Update();
             LinkItemStateFire.Update();
             LinkItemStateBoomerang.Update();
-            LinkItemStateBlueArrow.Update();
-            LinkItemStateBlueBoomerang.Update();
+            LinkItemStateSilverArrow.Update();
+            LinkItemStateMagicalBoomerang.Update();
             
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)

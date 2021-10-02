@@ -55,8 +55,8 @@ namespace Project1.Controller
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
 
-            RegisterCommand(new LinkUseBlueArrowCmd(Game, Link), Keys.NumPad2);
-            RegisterCommand(new LinkUseBlueArrowCmd(Game, Link), Keys.D2);
+            RegisterCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.NumPad2);
+            RegisterCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.D2);
 
             RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.NumPad3);
             RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.D3);
@@ -67,8 +67,8 @@ namespace Project1.Controller
             RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.NumPad5);
             RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.D5);
 
-            RegisterCommand(new LinkUseBlueBoomerangCmd(Game, Link), Keys.NumPad6);
-            RegisterCommand(new LinkUseBlueBoomerangCmd(Game, Link), Keys.D6);
+            RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.NumPad6);
+            RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
 
             // Command so link does not animate in place 
             RegisterCommand(new LinkStopMovingCmd(Game, Link), LinkStopKey); 

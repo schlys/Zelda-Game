@@ -218,19 +218,19 @@ namespace Project1.Command
         }
     }
 
-    public class LinkUseBlueArrowCmd : ICommand
+    public class LinkUseSilverArrowCmd : ICommand
     {
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkUseBlueArrowCmd(Game1 game, ILink link)
+        public LinkUseSilverArrowCmd(Game1 game, ILink link)
         {
             Game = game;
             Link = link;
         }
         public void Execute()
         {
-            Link.UseBlueArrow();
+            Link.UseSilverArrow();
         }
     }
 
@@ -282,19 +282,19 @@ namespace Project1.Command
         }
     }
 
-    public class LinkUseBlueBoomerangCmd : ICommand
+    public class LinkUseMagicalBoomerangCmd : ICommand
     {
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkUseBlueBoomerangCmd(Game1 game, ILink link)
+        public LinkUseMagicalBoomerangCmd(Game1 game, ILink link)
         {
             Game = game;
             Link = link;
         }
         public void Execute()
         {
-            Link.UseBlueBoomerang();
+            Link.UseMagicalBoomerang();
         }
     }
 
