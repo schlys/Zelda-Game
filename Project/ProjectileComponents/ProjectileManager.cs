@@ -42,5 +42,9 @@ namespace Project1.ProjectileComponents
                     projectileList.Remove(Projectile);
            }
         }
+        public void Reset()
+        {
+            projectileList = new List<IProjectile>();
+        }
     }
 }

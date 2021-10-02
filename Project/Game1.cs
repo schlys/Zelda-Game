@@ -89,6 +89,7 @@ namespace Project1
             Block.Reset();
             Item.Reset();
             Enemy.Reset();
+            ProjectileManager.Instance.Reset();
         }
     }
 }

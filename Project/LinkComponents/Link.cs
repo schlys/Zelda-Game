@@ -200,17 +200,11 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-            LinkSprite.Draw(spriteBatch, Position, LinkSize);      
-                          
-            
+            LinkSprite.Draw(spriteBatch, Position, LinkSize);                   
         }
 
         public void Update()
         {
-            
-            
-            
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {

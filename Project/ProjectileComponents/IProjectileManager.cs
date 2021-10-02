@@ -10,5 +10,6 @@ namespace Project1.ProjectileComponents
         void Add(IProjectile projectile);
         void Draw(SpriteBatch spriteBatch);
         void Update();
+        void Reset();
     }
 }
