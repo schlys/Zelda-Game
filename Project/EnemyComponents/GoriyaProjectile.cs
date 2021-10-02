@@ -7,20 +7,21 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    class MoblinProjectile : IProjectile
+    class GoriyaProjectile : IProjectile
     {
         Sprite Sprite;
         public string ID;
         private Vector2 position;
         private string direction;
         private int counter;
-        public MoblinProjectile(Vector2 position, string direction)
+
+        public GoriyaProjectile(Vector2 position, string direction)
         {
             this.direction = direction;
             this.position = position;
             counter = 0;
-            ID = "MoblinProjectile";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID+ direction);
+            ID = "Boomerang";
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

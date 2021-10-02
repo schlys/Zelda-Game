@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    class NoAquamentusProjectile : IAquamentusProjectile
+    class NoProjectile : IProjectile
     {
-        public NoAquamentusProjectile() { }
+        public NoProjectile() { }
         public void Draw(SpriteBatch spriteBatch)
         {
           

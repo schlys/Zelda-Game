@@ -12,14 +12,18 @@ namespace Project1.EnemyComponents
         public IEnemyDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }     
         public string ID { get; set; }
+
         private bool isAttacking;
         private int step;
         private int movementTimer;
         private Random r = new Random();
         private int randomInt;
-        private const int randomRange = 10;
+        private const int randomRange = 4;
 
-        //private IProjectile boomerang = new NoProjectile();
+        private IProjectile BoomerangUp = new NoProjectile();
+        private IProjectile BoomerangDown = new NoProjectile();
+        private IProjectile BoomerangLeft = new NoProjectile();
+        private IProjectile BoomerangRight = new NoProjectile();
 
         public EnemyStateGoriya(IEnemy enemy)
         {
@@ -72,14 +76,20 @@ namespace Project1.EnemyComponents
         {
             Sprite.TotalFrames = 1;
         }
-        private void Attack()
+        private void Attack(string direction)
         {
             if (!isAttacking)
             {
-                isAttacking = true;
-                //Sprite.MaxDelay = 30;
-                //boomerang = new GoriyaProjectile(Enemy.Position, DirectionState.ID);
-
+                isAttacking = true; 
+                Sprite.MaxDelay = 30;
+                if (direction.Equals("Up"))
+                    BoomerangUp = new GoriyaProjectile(Enemy.Position, "Up");
+                else if (direction.Equals("Down"))
+                    BoomerangDown = new GoriyaProjectile(Enemy.Position, "Down");
+                else if (direction.Equals("Right"))
+                    BoomerangRight = new GoriyaProjectile(Enemy.Position, "Right");
+                else if (direction.Equals("Left"))
+                    BoomerangLeft = new GoriyaProjectile(Enemy.Position, "Left");
             }
         }
         private void UpdateSprite()
@@ -89,19 +99,38 @@ namespace Project1.EnemyComponents
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
-            //boomerang.Draw(spriteBatch);
+            BoomerangUp.Draw(spriteBatch);
+            BoomerangDown.Draw(spriteBatch);
+            BoomerangRight.Draw(spriteBatch);
+            BoomerangLeft.Draw(spriteBatch);
         }
 
         public void Update()
         {
             Sprite.Update();
-            //boomerang.Update();
+            BoomerangUp.Update();
+            BoomerangDown.Update();
+            BoomerangRight.Update();
+            BoomerangLeft.Update();
+
+            if (Sprite.CurrentFrame == Sprite.TotalFrames)
+            { 
+                if (isAttacking)
+                {
+                    isAttacking = false;
+                }
+            }
+
             movementTimer++;
             if (movementTimer > 90)
             {
-                randomInt = r.Next(randomRange);
+                if (Sprite.CurrentFrame == 1) //Goriya shoot the arrow when it stops
+                    Attack(DirectionState.ID);
+
+                randomInt = r.Next(0, 5);
                 movementTimer = 0;
             }
+
             switch (randomInt)
             {
                 case 0:
@@ -116,11 +145,8 @@ namespace Project1.EnemyComponents
                 case 3:
                     MoveRight();
                     break;
-                case 4:
-                    StopMoving();
-                    break;
                 default:
-                    Attack();
+                    StopMoving();
                     break;
             }
         }

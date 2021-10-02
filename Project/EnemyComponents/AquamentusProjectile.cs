@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    class AquamentusProjectile : IAquamentusProjectile
+    class AquamentusProjectile : IProjectile
     {
         Sprite Sprite;
         public string ID;

@@ -19,10 +19,10 @@ namespace Project1.EnemyComponents
         private Random r = new Random();
         private int randomInt;
 
-        private IAquamentusProjectile up = new NoAquamentusProjectile();
-        private IAquamentusProjectile down = new NoAquamentusProjectile();
-        private IAquamentusProjectile right = new NoAquamentusProjectile();
-        private IAquamentusProjectile left = new NoAquamentusProjectile();
+        private IProjectile up = new NoProjectile();
+        private IProjectile down = new NoProjectile();
+        private IProjectile right = new NoProjectile();
+        private IProjectile left = new NoProjectile();
 
         public EnemyStateMoblin(IEnemy enemy)
         {

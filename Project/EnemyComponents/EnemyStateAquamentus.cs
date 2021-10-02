@@ -19,9 +19,9 @@ namespace Project1.EnemyComponents
         private int timer = 0;
         private int rand;
 
-        private IAquamentusProjectile up = new NoAquamentusProjectile();
-        private IAquamentusProjectile straight = new NoAquamentusProjectile();
-        private IAquamentusProjectile down = new NoAquamentusProjectile();
+        private IProjectile up = new NoProjectile();
+        private IProjectile straight = new NoProjectile();
+        private IProjectile down = new NoProjectile();
 
         public EnemyStateAquamentus(IEnemy enemy)
         {

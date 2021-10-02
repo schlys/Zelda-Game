@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project1.EnemyComponents
 {
-    interface IAquamentusProjectile
+    interface IProjectile
     {
         void Update();
         void Draw(SpriteBatch spriteBatch);
