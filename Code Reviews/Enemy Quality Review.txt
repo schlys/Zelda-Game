@@ -1,0 +1,29 @@
+﻿
+Author of the code review: 
+Chaeun Hong
+
+Date of the code review: 
+10-1-21
+
+Sprint number: 
+Sprint 2
+
+Name of the .cs file being reviewed: 
+Enemy.cs
+
+Author of the .cs file being reviewed:
+Jake
+
+Number of minutes taken to complete the review:
+10 minutes 
+
+Code Quality Review  
+- Code is well organized overall.
+- This code is high cohesion, and low coupling.
+- IncrementCounter method uses a magic number.
+- SetEnemyState method used switch-case looks complex, so find better way to simplify.
+
+
+
+
+
