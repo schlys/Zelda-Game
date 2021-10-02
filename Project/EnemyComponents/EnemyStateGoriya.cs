@@ -19,7 +19,7 @@ namespace Project1.EnemyComponents
         private Random r = new Random();
         private int randomInt;
         private const int randomRange = 4;
-        private int delay=1;
+        private int delay=2;
 
         private IProjectile BoomerangUp = new NoProjectile();
         private IProjectile BoomerangDown = new NoProjectile();
@@ -127,7 +127,7 @@ namespace Project1.EnemyComponents
                 if (isAttacking && delay==0)
                 {
                     isAttacking = false;
-                    delay = 1;
+                    delay = 2;
                 }
             }
             
