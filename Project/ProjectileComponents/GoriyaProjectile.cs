@@ -17,10 +17,11 @@ namespace Project1.ProjectileComponents
         private int counter;
         private int speed = 2;
 
-        public bool InMotion => throw new NotImplementedException();
+        public bool InMotion { get; set; }
 
         public GoriyaProjectile(Vector2 position, string direction)
         {
+            InMotion = true;
             this.direction = direction;
             this.position = position;
             originalPosition = position;
@@ -30,8 +31,10 @@ namespace Project1.ProjectileComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (counter < 100)
+            if (InMotion)
                 Sprite.Draw(spriteBatch, position, 80);
+            else
+                InMotion = false;
         }
         public void Update()
         {
@@ -40,7 +43,7 @@ namespace Project1.ProjectileComponents
             if (counter < 100)
             {
                 if (direction.Equals("Up"))
-                    position += new Vector2(0, (float) -speed);
+                    position += new Vector2(0, (float)-speed);
                 else if (direction.Equals("Down"))
                     position += new Vector2(0, (float)speed);
                 else if (direction.Equals("Right"))
@@ -53,8 +56,10 @@ namespace Project1.ProjectileComponents
                     speed = -2;
                 }
 
-                
+
             }
+            else
+                InMotion = false;
         }
     }
 }

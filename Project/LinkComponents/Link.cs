@@ -150,7 +150,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new ArrowProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new ArrowProjectile(Position, LinkDirectionState.ID));
             }
         }
 
@@ -159,7 +159,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new BombProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new BombProjectile(Position, LinkDirectionState.ID));
             }
         }
 
@@ -168,7 +168,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new FireProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new FireProjectile(Position, LinkDirectionState.ID));
             }
         }
 
@@ -177,7 +177,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new BoomerangProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new BoomerangProjectile(Position, LinkDirectionState.ID));
             }
         }
         public void UseSilverArrow()
@@ -185,7 +185,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new SilverArrowProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new SilverArrowProjectile(Position, LinkDirectionState.ID));
             }
           
         }
@@ -194,7 +194,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(LinkDirectionState.ID, Position));
+                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, LinkDirectionState.ID));
             }
         }
 

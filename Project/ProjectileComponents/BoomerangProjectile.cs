@@ -17,7 +17,7 @@ namespace Project1.ProjectileComponents
         private int speed = 6;
         private Vector2 originalPosition;
         int counter;
-        public BoomerangProjectile(string direction, Vector2 position)
+        public BoomerangProjectile(Vector2 position, string direction)
         {
             Position = position;
             Direction = direction;

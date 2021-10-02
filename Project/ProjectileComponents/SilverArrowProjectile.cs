@@ -18,7 +18,7 @@ namespace Project1.ProjectileComponents
         public string Direction { get; set; }
         private int speed = 4;
         int counter;
-        public SilverArrowProjectile(string direction, Vector2 position)
+        public SilverArrowProjectile(Vector2 position, string direction)
         {
             InMotion = true;
             Position = position;

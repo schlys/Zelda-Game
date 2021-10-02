@@ -16,7 +16,7 @@ namespace Project1.ProjectileComponents
         public string Direction { get; set; }
         
         private int counter;
-        public BombProjectile(string direction, Vector2 position)
+        public BombProjectile(Vector2 position, string direction)
         {
             Position = position;
             Direction = direction;

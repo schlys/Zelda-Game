@@ -22,11 +22,6 @@ namespace Project1.EnemyComponents
         private const int randomRange = 4;
         private int delay=2;
 
-        private IProjectile BoomerangUp = new NoProjectile();
-        private IProjectile BoomerangDown = new NoProjectile();
-        private IProjectile BoomerangLeft = new NoProjectile();
-        private IProjectile BoomerangRight = new NoProjectile();
-
         public EnemyStateGoriya(IEnemy enemy)
         {
             Enemy = enemy;
@@ -40,45 +35,55 @@ namespace Project1.EnemyComponents
 
         private void MoveUp()
         {
+            if (!isAttacking)
+            {
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
                     DirectionState.MoveUp();
                     UpdateSprite();
                 }
-            if (!isAttacking) Enemy.Position += new Vector2(0, -step);
-
+                if (!isAttacking) Enemy.Position += new Vector2(0, -step);
+            }
             
         }
         private void MoveDown()
         {
+            if (!isAttacking)
+            {
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
                     DirectionState.MoveDown();
                     UpdateSprite();
                 }
-            if (!isAttacking)  Enemy.Position += new Vector2(0, step);
+                if (!isAttacking) Enemy.Position += new Vector2(0, step);
+            }
             
         }
         private void MoveRight()
         {
-
+            if (!isAttacking)
+            {
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
                     DirectionState.MoveRight();
                     UpdateSprite();
                 }
-                if(!isAttacking) Enemy.Position += new Vector2(step, 0);
+                if (!isAttacking) Enemy.Position += new Vector2(step, 0);
+            }
             
         }
         private void MoveLeft()
         {
-            if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
+            if (!isAttacking)
+            {
+                if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
                     DirectionState.MoveLeft();
                     UpdateSprite();
                 }
 
-            if(!isAttacking) Enemy.Position += new Vector2(-step, 0);
+                if (!isAttacking) Enemy.Position += new Vector2(-step, 0);
+            }
             
             
         }
@@ -92,14 +97,7 @@ namespace Project1.EnemyComponents
             {
                 isAttacking = true; 
                 Sprite.MaxDelay = 10;
-                if (direction.Equals("Up"))
-                    BoomerangUp = new GoriyaProjectile(Enemy.Position, "Up");
-                else if (direction.Equals("Down"))
-                    BoomerangDown = new GoriyaProjectile(Enemy.Position, "Down");
-                else if (direction.Equals("Right"))
-                    BoomerangRight = new GoriyaProjectile(Enemy.Position, "Right");
-                else if (direction.Equals("Left"))
-                    BoomerangLeft = new GoriyaProjectile(Enemy.Position, "Left");
+                ProjectileManager.Instance.Add(new GoriyaProjectile(Enemy.Position, direction));
             }
         }
         private void UpdateSprite()
@@ -109,19 +107,13 @@ namespace Project1.EnemyComponents
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
-            BoomerangUp.Draw(spriteBatch);
-            BoomerangDown.Draw(spriteBatch);
-            BoomerangRight.Draw(spriteBatch);
-            BoomerangLeft.Draw(spriteBatch);
+            
         }
 
         public void Update()
         {
             Sprite.Update();
-            BoomerangUp.Update();
-            BoomerangDown.Update();
-            BoomerangRight.Update();
-            BoomerangLeft.Update();
+            
             
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             { 
