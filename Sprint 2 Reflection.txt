@@ -1,0 +1,19 @@
+Our team planned effectively and met regularly to remain on task. One of our teammates, Jake, 
+was very ill throughout the majority of this timeframe and could not contribute. But, our 
+remaining five members were still able to stay on task. We met after class Monday, Wednesday, 
+and Friday to discuss our progress. We also had discord calls some of the days we did not have 
+class. We used ZenHub to plan and Discord to communicate. 
+
+We began by creating the framework of the project: making basic interfaces and classes for the 
+base objects. We focused on specific parts like the controller and commands, Link, 
+Items, Block, or Enemys. We decided to use states for the variations of most of the objects. 
+For instance, Link has a seperate weapon and direction state. After we had the framework 
+complete, we began working on animating the game. We created a single Sprite Factory and 
+Sprite class to mange our animations. One of our teammates uniformly laid out all of our 
+spritesheets. Our sprites are loaded from an XML file. Sprites are accessed from the factory 
+with a specific string key. Lastly, we worked onanimating projectiles for Link and the Enemys. 
+In the future, we need to refactor this code more. 
+
+We got started as soon as possible and did not procrastinate which aided out process. We could 
+have alloted more time for the difficult task of projectiles and animation. In the future, 
+we hope to continue effectively planning for our sprints. 
