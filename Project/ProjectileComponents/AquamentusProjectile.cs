@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.EnemyComponents
+namespace Project1.ProjectileComponents
 {
     class AquamentusProjectile : IProjectile
     {
+        public bool InMotion { get; set; }
         Sprite Sprite;
         public string ID;
         private Vector2 position;
@@ -16,6 +17,7 @@ namespace Project1.EnemyComponents
         private int counter;
         public AquamentusProjectile(Vector2 position, string direction)
         {
+            InMotion = true;
             this.direction = direction;
             this.position = position;
             counter = 0;
@@ -24,7 +26,7 @@ namespace Project1.EnemyComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (counter < 200)
+            if (InMotion)
                 Sprite.Draw(spriteBatch, position, 80);
         }
         public void Update()
@@ -40,6 +42,8 @@ namespace Project1.EnemyComponents
                 else
                     position += new Vector2((float)-2, 1);
             }
+            else
+                InMotion = false;
         }
     }
 }

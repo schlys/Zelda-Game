@@ -1,11 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.ProjectileComponents;
 using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.EnemyComponents
+namespace Project1.ProjectileComponents
 {
     class MoblinProjectile : IProjectile
     {
@@ -14,8 +15,12 @@ namespace Project1.EnemyComponents
         private Vector2 position;
         private string direction;
         private int counter;
+
+        public bool InMotion { get; set; }
+
         public MoblinProjectile(Vector2 position, string direction)
         {
+            InMotion = true;
             this.direction = direction;
             this.position = position;
             counter = 0;
@@ -24,7 +29,7 @@ namespace Project1.EnemyComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (counter < 200)
+            if (InMotion)
                 Sprite.Draw(spriteBatch, position, 80);
         }
         public void Update()
@@ -34,7 +39,7 @@ namespace Project1.EnemyComponents
             if (counter < 200)
             {
                 if (direction.Equals("Up"))
-                    position += new Vector2(0, (float) -2);
+                    position += new Vector2(0, (float)-2);
                 else if (direction.Equals("Down"))
                     position += new Vector2(0, (float)2);
                 else if (direction.Equals("Right"))
@@ -42,6 +47,8 @@ namespace Project1.EnemyComponents
                 else if (direction.Equals("Left"))
                     position += new Vector2((float)-2, 0);
             }
+            else
+                InMotion = false;
         }
     }
 }

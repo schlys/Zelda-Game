@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project1.EnemyComponents
+namespace Project1.ProjectileComponents
 {
     class GoriyaProjectile : IProjectile
     {
@@ -16,6 +16,8 @@ namespace Project1.EnemyComponents
         private string direction;
         private int counter;
         private int speed = 2;
+
+        public bool InMotion => throw new NotImplementedException();
 
         public GoriyaProjectile(Vector2 position, string direction)
         {

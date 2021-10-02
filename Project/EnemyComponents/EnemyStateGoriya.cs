@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using System;
+using Project1.ProjectileComponents;
 
 namespace Project1.EnemyComponents 
 {

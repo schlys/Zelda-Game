@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.ProjectileComponents;
 using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
@@ -19,17 +20,12 @@ namespace Project1.EnemyComponents
         private int timer = 0;
         private int rand;
 
-        private IProjectile up = new NoProjectile();
-        private IProjectile straight = new NoProjectile();
-        private IProjectile down = new NoProjectile();
-
         public EnemyStateAquamentus(IEnemy enemy)
         {
             Enemy = enemy;
             ID = "Aquamentus";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             isAttacking = false;
-            //rand = r.Next(3);
         }
         public void MoveLeft()
         {
@@ -67,25 +63,19 @@ namespace Project1.EnemyComponents
                 isAttacking = true;
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
                 Sprite.MaxDelay = 30;
-                up = new AquamentusProjectile(Enemy.Position, "Up");
-                straight = new AquamentusProjectile(Enemy.Position, "Straight");
-                down = new AquamentusProjectile(Enemy.Position, "Down");
+                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Up"));
+                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Straight"));
+                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Down"));
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, 110);   // TODO: not hardcode 80 
-            up.Draw(spriteBatch);
-            straight.Draw(spriteBatch);
-            down.Draw(spriteBatch);
         }
 
         public void Update()
         {
             Sprite.Update();
-            up.Update();
-            straight.Update();
-            down.Update();
 
             timer++;
 

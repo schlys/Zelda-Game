@@ -8,6 +8,7 @@ using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.SpriteFactoryComponents;
 using Project1.EnemyComponents;
+using Project1.ProjectileComponents;
 
 namespace Project1
 {
@@ -62,6 +63,7 @@ namespace Project1
             Link.Update();
             Item.Update();
             Enemy.Update();
+            ProjectileManager.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -75,6 +77,7 @@ namespace Project1
             Block.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
             Enemy.Draw(_spriteBatch);
+            ProjectileManager.Instance.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);

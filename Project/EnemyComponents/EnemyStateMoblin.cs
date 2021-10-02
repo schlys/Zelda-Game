@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using System;
+using Project1.ProjectileComponents;
 
 namespace Project1.EnemyComponents 
 {
@@ -19,11 +20,6 @@ namespace Project1.EnemyComponents
         private Random r = new Random();
         private int randomInt;
 
-        private IProjectile up = new NoProjectile();
-        private IProjectile down = new NoProjectile();
-        private IProjectile right = new NoProjectile();
-        private IProjectile left = new NoProjectile();
-
         public EnemyStateMoblin(IEnemy enemy)
         {
             Enemy = enemy;
@@ -37,39 +33,52 @@ namespace Project1.EnemyComponents
 
         private void MoveUp()
         {
-            if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
+            if (!isAttacking)
             {
-                DirectionState.MoveUp();
-                UpdateSprite();
+                if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
+                {
+                    DirectionState.MoveUp();
+                    UpdateSprite();
+                }
+                Enemy.Position += new Vector2(0, -step);
             }
-            Enemy.Position += new Vector2(0, -step);
         }
         private void MoveDown()
         {
-            if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
+            if (!isAttacking)
             {
-                DirectionState.MoveDown();
-                UpdateSprite();
+                if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
+                {
+                    DirectionState.MoveDown();
+                    UpdateSprite();
+                }
+                Enemy.Position += new Vector2(0, step);
             }
-            Enemy.Position += new Vector2(0, step);
         }
         private void MoveRight()
         {
-            if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
+            if (!isAttacking)
             {
-                DirectionState.MoveRight();
-                UpdateSprite();
+                if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
+                {
+                    DirectionState.MoveRight();
+                    UpdateSprite();
+                }
+                Enemy.Position += new Vector2(step, 0);
             }
-            Enemy.Position += new Vector2(step, 0);
         }
         private void MoveLeft()
         {
-            if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
+            if (!isAttacking)
             {
-                DirectionState.MoveLeft();
-                UpdateSprite();
+                if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
+                {
+                    DirectionState.MoveLeft();
+                    UpdateSprite();
+                }
+                Enemy.Position += new Vector2(-step, 0);
             }
-            Enemy.Position += new Vector2(-step, 0);
+        
         }
         private void StopMoving()
         {
@@ -86,33 +95,18 @@ namespace Project1.EnemyComponents
             {
                 isAttacking = true;
                 Sprite.MaxDelay = 30;
-                if(direction.Equals("Up"))
-                    up = new MoblinProjectile(Enemy.Position, "Up");
-                else if(direction.Equals("Down"))
-                    down = new MoblinProjectile(Enemy.Position, "Down");
-                else if(direction.Equals("Right"))
-                    right = new MoblinProjectile(Enemy.Position, "Right");
-                else if(direction.Equals("Left"))
-                    left = new MoblinProjectile(Enemy.Position, "Left");
+                ProjectileManager.Instance.Add(new MoblinProjectile(Enemy.Position, direction));
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
-            up.Draw(spriteBatch);
-            down.Draw(spriteBatch);
-            right.Draw(spriteBatch);
-            left.Draw(spriteBatch);
         }
 
         public void Update()
         {
             Sprite.Update();
-            up.Update();
-            down.Update();
-            right.Update();
-            left.Update();
 
             movementTimer++;
 
