@@ -198,7 +198,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseArrow();
+            Link.UseItem("Arrow");
+            //Link.UseArrow();
         }
     }
 
@@ -214,7 +215,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseSilverArrow();
+            Link.UseItem("SilverArrow");
+            //Link.UseSilverArrow();
         }
     }
 
@@ -230,7 +232,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseFire();
+            Link.UseItem("Fire");
+            //Link.UseFire();
         }
     }
 
@@ -246,7 +249,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseBomb();
+            Link.UseItem("Bomb");
+            //Link.UseBomb();
         }
     }
 
@@ -262,7 +266,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseBoomerang();
+            Link.UseItem("Boomerang");
+            //Link.UseBoomerang();
         }
     }
 
@@ -278,7 +283,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseMagicalBoomerang();
+            Link.UseItem("MagicalBoomerang");
+            //Link.UseMagicalBoomerang();
         }
     }
 

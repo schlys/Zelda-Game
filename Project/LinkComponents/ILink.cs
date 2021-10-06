@@ -20,18 +20,20 @@ namespace Project1.LinkComponents
         void MoveLeft();
         void StopMoving();
         void Attack();
+        void UseItem(string name);
         void TakeDamage();
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
+        /*
         void UseArrow();
         void UseSilverArrow();
         void UseBomb();
         void UseFire();
         void UseBoomerang();
-        void UseMagicalBoomerang();
+        void UseMagicalBoomerang();*/
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);

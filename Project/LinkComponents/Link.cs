@@ -109,12 +109,14 @@ namespace Project1.LinkComponents
             }
         }
 
-        public void UseItem()
+        public void UseItem(string name)
         {
             if (!LockFrame)
             {
                 LockFrame = true;
                 UseItemName = "UseItem";
+                IProjectile Item = ProjectileFactory.Instance.GetProjectile(name, Position, DirectionState.ID);
+                ProjectileManager.Instance.Add(Item);
                 UpdateSprite();
                 LinkSprite.MaxDelay = 25;
             }
@@ -145,7 +147,7 @@ namespace Project1.LinkComponents
         {
             LinkWeaponState.UseWoodenSword();
         }
-
+        /*
         public void UseArrow()
         {
             if (!LockFrame)
@@ -197,7 +199,7 @@ namespace Project1.LinkComponents
                 UseItem();
                 ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, DirectionState.ID));
             }
-        }
+        }*/
 
         public void Draw(SpriteBatch spriteBatch)
         {
