@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Gel.png</SourceFile>
-  <SourceTime>2021-10-05T22:03:49.5901136-04:00</SourceTime>
-  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/DungeonEnemies/Gel.xnb</DestFile>
-  <DestTime>2021-10-05T22:05:09.8248954-04:00</DestTime>
+  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/DungeonEnemies/Gel.png</SourceFile>
+  <SourceTime>2021-09-24T13:45:26.4097086-04:00</SourceTime>
+  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/DungeonEnemies/Gel.xnb</DestFile>
+  <DestTime>2021-10-06T12:10:36.2916491-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

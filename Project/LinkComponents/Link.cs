@@ -5,16 +5,19 @@ using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.ProjectileComponents;
+using Project1.CollisionComponents;
 
 namespace Project1.LinkComponents
 {
-    class Link : ILink
+    class Link : ILink, ICollidable
     {
         public ILinkDirectionState LinkDirectionState { get; set; }
         public ILinkWeaponState LinkWeaponState { get; set; } 
        
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
+        public Rectangle Hitbox { get; set; }
+
         private string WeaponName;
         private string UseItemName;
 
@@ -245,6 +248,9 @@ namespace Project1.LinkComponents
             UpdateSprite();
         }
 
-        
+        public void Collide()
+        {
+            
+        }
     }
 }

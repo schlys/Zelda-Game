@@ -9,6 +9,7 @@ using Project1.ItemComponents;
 using Project1.SpriteFactoryComponents;
 using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
+using Project1.CollisionComponents;
 
 namespace Project1
 {
@@ -22,7 +23,8 @@ namespace Project1
         public IBlock Block;
         public IItem Item;
         public IEnemy Enemy;
-        private IController KeyboardController;
+        private KeyboardController KeyboardController;
+        private MouseController MouseController;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -33,6 +35,7 @@ namespace Project1
         protected override void Initialize()
         {
             KeyboardController = new KeyboardController(this);
+            MouseController = new MouseController(this);
             base.Initialize();
         }
 
@@ -59,7 +62,8 @@ namespace Project1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardController.Update(this);
+            KeyboardController.Update();
+            MouseController.Update();
             Link.Update();
             Item.Update();
             Enemy.Update();
@@ -78,6 +82,7 @@ namespace Project1
             Item.Draw(_spriteBatch);
             Enemy.Draw(_spriteBatch);
             ProjectileManager.Instance.Draw(_spriteBatch);
+            
 
             _spriteBatch.End();
             base.Draw(gameTime);

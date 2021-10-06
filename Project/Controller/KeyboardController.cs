@@ -120,7 +120,7 @@ namespace Project1.Controller
             }
         }
 
-        public void Update(Game1 game)
+        public void Update()
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys(); 
 
