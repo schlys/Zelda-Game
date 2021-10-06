@@ -278,7 +278,6 @@ C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Overwor
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
-C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.exe
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
@@ -387,3 +386,4 @@ C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
