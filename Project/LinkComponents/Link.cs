@@ -19,7 +19,6 @@ namespace Project1.LinkComponents
         public Sprite LinkSprite { get; set; }
         public Rectangle Hitbox { get; set; }
 
-        private string WeaponName;
         private string UseItemName;
 
         private Vector2 Position;
@@ -36,7 +35,6 @@ namespace Project1.LinkComponents
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            WeaponName = "";
             UseItemName = "";
             UpdateSprite();
             Position = InitialPosition;
@@ -106,7 +104,6 @@ namespace Project1.LinkComponents
             {
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this);
-                WeaponName = LinkWeaponState.ID;
                 UpdateSprite();
                 LinkSprite.MaxDelay = 1;
             }
@@ -222,7 +219,6 @@ namespace Project1.LinkComponents
                     if (LockFrame)
                     {
                         LockFrame = false;
-                        WeaponName = "";
                         UseItemName = "";
                         UpdateSprite();
                         StopMoving();
@@ -235,7 +231,9 @@ namespace Project1.LinkComponents
         }
         private void UpdateSprite()
         {
-            LinkSprite =  SpriteFactory.Instance.GetSpriteData(WeaponName + UseItemName + DirectionState.ID);
+            string Weapon = "";
+            if (LockFrame && UseItemName.Length == 0) Weapon = LinkWeaponState.ID;
+            LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
         }
         public void Reset()
         {
@@ -243,7 +241,6 @@ namespace Project1.LinkComponents
             DirectionState = new DirectionStateUp();             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
-            WeaponName = "";
             UseItemName = "";
             LockFrame = false;
             UpdateSprite();
