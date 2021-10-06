@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using System;
 using Project1.ProjectileComponents;
+using Project1.DirectionState;
 
 namespace Project1.EnemyComponents 
 {
     class EnemyStateMoblin : IEnemyState
     {
         public IEnemy Enemy { get; set; }
-        public IEnemyDirectionState DirectionState { get; set; }
+        public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }     
         public string ID { get; set; }
         private bool isAttacking;
@@ -24,7 +25,7 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             ID = "Moblin";
-            DirectionState = new EnemyStateRight(this);
+            DirectionState = new DirectionStateRight();
             UpdateSprite();
             randomInt = r.Next(0, 5);
             step = 1;
@@ -37,7 +38,7 @@ namespace Project1.EnemyComponents
             {
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
-                    DirectionState.MoveUp();
+                    DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(0, -step);
@@ -49,7 +50,7 @@ namespace Project1.EnemyComponents
             {
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
-                    DirectionState.MoveDown();
+                    DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(0, step);
@@ -61,7 +62,7 @@ namespace Project1.EnemyComponents
             {
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
-                    DirectionState.MoveRight();
+                    DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(step, 0);
@@ -73,7 +74,7 @@ namespace Project1.EnemyComponents
             {
                 if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
-                    DirectionState.MoveLeft();
+                    DirectionState = DirectionState.MoveLeft();
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(-step, 0);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.DirectionState;
 using Project1.ProjectileComponents;
 using Project1.SpriteFactoryComponents;
 using System;
@@ -11,7 +12,7 @@ namespace Project1.EnemyComponents
     class EnemyStateAquamentus : IEnemyState
     {
         public IEnemy Enemy { get; set; }
-        public IEnemyDirectionState DirectionState { get; set; }
+        public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         private bool isAttacking;

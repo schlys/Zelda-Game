@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.DirectionState;
 
 namespace Project1.LinkComponents
 {
     public interface ILink
     {
-        ILinkDirectionState LinkDirectionState { get; set; }
+        IDirectionState DirectionState { get; set; }
         ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
         public LinkHealth Health { get; set; }

@@ -6,12 +6,13 @@ using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
+using Project1.DirectionState;
 
 namespace Project1.LinkComponents
 {
     class Link : ILink, ICollidable
     {
-        public ILinkDirectionState LinkDirectionState { get; set; }
+        public IDirectionState DirectionState {get;set;}
         public ILinkWeaponState LinkWeaponState { get; set; } 
        
         public LinkHealth Health { get; set; }
@@ -32,7 +33,7 @@ namespace Project1.LinkComponents
       
         public Link()
         {
-            LinkDirectionState = new LinkStateUp(this);     // default state is up           
+            DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             WeaponName = "";
@@ -44,9 +45,9 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             { 
-                if (!LinkDirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
-                    LinkDirectionState.MoveDown();
+                    DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
                 Position.Y += Step;
@@ -57,9 +58,9 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             {
-                if (!LinkDirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
-                    LinkDirectionState.MoveLeft();
+                    DirectionState = DirectionState.MoveLeft();
                     UpdateSprite();
 
                 }
@@ -71,9 +72,9 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             {              
-                if (!LinkDirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
-                    LinkDirectionState.MoveRight();
+                    DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
                 Position.X += Step;
@@ -84,9 +85,9 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             {              
-                if (!LinkDirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
                 {
-                    LinkDirectionState.MoveUp();
+                    DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
                 Position.Y -= Step;
@@ -153,7 +154,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new ArrowProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new ArrowProjectile(Position, DirectionState.ID));
             }
         }
 
@@ -162,7 +163,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new BombProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new BombProjectile(Position, DirectionState.ID));
             }
         }
 
@@ -171,7 +172,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new FireProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new FireProjectile(Position, DirectionState.ID));
             }
         }
 
@@ -180,7 +181,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new BoomerangProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new BoomerangProjectile(Position, DirectionState.ID));
             }
         }
         public void UseSilverArrow()
@@ -188,7 +189,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new SilverArrowProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new SilverArrowProjectile(Position, DirectionState.ID));
             }
           
         }
@@ -197,7 +198,7 @@ namespace Project1.LinkComponents
             if (!LockFrame)
             {
                 UseItem();
-                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, LinkDirectionState.ID));
+                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, DirectionState.ID));
             }
         }
 
@@ -234,12 +235,12 @@ namespace Project1.LinkComponents
         }
         private void UpdateSprite()
         {
-            LinkSprite =  SpriteFactory.Instance.GetSpriteData(WeaponName + UseItemName + LinkDirectionState.ID);
+            LinkSprite =  SpriteFactory.Instance.GetSpriteData(WeaponName + UseItemName + DirectionState.ID);
         }
         public void Reset()
         {
             Position = InitialPosition;
-            LinkDirectionState = new LinkStateUp(this);             // default state is up
+            DirectionState = new DirectionStateUp();             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             WeaponName = "";
