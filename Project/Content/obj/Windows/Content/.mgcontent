@@ -4,33 +4,33 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Blocks.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Aquamentus.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Gel.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Goriya.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Keese.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Stalfos.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/ItemsAndWeapons.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/BasicMovement.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/Items.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/MagicalRod.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/MagicalShield.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/MagicalSword.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/PickUpItem.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/UseItem.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/WhiteSword.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/WoodenSword.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/NPCs/OldManWoman.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Armos.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Ghini.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Leever.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Lynel.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Octorok.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Peahat.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Rock.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Tektite.png</File>
-    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Zora.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/Blocks.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Aquamentus.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Gel.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Goriya.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Keese.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Stalfos.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/ItemsAndWeapons.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/BasicMovement.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/Items.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalRod.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalShield.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/PickUpItem.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/UseItem.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/WhiteSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/WoodenSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/NPCs/OldManWoman.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Armos.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Ghini.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Leever.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Lynel.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Octorok.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Peahat.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Rock.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Tektite.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Zora.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

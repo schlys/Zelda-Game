@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Project1.LinkComponents; 
 using Project1.BlockComponents;
 using Project1.ItemComponents;
-using Project1.EnemyComponents; 
+using Project1.EnemyComponents;
+using System.Xml;
+using System;
 
 namespace Project1.Controller
 {
@@ -35,6 +37,23 @@ namespace Project1.Controller
              * Use 'e' to cause Link to become damaged
             */
             RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
+
+           // XmlDocument XMLData = new XmlDocument();
+            //var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
+            //XMLData.Load(path);
+            //XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Controller");
+
+            //foreach (XmlNode node in Controllers)
+            //{
+                //string cmdName = node.SelectSingleNode("name").InnerText;
+                //string key = node.SelectSingleNode("key").InnerText;
+
+
+                //use reflection to call constructor using string name of the constructor
+                // maybe method getConstructor
+               
+
+            //}
             RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.S);
             RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.D);
             RegisterCommand(new LinkMoveLeftCmd(Game, Link), Keys.A);

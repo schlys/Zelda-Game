@@ -54,7 +54,7 @@ namespace Project1.SpriteFactoryComponents
             SpriteDict = new Dictionary<string, Sprite>();
 
             XmlDocument XMLData = new XmlDocument();
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLFile1.xml";
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLSprite.xml";
             XMLData.Load(path);
             XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Sprites/Sprite");
 
