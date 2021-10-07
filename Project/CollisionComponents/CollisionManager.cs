@@ -44,7 +44,6 @@ namespace Project1.CollisionComponents
         {
             NonMovingObjects.Remove(item);
         }
-
         public void DetectCollisions()
         {
             // TODO: try to make iteration more efficent 

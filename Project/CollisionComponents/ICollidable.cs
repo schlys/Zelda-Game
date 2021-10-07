@@ -8,6 +8,7 @@ namespace Project1.CollisionComponents
     public interface ICollidable
     {
         Rectangle Hitbox { get; set; }
+        bool IsMoving { get; set; }
         void Collide(ICollidable item);
     }
 }
