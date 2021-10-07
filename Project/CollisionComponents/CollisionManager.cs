@@ -16,7 +16,11 @@ namespace Project1.CollisionComponents
                 return instance;
             }
         } 
-        public CollisionManager() { }
+        public CollisionManager() 
+        {
+            MovingObjects = new List<ICollidable>();
+            NonMovingObjects = new List<ICollidable>();
+        }
 
         public void AddMovingObject(ICollidable item)
         {
