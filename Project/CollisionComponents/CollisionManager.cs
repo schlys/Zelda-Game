@@ -43,15 +43,42 @@ namespace Project1.CollisionComponents
 
         public void DetectCollisions()
         {
+            // TODO: try to make iteration more efficent 
+            foreach(ICollidable item1 in MovingObjects)
+            {
+                foreach(ICollidable item2 in NonMovingObjects)
+                {
+                    if(DetectCollision(item1, item2))
+                    {
+                        item1.Collide(item2);
+                        item2.Collide(item1); 
+                    }
+                }
+            }
 
+            foreach (ICollidable item1 in MovingObjects)
+            {
+                foreach (ICollidable item2 in MovingObjects)
+                {
+                    if (DetectCollision(item1, item2))
+                    {
+                        item1.Collide(item2);
+                        item2.Collide(item1);
+                    }
+                }
+            }
         }
         public bool DetectCollision(ICollidable item1, ICollidable item2)
         {
+            if(item1.Hitbox.Intersects(item2.Hitbox))   
+            {
+                return true; 
+            } 
             return false; 
         }
         public void Update()
         {
-            
+            DetectCollisions(); 
         }
     }
 }
