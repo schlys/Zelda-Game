@@ -111,7 +111,7 @@ namespace Project1.Controller
             RegisterCommand(new NextEnemyCmd(Game, Enemy), Keys.P);
         }
 
-        public void RegisterCommand(ICommand command, Keys key)
+        private void RegisterCommand(ICommand command, Keys key)
         {
             ControllerMappings.TryAdd(key, command); 
         }

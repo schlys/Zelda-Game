@@ -43,6 +43,15 @@ namespace Project1.Controller
         {
 
         }
+
+        private void RegisterCommandLeftClick(ICommand command, Rectangle rect)
+        {
+            ControllerMappingsLeftClick.TryAdd(rect, command);
+        }
+        private void RegisterCommandRightClick(ICommand command, Rectangle rect)
+        {
+            ControllerMappingsRightClick.TryAdd(rect, command);
+        }
         public void Update()
         {
             // NOTE: taken from Elise's Sprint 0 - check if plagerism!! 
