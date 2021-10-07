@@ -114,6 +114,7 @@ namespace Project1
                 else
                     Projectiles.Remove(Projectile);
             }
+            CollisionManager.Instance.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
