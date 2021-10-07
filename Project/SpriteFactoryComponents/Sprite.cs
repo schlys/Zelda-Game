@@ -14,7 +14,6 @@ namespace Project1.SpriteFactoryComponents
         public int TotalFrames;
         public int CurrentFrame;
         public int Row;
-
         public int OriginalSize { get; set; }
         public int Col { get; set; }
         public int MaxDelay { get; set; }
