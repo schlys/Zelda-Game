@@ -13,12 +13,12 @@ namespace Project1.Controller
     class KeyboardController : IController
     {
         public Game1 Game { get; set; }
-        private Dictionary<Keys, ICommand> controllerMappings;
+        private Dictionary<Keys, ICommand> ControllerMappings;
         private Keys LinkStopKey = Keys.B;          // a key not used in the game 
 
         public KeyboardController(Game1 game)
         {
-            controllerMappings = new Dictionary<Keys, ICommand>();
+            ControllerMappings = new Dictionary<Keys, ICommand>();
             Game = game; 
         }
 
@@ -113,18 +113,14 @@ namespace Project1.Controller
 
         public void RegisterCommand(ICommand command, Keys key)
         {
-            // TODO: fails for a reason - should not force it 
-            if (!controllerMappings.TryAdd(key, command))
-            {
-                controllerMappings[key] = command;
-            }
+            ControllerMappings.TryAdd(key, command); 
         }
 
         public void Update()
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys(); 
 
-            ICommand stop = controllerMappings[LinkStopKey];
+            ICommand stop = ControllerMappings[LinkStopKey];
             if (!(pressedKeys.Length > 0))
             {
                stop.Execute();
@@ -132,9 +128,9 @@ namespace Project1.Controller
 
             foreach (Keys key in pressedKeys)
             {
-                if (controllerMappings.ContainsKey(key))
+                if (ControllerMappings.ContainsKey(key))
                 {
-                    controllerMappings[key].Execute();
+                    ControllerMappings[key].Execute();
                 }
                 break;
             }

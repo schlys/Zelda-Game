@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Project1.BlockComponents;
 using Project1.Command;
 using Project1.EnemyComponents;
@@ -13,10 +14,13 @@ namespace Project1.Controller
     class MouseController : IController
     {
         public Game1 Game { get; set; }
-
+        private Dictionary<Rectangle, ICommand> ControllerMappingsLeftClick;
+        private Dictionary<Rectangle, ICommand> ControllerMappingsRightClick;
         public MouseController(Game1 game) 
         {
             Game = game;
+            ControllerMappingsLeftClick = new Dictionary<Rectangle, ICommand>();
+            ControllerMappingsRightClick = new Dictionary<Rectangle, ICommand>();
         }
 
         public void InitializeGameCommands()
@@ -39,10 +43,39 @@ namespace Project1.Controller
         {
 
         }
-
         public void Update()
         {
-           
+            // NOTE: taken from Elise's Sprint 0 - check if plagerism!! 
+
+            /* Determine if the mouse click is within the bounds defined by 
+             * the entries of controllerMappingsLeftClick and 
+             * controllerMappingsRightClick and execute the command. 
+             */
+
+            MouseState mouseState = Mouse.GetState();
+            Point clickLoc = new Point(mouseState.X, mouseState.Y);
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsLeftClick)
+                {
+                    if (entry.Key.Contains(clickLoc))
+                    {
+                        entry.Value.Execute(); 
+                    }
+                }
+            }
+
+            if (mouseState.RightButton == ButtonState.Pressed)
+            {
+                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsRightClick)
+                {
+                    if (entry.Key.Contains(clickLoc))
+                    {
+                        entry.Value.Execute();
+                    }
+                }
+            }
         }
     }
 }
