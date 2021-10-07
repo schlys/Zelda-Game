@@ -5,10 +5,11 @@ using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
+using Project1.CollisionComponents;
 
 namespace Project1.LinkComponents
 {
-    public interface ILink
+    public interface ILink : IMover
     {
         IDirectionState DirectionState { get; set; }
         ILinkWeaponState LinkWeaponState { get; set; } 

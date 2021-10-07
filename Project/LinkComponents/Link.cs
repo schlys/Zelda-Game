@@ -10,7 +10,7 @@ using Project1.DirectionState;
 
 namespace Project1.LinkComponents
 {
-    class Link : ILink, ICollidable
+    class Link : ILink
     {
         public IDirectionState DirectionState {get;set;}
         public ILinkWeaponState LinkWeaponState { get; set; } 
@@ -20,6 +20,7 @@ namespace Project1.LinkComponents
         public Rectangle Hitbox { get; set; }
 
         private string UseItemName;
+      
 
         private Vector2 Position;
         private Vector2 InitialPosition = new Vector2(40, 40);

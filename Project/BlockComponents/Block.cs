@@ -2,12 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.CollisionComponents;
 
 namespace Project1.BlockComponents
 {
     class Block : IBlock
     {
         public IBlockState BlockState { get; set; }
+        public Rectangle Hitbox { get; set; }
+
         private double Counter = 0.0;
         private double Step = 0.2; 
 

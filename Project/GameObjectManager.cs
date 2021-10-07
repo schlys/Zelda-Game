@@ -8,6 +8,7 @@ using Project1.ItemComponents;
 using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.CollisionComponents;
 
 namespace Project1
 {
@@ -18,6 +19,9 @@ namespace Project1
         public List<IItem> Items;
         public List<IEnemy> Enemies;
         private List<IController> Controllers;
+
+        //will need a list of movers to iterate over
+        //private List<IMover> colliders;
         Game1 Game; 
 
         public GameObjectManager(Game1 game)
@@ -36,6 +40,8 @@ namespace Project1
             Blocks.Add(new Block());
             Items.Add(new Item());
             Enemies.Add(new Enemy());
+
+            //colliders.AddRange(Links);
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();

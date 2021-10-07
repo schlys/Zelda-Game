@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Tektite.png</SourceFile>
-  <SourceTime>2021-10-06T20:41:24.2846007-04:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/OverworldEnemies/Tektite.xnb</DestFile>
-  <DestTime>2021-10-06T20:46:19.7720258-04:00</DestTime>
+  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/OverworldEnemies/Tektite.png</SourceFile>
+  <SourceTime>2021-09-21T09:11:52.5986792-04:00</SourceTime>
+  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/OverworldEnemies/Tektite.xnb</DestFile>
+  <DestTime>2021-10-06T21:23:32.1038403-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

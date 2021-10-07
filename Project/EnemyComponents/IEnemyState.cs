@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteFactoryComponents;
 using Project1.EnemyComponents;
 using Project1.DirectionState;
+using Project1.CollisionComponents;
 
 namespace Project1.EnemyComponents
 {

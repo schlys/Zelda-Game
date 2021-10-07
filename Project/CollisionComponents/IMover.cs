@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project1.CollisionComponents
 {
-    interface ICollidable
+    public interface IMover
     {
         Rectangle Hitbox { get; set; }
         void Collide();
