@@ -4,35 +4,41 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/Blocks.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/DungeonEnemies/Aquamentus.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/DungeonEnemies/Gel.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/DungeonEnemies/Goriya.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/DungeonEnemies/Keese.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/DungeonEnemies/Stalfos.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/ItemsAndWeapons.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/BasicMovement.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/Items.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/MagicalRod.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/MagicalShield.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/MagicalSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/PickUpItem.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/UseItem.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/WhiteSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/LinkSprites/WoodenSword.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/NPCs/OldManWoman.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Armos.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Ghini.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Leever.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Lynel.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Octorok.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Peahat.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Rock.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Tektite.png</File>
-    <File>C:/Users/Andy/Desktop/New folder/Project/Content/OverworldEnemies/Zora.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/Blocks.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Aquamentus.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Gel.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Goriya.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Keese.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/DungeonEnemies/Stalfos.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/ItemsAndWeapons.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/BasicMovement.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/Items.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalRod.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalShield.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/PickUpItem.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/UseItem.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/WhiteSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/LinkSprites/WoodenSword.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/NPCs/OldManWoman.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Armos.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Ghini.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Leever.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Lynel.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Octorok.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Peahat.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Rock.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Tektite.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/OverworldEnemies/Zora.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/Rooms/Room1.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/Rooms/Room2.png</File>
+    <File>C:/Users/blum1/Project/Project/Content/Rooms/Room3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
