@@ -10,12 +10,10 @@ namespace Project1.EnemyComponents
 {
     public interface IEnemy
     {
-       
         IEnemyState EnemyState { get; set; }
         EnemyHealth Health { get; set; }
         Vector2 Position { get; set; }
         Vector2 InitialPosition { get; set; }
-        
         void TakeDamage();
         void PreviousEnemy();
         void NextEnemy();

@@ -19,6 +19,27 @@ namespace Project1.Controller
             Game = game;
         }
 
+        public void InitializeGameCommands()
+        {
+
+        }
+        public void InitializeLinkCommands(ILink Link)
+        {
+
+        }
+        public void InitializeBlockCommands(IBlock Block)
+        {
+
+        }
+        public void InitializeItemCommands(IItem Item)
+        {
+
+        }
+        public void InitializeEnemyCommands(IEnemy Enemy)
+        {
+
+        }
+
         public void Update()
         {
            

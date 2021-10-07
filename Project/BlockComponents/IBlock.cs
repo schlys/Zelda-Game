@@ -11,7 +11,7 @@ namespace Project1.BlockComponents
         IBlockState BlockState { get; set; }
         void PreviousBlock();
         void NextBlock();
-        void Reset();
         void Draw(SpriteBatch spriteBatch);
+        void Reset();
     }
 }

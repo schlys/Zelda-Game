@@ -24,7 +24,7 @@ namespace Project1.EnemyComponents
         // NOTE: for personal reference, remove before submission 
         private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
-        public Enemy(Game1 game)
+        public Enemy()
         {
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 

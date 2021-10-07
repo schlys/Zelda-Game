@@ -15,7 +15,11 @@ namespace Project1.Controller
     public interface IController
     {
         Game1 Game { get; set; }
-        
+        void InitializeGameCommands();
+        void InitializeLinkCommands(ILink Link); 
+        void InitializeBlockCommands(IBlock Block);
+        void InitializeItemCommands(IItem Item);
+        void InitializeEnemyCommands(IEnemy Enemy); 
         void Update();
     }
     
