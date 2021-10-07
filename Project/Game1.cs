@@ -17,15 +17,7 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        // TODO: create a game object to house all items like link, item, block... 
-        // TODO: create a list for all items so can easily add multiple 
         private GameObjectManager GameObject; 
-        /*public ILink Link;
-        public IBlock Block;
-        public IItem Item;
-        public IEnemy Enemy;
-        private KeyboardController KeyboardController;
-        private MouseController MouseController;*/
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -35,8 +27,6 @@ namespace Project1
 
         protected override void Initialize()
         {
-            //KeyboardController = new KeyboardController(this);
-            //MouseController = new MouseController(this);
             base.Initialize();
         }
 
@@ -46,30 +36,14 @@ namespace Project1
             
             SpriteFactory.Instance.LoadAllTextures(Content);
             GameObject = new GameObjectManager(this); 
-            /*Link = new Link();
-            Block = new Block();
-            Item = new Item();
-            Enemy = new Enemy(this);
-
-            // Register Keyboard commands 
-            KeyboardController.InitializeGameCommands();
-            KeyboardController.InitializeLinkCommands(Link);
-            KeyboardController.InitializeBlockCommands(Block);
-            KeyboardController.InitializeItemCommands(Item);
-            KeyboardController.InitializeEnemyCommands(Enemy);*/
         }
 
         protected override void Update(GameTime gameTime)
         {
+            // NOTE: should we remove this? it's here by default 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            /*KeyboardController.Update();
-            MouseController.Update();
-            Link.Update();
-            Item.Update();
-            Enemy.Update();
-            ProjectileManager.Instance.Update();*/
             GameObject.Update(); 
             base.Update(gameTime);
         }
@@ -80,11 +54,6 @@ namespace Project1
 
             _spriteBatch.Begin();
 
-            /*Link.Draw(_spriteBatch);
-            Block.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
-            Enemy.Draw(_spriteBatch);
-            ProjectileManager.Instance.Draw(_spriteBatch);*/
             GameObject.Draw(_spriteBatch); 
 
             _spriteBatch.End();
@@ -93,11 +62,6 @@ namespace Project1
 
         public void Restart()
         {
-            /*Link.Reset();
-            Block.Reset();
-            Item.Reset();
-            Enemy.Reset();
-            ProjectileManager.Instance.Reset();*/
             GameObject.Reset(); 
         }
     }
