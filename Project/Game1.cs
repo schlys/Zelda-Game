@@ -35,7 +35,7 @@ namespace Project1
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
             SpriteFactory.Instance.LoadAllTextures(Content);
-            GameObject = new GameObjectManager(this); 
+            GameObjectManager.Instance.Initialize(this);
         }
 
         protected override void Update(GameTime gameTime)
@@ -44,7 +44,7 @@ namespace Project1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            GameObject.Update(); 
+            GameObjectManager.Instance.Update(); 
             base.Update(gameTime);
         }
 
@@ -54,7 +54,7 @@ namespace Project1
 
             _spriteBatch.Begin();
 
-            GameObject.Draw(_spriteBatch); 
+            GameObjectManager.Instance.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);
@@ -62,7 +62,7 @@ namespace Project1
 
         public void Restart()
         {
-            GameObject.Reset(); 
+            GameObjectManager.Instance.Reset();
         }
     }
 }

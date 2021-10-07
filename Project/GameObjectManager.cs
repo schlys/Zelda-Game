@@ -14,23 +14,33 @@ namespace Project1
 {
     public class GameObjectManager
     {
+        private static GameObjectManager instance = new GameObjectManager();
+        public static GameObjectManager Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        private GameObjectManager() { }
+
         public List<ILink> Links;
         public List<IBlock> Blocks;
         public List<IItem> Items;
         public List<IEnemy> Enemies;
+        private List<IProjectile> Projectiles;
         private List<IController> Controllers;
 
-        //will need a list of movers to iterate over
-        //private List<IMover> colliders;
         Game1 Game; 
 
-        public GameObjectManager(Game1 game)
+        public void Initialize(Game1 game)
         {
             Links = new List<ILink>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
             Controllers = new List<IController>();
+            Projectiles = new List<IProjectile>();
 
             Game = game;
 
@@ -45,8 +55,6 @@ namespace Project1
             Blocks.Add(new Block());
             Items.Add(new Item());
             Enemies.Add(new Enemy());
-
-            //colliders.AddRange(Links);
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
@@ -89,7 +97,14 @@ namespace Project1
             {
                 controller.Update();
             }
-            ProjectileManager.Instance.Update();
+            for (int i = 0; i < Projectiles.Count; i++)
+            {
+                IProjectile Projectile = Projectiles[i];
+                if (Projectile.InMotion)
+                    Projectile.Update();
+                else
+                    Projectiles.Remove(Projectile);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -110,7 +125,10 @@ namespace Project1
             {
                 enemy.Draw(spriteBatch);
             }
-            ProjectileManager.Instance.Draw(spriteBatch);
+            foreach(IProjectile Projectile in Projectiles)
+            {
+                Projectile.Draw(spriteBatch);
+            }
         }
 
         public void Reset()
@@ -131,7 +149,12 @@ namespace Project1
             {
                 enemy.Reset();
             }
-            ProjectileManager.Instance.Reset();
+            Projectiles = new List<IProjectile>();
+        }
+
+        public void AddProjectile(IProjectile projectile)
+        {
+            Projectiles.Add(projectile);
         }
     }
 }

@@ -115,10 +115,10 @@ namespace Project1.LinkComponents
             {
                 LockFrame = true;
                 UseItemName = "UseItem";
-                IProjectile Item = ProjectileFactory.Instance.GetProjectile(name, Position, DirectionState.ID);
-                ProjectileManager.Instance.Add(Item);
                 UpdateSprite();
                 LinkSprite.MaxDelay = 25;
+                IProjectile Item = ProjectileFactory.Instance.GetProjectile(name, Position, DirectionState.ID);
+                GameObjectManager.Instance.AddProjectile(Item);
             }
         }
 
@@ -147,60 +147,7 @@ namespace Project1.LinkComponents
         {
             LinkWeaponState.UseWoodenSword();
         }
-        /*
-        public void UseArrow()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new ArrowProjectile(Position, DirectionState.ID));
-            }
-        }
-
-        public void UseBomb()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new BombProjectile(Position, DirectionState.ID));
-            }
-        }
-
-        public void UseFire()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new FireProjectile(Position, DirectionState.ID));
-            }
-        }
-
-        public void UseBoomerang()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new BoomerangProjectile(Position, DirectionState.ID));
-            }
-        }
-        public void UseSilverArrow()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new SilverArrowProjectile(Position, DirectionState.ID));
-            }
-          
-        }
-        public void UseMagicalBoomerang()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, DirectionState.ID));
-            }
-        }*/
-
+       
         public void Draw(SpriteBatch spriteBatch)
         {
             LinkSprite.Draw(spriteBatch, Position, LinkSize);                   

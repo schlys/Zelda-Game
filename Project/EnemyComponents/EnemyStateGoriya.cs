@@ -98,7 +98,7 @@ namespace Project1.EnemyComponents
             {
                 isAttacking = true; 
                 Sprite.MaxDelay = 10;
-                ProjectileManager.Instance.Add(new GoriyaProjectile(Enemy.Position, direction));
+                GameObjectManager.Instance.AddProjectile(new GoriyaProjectile(Enemy.Position, direction));
             }
         }
         private void UpdateSprite()

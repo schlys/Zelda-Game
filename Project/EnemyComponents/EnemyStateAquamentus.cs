@@ -64,9 +64,9 @@ namespace Project1.EnemyComponents
                 isAttacking = true;
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
                 Sprite.MaxDelay = 30;
-                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Up"));
-                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Straight"));
-                ProjectileManager.Instance.Add(new AquamentusProjectile(Enemy.Position, "Down"));
+                GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Up"));
+                GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Straight"));
+                GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Down"));
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)

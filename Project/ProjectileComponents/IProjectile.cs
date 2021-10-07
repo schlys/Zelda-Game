@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project1.ProjectileComponents
 {
-    interface IProjectile
+    public interface IProjectile
     {
         bool InMotion { get; }
         void Update();
