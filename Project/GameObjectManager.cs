@@ -36,6 +36,11 @@ namespace Project1
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
+
+            IController MouseController = new MouseController(Game);
+            Controllers.Add(MouseController);
+
+            // TODO: register with CollisionManager 
             Links.Add(new Link());
             Blocks.Add(new Block());
             Items.Add(new Item());

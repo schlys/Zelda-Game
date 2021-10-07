@@ -14,7 +14,6 @@ namespace Project1.DirectionState
 
         }
 
-
         public IDirectionState MoveDown()
         {
             return new DirectionStateDown();

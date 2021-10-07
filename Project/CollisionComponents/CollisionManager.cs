@@ -21,32 +21,32 @@ namespace Project1.CollisionComponents
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
         }
-
-        public void AddMovingObject(ICollidable item)
+        public void AddObject(ICollidable item)
         {
-            if(!MovingObjects.Contains(item))   // Not allow duplicate objects 
+            if (item.IsMoving && !MovingObjects.Contains(item))   // Not allow duplicate objects 
             {
-                MovingObjects.Add(item); 
-            }
-        }
-        public void RemoveMovingObject(ICollidable item)
-        {
-            MovingObjects.Remove(item); 
-        }
-        public void AddNonMovingObject(ICollidable item)
-        {
-            if (!NonMovingObjects.Contains(item))   // Not allow duplicate objects 
+                MovingObjects.Add(item);
+                
+            } else if(!item.IsMoving && !NonMovingObjects.Contains(item))   // Not allow duplicate objects 
             {
                 NonMovingObjects.Add(item);
             }
         }
-        public void RemoveNonMovingObject(ICollidable item)
+        public void RemoveObject(ICollidable item)
         {
-            NonMovingObjects.Remove(item);
+            if (item.IsMoving)
+            {
+                MovingObjects.Remove(item); 
+            }
+            else 
+            {
+                NonMovingObjects.Remove(item);
+            }
         }
         public void DetectCollisions()
         {
             // TODO: try to make iteration more efficent 
+            // NOTE: Compare all moving objects to all other non-moving and moving objects 
             foreach(ICollidable item1 in MovingObjects)
             {
                 foreach(ICollidable item2 in NonMovingObjects)
@@ -57,13 +57,10 @@ namespace Project1.CollisionComponents
                         item2.Collide(item1); 
                     }
                 }
-            }
 
-            foreach (ICollidable item1 in MovingObjects)
-            {
                 foreach (ICollidable item2 in MovingObjects)
                 {
-                    if (DetectCollision(item1, item2))
+                    if (item1 != item2 && DetectCollision(item1, item2))
                     {
                         item1.Collide(item2);
                         item2.Collide(item1);
