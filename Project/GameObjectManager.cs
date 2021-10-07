@@ -41,9 +41,16 @@ namespace Project1
             Controllers.Add(MouseController);
 
             // TODO: register with CollisionManager 
-            Links.Add(new Link());
+            ILink Link = new Link(); 
+            Links.Add(Link);
+            CollisionManager.Instance.AddObject((ICollidable)Link);
+
             Blocks.Add(new Block());
+
+            IItem Item = new Item(); 
             Items.Add(new Item());
+            CollisionManager.Instance.AddObject((ICollidable)Item);
+
             Enemies.Add(new Enemy());
 
             //colliders.AddRange(Links);
@@ -66,6 +73,8 @@ namespace Project1
             {
                 KeyboardController.InitializeEnemyCommands(enemy);
             }
+
+            
         }
 
         public void Update()
@@ -90,6 +99,7 @@ namespace Project1
                 controller.Update();
             }
             ProjectileManager.Instance.Update();
+            CollisionManager.Instance.Update(); 
         }
 
         public void Draw(SpriteBatch spriteBatch)

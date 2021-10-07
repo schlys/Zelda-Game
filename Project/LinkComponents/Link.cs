@@ -10,16 +10,20 @@ using Project1.DirectionState;
 
 namespace Project1.LinkComponents
 {
-    class Link : ILink
+    class Link : ILink, ICollidable
     {
+        // Properties from ILink
         public IDirectionState DirectionState {get;set;}
         public ILinkWeaponState LinkWeaponState { get; set; } 
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
+        
+        // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
 
+        // Other Link Properties 
         private string UseItemName;
-      
 
         private Vector2 Position;
         private Vector2 InitialPosition = new Vector2(40, 40);
@@ -30,14 +34,19 @@ namespace Project1.LinkComponents
         private int Step = 4;   
         private bool LockFrame;     // belong in sprite draw 
       
+        // NOTE: should change useitem string to something less hard coded? 
+
         public Link()
         {
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
+            // Hitbox = LinkSprite.Hitbox; 
+            Hitbox = new Rectangle(0, 0, 50, 50); 
+            IsMoving = true; 
             UseItemName = "";
-            UpdateSprite();
             Position = InitialPosition;
+            UpdateSprite();
         }
         public void MoveDown()
         {
@@ -122,9 +131,16 @@ namespace Project1.LinkComponents
             }
         }
 
+        public void PickUpItem(string name)
+        {
+            // TODO: implement method 
+            // add item to inventory 
+            
+        }
         public void TakeDamage()
         {
-            Health.DecreaseHealth(0.5);             // TODO: determine value to decrease by  
+            // TODO: determine value to decrease by  
+            Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
         }
         public void UseMagicalRod()
@@ -146,66 +162,24 @@ namespace Project1.LinkComponents
         public void UseWoodenSword()
         {
             LinkWeaponState.UseWoodenSword();
-        }
-        /*
-        public void UseArrow()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new ArrowProjectile(Position, DirectionState.ID));
-            }
-        }
+        } 
 
-        public void UseBomb()
+        private void UpdateSprite()
         {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new BombProjectile(Position, DirectionState.ID));
-            }
+            string Weapon = "";
+            if (LockFrame && UseItemName.Length == 0) Weapon = LinkWeaponState.ID;
+            LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
         }
-
-        public void UseFire()
+        public void Reset()
         {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new FireProjectile(Position, DirectionState.ID));
-            }
+            Position = InitialPosition;
+            DirectionState = new DirectionStateUp();             // default state is up
+            LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
+            Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
+            UseItemName = "";
+            LockFrame = false;
+            UpdateSprite();
         }
-
-        public void UseBoomerang()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new BoomerangProjectile(Position, DirectionState.ID));
-            }
-        }
-        public void UseSilverArrow()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new SilverArrowProjectile(Position, DirectionState.ID));
-            }
-          
-        }
-        public void UseMagicalBoomerang()
-        {
-            if (!LockFrame)
-            {
-                UseItem();
-                ProjectileManager.Instance.Add(new MagicalBoomerangProjectile(Position, DirectionState.ID));
-            }
-        }*/
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            LinkSprite.Draw(spriteBatch, Position, LinkSize);                   
-        }
-
         public void Update()
         {
             LinkSprite.delay++;
@@ -231,26 +205,22 @@ namespace Project1.LinkComponents
                 LinkSprite.MaxDelay = LinkSprite.startDelay;
             }
         }
-        private void UpdateSprite()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            string Weapon = "";
-            if (LockFrame && UseItemName.Length == 0) Weapon = LinkWeaponState.ID;
-            LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
+            LinkSprite.Draw(spriteBatch, Position, LinkSize);
         }
-        public void Reset()
+        public void Collide(ICollidable item)
         {
-            Position = InitialPosition;
-            DirectionState = new DirectionStateUp();             // default state is up
-            LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
-            Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
-            UseItemName = "";
-            LockFrame = false;
-            UpdateSprite();
-        }
-
-        public void Collide()
-        {
-            
+            // get item type 
+            switch(item.GetType().Name)
+            {
+                case "Item" :
+                    // get type of item 
+                    PickUpItem("Arrow"); 
+                    break;
+                default:
+                    break; 
+            }
         }
     }
 }

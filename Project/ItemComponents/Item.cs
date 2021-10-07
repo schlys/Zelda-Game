@@ -2,15 +2,22 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.CollisionComponents; 
 
 namespace Project1.ItemComponents
 {
-    class Item : IItem
+    class Item : IItem, ICollidable 
     {
+        // Properties from IItem
         public IItemState ItemState { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
 
+        // Properties from ICollidable 
+        public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
+
+        // Other Item Properties 
         private double Counter = 0.0;
         private double Step = 0.1;
 
@@ -22,7 +29,10 @@ namespace Project1.ItemComponents
         {
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
-            Position = InitialPosition; 
+            Position = InitialPosition;
+            // Hitbox = ItemSprite.Hitbox; 
+            Hitbox = new Rectangle(0, 0, 50, 50);
+            IsMoving = false;
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
@@ -193,6 +203,11 @@ namespace Project1.ItemComponents
         public void Update()
         {
             ItemState.Update();
+        }
+
+        public void Collide(ICollidable item)
+        {
+
         }
     }
 }
