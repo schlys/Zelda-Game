@@ -5,6 +5,7 @@ using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
+
 using System.Xml;
 using System;
 
@@ -14,6 +15,7 @@ namespace Project1.Controller
     {
         public Game1 Game { get; set; }
         private Dictionary<Keys, ICommand> ControllerMappings;
+        private Dictionary<String, dynamic> Items;
         private Keys LinkStopKey = Keys.B;          // a key not used in the game 
 
         public KeyboardController(Game1 game)
@@ -23,7 +25,8 @@ namespace Project1.Controller
         }
 
         public void InitializeGameCommands()
-        {   
+        {
+            
             // Use 'q' to quit the program and 'r' to reset the program back to its initial state 
             RegisterCommand(new GameEndCmd(Game), Keys.Q);
             RegisterCommand(new GameRestartCmd(Game), Keys.R);
@@ -36,23 +39,21 @@ namespace Project1.Controller
              * Use number keys(1, 2, 3, etc.) should be used to have Link use a different item
              * Use 'e' to cause Link to become damaged
             */
+ 
+
             RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
 
-           // XmlDocument XMLData = new XmlDocument();
-            //var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
             //XMLData.Load(path);
             //XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Controller");
 
             //foreach (XmlNode node in Controllers)
             //{
-                //string cmdName = node.SelectSingleNode("name").InnerText;
+               // string cmdName = node.SelectSingleNode("name").InnerText;
                 //string key = node.SelectSingleNode("key").InnerText;
-
-
-                //use reflection to call constructor using string name of the constructor
-                // maybe method getConstructor
-               
-
+                //string obj = node.SelectSingleNode("object").InnerText;
+ 
             //}
             RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.S);
             RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.D);
