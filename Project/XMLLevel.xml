@@ -2,7 +2,7 @@
 <Levels>
 	<Level>
 		<name>Room1</name>
-		<texture>room1</texture>
+		<sheet>room1</sheet>
 		<up></up>
 		<down></down>
 		<left></left>

@@ -23,8 +23,9 @@ namespace Project1.LevelFactory
             }
         }
         private LevelFactory() { }
-        private static Dictionary<string, Sprite> LevelDict;
+        private static Dictionary<string, Level> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
+        private static int[,] textureMatrix;
 
 
         public void LoadAllTextures(ContentManager content)
@@ -36,8 +37,26 @@ namespace Project1.LevelFactory
         }
         private static void CreateDict()
         {
+            textureMatrix = new int[7, 7];
+            LevelDict = new Dictionary<string, Level>();
 
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLLevel.xml";
+            XMLData.Load(path);
+            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Levels/Level");
 
+            foreach (XmlNode node in Sprites)
+            {
+                 
+        string name = node.SelectSingleNode("name").InnerText;
+                string sheet = node.SelectSingleNode("sheet").InnerText;
+                string Up = node.SelectSingleNode("Up").InnerText;
+                string Down = node.SelectSingleNode("Down").InnerText;
+                string Left = node.SelectSingleNode("Left").InnerText;
+                string Right = node.SelectSingleNode("Right").InnerText;
+
+                //LevelDict.Add(name, new Level(TextureDict[sheet], Up, Down, Left, Right, textureMatrix));
+            }
 
         }
         
