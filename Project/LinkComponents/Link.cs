@@ -197,7 +197,6 @@ namespace Project1.LinkComponents
                         LockFrame = false;
                         UseItemName = "";
                         UpdateSprite();
-                        StopMoving();
                     }
                     LinkSprite.CurrentFrame = LinkSprite.StartFrame;
                 }

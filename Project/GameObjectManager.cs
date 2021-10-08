@@ -87,6 +87,10 @@ namespace Project1
 
         public void Update()
         {
+            foreach (IController controller in Controllers)
+            {
+                controller.Update();
+            }
             foreach (ILink link in Links)
             {
                 link.Update();             
@@ -101,10 +105,6 @@ namespace Project1
             foreach (IEnemy enemy in Enemies)
             {
                 enemy.Update();
-            }
-            foreach (IController controller in Controllers)
-            {
-                controller.Update();
             }
             for (int i = 0; i < Projectiles.Count; i++)
             {
