@@ -14,6 +14,8 @@ namespace Project1.SpriteFactoryComponents
         public int TotalFrames;
         public int CurrentFrame;
         public int Row;
+        public int hitX;
+        public int hitY;
         public int OriginalSize { get; set; }
         public int Col { get; set; }
         public int MaxDelay { get; set; }
@@ -25,7 +27,7 @@ namespace Project1.SpriteFactoryComponents
         public int StartFrame;
         public int startDelay;
 
-        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s)
+        public Sprite(Texture2D texture, int totalFrames, int currentFrame, int row, int s, int x, int y)
         {
             Texture = texture;
             TotalFrames = totalFrames;
@@ -37,6 +39,8 @@ namespace Project1.SpriteFactoryComponents
             DelayRate = 1;          // default value 
             startDelay = MaxDelay;
             Color = Color.White;
+            hitX = x;
+            hitY = y;
         }
 
         // TODO: should add size as poroperty of sprite? 

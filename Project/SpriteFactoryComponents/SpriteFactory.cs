@@ -66,7 +66,11 @@ namespace Project1.SpriteFactoryComponents
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
-                SpriteDict.Add(name, new Sprite(TextureDict[sheet], currentFrame, startFrame, row, size));
+                //int x = Int16.Parse(node.SelectSingleNode("X").InnerText);
+                //int y = Int16.Parse(node.SelectSingleNode("Y").InnerText);
+                int x = 0;
+                int y = 0;
+                SpriteDict.Add(name, new Sprite(TextureDict[sheet], currentFrame, startFrame, row, size, x, y));
             }
 
         }
@@ -81,7 +85,7 @@ namespace Project1.SpriteFactoryComponents
             
             // TODO: check if sprite not found 
             Sprite data = SpriteDict[key];
-            return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize);
+            return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize, data.hitX, data.hitY);
         }
 
         /*
