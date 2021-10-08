@@ -396,3 +396,6 @@ C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Room
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
