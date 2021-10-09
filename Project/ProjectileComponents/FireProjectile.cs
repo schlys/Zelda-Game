@@ -31,8 +31,9 @@ namespace Project1.ProjectileComponents
         {
             Position = position;
             Direction = direction;
-            Size = 80; 
-            Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
+            Size = 80;
+            ID = "Fire"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             counter = 0;
             InMotion = true;
 
@@ -51,6 +52,8 @@ namespace Project1.ProjectileComponents
                     Position = new Vector2(Position.X - 20, Position.Y + 20);
                     break;
             }
+            OriginalPosition = Position; 
+
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
         }

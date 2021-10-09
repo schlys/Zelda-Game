@@ -32,7 +32,8 @@ namespace Project1.ProjectileComponents
             Position = position;
             Size = 80;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
+            ID = "Boomerang"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             counter = 0;
             InMotion = true;
 
@@ -59,14 +60,17 @@ namespace Project1.ProjectileComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
+            {
                 if (counter < 50)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, Size);
-                }else
+                }
+                else
                 {
                     InMotion = false;
                 }
+            }
         }
 
         public void Update()

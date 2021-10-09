@@ -31,10 +31,10 @@ namespace Project1.ProjectileComponents
             OriginalPosition = position;
             Size = 80;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Bomb");
+            ID = "Bomb"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             counter = 0;
             InMotion = true;
-
 
             switch (Direction)
             {
@@ -51,6 +51,8 @@ namespace Project1.ProjectileComponents
                     Position = new Vector2(Position.X - 20, Position.Y + 20);
                     break;
             }
+            OriginalPosition = Position; 
+
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
 

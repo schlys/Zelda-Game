@@ -366,8 +366,8 @@
 		<startFrame>1</startFrame>
 		<row>8</row>
 		<originalSize>40</originalSize>
-		<hitX>6</hitX>
-		<hitY>16</hitY>
+		<hitX>3</hitX>
+		<hitY>27</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinProjectileRight</name>
@@ -376,8 +376,8 @@
 		<startFrame>2</startFrame>
 		<row>8</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>6</hitY>
+		<hitX>27</hitX>
+		<hitY>3</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinProjectileUp</name>
@@ -386,8 +386,8 @@
 		<startFrame>3</startFrame>
 		<row>8</row>
 		<originalSize>40</originalSize>
-		<hitX>6</hitX>
-		<hitY>16</hitY>
+		<hitX>3</hitX>
+		<hitY>27</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinProjectileLeft</name>
@@ -396,8 +396,8 @@
 		<startFrame>4</startFrame>
 		<row>8</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>6</hitY>
+		<hitX>27</hitX>
+		<hitY>3</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinProjectilePoof</name>

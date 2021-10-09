@@ -29,13 +29,13 @@ namespace Project1.ProjectileComponents
         public AquamentusProjectile(Vector2 position, string direction)
         {
             InMotion = true;
-            Direction = direction;
-            Size = 80;
-            Position = position;
             ID = "AquamentusProjectile";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            Position = position;
+            OriginalPosition = Position; 
+            Size = 80;
+            Direction = direction;
             counter = 0;
-
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
         }

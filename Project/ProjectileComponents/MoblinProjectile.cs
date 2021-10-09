@@ -35,7 +35,7 @@ namespace Project1.ProjectileComponents
             OriginalPosition = Position; 
             counter = 0;
             ID = "MoblinProjectile";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID+ direction);
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction);
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;

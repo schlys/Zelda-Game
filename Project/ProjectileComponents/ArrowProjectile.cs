@@ -36,7 +36,8 @@ namespace Project1.ProjectileComponents
             OriginalPosition = position;
             Size = 80; 
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction);
+            ID = "Arrow"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction);
             Poof = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
             counter = 0;
             isUsing = true;
@@ -56,6 +57,7 @@ namespace Project1.ProjectileComponents
                     Position = new Vector2(Position.X - 20, Position.Y + 20);
                     break;
             }
+            OriginalPosition = Position; 
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;

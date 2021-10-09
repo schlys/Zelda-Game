@@ -33,10 +33,10 @@ namespace Project1.ProjectileComponents
             Size = 80; 
             Position = position;
             Direction = direction;
-            Sprite = SpriteFactory.Instance.GetSpriteData("SilverArrow" + Direction);
+            ID = "SilverArrow"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction);
             Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
-         
 
             switch (Direction)
             {
@@ -53,6 +53,7 @@ namespace Project1.ProjectileComponents
                     Position = new Vector2(Position.X - 20, Position.Y + 20);
                     break;
             }
+            OriginalPosition = Position; 
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
