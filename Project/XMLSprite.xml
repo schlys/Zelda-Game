@@ -7,8 +7,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Down</name>
@@ -17,8 +17,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>	
 	<Sprite>
 		<name>Right</name>
@@ -27,8 +27,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Left</name>
@@ -37,8 +37,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -48,8 +48,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>WoodenSwordDown</name>
@@ -58,8 +58,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>	
 	<Sprite>
 		<name>WoodenSwordRight</name>
@@ -68,8 +68,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>WoodenSwordLeft</name>
@@ -78,8 +78,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -89,8 +89,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalSwordDown</name>
@@ -99,8 +99,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>30</hitX>
+		<hitY>45</hitY>
 	</Sprite>	
 	<Sprite>
 		<name>MagicalSwordRight</name>
@@ -109,8 +109,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalSwordLeft</name>
@@ -119,8 +119,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 
 
@@ -131,8 +131,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>UseItemDown</name>
@@ -141,8 +141,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>UseItemLeft</name>
@@ -151,8 +151,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 	<Sprite>
 		<name>UseItemRight</name>
@@ -161,8 +161,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>35</hitX>
+		<hitY>45</hitY>
 	</Sprite>
 
 	<Sprite>

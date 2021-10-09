@@ -44,7 +44,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             Position = InitialPosition;
             UpdateSprite();
-            Hitbox = new Rectangle((int)Position.X/2, (int)Position.Y/2, LinkSprite.hitX, LinkSprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize);
             IsMoving = true;
         }
         public void MoveDown()
@@ -178,6 +178,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             LockFrame = false;
             UpdateSprite();
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize);
         }
         public void Update()
         {
@@ -202,9 +203,10 @@ namespace Project1.LinkComponents
                 LinkSprite.delay = 0;
                 LinkSprite.MaxDelay = LinkSprite.startDelay;
             }
-            
+
             // Update Hitbox for collisions  
-            Hitbox = new Rectangle((int)Position.X+60, (int)Position.Y+60, LinkSprite.hitX, LinkSprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize); 
+                //new Rectangle((int)Position.X+60, (int)Position.Y+60, LinkSprite.hitX, LinkSprite.hitY);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -127,18 +127,6 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            // For testing collision hitbox 
-            Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
-            dummyTexture.SetData(new Color[] { Color.White });
-            foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
-            {
-                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
-            }
-            foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
-            {
-                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
-            }
-
             foreach (ILink link in Links)
             {
                 link.Draw(spriteBatch);
@@ -159,6 +147,18 @@ namespace Project1
             foreach(IProjectile Projectile in Projectiles)
             {
                 Projectile.Draw(spriteBatch);
+            }
+
+            // For testing collision hitbox 
+            Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { Color.White });
+            foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
+            {
+                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
+            }
+            foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
+            {
+                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
             }
         }
 

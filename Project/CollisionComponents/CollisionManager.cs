@@ -45,6 +45,13 @@ namespace Project1.CollisionComponents
                 NonMovingObjects.Remove(item);
             }
         }
+
+        public Rectangle GetHitBox(Vector2 position, Vector2 dimensions, int size)
+        {
+            int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
+            int yPos = (int)(position.Y + (size / 2) - (dimensions.Y / 2));
+            return new Rectangle(xPos, yPos, (int)dimensions.X, (int)dimensions.Y); 
+        }
         public void DetectCollisions()
         {
             // TODO: try to make iteration more efficent 
