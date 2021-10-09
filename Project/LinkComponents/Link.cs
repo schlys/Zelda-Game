@@ -212,18 +212,5 @@ namespace Project1.LinkComponents
         {
             LinkSprite.Draw(spriteBatch, Position, LinkSize);
         }
-        public void Collide(ICollidable item)
-        {
-            // get item type 
-            switch(item.GetType().Name)
-            {
-                case "Item" :
-                    // get type of item 
-                    PickUpItem("Arrow"); 
-                    break;
-                default:
-                    break; 
-            }
-        }
     }
 }

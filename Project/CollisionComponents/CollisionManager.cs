@@ -46,6 +46,7 @@ namespace Project1.CollisionComponents
             }
         }
 
+        // NOTE: belong somewhere else? 
         public Rectangle GetHitBox(Vector2 position, Vector2 dimensions, int size)
         {
             int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
@@ -63,8 +64,7 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2); 
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        item1.Collide(item2);
-                        item2.Collide(item1); 
+                        // Execute appropriate command in dictionary 
                     }
                 }
 
@@ -74,8 +74,7 @@ namespace Project1.CollisionComponents
                         ICollision collision = DetectCollision(item1, item2);
                         if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                         {
-                            item1.Collide(item2);
-                            item2.Collide(item1);
+                            // Execute appropriate command in dictionary 
                         }
                     }
                 }

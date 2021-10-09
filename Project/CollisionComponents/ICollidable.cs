@@ -9,6 +9,5 @@ namespace Project1.CollisionComponents
     {
         Rectangle Hitbox { get; set; }
         bool IsMoving { get; set; }
-        void Collide(ICollidable item);
     }
 }

@@ -105,10 +105,5 @@ namespace Project1.BlockComponents
         {
             BlockState.Draw(spriteBatch);
         }
-
-        public void Collide(ICollidable item)
-        {
-            
-        }
     }
 }

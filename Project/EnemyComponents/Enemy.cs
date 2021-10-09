@@ -119,9 +119,5 @@ namespace Project1.EnemyComponents
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
         }
-        public void Collide(ICollidable item)
-        {
-            
-        }
     }
 }

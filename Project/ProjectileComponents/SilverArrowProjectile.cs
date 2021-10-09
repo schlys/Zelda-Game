@@ -103,9 +103,5 @@ namespace Project1.ProjectileComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
 
         }
-        public void Collide(ICollidable item)
-        {
-
-        }
     }
 }
