@@ -4,12 +4,18 @@ using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.CollisionComponents;
 
 namespace Project1.ProjectileComponents
 {
-    class BoomerangProjectile : IProjectile
+    class BoomerangProjectile : IProjectile, ICollidable
     {
         public bool InMotion { get; set; }
+        // Properties from ICollidable 
+        public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
+
+        // Other Properties 
         public Sprite Sprite { get; set; }
         public Vector2 Position;
         public bool isUsing { get; set; }
@@ -47,6 +53,9 @@ namespace Project1.ProjectileComponents
 
             originalPosition.X = Position.X;
             originalPosition.Y = Position.Y;
+
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            IsMoving = true;
 
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -89,7 +98,12 @@ namespace Project1.ProjectileComponents
                     speed = -4;
                 }
 
-            
+            // Update Hitbox for collisions 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+        }
+        public void Collide(ICollidable item)
+        {
+
         }
     }
 }

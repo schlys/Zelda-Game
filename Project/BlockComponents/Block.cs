@@ -98,6 +98,7 @@ namespace Project1.BlockComponents
         public void Reset()
         {
             BlockState = new BlockBaseState(this);
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY);
         }
 
         public void Draw(SpriteBatch spriteBatch)

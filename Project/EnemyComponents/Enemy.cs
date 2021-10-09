@@ -2,27 +2,28 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteFactoryComponents;
 using System;
+using Project1.CollisionComponents; 
 
 namespace Project1.EnemyComponents
 {
-    class Enemy : IEnemy
+    class Enemy : IEnemy, ICollidable 
     {
-        // TODO: create a class that extends IEnemyState for each type of enemy - use EnemyStateMoblin as a model 
-        // TODO: update the prevEnemy and nextEnemy methods to use a switch case that changes the EnemyState property in a cycle 
-        // TODO: remove sprite logic from this class, should only rely on sprite class. sprite object for enemy is now in EnemyState property 
-        // TODO OPTIONAL: in stopmoving, make stop moving when it stops - this does the opposite 
-        
+        // Properties from IEnemy 
         public IEnemyState EnemyState { get; set; }
         public EnemyHealth Health { get; set; }
-        
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
-        
+
+        // Properties from ICollidable 
+        public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
+
+        // Other Properties 
         private double Step = .1;
         private double counter = 0.0;
 
         // NOTE: for personal reference, remove before submission 
-        private string[] EnemyTypes = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
+        private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
         public Enemy()
         {
@@ -30,14 +31,14 @@ namespace Project1.EnemyComponents
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
             Position = new Vector2(400, 200);
             InitialPosition = Position;
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
+            IsMoving = true;
         }
        
-    
-
-        // NOTE: not need to have enemies take damage 
         public void TakeDamage()
         {
-            Health.DecreaseHealth(0.5);             // need determine value to decrease by  
+            // TODO: need determine value to decrease by  
+            Health.DecreaseHealth(0.5);             
         }
 
         public void PreviousEnemy()
@@ -55,7 +56,7 @@ namespace Project1.EnemyComponents
         }
         public void SetEnemyState(int i)
         {
-            switch (EnemyTypes[i])
+            switch (EnemyTypeKeys[i])
             {
                 case "Moblin":
                     EnemyState = new EnemyStateMoblin(this);
@@ -83,13 +84,13 @@ namespace Project1.EnemyComponents
         public void IncrementCounter(double i)
         {
             counter += i;
-            if (counter > (EnemyTypes.Length - Step / 2))
+            if (counter > (EnemyTypeKeys.Length - Step / 2))
             {
                 counter = 0;
             }
             else if (counter < -Step / 2)
             {
-                counter = EnemyTypes.Length - 1;
+                counter = EnemyTypeKeys.Length - 1;
             }
         }
 
@@ -98,7 +99,8 @@ namespace Project1.EnemyComponents
             ResetPosition();
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
-
+            // Update Hitbox for collisions 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
         }
         public void ResetPosition()
         {
@@ -113,6 +115,12 @@ namespace Project1.EnemyComponents
         public void Update()
         {
             EnemyState.Update();
+            // Update Hitbox for collisions 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
+        }
+        public void Collide(ICollidable item)
+        {
+            
         }
     }
 }
