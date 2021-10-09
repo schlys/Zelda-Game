@@ -12,11 +12,11 @@ namespace Project1.ItemComponents
         public IItemState ItemState { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
-
+        public int Size { get; set; }
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-
+        
         // Other Item Properties 
         private double Counter = 0.0;
         private double Step = 0.1;
@@ -31,7 +31,9 @@ namespace Project1.ItemComponents
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
+            Size = 80; 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
+            //new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
@@ -188,7 +190,7 @@ namespace Project1.ItemComponents
             ItemState = new ItemAngelState(this);
             ResetPosition();
             // Update HitBox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
         }
 
         public void ResetPosition()
@@ -204,7 +206,7 @@ namespace Project1.ItemComponents
         {
             ItemState.Update();
             // Update HitBox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
         }
 
         public void Collide(ICollidable item)

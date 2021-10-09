@@ -10,22 +10,27 @@ namespace Project1.ProjectileComponents
 {
     class BoomerangProjectile : IProjectile, ICollidable
     {
+        // Properties from IProjectile 
         public bool InMotion { get; set; }
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 OriginalPosition { get; set; }
+        public int Size { get; set; }
+        public string Direction { get; set; }
+        public string ID { get; set; }
+
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
 
         // Other Properties 
-        public Sprite Sprite { get; set; }
-        public Vector2 Position;
         public bool isUsing { get; set; }
-        public string Direction { get; set; }
         private int speed = 6;
-        private Vector2 originalPosition;
         int counter;
         public BoomerangProjectile(Vector2 position, string direction)
         {
             Position = position;
+            Size = 80;
             Direction = direction;
             Sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
             counter = 0;
@@ -34,29 +39,22 @@ namespace Project1.ProjectileComponents
             switch (Direction)
             {
                 case "Up":
-                    Position.X+=20;
-                    Position.Y -= 5;
+                    Position = new Vector2(Position.X + 20, Position.Y - 5);
                     break;
                 case "Down":
-                    Position.X += 20;
-                    Position.Y += 50;
+                    Position = new Vector2(Position.X + 20, Position.Y + 50);
                     break;
                 case "Right":
-                    Position.X += 50;
-                    Position.Y += 20;
+                    Position = new Vector2(Position.X + 50, Position.Y + 20);
                     break;
                 default:
-                    Position.X -= 10;
-                    Position.Y += 20;
+                    Position = new Vector2(Position.X - 10, Position.Y + 20);
                     break;
             }
+            OriginalPosition = Position;
 
-            originalPosition.X = Position.X;
-            originalPosition.Y = Position.Y;
-
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
-
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -64,7 +62,7 @@ namespace Project1.ProjectileComponents
                 if (counter < 50)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, 80);
+                    Sprite.Draw(spriteBatch, Position, Size);
                 }else
                 {
                     InMotion = false;
@@ -72,34 +70,35 @@ namespace Project1.ProjectileComponents
         }
 
         public void Update()
-        {
-            
-                 
-                Sprite.Update();
+        { 
+            Sprite.Update();
 
                 switch (Direction)
                  {
                     case "Up":
-                        Position.Y -= speed;         
+                        Position = new Vector2(Position.X, Position.Y - speed);
                         break;
                     case "Down":
-                        Position.Y += speed;
+                        Position = new Vector2(Position.X, Position.Y + speed);
                         break;
                     case "Right":
-                        Position.X += speed;
+                        Position = new Vector2(Position.X + speed, Position.Y);
                         break;
                     default:
-                        Position.X -= speed;
+                        Position = new Vector2(Position.X - speed, Position.Y);
                         break;
                  }
 
-                if(Position.Y<originalPosition.Y-120 || Position.Y > originalPosition.Y+120 || Position.X < originalPosition.X - 120 || Position.X > originalPosition.X + 120)
+                if(Position.Y < OriginalPosition.Y - 120 || 
+                    Position.Y > OriginalPosition.Y + 120 || 
+                    Position.X < OriginalPosition.X - 120 || 
+                    Position.X > OriginalPosition.X + 120)
                 {
                     speed = -4;
                 }
 
             // Update Hitbox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
         }
         public void Collide(ICollidable item)
         {

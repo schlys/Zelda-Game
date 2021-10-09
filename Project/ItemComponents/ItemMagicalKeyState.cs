@@ -16,7 +16,7 @@ namespace Project1.ItemComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Sprite.Draw(spriteBatch, Item.Position, 80);
+            Sprite.Draw(spriteBatch, Item.Position, Item.Size);
         }
         public void Update()
         {

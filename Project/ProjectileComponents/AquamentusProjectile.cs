@@ -11,33 +11,38 @@ namespace Project1.ProjectileComponents
 {
     class AquamentusProjectile : IProjectile, ICollidable
     {
+        // Properties from IProjectile 
         public bool InMotion { get; set; }
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 OriginalPosition { get; set; }
+        public int Size { get; set; }
+        public string Direction { get; set; }
+        public string ID { get; set; }
+
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
 
         // Other Properties
-        Sprite Sprite;
-        public string ID;
-        private Vector2 Position;
-        private string direction;
         private int counter;
         public AquamentusProjectile(Vector2 position, string direction)
         {
             InMotion = true;
-            this.direction = direction;
-            this.Position = position;
-            counter = 0;
+            Direction = direction;
+            Size = 80;
+            Position = position;
             ID = "AquamentusProjectile";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            counter = 0;
 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                Sprite.Draw(spriteBatch, Position, 80);
+                Sprite.Draw(spriteBatch, Position, Size);
         }
         public void Update()
         {
@@ -45,9 +50,9 @@ namespace Project1.ProjectileComponents
             counter++;
             if (counter < 200)
             {
-                if (direction.Equals("Up"))
+                if (Direction.Equals("Up"))
                     Position += new Vector2((float)-2, -1);
-                else if (direction.Equals("Straight"))
+                else if (Direction.Equals("Straight"))
                     Position += new Vector2((float)-2, 0);
                 else
                     Position += new Vector2((float)-2, 1);
@@ -56,7 +61,7 @@ namespace Project1.ProjectileComponents
                 InMotion = false;
 
             // Update Hitbox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
         }
         public void Collide(ICollidable item)
         {

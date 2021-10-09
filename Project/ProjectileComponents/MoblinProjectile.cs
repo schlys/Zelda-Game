@@ -11,35 +11,39 @@ namespace Project1.ProjectileComponents
 {
     class MoblinProjectile : IProjectile, ICollidable
     {
+        // Properties from IProjectile 
         public bool InMotion { get; set; }
-
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 OriginalPosition { get; set; }
+        public int Size { get; set; }
+        public string Direction { get; set; }
+        public string ID { get; set; }
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
 
         // Other Properties
-        Sprite Sprite;
-        public string ID;
-        private Vector2 Position;
-        private string direction;
         private int counter;
 
         public MoblinProjectile(Vector2 position, string direction)
         {
             InMotion = true;
-            this.direction = direction;
-            this.Position = position;
+            Direction = direction;
+            Size = 80;
+            Position = position;
+            OriginalPosition = Position; 
             counter = 0;
             ID = "MoblinProjectile";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID+ direction);
 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                Sprite.Draw(spriteBatch, Position, 80);
+                Sprite.Draw(spriteBatch, Position, Size);
         }
         public void Update()
         {
@@ -47,20 +51,20 @@ namespace Project1.ProjectileComponents
             counter++;
             if (counter < 200)
             {
-                if (direction.Equals("Up"))
+                if (Direction.Equals("Up"))
                     Position += new Vector2(0, (float)-2);
-                else if (direction.Equals("Down"))
+                else if (Direction.Equals("Down"))
                     Position += new Vector2(0, (float)2);
-                else if (direction.Equals("Right"))
+                else if (Direction.Equals("Right"))
                     Position += new Vector2((float)2, 0);
-                else if (direction.Equals("Left"))
+                else if (Direction.Equals("Left"))
                     Position += new Vector2((float)-2, 0);
             }
             else
                 InMotion = false;
 
             // Update Hitbox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
         }
         public void Collide(ICollidable item)
         {

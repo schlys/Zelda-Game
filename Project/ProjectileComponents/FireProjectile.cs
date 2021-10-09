@@ -10,22 +10,28 @@ namespace Project1.ProjectileComponents
 {
     class FireProjectile : IProjectile, ICollidable
     {
+
+        // Properties from IProjectile
         public bool InMotion { get; set; }
+        public Sprite Sprite { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 OriginalPosition { get; set; }
+        public int Size { get; set; }
+        public string Direction { get; set; }
+        public string ID { get; set; }
+
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
 
         // Other Properties 
-        public Sprite Sprite { get; set; }
-        public Vector2 Position;
-        
-        public string Direction { get; set; }
         private int speed = 4;
         int counter;
         public FireProjectile(Vector2 position, string direction)
         {
             Position = position;
             Direction = direction;
+            Size = 80; 
             Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
             counter = 0;
             InMotion = true;
@@ -33,23 +39,19 @@ namespace Project1.ProjectileComponents
             switch (Direction)
             {
                 case "Up":
-                    Position.X += 20;
-                    Position.Y -= 20;
+                    Position = new Vector2(Position.X + 20, Position.Y - 20);
                     break;
                 case "Down":
-                    Position.X += 20;
-                    Position.Y += 60;
+                    Position = new Vector2(Position.X + 20, Position.Y + 60);
                     break;
                 case "Right":
-                    Position.X += 60;
-                    Position.Y += 20;
+                    Position = new Vector2(Position.X + 60, Position.Y + 20);
                     break;
                 default:
-                    Position.X -= 20;
-                    Position.Y += 20;
+                    Position = new Vector2(Position.X - 20, Position.Y + 20);
                     break;
             }
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -58,7 +60,7 @@ namespace Project1.ProjectileComponents
                 if (counter < 45)
                 {
                     counter++;
-                    Sprite.Draw(spriteBatch, Position, 80);
+                    Sprite.Draw(spriteBatch, Position, Size);
                 }else
                 {
                     InMotion = false;
@@ -75,22 +77,22 @@ namespace Project1.ProjectileComponents
                     switch (Direction)
                     {
                         case "Up":
-                            Position.Y -= speed;
+                            Position = new Vector2(Position.X, Position.Y - speed);
                             break;
                         case "Down":
-                            Position.Y += speed;
+                            Position = new Vector2(Position.X, Position.Y + speed);
                             break;
                         case "Right":
-                            Position.X += speed;
+                            Position = new Vector2(Position.X + speed, Position.Y);
                             break;
                         default:
-                            Position.X -= speed;
+                            Position = new Vector2(Position.X - speed, Position.Y);
                             break;
                     }
                 }
 
             // Update Hitbox for collisions 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.hitX, Sprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
         }
         public void Collide(ICollidable item)
         {
