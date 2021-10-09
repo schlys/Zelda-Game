@@ -27,17 +27,18 @@ namespace Project1.ItemComponents
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
         public Item()
         {
+            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
-            IsMoving = false;
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
         public void SetItemState(int i)
         {
             // TODO: change to jump table 
+            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
             switch (ItemTypeKeys[i])
             {
                 case "Angel":
@@ -158,7 +159,6 @@ namespace Project1.ItemComponents
         {
             ResetPosition();
             SetItemState((int)Counter);
-
             IncrementCounter(-Step); 
         }
 
@@ -166,9 +166,7 @@ namespace Project1.ItemComponents
         {
             ResetPosition();
             SetItemState((int)Counter);
-
             IncrementCounter(Step); 
-
         }
 
         // Increment the field Counter by i and ensure counter stays within the bounds [0, ItemTypeKeys.Length] 
@@ -186,8 +184,11 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
+            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
             ItemState = new ItemAngelState(this);
-            ResetPosition(); 
+            ResetPosition();
+            // Update HitBox for collisions 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
         }
 
         public void ResetPosition()

@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
-using System; 
+using System;
+using Project1.CollisionComponents; 
 
 namespace Project1.ItemComponents
 {
@@ -19,7 +20,8 @@ namespace Project1.ItemComponents
         public ItemAngelState(IItem item)
         {
             Item = item;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Angel"); 
+            Sprite = SpriteFactory.Instance.GetSpriteData("Angel");
+            ((ICollidable)Item).IsMoving = true; 
         }
         public void Draw(SpriteBatch spriteBatch)
         {

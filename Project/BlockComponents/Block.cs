@@ -28,7 +28,7 @@ namespace Project1.BlockComponents
             Position = new Vector2(100, 100);
             Size = 40; 
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY);
-            IsMoving = true;
+            IsMoving = false;
         }
 
         private void SetBlockState(int i)

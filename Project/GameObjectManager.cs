@@ -112,10 +112,14 @@ namespace Project1
             {
                 IProjectile Projectile = Projectiles[i];
                 if (Projectile.InMotion)
+                {
                     Projectile.Update();
+                }
                 else
+                {
+                    CollisionManager.Instance.RemoveObject((ICollidable)Projectile);
                     Projectiles.Remove(Projectile);
-               CollisionManager.Instance.AddObject((ICollidable)Projectile);
+                }
             }
 
             CollisionManager.Instance.Update();
@@ -132,7 +136,7 @@ namespace Project1
             }
             foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
             {
-                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
+                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
             }
 
             foreach (ILink link in Links)
@@ -176,12 +180,18 @@ namespace Project1
             {
                 enemy.Reset();
             }
+
+            foreach(IProjectile projectile in Projectiles)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)projectile); 
+            }
             Projectiles = new List<IProjectile>();
         }
 
         public void AddProjectile(IProjectile projectile)
         {
             Projectiles.Add(projectile);
+            CollisionManager.Instance.AddObject((ICollidable)projectile);
         }
     }
 }

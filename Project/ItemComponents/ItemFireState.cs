@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
+using Project1.CollisionComponents;
+
 
 namespace Project1.ItemComponents
 {
@@ -13,6 +15,7 @@ namespace Project1.ItemComponents
         {
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
+            ((ICollidable)Item).IsMoving = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
