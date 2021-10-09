@@ -27,7 +27,7 @@ namespace Project1.BlockComponents
             BlockState = new BlockBaseState(this);
             Position = new Vector2(100, 100);
             Size = 40; 
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY), Size);
             IsMoving = false;
         }
 
@@ -98,7 +98,7 @@ namespace Project1.BlockComponents
         public void Reset()
         {
             BlockState = new BlockBaseState(this);
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY), Size);
         }
 
         public void Draw(SpriteBatch spriteBatch)

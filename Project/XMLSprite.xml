@@ -854,8 +854,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Stripe</name>
@@ -864,8 +864,8 @@
 		<startFrame>2</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Brick</name>
@@ -874,8 +874,8 @@
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Stair</name>
@@ -884,8 +884,8 @@
 		<startFrame>4</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Blue</name>
@@ -894,8 +894,8 @@
 		<startFrame>5</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Dots</name>
@@ -904,8 +904,8 @@
 		<startFrame>6</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Black</name>
@@ -914,8 +914,8 @@
 		<startFrame>7</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Dragon</name>
@@ -924,8 +924,8 @@
 		<startFrame>8</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Fish</name>
@@ -934,8 +934,8 @@
 		<startFrame>9</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Last</name>
@@ -944,7 +944,7 @@
 		<startFrame>10</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>40</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 </Sprites>
