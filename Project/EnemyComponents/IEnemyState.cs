@@ -16,6 +16,7 @@ namespace Project1.EnemyComponents
         IDirectionState DirectionState {get;set;}
         Sprite Sprite { get; set; }     //change to ISprite later 
         string ID { get; set; }
+        int Size { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
        

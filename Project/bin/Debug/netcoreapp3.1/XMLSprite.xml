@@ -172,8 +172,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -326,8 +326,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinDown</name>
@@ -336,8 +336,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinRight</name>
@@ -346,8 +346,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinLeft</name>
@@ -356,8 +356,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MoblinProjectileDown</name>
@@ -417,8 +417,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>GoriyaDown</name>
@@ -427,8 +427,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>GoriyaRight</name>
@@ -437,8 +437,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	<Sprite>
 		<name>GoriyaLeft</name>
@@ -447,8 +447,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -458,8 +458,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>30</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -469,8 +469,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>30</hitX>
+		<hitY>20</hitY>
 	</Sprite>
 
 	<Sprite>
@@ -480,8 +480,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>14</hitX>
-		<hitY>16</hitY>
+		<hitX>12</hitX>
+		<hitY>14</hitY>
 	</Sprite>
 
 	<Sprite>
@@ -491,8 +491,8 @@
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>24</hitX>
-		<hitY>32</hitY>
+		<hitX>60</hitX>
+		<hitY>90</hitY>
 	</Sprite>
 	<Sprite>
 		<name>AttackAquamentus</name>
@@ -501,8 +501,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>24</hitX>
-		<hitY>32</hitY>
+		<hitX>60</hitX>
+		<hitY>80</hitY>
 	</Sprite>
 	<Sprite>
 		<name>AquamentusProjectile</name>

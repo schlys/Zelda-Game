@@ -14,6 +14,8 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }     
         public string ID { get; set; }
+        public int Size { get; set; }
+
 
         private bool isAttacking;
         private int step;
@@ -32,6 +34,7 @@ namespace Project1.EnemyComponents
             isAttacking = false;
             randomInt = r.Next(randomRange);
             step = 1;
+            Size = 80; 
         }
 
         private void MoveUp()
@@ -107,7 +110,7 @@ namespace Project1.EnemyComponents
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, Size);   
             
         }
 

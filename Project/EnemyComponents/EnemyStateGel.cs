@@ -14,6 +14,8 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+        public int Size { get; set; }
+
         private int step;
         private int movementTimer;
         private Random r = new Random();
@@ -25,6 +27,7 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             step = 1;
             randomInt = r.Next(0, 9);
+            Size = 40; 
         }
         private void MoveUp()
         {
@@ -61,7 +64,7 @@ namespace Project1.EnemyComponents
         private void StopMoving() {}
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, Size);     
         }
 
         public void Update()

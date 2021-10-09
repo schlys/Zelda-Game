@@ -14,6 +14,8 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+        public int Size { get; set; }
+
         private int step;
 
         private int movementTimer;
@@ -25,6 +27,7 @@ namespace Project1.EnemyComponents
             ID = "Stalfos";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             step = 1;
+            Size = 80; 
         }
         private void MoveUp()
         {
@@ -48,7 +51,7 @@ namespace Project1.EnemyComponents
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, Size);  
         }
 
         public void Update()

@@ -14,15 +14,17 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+        public int Size { get; set; }
         public EnemyStateOldMan(IEnemy enemy)
         {
             Enemy = enemy;
             ID = "OldMan";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            Size = 80; 
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, 80);     // TODO: not hardcode 80 
+            Sprite.Draw(spriteBatch, position, Size);   
         }
 
         public void Update()
