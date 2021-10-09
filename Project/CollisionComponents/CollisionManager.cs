@@ -10,6 +10,7 @@ namespace Project1.CollisionComponents
         private static CollisionManager instance = new CollisionManager();
         public List<ICollidable> MovingObjects;
         public List<ICollidable> NonMovingObjects; 
+
         public static CollisionManager Instance
         {
             get
@@ -52,7 +53,8 @@ namespace Project1.CollisionComponents
             {
                 foreach(ICollidable item2 in NonMovingObjects)
                 {
-                    if(DetectCollision(item1, item2))
+                    ICollision collision = DetectCollision(item1, item2); 
+                    if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         item1.Collide(item2);
                         item2.Collide(item1); 
@@ -61,42 +63,46 @@ namespace Project1.CollisionComponents
 
                 foreach (ICollidable item2 in MovingObjects)
                 {
-                    if (item1 != item2 && DetectCollision(item1, item2))
-                    {
-                        item1.Collide(item2);
-                        item2.Collide(item1);
+                    if (item1 != item2){
+                        ICollision collision = DetectCollision(item1, item2);
+                        if (!collision.GetType().Name.ToString().Equals("NullCollision"))
+                        {
+                            item1.Collide(item2);
+                            item2.Collide(item1);
+                        }
                     }
                 }
             }
         }
-        public bool DetectCollision(ICollidable item1, ICollidable item2)
+        public ICollision DetectCollision(ICollidable item1, ICollidable item2)
         {
-            String dir = ""; 
+            
+            String direction = ""; 
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
                 Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox); 
                 if(Intersection.Right == item1.Hitbox.Right)
                 {
                     // collide on item1's right and item2's left 
-                    dir = "right"; 
+                    direction = "Right"; 
                 } else if(Intersection.Left == item1.Hitbox.Left)
                 {
                     // collide on item1's left and item2's right 
-                    dir = "right";
+                    direction = "Left";
                 }
                 else if (Intersection.Top == item1.Hitbox.Top)
                 {
                     // collide on item1's top and item2's bottom 
-                    dir = "right";
+                    direction = "Top";
                 }
                 else
                 {
                     // collide on item1's bottom and item2's top
-                    dir = "right";
+                    direction = "Bottom";
                 }
-                return true; 
+                return new Collision(item1, item2, direction);  
             } 
-            return false; 
+            return new NullCollision(); 
         }
         public void Update()
         {
