@@ -66,10 +66,10 @@ namespace Project1.SpriteFactoryComponents
                 int startFrame = Int16.Parse(node.SelectSingleNode("startFrame").InnerText);
                 int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
                 int size = Int16.Parse(node.SelectSingleNode("originalSize").InnerText);
-                //int x = Int16.Parse(node.SelectSingleNode("X").InnerText);
-                //int y = Int16.Parse(node.SelectSingleNode("Y").InnerText);
-                int x = 0;
-                int y = 0;
+                int x = Int16.Parse(node.SelectSingleNode("hitX").InnerText);
+                int y = Int16.Parse(node.SelectSingleNode("hitY").InnerText);
+                //int x = 0;
+                //int y = 0;
                 SpriteDict.Add(name, new Sprite(TextureDict[sheet], currentFrame, startFrame, row, size, x, y));
             }
 

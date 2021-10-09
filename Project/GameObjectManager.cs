@@ -9,6 +9,7 @@ using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
+using Microsoft.Xna.Framework;
 
 namespace Project1
 {
@@ -119,9 +120,22 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            // For testing collision hitbox 
+            Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { Color.White });
+            foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
+            {
+                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
+            }
+            foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
+            {
+                spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
+            }
+
             foreach (ILink link in Links)
             {
                 link.Draw(spriteBatch);
+                
             }
             foreach (IBlock block in Blocks)
             {

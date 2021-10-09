@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +8,8 @@ namespace Project1.CollisionComponents
     class CollisionManager : ICollisionManager
     {
         private static CollisionManager instance = new CollisionManager();
-        private List<ICollidable> MovingObjects;
-        private List<ICollidable> NonMovingObjects; 
+        public List<ICollidable> MovingObjects;
+        public List<ICollidable> NonMovingObjects; 
         public static CollisionManager Instance
         {
             get
@@ -70,8 +71,29 @@ namespace Project1.CollisionComponents
         }
         public bool DetectCollision(ICollidable item1, ICollidable item2)
         {
+            String dir = ""; 
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
+                Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox); 
+                if(Intersection.Right == item1.Hitbox.Right)
+                {
+                    // collide on item1's right and item2's left 
+                    dir = "right"; 
+                } else if(Intersection.Left == item1.Hitbox.Left)
+                {
+                    // collide on item1's left and item2's right 
+                    dir = "right";
+                }
+                else if (Intersection.Top == item1.Hitbox.Top)
+                {
+                    // collide on item1's top and item2's bottom 
+                    dir = "right";
+                }
+                else
+                {
+                    // collide on item1's bottom and item2's top
+                    dir = "right";
+                }
                 return true; 
             } 
             return false; 

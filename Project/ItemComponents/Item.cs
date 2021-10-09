@@ -30,8 +30,7 @@ namespace Project1.ItemComponents
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
-            // Hitbox = ItemSprite.Hitbox; 
-            Hitbox = new Rectangle(0, 0, 50, 50);
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
             IsMoving = false;
         }
 
@@ -203,6 +202,8 @@ namespace Project1.ItemComponents
         public void Update()
         {
             ItemState.Update();
+            // Update HitBox for collisions 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, ItemState.Sprite.hitX, ItemState.Sprite.hitY);
         }
 
         public void Collide(ICollidable item)

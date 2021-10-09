@@ -532,6 +532,8 @@
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
 	</Sprite>
 	<Sprite>
 		<name>HeartContainer</name>

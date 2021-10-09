@@ -41,12 +41,11 @@ namespace Project1.LinkComponents
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
-            // Hitbox = LinkSprite.Hitbox; 
-            Hitbox = new Rectangle(0, 0, 50, 50); 
-            IsMoving = true; 
             UseItemName = "";
             Position = InitialPosition;
             UpdateSprite();
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, LinkSprite.hitX, LinkSprite.hitY);
+            IsMoving = true;
         }
         public void MoveDown()
         {
@@ -203,6 +202,9 @@ namespace Project1.LinkComponents
                 LinkSprite.delay = 0;
                 LinkSprite.MaxDelay = LinkSprite.startDelay;
             }
+            
+            // Update Hitbox for collisions  
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, LinkSprite.hitX, LinkSprite.hitY);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

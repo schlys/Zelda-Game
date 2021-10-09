@@ -6,10 +6,16 @@ using Project1.CollisionComponents;
 
 namespace Project1.BlockComponents
 {
-    class Block : IBlock
+    class Block : IBlock, ICollidable
     {
+        // Properties from IBlock 
         public IBlockState BlockState { get; set; }
+        public Vector2 Position { get; set; }
+        public int Size { get; set; }
+
+        // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
 
         private double Counter = 0.0;
         private double Step = 0.2; 
@@ -19,6 +25,10 @@ namespace Project1.BlockComponents
         public Block()
         {
             BlockState = new BlockBaseState(this);
+            Position = new Vector2(100, 100);
+            Size = 40; 
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY);
+            IsMoving = true;
         }
 
         private void SetBlockState(int i)
@@ -93,6 +103,11 @@ namespace Project1.BlockComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             BlockState.Draw(spriteBatch);
+        }
+
+        public void Collide(ICollidable item)
+        {
+            
         }
     }
 }

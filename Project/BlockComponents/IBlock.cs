@@ -7,9 +7,11 @@ using Project1.CollisionComponents;
 
 namespace Project1.BlockComponents
 {
-    public interface IBlock : INonMover
+    public interface IBlock
     {
         IBlockState BlockState { get; set; }
+        Vector2 Position { get; set; }
+        int Size { get; set; }
         void PreviousBlock();
         void NextBlock();
         void Draw(SpriteBatch spriteBatch);

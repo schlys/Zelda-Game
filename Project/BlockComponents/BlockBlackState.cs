@@ -9,18 +9,18 @@ namespace Project1.BlockComponents
 {
     class BlockBlackState : IBlockState
     {
-        public IBlock IBlock { get; set; }
-
-        public Sprite sprite = SpriteFactory.Instance.GetSpriteData("Black");
+        public IBlock Block { get; set; }
+        public Sprite BlockSprite { get; set; }
 
         public BlockBlackState(IBlock block)
         {
-            IBlock = block;
+            Block = block;
+            BlockSprite = SpriteFactory.Instance.GetSpriteData("Black");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, new Vector2(150, 100), 40);
+            BlockSprite.Draw(spriteBatch, Block.Position, Block.Size);
         }
 
     }
