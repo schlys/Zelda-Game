@@ -104,6 +104,7 @@ namespace Project1.CollisionComponents
             } 
             return new NullCollision(); 
         }
+
         public void Update()
         {
             DetectCollisions(); 

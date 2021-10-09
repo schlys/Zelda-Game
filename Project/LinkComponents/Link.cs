@@ -44,7 +44,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             Position = InitialPosition;
             UpdateSprite();
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, LinkSprite.hitX, LinkSprite.hitY);
+            Hitbox = new Rectangle((int)Position.X/2, (int)Position.Y/2, LinkSprite.hitX, LinkSprite.hitY);
             IsMoving = true;
         }
         public void MoveDown()
@@ -204,7 +204,7 @@ namespace Project1.LinkComponents
             }
             
             // Update Hitbox for collisions  
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, LinkSprite.hitX, LinkSprite.hitY);
+            Hitbox = new Rectangle((int)Position.X+60, (int)Position.Y+60, LinkSprite.hitX, LinkSprite.hitY);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
