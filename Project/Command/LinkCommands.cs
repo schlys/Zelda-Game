@@ -77,9 +77,8 @@ namespace Project1.Command
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkStopMovingCmd(Game1 game, ILink link)
+        public LinkStopMovingCmd(ILink link)
         {
-            Game = game;
             Link = link;
         }
 

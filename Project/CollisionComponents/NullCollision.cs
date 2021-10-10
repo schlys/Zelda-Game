@@ -8,14 +8,20 @@ namespace Project1.CollisionComponents
     {
         public ICollidable Item1 { get; set; }
         public ICollidable Item2 { get; set; }
-        public String Direction 
+        public string First { get; set; }
+        public string Second { get; set; }
+        public string Direction 
         { 
-            get { return String.Empty; }
+            get { return string.Empty; }
             set { }
         }   
         public NullCollision()
         {
             
+        }
+        public void Execute()
+        {
+
         }
     }
 }

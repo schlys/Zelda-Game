@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project1.Command;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,11 +21,13 @@ namespace Project1.CollisionComponents
                 return instance;
             }
         } 
-        public CollisionManager() 
+        private CollisionManager() 
         {
+            
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
         }
+       
         public void AddObject(ICollidable item)
         {
             if (item.IsMoving && !MovingObjects.Contains(item))   // Not allow duplicate objects 
@@ -66,7 +69,7 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2); 
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        // Execute appropriate command in dictionary 
+                        collision.Execute();
                     }
                 }
 
@@ -76,7 +79,7 @@ namespace Project1.CollisionComponents
                         ICollision collision = DetectCollision(item1, item2);
                         if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                         {
-                            // Execute appropriate command in dictionary 
+                            collision.Execute();
                         }
                     }
                 }
@@ -84,8 +87,8 @@ namespace Project1.CollisionComponents
         }
         public ICollision DetectCollision(ICollidable item1, ICollidable item2)
         {
-            
-            String direction = ""; 
+
+            string direction;
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
                 if(item1.IsMoving)

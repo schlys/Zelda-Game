@@ -88,7 +88,7 @@ namespace Project1.Controller
             RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
 
             // Command so link does not animate in place 
-            RegisterCommand(new LinkStopMovingCmd(Game, Link), LinkStopKey); 
+            RegisterCommand(new LinkStopMovingCmd( Link), LinkStopKey); 
         }
 
         public void InitializeBlockCommands(IBlock Block)

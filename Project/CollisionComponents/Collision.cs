@@ -12,11 +12,14 @@ namespace Project1.CollisionComponents
     {
         public ICollidable Item1 { get; set; }
         public ICollidable Item2 { get; set; }
-        public String Direction { get; set; }   // direction item1 collides with item 2
-        private String[] Directions = { "Left", "Right", "Up", "Down" };    // possible directions 
+        public string First { get; set; }
+        public string Second { get; set; }
+        public string Direction { get; set; }   // direction item1 collides with item 2
+        private string[] Directions = { "Left", "Right", "Up", "Down" };    // possible directions 
 
         private Game1 Game;
         private Dictionary<Tuple<ICollidable, ICollidable, string>, Type> commandsMap; //make a map to connect objects and command
+       
         private HashSet<Tuple<ICollidable, ICollidable, string>> typesSet;
 
         private ILink Link;
@@ -27,6 +30,8 @@ namespace Project1.CollisionComponents
             Item1 = i1;
             Item2 = i2;
             Direction = d;
+            First = i1.GetType().Name.ToString();
+            Second = i2.GetType().Name.ToString();
 
             commandsMap = new Dictionary<Tuple<ICollidable, ICollidable, string>, Type>();
             typesSet = new HashSet<Tuple<ICollidable, ICollidable, string>>();
@@ -55,6 +60,11 @@ namespace Project1.CollisionComponents
                 if (command != null)
                     command.Execute();
             }
+        }
+
+        public void Execute()
+        {
+
         }
 
     }
