@@ -23,8 +23,6 @@ namespace Project1.EnemyComponents
         // Other Properties 
         private double Step = .1;
         private double counter = 0.0;
-
-        // NOTE: for personal reference, remove before submission 
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
         public Enemy()
@@ -34,7 +32,6 @@ namespace Project1.EnemyComponents
             Position = new Vector2(400, 200);
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
-            //new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
             IsMoving = true;
             DirectionMoving = EnemyState.DirectionState; 
         }

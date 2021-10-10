@@ -135,7 +135,26 @@ namespace Project1.CollisionComponents
 
         public void Update()
         {
-            DetectCollisions(); 
+            DetectCollisions();
+
+            /* NOTE: moving objects can become nonmoving objects while we use next / prev items
+             *  so to account for the same object switching between lists, we must remove and readd 
+             *  all items. 
+             */
+            List<ICollidable> copy_MovingObjects = MovingObjects;
+            List<ICollidable> copy_NonMovingObjects = NonMovingObjects;
+
+            MovingObjects = new List<ICollidable>();
+            NonMovingObjects = new List<ICollidable>(); 
+
+            foreach(ICollidable c in copy_MovingObjects)
+            {
+                AddObject(c); 
+            }
+            foreach (ICollidable c in copy_NonMovingObjects)
+            {
+                AddObject(c);
+            }
         }
     }
 }

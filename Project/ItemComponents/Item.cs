@@ -29,23 +29,19 @@ namespace Project1.ItemComponents
             "Boomerang", "MagicalBoomerang", "BlueCandle", "RedCandle", "BlueRing", "RedRing", "SmallKey", "MagicalKey", "Compass", "Stepladder", "Raft", 
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
         public Item()
-        {
-            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
-            IsMoving = false;   
-            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects 
+        {            
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
             Size = 80; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            IsMoving = false;
+            DirectionMoving = new DirectionStateNotMoving();    
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
         public void SetItemState(int i)
         {
-            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
-            IsMoving = false;   
-            DirectionMoving = new DirectionStateNotMoving(); 
             // TODO: change to jump table 
             switch (ItemTypeKeys[i])
             {
@@ -215,6 +211,7 @@ namespace Project1.ItemComponents
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
             DirectionMoving = new DirectionStateNotMoving();
+
             ItemState.Update(); 
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
