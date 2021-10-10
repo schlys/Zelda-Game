@@ -22,14 +22,14 @@ namespace Project1.CollisionComponents
         }
 
 
-        private static Dictionary<string, Tuple<string, string>> CollisionMappings;
+        private static Dictionary<string, Tuple<Type, Type>> CollisionMappings;
         private void CreateDict()
         {
-            CollisionMappings = new Dictionary<string, Tuple<string, string>>();
+            CollisionMappings = new Dictionary<string, Tuple<Type, Type>>();
 
             
         }
-        public Tuple<string, string> GetCommands(ICollision collision)
+        public Tuple<Type, Type> GetCommands(ICollision collision)
         {
             return CollisionMappings[collision.First + collision.Second + collision.Direction];
         }

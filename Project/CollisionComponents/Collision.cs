@@ -64,7 +64,13 @@ namespace Project1.CollisionComponents
 
         public void Execute()
         {
+            Tuple<Type, Type> commands = CollisionHandler.Instance.GetCommands(this);
+            Type type1 = commands.Item1;
+            Type type2 = commands.Item2;
 
+            ConstructorInfo constructor1 = type1.GetConstructor(new []{ typeof(ILink)});
+
+            //object command1 = ctor.I
         }
 
     }
