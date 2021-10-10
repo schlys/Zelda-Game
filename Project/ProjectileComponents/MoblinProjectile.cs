@@ -18,7 +18,7 @@ namespace Project1.ProjectileComponents
         public Vector2 Position { get; set; }
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
-        public string Direction { get; set; }
+        public IDirectionState Direction { get; set; }
         public string ID { get; set; }
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -31,17 +31,36 @@ namespace Project1.ProjectileComponents
         public MoblinProjectile(Vector2 position, string direction)
         {
             InMotion = true;
-            Direction = direction;
+
+            switch (direction)
+            {
+                case "Up":
+                    Direction = new DirectionStateUp();
+                    break;
+                case "Down":
+                    Direction = new DirectionStateDown();
+                    break;
+                case "Left":
+                    Direction = new DirectionStateLeft();
+                    break;
+                case "Right":
+                    Direction = new DirectionStateRight();
+                    break;
+                default:
+                    Direction = new DirectionStateRight();
+                    break;
+            }
+
             Size = 80;
             Position = position;
             OriginalPosition = Position; 
             counter = 0;
             ID = "MoblinProjectile";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction);
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction.ID);
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
-            DirectionMoving = new DirectionStateRight();
+            DirectionMoving = Direction;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -54,13 +73,13 @@ namespace Project1.ProjectileComponents
             counter++;
             if (counter < 200)
             {
-                if (Direction.Equals("Up"))
+                if (Direction.ID.Equals("Up"))
                     Position += new Vector2(0, (float)-2);
-                else if (Direction.Equals("Down"))
+                else if (Direction.ID.Equals("Down"))
                     Position += new Vector2(0, (float)2);
-                else if (Direction.Equals("Right"))
+                else if (Direction.ID.Equals("Right"))
                     Position += new Vector2((float)2, 0);
-                else if (Direction.Equals("Left"))
+                else if (Direction.ID.Equals("Left"))
                     Position += new Vector2((float)-2, 0);
             }
             else
@@ -68,6 +87,7 @@ namespace Project1.ProjectileComponents
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
+            DirectionMoving = Direction;
         }
     }
 }

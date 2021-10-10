@@ -18,7 +18,7 @@ namespace Project1.ProjectileComponents
         public Vector2 Position { get; set; }
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
-        public string Direction { get; set; }
+        public IDirectionState Direction { get; set; }
         public string ID { get; set; }
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -34,13 +34,33 @@ namespace Project1.ProjectileComponents
             InMotion = true;
             Size = 80; 
             Position = position;
-            Direction = direction;
+
+            switch (direction)
+            {
+                case "Up":
+                    Direction = new DirectionStateUp();
+                    break;
+                case "Down":
+                    Direction = new DirectionStateDown();
+                    break;
+                case "Left":
+                    Direction = new DirectionStateLeft();
+                    break;
+                case "Right":
+                    Direction = new DirectionStateRight();
+                    break;
+                default:
+                    Direction = new DirectionStateRight();
+                    break;
+            }
+
             ID = "SilverArrow"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction);
+            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction.ID);
             Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
 
-            switch (Direction)
+            // Adjust start location to be beside the sprite based on the direction
+            switch (Direction.ID)
             {
                 case "Up":
                     Position = new Vector2(Position.X + 20, Position.Y - 20);
@@ -59,7 +79,7 @@ namespace Project1.ProjectileComponents
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
-            DirectionMoving = new DirectionStateRight();
+            DirectionMoving = Direction;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -85,7 +105,7 @@ namespace Project1.ProjectileComponents
            
                 if (counter < 50)
                 {
-                    switch (Direction)
+                    switch (Direction.ID)
                     {
                         case "Up":
                             Position = new Vector2(Position.X, Position.Y - speed);
@@ -104,7 +124,7 @@ namespace Project1.ProjectileComponents
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
-
+            DirectionMoving = Direction;
         }
     }
 }

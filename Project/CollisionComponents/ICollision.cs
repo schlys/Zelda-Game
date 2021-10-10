@@ -12,6 +12,6 @@ namespace Project1.CollisionComponents
         string First { get; set; }
         string Second { get; set; }
         public string Direction { get; set; }   // direction item1 collides with item 2
-        void Execute();
+        //void Execute();
     }
 }

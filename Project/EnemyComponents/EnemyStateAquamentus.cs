@@ -74,7 +74,7 @@ namespace Project1.EnemyComponents
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
                 Sprite.MaxDelay = 30;
                 GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Up"));
-                GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Straight"));
+                GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Left")); //NOTE: changed from "Straight"
                 GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Down"));
             }
         }

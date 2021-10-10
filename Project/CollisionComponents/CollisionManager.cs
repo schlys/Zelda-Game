@@ -69,7 +69,8 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2); 
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        collision.Execute();
+                        
+                        //collision.Execute();
                     }
                 }
 
@@ -79,7 +80,7 @@ namespace Project1.CollisionComponents
                         ICollision collision = DetectCollision(item1, item2);
                         if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                         {
-                            collision.Execute();
+                            //collision.Execute();
                         }
                     }
                 }
@@ -91,6 +92,7 @@ namespace Project1.CollisionComponents
             string direction;
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
+                // TODO: what if both moving? 
                 if(item1.IsMoving)
                 {
                     direction = item1.DirectionMoving.ID; 
