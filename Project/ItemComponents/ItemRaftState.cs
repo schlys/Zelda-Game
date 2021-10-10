@@ -9,7 +9,6 @@ namespace Project1.ItemComponents
     {
         public IItem Item { get; set; }
         public Sprite Sprite { get; set; }
-        public string ID { get; set; }
         public ItemRaftState(IItem item)
         {
             Item = item;
