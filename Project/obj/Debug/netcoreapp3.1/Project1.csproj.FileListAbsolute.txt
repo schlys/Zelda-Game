@@ -514,3 +514,4 @@ C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
 C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
 C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete

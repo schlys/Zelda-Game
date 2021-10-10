@@ -9,7 +9,9 @@ namespace Project1.CollisionComponents
     {
         private static CollisionManager instance = new CollisionManager();
         public List<ICollidable> MovingObjects;
-        public List<ICollidable> NonMovingObjects; 
+        public List<ICollidable> NonMovingObjects;
+
+        private Game1 Game;
 
         public static CollisionManager Instance
         {
@@ -116,7 +118,7 @@ namespace Project1.CollisionComponents
                     // collide on item1's bottom and item2's top
                     direction = "Bottom";
                 }*/
-                return new Collision(item1, item2, direction);  
+                return new Collision(Game, item1, item2, direction);  
             } 
             return new NullCollision(); 
         }
