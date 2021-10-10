@@ -15,6 +15,7 @@ namespace Project1.ItemComponents
         public Vector2 InitialPosition { get; set; }
         public int Size { get; set; }
         // Properties from ICollidable 
+        // NOTE: Some ItemStates override the value of IsMoving and DirectionMoving 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public IDirectionState DirectionMoving { get; set; }
@@ -42,8 +43,10 @@ namespace Project1.ItemComponents
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
         public void SetItemState(int i)
         {
+            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            IsMoving = false;   
+            DirectionMoving = new DirectionStateNotMoving(); 
             // TODO: change to jump table 
-            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
             switch (ItemTypeKeys[i])
             {
                 case "Angel":
@@ -191,7 +194,8 @@ namespace Project1.ItemComponents
         {
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects             ItemState = new ItemAngelState(this);
+            DirectionMoving = new DirectionStateNotMoving(); 
+            ItemState = new ItemAngelState(this);
             ResetPosition();
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
@@ -210,8 +214,8 @@ namespace Project1.ItemComponents
         {
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects 
-            ItemState.Update();
+            DirectionMoving = new DirectionStateNotMoving();
+            ItemState.Update(); 
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
         }

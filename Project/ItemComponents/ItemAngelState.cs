@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using System;
-using Project1.CollisionComponents; 
+using Project1.CollisionComponents;
+using Project1.DirectionState; 
 
 namespace Project1.ItemComponents
 {
@@ -16,7 +17,6 @@ namespace Project1.ItemComponents
         private int Rand;
         private int Step = 1;
         private int PositionBounds = 50; 
-
         public ItemAngelState(IItem item)
         {
             Item = item;
@@ -40,21 +40,25 @@ namespace Project1.ItemComponents
             {
                 case 0:
                     MoveUp();
+                    ((ICollidable)Item).DirectionMoving = new DirectionStateUp();
                     break;
                 case 1:
                     MoveDown();
+                    ((ICollidable)Item).DirectionMoving = new DirectionStateDown();
                     break;
                 case 2:
                     MoveLeft();
+                    ((ICollidable)Item).DirectionMoving = new DirectionStateLeft();
                     break;
                 case 3:
                     MoveRight();
+                    ((ICollidable)Item).DirectionMoving = new DirectionStateRight();
                     break;
                 default:
                     MoveUp();
+                    ((ICollidable)Item).DirectionMoving = new DirectionStateUp();
                     break;
             }
-
             Sprite.Update();
         }
         public void MoveUp()
