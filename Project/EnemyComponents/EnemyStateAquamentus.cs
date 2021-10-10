@@ -6,6 +6,7 @@ using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.CollisionComponents; 
 
 namespace Project1.EnemyComponents
 {
@@ -25,6 +26,7 @@ namespace Project1.EnemyComponents
         public EnemyStateAquamentus(IEnemy enemy)
         {
             Enemy = enemy;
+            DirectionState = new DirectionStateLeft(); 
             ID = "Aquamentus";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             isAttacking = false;
@@ -36,6 +38,8 @@ namespace Project1.EnemyComponents
             {
                 Sprite.TotalFrames = 4;
                 Enemy.Position += new Vector2(-step, 0);
+                ((ICollidable)Enemy).IsMoving = true;
+                DirectionState = DirectionState.MoveLeft(); 
             } else
             {
                 StopMoving();
@@ -49,15 +53,18 @@ namespace Project1.EnemyComponents
             {
                 Sprite.TotalFrames = 4;
                 Enemy.Position += new Vector2(step, 0);
-            } else
+                ((ICollidable)Enemy).IsMoving = true;
+                DirectionState = DirectionState.MoveRight();
+            }
+            else
             {
                 StopMoving();
             }
-           
         }
         private void StopMoving()
         {
             Sprite.TotalFrames = 3;
+            ((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()
         {

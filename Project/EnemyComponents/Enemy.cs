@@ -17,7 +17,7 @@ namespace Project1.EnemyComponents
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
-        public bool IsMoving { get; set; }
+        public bool IsMoving { get; set; }      // Updated by EnemyState 
         public IDirectionState DirectionMoving { get; set; }
 
         // Other Properties 

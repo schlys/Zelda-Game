@@ -5,6 +5,7 @@ using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.CollisionComponents;
 
 namespace Project1.EnemyComponents
 {
@@ -18,6 +19,8 @@ namespace Project1.EnemyComponents
         public EnemyStateOldMan(IEnemy enemy)
         {
             Enemy = enemy;
+            DirectionState = new DirectionStateNotMoving();
+            ((ICollidable)Enemy).IsMoving = false;
             ID = "OldMan";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             Size = 80; 

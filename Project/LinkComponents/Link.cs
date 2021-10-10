@@ -51,6 +51,7 @@ namespace Project1.LinkComponents
         }
         public void MoveDown()
         {
+            IsMoving = true;
             if (!LockFrame)
             { 
                 if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
@@ -64,6 +65,7 @@ namespace Project1.LinkComponents
 
         public void MoveLeft()
         {
+            IsMoving = true;
             if (!LockFrame)
             {
                 if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
@@ -78,6 +80,7 @@ namespace Project1.LinkComponents
 
         public void MoveRight()
         {
+            IsMoving = true; 
             if (!LockFrame)
             {              
                 if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
@@ -91,6 +94,7 @@ namespace Project1.LinkComponents
 
         public void MoveUp()
         {
+            IsMoving = true; 
             if (!LockFrame)
             {              
                 if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
@@ -104,6 +108,8 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
+            DirectionState = DirectionState.Stop();
+            IsMoving = false; 
             if (!LockFrame)
                 LinkSprite.TotalFrames = 1;
         }

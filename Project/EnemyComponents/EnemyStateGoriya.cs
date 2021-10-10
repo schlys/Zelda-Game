@@ -5,6 +5,7 @@ using Project1.SpriteFactoryComponents;
 using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;
+using Project1.CollisionComponents;
 
 namespace Project1.EnemyComponents 
 {
@@ -28,8 +29,8 @@ namespace Project1.EnemyComponents
         public EnemyStateGoriya(IEnemy enemy)
         {
             Enemy = enemy;
-            ID = "Goriya";
             DirectionState = new DirectionStateUp();
+            ID = "Goriya";
             UpdateSprite();
             isAttacking = false;
             randomInt = r.Next(randomRange);
@@ -41,6 +42,7 @@ namespace Project1.EnemyComponents
         {
             if (!isAttacking)
             {
+                ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
@@ -54,6 +56,7 @@ namespace Project1.EnemyComponents
         {
             if (!isAttacking)
             {
+                ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
@@ -67,6 +70,7 @@ namespace Project1.EnemyComponents
         {
             if (!isAttacking)
             {
+                ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
@@ -80,6 +84,7 @@ namespace Project1.EnemyComponents
         {
             if (!isAttacking)
             {
+                ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
@@ -93,10 +98,12 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
+            ((ICollidable)Enemy).IsMoving = false;
             Sprite.TotalFrames = 1;
         }
         private void Attack(string direction)
         {
+            ((ICollidable)Enemy).IsMoving = false;
             if (!isAttacking)
             {
                 isAttacking = true; 
