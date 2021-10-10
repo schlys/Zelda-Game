@@ -29,9 +29,5 @@ namespace Project1.DirectionState
         {
             return new DirectionStateUp();
         }
-        public IDirectionState Stop()
-        {
-            return new DirectionStateNotMoving();
-        }
     }
 }

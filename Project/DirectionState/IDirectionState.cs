@@ -11,6 +11,5 @@ namespace Project1.DirectionState
         IDirectionState MoveDown();
         IDirectionState MoveRight();
         IDirectionState MoveLeft();
-        IDirectionState Stop(); 
     }
 }
