@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.DirectionState; 
 
 namespace Project1.CollisionComponents
 {
@@ -9,5 +10,6 @@ namespace Project1.CollisionComponents
     {
         Rectangle Hitbox { get; set; }
         bool IsMoving { get; set; }
+        IDirectionState DirectionMoving { get; set; }
     }
 }

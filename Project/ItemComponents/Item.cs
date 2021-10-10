@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
-using Project1.CollisionComponents; 
+using Project1.CollisionComponents;
+using Project1.DirectionState; 
 
 namespace Project1.ItemComponents
 {
@@ -16,7 +17,8 @@ namespace Project1.ItemComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        
+        public IDirectionState DirectionMoving { get; set; }
+
         // Other Item Properties 
         private double Counter = 0.0;
         private double Step = 0.1;
@@ -27,7 +29,9 @@ namespace Project1.ItemComponents
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
         public Item()
         {
-            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
+            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            IsMoving = false;   
+            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects 
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
@@ -185,8 +189,9 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
-            IsMoving = false;   // before ItemState initialization because some overwrite IsMoving 
-            ItemState = new ItemAngelState(this);
+            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            IsMoving = false;
+            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects             ItemState = new ItemAngelState(this);
             ResetPosition();
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
@@ -203,6 +208,9 @@ namespace Project1.ItemComponents
 
         public void Update()
         {
+            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            IsMoving = false;
+            DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects 
             ItemState.Update();
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);

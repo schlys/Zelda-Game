@@ -86,7 +86,17 @@ namespace Project1.CollisionComponents
             String direction = ""; 
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
-                Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox); 
+                if(item1.IsMoving)
+                {
+                    direction = item1.DirectionMoving.ID; 
+                } else if (item2.IsMoving)
+                {
+                    direction = item2.DirectionMoving.ID;
+                } else // NOTE: Is it possible to have a collision between two non moving objects? 
+                {
+                    direction = "Right"; 
+                }
+                /*Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox); 
                 if(Intersection.Right == item1.Hitbox.Right)
                 {
                     // collide on item1's right and item2's left 
@@ -105,7 +115,7 @@ namespace Project1.CollisionComponents
                 {
                     // collide on item1's bottom and item2's top
                     direction = "Bottom";
-                }
+                }*/
                 return new Collision(item1, item2, direction);  
             } 
             return new NullCollision(); 

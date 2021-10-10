@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
+using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents
 {
@@ -22,6 +23,7 @@ namespace Project1.ProjectileComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
+        public IDirectionState DirectionMoving { get; set; }
 
         // Other Properties         
         private int counter;
@@ -55,6 +57,7 @@ namespace Project1.ProjectileComponents
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
             IsMoving = true;
+            DirectionMoving = new DirectionStateRight();
 
         }
         public void Draw(SpriteBatch spriteBatch)

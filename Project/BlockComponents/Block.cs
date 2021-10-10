@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using Project1.CollisionComponents;
+using Project1.DirectionState; 
 
 namespace Project1.BlockComponents
 {
@@ -16,6 +17,9 @@ namespace Project1.BlockComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
+        public IDirectionState DirectionMoving { get; set; }
+        
+        // Other Properies 
 
         private double Counter = 0.0;
         private double Step = 0.2; 
@@ -25,10 +29,11 @@ namespace Project1.BlockComponents
         public Block()
         {
             BlockState = new BlockBaseState(this);
-            Position = new Vector2(100, 100);
+            Position = new Vector2(150, 100);
             Size = 40; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(BlockState.BlockSprite.hitX, BlockState.BlockSprite.hitY), Size);
             IsMoving = false;
+            DirectionMoving = new DirectionStateNotMoving(); 
         }
 
         private void SetBlockState(int i)

@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteFactoryComponents;
 using System;
-using Project1.CollisionComponents; 
+using Project1.CollisionComponents;
+using Project1.DirectionState; 
 
 namespace Project1.EnemyComponents
 {
@@ -17,6 +18,7 @@ namespace Project1.EnemyComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
+        public IDirectionState DirectionMoving { get; set; }
 
         // Other Properties 
         private double Step = .1;
@@ -34,6 +36,7 @@ namespace Project1.EnemyComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
             //new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
             IsMoving = true;
+            DirectionMoving = EnemyState.DirectionState; 
         }
        
         public void TakeDamage()
@@ -118,6 +121,7 @@ namespace Project1.EnemyComponents
             EnemyState.Update();
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
+            DirectionMoving = EnemyState.DirectionState;
         }
     }
 }
