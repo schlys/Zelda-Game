@@ -37,6 +37,24 @@ namespace Project1.Command
         }
     }
 
+    class EnemyTakeDamageCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public IEnemy Enemy { get; set; }
+
+
+        public EnemyTakeDamageCmd(Game1 game, IEnemy enemy)
+        {
+            Game = game;
+            Enemy = enemy;
+        }
+
+        public void Execute()
+        {
+            Enemy.TakeDamage();
+        }
+    }
+
     class ResetEnemyCmd : ICommand
     {
         public Game1 Game { get; set; }
