@@ -56,7 +56,7 @@ namespace Project1.ProjectileComponents
             }
 
             counter = 0;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
             DirectionMoving = Direction; 
         }
@@ -85,7 +85,7 @@ namespace Project1.ProjectileComponents
             }
 
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(Sprite.hitX, Sprite.hitY), Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             DirectionMoving = Direction;
         }
     }

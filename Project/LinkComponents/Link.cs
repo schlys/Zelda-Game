@@ -45,7 +45,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             Position = InitialPosition;
             UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
             DirectionMoving = DirectionState; 
         }
@@ -185,7 +185,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             LockFrame = false;
             UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
         }
         public void Update()
         {
@@ -212,7 +212,7 @@ namespace Project1.LinkComponents
             }
 
             // Update Hitbox for collisions  
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(LinkSprite.hitX, LinkSprite.hitY), LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             DirectionMoving = DirectionState;
         }
         public void Draw(SpriteBatch spriteBatch)

@@ -33,7 +33,7 @@ namespace Project1.EnemyComponents
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
             Position = new Vector2(400, 200);
             InitialPosition = Position;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             //new Rectangle((int)Position.X, (int)Position.Y, EnemyState.Sprite.hitX, EnemyState.Sprite.hitY);
             IsMoving = true;
             DirectionMoving = EnemyState.DirectionState; 
@@ -104,7 +104,7 @@ namespace Project1.EnemyComponents
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
         }
         public void ResetPosition()
         {
@@ -120,7 +120,7 @@ namespace Project1.EnemyComponents
         {
             EnemyState.Update();
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(EnemyState.Sprite.hitX, EnemyState.Sprite.hitY), EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             DirectionMoving = EnemyState.DirectionState;
         }
     }

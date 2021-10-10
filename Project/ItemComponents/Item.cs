@@ -36,7 +36,7 @@ namespace Project1.ItemComponents
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
             Size = 80; 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
@@ -194,7 +194,7 @@ namespace Project1.ItemComponents
             DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects             ItemState = new ItemAngelState(this);
             ResetPosition();
             // Update HitBox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
         }
 
         public void ResetPosition()
@@ -213,7 +213,7 @@ namespace Project1.ItemComponents
             DirectionMoving = new DirectionStateNotMoving();    // TODO: update for moving objects 
             ItemState.Update();
             // Update HitBox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, new Vector2(ItemState.Sprite.hitX, ItemState.Sprite.hitY), Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
         }
     }
 }

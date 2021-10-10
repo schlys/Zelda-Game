@@ -92,8 +92,32 @@ namespace Project1.CollisionComponents
             string direction;
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
-                // TODO: what if both moving? 
-                if(item1.IsMoving)
+                // TODO: how handle collision if both moving? 
+                if(item1.IsMoving && item2.IsMoving)
+                {
+                    Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox);
+                    if (Intersection.Right == item1.Hitbox.Right)
+                    {
+                        // collide on item1's right and item2's left 
+                        direction = "Right";
+                    }
+                    else if (Intersection.Left == item1.Hitbox.Left)
+                    {
+                        // collide on item1's left and item2's right 
+                        direction = "Left";
+                    }
+                    else if (Intersection.Top == item1.Hitbox.Top)
+                    {
+                        // collide on item1's top and item2's bottom 
+                        direction = "Top";
+                    }
+                    else
+                    {
+                        // collide on item1's bottom and item2's top
+                        direction = "Bottom";
+                    }
+                }
+                else if(item1.IsMoving)
                 {
                     direction = item1.DirectionMoving.ID; 
                 } else if (item2.IsMoving)
@@ -103,26 +127,7 @@ namespace Project1.CollisionComponents
                 {
                     direction = "Right"; 
                 }
-                /*Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox); 
-                if(Intersection.Right == item1.Hitbox.Right)
-                {
-                    // collide on item1's right and item2's left 
-                    direction = "Right"; 
-                } else if(Intersection.Left == item1.Hitbox.Left)
-                {
-                    // collide on item1's left and item2's right 
-                    direction = "Left";
-                }
-                else if (Intersection.Top == item1.Hitbox.Top)
-                {
-                    // collide on item1's top and item2's bottom 
-                    direction = "Top";
-                }
-                else
-                {
-                    // collide on item1's bottom and item2's top
-                    direction = "Bottom";
-                }*/
+                
                 return new Collision(Game, item1, item2, direction);  
             } 
             return new NullCollision(); 
