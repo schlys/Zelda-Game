@@ -64,13 +64,26 @@ namespace Project1.CollisionComponents
 
         public void Execute()
         {
+            // Get the type of commands to execute from command mappings
             Tuple<Type, Type> commands = CollisionHandler.Instance.GetCommands(this);
             Type type1 = commands.Item1;
             Type type2 = commands.Item2;
+           
+            // Get the constructor for the commands to execute
+            // NOTE: All of the parameters in the commands will have to be changed to ICollidable types
+            ConstructorInfo constructor1 = type1.GetConstructor(new[] { typeof(ICollidable)});
+            ConstructorInfo constructor2 = type2.GetConstructor(new[] { typeof(ICollidable)});
 
-            ConstructorInfo constructor1 = type1.GetConstructor(new []{ typeof(ILink)});
+            // Create the commands
+            object command1 = constructor1.Invoke(new object[] {Item1});
+            object command2 = constructor2.Invoke(new object[] {Item2});
 
-            //object command1 = ctor.I
+            // Execute the commands
+            MethodInfo execute1 = type1.GetMethod("Execute");
+            MethodInfo execute2 = type2.GetMethod("Execute");
+            
+            execute1.Invoke(command1, new object[] { });
+            execute2.Invoke(command2, new object[] { });
         }
 
     }

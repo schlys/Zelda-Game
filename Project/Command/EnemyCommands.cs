@@ -1,4 +1,5 @@
-﻿using Project1.EnemyComponents;
+﻿using Project1.CollisionComponents;
+using Project1.EnemyComponents;
 using Project1.ItemComponents;
 
 namespace Project1.Command
@@ -28,7 +29,7 @@ namespace Project1.Command
         public NextEnemyCmd(Game1 game, IEnemy enemy)
         {
             Game = game;
-            Enemy = enemy;
+            Enemy = (IEnemy)enemy;
         }
 
         public void Execute()
@@ -43,10 +44,10 @@ namespace Project1.Command
         public IEnemy Enemy { get; set; }
 
 
-        public EnemyTakeDamageCmd(Game1 game, IEnemy enemy)
+        public EnemyTakeDamageCmd(Game1 game, ICollidable enemy)
         {
             Game = game;
-            Enemy = enemy;
+            Enemy = (IEnemy)enemy;
         }
 
         public void Execute()
@@ -64,7 +65,7 @@ namespace Project1.Command
         public ResetEnemyCmd(Game1 game, IEnemy enemy)
         {
             Game = game;
-            Enemy = enemy;
+            Enemy = (IEnemy)enemy;
         }
 
         public void Execute()
