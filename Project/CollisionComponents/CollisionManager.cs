@@ -27,7 +27,6 @@ namespace Project1.CollisionComponents
             CreateDict();
         }
 
-        
         private void CreateDict()
         {
             CollisionMappings = new Dictionary<string, Tuple<Type, Type>>();
@@ -56,6 +55,7 @@ namespace Project1.CollisionComponents
         }
         public Tuple<Type, Type> GetCommands(ICollision collision)
         {
+            // TODO: need to test if found in dictionary, because not all found. else error 
             return CollisionMappings[collision.First + collision.Second + collision.Direction];
         }
 
@@ -105,7 +105,7 @@ namespace Project1.CollisionComponents
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         
-                        collision.Execute();
+                        //collision.Execute();
                     }
                 }
 
@@ -115,7 +115,7 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2);
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        collision.Execute();
+                        //collision.Execute();
                     }
   
                 }
@@ -176,10 +176,9 @@ namespace Project1.CollisionComponents
              *  so to account for the same object switching between lists, we must remove and readd 
              *  all items. 
              */
-            /*
+            
             List<ICollidable> copy_MovingObjects = MovingObjects;
             List<ICollidable> copy_NonMovingObjects = NonMovingObjects;
-
             
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>(); 
@@ -191,7 +190,7 @@ namespace Project1.CollisionComponents
             foreach (ICollidable c in copy_NonMovingObjects)
             {
                 AddObject(c);
-            }*/
+            }
         }
     }
 }

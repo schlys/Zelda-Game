@@ -15,7 +15,7 @@ namespace Project1.ItemComponents
         {
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData("Fire");
-            //((ICollidable)Item).IsMoving = true;
+            ((ICollidable)Item).IsMoving = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -23,6 +23,7 @@ namespace Project1.ItemComponents
         }
         public void Update()
         {
+            ((ICollidable)Item).IsMoving = true;
             Sprite.Update();
         }
     }

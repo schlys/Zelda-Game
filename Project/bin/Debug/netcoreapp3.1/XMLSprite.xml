@@ -296,7 +296,7 @@
 		<row>10</row>
 		<originalSize>40</originalSize>
 		<hitX>25</hitX>
-		<hitY>25</hitY>
+		<hitY>27</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Boomerang</name>
@@ -522,8 +522,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>RecoveryHeart</name>
@@ -542,8 +542,8 @@
 		<startFrame>7</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>27</hitX>
+		<hitY>25</hitY>
 	</Sprite>
 	<Sprite>
 		<name>PowerBracelet</name>
@@ -552,8 +552,8 @@
 		<startFrame>1</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>25</hitY>
 	</Sprite>
 	<Sprite>
 		<name>LifePotion</name>
@@ -562,8 +562,8 @@
 		<startFrame>4</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>SecondLifePotion</name>
@@ -572,8 +572,8 @@
 		<startFrame>3</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BookOfMagic</name>
@@ -582,8 +582,8 @@
 		<startFrame>6</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>30</hitX>
-		<hitY>30</hitY>
+		<hitX>18</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Food</name>
@@ -592,8 +592,8 @@
 		<startFrame>7</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>20</hitX>
-		<hitY>20</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Compass</name>
@@ -602,8 +602,8 @@
 		<startFrame>8</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>30</hitX>
-		<hitY>30</hitY>
+		<hitX>23</hitX>
+		<hitY>23</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Triangle</name>
@@ -623,7 +623,7 @@
 		<row>4</row>
 		<originalSize>40</originalSize>
 		<hitX>32</hitX>
-		<hitY>30</hitY>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Raft</name>
@@ -633,7 +633,7 @@
 		<row>4</row>
 		<originalSize>40</originalSize>
 		<hitX>32</hitX>
-		<hitY>30</hitY>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Recorder</name>
@@ -642,8 +642,8 @@
 		<startFrame>2</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>5</hitX>
-		<hitY>30</hitY>
+		<hitX>8</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>WoodenSword</name>
@@ -652,8 +652,8 @@
 		<startFrame>3</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>WhiteSword</name>
@@ -662,8 +662,8 @@
 		<startFrame>4</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalSword</name>
@@ -672,8 +672,8 @@
 		<startFrame>5</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>25</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalRod</name>
@@ -682,8 +682,8 @@
 		<startFrame>5</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>4</hitX>
-		<hitY>16</hitY>
+		<hitX>10</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalSheild</name>
@@ -692,8 +692,8 @@
 		<startFrame>6</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>12</hitY>
+		<hitX>18</hitX>
+		<hitY>25</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Bow</name>
@@ -702,8 +702,8 @@
 		<startFrame>2</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>23</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BoomerangSolid</name>
@@ -712,8 +712,8 @@
 		<startFrame>7</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>6</hitX>
-		<hitY>8</hitY>
+		<hitX>15</hitX>
+		<hitY>15</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalBoomerangSolid</name>
@@ -722,8 +722,8 @@
 		<startFrame>8</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>6</hitX>
-		<hitY>8</hitY>
+		<hitX>15</hitX>
+		<hitY>15</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BombSolid</name>
@@ -732,8 +732,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>14</hitY>
+		<hitX>25</hitX>
+		<hitY>27</hitY>
 	</Sprite>
 	<Sprite>
 		<name>OrangeRupee</name>
@@ -742,8 +742,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>20</hitX>
-		<hitY>30</hitY>
+		<hitX>18</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BlueRupee</name>
@@ -752,8 +752,8 @@
 		<startFrame>2</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>20</hitX>
-		<hitY>30</hitY>
+		<hitX>18</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>RedCandle</name>
@@ -762,8 +762,8 @@
 		<startFrame>5</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BlueCandle</name>
@@ -772,8 +772,8 @@
 		<startFrame>6</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>RedRing</name>
@@ -782,8 +782,8 @@
 		<startFrame>7</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>10</hitY>
+		<hitX>20</hitX>
+		<hitY>20</hitY>
 	</Sprite>
 	<Sprite>
 		<name>BlueRing</name>
@@ -792,8 +792,8 @@
 		<startFrame>8</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>10</hitY>
+		<hitX>20</hitX>
+		<hitY>20</hitY>
 	</Sprite>
 	<Sprite>
 		<name>SmallKey</name>
@@ -802,8 +802,8 @@
 		<startFrame>7</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>MagicalKey</name>
@@ -812,8 +812,8 @@
 		<startFrame>8</startFrame>
 		<row>4</row>
 		<originalSize>40</originalSize>
-		<hitX>8</hitX>
-		<hitY>16</hitY>
+		<hitX>15</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Letter</name>
@@ -822,8 +822,8 @@
 		<startFrame>6</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>20</hitX>
-		<hitY>30</hitY>
+		<hitX>18</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>DungeonMap</name>
@@ -832,8 +832,8 @@
 		<startFrame>5</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>20</hitX>
-		<hitY>30</hitY>
+		<hitX>18</hitX>
+		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Clock</name>
@@ -843,7 +843,7 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 		<hitX>20</hitX>
-		<hitY>30</hitY>
+		<hitY>32</hitY>
 	</Sprite>
 		
 		
