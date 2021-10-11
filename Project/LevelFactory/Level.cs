@@ -16,10 +16,19 @@ namespace Project1.LevelFactory
         public String Left;
         public String Right;
         public String RoomName;
-        public int[,] textureMatrix = new int[7, 7];
-        public int size = 7;
+        public int[,] textureMatrix = new int[12, 7];
 
-        public Level(String name, Texture2D texture, String up, String down, String left, String right, int[,] matrix)
+        public Level(Texture2D texture2D, string up, string down, string left, string right, int[,] textureMatrix)
+        {
+            Texture2D = texture2D;
+            Up = up;
+            Down = down;
+            Left = left;
+            Right = right;
+            this.textureMatrix = textureMatrix;
+        }
+
+        public Level(String name, Texture2D texture, String up, String down, String left, String right, int[, ] matrix)
         {
             RoomName = name;
             Texture = texture;
@@ -29,6 +38,9 @@ namespace Project1.LevelFactory
             Right = right;
             textureMatrix = matrix;
         }
+
+        public Texture2D Texture2D { get; }
+
         public void Draw()
         {
 

@@ -4,6 +4,7 @@
 		<name>LinkMoveUpCmd</name>
 		<key>Keys.W</key>
 		<object>Link</object>
+
 	</Control>
 	
 	
