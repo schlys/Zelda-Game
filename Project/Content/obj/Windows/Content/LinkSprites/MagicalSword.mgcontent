@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/MagicalSword.png</SourceFile>
-  <SourceTime>2021-10-09T20:54:03.4476489-04:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/LinkSprites/MagicalSword.xnb</DestFile>
-  <DestTime>2021-10-11T09:55:42.7566639-04:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/LinkSprites/MagicalSword.png</SourceFile>
+  <SourceTime>2021-10-05T22:03:49.6057348-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/LinkSprites/MagicalSword.xnb</DestFile>
+  <DestTime>2021-10-11T15:04:25.0910222-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

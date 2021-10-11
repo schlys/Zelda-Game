@@ -16,6 +16,7 @@ namespace Project1.LevelFactory
         public String Left;
         public String Right;
         public String RoomName;
+        public Color Color = Color.White;
         public int[,] textureMatrix = new int[12, 7];
 
         public Level(Texture2D texture2D, string up, string down, string left, string right, int[,] textureMatrix)
@@ -41,9 +42,10 @@ namespace Project1.LevelFactory
 
         public Texture2D Texture2D { get; }
 
-        public void Draw()
+        public void Draw(SpriteBatch spritebatch)
         {
-
+            Rectangle destinationRectangle = new Rectangle(0, 0, 800, 500);
+            spritebatch.Draw(Texture, destinationRectangle, Color);
         }
         public void Update()
         {
