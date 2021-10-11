@@ -37,10 +37,20 @@ namespace Project1.CollisionComponents
             CollisionMappings.Add("LinkBlockRight", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
             CollisionMappings.Add("LinkBlockLeft", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
 
+            CollisionMappings.Add("LinkItemTop", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkItemBottom", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkItemRight", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkItemLeft", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+
             CollisionMappings.Add("EnemyMoblinProjectileTop", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
             CollisionMappings.Add("EnemyMoblinProjectileBottom", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
             CollisionMappings.Add("EnemyMoblinProjectileRight", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
             CollisionMappings.Add("EnemyMoblinProjectileLeft", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+
+            CollisionMappings.Add("LinkMoblinProjectileTop", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkMoblinProjectileBottom", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkMoblinProjectileRight", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkMoblinProjectileLeft", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
         }
         public Tuple<Type, Type> GetCommands(ICollision collision)
         {

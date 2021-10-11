@@ -68,7 +68,7 @@ namespace Project1.Controller
             RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.Z);
             RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.N);
 
-            RegisterCommand(new LinkTakeDamageCmd(Game, Link), Keys.E);
+            //RegisterCommand(new LinkTakeDamageCmd((ICollidable)Link), Keys.E);
 
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
             RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);

@@ -108,9 +108,12 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
-            //IsMoving = false; 
+            IsMoving = false; 
             if (!LockFrame)
+            {
+                
                 LinkSprite.TotalFrames = 1;
+            } 
         }
 
         public void Attack()
@@ -192,6 +195,7 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
+                IsMoving = true;
                 LinkSprite.Color = Color.White;
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {

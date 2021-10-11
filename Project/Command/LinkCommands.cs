@@ -290,13 +290,12 @@ namespace Project1.Command
 
     public class LinkTakeDamageCmd : ICommand
     {
-        public Game1 Game { get; set; }
+        
         public ILink Link { get; set; }
 
-        public LinkTakeDamageCmd(Game1 game, ILink link)
+        public LinkTakeDamageCmd(ICollidable link)
         {
-            Game = game;
-            Link = link;
+             Link = (ILink)link;
         }
         public void Execute()
         {
