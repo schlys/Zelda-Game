@@ -12,8 +12,6 @@ namespace Project1.CollisionComponents
         public List<ICollidable> MovingObjects;
         public List<ICollidable> NonMovingObjects;
 
-        private Game1 Game;
-
         public static CollisionManager Instance
         {
             get
@@ -23,7 +21,6 @@ namespace Project1.CollisionComponents
         } 
         private CollisionManager() 
         {
-            
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
         }
@@ -127,8 +124,7 @@ namespace Project1.CollisionComponents
                 {
                     direction = "Right"; 
                 }
-                
-                return new Collision(Game, item1, item2, direction);  
+                return new Collision(item1, item2, direction);  
             } 
             return new NullCollision(); 
         }

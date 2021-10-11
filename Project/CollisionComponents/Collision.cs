@@ -17,16 +17,14 @@ namespace Project1.CollisionComponents
         public string Direction { get; set; }   // direction item1 collides with item 2
         private string[] Directions = { "Left", "Right", "Up", "Down" };    // possible directions 
 
-        private Game1 Game;
         private Dictionary<Tuple<ICollidable, ICollidable, string>, Type> commandsMap; //make a map to connect objects and command
        
         private HashSet<Tuple<ICollidable, ICollidable, string>> typesSet;
 
         private ILink Link;
 
-        public Collision(Game1 game, ICollidable i1, ICollidable i2, String d)
+        public Collision(ICollidable i1, ICollidable i2, String d)
         {
-            Game = game;
             Item1 = i1;
             Item2 = i2;
             Direction = d;

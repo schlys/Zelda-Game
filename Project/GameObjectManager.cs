@@ -127,8 +127,6 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-
             foreach (ILink link in Links)
             {
                 link.Draw(spriteBatch);
