@@ -10,6 +10,7 @@ namespace Project1.LevelFactory
 {
     class Level
     {
+        // TODO: Rename Room and Implement IRoom
         public Texture2D Texture;
         public String Up;
         public String Down;

@@ -14,6 +14,7 @@ namespace Project1.LevelFactory
 {
     class LevelFactory : ILevelFactory
     {
+        // TODO: implement new methods from ILevelFactory 
         private static LevelFactory instance = new LevelFactory();
         public static LevelFactory Instance
         {
@@ -22,6 +23,9 @@ namespace Project1.LevelFactory
                 return instance;
             }
         }
+
+        public IRoom CurrentRoom { get; set; }
+
         private LevelFactory() { }
         private static Dictionary<string, Level> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
@@ -68,6 +72,26 @@ namespace Project1.LevelFactory
             }
 
         }
-        
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
+        }
+        public void MoveUp()
+        {
+
+        }
+        public void MoveDown()
+        {
+
+        }
+        public void MoveLeft()
+        {
+
+        }
+        public void MoveRight()
+        {
+
+        }
+
     }
 }
