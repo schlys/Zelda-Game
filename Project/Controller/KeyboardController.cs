@@ -44,8 +44,8 @@ namespace Project1.Controller
 
             RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
 
-            XmlDocument XMLData = new XmlDocument();
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
+            //XmlDocument XMLData = new XmlDocument();
+            //var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
             //XMLData.Load(path);
             //XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Controller");
 

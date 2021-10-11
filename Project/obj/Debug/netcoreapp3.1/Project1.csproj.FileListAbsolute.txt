@@ -317,7 +317,6 @@ C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyCompl
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
-C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
 C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
@@ -545,3 +544,4 @@ C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSprite.xml

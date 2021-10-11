@@ -41,7 +41,7 @@ namespace Project1.LevelFactory
             LevelDict = new Dictionary<string, Level>();
 
             XmlDocument XMLData = new XmlDocument();
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLLevel.xml";
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLLevel.xml";
             XMLData.Load(path);
             XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Levels/Level");
 

@@ -319,16 +319,6 @@
 				<column>11</column>
 				<value>0</value>
 			</data>
-
-
-
-
-
-
-
-
-
-
 			<data>
 				<row>5</row>
 				<column>0</column>
@@ -449,14 +439,9 @@
 				<row>6</row>
 				<column>11</column>
 				<value>0</value>
-			</data>
+			</data>		
 			
-			
-		</matrix>
-		
-		
-		
-		
+		</matrix>	
 	</Level>
 	
 	
