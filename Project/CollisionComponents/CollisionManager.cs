@@ -59,10 +59,14 @@ namespace Project1.CollisionComponents
         {
             // TODO: try to make iteration more efficent 
             // NOTE: Compare all moving objects to all other non-moving and moving objects 
-            foreach(ICollidable item1 in MovingObjects)
+            for (int i = 0; i < MovingObjects.Count; i++)
             {
-                foreach(ICollidable item2 in NonMovingObjects)
+                ICollidable item1 = MovingObjects[i];
+
+                //foreach(ICollidable item2 in NonMovingObjects)
+                for (int j = i+1; j < MovingObjects.Count; j++)
                 {
+                    ICollidable item2 = MovingObjects[j];
                     ICollision collision = DetectCollision(item1, item2); 
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
