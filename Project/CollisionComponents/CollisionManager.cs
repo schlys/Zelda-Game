@@ -128,8 +128,8 @@ namespace Project1.CollisionComponents
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
                 // TODO: how handle collision if both moving? 
-                //if(item1.IsMoving && item2.IsMoving)
-                //{
+                if(item1.IsMoving && item2.IsMoving)
+                {
                     Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox);
                     if (Intersection.Right == item1.Hitbox.Right)
                     {
@@ -151,8 +151,8 @@ namespace Project1.CollisionComponents
                         // collide on item1's bottom and item2's top
                         direction = "Bottom";
                     }
-                return new Collision(item1, item2, direction);
-                /*}
+                //return new Collision(item1, item2, direction);
+                }
                 else if(item1.IsMoving)
                 {
                     direction = item1.DirectionMoving.ID; 
@@ -163,7 +163,7 @@ namespace Project1.CollisionComponents
                 {
                     direction = "Right"; 
                 }
-                return new Collision(item1, item2, direction);  */
+                return new Collision(item1, item2, direction);  
             } 
             return new NullCollision(); 
         }

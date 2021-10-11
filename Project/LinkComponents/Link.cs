@@ -204,7 +204,6 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
-                IsMoving = true;
                 LinkSprite.Color = Color.White;
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
