@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1.CollisionComponents;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -41,5 +42,14 @@ namespace Project1.Command
         {
             game.Restart();
         }
+    }
+
+    class NoCmd : ICommand
+    {
+        public NoCmd(ICollidable holder)
+        {
+
+        }
+        public void Execute() { }
     }
 }

@@ -11,6 +11,7 @@ namespace Project1.CollisionComponents
         private static CollisionManager instance = new CollisionManager();
         public List<ICollidable> MovingObjects;
         public List<ICollidable> NonMovingObjects;
+        private static Dictionary<string, Tuple<Type, Type>> CollisionMappings;
 
         public static CollisionManager Instance
         {
@@ -23,8 +24,29 @@ namespace Project1.CollisionComponents
         {
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
+            CreateDict();
         }
-       
+
+        
+        private void CreateDict()
+        {
+            CollisionMappings = new Dictionary<string, Tuple<Type, Type>>();
+
+            CollisionMappings.Add("LinkBlockTop",Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkBlockBottom", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkBlockRight", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            CollisionMappings.Add("LinkBlockLeft", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+
+            CollisionMappings.Add("EnemyMoblinProjectileTop", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+            CollisionMappings.Add("EnemyMoblinProjectileBottom", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+            CollisionMappings.Add("EnemyMoblinProjectileRight", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+            CollisionMappings.Add("EnemyMoblinProjectileLeft", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+        }
+        public Tuple<Type, Type> GetCommands(ICollision collision)
+        {
+            return CollisionMappings[collision.First + collision.Second + collision.Direction];
+        }
+
         public void AddObject(ICollidable item)
         {
             if (item.IsMoving && !MovingObjects.Contains(item))   // Not allow duplicate objects 
@@ -63,7 +85,7 @@ namespace Project1.CollisionComponents
             {
                 ICollidable item1 = MovingObjects[i];
 
-                //foreach(ICollidable item2 in NonMovingObjects)
+                //foreach(ICollidable item2 in MovingObjects)
                 for (int j = i+1; j < MovingObjects.Count; j++)
                 {
                     ICollidable item2 = MovingObjects[j];
@@ -71,19 +93,19 @@ namespace Project1.CollisionComponents
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         
-                        //collision.Execute();
+                        collision.Execute();
                     }
                 }
 
-                foreach (ICollidable item2 in MovingObjects)
+                foreach (ICollidable item2 in NonMovingObjects)
                 {
-                    if (item1 != item2){
-                        ICollision collision = DetectCollision(item1, item2);
-                        if (!collision.GetType().Name.ToString().Equals("NullCollision"))
-                        {
-                            //collision.Execute();
-                        }
+                   
+                    ICollision collision = DetectCollision(item1, item2);
+                    if (!collision.GetType().Name.ToString().Equals("NullCollision"))
+                    {
+                        collision.Execute();
                     }
+  
                 }
             }
         }
@@ -94,8 +116,8 @@ namespace Project1.CollisionComponents
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
                 // TODO: how handle collision if both moving? 
-                if(item1.IsMoving && item2.IsMoving)
-                {
+                //if(item1.IsMoving && item2.IsMoving)
+                //{
                     Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox);
                     if (Intersection.Right == item1.Hitbox.Right)
                     {
@@ -117,7 +139,8 @@ namespace Project1.CollisionComponents
                         // collide on item1's bottom and item2's top
                         direction = "Bottom";
                     }
-                }
+                return new Collision(item1, item2, direction);
+                /*}
                 else if(item1.IsMoving)
                 {
                     direction = item1.DirectionMoving.ID; 
@@ -128,7 +151,7 @@ namespace Project1.CollisionComponents
                 {
                     direction = "Right"; 
                 }
-                return new Collision(item1, item2, direction);  
+                return new Collision(item1, item2, direction);  */
             } 
             return new NullCollision(); 
         }
@@ -141,9 +164,11 @@ namespace Project1.CollisionComponents
              *  so to account for the same object switching between lists, we must remove and readd 
              *  all items. 
              */
+            /*
             List<ICollidable> copy_MovingObjects = MovingObjects;
             List<ICollidable> copy_NonMovingObjects = NonMovingObjects;
 
+            
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>(); 
 
@@ -154,7 +179,7 @@ namespace Project1.CollisionComponents
             foreach (ICollidable c in copy_NonMovingObjects)
             {
                 AddObject(c);
-            }
+            }*/
         }
     }
 }

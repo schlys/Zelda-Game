@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.CollisionComponents;
 using Project1.LinkComponents; 
 
 namespace Project1.Command
@@ -77,9 +78,9 @@ namespace Project1.Command
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkStopMovingCmd(ILink link)
+        public LinkStopMovingCmd(ICollidable link)
         {
-            Link = link;
+            Link = (ILink)link;
         }
 
         public void Execute()

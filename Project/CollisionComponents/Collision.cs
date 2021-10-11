@@ -15,15 +15,8 @@ namespace Project1.CollisionComponents
         public string First { get; set; }
         public string Second { get; set; }
         public string Direction { get; set; }   // direction item1 collides with item 2
-        private string[] Directions = { "Left", "Right", "Up", "Down" };    // possible directions 
 
-        private Dictionary<Tuple<ICollidable, ICollidable, string>, Type> commandsMap; //make a map to connect objects and command
-       
-        private HashSet<Tuple<ICollidable, ICollidable, string>> typesSet;
-
-        private ILink Link;
-
-        public Collision(ICollidable i1, ICollidable i2, String d)
+        public Collision(ICollidable i1, ICollidable i2, string d)
         {
             Item1 = i1;
             Item2 = i2;
@@ -31,39 +24,12 @@ namespace Project1.CollisionComponents
             First = i1.GetType().Name.ToString();
             Second = i2.GetType().Name.ToString();
 
-            commandsMap = new Dictionary<Tuple<ICollidable, ICollidable, string>, Type>();
-            typesSet = new HashSet<Tuple<ICollidable, ICollidable, string>>();
-        }
-
-        public void CreateDictionary()
-        {
-            //commnadsMap.Add(new Tuple<ICollidable, ICollidable, string>(typeof(Link), typeof(Enemy), Direction), typeof(LinkTakeDamageCmd));
-
-        }
-
-        public ICommand TypeCommandConverter(ICollidable item1, ICollidable item2, string direction) // connect commandsMap's command type to command
-        {
-            ConstructorInfo commandConstructor = null;
-            return null;
-        }
-
-        public void ResponseCollision(ICollidable item1, ICollidable item2, string direction)
-        {
-            Tuple<ICollidable, ICollidable, string> type = new Tuple<ICollidable, ICollidable, string>(item1, item2, direction);
-            if (typesSet.Contains(type))
-            {
-
-                ICommand command = TypeCommandConverter(item1, item2, direction);
-
-                if (command != null)
-                    command.Execute();
-            }
         }
 
         public void Execute()
         {
             // Get the type of commands to execute from command mappings
-            Tuple<Type, Type> commands = CollisionHandler.Instance.GetCommands(this);
+            Tuple<Type, Type> commands = CollisionManager.Instance.GetCommands(this);
             Type type1 = commands.Item1;
             Type type2 = commands.Item2;
            

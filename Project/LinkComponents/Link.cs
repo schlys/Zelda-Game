@@ -108,7 +108,7 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
-            IsMoving = false; 
+            //IsMoving = false; 
             if (!LockFrame)
                 LinkSprite.TotalFrames = 1;
         }

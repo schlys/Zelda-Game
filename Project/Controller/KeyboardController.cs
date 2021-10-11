@@ -8,6 +8,7 @@ using Project1.EnemyComponents;
 
 using System.Xml;
 using System;
+using Project1.CollisionComponents;
 
 namespace Project1.Controller
 {
@@ -88,7 +89,7 @@ namespace Project1.Controller
             RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
 
             // Command so link does not animate in place 
-            RegisterCommand(new LinkStopMovingCmd( Link), LinkStopKey); 
+            RegisterCommand(new LinkStopMovingCmd( (ICollidable)Link), LinkStopKey); 
         }
 
         public void InitializeBlockCommands(IBlock Block)

@@ -92,7 +92,7 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = 1;
-            ((ICollidable)Enemy).IsMoving = false;
+            //((ICollidable)Enemy).IsMoving = false;
         }
         private void UpdateSprite()
         {
