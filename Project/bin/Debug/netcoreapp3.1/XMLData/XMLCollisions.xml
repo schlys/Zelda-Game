@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Collisions>
+	<Collision>
+		<name>LinkBlockTop</name>
+		<command1>LinkStopMovingCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkBlockBottom</name>
+		<command1>LinkStopMovingCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkBlockRight</name>
+		<command1>LinkStopMovingCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkBlockLeft</name>
+		<command1>LinkStopMovingCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkMoblinProjectileTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkMoblinProjectileBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkMoblinProjectileRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkMoblinProjectileLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMoblinProjectileTop</name>
+		<command1>NoCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileBottom</name>
+		<command1>NoCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileRight</name>
+		<command1>NoCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileLeft</name>
+		<command1>NoCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>MoblinProjectileItemRight</name>
+		<command1>NoCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+</Collisions>

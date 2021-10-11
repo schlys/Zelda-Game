@@ -2,7 +2,9 @@
 using Project1.Command;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
+using System.Xml;
 
 namespace Project1.CollisionComponents
 {
@@ -11,7 +13,7 @@ namespace Project1.CollisionComponents
         private static CollisionManager instance = new CollisionManager();
         public List<ICollidable> MovingObjects;
         public List<ICollidable> NonMovingObjects;
-        private static Dictionary<string, Tuple<Type, Type>> CollisionMappings;
+        private static Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>> CollisionMappings;
 
         public static CollisionManager Instance
         {
@@ -19,7 +21,7 @@ namespace Project1.CollisionComponents
             {
                 return instance;
             }
-        } 
+        }
         private CollisionManager() 
         {
             MovingObjects = new List<ICollidable>();
@@ -27,33 +29,37 @@ namespace Project1.CollisionComponents
             CreateDict();
         }
 
+        
         private void CreateDict()
         {
-            CollisionMappings = new Dictionary<string, Tuple<Type, Type>>();
+            CollisionMappings = new Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>>();
 
-            CollisionMappings.Add("LinkBlockTop",Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkBlockBottom", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkBlockRight", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkBlockLeft", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
+            XMLData.Load(path);
+            XmlNodeList Commands = XMLData.DocumentElement.SelectNodes("/Collisions/Collision");
 
-            CollisionMappings.Add("LinkItemTop", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkItemBottom", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkItemRight", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkItemLeft", Tuple.Create(typeof(LinkStopMovingCmd), typeof(NoCmd)));
+            Assembly assem = typeof(ICommand).Assembly;
 
-            CollisionMappings.Add("EnemyMoblinProjectileTop", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
-            CollisionMappings.Add("EnemyMoblinProjectileBottom", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
-            CollisionMappings.Add("EnemyMoblinProjectileRight", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
-            CollisionMappings.Add("EnemyMoblinProjectileLeft", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+            foreach (XmlNode node in Commands)
+            {
+                string name = node.SelectSingleNode("name").InnerText;
+                string command1 = node.SelectSingleNode("command1").InnerText;
+                string command2 = node.SelectSingleNode("command2").InnerText;
 
-            CollisionMappings.Add("LinkMoblinProjectileTop", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkMoblinProjectileBottom", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkMoblinProjectileRight", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
-            CollisionMappings.Add("LinkMoblinProjectileLeft", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
+                // Get the type of commands to execute
+                Type command1Type = assem.GetType("Project1.Command." + command1);
+                Type command2Type = assem.GetType("Project1.Command." + command2);
 
-            CollisionMappings.Add("MoblinProjectileItemRight", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
+                // Get the constructors fo the commands
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(ICollidable) });
+                ConstructorInfo constructor2 = command2Type.GetConstructor(new[] { typeof(ICollidable) });
+
+                CollisionMappings.Add(name, Tuple.Create(constructor1, constructor2));
+            }
+            
         }
-        public Tuple<Type, Type> GetCommands(ICollision collision)
+        public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
             // TODO: need to test if found in dictionary, because not all found. else error 
             return CollisionMappings[collision.First + collision.Second + collision.Direction];
@@ -105,7 +111,7 @@ namespace Project1.CollisionComponents
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         
-                        //collision.Execute();
+                        collision.Execute();
                     }
                 }
 
@@ -115,7 +121,7 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2);
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        //collision.Execute();
+                        collision.Execute();
                     }
   
                 }
@@ -206,7 +212,7 @@ namespace Project1.CollisionComponents
              *  so to account for the same object switching between lists, we must remove and readd 
              *  all items. 
              */
-            
+            /*
             List<ICollidable> copy_MovingObjects = MovingObjects;
             List<ICollidable> copy_NonMovingObjects = NonMovingObjects;
             
@@ -220,7 +226,7 @@ namespace Project1.CollisionComponents
             foreach (ICollidable c in copy_NonMovingObjects)
             {
                 AddObject(c);
-            }
+            }*/
         }
     }
 }

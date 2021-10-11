@@ -120,7 +120,7 @@ namespace Project1.LinkComponents
             IsMoving = false; 
             if (!LockFrame)
             {
-                
+              
                 LinkSprite.TotalFrames = 1;
             } 
         }
