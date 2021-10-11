@@ -13,11 +13,11 @@ namespace Project1.LinkComponents
     class Link : ILink, ICollidable
     {
         // Properties from ILink
-        public IDirectionState DirectionState {get;set;}
-        public ILinkWeaponState LinkWeaponState { get; set; } 
+        public IDirectionState DirectionState { get; set; }
+        public ILinkWeaponState LinkWeaponState { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
-        
+
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
@@ -32,8 +32,9 @@ namespace Project1.LinkComponents
         private int LinkSize = 125;
         //private int LinkItemSize = 80; 
 
-        private int Step = 4;   
+        private int Step = 4;
         private bool LockFrame;     // belong in sprite draw 
+       
       
         // NOTE: should change useitem string to something less hard coded? 
 
@@ -53,7 +54,9 @@ namespace Project1.LinkComponents
         {
             IsMoving = true;
             if (!LockFrame)
-            { 
+            {
+              
+
                 if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
@@ -66,8 +69,10 @@ namespace Project1.LinkComponents
         public void MoveLeft()
         {
             IsMoving = true;
-            if (!LockFrame)
+            if (!LockFrame )
             {
+               
+
                 if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
@@ -81,8 +86,10 @@ namespace Project1.LinkComponents
         public void MoveRight()
         {
             IsMoving = true; 
-            if (!LockFrame)
-            {              
+            if (!LockFrame )
+            {
+                
+
                 if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
@@ -96,7 +103,9 @@ namespace Project1.LinkComponents
         {
             IsMoving = true; 
             if (!LockFrame)
-            {              
+            {
+                
+
                 if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();

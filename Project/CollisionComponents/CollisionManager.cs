@@ -51,6 +51,8 @@ namespace Project1.CollisionComponents
             CollisionMappings.Add("LinkMoblinProjectileBottom", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
             CollisionMappings.Add("LinkMoblinProjectileRight", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
             CollisionMappings.Add("LinkMoblinProjectileLeft", Tuple.Create(typeof(LinkTakeDamageCmd), typeof(NoCmd)));
+
+            CollisionMappings.Add("MoblinProjectileItemRight", Tuple.Create(typeof(NoCmd), typeof(NoCmd)));
         }
         public Tuple<Type, Type> GetCommands(ICollision collision)
         {
