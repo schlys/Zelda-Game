@@ -11,10 +11,6 @@ namespace Project1.CollisionComponents
     class CollisionManager : ICollisionManager
     {
         private static CollisionManager instance = new CollisionManager();
-        public List<ICollidable> MovingObjects;
-        public List<ICollidable> NonMovingObjects;
-        private static Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>> CollisionMappings;
-
         public static CollisionManager Instance
         {
             get
@@ -22,6 +18,13 @@ namespace Project1.CollisionComponents
                 return instance;
             }
         }
+
+        public List<ICollidable> MovingObjects;
+
+        public List<ICollidable> NonMovingObjects;
+
+        private static Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>> CollisionMappings;
+
         private CollisionManager() 
         {
             MovingObjects = new List<ICollidable>();
@@ -30,7 +33,6 @@ namespace Project1.CollisionComponents
             CreateDict();
         }
 
-        
         private void CreateDict()
         {
             // NOTE: Load the commands for each collision from an XML document into the CollisionMappings dictionary 

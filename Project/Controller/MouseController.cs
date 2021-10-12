@@ -8,6 +8,7 @@ using Project1.LinkComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.LevelFactory;
 
 namespace Project1.Controller
 {
@@ -21,11 +22,13 @@ namespace Project1.Controller
             Game = game;
             ControllerMappingsLeftClick = new Dictionary<Rectangle, ICommand>();
             ControllerMappingsRightClick = new Dictionary<Rectangle, ICommand>();
+
+
         }
 
         public void InitializeGameCommands()
         {
-
+            InitializeRoomCommands(); 
         }
         public void InitializeLinkCommands(ILink Link)
         {
@@ -42,6 +45,15 @@ namespace Project1.Controller
         public void InitializeEnemyCommands(IEnemy Enemy)
         {
 
+        }
+
+        public void InitializeRoomCommands()
+        {
+            // TODO: Get actual location of doors 
+            Rectangle LeftDoor = new Rectangle(0, 0, 50, 50);
+            RegisterCommandLeftClick(new RoomLeftCmd(Game), LeftDoor); 
+            Rectangle RightDoor = new Rectangle(725, 400, 50, 50);
+            RegisterCommandRightClick(new RoomRightCmd(Game), RightDoor);
         }
 
         private void RegisterCommandLeftClick(ICommand command, Rectangle rect)

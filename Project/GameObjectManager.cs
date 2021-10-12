@@ -86,6 +86,10 @@ namespace Project1
             {
                 KeyboardController.InitializeEnemyCommands(enemy);
             }
+
+            // Register Mouse commands 
+            MouseController.InitializeGameCommands();
+
         }
 
         public void Update()
