@@ -26,14 +26,14 @@ namespace Project1.CollisionComponents
         {
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
+            CollisionMappings = new Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>>();
             CreateDict();
         }
 
         
         private void CreateDict()
         {
-            CollisionMappings = new Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>>();
-
+            // NOTE: Load the commands for each collision from an XML document into the CollisionMappings dictionary 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
             XMLData.Load(path);
@@ -61,20 +61,40 @@ namespace Project1.CollisionComponents
         }
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
-            // TODO: need to test if found in dictionary, because not all found. else error 
-            String key = collision.First + collision.Second + collision.Direction; 
+            String key = collision.Key; 
             if (CollisionMappings.ContainsKey(key))
             {
                 return CollisionMappings[key];
             }
-            //return CollisionMappings[collision.First + collision.Second + collision.Direction];
-            //return new Tuple(NoCmd(), NoCmd()); 
+            //TODO: create Null object instead of returning null 
             return null; 
         }
 
-        public void ExecuteCommands(ICollision collision)
+        public void ExecuteCommands(ICollision collision, Tuple<ConstructorInfo, ConstructorInfo> commands)
         {
-            // TODO: Implement 
+            ICollidable item1 = collision.Item1;
+            ICollidable item2 = collision.Item2;
+            // Get the type of commands to execute from command mappings
+            ConstructorInfo constructor1 = commands.Item1;
+            ConstructorInfo constructor2 = commands.Item2;
+
+            // NOTE: All of the parameters in the commands will have to be changed to ICollidable types
+            // Create the commands
+            object command1 = constructor1.Invoke(new object[] { item1 });
+            object command2 = constructor2.Invoke(new object[] { item2 });
+
+            // Execute the commands if they are not "NoCmd" 
+            ICommand cmd1 = (ICommand)command1;
+            ICommand cmd2 = (ICommand)command2;
+
+            if (!cmd1.GetType().Name.Equals("NoCmd"))
+            {
+                cmd1.Execute();
+            }
+            if (!cmd2.GetType().Name.Equals("NoCmd"))
+            {
+                cmd2.Execute();
+            }
         }
 
         public void AddObject(ICollidable item)
@@ -122,8 +142,11 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2); 
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        
-                        //collision.Execute();
+                        Tuple<ConstructorInfo, ConstructorInfo> commands = GetCommands(collision); 
+                        if(commands != null)
+                        {
+                            ExecuteCommands(collision, commands); 
+                        }
                     }
                 }
 
@@ -134,6 +157,11 @@ namespace Project1.CollisionComponents
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         //collision.Execute();
+                        Tuple<ConstructorInfo, ConstructorInfo> commands = GetCommands(collision);
+                        if (commands != null)
+                        {
+                            ExecuteCommands(collision, commands);
+                        }
                     }
   
                 }
@@ -189,7 +217,7 @@ namespace Project1.CollisionComponents
              *  so to account for the same object switching between lists, we must remove and readd 
              *  all items. 
              */
-            /*
+            
             List<ICollidable> copy_MovingObjects = MovingObjects;
             List<ICollidable> copy_NonMovingObjects = NonMovingObjects;
             
@@ -203,7 +231,7 @@ namespace Project1.CollisionComponents
             foreach (ICollidable c in copy_NonMovingObjects)
             {
                 AddObject(c);
-            }*/
+            }
         }
     }
 }

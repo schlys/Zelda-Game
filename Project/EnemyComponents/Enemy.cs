@@ -18,6 +18,7 @@ namespace Project1.EnemyComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }      // Updated by EnemyState 
+        public String TypeID { get; set; }
 
         // Other Properties 
         private double Step = .1;
@@ -32,8 +33,9 @@ namespace Project1.EnemyComponents
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             IsMoving = true;
+            TypeID = this.GetType().Name.ToString();
         }
-       
+
         public void TakeDamage()
         {
             // TODO: need determine value to decrease by  

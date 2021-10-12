@@ -10,6 +10,8 @@ namespace Project1.CollisionComponents
         public ICollidable Item2 { get; set; }
         public string First { get; set; }
         public string Second { get; set; }
+        public String Key { get; set; }
+
         public string Direction 
         { 
             get { return string.Empty; }
@@ -17,7 +19,7 @@ namespace Project1.CollisionComponents
         }   
         public NullCollision()
         {
-            
+            Key = "Null"; 
         }
         public void Execute()
         {

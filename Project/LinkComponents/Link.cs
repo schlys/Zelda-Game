@@ -21,6 +21,8 @@ namespace Project1.LinkComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
+        public String TypeID { get; set; }
+
 
         // Other Link Properties 
         private string UseItemName;
@@ -47,6 +49,7 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
+            TypeID = this.GetType().Name.ToString();
         }
         public void MoveDown()
         {

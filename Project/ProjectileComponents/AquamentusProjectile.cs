@@ -23,6 +23,7 @@ namespace Project1.ProjectileComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
+        public String TypeID { get; set; }
 
         // Other Properties
         private int counter;
@@ -57,6 +58,7 @@ namespace Project1.ProjectileComponents
             counter = 0;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
+            TypeID = this.GetType().Name.ToString();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

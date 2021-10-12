@@ -12,8 +12,9 @@ namespace Project1.CollisionComponents
     {
         public ICollidable Item1 { get; set; }
         public ICollidable Item2 { get; set; }
-        public string First { get; set; }
-        public string Second { get; set; }
+        //public string Item1ID { get; set; }
+        //public string Item2ID { get; set; }
+        public string Key { get; set; }
         public string Direction { get; set; }   // direction item1 collides with item 2
 
         public Collision(ICollidable i1, ICollidable i2, string d)
@@ -21,9 +22,9 @@ namespace Project1.CollisionComponents
             Item1 = i1;
             Item2 = i2;
             Direction = d;
-            First = i1.GetType().Name.ToString();
-            Second = i2.GetType().Name.ToString();
-
+            //Item1ID = i1.GetType().Name.ToString();
+            //Item2ID = i2.GetType().Name.ToString();
+            Key = Item1.TypeID + Item2.TypeID + Direction; 
         }
 
         public void Execute()

@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteFactoryComponents;
 using Project1.CollisionComponents;
-using Project1.DirectionState; 
+using Project1.DirectionState;
+using System;
 
 namespace Project1.BlockComponents
 {
@@ -17,7 +18,8 @@ namespace Project1.BlockComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        
+        public String TypeID { get; set; }
+
         // Other Properies 
 
         private double Counter = 0.0;
@@ -32,6 +34,7 @@ namespace Project1.BlockComponents
             Size = 40; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);
             IsMoving = false;
+            TypeID = this.GetType().Name.ToString();
         }
 
         private void SetBlockState(int i)
