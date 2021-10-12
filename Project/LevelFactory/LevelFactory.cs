@@ -27,7 +27,7 @@ namespace Project1.LevelFactory
         public IRoom CurrentRoom { get; set; }
 
         private LevelFactory() { }
-        private static Dictionary<string, Level> LevelDict;
+        private static Dictionary<string, Room> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
         public static int[,] textureMatrix;
 
@@ -42,7 +42,7 @@ namespace Project1.LevelFactory
         private static void CreateDict()
         {
             textureMatrix = new int[12, 7];
-            LevelDict = new Dictionary<string, Level>();
+            LevelDict = new Dictionary<string, Room>();
 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLLevel.xml";
@@ -59,7 +59,7 @@ namespace Project1.LevelFactory
                 string Left = node.SelectSingleNode("Left").InnerText;
                 string Right = node.SelectSingleNode("Right").InnerText;
 
-                XmlNodeList matrixData = XMLData.DocumentElement.SelectNodes("/Levels/level/matrix/data");
+                XmlNodeList matrixData = XMLData.DocumentElement.SelectNodes("/Levels/Level/matrix/data");
                 foreach(XmlNode node1 in matrixData)
                 {
                     int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
@@ -68,7 +68,7 @@ namespace Project1.LevelFactory
                     textureMatrix[row, column] = value;
                 }
 
-                LevelDict.Add(name, new Level(TextureDict[sheet], Up, Down, Left, Right, textureMatrix));
+                LevelDict.Add(name, new Room(TextureDict[sheet], Up, Down, Left, Right, textureMatrix));
             }
 
         }
