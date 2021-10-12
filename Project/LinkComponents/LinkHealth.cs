@@ -13,6 +13,7 @@ namespace Project1.LinkComponents
         int TotalNumHearts { get; set; } 
         double CurrNumHearts { get; set; }
         int count;
+        private int knockback = 20;
 
         public LinkHealth(int total, double curr)
         {
@@ -29,28 +30,26 @@ namespace Project1.LinkComponents
             CurrNumHearts -= x; 
         }
 
-        /*
-        public Color UpdateColor()
+        public Vector2 Knockback(Vector2 position, string direction)
         {
-            Color color = Color.White;
-            if (CurrNumHearts < 3)
+            Vector2 newpos = position;
+            switch (direction)
             {
-                count++;
-                if (count < 10)
-                {
-                    color = Color.Red;
-                    Console.WriteLine(count);
-                }
-                else
-                {
-                    if (count > 20)
-                        count = 0;
-                    color = Color.LightGray;
-                    Console.WriteLine(count);
-                }
+                case "Up":
+                    newpos.Y += 20;
+                    break;
+                case "Down":
+                    newpos.Y -= 20;
+                    break;
+                case "Right":
+                    newpos.X -= 20;
+                    break;
+                case "Left":
+                    newpos.X += 20;
+                    break;
             }
-            return color;
-        }*/
+            return newpos;
+        }
         public void Update()
         {
             throw new NotImplementedException();

@@ -161,6 +161,7 @@ namespace Project1.LinkComponents
             // TODO: determine value to decrease by  
             Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
+            Position = Health.Knockback(Position, DirectionState.ID);
         }
         public void UseMagicalRod()
         {

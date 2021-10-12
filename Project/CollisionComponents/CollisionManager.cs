@@ -26,13 +26,14 @@ namespace Project1.CollisionComponents
         {
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
-            CollisionMappings = new Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>>();
             CreateDict();
         }
 
         
         private void CreateDict()
         {
+            CollisionMappings = new Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>>();
+
             // NOTE: Load the commands for each collision from an XML document into the CollisionMappings dictionary 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
@@ -56,12 +57,11 @@ namespace Project1.CollisionComponents
                 ConstructorInfo constructor2 = command2Type.GetConstructor(new[] { typeof(ICollidable) });
 
                 CollisionMappings.Add(name, Tuple.Create(constructor1, constructor2));
-            }
-            
+            }   
         }
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
-            String key = collision.Key; 
+            string key = collision.Key; 
             if (CollisionMappings.ContainsKey(key))
             {
                 return CollisionMappings[key];
