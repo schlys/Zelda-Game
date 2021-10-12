@@ -7,7 +7,7 @@ using Project1.SpriteFactoryComponents;
 
 namespace Project1.LevelFactory
 {
-    interface IRoomState
+    public interface IRoomState
     {
         IRoom Room { get; set; }
         

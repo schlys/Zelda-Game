@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Project1.LevelFactory
 {
-    class LevelFactory : ILevelFactory
+    public class LevelFactory : ILevelFactory
     {
         // TODO: implement new methods from ILevelFactory 
         private static LevelFactory instance = new LevelFactory();

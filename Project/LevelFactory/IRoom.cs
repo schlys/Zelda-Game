@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace Project1.LevelFactory
 {
-    interface IRoom
+    public interface IRoom
     {
         String ID { get; set; } // OR name? 
         IRoom UpRoom { get; set; }

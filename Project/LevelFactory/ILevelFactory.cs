@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework;
 
 namespace Project1.LevelFactory
 {
-    interface ILevelFactory
+    public interface ILevelFactory
     {
-        public static ILevelFactory Instance { get; }
+        static ILevelFactory Instance { get; }
         IRoom CurrentRoom { get; set; }
         void LoadAllTextures(ContentManager content);
 

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.LevelFactory
 {
-    class Room
+    public class Room
     {
         public String ID { get; set; }
         public IRoom UpRoom { get; set; }
