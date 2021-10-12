@@ -18,7 +18,6 @@ namespace Project1.EnemyComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }      // Updated by EnemyState 
-        public IDirectionState DirectionMoving { get; set; }
 
         // Other Properties 
         private double Step = .1;
@@ -33,7 +32,6 @@ namespace Project1.EnemyComponents
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             IsMoving = true;
-            DirectionMoving = EnemyState.DirectionState; 
         }
        
         public void TakeDamage()
@@ -118,7 +116,6 @@ namespace Project1.EnemyComponents
             EnemyState.Update();
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
-            DirectionMoving = EnemyState.DirectionState;
         }
     }
 }

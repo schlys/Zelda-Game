@@ -62,7 +62,19 @@ namespace Project1.CollisionComponents
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
             // TODO: need to test if found in dictionary, because not all found. else error 
-            return CollisionMappings[collision.First + collision.Second + collision.Direction];
+            String key = collision.First + collision.Second + collision.Direction; 
+            if (CollisionMappings.ContainsKey(key))
+            {
+                return CollisionMappings[key];
+            }
+            //return CollisionMappings[collision.First + collision.Second + collision.Direction];
+            //return new Tuple(NoCmd(), NoCmd()); 
+            return null; 
+        }
+
+        public void ExecuteCommands(ICollision collision)
+        {
+            // TODO: Implement 
         }
 
         public void AddObject(ICollidable item)
@@ -111,7 +123,7 @@ namespace Project1.CollisionComponents
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
                         
-                        collision.Execute();
+                        //collision.Execute();
                     }
                 }
 
@@ -121,7 +133,7 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2);
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        collision.Execute();
+                        //collision.Execute();
                     }
   
                 }
@@ -129,55 +141,18 @@ namespace Project1.CollisionComponents
         }
         public ICollision DetectCollision(ICollidable item1, ICollidable item2)
         {
-
+            /* NOTE: Finds the direction of the collision based on the minimum intersection dimension
+             *  (width or height). It then finds whether it's a top/bottom intersection for vertical 
+             *  collisions or a left/right intersection for horizontal collisions. 
+             */ 
             string direction;
             if(item1.Hitbox.Intersects(item2.Hitbox))   
             {
-                // TODO: how handle collision if both moving? 
-                //if(item1.IsMoving && item2.IsMoving)
-                //{
-                    Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox);
-                    // Get min dimension of intersections 
-                    if(Intersection.Height < Intersection.Width) // Collision in vertical direction 
-                    {
-                        if (Intersection.Top == item1.Hitbox.Top)
-                        {
-                            // collide on item1's top and item2's bottom 
-                            direction = "Top";
-                        }
-                        else
-                        {
-                            // collide on item1's bottom and item2's top
-                            direction = "Bottom";
-                        }
-
-                        
-                    } else // Collision in horizontal direction 
-                    {
-                        if (Intersection.Right == item1.Hitbox.Right)
-                        {
-                            // collide on item1's right and item2's left 
-                            direction = "Right";
-                        }
-                        else
-                        {
-                            // collide on item1's left and item2's right 
-                            direction = "Left";
-                        }
-                    }
-
-
-                    /*if (Intersection.Right == item1.Hitbox.Right)
-                    {
-                        // collide on item1's right and item2's left 
-                        direction = "Right";
-                    }
-                    else if (Intersection.Left == item1.Hitbox.Left)
-                    {
-                        // collide on item1's left and item2's right 
-                        direction = "Left";
-                    }
-                    else if (Intersection.Top == item1.Hitbox.Top)
+                Rectangle Intersection = Rectangle.Intersect(item1.Hitbox, item2.Hitbox);
+                // Get min dimension of intersections 
+                if(Intersection.Height < Intersection.Width) // Collision in vertical direction 
+                {
+                    if (Intersection.Top == item1.Hitbox.Top)
                     {
                         // collide on item1's top and item2's bottom 
                         direction = "Top";
@@ -186,19 +161,21 @@ namespace Project1.CollisionComponents
                     {
                         // collide on item1's bottom and item2's top
                         direction = "Bottom";
-                    }*/
-                //return new Collision(item1, item2, direction);
-                /*}
-                else if(item1.IsMoving)
+                    }
+    
+                } else // Collision in horizontal direction 
                 {
-                    direction = item1.DirectionMoving.ID; 
-                } else if (item2.IsMoving)
-                {
-                    direction = item2.DirectionMoving.ID;
-                } else // NOTE: Is it possible to have a collision between two non moving objects? 
-                {
-                    direction = "Right"; 
-                }*/
+                    if (Intersection.Right == item1.Hitbox.Right)
+                    {
+                        // collide on item1's right and item2's left 
+                        direction = "Right";
+                    }
+                    else
+                    {
+                        // collide on item1's left and item2's right 
+                        direction = "Left";
+                    }
+                }
                 return new Collision(item1, item2, direction);  
             } 
             return new NullCollision(); 

@@ -42,23 +42,18 @@ namespace Project1.ItemComponents
             {
                 case 0:
                     MoveUp();
-                    ((ICollidable)Item).DirectionMoving = new DirectionStateUp();
                     break;
                 case 1:
                     MoveDown();
-                    ((ICollidable)Item).DirectionMoving = new DirectionStateDown();
                     break;
                 case 2:
                     MoveLeft();
-                    ((ICollidable)Item).DirectionMoving = new DirectionStateLeft();
                     break;
                 case 3:
                     MoveRight();
-                    ((ICollidable)Item).DirectionMoving = new DirectionStateRight();
                     break;
                 default:
                     MoveUp();
-                    ((ICollidable)Item).DirectionMoving = new DirectionStateUp();
                     break;
             }
             Sprite.Update();

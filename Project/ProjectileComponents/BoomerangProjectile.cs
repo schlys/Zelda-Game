@@ -23,7 +23,6 @@ namespace Project1.ProjectileComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public IDirectionState DirectionMoving { get; set; }
 
         // Other Properties 
         public bool isUsing { get; set; }
@@ -78,7 +77,6 @@ namespace Project1.ProjectileComponents
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            DirectionMoving = Direction;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -126,7 +124,6 @@ namespace Project1.ProjectileComponents
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
-            DirectionMoving = Direction;
         }
     }
 }

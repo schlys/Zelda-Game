@@ -18,7 +18,6 @@ namespace Project1.ItemComponents
         // NOTE: Some ItemStates override the value of IsMoving and DirectionMoving 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public IDirectionState DirectionMoving { get; set; }
 
         // Other Item Properties 
         private double Counter = 0.0;
@@ -32,7 +31,6 @@ namespace Project1.ItemComponents
         {
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving();
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
             Position = InitialPosition;
@@ -191,8 +189,6 @@ namespace Project1.ItemComponents
         {
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving(); 
-            ItemState = new ItemAngelState(this);
             ResetPosition();
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
@@ -211,7 +207,6 @@ namespace Project1.ItemComponents
         {
             // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving();
             ItemState.Update(); 
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);

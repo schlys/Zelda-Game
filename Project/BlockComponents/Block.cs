@@ -17,7 +17,6 @@ namespace Project1.BlockComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public IDirectionState DirectionMoving { get; set; }
         
         // Other Properies 
 
@@ -33,7 +32,6 @@ namespace Project1.BlockComponents
             Size = 40; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);
             IsMoving = false;
-            DirectionMoving = new DirectionStateNotMoving(); 
         }
 
         private void SetBlockState(int i)

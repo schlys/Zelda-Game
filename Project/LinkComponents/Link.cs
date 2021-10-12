@@ -21,7 +21,6 @@ namespace Project1.LinkComponents
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public IDirectionState DirectionMoving { get; set; }
 
         // Other Link Properties 
         private string UseItemName;
@@ -48,7 +47,6 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
-            DirectionMoving = DirectionState; 
         }
         public void MoveDown()
         {
@@ -225,7 +223,6 @@ namespace Project1.LinkComponents
 
             // Update Hitbox for collisions  
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
-            DirectionMoving = DirectionState;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
