@@ -30,7 +30,7 @@ namespace Project1.ItemComponents
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
         public Item()
         {
-            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
             ItemState = new ItemAngelState(this);
             InitialPosition = new Vector2(600, 200); 
@@ -189,7 +189,7 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
-            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
             ResetPosition();
             // Update HitBox for collisions 
@@ -207,7 +207,7 @@ namespace Project1.ItemComponents
 
         public void Update()
         {
-            // NOTE: Before ItemState initialization because some overwrite IsMoving and DirectionMoving 
+            // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
             ItemState.Update(); 
             // Update HitBox for collisions 

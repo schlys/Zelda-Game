@@ -53,7 +53,6 @@ namespace Project1.LinkComponents
         }
         public void MoveDown()
         {
-            IsMoving = true;
             if (!LockFrame)
             {
               
@@ -69,7 +68,6 @@ namespace Project1.LinkComponents
 
         public void MoveLeft()
         {
-            IsMoving = true;
             if (!LockFrame )
             {
                
@@ -86,7 +84,6 @@ namespace Project1.LinkComponents
 
         public void MoveRight()
         {
-            IsMoving = true; 
             if (!LockFrame )
             {
                 
@@ -102,7 +99,6 @@ namespace Project1.LinkComponents
 
         public void MoveUp()
         {
-            IsMoving = true; 
             if (!LockFrame)
             {
                 
@@ -118,7 +114,6 @@ namespace Project1.LinkComponents
 
         public void StopMoving()
         {
-            IsMoving = false; 
             if (!LockFrame)
             {
               

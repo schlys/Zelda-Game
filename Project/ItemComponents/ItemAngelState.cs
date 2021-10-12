@@ -29,6 +29,7 @@ namespace Project1.ItemComponents
         }
         public void Update()
         {
+            // NOTE: Needed while use next/prev item bcause some ItemState overwrite IsMoving
             ((ICollidable)Item).IsMoving = true;
 
             // Switch fairy direction every 15 calls 
