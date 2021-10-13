@@ -19,11 +19,11 @@ namespace Project1.ProjectileComponents
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
         public IDirectionState Direction { get; set; }
-        public string ID { get; set; }
+        
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public String TypeID { get; set; }
+        public string TypeID { get; set; }
 
         // Other Properties
         public Sprite Poof { get; set; }
@@ -54,8 +54,8 @@ namespace Project1.ProjectileComponents
                     break;
             }
 
-            ID = "SilverArrow"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction.ID);
+            TypeID = "SilverArrow"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
             Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
 
@@ -79,7 +79,7 @@ namespace Project1.ProjectileComponents
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            TypeID = this.GetType().Name.ToString();
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {

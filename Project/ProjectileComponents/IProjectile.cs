@@ -17,7 +17,7 @@ namespace Project1.ProjectileComponents
         int Size { get; set; }
         //String Direction { get; set; }
         IDirectionState Direction { get; set; }
-        String ID { get; set; }
+        //String ID { get; set; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
     }

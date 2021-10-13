@@ -43,7 +43,7 @@ namespace Project1.EnemyComponents
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
-                    ((ICollidable)Enemy).IsMoving = true;
+                    
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(0, -step);
@@ -56,7 +56,7 @@ namespace Project1.EnemyComponents
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
-                    ((ICollidable)Enemy).IsMoving = true;
+                    
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(0, step);
@@ -69,7 +69,7 @@ namespace Project1.EnemyComponents
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
-                    ((ICollidable)Enemy).IsMoving = true;
+                    
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(step, 0);
@@ -82,7 +82,7 @@ namespace Project1.EnemyComponents
                 if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
-                    ((ICollidable)Enemy).IsMoving = true;
+                    
                     UpdateSprite();
                 }
                 Enemy.Position += new Vector2(-step, 0);
@@ -92,7 +92,7 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = 1;
-            //((ICollidable)Enemy).IsMoving = false;
+            
         }
         private void UpdateSprite()
         {
@@ -122,7 +122,7 @@ namespace Project1.EnemyComponents
 
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
-
+                Sprite.Color = Color.White;
                 if (isAttacking)
                 {
                     isAttacking = false;

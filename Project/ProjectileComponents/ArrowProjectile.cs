@@ -18,12 +18,12 @@ namespace Project1.ProjectileComponents
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
         public IDirectionState Direction { get; set; }
-        public string ID { get; set; }
+       
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public String TypeID { get; set; }
+        public string TypeID { get; set; }
 
         // Other Properties 
         public Sprite Poof { get; set; }
@@ -36,7 +36,7 @@ namespace Project1.ProjectileComponents
             InMotion = true;
             Position = position;
             Size = 80;
-
+            TypeID = "Arrow";
             switch (direction)
             {
                 case "Up":
@@ -56,8 +56,8 @@ namespace Project1.ProjectileComponents
                     break;
             }
 
-            ID = "Arrow"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID + Direction.ID);
+           
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
             Poof = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
             counter = 0;
             isUsing = true;
@@ -82,7 +82,7 @@ namespace Project1.ProjectileComponents
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            TypeID = this.GetType().Name.ToString();
+           
         }
         public void Draw(SpriteBatch spriteBatch)
         {

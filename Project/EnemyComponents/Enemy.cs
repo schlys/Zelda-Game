@@ -40,6 +40,7 @@ namespace Project1.EnemyComponents
         public void TakeDamage()
         {
             // TODO: need determine value to decrease by  
+            EnemyState.Sprite.Color = Color.Red;
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }
@@ -113,13 +114,13 @@ namespace Project1.EnemyComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(IsDead==false)
+            if(!IsDead)
                 EnemyState.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
-            if (IsDead == false)
+            if (!IsDead)
             {
                 EnemyState.Update();
                 // Update Hitbox for collisions 

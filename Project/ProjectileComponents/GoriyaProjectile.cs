@@ -18,12 +18,12 @@ namespace Project1.ProjectileComponents
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
         public IDirectionState Direction { get; set; }
-        public string ID { get; set; }
+        
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public String TypeID { get; set; }
+        public string TypeID { get; set; }
 
         // Other Properties 
         private int counter;
@@ -56,12 +56,12 @@ namespace Project1.ProjectileComponents
             Position = position;
             OriginalPosition = Position;
             counter = 0;
-            ID = "Boomerang";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            TypeID = "Boomerang";
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            TypeID = this.GetType().Name.ToString();
+            TypeID = GetType().Name.ToString();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

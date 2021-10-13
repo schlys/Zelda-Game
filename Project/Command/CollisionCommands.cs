@@ -58,7 +58,7 @@ namespace Project1.Command
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }
-        public EnemyTakeDamageCmd(ICollidable enemy, string direction = "")
+        public EnemyTakeDamageCmd(ICollidable enemy, string direction)
         {
             Enemy = (IEnemy)enemy;
         }
