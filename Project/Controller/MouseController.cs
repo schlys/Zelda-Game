@@ -8,7 +8,7 @@ using Project1.LinkComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.LevelFactory;
+using Project1.LevelComponents;
 
 namespace Project1.Controller
 {

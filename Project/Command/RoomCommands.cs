@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.LevelFactory; 
+using Project1.LevelComponents; 
 
 namespace Project1.Command
 {
@@ -16,7 +16,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.LevelFactory.Instance.MoveUp(); 
+            LevelFactory.Instance.MoveUp(); 
         }
     }
 
@@ -31,7 +31,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.LevelFactory.Instance.MoveDown();
+            LevelFactory.Instance.MoveDown();
         }
     }
 
@@ -46,7 +46,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.LevelFactory.Instance.MoveUp();
+            LevelFactory.Instance.MoveUp();
         }
     }
 
@@ -61,7 +61,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.LevelFactory.Instance.MoveRight();
+            LevelFactory.Instance.MoveRight();
         }
     }
 }

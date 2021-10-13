@@ -10,7 +10,7 @@ using Project1.EnemyComponents;
 using System.Xml;
 using System.IO;
 
-namespace Project1.LevelFactory
+namespace Project1.LevelComponents
 {
     public class LevelFactory : ILevelFactory
     {
@@ -34,9 +34,13 @@ namespace Project1.LevelFactory
 
         public void LoadAllTextures(ContentManager content)
         {
+            TextureDict = new Dictionary<string, Texture2D>(); 
+            
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
             TextureDict.Add("room2", content.Load<Texture2D>("Rooms/Room2"));
             TextureDict.Add("room3", content.Load<Texture2D>("Rooms/Room3"));
+
+            CreateDict(); 
         }
         private static void CreateDict()
         {
@@ -54,11 +58,11 @@ namespace Project1.LevelFactory
                  
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
-                string Up = node.SelectSingleNode("Up").InnerText;
-                string Down = node.SelectSingleNode("Down").InnerText;
-                string Left = node.SelectSingleNode("Left").InnerText;
-                string Right = node.SelectSingleNode("Right").InnerText;
-
+                string up = node.SelectSingleNode("up").InnerText;
+                string down = node.SelectSingleNode("down").InnerText;
+                string left = node.SelectSingleNode("left").InnerText;
+                string right = node.SelectSingleNode("right").InnerText;
+                /*
                 XmlNodeList matrixData = XMLData.DocumentElement.SelectNodes("/Levels/Level/matrix/data");
                 foreach(XmlNode node1 in matrixData)
                 {
@@ -67,8 +71,8 @@ namespace Project1.LevelFactory
                     int value = Int16.Parse(node.SelectSingleNode("value").InnerText);
                     textureMatrix[row, column] = value;
                 }
-
-                LevelDict.Add(name, new Room(TextureDict[sheet], Up, Down, Left, Right, textureMatrix));
+                */
+                LevelDict.Add(name, new Room(TextureDict[sheet], up, down, left, right, textureMatrix));
             }
 
         }

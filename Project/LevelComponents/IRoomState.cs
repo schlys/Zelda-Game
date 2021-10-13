@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteFactoryComponents;
 
-namespace Project1.LevelFactory
+namespace Project1.LevelComponents
 {
     public interface IRoomState
     {

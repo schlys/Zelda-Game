@@ -9,7 +9,7 @@ using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
 
-namespace Project1.LevelFactory
+namespace Project1.LevelComponents
 {
     public class Room
     {

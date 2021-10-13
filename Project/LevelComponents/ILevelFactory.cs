@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 
-namespace Project1.LevelFactory
+namespace Project1.LevelComponents 
 {
     public interface ILevelFactory
     {

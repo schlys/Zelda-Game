@@ -210,6 +210,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLCollisions.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLLevel.xml
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSprite.xml
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.exe
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
@@ -247,3 +248,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.png
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.png
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.png
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
