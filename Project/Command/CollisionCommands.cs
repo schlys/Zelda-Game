@@ -1,5 +1,6 @@
 ﻿using Project1.CollisionComponents;
 using Project1.LinkComponents;
+using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,20 @@ namespace Project1.Command
         public void Execute()
         {
             Link.TakeDamage(Direction, 20);
+        }
+    }
+
+    public class EnemyTakeDamageCmd : ICommand
+    {
+        public IEnemy Enemy { get; set; }
+        public EnemyTakeDamageCmd(ICollidable enemy, string direction = "")
+        {
+            Enemy = (IEnemy)enemy;
+        }
+
+        public void Execute()
+        {
+            Enemy.TakeDamage();
         }
     }
 

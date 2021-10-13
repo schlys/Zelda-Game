@@ -25,6 +25,14 @@ namespace Project1.EnemyComponents
         {
             CurrNumHearts -= x; 
         }
+        public bool Dead()
+        {
+            if (CurrNumHearts < 0)
+            {
+                return true;
+            }
+            return false;
+        }
         public void Update()
         {
             throw new NotImplementedException();

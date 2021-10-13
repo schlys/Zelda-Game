@@ -23,12 +23,13 @@ namespace Project1.EnemyComponents
         // Other Properties 
         private double Step = .1;
         private double counter = 0.0;
+        private bool IsDead = false;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
         public Enemy(Vector2 position)
         {
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin
-            Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
+            Health = new EnemyHealth(3, 30);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
@@ -39,7 +40,8 @@ namespace Project1.EnemyComponents
         public void TakeDamage()
         {
             // TODO: need determine value to decrease by  
-            Health.DecreaseHealth(0.5);             
+            Health.DecreaseHealth(0.5);
+            IsDead = Health.Dead();
         }
 
         public void PreviousEnemy()
@@ -100,6 +102,7 @@ namespace Project1.EnemyComponents
             ResetPosition();
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
             Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
+            IsDead = false;
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
         }
@@ -110,12 +113,14 @@ namespace Project1.EnemyComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            EnemyState.Draw(spriteBatch, Position);
+            if(IsDead==false)
+                EnemyState.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
-            EnemyState.Update();
+            if(IsDead==false)
+                EnemyState.Update();
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
         }
