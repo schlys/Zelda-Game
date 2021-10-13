@@ -25,11 +25,11 @@ namespace Project1.EnemyComponents
         private double counter = 0.0;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
-        public Enemy()
+        public Enemy(Vector2 position)
         {
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts 
-            Position = new Vector2(400, 200);
+            Position = position;
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             IsMoving = true;

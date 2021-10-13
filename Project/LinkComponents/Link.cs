@@ -17,6 +17,7 @@ namespace Project1.LinkComponents
         public ILinkWeaponState LinkWeaponState { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
+        public Vector2 Position { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -25,27 +26,20 @@ namespace Project1.LinkComponents
 
 
         // Other Link Properties 
-        private string UseItemName;
-
-        private Vector2 Position;
-        private Vector2 InitialPosition = new Vector2(40, 40);
-
+        private string UseItemName;       // NOTE: should change useitem string to something less hard coded? 
+        private Vector2 InitialPosition; 
         private int LinkSize = 125;
-        //private int LinkItemSize = 80; 
-
         private int Step = 4;
-        private bool LockFrame;     // belong in sprite draw 
-       
-      
-        // NOTE: should change useitem string to something less hard coded? 
+        private bool LockFrame;     // TODO: Belong in sprite draw? 
 
-        public Link()
+        public Link(Vector2 position)
         {
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             UseItemName = "";
-            Position = InitialPosition;
+            Position = position;
+            InitialPosition = position; 
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
@@ -62,7 +56,7 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
-                Position.Y += Step;
+                Position += new Vector2(0, Step);
             }
         }
 
@@ -78,7 +72,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
 
                 }
-                Position.X -= Step;
+                Position -=  new Vector2(Step, 0);
             }
         }
 
@@ -93,7 +87,7 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
-                Position.X += Step;
+                Position += new Vector2(Step, 0);
             }
         }
 
@@ -108,7 +102,7 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-                Position.Y -= Step;
+                Position -= new Vector2(0, Step);
             }
         }
 
