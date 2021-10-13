@@ -26,21 +26,21 @@ namespace Project1.LevelFactory
 
         public IRoom CurrentRoom { get; set; }
 
-        private LevelFactory() { }
         private static Dictionary<string, Room> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
         public static int[,] textureMatrix;
 
+        private LevelFactory() { }
 
         public void LoadAllTextures(ContentManager content)
-            {
+        {
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
             TextureDict.Add("room2", content.Load<Texture2D>("Rooms/Room2"));
             TextureDict.Add("room3", content.Load<Texture2D>("Rooms/Room3"));
-
         }
         private static void CreateDict()
         {
+            // TODO: load specific room item data 
             textureMatrix = new int[12, 7];
             LevelDict = new Dictionary<string, Room>();
 
@@ -52,7 +52,7 @@ namespace Project1.LevelFactory
             foreach (XmlNode node in Sprites)
             {
                  
-        string name = node.SelectSingleNode("name").InnerText;
+                string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
                 string Up = node.SelectSingleNode("Up").InnerText;
                 string Down = node.SelectSingleNode("Down").InnerText;
