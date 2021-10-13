@@ -44,12 +44,4 @@ namespace Project1.Command
         }
     }
 
-    class NoCmd : ICommand
-    {
-        public NoCmd(ICollidable holder)
-        {
-
-        }
-        public void Execute() { }
-    }
 }

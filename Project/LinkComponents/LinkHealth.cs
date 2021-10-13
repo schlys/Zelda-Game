@@ -13,7 +13,6 @@ namespace Project1.LinkComponents
         int TotalNumHearts { get; set; } 
         double CurrNumHearts { get; set; }
         int count;
-        private int knockback = 20;
 
         public LinkHealth(int total, double curr)
         {
@@ -30,23 +29,26 @@ namespace Project1.LinkComponents
             CurrNumHearts -= x; 
         }
 
-        public Vector2 Knockback(Vector2 position, string direction)
+        public Vector2 Knockback(Vector2 position, string direction, int knockback = 0)
         {
             Vector2 newpos = position;
-            switch (direction)
+            if (knockback > 0)
             {
-                case "Up":
-                    newpos.Y += 20;
-                    break;
-                case "Down":
-                    newpos.Y -= 20;
-                    break;
-                case "Right":
-                    newpos.X -= 20;
-                    break;
-                case "Left":
-                    newpos.X += 20;
-                    break;
+                switch (direction)
+                {
+                    case "Top":
+                        newpos.Y += knockback;
+                        break;
+                    case "Bottom":
+                        newpos.Y -= knockback;
+                        break;
+                    case "Right":
+                        newpos.X -= knockback;
+                        break;
+                    case "Left":
+                        newpos.X += knockback;
+                        break;
+                }
             }
             return newpos;
         }

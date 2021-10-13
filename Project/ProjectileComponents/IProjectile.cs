@@ -10,7 +10,7 @@ namespace Project1.ProjectileComponents
 {
     public interface IProjectile
     {
-        bool InMotion { get; }
+        bool InMotion { get; set; }
         Sprite Sprite { get; set; }
         Vector2 Position { get; set; }
         Vector2 OriginalPosition { get; set; }

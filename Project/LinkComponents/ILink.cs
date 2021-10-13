@@ -23,7 +23,7 @@ namespace Project1.LinkComponents
         void Attack();
         void UseItem(string name);
         void PickUpItem(string name);
-        void TakeDamage();
+        void TakeDamage(string direction, int knockback = 0);
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();

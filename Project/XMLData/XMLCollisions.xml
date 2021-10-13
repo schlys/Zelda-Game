@@ -2,44 +2,86 @@
 <Collisions>
 	<Collision>
 		<name>LinkBlockTop</name>
-		<command1>LinkStopMovingCmd</command1>
+		<command1>NoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockBottom</name>
-		<command1>LinkStopMovingCmd</command1>
+		<command1>NoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockRight</name>
-		<command1>LinkStopMovingCmd</command1>
+		<command1>NoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockLeft</name>
-		<command1>LinkStopMovingCmd</command1>
+		<command1>NoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>LinkMoblinProjectileTop</name>
+		<name>LinkEnemyTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>LinkMoblinProjectileTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkMoblinProjectileBottom</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkMoblinProjectileRight</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkMoblinProjectileLeft</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkAquamentusProjectileTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkAquamentusProjectileBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkAquamentusProjectileRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkAquamentusProjectileLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	<Collision>

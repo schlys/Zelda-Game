@@ -151,12 +151,12 @@ namespace Project1.LinkComponents
             // add item to inventory 
             
         }
-        public void TakeDamage()
+        public void TakeDamage(string direction, int knockback = 0)
         {
             // TODO: determine value to decrease by  
             Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
-            Position = Health.Knockback(Position, DirectionState.ID);
+            Position = Health.Knockback(Position, direction, knockback);
         }
         public void UseMagicalRod()
         {

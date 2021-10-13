@@ -288,20 +288,7 @@ namespace Project1.Command
         }
     }
 
-    public class LinkTakeDamageCmd : ICommand
-    {
-        
-        public ILink Link { get; set; }
-
-        public LinkTakeDamageCmd(ICollidable link)
-        {
-             Link = (ILink)link;
-        }
-        public void Execute()
-        {
-            Link.TakeDamage();
-        }
-    }
+    
 
     public class LinkResetCmd : ICommand
     {

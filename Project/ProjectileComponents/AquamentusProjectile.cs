@@ -81,7 +81,7 @@ namespace Project1.ProjectileComponents
             else
             {
                 InMotion = false;
-                IsMoving = false; 
+                //IsMoving = false; 
             }
 
             // Update Hitbox for collisions 
