@@ -51,7 +51,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.BlockToGo(Direction, 20);
+            Link.BlockToGo(Direction);
         }
     }
 

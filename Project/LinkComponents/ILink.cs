@@ -25,7 +25,7 @@ namespace Project1.LinkComponents
         void UseItem(string name);
         void PickUpItem(string name);
         void TakeDamage(string direction, int knockback = 0);
-        void BlockToGo(string direction, int knockback = 0);
+        void BlockToGo(string direction);
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();
