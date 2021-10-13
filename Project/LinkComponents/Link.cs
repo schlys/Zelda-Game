@@ -152,6 +152,10 @@ namespace Project1.LinkComponents
             LinkSprite.Color = Color.Red;
             Position = Health.Knockback(Position, direction, knockback);
         }
+        public void BlockToGo(string direction, int knockback = 0)
+        {
+            Position = Health.Knockback(Position, direction, knockback);
+        }
         public void UseMagicalRod()
         {
             LinkWeaponState.UseMagicalRod(); 

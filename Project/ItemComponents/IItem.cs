@@ -17,5 +17,6 @@ namespace Project1.ItemComponents
         void NextItem();
         void PreviousItem();
         void Reset();
+        void RemoveItem();
     }
 }

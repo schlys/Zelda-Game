@@ -119,10 +119,13 @@ namespace Project1.EnemyComponents
 
         public void Update()
         {
-            if(IsDead==false)
+            if (IsDead == false)
+            {
                 EnemyState.Update();
-            // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+                // Update Hitbox for collisions 
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+            }
+            
         }
     }
 }

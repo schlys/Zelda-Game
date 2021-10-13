@@ -2,44 +2,44 @@
 <Collisions>
 	<Collision>
 		<name>LinkBlockTop</name>
-		<command1>NoCmd</command1>
+		<command1>LinkBlockToGoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockBottom</name>
-		<command1>NoCmd</command1>
+		<command1>LinkBlockToGoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockRight</name>
-		<command1>NoCmd</command1>
+		<command1>LinkBlockToGoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockLeft</name>
-		<command1>NoCmd</command1>
+		<command1>LinkBlockToGoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>LinkItemTop</name>
 		<command1>NoCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBottom</name>
 		<command1>NoCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRight</name>
 		<command1>NoCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemLeft</name>
 		<command1>NoCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 
 	<Collision>

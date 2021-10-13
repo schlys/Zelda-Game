@@ -23,6 +23,7 @@ namespace Project1.ItemComponents
         // Other Item Properties 
         private double Counter = 0.0;
         private double Step = 0.1;
+        private bool IsPicked = false;
 
         private string[] ItemTypeKeys = { "Angel", "HeartContainer", "RecoveryHeart", "PowerBracelet", "LifePotion", "SecondLifePotion", "BookOfMagic", "Food", 
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
@@ -187,6 +188,11 @@ namespace Project1.ItemComponents
             }
         }
 
+        public void RemoveItem()
+        {
+            IsPicked = true;
+        }
+
         public void Reset()
         {
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
@@ -202,16 +208,21 @@ namespace Project1.ItemComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            ItemState.Draw(spriteBatch);
+            if(IsPicked==false)
+                ItemState.Draw(spriteBatch);
         }
 
         public void Update()
         {
-            // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
-            IsMoving = false;
-            ItemState.Update(); 
-            // Update HitBox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            if (IsPicked == false)
+            {
+                // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
+                IsMoving = false;
+                ItemState.Update();
+                // Update HitBox for collisions 
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            }
+            
         }
     }
 }
