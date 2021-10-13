@@ -74,23 +74,24 @@ namespace Project1.LevelFactory
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            CurrentRoom.Draw(spriteBatch); 
         }
         public void MoveUp()
         {
-
+            // TODO: do not switch rooms if no room to go to. create a null room and check for it 
+            CurrentRoom = CurrentRoom.UpRoom; 
         }
         public void MoveDown()
         {
-
+            CurrentRoom = CurrentRoom.DownRoom;
         }
         public void MoveLeft()
         {
-
+            CurrentRoom = CurrentRoom.LeftRoom;
         }
         public void MoveRight()
         {
-
+            CurrentRoom = CurrentRoom.RightRoom;
         }
 
     }
