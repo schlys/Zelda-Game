@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
 using Project1.CollisionComponents;

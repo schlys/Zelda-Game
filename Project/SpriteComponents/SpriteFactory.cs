@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
-using Project1.SpriteFactoryComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,7 @@ using Project1.EnemyComponents;
 using System.Xml;
 using System.IO;
 
-namespace Project1.SpriteFactoryComponents
+namespace Project1.SpriteComponents
 {
     class SpriteFactory : ISpriteFactory
     {

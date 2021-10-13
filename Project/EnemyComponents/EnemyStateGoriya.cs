@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;

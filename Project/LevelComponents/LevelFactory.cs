@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
-using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,7 +45,7 @@ namespace Project1.LevelComponents
         private static void CreateDict()
         {
             // TODO: load specific room item data 
-            textureMatrix = new int[12, 7];
+            textureMatrix = new int[7, 12];
             LevelDict = new Dictionary<string, Room>();
 
             XmlDocument XMLData = new XmlDocument();
@@ -62,16 +62,28 @@ namespace Project1.LevelComponents
                 string down = node.SelectSingleNode("down").InnerText;
                 string left = node.SelectSingleNode("left").InnerText;
                 string right = node.SelectSingleNode("right").InnerText;
-                /*
+
+                XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/objects/data");
+                foreach (XmlNode node1 in objectsData)
+                {
+                    String type = node1.SelectSingleNode("type").InnerText;
+                    String type2 = node1.SelectSingleNode("type2").InnerText;
+                    int row = Int16.Parse(node1.SelectSingleNode("row").InnerText);
+                    int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
+
+                    //TODO: add to appropriate list 
+                }
+
+                // TODO: remove matrix data - now use different item lists in IRoom 
                 XmlNodeList matrixData = XMLData.DocumentElement.SelectNodes("/Levels/Level/matrix/data");
                 foreach(XmlNode node1 in matrixData)
                 {
-                    int row = Int16.Parse(node.SelectSingleNode("row").InnerText);
-                    int column = Int16.Parse(node.SelectSingleNode("column").InnerText);
-                    int value = Int16.Parse(node.SelectSingleNode("value").InnerText);
+                    int row = Int16.Parse(node1.SelectSingleNode("row").InnerText);
+                    int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
+                    int value = Int16.Parse(node1.SelectSingleNode("value").InnerText);
                     textureMatrix[row, column] = value;
                 }
-                */
+                
                 LevelDict.Add(name, new Room(TextureDict[sheet], up, down, left, right, textureMatrix));
             }
 

@@ -6,7 +6,7 @@ using Project1.Controller;
 using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
-using Project1.SpriteFactoryComponents;
+using Project1.SpriteComponents;
 using Project1.LevelComponents;
 using Project1.EnemyComponents;
 using Project1.ProjectileComponents;

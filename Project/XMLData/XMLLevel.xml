@@ -7,6 +7,16 @@
 		<down></down>
 		<left></left>
 		<right>room2</right>
+
+		<objects>
+			<data>
+				<type>Link</type>
+				<type2>0</type2>
+				<row>0</row>
+				<column>0</column>
+			</data> 
+		</objects>
+		
 		<matrix>
 			<data>
 				<row>0</row>
