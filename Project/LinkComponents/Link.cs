@@ -43,7 +43,7 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
-            TypeID = this.GetType().Name.ToString();
+            TypeID = GetType().Name.ToString();
         }
         public void MoveDown()
         {
@@ -123,6 +123,7 @@ namespace Project1.LinkComponents
                 LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
                 LinkSprite.MaxDelay = 1;
+                CollisionManager.Instance.AddObject(new Weapon(LinkWeaponState.ID, DirectionState.ID, Hitbox));
             }
         }
 

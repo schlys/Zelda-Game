@@ -191,6 +191,7 @@ namespace Project1.ItemComponents
         public void RemoveItem()
         {
             IsPicked = true;
+            CollisionManager.Instance.RemoveObject(this);
         }
 
         public void Reset()
