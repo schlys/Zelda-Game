@@ -26,9 +26,33 @@ namespace Project1.EnemyComponents
         private bool IsDead = false;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
-        public Enemy(Vector2 position)
+        public Enemy(Vector2 position, String type)
         {
-            EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin
+            // TODO: switch to jump table 
+            switch (type)
+            {
+                case "Moblin":
+                    EnemyState = new EnemyStateMoblin(this);
+                    break;
+                case "Stalfos":
+                    EnemyState = new EnemyStateStalfos(this);
+                    break;
+                case "Keese":
+                    EnemyState = new EnemyStateKeese(this);
+                    break;
+                case "Aquamentus":
+                    EnemyState = new EnemyStateAquamentus(this);
+                    break;
+                case "Gel":
+                    EnemyState = new EnemyStateGel(this);
+                    break;
+                case "Goriya":
+                    EnemyState = new EnemyStateGoriya(this);
+                    break;
+                case "OldMan":
+                    EnemyState = new EnemyStateOldMan(this);
+                    break;
+            }
             Health = new EnemyHealth(3, 30);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
@@ -60,6 +84,7 @@ namespace Project1.EnemyComponents
         }
         public void SetEnemyState(int i)
         {
+            // TODO: switch to jump table 
             switch (EnemyTypeKeys[i])
             {
                 case "Moblin":

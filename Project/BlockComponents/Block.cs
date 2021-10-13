@@ -27,9 +27,44 @@ namespace Project1.BlockComponents
 
         private string[] BlockTypeKeys = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
 
-        public Block(Vector2 position)
+        public Block(Vector2 position, String type)
         {
-            BlockState = new BlockBaseState(this);
+            // TODO: change to jump table 
+            switch (type)
+            {
+                case "Base":
+                    BlockState = new BlockBaseState(this);
+                    break;
+                case "Stripe":
+                    BlockState = new BlockStripeState(this);
+                    break;
+                case "Brick":
+                    BlockState = new BlockBrickState(this);
+                    break;
+                case "Stair":
+                    BlockState = new BlockStairState(this);
+                    break;
+                case "Blue":
+                    BlockState = new BlockBlueState(this);
+                    break;
+                case "Dots":
+                    BlockState = new BlockDotsState(this);
+                    break;
+                case "Black":
+                    BlockState = new BlockBlackState(this);
+                    break;
+                case "Dragon":
+                    BlockState = new BlockDragonState(this);
+                    break;
+                case "Fish":
+                    BlockState = new BlockFishState(this);
+                    break;
+                case "Last":
+                    BlockState = new BlockLastState(this);
+                    break;
+            }
+            
+
             Position = position; 
             Size = 40; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);

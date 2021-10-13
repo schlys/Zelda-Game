@@ -58,17 +58,20 @@ namespace Project1
             CollisionManager.Instance.AddObject((ICollidable)Link);
 
             Vector2 BlockPosition = new Vector2(150, 100);
-            IBlock Block = new Block(BlockPosition); 
+            String BlockType = "Base"; 
+            IBlock Block = new Block(BlockPosition, BlockType); 
             Blocks.Add(Block);
             CollisionManager.Instance.AddObject((ICollidable)Block);
 
             Vector2 ItemPosition = new Vector2(600, 200);
-            IItem Item = new Item(ItemPosition); 
+            String ItemType = "Angel"; 
+            IItem Item = new Item(ItemPosition, ItemType); 
             Items.Add(Item);
             CollisionManager.Instance.AddObject((ICollidable)Item);
 
             Vector2 EnemyPosition = new Vector2(400, 200);
-            IEnemy Enemy = new Enemy(EnemyPosition); 
+            String EnemyType = "Moblin";
+            IEnemy Enemy = new Enemy(EnemyPosition, EnemyType); 
             Enemies.Add(Enemy);
             CollisionManager.Instance.AddObject((ICollidable)Enemy);
 

@@ -29,11 +29,125 @@ namespace Project1.ItemComponents
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
             "Boomerang", "MagicalBoomerang", "BlueCandle", "RedCandle", "BlueRing", "RedRing", "SmallKey", "MagicalKey", "Compass", "Stepladder", "Raft", 
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
-        public Item(Vector2 position)
+        public Item(Vector2 position, String type)
         {
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
-            ItemState = new ItemAngelState(this);
+            // TODO: change to jump table 
+            switch (type)
+            {
+                case "Angel":
+                    ItemState = new ItemAngelState(this);
+                    break;
+                case "HeartContainer":
+                    ItemState = new ItemHeartContainerState(this);
+                    break;
+                case "RecoveryHeart":
+                    ItemState = new ItemRecoveryHeartState(this);
+                    break;
+                case "PowerBracelet":
+                    ItemState = new ItemPowerBraceletState(this);
+                    break;
+                case "LifePotion":
+                    ItemState = new ItemLifePotionState(this);
+                    break;
+                case "SecondLifePotion":
+                    ItemState = new ItemSecondLifePotionState(this);
+                    break;
+                case "BookOfMagic":
+                    ItemState = new ItemBookOfMagicState(this);
+                    break;
+                case "Food":
+                    ItemState = new ItemFoodState(this);
+                    break;
+                case "TriforceFragment":
+                    ItemState = new ItemTriforceFragmentState(this);
+                    break;
+                case "WoodenSword":
+                    ItemState = new ItemWoodenSwordState(this);
+                    break;
+                case "WhiteSword":
+                    ItemState = new ItemWhiteSwordState(this);
+                    break;
+                case "MagicalSword":
+                    ItemState = new ItemMagicalSwordState(this);
+                    break;
+                case "MagicalRod":
+                    ItemState = new ItemMagicalRodState(this);
+                    break;
+                case "MagicalSheild":
+                    ItemState = new ItemMagicalSheildState(this);
+                    break;
+                case "Bow":
+                    ItemState = new ItemBowState(this);
+                    break;
+                case "Bomb":
+                    ItemState = new ItemBombState(this);
+                    break;
+                case "Arrow":
+                    ItemState = new ItemArrowState(this);
+                    break;
+                case "SilverArrow":
+                    ItemState = new ItemSilverArrowState(this);
+                    break;
+                case "Boomerang":
+                    ItemState = new ItemBoomerangState(this);
+                    break;
+                case "MagicalBoomerang":
+                    ItemState = new ItemMagicalBoomerangState(this);
+                    break;
+                case "BlueCandle":
+                    ItemState = new ItemBlueCandleState(this);
+                    break;
+                case "RedCandle":
+                    ItemState = new ItemRedCandleState(this);
+                    break;
+                case "BlueRing":
+                    ItemState = new ItemBlueRingState(this);
+                    break;
+                case "RedRing":
+                    ItemState = new ItemRedRingState(this);
+                    break;
+                case "SmallKey":
+                    ItemState = new ItemSmallKeyState(this);
+                    break;
+                case "MagicalKey":
+                    ItemState = new ItemMagicalKeyState(this);
+                    break;
+                case "Compass":
+                    ItemState = new ItemCompassState(this);
+                    break;
+                case "Stepladder":
+                    ItemState = new ItemStepladderState(this);
+                    break;
+                case "Raft":
+                    ItemState = new ItemRaftState(this);
+                    break;
+                case "Recorder":
+                    ItemState = new ItemRecorderState(this);
+                    break;
+                case "OrangeRupee":
+                    ItemState = new ItemOrangeRupeeState(this);
+                    break;
+                case "BlueRupee":
+                    ItemState = new ItemBlueRupeeState(this);
+                    break;
+                case "Letter":
+                    ItemState = new ItemLetterState(this);
+                    break;
+                case "DungeonMap":
+                    ItemState = new ItemDungeonMapState(this);
+                    break;
+                case "Clock":
+                    ItemState = new ItemClockState(this);
+                    break;
+                case "Fire":
+                    ItemState = new ItemFireState(this);
+                    break;
+                default:
+                    ItemState = new ItemAngelState(this);
+                    break;
+            }
             InitialPosition = position; 
             Position = InitialPosition;
             Size = 80; 
