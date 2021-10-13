@@ -27,10 +27,10 @@ namespace Project1.BlockComponents
 
         private string[] BlockTypeKeys = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
 
-        public Block()
+        public Block(Vector2 position)
         {
             BlockState = new BlockBaseState(this);
-            Position = new Vector2(150, 100);
+            Position = position; 
             Size = 40; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);
             IsMoving = false;

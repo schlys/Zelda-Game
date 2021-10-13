@@ -52,19 +52,23 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
-            ILink Link = new Link(); 
+            Vector2 LinkPosition = new Vector2(40, 40);
+            ILink Link = new Link(LinkPosition); 
             Links.Add(Link);
             CollisionManager.Instance.AddObject((ICollidable)Link);
 
-            IBlock Block = new Block(); 
+            Vector2 BlockPosition = new Vector2(150, 100);
+            IBlock Block = new Block(BlockPosition); 
             Blocks.Add(Block);
             CollisionManager.Instance.AddObject((ICollidable)Block);
 
-            IItem Item = new Item(); 
+            Vector2 ItemPosition = new Vector2(600, 200);
+            IItem Item = new Item(ItemPosition); 
             Items.Add(Item);
             CollisionManager.Instance.AddObject((ICollidable)Item);
 
-            IEnemy Enemy = new Enemy(); 
+            Vector2 EnemyPosition = new Vector2(400, 200);
+            IEnemy Enemy = new Enemy(EnemyPosition); 
             Enemies.Add(Enemy);
             CollisionManager.Instance.AddObject((ICollidable)Enemy);
 

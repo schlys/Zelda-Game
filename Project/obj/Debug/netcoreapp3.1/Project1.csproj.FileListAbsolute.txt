@@ -81,3 +81,496 @@ C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.csp
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+<<<<<<< HEAD
+=======
+C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\XMLFile1.xml
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Andy\OneDrive\College\Ohio-State\Fall 2021\CSE 3902\Sprint2\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\chaew\source\repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\Andy\Desktop\New folder\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Andy\Desktop\New folder (2)\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room10.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room11.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room12.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room13.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room14.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room15.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room16.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room17.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room18.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room4.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room5.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
+C:\Users\Andy\Desktop\New folder (2)\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLSprite.xml
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room10.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room11.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room12.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room13.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room14.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room15.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room16.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room17.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room18.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room4.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room5.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\chaew\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room10.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room11.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room12.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room13.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room14.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room15.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room16.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room17.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room18.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room4.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room5.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room10.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room11.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room12.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room13.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room14.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room15.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room16.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room17.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room18.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room4.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room5.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSprite.xml
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSprite.xml
+C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLCollisions.xml
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLCollisions.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Blocks.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Aquamentus.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Gel.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Goriya.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Keese.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\DungeonEnemies\Stalfos.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\ItemsAndWeapons.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\Items.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\NPCs\OldManWoman.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Armos.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Ghini.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Leever.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Lynel.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\MoblinAndMolblin.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Octorok.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Peahat.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Rock.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Tektite.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\OverworldEnemies\Zora.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room10.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room11.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room12.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room13.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room14.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room15.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room16.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room17.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room18.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room4.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room5.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room6.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLCollisions.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSprite.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.exe
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.deps.json
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.json
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.runtimeconfig.dev.json
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct2D1.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D11.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Direct3D9.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.DXGI.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.Mathematics.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.MediaFoundation.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XAudio2.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\SharpDX.XInput.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\fedora-x64\native\libuv.so
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\opensuse-x64\native\libuv.so
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libuv.dylib
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\rhel-x64\native\libuv.so
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfoInputs.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.AssemblyInfo.cs
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CoreCompileInputs.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
+>>>>>>> e78fdb42fbd03a8901bf3f822d361e23af842a19

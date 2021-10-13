@@ -15,6 +15,7 @@ namespace Project1.LinkComponents
         ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
         LinkHealth Health { get; set; }
+        Vector2 Position { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();

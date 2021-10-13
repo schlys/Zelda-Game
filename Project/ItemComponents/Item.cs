@@ -28,12 +28,12 @@ namespace Project1.ItemComponents
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
             "Boomerang", "MagicalBoomerang", "BlueCandle", "RedCandle", "BlueRing", "RedRing", "SmallKey", "MagicalKey", "Compass", "Stepladder", "Raft", 
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
-        public Item()
+        public Item(Vector2 position)
         {
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
             ItemState = new ItemAngelState(this);
-            InitialPosition = new Vector2(600, 200); 
+            InitialPosition = position; 
             Position = InitialPosition;
             Size = 80; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
