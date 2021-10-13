@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteFactoryComponents;
 using Microsoft.Xna.Framework.Graphics;
-
+using Project1.LinkComponents;
+using Project1.BlockComponents;
+using Project1.ItemComponents;
+using Project1.EnemyComponents;
 
 namespace Project1.LevelFactory
 {
@@ -15,14 +18,16 @@ namespace Project1.LevelFactory
         public IRoom DownRoom { get; set; }
         public IRoom LeftRoom { get; set; }
         public IRoom RightRoom { get; set; }
+        public List<ILink> Links { get; set; }
+        public List<IBlock> Blocks { get; set; }
+        public List<IItem> Items { get; set; }
+        public List<IEnemy> Enemies { get; set; }
         public Color Color { get; set; }
         public Texture2D Texture { get; set; }
 
         public IRoomState RoomState { get; set; }
 
-  
-
-        //these variables will be deleted once room constructor has been implemented prooperly 
+        //these variables will be deleted once room constructor has been implemented properly 
         public Texture2D Texturetemp;
         public String Up;
         public String Down;
@@ -30,6 +35,7 @@ namespace Project1.LevelFactory
         public String Right;
         public String RoomName;
         public Color Colortemp = Color.White;
+        // NOTE: this not needed? the room has the texture of the background, what does this hold?  
         public int[,] textureMatrix = new int[12, 7];
 
         public Room(Texture2D texture2D, string up, string down, string left, string right, int[,] textureMatrix)
