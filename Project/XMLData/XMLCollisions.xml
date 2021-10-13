@@ -137,7 +137,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkBombProjectileUp</name>
+		<name>LinkBombProjectileTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -164,7 +164,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyArrowProjectileUp</name>
+		<name>EnemyArrowProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -185,7 +185,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyBombProjectileUp</name>
+		<name>EnemyBombProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -206,7 +206,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyBoomerangProjectileUp</name>
+		<name>EnemyBoomerangProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -227,7 +227,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyFireProjectileUp</name>
+		<name>EnemyFireProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -248,7 +248,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMagicalBoomerangProjectileUp</name>
+		<name>EnemyMagicalBoomerangProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -269,7 +269,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemySilverArrowProjectileUp</name>
+		<name>EnemySilverArrowProjectileTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -280,12 +280,12 @@
 	</Collision>
 
 	<Collision>
-		<name>EnemyWoodenSwordAttackUp</name>
+		<name>EnemyWoodenSwordAttackTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyWoodenSwordAttackDown</name>
+		<name>EnemyWoodenSwordAttackBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>

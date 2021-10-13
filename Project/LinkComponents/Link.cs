@@ -122,7 +122,7 @@ namespace Project1.LinkComponents
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
-                LinkSprite.MaxDelay = 1;
+                LinkSprite.MaxDelay = 2;
                 GameObjectManager.Instance.AddProjectile(new LinkWeapon(LinkWeaponState.ID, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
             }
         }

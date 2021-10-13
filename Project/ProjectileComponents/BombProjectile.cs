@@ -75,7 +75,7 @@ namespace Project1.ProjectileComponents
             OriginalPosition = Position; 
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
-            IsMoving = true;
+            IsMoving = false;
         
         }
         public void Draw(SpriteBatch spriteBatch)
