@@ -28,7 +28,9 @@ namespace Project1.LevelComponents
         public IRoomState RoomState { get; set; }
         public Texture2D Texture2D { get; }
 
-       
+        private Color Color = Color.White;
+        private int Height = 400;
+        private int Width = 500; 
 
         //these variables will be deleted once room constructor has been implemented properly 
         public Texture2D Texturetemp;
@@ -55,8 +57,6 @@ namespace Project1.LevelComponents
             Enemies = new List<IEnemy>(); 
             Texture = texture; 
         }
-
-
         public Room(Texture2D texture2D, string up, string down, string left, string right, int[,] textureMatrix)
         {
             Texture2D = texture2D;
@@ -66,7 +66,6 @@ namespace Project1.LevelComponents
             Right = right;
             this.textureMatrix = textureMatrix;
         }
-
         public Room(String name, Texture2D texture, String up, String down, String left, String right, int[, ] matrix)
         {
             RoomName = name;
@@ -106,7 +105,9 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            RoomState.Draw(spriteBatch);
+            //RoomState.Draw(spriteBatch);
+            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+            spriteBatch.Draw(Texture, destinationRectangle, Color);
         }
     }
 }

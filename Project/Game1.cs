@@ -18,7 +18,6 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private GameObjectManager GameObject; 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);

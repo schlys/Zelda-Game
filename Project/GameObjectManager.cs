@@ -171,6 +171,7 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Room.Draw(spriteBatch); 
             // For testing collision hitbox 
             Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { Color.White });
@@ -208,6 +209,7 @@ namespace Project1
 
         public void Reset()
         {
+            Room.Reset(); 
             foreach (ILink link in Links)
             {
                 link.Reset();
