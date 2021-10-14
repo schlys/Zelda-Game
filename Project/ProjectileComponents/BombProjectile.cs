@@ -74,14 +74,14 @@ namespace Project1.ProjectileComponents
             }
             OriginalPosition = Position; 
 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            //Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = false;
         
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                if (counter < 100)
+                if (counter < 120)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, Size);
@@ -99,15 +99,20 @@ namespace Project1.ProjectileComponents
                 {
                     counter++;
                 }
-                else
+                else if (counter < 90)
                 {
                     Sprite.Update();
+                }
+                else
+                {
+                    //Sprite.Update();
+                    Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
                 }
 
             // Update Hitbox for collisions 
             // TODO: change it to response when bomb exploded
 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            //Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
         }
     }
 }

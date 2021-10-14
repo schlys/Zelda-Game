@@ -127,7 +127,7 @@ namespace Project1.EnemyComponents
         {
             ResetPosition();
             EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
-            Health = new EnemyHealth(3, 3);                  // default health is 3 of 3 hearts 
+            Health = new EnemyHealth(3, 30);                  // default health is 3 of 3 hearts 
             IsDead = false;
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
