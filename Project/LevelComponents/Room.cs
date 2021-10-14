@@ -15,10 +15,10 @@ namespace Project1.LevelComponents
     {
         public String ID { get; set; }
         public Vector2 Position { get; set; }
-        public IRoom UpRoom { get; set; }
-        public IRoom DownRoom { get; set; }
-        public IRoom LeftRoom { get; set; }
-        public IRoom RightRoom { get; set; }
+        public String UpRoom { get; set; }
+        public String DownRoom { get; set; }
+        public String LeftRoom { get; set; }
+        public String RightRoom { get; set; }
         public List<ILink> Links { get; set; }
         public List<IBlock> Blocks { get; set; }
         public List<IItem> Items { get; set; }
@@ -41,14 +41,14 @@ namespace Project1.LevelComponents
         // NOTE: this not needed? the room has the texture of the background, what does this hold?  
         public int[,] textureMatrix = new int[12, 7];
 
-        public Room(String id, Vector2 position, Texture2D texture)
+        public Room(String id, Vector2 position, String up, String down, String left, String right, Texture2D texture)
         {
             ID = id;
             Position = position; 
-            //UpRoom = new NullRoom();
-            //DownRoom = new NullRoom();
-            //LeftRoom = new NullRoom();
-            //RightRoom = new NullRoom();
+            UpRoom = up;
+            DownRoom = down;
+            LeftRoom = left;
+            RightRoom = right;
             Links = new List<ILink>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
@@ -98,8 +98,6 @@ namespace Project1.LevelComponents
         {
 
         }
-
-
 
         public void Reset()
         {

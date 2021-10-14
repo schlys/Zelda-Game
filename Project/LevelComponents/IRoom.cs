@@ -16,10 +16,10 @@ namespace Project1.LevelComponents
     {
         String ID { get; set; } // OR name? 
         Vector2 Position { get; set; }
-        IRoom UpRoom { get; set; }
-        IRoom DownRoom { get; set; }
-        IRoom LeftRoom { get; set; }
-        IRoom RightRoom { get; set; }
+        String UpRoom { get; set; }
+        String DownRoom { get; set; }
+        String LeftRoom { get; set; }
+        String RightRoom { get; set; }
         List<ILink> Links { get; set; }
         List<IBlock> Blocks { get; set; }
         List<IItem> Items { get; set; }

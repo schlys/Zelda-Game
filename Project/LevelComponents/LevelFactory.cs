@@ -86,7 +86,7 @@ namespace Project1.LevelComponents
                 String right = node.SelectSingleNode("right").InnerText;
 
                 Texture2D Texture = GetTexture(sheet); 
-                IRoom Room = new Room(name, RoomPosition, TextureDict[sheet]); 
+                IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]); 
 
                 XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/objects/data");
                 foreach (XmlNode node1 in objectsData)
@@ -150,20 +150,32 @@ namespace Project1.LevelComponents
         }
         public void MoveUp()
         {
-            // TODO: do not switch rooms if no room to go to. create a null room and check for it 
-            CurrentRoom = CurrentRoom.UpRoom; 
+            // TODO: check if room found in dictionary 
+            if(!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
+            {
+                CurrentRoom = LevelDict[CurrentRoom.UpRoom];
+            }
         }
         public void MoveDown()
         {
-            CurrentRoom = CurrentRoom.DownRoom;
+            if (!CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
+            {
+                CurrentRoom = LevelDict[CurrentRoom.DownRoom];
+            }
         }
         public void MoveLeft()
         {
-            CurrentRoom = CurrentRoom.LeftRoom;
+            if (!CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
+            {
+                CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+            }
         }
         public void MoveRight()
         {
-            CurrentRoom = CurrentRoom.RightRoom;
+            if (!CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
+            {
+                CurrentRoom = LevelDict[CurrentRoom.RightRoom];
+            }
         }
     }
 }
