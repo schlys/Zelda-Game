@@ -50,11 +50,11 @@ namespace Project1.CollisionComponents
                 string command1 = node.SelectSingleNode("command1").InnerText;
                 string command2 = node.SelectSingleNode("command2").InnerText;
 
-                // Get the type of commands to execute
+                // Get the constructor for the type 
                 Type command1Type = assem.GetType("Project1.Command." + command1);
                 Type command2Type = assem.GetType("Project1.Command." + command2);
 
-                // Get the constructors fo the commands
+                // Get the constructors for the commands
                 ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(ICollidable), typeof(string) });
                 ConstructorInfo constructor2 = command2Type.GetConstructor(new[] { typeof(ICollidable), typeof(string) });
 

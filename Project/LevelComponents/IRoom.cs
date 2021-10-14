@@ -15,6 +15,7 @@ namespace Project1.LevelComponents
     public interface IRoom
     {
         String ID { get; set; } // OR name? 
+        Vector2 Position { get; set; }
         IRoom UpRoom { get; set; }
         IRoom DownRoom { get; set; }
         IRoom LeftRoom { get; set; }
@@ -23,8 +24,12 @@ namespace Project1.LevelComponents
         List<IBlock> Blocks { get; set; }
         List<IItem> Items { get; set; }
         List<IEnemy> Enemies { get; set; }
-        Color Color { get; set; }
         Texture2D Texture { get; set; }
+
+        void AddLink(ILink link);
+        void AddBlock(IBlock block);
+        void AddItem(IItem item);
+        void AddEnemy(IEnemy enemy);
 
         void Reset();
         void Draw(SpriteBatch spriteBatch); 

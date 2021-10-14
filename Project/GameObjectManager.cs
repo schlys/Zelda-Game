@@ -10,6 +10,7 @@ using Project1.ProjectileComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
 using Microsoft.Xna.Framework;
+using Project1.LevelComponents; 
 
 namespace Project1
 {
@@ -31,6 +32,7 @@ namespace Project1
         public List<IEnemy> Enemies;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
+        private IRoom Room; 
 
         Game1 Game; 
 
@@ -42,8 +44,7 @@ namespace Project1
             Enemies = new List<IEnemy>();
             Controllers = new List<IController>();
             Projectiles = new List<IProjectile>();
-
-        
+            
             Game = game;
 
             IController KeyboardController = new KeyboardController(Game);
@@ -52,6 +53,30 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
+            Room = LevelFactory.Instance.CurrentRoom;
+            Links = Room.Links;
+            Items = Room.Items;
+            Blocks = Room.Blocks;
+            Enemies = Room.Enemies;
+
+            foreach (ILink link in Links)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)link);
+            }
+            foreach (IBlock block in Blocks)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)block);
+            }
+            foreach (IItem item in Items)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)item);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)enemy);
+            }
+
+            /*
             Vector2 LinkPosition = new Vector2(40, 40);
             ILink Link = new Link(LinkPosition); 
             Links.Add(Link);
@@ -74,7 +99,7 @@ namespace Project1
             IEnemy Enemy = new Enemy(EnemyPosition, EnemyType); 
             Enemies.Add(Enemy);
             CollisionManager.Instance.AddObject((ICollidable)Enemy);
-
+            */
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
             foreach(ILink link in Links) 
@@ -101,10 +126,17 @@ namespace Project1
 
         public void Update()
         {
+            Room = LevelFactory.Instance.CurrentRoom;
+            Links = Room.Links;
+            Items = Room.Items;
+            Blocks = Room.Blocks;
+            Enemies = Room.Enemies; 
+
             foreach (IController controller in Controllers)
             {
                 controller.Update();
             }
+
             foreach (ILink link in Links)
             {
                 link.Update();             

@@ -11,9 +11,10 @@ using Project1.EnemyComponents;
 
 namespace Project1.LevelComponents
 {
-    public class Room
+    public class Room : IRoom 
     {
         public String ID { get; set; }
+        public Vector2 Position { get; set; }
         public IRoom UpRoom { get; set; }
         public IRoom DownRoom { get; set; }
         public IRoom LeftRoom { get; set; }
@@ -22,10 +23,12 @@ namespace Project1.LevelComponents
         public List<IBlock> Blocks { get; set; }
         public List<IItem> Items { get; set; }
         public List<IEnemy> Enemies { get; set; }
-        public Color Color { get; set; }
         public Texture2D Texture { get; set; }
 
         public IRoomState RoomState { get; set; }
+        public Texture2D Texture2D { get; }
+
+       
 
         //these variables will be deleted once room constructor has been implemented properly 
         public Texture2D Texturetemp;
@@ -37,6 +40,22 @@ namespace Project1.LevelComponents
         public Color Colortemp = Color.White;
         // NOTE: this not needed? the room has the texture of the background, what does this hold?  
         public int[,] textureMatrix = new int[12, 7];
+
+        public Room(String id, Vector2 position, Texture2D texture)
+        {
+            ID = id;
+            Position = position; 
+            //UpRoom = new NullRoom();
+            //DownRoom = new NullRoom();
+            //LeftRoom = new NullRoom();
+            //RightRoom = new NullRoom();
+            Links = new List<ILink>();
+            Blocks = new List<IBlock>();
+            Items = new List<IItem>();
+            Enemies = new List<IEnemy>(); 
+            Texture = texture; 
+        }
+
 
         public Room(Texture2D texture2D, string up, string down, string left, string right, int[,] textureMatrix)
         {
@@ -59,8 +78,22 @@ namespace Project1.LevelComponents
             textureMatrix = matrix;
         }
 
-        public Texture2D Texture2D { get; }
-
+        public void AddLink(ILink link)
+        {
+            Links.Add(link); 
+        }
+        public void AddBlock(IBlock block)
+        {
+            Blocks.Add(block);
+        }
+        public void AddItem(IItem item)
+        {
+            Items.Add(item);
+        }
+        public void AddEnemy(IEnemy enemy)
+        {
+            Enemies.Add(enemy);
+        }
         private void setRoomState()
         {
 

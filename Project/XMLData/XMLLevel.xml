@@ -11,11 +11,30 @@
 		<objects>
 			<data>
 				<type>Link</type>
-				<type2>0</type2>
+				<type2></type2>
 				<row>0</row>
 				<column>0</column>
-			</data> 
+			</data>
+			<data>
+				<type>Item</type>
+				<type2>Angel</type2>
+				<row>0</row>
+				<column>2</column>
+			</data>
+			<data>
+				<type>Enemy</type>
+				<type2>Moblin</type2>
+				<row>2</row>
+				<column>0</column>
+			</data>
+			<data>
+				<type>Block</type>
+				<type2>Base</type2>
+				<row>3</row>
+				<column>0</column>
+			</data>
 		</objects>
+		
 		
 		<matrix>
 			<data>
