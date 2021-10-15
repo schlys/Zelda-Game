@@ -50,6 +50,21 @@ namespace Project1.LevelComponents
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
             TextureDict.Add("room2", content.Load<Texture2D>("Rooms/Room2"));
             TextureDict.Add("room3", content.Load<Texture2D>("Rooms/Room3"));
+            TextureDict.Add("room4", content.Load<Texture2D>("Rooms/Room4"));
+            TextureDict.Add("room5", content.Load<Texture2D>("Rooms/Room5"));
+            TextureDict.Add("room6", content.Load<Texture2D>("Rooms/Room6"));
+            TextureDict.Add("room7", content.Load<Texture2D>("Rooms/Room7"));
+            TextureDict.Add("room8", content.Load<Texture2D>("Rooms/Room8"));
+            TextureDict.Add("room9", content.Load<Texture2D>("Rooms/Room9"));
+            TextureDict.Add("room10", content.Load<Texture2D>("Rooms/Room10"));
+            TextureDict.Add("room11", content.Load<Texture2D>("Rooms/Room11"));
+            TextureDict.Add("room12", content.Load<Texture2D>("Rooms/Room12"));
+            TextureDict.Add("room13", content.Load<Texture2D>("Rooms/Room13"));
+            TextureDict.Add("room14", content.Load<Texture2D>("Rooms/Room14"));
+            TextureDict.Add("room15", content.Load<Texture2D>("Rooms/Room15"));
+            TextureDict.Add("room16", content.Load<Texture2D>("Rooms/Room16"));
+            TextureDict.Add("room17", content.Load<Texture2D>("Rooms/Room17"));
+            TextureDict.Add("room18", content.Load<Texture2D>("Rooms/Room18"));
 
             CreateDict();
             CurrentRoom = LevelDict[StartRoom]; 
