@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Levels>
 	<Level>
-		<Rooms>
+		<Room>
 			<name>Room1</name>
 			<sheet>room1</sheet>
 			<up></up>
@@ -35,6 +35,6 @@
 					<column>0</column>
 				</data>
 			</objects>
-		</Rooms>
+		</Room>
 	</Level>
 </Levels>
