@@ -73,7 +73,7 @@ namespace Project1.LevelComponents
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLLevel.xml";
             XMLData.Load(path);
-            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Levels/Level");
+            XmlNodeList Sprites = XMLData.DocumentElement.SelectNodes("/Levels/Level/Rooms");
 
             foreach (XmlNode node in Sprites)
             {
@@ -88,7 +88,7 @@ namespace Project1.LevelComponents
                 Texture2D Texture = GetTexture(sheet); 
                 IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]); 
 
-                XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/objects/data");
+                XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/Rooms/objects/data");
                 foreach (XmlNode node1 in objectsData)
                 {
                     String type = node1.SelectSingleNode("type").InnerText;
