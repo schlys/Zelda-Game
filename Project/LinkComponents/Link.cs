@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
+using Project1.LevelComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -56,7 +57,10 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
-                Position += new Vector2(0, Step);
+                if (CanMoveWithinRoomBounds("Down", Step))
+                {
+                    Position += new Vector2(0, Step);
+                }
             }
         }
 
@@ -72,7 +76,10 @@ namespace Project1.LinkComponents
                     UpdateSprite();
 
                 }
-                Position -=  new Vector2(Step, 0);
+                if (CanMoveWithinRoomBounds("Left", Step))
+                {
+                    Position -= new Vector2(Step, 0);
+                }
             }
         }
 
@@ -87,7 +94,10 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
-                Position += new Vector2(Step, 0);
+                if (CanMoveWithinRoomBounds("Right", Step))
+                {
+                    Position += new Vector2(Step, 0);
+                }
             }
         }
 
@@ -102,7 +112,10 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-                Position -= new Vector2(0, Step);
+                if(CanMoveWithinRoomBounds("Up", Step))
+                {
+                    Position -= new Vector2(0, Step);
+                }
             }
         }
 
@@ -110,9 +123,47 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame)
             {
-              
                 LinkSprite.TotalFrames = 1;
             } 
+        }
+
+        private bool CanMoveWithinRoomBounds(String direction, int step)
+        {
+            // NOTE: Return true iff designated movement within room bounds 
+            Rectangle Bounds = LevelFactory.Instance.GetPlayableRoomBounds();
+            Vector2 NewPosition; 
+            switch (direction)
+            {
+                case "Up":
+                    NewPosition = Position - new Vector2(0, Step);
+                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
+                    {
+                        return true; 
+                    }
+                    break;
+                case "Down":
+                    NewPosition = Position + new Vector2(0, Step + LinkSize);
+                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
+                    {
+                        return true;
+                    }
+                    break;
+                case "Right":
+                    NewPosition = Position + new Vector2(Step + LinkSize, 0);
+                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
+                    {
+                        return true;
+                    }
+                    break;
+                case "Left":
+                    NewPosition = Position - new Vector2(Step, 0);
+                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
+                    {
+                        return true;
+                    }
+                    break;
+            }
+            return false; 
         }
 
         public void Attack()

@@ -37,7 +37,7 @@ namespace Project1.LevelComponents
         // NOTE: belong in room? 
         private static Vector2 RoomPosition = new Vector2(50, 50);
         private static int RoomBorderSize = 30;
-        private static int RoomBlockSize = 100;
+        private static int RoomBlockSize = 30;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
@@ -191,6 +191,12 @@ namespace Project1.LevelComponents
             {
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
             }
+        }
+        public Rectangle GetPlayableRoomBounds()
+        {
+            // Return the playable space within the room 
+            return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize), 
+                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows); 
         }
     }
 }
