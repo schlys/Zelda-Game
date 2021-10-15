@@ -28,7 +28,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
-        private static String StartRoom = "Room1"; 
+        private static String StartRoom = "Room2"; 
 
         private static Dictionary<String, IRoom> LevelDict;
         private static Dictionary<String, Texture2D> TextureDict;

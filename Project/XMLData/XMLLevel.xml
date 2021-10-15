@@ -8,7 +8,6 @@
 			<down></down>
 			<left></left>
 			<right>room2</right>
-
 			<objects>
 				<data>
 					<type>Link</type>
@@ -36,5 +35,210 @@
 				</data>
 			</objects>
 		</Room>
+
+		<Room>
+			<name>Room2</name>
+			<sheet>room2</sheet>
+			<up>room4</up>
+			<down></down>
+			<left>room1</left>
+			<right>room3</right>
+			<objects>
+				
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room3</name>
+			<sheet>room3</sheet>
+			<up></up>
+			<down></down>
+			<left>room2</left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room4</name>
+			<sheet>room4</sheet>
+			<up>room6</up>
+			<down>room2</down>
+			<left></left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room5</name>
+			<sheet>room5</sheet>
+			<up>room9</up>
+			<down></down>
+			<left></left>
+			<right>room6</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room6</name>
+			<sheet>room6</sheet>
+			<up>room10</up>
+			<down>room4</down>
+			<left>room5</left>
+			<right>room7</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room7</name>
+			<sheet>room7</sheet>
+			<up>room11</up>
+			<down></down>
+			<left>room6</left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room8</name>
+			<sheet>room8</sheet>
+			<up></up>
+			<down></down>
+			<left></left>
+			<right>room9</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room9</name>
+			<sheet>room9</sheet>
+			<up></up>
+			<down>room5</down>
+			<left>room8</left>
+			<right>room10</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room10</name>
+			<sheet>room10</sheet>
+			<up>room13</up>
+			<down>room6</down>
+			<left>room9</left>
+			<right>room11</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room11</name>
+			<sheet>room11</sheet>
+			<up></up>
+			<down>room7</down>
+			<left>room10</left>
+			<right>room12</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room12</name>
+			<sheet>room12</sheet>
+			<up>room14</up>
+			<down></down>
+			<left>room11</left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room13</name>
+			<sheet>room13</sheet>
+			<up>room18</up>
+			<down>room10</down>
+			<left></left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room14</name>
+			<sheet>room14</sheet>
+			<up></up>
+			<down>room12</down>
+			<left></left>
+			<right>room15</right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room15</name>
+			<sheet>room15</sheet>
+			<up></up>
+			<down></down>
+			<left>room14</left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room16</name>
+			<sheet>room16</sheet>
+			<up>room17</up>
+			<down></down>
+			<left></left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room17</name>
+			<sheet>room17</sheet>
+			<up></up>
+			<down>room16</down>
+			<left></left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room18</name>
+			<sheet>room18</sheet>
+			<up></up>
+			<down>room13</down>
+			<left>room17</left>
+			<right></right>
+			<objects>
+
+			</objects>
+		</Room>
+		
 	</Level>
 </Levels>
