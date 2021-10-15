@@ -6,6 +6,7 @@ using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;
 using Project1.CollisionComponents;
+using Project1.LevelComponents; 
 
 namespace Project1.EnemyComponents 
 {
@@ -17,12 +18,12 @@ namespace Project1.EnemyComponents
         public string ID { get; set; }
         public int Size { get; set; }
 
-        private bool isAttacking;
-        private int step;
-        private int movementTimer=0;
-        private int poofTimer = 0;
-        private Random r = new Random();
-        private int randomInt;
+        private bool IsAttacking;
+        private int Step;
+        private int MovementTimer=0;
+        private int PoofTimer = 0;
+        private Random R = new Random();
+        private int RandomInt;
 
         public EnemyStateMoblin(IEnemy enemy)
         {
@@ -30,15 +31,15 @@ namespace Project1.EnemyComponents
             ID = "Moblin";
             DirectionState = new DirectionStateRight();
             UpdateSprite();
-            randomInt = r.Next(0, 5);
-            step = 1;
-            isAttacking = false;
+            RandomInt = R.Next(0, 5);
+            Step = 1;
+            IsAttacking = false;
             Size = 100; 
         }
 
         private void MoveUp()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
                 {
@@ -46,12 +47,16 @@ namespace Project1.EnemyComponents
                     
                     UpdateSprite();
                 }
-                Enemy.Position += new Vector2(0, -step);
+                Vector2 location = Enemy.Position - new Vector2(0, Step);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(0, -Step);
+                }
             }
         }
         private void MoveDown()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
                 {
@@ -59,12 +64,17 @@ namespace Project1.EnemyComponents
                     
                     UpdateSprite();
                 }
-                Enemy.Position += new Vector2(0, step);
+                // NOTE: Account for sprite size 
+                Vector2 location = Enemy.Position + new Vector2(0, Step + Size);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(0, Step);
+                }
             }
         }
         private void MoveRight()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
                 {
@@ -72,12 +82,17 @@ namespace Project1.EnemyComponents
                     
                     UpdateSprite();
                 }
-                Enemy.Position += new Vector2(step, 0);
+                // NOTE: Account for sprite size 
+                Vector2 location = Enemy.Position + new Vector2(Step + Size, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(Step, 0);
+                }
             }
         }
         private void MoveLeft()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
                 {
@@ -85,7 +100,11 @@ namespace Project1.EnemyComponents
                     
                     UpdateSprite();
                 }
-                Enemy.Position += new Vector2(-step, 0);
+                Vector2 location = Enemy.Position - new Vector2(Step, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(-Step, 0);
+                }
             }
         
         }
@@ -101,9 +120,9 @@ namespace Project1.EnemyComponents
 
         public void Attack(string direction)
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
-                isAttacking = true;
+                IsAttacking = true;
                 Sprite.MaxDelay = 30;
                 GameObjectManager.Instance.AddProjectile(new MoblinProjectile(Enemy.Position, direction));
             }
@@ -118,25 +137,25 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
 
-            movementTimer++;
+            MovementTimer++;
 
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
                 Sprite.Color = Color.White;
-                if (isAttacking)
+                if (IsAttacking)
                 {
-                    isAttacking = false;
+                    IsAttacking = false;
                 }
             }
 
-            if (movementTimer > 90)
+            if (MovementTimer > 90)
             {
                 if(Sprite.CurrentFrame==1) //Moblin shoot the arrow when it stops
                     Attack(DirectionState.ID);
-                randomInt = r.Next(0, 5);
-                movementTimer = 0;
+                RandomInt = R.Next(0, 5);
+                MovementTimer = 0;
             }
-            switch (randomInt)
+            switch (RandomInt)
             {
                 case 0:
                     MoveUp();

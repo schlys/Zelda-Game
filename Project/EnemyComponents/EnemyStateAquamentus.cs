@@ -6,7 +6,8 @@ using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.CollisionComponents; 
+using Project1.CollisionComponents;
+using Project1.LevelComponents;
 
 namespace Project1.EnemyComponents
 {
@@ -17,11 +18,11 @@ namespace Project1.EnemyComponents
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Size { get; set; }
-        private bool isAttacking;
-        private int step = 1;
-        private Random r = new Random();
-        private int timer = 0;
-        private int rand;
+        private bool IsAttacking;
+        private int Step = 1;
+        private Random R = new Random();
+        private int Timer = 0;
+        private int Rand;
 
         public EnemyStateAquamentus(IEnemy enemy)
         {
@@ -29,18 +30,24 @@ namespace Project1.EnemyComponents
             DirectionState = new DirectionStateLeft(); 
             ID = "Aquamentus";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
-            isAttacking = false;
+            IsAttacking = false;
             Size = 100; 
         }
         public void MoveLeft()
         {
-            if (!isAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - 50)
+            if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - 50)
             {
                 Sprite.TotalFrames = 4;
-                Enemy.Position += new Vector2(-step, 0);
                 ((ICollidable)Enemy).IsMoving = true;
-                DirectionState = DirectionState.MoveLeft(); 
-            } else
+                DirectionState = DirectionState.MoveLeft();
+                
+                Vector2 location = Enemy.Position - new Vector2(Step, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(-Step, 0);
+                }
+            }
+            else
             {
                 StopMoving();
             }
@@ -49,12 +56,19 @@ namespace Project1.EnemyComponents
 
         public void MoveRight()
         {
-            if (!isAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + 50)
+            if (!IsAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + 50)
             {
+
                 Sprite.TotalFrames = 4;
-                Enemy.Position += new Vector2(step, 0);
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveRight();
+
+                // NOTE: Account for sprite size 
+                Vector2 location = Enemy.Position + new Vector2(Step + Size, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(Step, 0);
+                }
             }
             else
             {
@@ -68,9 +82,9 @@ namespace Project1.EnemyComponents
         }
         public void Attack()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
-                isAttacking = true;
+                IsAttacking = true;
                 Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
                 Sprite.MaxDelay = 30;
                 GameObjectManager.Instance.AddProjectile(new AquamentusProjectile(Enemy.Position, "Up"));
@@ -87,29 +101,29 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
 
-            timer++;
+            Timer++;
 
-            if (timer > 250)
+            if (Timer > 250)
             {
                 Attack();
-                timer = 0;
+                Timer = 0;
             }
             
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
                 
-                if (isAttacking)
+                if (IsAttacking)
                 {
-                    isAttacking = false;
+                    IsAttacking = false;
                     Sprite = SpriteFactory.Instance.GetSpriteData(ID);
                     Sprite.MaxDelay = Sprite.startDelay;
                 }
             }
-            if (timer % 100 == 0)
+            if (Timer % 100 == 0)
             {
-                rand = r.Next(3);
+                Rand = R.Next(3);
             }
-            switch (rand)
+            switch (Rand)
             {
                 case 0:
                     MoveLeft();

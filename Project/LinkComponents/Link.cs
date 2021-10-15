@@ -91,7 +91,6 @@ namespace Project1.LinkComponents
 
                 }
                 Vector2 location = Position - new Vector2(Step, 0);
-
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(Step, 0);

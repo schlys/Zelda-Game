@@ -6,6 +6,7 @@ using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;
 using Project1.CollisionComponents;
+using Project1.LevelComponents;
 
 namespace Project1.EnemyComponents 
 {
@@ -18,13 +19,13 @@ namespace Project1.EnemyComponents
         public int Size { get; set; }
 
 
-        private bool isAttacking;
-        private int step;
-        private int movementTimer;
-        private Random r = new Random();
-        private int randomInt;
-        private const int randomRange = 4;
-        private int delay=2;
+        private bool IsAttacking;
+        private int Step;
+        private int MovementTimer;
+        private Random R = new Random();
+        private int RandomInt;
+        private const int RandomRange = 4;
+        private int Delay=2;
 
         public EnemyStateGoriya(IEnemy enemy)
         {
@@ -32,15 +33,15 @@ namespace Project1.EnemyComponents
             DirectionState = new DirectionStateUp();
             ID = "Goriya";
             UpdateSprite();
-            isAttacking = false;
-            randomInt = r.Next(randomRange);
-            step = 1;
+            IsAttacking = false;
+            RandomInt = R.Next(RandomRange);
+            Step = 1;
             Size = 100; 
         }
 
         private void MoveUp()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
@@ -48,13 +49,18 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-                if (!isAttacking) Enemy.Position += new Vector2(0, -step);
+               
+                Vector2 location = Enemy.Position - new Vector2(0, Step);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(0, -Step);
+                }
             }
             
         }
         private void MoveDown()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
@@ -62,13 +68,18 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
-                if (!isAttacking) Enemy.Position += new Vector2(0, step);
-            }
-            
+                
+                // NOTE: Account for sprite size 
+                Vector2 location = Enemy.Position + new Vector2(0, Step + Size);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(0, Step);
+                }
+            }           
         }
         private void MoveRight()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
@@ -76,13 +87,18 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
-                if (!isAttacking) Enemy.Position += new Vector2(step, 0);
-            }
-            
+               
+                // NOTE: Account for sprite size 
+                Vector2 location = Enemy.Position + new Vector2(Step + Size, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(Step, 0);
+                }
+            }  
         }
         private void MoveLeft()
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
                 if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
@@ -91,10 +107,13 @@ namespace Project1.EnemyComponents
                     UpdateSprite();
                 }
 
-                if (!isAttacking) Enemy.Position += new Vector2(-step, 0);
-            }
-            
-            
+                
+                Vector2 location = Enemy.Position - new Vector2(Step, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Enemy.Position += new Vector2(-Step, 0);
+                }               
+            }  
         }
         private void StopMoving()
         {
@@ -104,9 +123,9 @@ namespace Project1.EnemyComponents
         private void Attack(string direction)
         {
             ((ICollidable)Enemy).IsMoving = false;
-            if (!isAttacking)
+            if (!IsAttacking)
             {
-                isAttacking = true; 
+                IsAttacking = true; 
                 Sprite.MaxDelay = 10;
                 GameObjectManager.Instance.AddProjectile(new GoriyaProjectile(Enemy.Position, direction));
             }
@@ -118,34 +137,34 @@ namespace Project1.EnemyComponents
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, Size);   
-            
         }
 
         public void Update()
         {
             Sprite.Update();
             
-            
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             { 
-                if (isAttacking && delay==0)
+                if (IsAttacking && Delay==0)
                 {
-                    isAttacking = false;
-                    delay = 2;
+                    IsAttacking = false;
+                    Delay = 2;
                 }
             }
             
-            movementTimer++;
-            if (movementTimer > 90)
+            MovementTimer++;
+            if (MovementTimer > 90)
             {
                 if (Sprite.CurrentFrame == 1) //Goriya shoot the arrow when it stops
-                { Attack(DirectionState.ID);
-                delay--; }
-                randomInt = r.Next(0, 5);
-                movementTimer = 0;
+                { 
+                    Attack(DirectionState.ID);
+                    Delay--; 
+                }
+                RandomInt = R.Next(0, 5);
+                MovementTimer = 0;
             }
 
-            switch (randomInt)
+            switch (RandomInt)
             {
                 case 0:
                     MoveUp();

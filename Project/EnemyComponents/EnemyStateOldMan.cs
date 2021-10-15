@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
+using Project1.LevelComponents;
 
 namespace Project1.EnemyComponents
 {

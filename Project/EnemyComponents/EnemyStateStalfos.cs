@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
+using Project1.LevelComponents;
 
 namespace Project1.EnemyComponents
 {
@@ -17,43 +18,64 @@ namespace Project1.EnemyComponents
         public string ID { get; set; }
         public int Size { get; set; }
 
-        private int step;
-
-        private int movementTimer;
-        private Random r = new Random();
-        private int randomInt;
+        private int Step;
+        private int MovementTimer;
+        private Random R = new Random();
+        private int RandomInt;
         public EnemyStateStalfos(IEnemy enemy)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             ID = "Stalfos";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
-            step = 1;
+            Step = 1;
             Size = 100; 
         }
         private void MoveUp()
         {
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveUp();
-            Enemy.Position += new Vector2(0, -step);
+
+            Vector2 location = Enemy.Position - new Vector2(0, Step);
+            if (LevelFactory.Instance.IsWithinRoomBounds(location))
+            {
+                Enemy.Position += new Vector2(0, -Step);
+            }
         }
         private void MoveDown()
         {
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveDown();
-            Enemy.Position += new Vector2(0, step);
+
+            // NOTE: Account for sprite size 
+            Vector2 location = Enemy.Position + new Vector2(0, Step + Size);
+            if (LevelFactory.Instance.IsWithinRoomBounds(location))
+            {
+                Enemy.Position += new Vector2(0, Step);
+            }
         }
         private void MoveRight()
         {
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveRight();
-            Enemy.Position += new Vector2(step, 0);
+
+            // NOTE: Account for sprite size 
+            Vector2 location = Enemy.Position + new Vector2(Step + Size, 0);
+            if (LevelFactory.Instance.IsWithinRoomBounds(location))
+            {
+                Enemy.Position += new Vector2(Step, 0);
+            }
         }
         private void MoveLeft()
         {
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveLeft();
-            Enemy.Position += new Vector2(-step, 0);
+
+            Vector2 location = Enemy.Position - new Vector2(Step, 0);
+            if (LevelFactory.Instance.IsWithinRoomBounds(location))
+            {
+                Enemy.Position += new Vector2(-Step, 0);
+            }
         }
         private void StopMoving()
         {
@@ -68,15 +90,15 @@ namespace Project1.EnemyComponents
         public void Update()
         {
             Sprite.Update();
-            movementTimer++;
-            if (movementTimer > 90)
+            MovementTimer++;
+            if (MovementTimer > 90)
             {
-                randomInt = r.Next(0, 5);
-                movementTimer = 0;
+                RandomInt = R.Next(0, 5);
+                MovementTimer = 0;
             }
             if (Sprite.TotalFrames == 1)
                 Sprite.TotalFrames = 2;
-            switch (randomInt)
+            switch (RandomInt)
             {
                 case 0:
                     MoveUp();
