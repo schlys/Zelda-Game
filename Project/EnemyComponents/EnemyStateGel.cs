@@ -29,7 +29,7 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             step = 1;
             randomInt = r.Next(0, 9);
-            Size = 40; 
+            Size = 100; 
         }
         private void MoveUp()
         {

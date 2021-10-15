@@ -29,7 +29,7 @@ namespace Project1.EnemyComponents
             ID = "Stalfos";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             step = 1;
-            Size = 80; 
+            Size = 100; 
         }
         private void MoveUp()
         {

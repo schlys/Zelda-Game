@@ -28,7 +28,7 @@ namespace Project1.LinkComponents
         // Other Link Properties 
         private string UseItemName;       // NOTE: should change useitem string to something less hard coded? 
         private Vector2 InitialPosition; 
-        private int LinkSize = 125;
+        private int LinkSize = 100;
         private int Step = 4;
         private bool LockFrame;     // TODO: Belong in sprite draw? 
 

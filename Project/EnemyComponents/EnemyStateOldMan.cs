@@ -23,7 +23,7 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = false;
             ID = "OldMan";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
-            Size = 80; 
+            Size = 100; 
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

@@ -33,7 +33,7 @@ namespace Project1.EnemyComponents
             randomInt = r.Next(0, 5);
             step = 1;
             isAttacking = false;
-            Size = 80; 
+            Size = 100; 
         }
 
         private void MoveUp()

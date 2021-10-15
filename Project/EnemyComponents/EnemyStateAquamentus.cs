@@ -30,7 +30,7 @@ namespace Project1.EnemyComponents
             ID = "Aquamentus";
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             isAttacking = false;
-            Size = 110; 
+            Size = 100; 
         }
         public void MoveLeft()
         {
