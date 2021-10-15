@@ -131,6 +131,7 @@ namespace Project1.EnemyComponents
             IsDead = false;
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+            CollisionManager.Instance.AddObject(this);
         }
         public void ResetPosition()
         {
@@ -150,6 +151,10 @@ namespace Project1.EnemyComponents
                 EnemyState.Update();
                 // Update Hitbox for collisions 
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+            }
+            else
+            {
+                CollisionManager.Instance.RemoveObject(this);
             }
             
         }
