@@ -125,23 +125,45 @@ namespace Project1.LinkComponents
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback = 0)
         {
+            // Given the direction of the collision, move in the oppositie direction if it's within bounds 
             Vector2 newpos = position;
+            Vector2 location; 
             if (knockback > 0)
             {
                 switch (direction)
                 {
-                    case "Top":
-                        newpos.Y += knockback;
+                    case "Top":     // move down 
+                        // NOTE: Account for sprite size 
+                        location = position + new Vector2(0, knockback + LinkSize);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                        {
+                            newpos.Y += knockback;
+                        }
                         break;
-                    case "Bottom":
-                        newpos.Y -= knockback;
+                    case "Bottom":  // move up 
+                        location = position + new Vector2(0, knockback);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                        {
+                            newpos.Y -= knockback;
+                        } 
                         break;
-                    case "Right":
-                        newpos.X -= knockback;
+                    case "Right":   // move left 
+                        location = position + new Vector2(-knockback, 0);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                        {
+                            newpos.X -= knockback;
+                        }
                         break;
-                    case "Left":
-                        newpos.X += knockback;
+                    case "Left":    // move right  
+                        // NOTE: Account for sprite size 
+                        location = position + new Vector2(LinkSize + knockback, 0);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                        {
+                            newpos.X += knockback;
+                        }
                         break;
+                    default:
+                        break; 
                 }
             }
             return newpos;
