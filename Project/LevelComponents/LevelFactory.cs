@@ -198,5 +198,14 @@ namespace Project1.LevelComponents
             return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize), 
                 RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows); 
         }
+
+        public bool IsWithinRoomBounds(Vector2 location)
+        {
+            if(GetPlayableRoomBounds().Contains(location.X, location.Y))
+            {
+                return true; 
+            }
+            return false; 
+        }
     }
 }

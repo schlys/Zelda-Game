@@ -46,18 +46,34 @@ namespace Project1.LinkComponents
             IsMoving = true;
             TypeID = GetType().Name.ToString();
         }
+        public void MoveUp()
+        {
+            if (!LockFrame)
+            {
+                if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
+                {
+                    DirectionState = DirectionState.MoveUp();
+                    UpdateSprite();
+                }
+                Vector2 location = Position - new Vector2(0, Step);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Position -= new Vector2(0, Step);
+                }
+            }
+        }
         public void MoveDown()
         {
             if (!LockFrame)
             {
-              
-
                 if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
-                if (CanMoveWithinRoomBounds("Down", Step))
+                // NOTE: Account for sprite size 
+                Vector2 location = Position + new Vector2(0, Step + LinkSize);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(0, Step);
                 }
@@ -68,15 +84,15 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame )
             {
-               
-
                 if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
                     UpdateSprite();
 
                 }
-                if (CanMoveWithinRoomBounds("Left", Step))
+                Vector2 location = Position - new Vector2(Step, 0);
+
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(Step, 0);
                 }
@@ -87,38 +103,19 @@ namespace Project1.LinkComponents
         {
             if (!LockFrame )
             {
-                
-
                 if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
-                if (CanMoveWithinRoomBounds("Right", Step))
+                // NOTE: Account for sprite size 
+                Vector2 location = Position + new Vector2(Step + LinkSize, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(Step, 0);
                 }
             }
         }
-
-        public void MoveUp()
-        {
-            if (!LockFrame)
-            {
-                
-
-                if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
-                {
-                    DirectionState = DirectionState.MoveUp();
-                    UpdateSprite();
-                }
-                if(CanMoveWithinRoomBounds("Up", Step))
-                {
-                    Position -= new Vector2(0, Step);
-                }
-            }
-        }
-
         public void StopMoving()
         {
             if (!LockFrame)
@@ -127,43 +124,28 @@ namespace Project1.LinkComponents
             } 
         }
 
-        private bool CanMoveWithinRoomBounds(String direction, int step)
+        private Vector2 Knockback(Vector2 position, string direction, int knockback = 0)
         {
-            // NOTE: Return true iff designated movement within room bounds 
-            Rectangle Bounds = LevelFactory.Instance.GetPlayableRoomBounds();
-            Vector2 NewPosition; 
-            switch (direction)
+            Vector2 newpos = position;
+            if (knockback > 0)
             {
-                case "Up":
-                    NewPosition = Position - new Vector2(0, Step);
-                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
-                    {
-                        return true; 
-                    }
-                    break;
-                case "Down":
-                    NewPosition = Position + new Vector2(0, Step + LinkSize);
-                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
-                    {
-                        return true;
-                    }
-                    break;
-                case "Right":
-                    NewPosition = Position + new Vector2(Step + LinkSize, 0);
-                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
-                    {
-                        return true;
-                    }
-                    break;
-                case "Left":
-                    NewPosition = Position - new Vector2(Step, 0);
-                    if (Bounds.Contains(NewPosition.X, NewPosition.Y))
-                    {
-                        return true;
-                    }
-                    break;
+                switch (direction)
+                {
+                    case "Top":
+                        newpos.Y += knockback;
+                        break;
+                    case "Bottom":
+                        newpos.Y -= knockback;
+                        break;
+                    case "Right":
+                        newpos.X -= knockback;
+                        break;
+                    case "Left":
+                        newpos.X += knockback;
+                        break;
+                }
             }
-            return false; 
+            return newpos;
         }
 
         public void Attack()
@@ -202,12 +184,12 @@ namespace Project1.LinkComponents
             // TODO: determine value to decrease by  
             Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
-            Position = Health.Knockback(Position, direction, knockback);
+            Position = Knockback(Position, direction, knockback);
         }
         public void BlockToGo(string direction)
         {
             StopMoving();
-            Position = Health.Knockback(Position, direction, Step);
+            Position = Knockback(Position, direction, Step);
         }
         public void UseMagicalRod()
         {

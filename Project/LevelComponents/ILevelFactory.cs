@@ -19,7 +19,8 @@ namespace Project1.LevelComponents
         void MoveDown();
         void MoveLeft();
         void MoveRight();
+        Rectangle GetPlayableRoomBounds();
+        bool IsWithinRoomBounds(Vector2 location);
 
-        Rectangle GetPlayableRoomBounds(); 
     }
 }
