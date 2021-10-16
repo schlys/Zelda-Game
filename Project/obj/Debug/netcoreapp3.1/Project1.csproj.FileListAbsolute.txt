@@ -343,3 +343,4 @@ C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
