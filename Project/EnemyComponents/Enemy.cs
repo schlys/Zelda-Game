@@ -58,7 +58,7 @@ namespace Project1.EnemyComponents
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             IsMoving = true;
-            TypeID = this.GetType().Name.ToString();
+            TypeID = this.GetType().Name.ToString()+type;
         }
 
         public void TakeDamage()
