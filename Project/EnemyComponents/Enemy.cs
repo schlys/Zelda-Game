@@ -128,7 +128,9 @@ namespace Project1.EnemyComponents
             ResetPosition();
             //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
             Health = new EnemyHealth(3, 30);                  // default health is 3 of 3 hearts 
+            IsMoving = true;
             IsDead = false;
+            EnemyState.Sprite.Color = Color.White;
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             CollisionManager.Instance.AddObject(this);
@@ -148,6 +150,7 @@ namespace Project1.EnemyComponents
         {
             if (!IsDead)
             {
+                IsMoving = true;
                 EnemyState.Update();
                 // Update Hitbox for collisions 
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
