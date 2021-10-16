@@ -22,22 +22,43 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemTop</name>
+		<name>LinkItemClockTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBottom</name>
+		<name>LinkItemClockBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRight</name>
+		<name>LinkItemClockRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemLeft</name>
+		<name>LinkItemClockLeft</name>
+		<command1>NoCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>LinkItemMagicalKeyTop</name>
+		<command1>NoCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalKeyBottom</name>
+		<command1>NoCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalKeyRight</name>
+		<command1>NoCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalKeyLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>

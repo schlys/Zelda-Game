@@ -24,6 +24,7 @@ namespace Project1.ItemComponents
         private double Counter = 0.0;
         private double Step = 0.1;
         private bool IsPicked = false;
+        private ICollidable PickedupItem;
 
         private string[] ItemTypeKeys = { "Angel", "HeartContainer", "RecoveryHeart", "PowerBracelet", "LifePotion", "SecondLifePotion", "BookOfMagic", "Food", 
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
@@ -152,7 +153,7 @@ namespace Project1.ItemComponents
             Position = InitialPosition;
             Size = 80; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
-            TypeID = this.GetType().Name.ToString();
+            TypeID = this.GetType().Name.ToString()+type;
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
@@ -304,17 +305,18 @@ namespace Project1.ItemComponents
 
         public void RemoveItem()
         {
-            IsPicked = true;
-            CollisionManager.Instance.RemoveObject(this);
+            IsPicked = true;            
         }
 
         public void Reset()
         {
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
+            IsPicked = false;
             ResetPosition();
             // Update HitBox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            CollisionManager.Instance.AddObject(this);
         }
 
         public void ResetPosition()
@@ -336,6 +338,10 @@ namespace Project1.ItemComponents
                 ItemState.Update();
                 // Update HitBox for collisions 
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            }
+            else
+            {
+                CollisionManager.Instance.RemoveObject(this);
             }
             
         }
