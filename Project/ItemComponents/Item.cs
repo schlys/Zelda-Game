@@ -24,7 +24,6 @@ namespace Project1.ItemComponents
         private double Counter = 0.0;
         private double Step = 0.1;
         private bool IsPicked = false;
-        private ICollidable PickedupItem;
 
         private string[] ItemTypeKeys = { "Angel", "HeartContainer", "RecoveryHeart", "PowerBracelet", "LifePotion", "SecondLifePotion", "BookOfMagic", "Food", 
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
@@ -325,13 +324,13 @@ namespace Project1.ItemComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(IsPicked==false)
+            if(!IsPicked)
                 ItemState.Draw(spriteBatch);
         }
 
         public void Update()
         {
-            if (IsPicked == false)
+            if (!IsPicked)
             {
                 // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
                 IsMoving = false;

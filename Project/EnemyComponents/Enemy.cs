@@ -126,7 +126,7 @@ namespace Project1.EnemyComponents
         public void Reset()
         {
             ResetPosition();
-            EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin 
+            //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
             Health = new EnemyHealth(3, 30);                  // default health is 3 of 3 hearts 
             IsDead = false;
             // Update Hitbox for collisions 
