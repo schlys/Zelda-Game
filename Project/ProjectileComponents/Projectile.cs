@@ -43,42 +43,6 @@ namespace Project1.ProjectileComponents
 
         private IProjectileState GetProjectileState(string state, string direction)
         {
-           /* IDirectionState Direction = GetDirectionState(direction);
-            IProjectileState State = new ArrowProjectileState(this, Direction);  //default
-            switch(state)
-            {
-                case "Aquamentus":
-                    State = new AquamentusProjectileState(this, Direction);
-                    break;
-                case "Arrow":
-                    State = new ArrowProjectileState(this, Direction);
-                    break;
-                case "Bomb":
-                    State = new BombProjectileState(this, Direction);
-                    break;
-                case "Boomerang":
-                    State = new BoomerangProjectileState(this, Direction);
-                    break;
-                case "Fire":
-                    State = new FireProjectileState(this, Direction);
-                    break;
-                case "Goriya":
-                    State = new GoriyaProjectileState(this, Direction);
-                    break;
-                case "MagicalBoomerang":
-                    State = new MagicalBoomerangProjectileState(this, Direction);
-                    break;
-                case "Moblin":
-                    State = new MoblinProjectileState(this, Direction);
-                    break;
-                case "SilverArrow":
-                    State = new SilverArrowProjectileState(this, Direction);
-                    break;
-                default:
-                    throw new InvalidOperationException("Invalid Projectile State used");
-            }
-            return State;*/
-
             Assembly assem = typeof(IProjectileState).Assembly;
             Type projectileType = assem.GetType("Project1.ProjectileComponents." + state + "ProjectileState");
 
@@ -93,31 +57,6 @@ namespace Project1.ProjectileComponents
 
             return (IProjectileState)projectile;
         }
-
-        /*
-        private IDirectionState GetDirectionState(string direction)
-        {
-            IDirectionState Direction; 
-            switch (direction)
-            {
-                case "Up":
-                    Direction = new DirectionStateUp();
-                    break;
-                case "Down":
-                    Direction = new DirectionStateDown();
-                    break;
-                case "Left":
-                    Direction = new DirectionStateLeft();
-                    break;
-                case "Right":
-                    Direction = new DirectionStateRight();
-                    break;
-                default:
-                    Direction = new DirectionStateRight();
-                    break;
-            }
-            return Direction; 
-        }*/
 
         public void OffsetOriginalPosition(IDirectionState direction)
         {

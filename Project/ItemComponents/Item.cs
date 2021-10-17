@@ -29,7 +29,7 @@ namespace Project1.ItemComponents
             "TriforceFragment", "WoodenSword", "WhiteSword", "MagicalSword", "MagicalRod", "MagicalSheild","Bow", "Bomb", "Arrow", "SilverArrow", 
             "Boomerang", "MagicalBoomerang", "BlueCandle", "RedCandle", "BlueRing", "RedRing", "SmallKey", "MagicalKey", "Compass", "Stepladder", "Raft", 
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
-        public Item(Vector2 position, String type)
+        public Item(Vector2 position, string type)
         {
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;

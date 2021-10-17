@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
-using Project1.DirectionState; 
+using Project1.DirectionState;
+using System.Reflection;
 
 namespace Project1.EnemyComponents
 {
@@ -26,33 +27,20 @@ namespace Project1.EnemyComponents
         private bool IsDead = false;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
 
-        public Enemy(Vector2 position, String type)
+        public Enemy(Vector2 position, string type)
         {
-            // TODO: switch to jump table 
-            switch (type)
-            {
-                case "Moblin":
-                    EnemyState = new EnemyStateMoblin(this);
-                    break;
-                case "Stalfos":
-                    EnemyState = new EnemyStateStalfos(this);
-                    break;
-                case "Keese":
-                    EnemyState = new EnemyStateKeese(this);
-                    break;
-                case "Aquamentus":
-                    EnemyState = new EnemyStateAquamentus(this);
-                    break;
-                case "Gel":
-                    EnemyState = new EnemyStateGel(this);
-                    break;
-                case "Goriya":
-                    EnemyState = new EnemyStateGoriya(this);
-                    break;
-                case "OldMan":
-                    EnemyState = new EnemyStateOldMan(this);
-                    break;
-            }
+            // TODO: switch to jump table /
+           
+            Assembly assem = typeof(IEnemyState).Assembly;
+            Type enemyType = assem.GetType("Project1.EnemyComponents.EnemyState" + type);
+            ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy) });    
+
+            object enemyState = enemyConstructor.Invoke(new object[] { this});
+            EnemyState = (IEnemyState)enemyState;
+           
+
+
+
             Health = new EnemyHealth(3, 30);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
