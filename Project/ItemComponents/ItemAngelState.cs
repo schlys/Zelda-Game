@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
-using Project1.DirectionState; 
+using Project1.DirectionState;
+using Project1.LevelComponents; 
 
 namespace Project1.ItemComponents
 {
@@ -63,28 +64,46 @@ namespace Project1.ItemComponents
         {
             if (Item.Position.Y - Step > Item.InitialPosition.Y - PositionBounds)
             {
-                Item.Position = new Vector2(Item.Position.X, Item.Position.Y - Step);
+                Vector2 location = Item.Position - new Vector2(0, Step);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Item.Position = new Vector2(Item.Position.X, Item.Position.Y - Step);
+                }
             }
         }
         public void MoveDown()
         {
             if (Item.Position.Y + Step < Item.InitialPosition.Y + PositionBounds)
             {
-                Item.Position = new Vector2(Item.Position.X, Item.Position.Y + Step);
+                // NOTE: Account for sprite size 
+                Vector2 location = Item.Position + new Vector2(0, Step + Item.Size);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Item.Position = new Vector2(Item.Position.X, Item.Position.Y + Step);
+                }
             }
         }
         public void MoveLeft()
         {
             if (Item.Position.X - Step > Item.InitialPosition.X - PositionBounds)
             {
-                Item.Position = new Vector2(Item.Position.X - Step, Item.Position.Y);
+                Vector2 location = Item.Position - new Vector2(Step, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Item.Position = new Vector2(Item.Position.X - Step, Item.Position.Y);
+                }
             }
         }
         public void MoveRight()
         {
             if (Item.Position.X + Step < Item.InitialPosition.X + PositionBounds)
             {
-                Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
+                // NOTE: Account for sprite size 
+                Vector2 location = Item.Position + new Vector2(Step + Item.Size, 0);
+                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                {
+                    Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
+                }
             }
         }
     }
