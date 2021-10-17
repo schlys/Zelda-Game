@@ -26,6 +26,7 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         private int counter;
+        private bool IsEnd = false;
         public AquamentusProjectile(Vector2 position, string direction)
         {
             InMotion = true;
@@ -68,20 +69,41 @@ namespace Project1.ProjectileComponents
         {
             Sprite.Update();
             counter++;
-            if (counter < 200)
+            if (!IsEnd)
             {
-                if (Direction.ID.Equals("Up"))  // up and left 
-                    Position += new Vector2((float)-2, -1);
-                else if (Direction.ID.Equals("Left"))
-                    Position += new Vector2((float)-2, 0);
-                else if (Direction.ID.Equals("Down"))   // down and left 
-                    Position += new Vector2((float)-2, 1);
+                if (counter < 200)
+                {
+                    if (Direction.ID.Equals("Up"))  // up and left 
+                        Position += new Vector2((float)-2, -1);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)-2, 0);
+                    else if (Direction.ID.Equals("Down"))   // down and left 
+                        Position += new Vector2((float)-2, 1);
+                }
+                else
+                {
+                    InMotion = false;
+                    //IsMoving = false; 
+                }
             }
             else
             {
-                InMotion = false;
-                //IsMoving = false; 
+                if (counter < 200)
+                {
+                    if (Direction.ID.Equals("Up"))  // up and left 
+                        Position += new Vector2((float)2, 1);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)2, 0);
+                    else if (Direction.ID.Equals("Down"))   // down and left 
+                        Position += new Vector2((float)2, -1);
+                }
+                else
+                {
+                    InMotion = false;
+                    //IsMoving = false; 
+                }
             }
+            
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
@@ -89,7 +111,7 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-            //IsEnd = true;
+            IsEnd = true;
         }
     }
 }

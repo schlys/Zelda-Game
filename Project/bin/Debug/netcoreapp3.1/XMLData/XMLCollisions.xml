@@ -126,6 +126,68 @@
 		<command2>NoCmd</command2>
 	</Collision>
 
+	<Collision>
+		<name>AquamentusProjectileBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>AquamentusProjectileBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>AquamentusProjectileBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>AquamentusProjectileBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>GoriyaProjectileBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>GoriyaProjectileBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>GoriyaProjectileBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>GoriyaProjectileBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>MoblinProjectileBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MoblinProjectileBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MoblinProjectileBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MoblinProjectileBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 
 	<Collision>
 		<name>LinkItemAngelTop</name>

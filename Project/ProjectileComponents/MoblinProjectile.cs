@@ -27,7 +27,7 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         private int counter;
-
+        private bool IsEnd = false;
         public MoblinProjectile(Vector2 position, string direction)
         {
             InMotion = true;
@@ -71,19 +71,39 @@ namespace Project1.ProjectileComponents
         {
             Sprite.Update();
             counter++;
-            if (counter < 200)
+            if (!IsEnd)
             {
-                if (Direction.ID.Equals("Up"))
-                    Position += new Vector2(0, (float)-2);
-                else if (Direction.ID.Equals("Down"))
-                    Position += new Vector2(0, (float)2);
-                else if (Direction.ID.Equals("Right"))
-                    Position += new Vector2((float)2, 0);
-                else if (Direction.ID.Equals("Left"))
-                    Position += new Vector2((float)-2, 0);
+                if (counter < 200)
+                {
+                    if (Direction.ID.Equals("Up"))
+                        Position += new Vector2(0, (float)-2);
+                    else if (Direction.ID.Equals("Down"))
+                        Position += new Vector2(0, (float)2);
+                    else if (Direction.ID.Equals("Right"))
+                        Position += new Vector2((float)2, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)-2, 0);
+                }
+                else
+                    InMotion = false;
             }
             else
-                InMotion = false;
+            {
+                if (counter < 200)
+                {
+                    if (Direction.ID.Equals("Up"))
+                        Position += new Vector2(0, (float)2);
+                    else if (Direction.ID.Equals("Down"))
+                        Position += new Vector2(0, (float)-2);
+                    else if (Direction.ID.Equals("Right"))
+                        Position += new Vector2((float)-2, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)2, 0);
+                }
+                else
+                    InMotion = false;
+            }
+            
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
@@ -91,7 +111,7 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-            //IsEnd = true;
+            IsEnd = true;
         }
     }
 }

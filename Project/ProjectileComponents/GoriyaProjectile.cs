@@ -28,7 +28,7 @@ namespace Project1.ProjectileComponents
         // Other Properties 
         private int counter;
         private int speed = 2;
-
+        private bool IsEnd = false;
         public GoriyaProjectile(Vector2 position, string direction)
         {
             InMotion = true;
@@ -74,24 +74,49 @@ namespace Project1.ProjectileComponents
         {
             Sprite.Update();
             counter++;
-            if (counter < 100)
+            if (!IsEnd)
             {
-                if (Direction.ID.Equals("Up"))
-                    Position += new Vector2(0, (float)-speed);
-                else if (Direction.ID.Equals("Down"))
-                    Position += new Vector2(0, (float)speed);
-                else if (Direction.ID.Equals("Right"))
-                    Position += new Vector2((float)speed, 0);
-                else if (Direction.ID.Equals("Left"))
-                    Position += new Vector2((float)-speed, 0);
-
-                if (Position.Y < OriginalPosition.Y - 100 || Position.Y > OriginalPosition.Y + 100 || Position.X < OriginalPosition.X - 100 || Position.X > OriginalPosition.X + 100)
+                if (counter < 100)
                 {
-                    speed = -2;
+                    if (Direction.ID.Equals("Up"))
+                        Position += new Vector2(0, (float)-speed);
+                    else if (Direction.ID.Equals("Down"))
+                        Position += new Vector2(0, (float)speed);
+                    else if (Direction.ID.Equals("Right"))
+                        Position += new Vector2((float)speed, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)-speed, 0);
+
+                    if (Position.Y < OriginalPosition.Y - 100 || Position.Y > OriginalPosition.Y + 100 || Position.X < OriginalPosition.X - 100 || Position.X > OriginalPosition.X + 100)
+                    {
+                        speed = -2;
+                    }
                 }
+                else
+                    InMotion = false;
             }
             else
-                InMotion = false;
+            {
+                if (counter < 100)
+                {
+                    if (Direction.ID.Equals("Up"))
+                        Position += new Vector2(0, (float)speed);
+                    else if (Direction.ID.Equals("Down"))
+                        Position += new Vector2(0, (float)-speed);
+                    else if (Direction.ID.Equals("Right"))
+                        Position += new Vector2((float)-speed, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Position += new Vector2((float)speed, 0);
+
+                    if (Position.Y < OriginalPosition.Y - 100 || Position.Y > OriginalPosition.Y + 100 || Position.X < OriginalPosition.X - 100 || Position.X > OriginalPosition.X + 100)
+                    {
+                        speed = -2;
+                    }
+                }
+                else
+                    InMotion = false;
+            }
+            
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
@@ -99,7 +124,7 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-            //IsEnd = true;
+            IsEnd = true;
         }
     }
 }
