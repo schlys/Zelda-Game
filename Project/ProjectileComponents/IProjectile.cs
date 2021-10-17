@@ -4,22 +4,20 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework;
-using Project1.DirectionState; 
+using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents
 {
     public interface IProjectile
     {
-        bool InMotion { get; set; }
-        Sprite Sprite { get; set; }
         Vector2 Position { get; set; }
         Vector2 OriginalPosition { get; set; }
+        IProjectileState State { get; set; }
         int Size { get; set; }
-        //String Direction { get; set; }
-        IDirectionState Direction { get; set; }
-        //String ID { get; set; }
+        bool InMotion { get; set; }
+        void OffsetOriginalPosition(IDirectionState direction);
+        void StopMotion(); 
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        void End();
     }
 }

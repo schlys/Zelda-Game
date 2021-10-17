@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
-using Project1.DirectionState;
+using Project1.DirectionState; 
 
-namespace Project1.ProjectileComponents
+namespace Project1.ProjectileComponentsOLD
 {
-    class GoriyaProjectile : IProjectile, ICollidable
+    class AquamentusProjectile : IProjectile, ICollidable
     {
         // Properties from IProjectile 
         public bool InMotion { get; set; }
@@ -18,22 +18,25 @@ namespace Project1.ProjectileComponents
         public Vector2 OriginalPosition { get; set; }
         public int Size { get; set; }
         public IDirectionState Direction { get; set; }
-        
-
+       
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
 
-        // Other Properties 
+        // Other Properties
         private int counter;
-        private int speed = 2;
         private bool IsEnd = false;
-        public GoriyaProjectile(Vector2 position, string direction)
+        public AquamentusProjectile(Vector2 position, string direction)
         {
             InMotion = true;
-
-            switch (direction)
+            TypeID = "AquamentusProjectile";
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
+            Position = position;
+            OriginalPosition = Position; 
+            Size = 80;
+            
+            switch(direction)
             {
                 case "Up":
                     Direction = new DirectionStateUp();
@@ -49,26 +52,18 @@ namespace Project1.ProjectileComponents
                     break;
                 default:
                     Direction = new DirectionStateRight();
-                    break;
+                    break; 
             }
 
-            Size = 80;
-            Position = position;
-            OriginalPosition = Position;
             counter = 0;
-            TypeID = "Boomerang";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            TypeID = GetType().Name.ToString();
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
                 Sprite.Draw(spriteBatch, Position, Size);
-            else
-                InMotion = false;
         }
         public void Update()
         {
@@ -76,45 +71,37 @@ namespace Project1.ProjectileComponents
             counter++;
             if (!IsEnd)
             {
-                if (counter < 100)
+                if (counter < 200)
                 {
-                    if (Direction.ID.Equals("Up"))
-                        Position += new Vector2(0, (float)-speed);
-                    else if (Direction.ID.Equals("Down"))
-                        Position += new Vector2(0, (float)speed);
-                    else if (Direction.ID.Equals("Right"))
-                        Position += new Vector2((float)speed, 0);
+                    if (Direction.ID.Equals("Up"))  // up and left 
+                        Position += new Vector2((float)-2, -1);
                     else if (Direction.ID.Equals("Left"))
-                        Position += new Vector2((float)-speed, 0);
-
-                    if (Position.Y < OriginalPosition.Y - 100 || Position.Y > OriginalPosition.Y + 100 || Position.X < OriginalPosition.X - 100 || Position.X > OriginalPosition.X + 100)
-                    {
-                        speed = -2;
-                    }
+                        Position += new Vector2((float)-2, 0);
+                    else if (Direction.ID.Equals("Down"))   // down and left 
+                        Position += new Vector2((float)-2, 1);
                 }
                 else
+                {
                     InMotion = false;
+                    //IsMoving = false; 
+                }
             }
             else
             {
-                if (counter < 100)
+                if (counter < 200)
                 {
-                    if (Direction.ID.Equals("Up"))
-                        Position += new Vector2(0, (float)speed);
-                    else if (Direction.ID.Equals("Down"))
-                        Position += new Vector2(0, (float)-speed);
-                    else if (Direction.ID.Equals("Right"))
-                        Position += new Vector2((float)-speed, 0);
+                    if (Direction.ID.Equals("Up"))  // up and left 
+                        Position += new Vector2((float)2, 1);
                     else if (Direction.ID.Equals("Left"))
-                        Position += new Vector2((float)speed, 0);
-
-                    if (Position.Y < OriginalPosition.Y - 100 || Position.Y > OriginalPosition.Y + 100 || Position.X < OriginalPosition.X - 100 || Position.X > OriginalPosition.X + 100)
-                    {
-                        speed = -2;
-                    }
+                        Position += new Vector2((float)2, 0);
+                    else if (Direction.ID.Equals("Down"))   // down and left 
+                        Position += new Vector2((float)2, -1);
                 }
                 else
+                {
                     InMotion = false;
+                    //IsMoving = false; 
+                }
             }
             
 

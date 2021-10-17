@@ -19,7 +19,8 @@ namespace Project1.Command
 
         public void Execute()
         {
-            Projectile.InMotion = false;
+            //Projectile.InMotion = false;
+            Projectile.StopMotion();
         }
     }
 
@@ -92,7 +93,8 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Projectile.End();
+            //Projectile.End(); 
+            Projectile.StopMotion();
         }
     }
 

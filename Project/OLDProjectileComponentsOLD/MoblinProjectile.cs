@@ -8,7 +8,7 @@ using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 
-namespace Project1.ProjectileComponents
+namespace Project1.ProjectileComponentsOLD
 {
     class MoblinProjectile : IProjectile, ICollidable
     {

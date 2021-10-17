@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -8,9 +7,9 @@ using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 
-namespace Project1.ProjectileComponents
+namespace Project1.ProjectileComponentsOLD
 {
-    class SilverArrowProjectile : IProjectile, ICollidable
+    class MagicalBoomerangProjectile : IProjectile, ICollidable
     {
         // Properties from IProjectile 
         public bool InMotion { get; set; }
@@ -26,14 +25,12 @@ namespace Project1.ProjectileComponents
         public string TypeID { get; set; }
 
         // Other Properties
-        public Sprite Poof { get; set; }
-        private int speed = 4;
+        public bool isUsing { get; set; }
+        private int speed = 6;
         int counter;
         private bool IsEnd = false;
-        public SilverArrowProjectile(Vector2 position, string direction)
+        public MagicalBoomerangProjectile(Vector2 position, string direction)
         {
-            InMotion = true;
-            Size = 80; 
             Position = position;
 
             switch (direction)
@@ -55,28 +52,29 @@ namespace Project1.ProjectileComponents
                     break;
             }
 
-            TypeID = "SilverArrow"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
-            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
+            Size = 80;
+            TypeID = "MagicalBoomerang"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             counter = 0;
+            InMotion = true;
 
             // Adjust start location to be beside the sprite based on the direction
             switch (Direction.ID)
             {
                 case "Up":
-                    Position = new Vector2(Position.X + 20, Position.Y - 20);
+                    Position = new Vector2(Position.X + 20, Position.Y - 5);
                     break;
                 case "Down":
-                    Position = new Vector2(Position.X + 20, Position.Y + 60);
+                    Position = new Vector2(Position.X + 20, Position.Y + 50);
                     break;
                 case "Right":
-                    Position = new Vector2(Position.X + 60, Position.Y + 20);
+                    Position = new Vector2(Position.X + 50, Position.Y + 20);
                     break;
                 default:
-                    Position = new Vector2(Position.X - 20, Position.Y + 20);
+                    Position = new Vector2(Position.X - 10, Position.Y + 20);
                     break;
             }
-            OriginalPosition = Position; 
+            OriginalPosition = Position;
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
@@ -85,17 +83,11 @@ namespace Project1.ProjectileComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                if (counter < 50)
+                if (counter < 90)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, Size);
-                }
-                else if (counter < 60)
-                {
-                    Poof.Draw(spriteBatch, Position, Size);
-                    counter++;
-                }
-                else
+                }else
                 {
                     InMotion = false;
                 }
@@ -103,50 +95,61 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
+                    
+            Sprite.Update();
             if (!IsEnd)
             {
-                if (counter < 50)
+                switch (Direction.ID)
                 {
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Position = new Vector2(Position.X, Position.Y - speed);
-                            break;
-                        case "Down":
-                            Position = new Vector2(Position.X, Position.Y + speed);
-                            break;
-                        case "Right":
-                            Position = new Vector2(Position.X + speed, Position.Y);
-                            break;
-                        default:
-                            Position = new Vector2(Position.X - speed, Position.Y);
-                            break;
-                    }
+                    case "Up":
+                        Position = new Vector2(Position.X, Position.Y - speed);
+                        break;
+                    case "Down":
+                        Position = new Vector2(Position.X, Position.Y + speed);
+                        break;
+                    case "Right":
+                        Position = new Vector2(Position.X + speed, Position.Y);
+                        break;
+                    default:
+                        Position = new Vector2(Position.X - speed, Position.Y);
+                        break;
+                }
+
+                if (Position.Y < OriginalPosition.Y - 200 ||
+                    Position.Y > OriginalPosition.Y + 200 ||
+                    Position.X < OriginalPosition.X - 200 ||
+                    Position.X > OriginalPosition.X + 200)
+                {
+                    speed = -4;
                 }
             }
             else
             {
-                if (counter < 50)
+                switch (Direction.ID)
                 {
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Position = new Vector2(Position.X, Position.Y + speed);
-                            break;
-                        case "Down":
-                            Position = new Vector2(Position.X, Position.Y - speed);
-                            break;
-                        case "Right":
-                            Position = new Vector2(Position.X - speed, Position.Y);
-                            break;
-                        default:
-                            Position = new Vector2(Position.X + speed, Position.Y);
-                            break;
-                    }
+                    case "Up":
+                        Position = new Vector2(Position.X, Position.Y + speed);
+                        break;
+                    case "Down":
+                        Position = new Vector2(Position.X, Position.Y - speed);
+                        break;
+                    case "Right":
+                        Position = new Vector2(Position.X - speed, Position.Y);
+                        break;
+                    default:
+                        Position = new Vector2(Position.X + speed, Position.Y);
+                        break;
+                }
+
+                if (Position.Y < OriginalPosition.Y - 200 ||
+                    Position.Y > OriginalPosition.Y + 200 ||
+                    Position.X < OriginalPosition.X - 200 ||
+                    Position.X > OriginalPosition.X + 200)
+                {
+                    speed = -4;
                 }
             }
                 
-
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
         }

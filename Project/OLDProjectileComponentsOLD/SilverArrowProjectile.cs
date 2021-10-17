@@ -7,9 +7,9 @@ using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 
-namespace Project1.ProjectileComponents
+namespace Project1.ProjectileComponentsOLD
 {
-    class BombProjectile : IProjectile, ICollidable
+    class SilverArrowProjectile : IProjectile, ICollidable
     {
         // Properties from IProjectile 
         public bool InMotion { get; set; }
@@ -19,18 +19,21 @@ namespace Project1.ProjectileComponents
         public int Size { get; set; }
         public IDirectionState Direction { get; set; }
         
-
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
 
-        // Other Properties         
-        private int counter;
-        public BombProjectile(Vector2 position, string direction)
+        // Other Properties
+        public Sprite Poof { get; set; }
+        private int speed = 4;
+        int counter;
+        private bool IsEnd = false;
+        public SilverArrowProjectile(Vector2 position, string direction)
         {
+            InMotion = true;
+            Size = 80; 
             Position = position;
-            Size = 80;
 
             switch (direction)
             {
@@ -51,10 +54,10 @@ namespace Project1.ProjectileComponents
                     break;
             }
 
-            TypeID = "Bomb";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
+            TypeID = "SilverArrow"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
+            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             counter = 0;
-            InMotion = true;
 
             // Adjust start location to be beside the sprite based on the direction
             switch (Direction.ID)
@@ -74,18 +77,24 @@ namespace Project1.ProjectileComponents
             }
             OriginalPosition = Position; 
 
-            //Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
-            IsMoving = false;
-        
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            IsMoving = true;
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                if (counter < 120)
+                if (counter < 50)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, Size);
-                }else
+                }
+                else if (counter < 60)
+                {
+                    Poof.Draw(spriteBatch, Position, Size);
+                    counter++;
+                }
+                else
                 {
                     InMotion = false;
                 }
@@ -93,30 +102,57 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
-                Sprite.DelayRate = 0.1;
-                Sprite.MaxDelay = 1;
-                if (counter < 70)
+            if (!IsEnd)
+            {
+                if (counter < 50)
                 {
-                    counter++;
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                    }
                 }
-                else if (counter < 90)
+            }
+            else
+            {
+                if (counter < 50)
                 {
-                    Sprite.Update();
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                    }
                 }
-                else
-                {
-                    //Sprite.Update();
-                    Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
-                }
+            }
+                
 
             // Update Hitbox for collisions 
-            // TODO: change it to response when bomb exploded
-
-            //Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
         }
 
         public void End()
         {
+            IsEnd = true;
         }
     }
 }

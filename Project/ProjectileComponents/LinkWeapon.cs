@@ -11,28 +11,29 @@ namespace Project1.ProjectileComponents
 {
     public class LinkWeapon : IProjectile, ICollidable
     {
-        public Rectangle Hitbox { get; set; }
-        public bool IsMoving { get; set; }
-       
-        public bool InMotion { get; set; }
-        public Sprite Sprite { get; set; }
+        // Properties from IProjectile  
         public Vector2 Position { get; set; }
         public Vector2 OriginalPosition { get; set; }
+        public IProjectileState State { get; set; }     // NOTE: unused 
         public int Size { get; set; }
+
+        // Properties from ICollidable 
+        public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
+
+        // Other Properties 
+        public bool InMotion { get; set; }
+        public Sprite Sprite { get; set; }
         public IDirectionState Direction { get; set; }
         public string TypeID { get; set; }
-
-        
         private int counter = 0;
         private int delay;
         private int width = 10;
         private int length = 40;
         private int offsetX = 8;
-        private bool IsEnd = false;
         
         public LinkWeapon(string ID, string direction, int delay, Rectangle parent)
         {
-           
             this.delay = delay;
             TypeID = ID + "Attack";
             IsMoving = false;
@@ -54,25 +55,18 @@ namespace Project1.ProjectileComponents
                     break;
             }
         }
+        public void OffsetOriginalPosition(IDirectionState direction) { }
 
+        public void StopMotion() { }
         public void Update()
         {
-            if (!IsEnd)
-            {
-                counter++;
-                if (counter > 4 * delay) InMotion = false;
-            }
-            
+            counter++;
+            if (counter > 4 * delay) InMotion = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             
-        }
-
-        public void End()
-        {
-            IsEnd = true;
         }
     }
 }

@@ -124,7 +124,7 @@ namespace Project1.EnemyComponents
             {
                 IsAttacking = true;
                 Sprite.MaxDelay = 30;
-                GameObjectManager.Instance.AddProjectile(new MoblinProjectile(Enemy.Position, direction));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, ID));
             }
         }
 

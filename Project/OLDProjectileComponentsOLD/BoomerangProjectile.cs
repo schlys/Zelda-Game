@@ -7,12 +7,11 @@ using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 
-namespace Project1.ProjectileComponents
+namespace Project1.ProjectileComponentsOLD
 {
-    class FireProjectile : IProjectile, ICollidable
+    class BoomerangProjectile : IProjectile, ICollidable
     {
-
-        // Properties from IProjectile
+        // Properties from IProjectile 
         public bool InMotion { get; set; }
         public Sprite Sprite { get; set; }
         public Vector2 Position { get; set; }
@@ -27,12 +26,14 @@ namespace Project1.ProjectileComponents
         public string TypeID { get; set; }
 
         // Other Properties 
-        private int speed = 4;
+        public bool isUsing { get; set; }
+        private int speed = 6;
         int counter;
         private bool IsEnd = false;
-        public FireProjectile(Vector2 position, string direction)
+        public BoomerangProjectile(Vector2 position, string direction)
         {
             Position = position;
+            Size = 80;
 
             switch (direction)
             {
@@ -53,8 +54,7 @@ namespace Project1.ProjectileComponents
                     break;
             }
 
-            Size = 80;
-            TypeID = "Fire"; 
+            TypeID = "Boomerang"; 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             counter = 0;
             InMotion = true;
@@ -63,82 +63,93 @@ namespace Project1.ProjectileComponents
             switch (Direction.ID)
             {
                 case "Up":
-                    Position = new Vector2(Position.X + 20, Position.Y - 20);
+                    Position = new Vector2(Position.X + 20, Position.Y - 5);
                     break;
                 case "Down":
-                    Position = new Vector2(Position.X + 20, Position.Y + 60);
+                    Position = new Vector2(Position.X + 20, Position.Y + 50);
                     break;
                 case "Right":
-                    Position = new Vector2(Position.X + 60, Position.Y + 20);
+                    Position = new Vector2(Position.X + 50, Position.Y + 20);
                     break;
                 default:
-                    Position = new Vector2(Position.X - 20, Position.Y + 20);
+                    Position = new Vector2(Position.X - 10, Position.Y + 20);
                     break;
             }
-            OriginalPosition = Position; 
+            OriginalPosition = Position;
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
             IsMoving = true;
-            
+           
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (InMotion)
-                if (counter < 45)
+            {
+                if (counter < 50)
                 {
                     counter++;
                     Sprite.Draw(spriteBatch, Position, Size);
-                }else
+                }
+                else
                 {
                     InMotion = false;
                 }
+            }
         }
 
         public void Update()
-        {
-                Sprite.Update();
+        { 
+            Sprite.Update();
             if (!IsEnd)
             {
-                if (counter < 25)
+                switch (Direction.ID)
                 {
+                    case "Up":
+                        Position = new Vector2(Position.X, Position.Y - speed);
+                        break;
+                    case "Down":
+                        Position = new Vector2(Position.X, Position.Y + speed);
+                        break;
+                    case "Right":
+                        Position = new Vector2(Position.X + speed, Position.Y);
+                        break;
+                    default:
+                        Position = new Vector2(Position.X - speed, Position.Y);
+                        break;
+                }
 
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Position = new Vector2(Position.X, Position.Y - speed);
-                            break;
-                        case "Down":
-                            Position = new Vector2(Position.X, Position.Y + speed);
-                            break;
-                        case "Right":
-                            Position = new Vector2(Position.X + speed, Position.Y);
-                            break;
-                        default:
-                            Position = new Vector2(Position.X - speed, Position.Y);
-                            break;
-                    }
+                if (Position.Y < OriginalPosition.Y - 120 ||
+                    Position.Y > OriginalPosition.Y + 120 ||
+                    Position.X < OriginalPosition.X - 120 ||
+                    Position.X > OriginalPosition.X + 120)
+                {
+                    speed = -4;
                 }
             }
             else
             {
-                if (counter < 25)
+                switch (Direction.ID)
                 {
+                    case "Up":
+                        Position = new Vector2(Position.X, Position.Y + speed);
+                        break;
+                    case "Down":
+                        Position = new Vector2(Position.X, Position.Y - speed);
+                        break;
+                    case "Right":
+                        Position = new Vector2(Position.X - speed, Position.Y);
+                        break;
+                    default:
+                        Position = new Vector2(Position.X + speed, Position.Y);
+                        break;
+                }
 
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Position = new Vector2(Position.X, Position.Y + speed);
-                            break;
-                        case "Down":
-                            Position = new Vector2(Position.X, Position.Y - speed);
-                            break;
-                        case "Right":
-                            Position = new Vector2(Position.X - speed, Position.Y);
-                            break;
-                        default:
-                            Position = new Vector2(Position.X + speed, Position.Y);
-                            break;
-                    }
+                if (Position.Y < OriginalPosition.Y - 120 ||
+                    Position.Y > OriginalPosition.Y + 120 ||
+                    Position.X < OriginalPosition.X - 120 ||
+                    Position.X > OriginalPosition.X + 120)
+                {
+                    speed = -4;
                 }
             }
                 

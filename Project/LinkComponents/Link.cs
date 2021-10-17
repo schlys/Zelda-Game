@@ -189,7 +189,7 @@ namespace Project1.LinkComponents
                 UseItemName = "UseItem";
                 UpdateSprite();
                 LinkSprite.MaxDelay = 25;
-                IProjectile Item = ProjectileFactory.Instance.GetProjectile(name, Position, DirectionState.ID);
+                IProjectile Item = new Projectile(Position, DirectionState.ID, name);
                 GameObjectManager.Instance.AddProjectile(Item);
             }
         }

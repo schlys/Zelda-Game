@@ -127,64 +127,64 @@
 	</Collision>
 
 	<Collision>
-		<name>AquamentusProjectileBlockTop</name>
+		<name>ProjectileAquamentusBlockTop</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>AquamentusProjectileBlockBottom</name>
+		<name>ProjectileAquamentusBlockBottom</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>AquamentusProjectileBlockRight</name>
+		<name>ProjectileAquamentusBlockRight</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>AquamentusProjectileBlockLeft</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>GoriyaProjectileBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>GoriyaProjectileBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>GoriyaProjectileBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>GoriyaProjectileBlockLeft</name>
+		<name>ProjectileAquamentusBlockLeft</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>MoblinProjectileBlockTop</name>
+		<name>ProjectileGoriyaBlockTop</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>MoblinProjectileBlockBottom</name>
+		<name>ProjectileGoriyaBlockBottom</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>MoblinProjectileBlockRight</name>
+		<name>ProjectileGoriyaBlockRight</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>MoblinProjectileBlockLeft</name>
+		<name>ProjectileGoriyaBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileMoblinBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ProjectileMoblinBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ProjectileMoblinBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ProjectileMoblinBlockLeft</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -967,64 +967,64 @@
 	</Collision>
 	
 	<Collision>
-		<name>LinkMoblinProjectileTop</name>
+		<name>LinkProjectileMoblinTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkMoblinProjectileBottom</name>
+		<name>LinkProjectileMoblinBottom</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkMoblinProjectileRight</name>
+		<name>LinkProjectileMoblinRight</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkMoblinProjectileLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkAquamentusProjectileTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkAquamentusProjectileBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkAquamentusProjectileRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkAquamentusProjectileLeft</name>
+		<name>LinkProjectileMoblinLeft</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>LinkGoriyaProjectileTop</name>
+		<name>LinkProjectileAquamentusTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkGoriyaProjectileBottom</name>
+		<name>LinkProjectileAquamentusBottom</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkGoriyaProjectileRight</name>
+		<name>LinkProjectileAquamentusRight</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkGoriyaProjectileLeft</name>
+		<name>LinkProjectileAquamentusLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkProjectileGoriyaTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkProjectileGoriyaBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkProjectileGoriyaRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkProjectileGoriyaLeft</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
@@ -1051,7 +1051,7 @@
 	</Collision>
 	
 	<Collision>
-		<name>MoblinProjectileItemRight</name>
+		<name>ProjectileMoblinItemRight</name>
 		<command1>NoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
