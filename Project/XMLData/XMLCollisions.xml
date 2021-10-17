@@ -43,6 +43,91 @@
 	</Collision>
 
 	<Collision>
+		<name>BoomerangBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>BoomerangBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>BoomerangBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>BoomerangBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>FireBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>FireBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>FireBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>FireBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>MagicalBoomerangBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MagicalBoomerangBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MagicalBoomerangBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>MagicalBoomerangBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>SilverArrowBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>SilverArrowBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>SilverArrowBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>SilverArrowBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+
+	<Collision>
 		<name>LinkItemAngelTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>

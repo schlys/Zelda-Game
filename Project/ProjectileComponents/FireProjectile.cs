@@ -29,6 +29,7 @@ namespace Project1.ProjectileComponents
         // Other Properties 
         private int speed = 4;
         int counter;
+        private bool IsEnd = false;
         public FireProjectile(Vector2 position, string direction)
         {
             Position = position;
@@ -96,9 +97,11 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
                 Sprite.Update();
+            if (!IsEnd)
+            {
                 if (counter < 25)
                 {
-                   
+
                     switch (Direction.ID)
                     {
                         case "Up":
@@ -115,6 +118,30 @@ namespace Project1.ProjectileComponents
                             break;
                     }
                 }
+            }
+            else
+            {
+                if (counter < 25)
+                {
+
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                    }
+                }
+            }
+                
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
@@ -122,7 +149,7 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-
+            IsEnd = true;
         }
     }
 }

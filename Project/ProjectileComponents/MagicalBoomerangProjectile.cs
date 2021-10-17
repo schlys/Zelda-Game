@@ -28,6 +28,7 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int speed = 6;
         int counter;
+        private bool IsEnd = false;
         public MagicalBoomerangProjectile(Vector2 position, string direction)
         {
             Position = position;
@@ -96,9 +97,10 @@ namespace Project1.ProjectileComponents
         {
                     
             Sprite.Update();
-
+            if (!IsEnd)
+            {
                 switch (Direction.ID)
-                 {
+                {
                     case "Up":
                         Position = new Vector2(Position.X, Position.Y - speed);
                         break;
@@ -111,22 +113,50 @@ namespace Project1.ProjectileComponents
                     default:
                         Position = new Vector2(Position.X - speed, Position.Y);
                         break;
-                 }
+                }
 
-                if(Position.Y < OriginalPosition.Y - 200 || 
-                    Position.Y > OriginalPosition.Y + 200 || 
-                    Position.X < OriginalPosition.X - 200 || 
+                if (Position.Y < OriginalPosition.Y - 200 ||
+                    Position.Y > OriginalPosition.Y + 200 ||
+                    Position.X < OriginalPosition.X - 200 ||
                     Position.X > OriginalPosition.X + 200)
                 {
                     speed = -4;
                 }
+            }
+            else
+            {
+                switch (Direction.ID)
+                {
+                    case "Up":
+                        Position = new Vector2(Position.X, Position.Y + speed);
+                        break;
+                    case "Down":
+                        Position = new Vector2(Position.X, Position.Y - speed);
+                        break;
+                    case "Right":
+                        Position = new Vector2(Position.X - speed, Position.Y);
+                        break;
+                    default:
+                        Position = new Vector2(Position.X + speed, Position.Y);
+                        break;
+                }
+
+                if (Position.Y < OriginalPosition.Y - 200 ||
+                    Position.Y > OriginalPosition.Y + 200 ||
+                    Position.X < OriginalPosition.X - 200 ||
+                    Position.X > OriginalPosition.X + 200)
+                {
+                    speed = -4;
+                }
+            }
+                
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
         }
 
         public void End()
         {
-
+            IsEnd = true;
         }
     }
 }

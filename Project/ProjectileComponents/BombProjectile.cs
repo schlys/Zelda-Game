@@ -117,7 +117,6 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-
         }
     }
 }

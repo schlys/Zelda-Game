@@ -29,6 +29,7 @@ namespace Project1.ProjectileComponents
         public Sprite Poof { get; set; }
         private int speed = 4;
         int counter;
+        private bool IsEnd = false;
         public SilverArrowProjectile(Vector2 position, string direction)
         {
             InMotion = true;
@@ -102,7 +103,8 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
-           
+            if (!IsEnd)
+            {
                 if (counter < 50)
                 {
                     switch (Direction.ID)
@@ -121,6 +123,29 @@ namespace Project1.ProjectileComponents
                             break;
                     }
                 }
+            }
+            else
+            {
+                if (counter < 50)
+                {
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                    }
+                }
+            }
+                
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
@@ -128,7 +153,7 @@ namespace Project1.ProjectileComponents
 
         public void End()
         {
-
+            IsEnd = true;
         }
     }
 }
