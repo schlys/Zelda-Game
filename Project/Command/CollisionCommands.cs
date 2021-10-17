@@ -82,6 +82,20 @@ namespace Project1.Command
         }
     }
 
+    public class WeaponsBlockedCmd : ICommand
+    {
+
+        public IProjectile Projectile { get; set; }
+        public WeaponsBlockedCmd(ICollidable projectile, string direction = "")
+        {
+            Projectile = (IProjectile)projectile;
+        }
+        public void Execute()
+        {
+            Projectile.End();
+        }
+    }
+
     class NoCmd : ICommand
     {
         public NoCmd(ICollidable holder, string direction)

@@ -28,6 +28,7 @@ namespace Project1.ProjectileComponents
         private int width = 10;
         private int length = 40;
         private int offsetX = 8;
+        private bool IsEnd = false;
         
         public LinkWeapon(string ID, string direction, int delay, Rectangle parent)
         {
@@ -56,13 +57,22 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
-            counter++;
-            if (counter > 4 * delay) InMotion = false;
+            if (!IsEnd)
+            {
+                counter++;
+                if (counter > 4 * delay) InMotion = false;
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             
+        }
+
+        public void End()
+        {
+            IsEnd = true;
         }
     }
 }

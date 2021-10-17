@@ -30,6 +30,7 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int speed = 4;
         private int counter;
+        private bool IsEnd = false;
 
         public ArrowProjectile(Vector2 position, string direction)
         {
@@ -86,47 +87,78 @@ namespace Project1.ProjectileComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (InMotion)
-            {
-                if (counter < 50)
+                if (InMotion)
                 {
-                    counter++;
-                    Sprite.Draw(spriteBatch, Position, Size);
+                    if (counter < 50)
+                    {
+                        counter++;
+                        Sprite.Draw(spriteBatch, Position, Size);
+                    }
+                    else if (counter < 60)
+                    {
+                        Poof.Draw(spriteBatch, Position, Size);
+                        counter++;
+                    }
+                    else
+                    {
+                        InMotion = false;
+                    }
                 }
-                else if (counter < 60)
-                {
-                    Poof.Draw(spriteBatch, Position, Size);
-                    counter++;
-                }
-                else
-                {
-                    InMotion = false;
-                }
-            }
+            
         }
 
         public void Update()
         {
-            if (counter < 50)
+            if (!IsEnd)
             {
-                switch (Direction.ID)
+                if (counter < 50)
                 {
-                    case "Up":
-                        Position = new Vector2(Position.X, Position.Y - speed);
-                        break;
-                    case "Down":
-                        Position = new Vector2(Position.X, Position.Y + speed);
-                        break;
-                    case "Right":
-                        Position = new Vector2(Position.X + speed, Position.Y);
-                        break;
-                    default:
-                        Position = new Vector2(Position.X - speed, Position.Y);
-                        break;
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                if (counter < 50)
+                {
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Position = new Vector2(Position.X, Position.Y + speed);
+                            break;
+                        case "Down":
+                            Position = new Vector2(Position.X, Position.Y - speed);
+                            break;
+                        case "Right":
+                            Position = new Vector2(Position.X - speed, Position.Y);
+                            break;
+                        default:
+                            Position = new Vector2(Position.X + speed, Position.Y);
+                            break;
+                    }
                 }
             }
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+
+        }
+
+        public void End()
+        {
+            IsEnd = true;
         }
     }
 }

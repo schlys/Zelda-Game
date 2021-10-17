@@ -127,5 +127,10 @@ namespace Project1.ProjectileComponents
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
         }
+
+        public void End()
+        {
+
+        }
     }
 }

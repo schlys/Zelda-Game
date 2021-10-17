@@ -20,5 +20,6 @@ namespace Project1.ProjectileComponents
         //String ID { get; set; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
+        void End();
     }
 }

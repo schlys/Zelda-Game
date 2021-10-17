@@ -22,6 +22,27 @@
 	</Collision>
 
 	<Collision>
+		<name>ArrowBlockTop</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ArrowBlockBottom</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ArrowBlockRight</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>ArrowBlockLeft</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
 		<name>LinkItemAngelTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
