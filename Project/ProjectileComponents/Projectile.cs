@@ -5,7 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
-using Project1.DirectionState; 
+using Project1.DirectionState;
+using System.Reflection;
 
 namespace Project1.ProjectileComponents
 {
@@ -24,9 +25,7 @@ namespace Project1.ProjectileComponents
         public string TypeID { get; set; }
 
         // Other Properties
-        private int counter;
-        private string[] ProjectileTypeKeys = { "Aquamentus", "Arrow", "Bomb", "Boomerang", "Fire", "Goriya", "LinkWeapon", 
-            "MagicalBoomerang", "Moblin", "SilverArrow" }; 
+       
 
         public Projectile(Vector2 position, string direction, string state)
         {
@@ -36,8 +35,7 @@ namespace Project1.ProjectileComponents
             Size = 80;
             InMotion = true;
 
-            counter = 0;
-
+          
             Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);
             IsMoving = true;
             TypeID = this.GetType().Name.ToString() + State.TypeID;
@@ -45,7 +43,7 @@ namespace Project1.ProjectileComponents
 
         private IProjectileState GetProjectileState(string state, string direction)
         {
-            IDirectionState Direction = GetDirectionState(direction);
+           /* IDirectionState Direction = GetDirectionState(direction);
             IProjectileState State = new ArrowProjectileState(this, Direction);  //default
             switch(state)
             {
@@ -79,9 +77,24 @@ namespace Project1.ProjectileComponents
                 default:
                     throw new InvalidOperationException("Invalid Projectile State used");
             }
-            return State; 
+            return State;*/
+
+            Assembly assem = typeof(IProjectileState).Assembly;
+            Type projectileType = assem.GetType("Project1.ProjectileComponents." + state + "ProjectileState");
+
+            assem = typeof(IDirectionState).Assembly;
+            Type directionType = assem.GetType("Project1.DirectionState.DirectionState" +  direction);
+
+            ConstructorInfo directionConstructor = directionType.GetConstructor(Type.EmptyTypes);
+            ConstructorInfo constructor = projectileType.GetConstructor(new[] { typeof(IProjectile), typeof(IDirectionState) });
+
+            object directionState = directionConstructor.Invoke(Type.EmptyTypes);
+            object projectile = constructor.Invoke(new object[] { this, (IDirectionState)directionState });
+
+            return (IProjectileState)projectile;
         }
 
+        /*
         private IDirectionState GetDirectionState(string direction)
         {
             IDirectionState Direction; 
@@ -104,7 +117,7 @@ namespace Project1.ProjectileComponents
                     break;
             }
             return Direction; 
-        }
+        }*/
 
         public void OffsetOriginalPosition(IDirectionState direction)
         {

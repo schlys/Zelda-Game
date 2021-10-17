@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Goriya.png</SourceFile>
-  <SourceTime>2021-10-17T12:00:45.3030904-04:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/DungeonEnemies/Goriya.xnb</DestFile>
-  <DestTime>2021-10-17T12:10:07.5824418-04:00</DestTime>
+  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/DungeonEnemies/Goriya.png</SourceFile>
+  <SourceTime>2021-09-24T13:45:26.4117047-04:00</SourceTime>
+  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/DungeonEnemies/Goriya.xnb</DestFile>
+  <DestTime>2021-10-17T13:59:38.390666-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
