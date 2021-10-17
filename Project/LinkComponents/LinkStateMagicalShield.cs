@@ -7,16 +7,16 @@ using Project1.SpriteComponents;
 
 namespace Project1.LinkComponents
 {
-    class LinkStateMagicalSheild : ILinkWeaponState
+    class LinkStateMagicalShield : ILinkWeaponState
     {
         public ILink Link { get; set; }
         public Boolean IsAttaking { get; set; }
         public string ID { get; set; }
-        public LinkStateMagicalSheild(ILink link)
+        public LinkStateMagicalShield(ILink link)
         {
             Link = link;
             IsAttaking = false;
-            ID = "MagicalSheild"; 
+            ID = "MagicalShield"; 
         }
 
         public void Attack()
@@ -34,7 +34,7 @@ namespace Project1.LinkComponents
         }
         public void UseMagicalSheild()
         {
-            Link.LinkWeaponState = new LinkStateMagicalSheild(Link); 
+            Link.LinkWeaponState = new LinkStateMagicalShield(Link); 
         }
         public void UseMagicalSword()
         {

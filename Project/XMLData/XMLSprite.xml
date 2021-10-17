@@ -686,7 +686,7 @@
 		<hitY>32</hitY>
 	</Sprite>
 	<Sprite>
-		<name>MagicalSheild</name>
+		<name>MagicalShield</name>
 		<sheet>items</sheet>
 		<totalFrames>6</totalFrames>
 		<startFrame>6</startFrame>

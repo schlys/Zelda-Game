@@ -5,14 +5,14 @@ using Project1.SpriteComponents;
 
 namespace Project1.ItemComponents
 {
-    public class ItemMagicalSheildState : IItemState
+    public class ItemMagicalShieldState : IItemState
     {
         public IItem Item { get; set; }
         public Sprite Sprite { get; set; }
-        public ItemMagicalSheildState(IItem item)
+        public ItemMagicalShieldState(IItem item)
         {
             Item = item;
-            Sprite = SpriteFactory.Instance.GetSpriteData("MagicalSheild");
+            Sprite = SpriteFactory.Instance.GetSpriteData("MagicalShield");
         }
         public void Draw(SpriteBatch spriteBatch)
         {

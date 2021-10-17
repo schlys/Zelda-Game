@@ -75,8 +75,8 @@ namespace Project1.ItemComponents
                 case "MagicalRod":
                     ItemState = new ItemMagicalRodState(this);
                     break;
-                case "MagicalSheild":
-                    ItemState = new ItemMagicalSheildState(this);
+                case "MagicalShield":
+                    ItemState = new ItemMagicalShieldState(this);
                     break;
                 case "Bow":
                     ItemState = new ItemBowState(this);
@@ -200,8 +200,8 @@ namespace Project1.ItemComponents
                 case "MagicalRod":
                     ItemState = new ItemMagicalRodState(this);
                     break;
-                case "MagicalSheild":
-                    ItemState = new ItemMagicalSheildState(this);
+                case "MagicalShield":
+                    ItemState = new ItemMagicalShieldState(this);
                     break;
                 case "Bow":
                     ItemState = new ItemBowState(this);

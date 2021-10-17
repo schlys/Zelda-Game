@@ -35,7 +35,7 @@ namespace Project1.LinkComponents
         }
         public void UseMagicalSheild()
         {
-            Link.LinkWeaponState = new LinkStateMagicalSheild(Link);
+            Link.LinkWeaponState = new LinkStateMagicalShield(Link);
 
         }
         public void UseMagicalSword()

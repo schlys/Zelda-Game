@@ -77,7 +77,7 @@
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>Triangle</type2>
+					<type2>TriforceFragment</type2>
 					<row>9</row>
 					<column>0</column>
 				</data>
@@ -137,19 +137,19 @@
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>BoomerangSolid</type2>
+					<type2>Boomerang</type2>
 					<row>6</row>
 					<column>1</column>
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>MagicalBoomerangSolid</type2>
+					<type2>MagicalBoomerang</type2>
 					<row>7</row>
 					<column>1</column>
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>BombSolid</type2>
+					<type2>Bomb</type2>
 					<row>8</row>
 					<column>1</column>
 				</data>

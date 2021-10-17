@@ -442,22 +442,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemMagicalSheildTop</name>
+		<name>LinkItemMagicalShieldTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalSheildBottom</name>
+		<name>LinkItemMagicalShieldBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalSheildRight</name>
+		<name>LinkItemMagicalShieldRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalSheildLeft</name>
+		<name>LinkItemMagicalShieldLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
