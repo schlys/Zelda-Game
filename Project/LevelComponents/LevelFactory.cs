@@ -158,8 +158,8 @@ namespace Project1.LevelComponents
         }
         private static Vector2 GetItemPosition(int row, int column)
         {
-            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * row);
-            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * column);
+            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);
+            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row);
             return new Vector2(x, y);
         }
 
