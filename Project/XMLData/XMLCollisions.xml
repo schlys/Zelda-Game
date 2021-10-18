@@ -632,22 +632,22 @@
 
 	<Collision>
 		<name>LinkItemMagicalSwordTop</name>
-		<command1>NoCmd</command1>
+		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalSwordBottom</name>
-		<command1>NoCmd</command1>
+		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalSwordRight</name>
-		<command1>NoCmd</command1>
+		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalSwordLeft</name>
-		<command1>NoCmd</command1>
+		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 

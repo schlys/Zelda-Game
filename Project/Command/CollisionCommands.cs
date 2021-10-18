@@ -23,6 +23,19 @@ namespace Project1.Command
             Projectile.StopMotion();
         }
     }
+    
+    public class LinkMagicalSword : ICommand
+    {
+        private ILink Link;
+        public LinkMagicalSword(ICollidable link, string direction = "")
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.Weapon = "MagicalSword";
+        }
+    }
 
     public class LinkTakeDamageCmd : ICommand
     {

@@ -19,11 +19,12 @@ namespace Project1.LinkComponents
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
+        public string Weapon { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public String TypeID { get; set; }
+        public string TypeID { get; set; }
 
 
         // Other Link Properties 
@@ -35,6 +36,7 @@ namespace Project1.LinkComponents
 
         public Link(Vector2 position)
         {
+            Weapon = "WoodenSword";
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
@@ -177,7 +179,7 @@ namespace Project1.LinkComponents
                 LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
                 LinkSprite.MaxDelay = 2;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(LinkWeaponState.ID, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
             }
         }
 
@@ -236,7 +238,7 @@ namespace Project1.LinkComponents
         private void UpdateSprite()
         {
             string Weapon = "";
-            if (LockFrame && UseItemName.Length == 0) Weapon = LinkWeaponState.ID;
+            if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
         }
         public void Reset()

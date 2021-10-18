@@ -16,6 +16,7 @@ namespace Project1.LinkComponents
         Sprite LinkSprite { get; set; }
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
+        string Weapon { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();
