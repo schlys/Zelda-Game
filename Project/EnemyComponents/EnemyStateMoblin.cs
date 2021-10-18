@@ -127,7 +127,7 @@ namespace Project1.EnemyComponents
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, ID));
             }
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }

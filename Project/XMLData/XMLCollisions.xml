@@ -946,22 +946,148 @@
 	</Collision>
 	
 	<Collision>
-		<name>LinkEnemyTop</name>
+		<name>LinkEnemyAquamentusTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkEnemyBottom</name>
+		<name>LinkEnemyAquamentusBottom</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkEnemyRight</name>
+		<name>LinkEnemyAquamentusRight</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkEnemyLeft</name>
+		<name>LinkEnemyAquamentusLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyMoblinTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyMoblinBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyMoblinRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyMoblinLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyGelTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGelBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGelRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGelLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyGoriyaTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGoriyaBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGoriyaRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyGoriyaLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyKeeseTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyKeeseBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyKeeseRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyKeeseLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyOldManTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyOldManBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyOldManRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyOldManLeft</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkEnemyStalfosTop</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyStalfosBottom</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyStalfosRight</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkEnemyStalfosLeft</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>

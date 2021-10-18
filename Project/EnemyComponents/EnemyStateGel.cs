@@ -131,7 +131,7 @@ namespace Project1.EnemyComponents
         {
             Sprite.Draw(spriteBatch, position, Size);     
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }

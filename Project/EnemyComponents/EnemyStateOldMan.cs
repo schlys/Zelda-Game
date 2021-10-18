@@ -26,7 +26,7 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(ID);
             Size = 100; 
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }
