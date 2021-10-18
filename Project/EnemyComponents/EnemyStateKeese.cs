@@ -126,7 +126,7 @@ namespace Project1.EnemyComponents
         {
             ((ICollidable)Enemy).IsMoving = false;
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }

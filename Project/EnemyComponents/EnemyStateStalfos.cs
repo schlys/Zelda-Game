@@ -82,7 +82,7 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = false;
             Sprite.TotalFrames = 1;
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }
