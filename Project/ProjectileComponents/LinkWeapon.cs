@@ -28,8 +28,10 @@ namespace Project1.ProjectileComponents
         public string TypeID { get; set; }
         private int counter = 0;
         private int delay;
-        private int width = 10;
-        private int length = 40;
+
+        // dont hardcode width and length
+        private int width; //10
+        private int length; //40
         private int offsetX = 8;
         
         public LinkWeapon(string ID, string direction, int delay, Rectangle parent)
@@ -38,14 +40,16 @@ namespace Project1.ProjectileComponents
             TypeID = ID + "Attack";
             IsMoving = false;
             InMotion = true;
+            length = (int)Math.Ceiling(.75 * parent.Width);
+            width = (int)(.20 * parent.Height);
 
             switch (direction)
             {
                 case "Up":
-                    Hitbox = new Rectangle(parent.X + parent.Width/2 - offsetX, parent.Y - length - 1, width, length);
+                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.3 * parent.Width), parent.Y - length - 1, width, length);
                     break;
                 case "Down":
-                    Hitbox = new Rectangle(parent.X + parent.Width/2 - 1, parent.Y + parent.Height + 1, width, length);
+                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.45 * parent.Width), parent.Y + parent.Height + 1, width, length);
                     break;
                 case "Right":
                     Hitbox = new Rectangle(parent.X + parent.Width + 3, parent.Y + parent.Height/2, length, width);
