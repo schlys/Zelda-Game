@@ -19,6 +19,7 @@ namespace Project1.ItemComponents
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }  // NOTE: Some ItemStates override the value of IsMoving
         public String TypeID { get; set; }
+        public Sprite Sprite { get; set; }
 
         // Other Item Properties 
         private double Counter = 0.0;
@@ -31,6 +32,7 @@ namespace Project1.ItemComponents
             "Recorder", "OrangeRupee", "BlueRupee", "Letter", "DungeonMap", "Clock", "Fire"};
         public Item(Vector2 position, string type)
         {
+            /*
             // NOTE: Needed while use next/prev item bcause some ItemStateAngel overwrite IsMoving
             IsMoving = false;
             // TODO: change to jump table 
@@ -152,12 +154,12 @@ namespace Project1.ItemComponents
             Position = InitialPosition;
             Size = 80; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
-            TypeID = this.GetType().Name.ToString()+type;
+            TypeID = this.GetType().Name.ToString()+type;*/
         }
 
         // Sets the property ItemState to a new IItemState denoted in the array of ItemTypeKeys at the given index i
         public void SetItemState(int i)
-        {
+        {/*
             // TODO: change to jump table 
             switch (ItemTypeKeys[i])
             {
@@ -272,7 +274,7 @@ namespace Project1.ItemComponents
                 default:
                     ItemState = new ItemAngelState(this);
                     break;
-            }
+            }*/
         }
 
         public void PreviousItem()

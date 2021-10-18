@@ -13,12 +13,12 @@ namespace Project1.LevelComponents
 {
     public class Room : IRoom 
     {
-        public String ID { get; set; }
+        public string ID { get; set; }
         public Vector2 Position { get; set; }
-        public String UpRoom { get; set; }
-        public String DownRoom { get; set; }
-        public String LeftRoom { get; set; }
-        public String RightRoom { get; set; }
+        public string UpRoom { get; set; }
+        public string DownRoom { get; set; }
+        public string LeftRoom { get; set; }
+        public string RightRoom { get; set; }
         public List<ILink> Links { get; set; }
         public List<IBlock> Blocks { get; set; }
         public List<IItem> Items { get; set; }
@@ -34,16 +34,16 @@ namespace Project1.LevelComponents
 
         //these variables will be deleted once room constructor has been implemented properly 
         public Texture2D Texturetemp;
-        public String Up;
-        public String Down;
-        public String Left;
-        public String Right;
-        public String RoomName;
+        public string Up;
+        public string Down;
+        public string Left;
+        public string Right;
+        public string RoomName;
         public Color Colortemp = Color.White;
         // NOTE: this not needed? the room has the texture of the background, what does this hold?  
         public int[,] textureMatrix = new int[12, 7];
 
-        public Room(String id, Vector2 position, String up, String down, String left, String right, Texture2D texture)
+        public Room(string id, Vector2 position, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
             Position = position; 
@@ -66,7 +66,7 @@ namespace Project1.LevelComponents
             Right = right;
             this.textureMatrix = textureMatrix;
         }
-        public Room(String name, Texture2D texture, String up, String down, String left, String right, int[, ] matrix)
+        public Room(string name, Texture2D texture, string up, string down, string left, string right, int[, ] matrix)
         {
             RoomName = name;
             Texture = texture;

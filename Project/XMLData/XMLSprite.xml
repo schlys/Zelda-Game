@@ -606,7 +606,7 @@
 		<hitY>23</hitY>
 	</Sprite>
 	<Sprite>
-		<name>Triangle</name>
+		<name>TriforceFragment</name>
 		<sheet>items</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>

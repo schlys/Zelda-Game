@@ -10,6 +10,6 @@ namespace Project1.CollisionComponents
     {
         Rectangle Hitbox { get; set; }  
         bool IsMoving { get; set; }     // True if the hitbox or location of the hitbox ever changes  
-        String TypeID { get; set; }
+        string TypeID { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            Item.PreviousItem();
+            //Item.PreviousItem();
         }
     }
 
@@ -36,7 +36,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            Item.NextItem();
+            //Item.NextItem();
         }
     }
 

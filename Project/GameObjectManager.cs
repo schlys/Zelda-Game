@@ -127,10 +127,10 @@ namespace Project1
         public void Update()
         {
             Room = LevelFactory.Instance.CurrentRoom;
-            Links = Room.Links;
-            Items = Room.Items;
-            Blocks = Room.Blocks;
-            Enemies = Room.Enemies; 
+            //Links = Room.Links;
+            //Items = Room.Items;
+            //Blocks = Room.Blocks;
+            //Enemies = Room.Enemies; 
 
             foreach (IController controller in Controllers)
             {

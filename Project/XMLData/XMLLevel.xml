@@ -22,7 +22,7 @@
 					<column>0</column>
 				</data>
 				<data>
-					<type>Item</type>
+					<type>MovingItem</type>
 					<type2>Angel</type2>
 					<row>0</row>
 					<column>0</column>
@@ -137,19 +137,19 @@
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>Boomerang</type2>
+					<type2>BoomerangSolid</type2>
 					<row>6</row>
 					<column>1</column>
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>MagicalBoomerang</type2>
+					<type2>MagicalBoomerangSolid</type2>
 					<row>7</row>
 					<column>1</column>
 				</data>
 				<data>
 					<type>Item</type>
-					<type2>Bomb</type2>
+					<type2>BombSolid</type2>
 					<row>8</row>
 					<column>1</column>
 				</data>

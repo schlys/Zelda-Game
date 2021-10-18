@@ -28,10 +28,10 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
-        private static String StartRoom = "Room2"; 
+        private static string StartRoom = "Room2"; 
 
-        private static Dictionary<String, IRoom> LevelDict;
-        private static Dictionary<String, Texture2D> TextureDict;
+        private static Dictionary<string, IRoom> LevelDict;
+        private static Dictionary<string, Texture2D> TextureDict;
         public static int[,] textureMatrix;
 
         // NOTE: belong in room? 
@@ -83,7 +83,7 @@ namespace Project1.LevelComponents
         {
             // TODO: load specific room item data 
             textureMatrix = new int[RoomRows, RoomColumns];
-            LevelDict = new Dictionary<String, IRoom>();
+            LevelDict = new Dictionary<string, IRoom>();
 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLLevel.xml";
@@ -93,12 +93,12 @@ namespace Project1.LevelComponents
             foreach (XmlNode node in Sprites)
             {
                 // Get Room data 
-                String name = node.SelectSingleNode("name").InnerText;
-                String sheet = node.SelectSingleNode("sheet").InnerText;
-                String up = node.SelectSingleNode("up").InnerText;
-                String down = node.SelectSingleNode("down").InnerText;
-                String left = node.SelectSingleNode("left").InnerText;
-                String right = node.SelectSingleNode("right").InnerText;
+                string name = node.SelectSingleNode("name").InnerText;
+                string sheet = node.SelectSingleNode("sheet").InnerText;
+                string up = node.SelectSingleNode("up").InnerText;
+                string down = node.SelectSingleNode("down").InnerText;
+                string left = node.SelectSingleNode("left").InnerText;
+                string right = node.SelectSingleNode("right").InnerText;
 
                 Texture2D Texture = GetTexture(sheet); 
                 IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]); 
@@ -106,8 +106,8 @@ namespace Project1.LevelComponents
                 XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/Room/objects/data");
                 foreach (XmlNode node1 in objectsData)
                 {
-                    String type = node1.SelectSingleNode("type").InnerText;
-                    String type2 = node1.SelectSingleNode("type2").InnerText;
+                    string type = node1.SelectSingleNode("type").InnerText;
+                    string type2 = node1.SelectSingleNode("type2").InnerText;
                     int row = Int16.Parse(node1.SelectSingleNode("row").InnerText);
                     int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
 
@@ -118,8 +118,12 @@ namespace Project1.LevelComponents
                             ILink link = new Link(GetItemPosition(row, column)); 
                             Room.AddLink(link); 
                             break;
+                        case "MovingItem":
+                            IItem movingItem = new MovingItem(GetItemPosition(row, column), type2);
+                            Room.AddItem(movingItem);
+                            break;
                         case "Item":
-                            IItem item = new Item(GetItemPosition(row, column), type2);
+                            IItem item = new NonMovingItem(GetItemPosition(row, column), type2);
                             Room.AddItem(item);
                             break;
                         case "Block":

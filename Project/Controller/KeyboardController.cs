@@ -102,8 +102,8 @@ namespace Project1.Controller
         public void InitializeItemCommands(IItem Item)
         {
             //Use keys "u" and "i" to cycle between which item is currently being shown 
-            RegisterCommand(new PreviousItemCmd(Game, Item), Keys.U);
-            RegisterCommand(new NextItemCmd(Game, Item), Keys.I);
+            //RegisterCommand(new PreviousItemCmd(Game, Item), Keys.U);
+            //RegisterCommand(new NextItemCmd(Game, Item), Keys.I);
         }
 
         public void InitializeEnemyCommands(IEnemy Enemy)

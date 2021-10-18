@@ -211,22 +211,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemArrowTop</name>
+		<name>LinkItemArrowUpTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemArrowBottom</name>
+		<name>LinkItemArrowUpBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemArrowRight</name>
+		<name>LinkItemArrowUpRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemArrowLeft</name>
+		<name>LinkItemArrowUpLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
@@ -295,22 +295,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemBombTop</name>
+		<name>LinkItemBombSolidTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombBottom</name>
+		<name>LinkItemBombSolidBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombRight</name>
+		<name>LinkItemBombSolidRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombLeft</name>
+		<name>LinkItemBombSolidLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
@@ -337,22 +337,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemBoomerangTop</name>
+		<name>LinkItemBoomerangSolidTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBoomerangBottom</name>
+		<name>LinkItemBoomerangSolidBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBoomerangRight</name>
+		<name>LinkItemBoomerangSolidRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBoomerangLeft</name>
+		<name>LinkItemBoomerangSolidLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
@@ -547,22 +547,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemMagicalBoomerangTop</name>
+		<name>LinkItemMagicalBoomerangSolidTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalBoomerangBottom</name>
+		<name>LinkItemMagicalBoomerangSolidBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalBoomerangRight</name>
+		<name>LinkItemMagicalBoomerangSolidRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalBoomerangLeft</name>
+		<name>LinkItemMagicalBoomerangSolidLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
