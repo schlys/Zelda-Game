@@ -50,8 +50,10 @@ namespace Project1.ItemComponents
 
         public void Reset()
         {
+            IsPicked = false;
             Position = InitialPosition;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            CollisionManager.Instance.AddObject(this);
         }
 
     }
