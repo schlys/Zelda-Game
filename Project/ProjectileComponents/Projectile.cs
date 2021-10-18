@@ -35,7 +35,7 @@ namespace Project1.ProjectileComponents
             Size = 80;
             InMotion = true;
 
-          
+            
             Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);
             IsMoving = true;
             TypeID = this.GetType().Name.ToString() + State.TypeID;
@@ -95,7 +95,8 @@ namespace Project1.ProjectileComponents
             State.Update();
             
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);
+            if(InMotion)
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);
         }
     }
 }

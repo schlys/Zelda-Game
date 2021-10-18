@@ -17,7 +17,8 @@ namespace Project1.ProjectileComponents
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
 
-        // Other Properties         
+        // Other Properties
+        private int speed = 8;
         private int counter;
         public BombProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -27,6 +28,23 @@ namespace Project1.ProjectileComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
+            Projectile.InMotion = false;
+
+            switch (Direction.ID)
+            {
+                case "Up":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - 60);
+                    break;
+                case "Down":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + 60);
+                    break;
+                case "Right":
+                    Projectile.Position = new Vector2(Projectile.Position.X + 60, Projectile.Position.Y);
+                    break;
+                default:
+                    Projectile.Position = new Vector2(Projectile.Position.X - 60, Projectile.Position.Y);
+                    break;
+            }
         }
         public void StopMotion()
         {
@@ -55,7 +73,12 @@ namespace Project1.ProjectileComponents
             }
             else if (counter < 90)
             {
+                
                 Sprite.Update();
+            }
+            else
+            {
+                Projectile.InMotion = true;
             }
         }
     }
