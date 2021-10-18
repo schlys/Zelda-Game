@@ -1156,22 +1156,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkBombRight</name>
+		<name>LinkProjectileBombRight</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkBombLeft</name>
+		<name>LinkProjectileBombLeft</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkBombTop</name>
+		<name>LinkProjectileBombTop</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkBombBottom</name>
+		<name>LinkProjectileBombBottom</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -1183,883 +1183,883 @@
 	</Collision>
 
 	<Collision>
-		<name>EnemyMoblinArrowRight</name>
+		<name>EnemyMoblinProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinArrowLeft</name>
+		<name>EnemyMoblinProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinArrowTop</name>
+		<name>EnemyMoblinProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyStalfosArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosArrowBottom</name>
+		<name>EnemyMoblinProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyKeeseArrowRight</name>
+		<name>EnemyStalfosProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseArrowLeft</name>
+		<name>EnemyStalfosProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseArrowTop</name>
+		<name>EnemyStalfosProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGelArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelArrowBottom</name>
+		<name>EnemyStalfosProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyAquamentusArrowRight</name>
+		<name>EnemyKeeseProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusArrowLeft</name>
+		<name>EnemyKeeseProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusArrowTop</name>
+		<name>EnemyKeeseProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGoriyaArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaArrowBottom</name>
+		<name>EnemyKeeseProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyOldManArrowRight</name>
+		<name>EnemyGelProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManArrowLeft</name>
+		<name>EnemyGelProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManArrowTop</name>
+		<name>EnemyGelProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyMoblinBombRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinBombLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinBombTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinBombBottom</name>
+		<name>EnemyGelProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyStalfosBombRight</name>
+		<name>EnemyAquamentusProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosBombLeft</name>
+		<name>EnemyAquamentusProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosBombTop</name>
+		<name>EnemyAquamentusProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosBombBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyKeeseBombRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseBombLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseBombTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseBombBottom</name>
+		<name>EnemyAquamentusProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGelBombRight</name>
+		<name>EnemyGoriyaProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelBombLeft</name>
+		<name>EnemyGoriyaProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelBombTop</name>
+		<name>EnemyGoriyaProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelBombBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyAquamentusBombRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusBombLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusBombTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusBombBottom</name>
+		<name>EnemyGoriyaProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGoriyaBombRight</name>
+		<name>EnemyOldManProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaBombLeft</name>
+		<name>EnemyOldManProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaBombTop</name>
+		<name>EnemyOldManProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaBombBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyOldManBombRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManBombLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManBombTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManBombBottom</name>
+		<name>EnemyOldManProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyMoblinBoomerangRight</name>
+		<name>EnemyMoblinProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinBoomerangLeft</name>
+		<name>EnemyMoblinProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinBoomerangTop</name>
+		<name>EnemyMoblinProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyStalfosBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosBoomerangBottom</name>
+		<name>EnemyMoblinProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyKeeseBoomerangRight</name>
+		<name>EnemyStalfosProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseBoomerangLeft</name>
+		<name>EnemyStalfosProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseBoomerangTop</name>
+		<name>EnemyStalfosProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGelBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelBoomerangBottom</name>
+		<name>EnemyStalfosProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyAquamentusBoomerangRight</name>
+		<name>EnemyKeeseProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusBoomerangLeft</name>
+		<name>EnemyKeeseProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusBoomerangTop</name>
+		<name>EnemyKeeseProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGoriyaBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaBoomerangBottom</name>
+		<name>EnemyKeeseProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyOldManBoomerangRight</name>
+		<name>EnemyGelProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManBoomerangLeft</name>
+		<name>EnemyGelProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManBoomerangTop</name>
+		<name>EnemyGelProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyMoblinFireRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinFireLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinFireTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyMoblinFireBottom</name>
+		<name>EnemyGelProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyStalfosFireRight</name>
+		<name>EnemyAquamentusProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosFireLeft</name>
+		<name>EnemyAquamentusProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosFireTop</name>
+		<name>EnemyAquamentusProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosFireBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyKeeseFireRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseFireLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseFireTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseFireBottom</name>
+		<name>EnemyAquamentusProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGelFireRight</name>
+		<name>EnemyGoriyaProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelFireLeft</name>
+		<name>EnemyGoriyaProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelFireTop</name>
+		<name>EnemyGoriyaProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelFireBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyAquamentusFireRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusFireLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusFireTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusFireBottom</name>
+		<name>EnemyGoriyaProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGoriyaFireRight</name>
+		<name>EnemyOldManProjectileBombRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaFireLeft</name>
+		<name>EnemyOldManProjectileBombLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaFireTop</name>
+		<name>EnemyOldManProjectileBombTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaFireBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyOldManFireRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManFireLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManFireTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyOldManFireBottom</name>
+		<name>EnemyOldManProjectileBombBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyMoblinMagicalBoomerangRight</name>
+		<name>EnemyMoblinProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinMagicalBoomerangLeft</name>
+		<name>EnemyMoblinProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinMagicalBoomerangTop</name>
+		<name>EnemyMoblinProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinMagicalBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyStalfosMagicalBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosMagicalBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosMagicalBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyStalfosMagicalBoomerangBottom</name>
+		<name>EnemyMoblinProjectileBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyKeeseMagicalBoomerangRight</name>
+		<name>EnemyStalfosProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseMagicalBoomerangLeft</name>
+		<name>EnemyStalfosProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseMagicalBoomerangTop</name>
+		<name>EnemyStalfosProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyKeeseMagicalBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGelMagicalBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelMagicalBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelMagicalBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGelMagicalBoomerangBottom</name>
+		<name>EnemyStalfosProjectileBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyAquamentusMagicalBoomerangRight</name>
+		<name>EnemyKeeseProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusMagicalBoomerangLeft</name>
+		<name>EnemyKeeseProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusMagicalBoomerangTop</name>
+		<name>EnemyKeeseProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyAquamentusMagicalBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyGoriyaMagicalBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaMagicalBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaMagicalBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyGoriyaMagicalBoomerangBottom</name>
+		<name>EnemyKeeseProjectileBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyOldManMagicalBoomerangRight</name>
+		<name>EnemyGelProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManMagicalBoomerangLeft</name>
+		<name>EnemyGelProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManMagicalBoomerangTop</name>
+		<name>EnemyGelProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManMagicalBoomerangBottom</name>
+		<name>EnemyGelProjectileBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyMoblinSilverArrowRight</name>
+		<name>EnemyAquamentusProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinSilverArrowLeft</name>
+		<name>EnemyAquamentusProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinSilverArrowTop</name>
+		<name>EnemyAquamentusProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyMoblinSilverArrowBottom</name>
+		<name>EnemyAquamentusProjectileBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGoriyaProjectileBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyOldManProjectileBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMoblinProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyStalfosProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyKeeseProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGelProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyAquamentusProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGoriyaProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyOldManProjectileFireRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileFireLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileFireTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileFireBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMoblinProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyStalfosProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyKeeseProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyKeeseProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGelProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGelProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyAquamentusProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyAquamentusProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGoriyaProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyOldManProjectileMagicalBoomerangRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileMagicalBoomerangLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileMagicalBoomerangTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileMagicalBoomerangBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMoblinProjectileSilverArrowRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileSilverArrowLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileSilverArrowTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyMoblinProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	
 	<Collision>
-		<name>EnemyStalfosSilverArrowRight</name>
+		<name>EnemyStalfosProjectileSilverArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosSilverArrowLeft</name>
+		<name>EnemyStalfosProjectileSilverArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosSilverArrowTop</name>
+		<name>EnemyStalfosProjectileSilverArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyStalfosSilverArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyKeeseSilverArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseSilverArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseSilverArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyKeeseSilverArrowBottom</name>
+		<name>EnemyStalfosProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGelSilverArrowRight</name>
+		<name>EnemyKeeseProjectileSilverArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelSilverArrowLeft</name>
+		<name>EnemyKeeseProjectileSilverArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelSilverArrowTop</name>
+		<name>EnemyKeeseProjectileSilverArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGelSilverArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyAquamentusSilverArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusSilverArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusSilverArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyAquamentusSilverArrowBottom</name>
+		<name>EnemyKeeseProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyGoriyaSilverArrowRight</name>
+		<name>EnemyGelProjectileSilverArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaSilverArrowLeft</name>
+		<name>EnemyGelProjectileSilverArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaSilverArrowTop</name>
+		<name>EnemyGelProjectileSilverArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyGoriyaSilverArrowBottom</name>
+		<name>EnemyGelProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>EnemyOldManSilverArrowRight</name>
+		<name>EnemyAquamentusProjectileSilverArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManSilverArrowLeft</name>
+		<name>EnemyAquamentusProjectileSilverArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManSilverArrowTop</name>
+		<name>EnemyAquamentusProjectileSilverArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
-		<name>EnemyOldManSilverArrowBottom</name>
+		<name>EnemyAquamentusProjectileSilverArrowBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyGoriyaProjectileSilverArrowRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileSilverArrowLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileSilverArrowTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyGoriyaProjectileSilverArrowBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyOldManProjectileSilverArrowRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileSilverArrowLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileSilverArrowTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyOldManProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
