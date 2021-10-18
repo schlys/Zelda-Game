@@ -134,6 +134,10 @@ namespace Project1.EnemyComponents
         {
             Sprite = SpriteFactory.Instance.GetSpriteData(ID + DirectionState.ID);
         }
+        public void TakeDamage(int damage)
+        {
+            Enemy.Health.DecreaseHealth(0 + damage);
+        }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, Size);   

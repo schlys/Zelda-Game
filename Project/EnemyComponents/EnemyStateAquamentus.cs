@@ -93,7 +93,7 @@ namespace Project1.EnemyComponents
             }
         }
 
-        public void TakeDamge(int damage)
+        public void TakeDamage(int damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
         }

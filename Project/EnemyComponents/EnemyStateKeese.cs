@@ -126,6 +126,10 @@ namespace Project1.EnemyComponents
         {
             ((ICollidable)Enemy).IsMoving = false;
         }
+        public void TakeDamage(int damage)
+        {
+            Enemy.Health.DecreaseHealth(0 + damage);
+        }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, Size);    

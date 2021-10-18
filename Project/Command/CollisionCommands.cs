@@ -66,7 +66,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            Enemy.TakeDamage();
+            Enemy.TakeDamage(0);
         }
     }
 

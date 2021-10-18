@@ -54,7 +54,7 @@ namespace Project1.EnemyComponents
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
             EnemyState.TakeDamage(damage);
-            Health.DecreaseHealth(0.5);
+            //Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }
 
