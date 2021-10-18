@@ -49,10 +49,11 @@ namespace Project1.EnemyComponents
             TypeID = this.GetType().Name.ToString()+type;
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
+            EnemyState.TakeDamage(damage);
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }

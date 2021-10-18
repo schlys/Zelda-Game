@@ -14,7 +14,7 @@ namespace Project1.EnemyComponents
         EnemyHealth Health { get; set; }
         Vector2 Position { get; set; }
         Vector2 InitialPosition { get; set; }
-        void TakeDamage();
+        void TakeDamage(int damage);
         void PreviousEnemy();
         void NextEnemy();
         void Draw(SpriteBatch spriteBatch);

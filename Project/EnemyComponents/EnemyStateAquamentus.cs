@@ -92,6 +92,11 @@ namespace Project1.EnemyComponents
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Down", ID));
             }
         }
+
+        public void TakeDamge(int damage)
+        {
+            Enemy.Health.DecreaseHealth(0 + damage);
+        }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Sprite.Draw(spriteBatch, position, Size);   

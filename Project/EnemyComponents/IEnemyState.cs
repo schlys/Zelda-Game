@@ -19,6 +19,7 @@ namespace Project1.EnemyComponents
         int Size { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
+        void TakeDamage(int damage);
        
     }
 }
