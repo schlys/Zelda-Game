@@ -22,6 +22,7 @@ namespace Project1.ProjectileComponents
         public Sprite Poof { get; set; }
         private int speed = 4;
         int counter;
+        private bool isBlocked=false;
         public SilverArrowProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -34,27 +35,36 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            // Draw Poof 
+            isBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
+            if (!isBlocked)
             {
-                if (counter < 50)
+                if (Projectile.InMotion)
                 {
-                    counter++;
-                    Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
-                }
-                else if (counter < 60)
-                {
-                    Poof.Draw(spriteBatch, Projectile.Position, Projectile.Size);
-                    counter++;
-                }
-                else
-                {
-                    Projectile.InMotion = false;
+                    if (counter < 50)
+                    {
+                        counter++;
+                        Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                    }
+                    else if (counter < 60)
+                    {
+                        Poof.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        counter++;
+                    }
+                    else
+                    {
+                        Projectile.InMotion = false;
+                    }
                 }
             }
+            else
+            {
+                Poof.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                Projectile.InMotion = false;
+            }
+            
         }
 
         public void Update()

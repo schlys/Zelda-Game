@@ -82,7 +82,7 @@ namespace Project1.ProjectileComponents
 
         public void StopMotion()
         {
-            InMotion = false; 
+            //InMotion = false; 
             State.StopMotion(); 
         }
 

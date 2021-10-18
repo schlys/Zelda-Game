@@ -22,6 +22,7 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int speed = 4;
         private int counter;
+        private bool isBlocked = false;
 
         public ArrowProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -37,48 +38,61 @@ namespace Project1.ProjectileComponents
 
         public void StopMotion()
         {
-            // Draw Poof 
+            isBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
+            if (!isBlocked)
             {
-                if (counter < 50)
+                if (Projectile.InMotion)
                 {
-                    counter++;
-                    Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
-                }
-                else if (counter < 60)
-                {
-                    PoofSprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
-                    counter++;
-                }
-                else
-                {
-                    Projectile.InMotion = false;
+                    if (counter < 50)
+                    {
+                        counter++;
+                        Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                    }
+                    else if (counter < 60)
+                    {
+                        PoofSprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        counter++;
+                    }
+                    else
+                    {
+                        Projectile.InMotion = false;
+                    }
                 }
             }
+            else
+            {
+                PoofSprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                Projectile.InMotion = false;
+            }
+            
         }
         public void Update()
         {
-            if (counter < 50)
+            if (!isBlocked)
             {
-                switch (Direction.ID)
+                if (counter < 50)
                 {
-                    case "Up":
-                        Projectile.Position += new Vector2(0, -speed);
-                        break;
-                    case "Down":
-                        Projectile.Position += new Vector2(0, +speed);
-                        break;
-                    case "Right":
-                        Projectile.Position += new Vector2(speed, 0);
-                        break;
-                    default:
-                        Projectile.Position += new Vector2(-speed, 0);
-                        break;
+                    switch (Direction.ID)
+                    {
+                        case "Up":
+                            Projectile.Position += new Vector2(0, -speed);
+                            break;
+                        case "Down":
+                            Projectile.Position += new Vector2(0, +speed);
+                            break;
+                        case "Right":
+                            Projectile.Position += new Vector2(speed, 0);
+                            break;
+                        default:
+                            Projectile.Position += new Vector2(-speed, 0);
+                            break;
+                    }
                 }
             }
+            
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int speed = 6;
         int counter;
+        private bool isBlocked = false;
         public MagicalBoomerangProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -32,7 +33,7 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            // Draw Poof 
+            isBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -51,22 +52,43 @@ namespace Project1.ProjectileComponents
         {
                     
             Sprite.Update();
-
-            switch (Direction.ID)
+            if (!isBlocked)
             {
-                case "Up":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
-                    break;
-                case "Down":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
-                    break;
-                case "Right":
-                    Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
-                    break;
-                default:
-                    Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
-                    break;
+                switch (Direction.ID)
+                {
+                    case "Up":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
+                        break;
+                    case "Down":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
+                        break;
+                    case "Right":
+                        Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
+                        break;
+                    default:
+                        Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
+                        break;
+                }
             }
+            else
+            {
+                switch (Direction.ID)
+                {
+                    case "Up":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
+                        break;
+                    case "Down":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
+                        break;
+                    case "Right":
+                        Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
+                        break;
+                    default:
+                        Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
+                        break;
+                }
+            }
+            
 
             if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 200 ||
                 Projectile.Position.Y > Projectile.OriginalPosition.Y + 200 ||
