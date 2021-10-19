@@ -189,52 +189,6 @@
 		<command2>NoCmd</command2>
 	</Collision>
 
-
-
-	<Collision>
-		<name>ProjectileGoriyaEnemyMoblinTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyMoblinBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyMoblinRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyMoblinLeft</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>ProjectileGoriyaEnemyStalfosTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyStalfosBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyStalfosRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaEnemyStalfosLeft</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	
-	
-
 	<Collision>
 		<name>LinkItemAngelTop</name>
 		<command1>NoCmd</command1>

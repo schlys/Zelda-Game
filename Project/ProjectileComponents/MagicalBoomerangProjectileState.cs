@@ -34,6 +34,7 @@ namespace Project1.ProjectileComponents
         public void StopMotion()
         {
             isBlocked = true;
+            speed = (-1) * speed;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -52,8 +53,6 @@ namespace Project1.ProjectileComponents
         {
                     
             Sprite.Update();
-            if (!isBlocked)
-            {
                 switch (Direction.ID)
                 {
                     case "Up":
@@ -69,34 +68,6 @@ namespace Project1.ProjectileComponents
                         Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
                         break;
                 }
-            }
-            else
-            {
-                switch (Direction.ID)
-                {
-                    case "Up":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
-                        break;
-                    case "Down":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
-                        break;
-                    case "Right":
-                        Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
-                        break;
-                    default:
-                        Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
-                        break;
-                }
-            }
-            
-
-            if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 200 ||
-                Projectile.Position.Y > Projectile.OriginalPosition.Y + 200 ||
-                Projectile.Position.X < Projectile.OriginalPosition.X - 200 ||
-                Projectile.Position.X > Projectile.OriginalPosition.X + 200)
-            {
-                speed = -4;
-            }
         }
     }
 }
