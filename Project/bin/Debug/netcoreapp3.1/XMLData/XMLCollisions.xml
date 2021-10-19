@@ -2210,4 +2210,6 @@
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
+
+	
 </Collisions>

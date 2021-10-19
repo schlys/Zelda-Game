@@ -56,7 +56,7 @@ namespace Project1.EnemyComponents
             //EnemyState.TakeDamage(damage);
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
-        }
+        }       
 
         public void PreviousEnemy()
         {

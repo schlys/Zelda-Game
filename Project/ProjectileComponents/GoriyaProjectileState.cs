@@ -24,9 +24,10 @@ namespace Project1.ProjectileComponents
         public GoriyaProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
-            Direction = direction; 
-            TypeID = "Boomerang";
+            Direction = direction;
+            TypeID = "GoriyaProjectile";    // used for the sprite key 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
+            TypeID = "Goriya";              // used for the collisions key 
             counter = 0;
         }
         public void StopMotion()
