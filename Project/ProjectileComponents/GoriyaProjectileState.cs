@@ -20,6 +20,7 @@ namespace Project1.ProjectileComponents
         // Other Properties 
         private int counter;
         private int speed = 2;
+        private bool isBlocked = false;
 
         public GoriyaProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -32,7 +33,7 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            // Draw Poof 
+            isBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -45,27 +46,55 @@ namespace Project1.ProjectileComponents
         {
             Sprite.Update();
             counter++;
-            if (counter < 100)
+            if (!isBlocked)
             {
-                if (Direction.ID.Equals("Up"))
-                    Projectile.Position += new Vector2(0, (float)-speed);
-                else if (Direction.ID.Equals("Down"))
-                    Projectile.Position += new Vector2(0, (float)speed);
-                else if (Direction.ID.Equals("Right"))
-                    Projectile.Position += new Vector2((float)speed, 0);
-                else if (Direction.ID.Equals("Left"))
-                    Projectile.Position += new Vector2((float)-speed, 0);
-
-                if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 100 || 
-                    Projectile.Position.Y > Projectile.OriginalPosition.Y + 100 ||
-                    Projectile.Position.X < Projectile.OriginalPosition.X - 100 ||
-                    Projectile.Position.X > Projectile.OriginalPosition.X + 100)
+                if (counter < 100)
                 {
-                    speed = -2;
+                    if (Direction.ID.Equals("Up"))
+                        Projectile.Position += new Vector2(0, (float)-speed);
+                    else if (Direction.ID.Equals("Down"))
+                        Projectile.Position += new Vector2(0, (float)speed);
+                    else if (Direction.ID.Equals("Right"))
+                        Projectile.Position += new Vector2((float)speed, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Projectile.Position += new Vector2((float)-speed, 0);
+
+                    if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 100 ||
+                        Projectile.Position.Y > Projectile.OriginalPosition.Y + 100 ||
+                        Projectile.Position.X < Projectile.OriginalPosition.X - 100 ||
+                        Projectile.Position.X > Projectile.OriginalPosition.X + 100)
+                    {
+                        speed = -2;
+                    }
                 }
+                else
+                    Projectile.InMotion = false;
             }
             else
-                Projectile.InMotion = false;
+            {
+                if (counter < 100)
+                {
+                    if (Direction.ID.Equals("Up"))
+                        Projectile.Position += new Vector2(0, (float)speed);
+                    else if (Direction.ID.Equals("Down"))
+                        Projectile.Position += new Vector2(0, (float)-speed);
+                    else if (Direction.ID.Equals("Right"))
+                        Projectile.Position += new Vector2((float)-speed, 0);
+                    else if (Direction.ID.Equals("Left"))
+                        Projectile.Position += new Vector2((float)speed, 0);
+
+                    if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 100 ||
+                        Projectile.Position.Y > Projectile.OriginalPosition.Y + 100 ||
+                        Projectile.Position.X < Projectile.OriginalPosition.X - 100 ||
+                        Projectile.Position.X > Projectile.OriginalPosition.X + 100)
+                    {
+                        speed = -2;
+                    }
+                }
+                else
+                    Projectile.InMotion = false;
+            }
+            
 
         }
     }

@@ -83,6 +83,22 @@ namespace Project1.Command
         }
     }
 
+    public class EnemyAvoidOtherCmd : ICommand
+    {
+
+        public IEnemy Enemy { get; set; }
+        string Direction;
+        public EnemyAvoidOtherCmd(ICollidable enemy, string direction = "")
+        {
+            Direction = direction;
+            Enemy = (IEnemy)enemy;
+        }
+        public void Execute()
+        {
+            Enemy.AvoidEnemy(Direction);
+        }
+    }
+
     class ItemPickedUpCmd : ICommand
     {
         public IItem Item { get; set; }

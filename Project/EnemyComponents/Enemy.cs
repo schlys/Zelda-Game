@@ -23,6 +23,7 @@ namespace Project1.EnemyComponents
 
         // Other Properties 
         private double Step = .1;
+        private int knockback = 4;
         private double counter = 0.0;
         private bool IsDead = false;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
@@ -57,6 +58,41 @@ namespace Project1.EnemyComponents
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }       
+
+        public void AvoidEnemy(string direction)
+        {
+            // Given the direction of the collision, move in the oppositie direction if it's within bounds 
+            Vector2 newpos = Position;
+            Vector2 location;
+            if (knockback > 0)
+            {
+                switch (direction)
+                {
+                    case "Top":     // move down 
+                        // NOTE: Account for sprite size 
+                        location = Position + new Vector2(0, knockback + EnemyState.Size);
+                        newpos.Y += knockback;
+                        break;
+                    case "Bottom":  // move up 
+                        location = Position + new Vector2(0, knockback);
+                        newpos.Y -= knockback;
+                        break;
+                    case "Right":   // move left 
+                        location = Position + new Vector2(-knockback, 0);
+                        newpos.X -= knockback;
+                        break;
+                    case "Left":    // move right  
+                        // NOTE: Account for sprite size 
+                        location = Position + new Vector2(EnemyState.Size + knockback, 0);
+                        newpos.X += knockback;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+
+        }
 
         public void PreviousEnemy()
         {

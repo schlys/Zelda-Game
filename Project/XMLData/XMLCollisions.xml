@@ -2211,5 +2211,25 @@
 		<command2>NoCmd</command2>
 	</Collision>
 
+	<Collision>
+		<name>EnemyStalfosEnemyGoriyaTop</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosEnemyGoriyaBottom</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosEnemyGoriyaRight</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyStalfosEnemyGoriyaLeft</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
 </Collisions>

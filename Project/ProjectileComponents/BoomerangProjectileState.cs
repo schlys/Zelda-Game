@@ -21,7 +21,7 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int speed = 6;
         int counter;
-        private bool isBlocking = false;
+        private bool isBlocked = false;
         public BoomerangProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -34,7 +34,7 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            isBlocking = true;
+            isBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -55,7 +55,7 @@ namespace Project1.ProjectileComponents
         public void Update()
         { 
             Sprite.Update();
-            if (!isBlocking)
+            if (!isBlocked)
             {
                 switch (Direction.ID)
                 {
