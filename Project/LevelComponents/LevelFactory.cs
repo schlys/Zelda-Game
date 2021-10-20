@@ -17,7 +17,6 @@ namespace Project1.LevelComponents
 {
     public class LevelFactory : ILevelFactory
     {
-        // TODO: implement new methods from ILevelFactory 
         private static LevelFactory instance = new LevelFactory();
         public static LevelFactory Instance
         {
@@ -139,25 +138,24 @@ namespace Project1.LevelComponents
                     }
                     
                 }
-
-                // TODO: remove matrix data - now use different item lists in IRoom 
-                /*XmlNodeList matrixData = XMLData.DocumentElement.SelectNodes("/Levels/Level/matrix/data");
-                foreach(XmlNode node1 in matrixData)
-                {
-                    int row = Int16.Parse(node1.SelectSingleNode("row").InnerText);
-                    int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
-                    int value = Int16.Parse(node1.SelectSingleNode("value").InnerText);
-                    textureMatrix[row, column] = value;
-                }
-                
-                LevelDict.Add(name, new Room(TextureDict[sheet], up, down, left, right, textureMatrix));
-                */
                 LevelDict.Add(name, Room); 
             }
 
         }
+
         private static Vector2 GetItemPosition(int row, int column)
         {
+            /* NOTE: return the location of the item in the room given the row and column. 
+             * Throw an exception if the row or column is out of the room range. 
+             */ 
+            if(row > RoomRows)
+            {
+                throw new ArgumentException("Index is out of range"); 
+            }
+            if (column > RoomColumns)
+            {
+                throw new ArgumentException("Index is out of range");
+            }
             float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);
             float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row);
             return new Vector2(x, y);
@@ -198,14 +196,15 @@ namespace Project1.LevelComponents
         }
         public Rectangle GetPlayableRoomBounds()
         {
-            // Return the playable space within the room 
+            // NOTE: Return the playable space within the room 
             return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize), 
                 RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows); 
         }
 
         public bool IsWithinRoomBounds(Vector2 location)
         {
-            if(GetPlayableRoomBounds().Contains(location.X, location.Y))
+            // NOTE: Return true if the given location is within the playable space within the room 
+            if (GetPlayableRoomBounds().Contains(location.X, location.Y))
             {
                 return true; 
             }
