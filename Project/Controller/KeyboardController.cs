@@ -51,7 +51,7 @@ namespace Project1.Controller
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
             XmlDocument XMLData = new XmlDocument();
             //reaading wrong xmlsheet, will not compile with correct one
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLKeyboard.xml";
             XMLData.Load(path);
             XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Control");
 
@@ -64,7 +64,7 @@ namespace Project1.Controller
                 //get constructor for the type
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
                 //convert string to  key object
-                Keys keyObj = (Keys)converter.ConvertFromString(key);
+                //Keys keyObj = (Keys)converter.ConvertFromString(key);
 
 
                 //ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
