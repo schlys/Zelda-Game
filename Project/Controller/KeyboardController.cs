@@ -12,6 +12,7 @@ using System.Text;
 using System.Xml;
 
 using Project1.CollisionComponents;
+using System.ComponentModel;
 
 namespace Project1.Controller
 {
@@ -47,6 +48,7 @@ namespace Project1.Controller
 
             RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
             Assembly assem = typeof(ICommand).Assembly;
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
             XmlDocument XMLData = new XmlDocument();
             //reaading wrong xmlsheet, will not compile with correct one
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
@@ -55,14 +57,17 @@ namespace Project1.Controller
 
             foreach (XmlNode node in Controllers)
             {
+                //Strings read from xml
                 string cmdName = node.SelectSingleNode("name").InnerText;
                 string key = node.SelectSingleNode("key").InnerText;
                 string obj = node.SelectSingleNode("object").InnerText;
+                //get constructor for the type
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
-                
+                //convert string to  key object
+                Keys keyObj = (Keys)converter.ConvertFromString(key);
 
 
-                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
+                //ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
                 
  
             }
