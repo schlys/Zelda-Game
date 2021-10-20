@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
 using Project1.ItemComponents;
 using Project1.BlockComponents;
-using Project1.EnemyComponents; 
+using Project1.EnemyComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
-        private static string StartRoom = "Room2"; 
+        private static string StartRoom = "room2";
 
         private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
@@ -36,7 +36,7 @@ namespace Project1.LevelComponents
         // NOTE: belong in room? 
         private static Vector2 RoomPosition = new Vector2(50, 50);
         private static int RoomBorderSize = 30;
-        private static int RoomBlockSize = 30;
+        private static int RoomBlockSize = 40;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
@@ -44,8 +44,8 @@ namespace Project1.LevelComponents
 
         public void LoadAllTextures(ContentManager content)
         {
-            TextureDict = new Dictionary<String, Texture2D>(); 
-            
+            TextureDict = new Dictionary<String, Texture2D>();
+
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
             TextureDict.Add("room2", content.Load<Texture2D>("Rooms/Room2"));
             TextureDict.Add("room3", content.Load<Texture2D>("Rooms/Room3"));
@@ -66,17 +66,17 @@ namespace Project1.LevelComponents
             TextureDict.Add("room18", content.Load<Texture2D>("Rooms/Room18"));
 
             CreateDict();
-            CurrentRoom = LevelDict[StartRoom]; 
+            CurrentRoom = LevelDict[StartRoom];
         }
 
         private static Texture2D GetTexture(String key)
         {
             // TODO: return null texture object 
-            if(TextureDict.ContainsKey(key))
+            if (TextureDict.ContainsKey(key))
             {
-                return TextureDict[key]; 
+                return TextureDict[key];
             }
-            return null; 
+            return null;
         }
         private static void CreateDict()
         {
@@ -94,13 +94,13 @@ namespace Project1.LevelComponents
                 // Get Room data 
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
-                string up = node.SelectSingleNode("up").InnerText;
-                string down = node.SelectSingleNode("down").InnerText;
-                string left = node.SelectSingleNode("left").InnerText;
-                string right = node.SelectSingleNode("right").InnerText;
+                string up = node.SelectSingleNode("up").InnerText.ToLower();
+                string down = node.SelectSingleNode("down").InnerText.ToLower();
+                string left = node.SelectSingleNode("left").InnerText.ToLower();
+                string right = node.SelectSingleNode("right").InnerText.ToLower();
 
-                Texture2D Texture = GetTexture(sheet); 
-                IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]); 
+                Texture2D Texture = GetTexture(sheet);
+                IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]);
 
                 XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/Room/objects/data");
                 foreach (XmlNode node1 in objectsData)
@@ -111,11 +111,11 @@ namespace Project1.LevelComponents
                     int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
 
                     //TODO: replace with reflection 
-                    switch(type)
+                    switch (type)
                     {
                         case "Link":
-                            ILink link = new Link(GetItemPosition(row, column)); 
-                            Room.AddLink(link); 
+                            ILink link = new Link(GetItemPosition(row, column));
+                            Room.AddLink(link);
                             break;
                         case "MovingItem":
                             IItem movingItem = new MovingItem(GetItemPosition(row, column), type2);
@@ -134,11 +134,11 @@ namespace Project1.LevelComponents
                             Room.AddEnemy(enemy);
                             break;
                         default:
-                            break; 
+                            break;
                     }
-                    
+
                 }
-                LevelDict.Add(name, Room); 
+                LevelDict.Add(name.ToLower(), Room);
             }
 
         }
@@ -147,10 +147,10 @@ namespace Project1.LevelComponents
         {
             /* NOTE: return the location of the item in the room given the row and column. 
              * Throw an exception if the row or column is out of the room range. 
-             */ 
-            if(row > RoomRows)
+             */
+            if (row > RoomRows)
             {
-                throw new ArgumentException("Index is out of range"); 
+                throw new ArgumentException("Index is out of range");
             }
             if (column > RoomColumns)
             {
@@ -163,12 +163,12 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            CurrentRoom.Draw(spriteBatch); 
+            CurrentRoom.Draw(spriteBatch);
         }
         public void MoveUp()
         {
             // TODO: check if room found in dictionary 
-            if(!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
+            if (!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
             }
@@ -197,8 +197,8 @@ namespace Project1.LevelComponents
         public Rectangle GetPlayableRoomBounds()
         {
             // NOTE: Return the playable space within the room 
-            return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize), 
-                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows); 
+            return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize),
+                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows);
         }
 
         public bool IsWithinRoomBounds(Vector2 location)
@@ -206,9 +206,9 @@ namespace Project1.LevelComponents
             // NOTE: Return true if the given location is within the playable space within the room 
             if (GetPlayableRoomBounds().Contains(location.X, location.Y))
             {
-                return true; 
+                return true;
             }
-            return false; 
+            return false;
         }
     }
 }

@@ -50,9 +50,9 @@ namespace Project1.Controller
         public void InitializeRoomCommands()
         {
             // TODO: Get actual location of doors 
-            Rectangle LeftDoor = new Rectangle(0, 0, 50, 50);
+            Rectangle LeftDoor = LevelFactory.Instance.GetPlayableRoomBounds(); 
             RegisterCommandLeftClick(new RoomLeftCmd(Game), LeftDoor); 
-            Rectangle RightDoor = new Rectangle(725, 400, 50, 50);
+            Rectangle RightDoor = LevelFactory.Instance.GetPlayableRoomBounds();
             RegisterCommandRightClick(new RoomRightCmd(Game), RightDoor);
         }
 
