@@ -30,7 +30,7 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            // Draw Poof 
+            Projectile.InMotion = false;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
