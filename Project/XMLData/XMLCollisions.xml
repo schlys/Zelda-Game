@@ -862,22 +862,22 @@
 	</Collision>
 
 	<Collision>
-		<name>LinkItemStepLadderTop</name>
+		<name>LinkItemStepladderTop</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemStepLadderBottom</name>
+		<name>LinkItemStepladderBottom</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemStepLadderRight</name>
+		<name>LinkItemStepladderRight</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemStepLadderLeft</name>
+		<name>LinkItemStepladderLeft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
