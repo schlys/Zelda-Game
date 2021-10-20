@@ -5,9 +5,12 @@ using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
-
-using System.Xml;
+using Microsoft.Xna.Framework;
 using System;
+using System.Reflection;
+using System.Text;
+using System.Xml;
+
 using Project1.CollisionComponents;
 
 namespace Project1.Controller
@@ -43,19 +46,26 @@ namespace Project1.Controller
  
 
             RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
+            Assembly assem = typeof(ICommand).Assembly;
+            XmlDocument XMLData = new XmlDocument();
+            //reaading wrong xmlsheet, will not compile with correct one
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLCollisions.xml";
+            XMLData.Load(path);
+            XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Control");
 
-            //XmlDocument XMLData = new XmlDocument();
-            //var path = AppDomain.CurrentDomain.BaseDirectory + "XMLController.xml";
-            //XMLData.Load(path);
-            //XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Controller");
+            foreach (XmlNode node in Controllers)
+            {
+                string cmdName = node.SelectSingleNode("name").InnerText;
+                string key = node.SelectSingleNode("key").InnerText;
+                string obj = node.SelectSingleNode("object").InnerText;
+                Type command1Type = assem.GetType("Project1.Command." + cmdName);
+                
 
-            //foreach (XmlNode node in Controllers)
-            //{
-               // string cmdName = node.SelectSingleNode("name").InnerText;
-                //string key = node.SelectSingleNode("key").InnerText;
-                //string obj = node.SelectSingleNode("object").InnerText;
+
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
+                
  
-            //}
+            }
             RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.S);
             RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.D);
             RegisterCommand(new LinkMoveLeftCmd(Game, Link), Keys.A);
