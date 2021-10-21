@@ -46,7 +46,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveUp();
+            LevelFactory.Instance.MoveLeft();
         }
     }
 

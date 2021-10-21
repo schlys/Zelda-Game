@@ -6,7 +6,7 @@
 			<sheet>room1</sheet>
 			<up></up>
 			<down></down>
-			<left></left>
+			<left>room18</left>
 			<right>room2</right>
 			<object>
 				<type>Enemy</type>
