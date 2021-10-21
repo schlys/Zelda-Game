@@ -20,7 +20,6 @@ namespace Project1.Controller
     {
         public Game1 Game { get; set; }
         private Dictionary<Keys, ICommand> ControllerMappings;
-        private Dictionary<String, dynamic> Items;
         private Keys LinkStopKey = Keys.B;          // a key not used in the game 
 
         public KeyboardController(Game1 game)
