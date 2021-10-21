@@ -1,0 +1,10 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 10/20/2021
+Sprint Number: 3
+Name of file: Link.cs
+Author of file: Sam Chlystek, Elise Kosmides, and Chaeun Hong
+Number of minutes taken: 10 minutes
+Readability Review:
+Additional comments in the code could be useful.
+Some methods like BlockToGo() could be renamed for better understanding.
+

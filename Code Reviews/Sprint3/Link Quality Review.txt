@@ -1,0 +1,9 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 10/20/2021
+Sprint Number: 3
+Name of file: Link.cs
+Author of file: Sam Chlystek, Elise Kosmides, and Chaeun Hong
+Number of minutes taken: 10 minutes
+Quality Review:
+System libraries are imported and never used.
+Magic numbers are used in a lot of places, would be better to use constants and variables to have a single point of control.
