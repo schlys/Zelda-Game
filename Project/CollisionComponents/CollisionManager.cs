@@ -209,5 +209,11 @@ namespace Project1.CollisionComponents
         {
             DetectCollisions();
         }
+
+        public void Reset()
+        {
+            MovingObjects = new List<ICollidable>();
+            NonMovingObjects = new List<ICollidable>();
+        }
     }
 }

@@ -53,53 +53,14 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
-            Room = LevelFactory.Instance.CurrentRoom;
-            Links = Room.Links;
-            Items = Room.Items;
-            Blocks = Room.Blocks;
-            Enemies = Room.Enemies;
-
-            foreach (ILink link in Links)
-            {
-                CollisionManager.Instance.AddObject((ICollidable)link);
-            }
-            foreach (IBlock block in Blocks)
-            {
-                CollisionManager.Instance.AddObject((ICollidable)block);
-            }
-            foreach (IItem item in Items)
-            {
-                CollisionManager.Instance.AddObject((ICollidable)item);
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                CollisionManager.Instance.AddObject((ICollidable)enemy);
-            }
-
-            /*
-            Vector2 LinkPosition = new Vector2(40, 40);
+            // Add Link 
+            // TODO: Data drive Link Position 
+            Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition;
             ILink Link = new Link(LinkPosition); 
             Links.Add(Link);
-            CollisionManager.Instance.AddObject((ICollidable)Link);
 
-            Vector2 BlockPosition = new Vector2(150, 100);
-            String BlockType = "Base"; 
-            IBlock Block = new Block(BlockPosition, BlockType); 
-            Blocks.Add(Block);
-            CollisionManager.Instance.AddObject((ICollidable)Block);
+            UpdateRoomItems();
 
-            Vector2 ItemPosition = new Vector2(600, 200);
-            String ItemType = "Angel"; 
-            IItem Item = new Item(ItemPosition, ItemType); 
-            Items.Add(Item);
-            CollisionManager.Instance.AddObject((ICollidable)Item);
-
-            Vector2 EnemyPosition = new Vector2(400, 200);
-            String EnemyType = "Moblin";
-            IEnemy Enemy = new Enemy(EnemyPosition, EnemyType); 
-            Enemies.Add(Enemy);
-            CollisionManager.Instance.AddObject((ICollidable)Enemy);
-            */
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
             foreach(ILink link in Links) 
@@ -126,11 +87,7 @@ namespace Project1
 
         public void Update()
         {
-            Room = LevelFactory.Instance.CurrentRoom;
-            //Links = Room.Links;
-            //Items = Room.Items;
-            //Blocks = Room.Blocks;
-            //Enemies = Room.Enemies; 
+            UpdateRoomItems(); 
 
             foreach (IController controller in Controllers)
             {
@@ -169,9 +126,37 @@ namespace Project1
             CollisionManager.Instance.Update();
         }
 
+        private void UpdateRoomItems()
+        {
+            Room = LevelFactory.Instance.CurrentRoom;
+            Items = Room.Items;
+            Blocks = Room.Blocks;
+            Enemies = Room.Enemies;
+
+            CollisionManager.Instance.Reset();
+
+            foreach (ILink link in Links)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)link);
+            }
+            foreach (IBlock block in Blocks)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)block);
+            }
+            foreach (IItem item in Items)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)item);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)enemy);
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Room.Draw(spriteBatch); 
+            // TODO: Remove before submission 
             // For testing collision hitbox 
             Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { Color.White });
@@ -203,8 +188,6 @@ namespace Project1
             {
                 Projectile.Draw(spriteBatch);
             }
-
-            
         }
 
         public void Reset()

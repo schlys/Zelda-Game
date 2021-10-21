@@ -27,7 +27,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
-        private static string StartRoom = "room2";
+        public Vector2 LinkStartingPosition { get; set; }
 
         private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
@@ -40,10 +40,16 @@ namespace Project1.LevelComponents
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
+        private static string StartRoom = "room2";
+
         private LevelFactory() { }
 
         public void LoadAllTextures(ContentManager content)
         {
+            /* NOTE: Load the textures used for rooms, call CreateDict to create the level dictionary, set the
+             * CurrentRoom to the starting room, and set the LinkStartingPosition. 
+             */ 
+
             TextureDict = new Dictionary<String, Texture2D>();
 
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
@@ -66,7 +72,17 @@ namespace Project1.LevelComponents
             TextureDict.Add("room18", content.Load<Texture2D>("Rooms/Room18"));
 
             CreateDict();
-            CurrentRoom = LevelDict[StartRoom];
+
+            if (LevelDict.ContainsKey(StartRoom))
+            {
+                CurrentRoom = LevelDict[StartRoom];
+            } else
+            {
+                throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found"); 
+            }
+
+            LinkStartingPosition = GetItemPosition(4, 1); 
+            
         }
 
         private static Texture2D GetTexture(String key)
@@ -81,6 +97,8 @@ namespace Project1.LevelComponents
         private static void CreateDict()
         {
             // TODO: load specific room item data 
+            // NOTE: Load the room data from XMLLevel.XML to the level dictionary. 
+
             textureMatrix = new int[RoomRows, RoomColumns];
             LevelDict = new Dictionary<string, IRoom>();
 
@@ -91,7 +109,6 @@ namespace Project1.LevelComponents
 
             foreach (XmlNode node in Sprites)
             {
-                // Get Room data 
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
                 string up = node.SelectSingleNode("up").InnerText.ToLower();
@@ -102,21 +119,19 @@ namespace Project1.LevelComponents
                 Texture2D Texture = GetTexture(sheet);
                 IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]);
 
-                XmlNodeList objectsData = XMLData.DocumentElement.SelectNodes("/Levels/Level/Room/objects/data");
-                foreach (XmlNode node1 in objectsData)
+                // Load the objects within each room 
+                XmlNodeList objectsData = node.SelectNodes("object");
+                // XMLData.DocumentElement.SelectNodes("/Levels/Level/Room/objects/data");
+                foreach (XmlNode itemNode in objectsData)
                 {
-                    string type = node1.SelectSingleNode("type").InnerText;
-                    string type2 = node1.SelectSingleNode("type2").InnerText;
-                    int row = Int16.Parse(node1.SelectSingleNode("row").InnerText);
-                    int column = Int16.Parse(node1.SelectSingleNode("column").InnerText);
+                    string type = itemNode.SelectSingleNode("type").InnerText;
+                    string type2 = itemNode.SelectSingleNode("type2").InnerText;
+                    int row = Int16.Parse(itemNode.SelectSingleNode("row").InnerText);
+                    int column = Int16.Parse(itemNode.SelectSingleNode("column").InnerText);
 
                     //TODO: replace with reflection 
                     switch (type)
                     {
-                        case "Link":
-                            ILink link = new Link(GetItemPosition(row, column));
-                            Room.AddLink(link);
-                            break;
                         case "MovingItem":
                             IItem movingItem = new MovingItem(GetItemPosition(row, column), type2);
                             Room.AddItem(movingItem);
@@ -140,7 +155,6 @@ namespace Project1.LevelComponents
                 }
                 LevelDict.Add(name.ToLower(), Room);
             }
-
         }
 
         private static Vector2 GetItemPosition(int row, int column)

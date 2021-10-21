@@ -20,13 +20,11 @@ namespace Project1.LevelComponents
         String DownRoom { get; set; }
         String LeftRoom { get; set; }
         String RightRoom { get; set; }
-        List<ILink> Links { get; set; }
         List<IBlock> Blocks { get; set; }
         List<IItem> Items { get; set; }
         List<IEnemy> Enemies { get; set; }
         Texture2D Texture { get; set; }
 
-        void AddLink(ILink link);
         void AddBlock(IBlock block);
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);
