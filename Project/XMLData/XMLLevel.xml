@@ -6,8 +6,43 @@
 			<sheet>room1</sheet>
 			<up></up>
 			<down></down>
-			<left>room18</left>
+			<left></left>
 			<right>room2</right>
+			<objects>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>1</row>
+					<column>2</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>2</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>5</row>
+					<column>1</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>6</row>
+					<column>8</column>
+				</data>
+			</objects>
+		</Room>
+
+		<Room>
+			<name>Room2</name>
+			<sheet>room2</sheet>
+			<up></up>
+			<down></down>
+			<left>room1</left>
+			<right>room3</right>
 			<objects>
 				<data>
 					<type>Link</type>
@@ -259,18 +294,6 @@
 		</Room>
 
 		<Room>
-			<name>Room2</name>
-			<sheet>room2</sheet>
-			<up></up>
-			<down></down>
-			<left>room1</left>
-			<right>room3</right>
-			<objects>
-
-			</objects>
-		</Room>
-
-		<Room>
 			<name>Room3</name>
 			<sheet>room3</sheet>
 			<up></up>
@@ -278,7 +301,42 @@
 			<left>room2</left>
 			<right>room4</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>1</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>2</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>4</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>5</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>6</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>6</row>
+					<column>3</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -290,7 +348,24 @@
 			<left>room3</left>
 			<right>room5</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>0</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>2</row>
+					<column>4</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>2</row>
+					<column>7</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -302,7 +377,42 @@
 			<left>room4</left>
 			<right>room6</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>0</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>1</row>
+					<column>1</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>3</row>
+					<column>0</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>4</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>5</row>
+					<column>1</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>6</row>
+					<column>8</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -314,7 +424,42 @@
 			<left>room5</left>
 			<right>room7</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>0</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>1</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>2</row>
+					<column>7</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>3</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>4</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>1</row>
+					<column>6</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -326,7 +471,60 @@
 			<left>room6</left>
 			<right>room8</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>0</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>1</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>2</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>2</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>3</row>
+					<column>11</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>4</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>5</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Keese</type2>
+					<row>6</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>Compass</type2>
+					<row>3</row>
+					<column>10</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -350,7 +548,24 @@
 			<left>room8</left>
 			<right>room10</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>0</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>1</row>
+					<column>1</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>1</row>
+					<column>10</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -362,7 +577,42 @@
 			<left>room9</left>
 			<right>room11</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>0</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>2</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>3</row>
+					<column>11</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>4</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Gel</type2>
+					<row>6</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>DungeonMap</type2>
+					<row>3</row>
+					<column>10</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -374,7 +624,30 @@
 			<left>room10</left>
 			<right>room12</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>0</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>3</row>
+					<column>11</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>5</row>
+					<column>10</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>BoomerangSolid</type2>
+					<row>1</row>
+					<column>6</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -386,7 +659,12 @@
 			<left>room11</left>
 			<right>room13</right>
 			<objects>
-
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>6</row>
+					<column>8</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -398,7 +676,30 @@
 			<left>room12</left>
 			<right>room14</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>3</row>
+					<column>6</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>4</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Stalfos</type2>
+					<row>4</row>
+					<column>8</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>4</row>
+					<column>3</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -410,7 +711,12 @@
 			<left>room13</left>
 			<right>room15</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Aquamentus</type2>
+					<row>3</row>
+					<column>9</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -422,7 +728,12 @@
 			<left>room14</left>
 			<right>room16</right>
 			<objects>
-
+				<data>
+					<type>Item</type>
+					<type2>TriforceFragment</type2>
+					<row>3</row>
+					<column>5</column>
+				</data>
 			</objects>
 		</Room>
 
@@ -458,7 +769,30 @@
 			<left>room17</left>
 			<right>room1</right>
 			<objects>
-
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>0</row>
+					<column>3</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>2</row>
+					<column>4</column>
+				</data>
+				<data>
+					<type>Enemy</type>
+					<type2>Goriya</type2>
+					<row>3</row>
+					<column>4</column>
+				</data>
+				<data>
+					<type>Item</type>
+					<type2>SmallKey</type2>
+					<row>1</row>
+					<column>6</column>
+				</data>
 			</objects>
 		</Room>
 
