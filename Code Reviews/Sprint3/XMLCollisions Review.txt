@@ -1,0 +1,21 @@
+﻿
+Author of the code review: Elise Kosmides 
+
+Date of the code review: 10-21-21
+
+Sprint number: 3
+
+Name of the .cs file being reviewed: XMLCollisions.xml
+
+Author of the .cs file being reviewed: Sam and Chaeun 
+
+Number of minutes taken to complete the review: 10 
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+- the tags are well named and easy to understand 
+- it is organized in a clear manner 
+- it is way too long to ever read 
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+- I think the name should be seperated into the 3 elements (item1, item2, and direction) this would help reduce code because you would not have to add multple collisions for each item combination (item1item2 and item2item1). You would also be able to use a directions case like 'all' that would be used for cases of all 4 directions. This would greatly reduce the length. 

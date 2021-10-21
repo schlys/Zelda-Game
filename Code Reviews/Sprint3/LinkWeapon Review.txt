@@ -1,0 +1,24 @@
+﻿
+Author of the code review: Elise Kosmides 
+
+Date of the code review: 10-21-21
+
+Sprint number: 3
+
+Name of the .cs file being reviewed: LinkWeapon.cs
+
+Author of the .cs file being reviewed: Sam
+
+Number of minutes taken to complete the review: 10 
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+- determining the hitbox in the constructor uses a long arithmitic statement that includes Math.Floor. I don't know what this does and a comment would be useful. 
+- this same statement uses a few hard coded numbers that should be assigned to variables. 
+- property names are clear and understandable 
+- method bodies not too long 
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+- this implements IProjectile but fails to use implement multiple of IProjectiles methods. I think it could be better suited elsewhere, perhaps in Link. It would still implement ICollidable but not IProjetile. In Link, you would have a weapon item that is either this, or an empty rectangle. 
+- too many hardcoded integers 
+- need default case in the switch statement 
