@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
+using Project1.LinkComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace Project1.ProjectileComponents
         private int length; //40
         
         
-        public LinkWeapon(string ID, string direction, int delay, Rectangle parent)
+        public LinkWeapon(LinkHealth health, string ID, string direction, int delay, Rectangle parent)
         {
             this.delay = delay;
             TypeID = ID + "Attack";
@@ -62,6 +63,7 @@ namespace Project1.ProjectileComponents
                     Hitbox = new Rectangle(parent.X - length - 3, parent.Y + parent.Height/2, length, width);
                     break;
             }
+            if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(Position, direction, "SwordBeam", ID));
         }
         public void OffsetOriginalPosition(IDirectionState direction) { }
 

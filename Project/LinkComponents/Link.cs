@@ -179,7 +179,7 @@ namespace Project1.LinkComponents
                 LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
                 LinkSprite.MaxDelay = 2;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
             }
         }
 

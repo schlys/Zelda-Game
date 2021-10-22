@@ -410,6 +410,77 @@
 		<hitY>8</hitY>
 	</Sprite>
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<Sprite>
+		<name>WoodenSwordBeamUp</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>3</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamDown</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamRight</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>2</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamLeft</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>4</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<Sprite>
 		<name>GoriyaUp</name>
 		<sheet>goriya</sheet>
@@ -958,4 +1029,6 @@
 		<hitX>40</hitX>
 		<hitY>40</hitY>
 	</Sprite>
+	
+	
 </Sprites>

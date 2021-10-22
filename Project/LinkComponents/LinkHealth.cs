@@ -28,9 +28,9 @@ namespace Project1.LinkComponents
         {
             CurrNumHearts -= x; 
         }
-        public void Update()
+        public bool IsFull()
         {
-            throw new NotImplementedException();
+            return TotalNumHearts == CurrNumHearts;
         }
     }
 }

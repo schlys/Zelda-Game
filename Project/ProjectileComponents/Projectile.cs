@@ -27,11 +27,11 @@ namespace Project1.ProjectileComponents
         // Other Properties
        
 
-        public Projectile(Vector2 position, string direction, string state)
+        public Projectile(Vector2 position, string direction, string state, string beam = "")
         {
             Position = position;
             OriginalPosition = Position;
-            State = GetProjectileState(state, direction);
+            State = GetProjectileState(state, direction, beam);
             Size = 80;
             InMotion = true;
 
@@ -41,7 +41,7 @@ namespace Project1.ProjectileComponents
             TypeID = this.GetType().Name.ToString() + State.TypeID;
         }
 
-        private IProjectileState GetProjectileState(string state, string direction)
+        private IProjectileState GetProjectileState(string state, string direction, string beam)
         {
             Assembly assem = typeof(IProjectileState).Assembly;
             Type projectileType = assem.GetType("Project1.ProjectileComponents." + state + "ProjectileState");
@@ -50,10 +50,20 @@ namespace Project1.ProjectileComponents
             Type directionType = assem.GetType("Project1.DirectionState.DirectionState" +  direction);
 
             ConstructorInfo directionConstructor = directionType.GetConstructor(Type.EmptyTypes);
-            ConstructorInfo constructor = projectileType.GetConstructor(new[] { typeof(IProjectile), typeof(IDirectionState) });
-
             object directionState = directionConstructor.Invoke(Type.EmptyTypes);
-            object projectile = constructor.Invoke(new object[] { this, (IDirectionState)directionState });
+
+            ConstructorInfo constructor;
+            object projectile;
+            if (beam.Length > 0)
+            {
+                constructor = projectileType.GetConstructor(new[] { typeof(IProjectile), typeof(IDirectionState), typeof(string) });
+                projectile = constructor.Invoke(new object[] { this, (IDirectionState)directionState, beam });
+            }
+            else
+            {
+                constructor = projectileType.GetConstructor(new[] { typeof(IProjectile), typeof(IDirectionState) });
+                projectile = constructor.Invoke(new object[] { this, (IDirectionState)directionState });
+            }
 
             return (IProjectileState)projectile;
         }
