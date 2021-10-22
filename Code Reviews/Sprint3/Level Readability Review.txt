@@ -1,0 +1,28 @@
+Author of the code review: 
+
+Chaeun Hong
+
+Date of the code review: 
+
+10/21/2021
+
+Sprint number: 
+
+3
+
+Name of the .cs file being reviewed:  
+
+ILevelFactory.cs IRoom.cs LevelFactory.cs Room.cs
+
+Author of the .cs file being reviewed: 
+
+Sam, Elise
+
+Number of minutes taken to complete the review: 
+
+30
+
+Specific comments on what is readable and what is not:
+
+- Names of variables, methods, properties are showing their function well.
+- Code is not too long, so it is enough to read and understand.

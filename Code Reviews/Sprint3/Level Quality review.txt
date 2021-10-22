@@ -1,0 +1,33 @@
+Author of the code review: 
+
+Chaeun Hong
+
+Date of the code review: 
+
+10/21/21
+
+Sprint number: 
+
+3
+
+Number of Minutes: 
+
+30
+
+Name of the .cs file being reviewed: 
+
+ILevelFactory.cs IRoom.cs LevelFactory.cs Room.cs
+
+Author of the .cs file being reviewed: 
+
+Sam, Elise
+
+Specific comments on code quality:
+
+- Interfaces are well organized overall.
+- They are high cohesion.
+
+- LevelFactory.cs is high cohesion and low coupling.
+- Using factory pattern is efficient.
+
+- Room.cs is high cohesion and low coupling.
