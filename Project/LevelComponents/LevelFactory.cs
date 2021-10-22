@@ -35,7 +35,7 @@ namespace Project1.LevelComponents
         // NOTE: belong in room? 
         private static Vector2 RoomPosition = new Vector2(50, 50);
         private static int RoomBorderSize = 80;
-        private static int RoomBlockSize = 46;
+        private static int RoomBlockSize = 40;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
