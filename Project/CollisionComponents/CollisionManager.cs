@@ -63,11 +63,12 @@ namespace Project1.CollisionComponents
         }
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
-            string key = collision.Key; 
+            string key = collision.SpecificKey;
             if (CollisionMappings.ContainsKey(key))
             {
                 return CollisionMappings[key];
             }
+            else if (CollisionMappings.ContainsKey(collision.Key)) return CollisionMappings[collision.Key];
             //TODO: create Null object instead of returning null 
             return null; 
         }

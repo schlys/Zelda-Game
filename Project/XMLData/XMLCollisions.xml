@@ -210,1089 +210,265 @@
 		<command2>NoCmd</command2>
 	</Collision>
 
-	<Collision>
-		<name>LinkItemAngelTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemAngelBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemAngelRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemAngelLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemArrowUpTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemArrowUpBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemArrowUpRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemArrowUpLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	
 	
 	<Collision>
-		<name>LinkItemBlueCandleTop</name>
+		<name>LinkItemAngel</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueCandleBottom</name>
+		<name>LinkItemArrowUp</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueCandleRight</name>
+		<name>LinkItemBlueCandle</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueCandleLeft</name>
+		<name>LinkItemBlueRing</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-
 	<Collision>
-		<name>LinkItemBlueRingTop</name>
+		<name>LinkItemBlueRupee</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRingBottom</name>
+		<name>LinkItemBombSolid</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRingRight</name>
+		<name>LinkItemBookOfMagic</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRingLeft</name>
+		<name>LinkItemBoomerangSolid</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-
 	<Collision>
-		<name>LinkItemBlueRupeeTop</name>
+		<name>LinkItemBow</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRupeeBottom</name>
+		<name>LinkItemClock</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRupeeRight</name>
+		<name>LinkItemCompass</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBlueRupeeLeft</name>
+		<name>LinkItemDungeonMap</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-
 	<Collision>
-		<name>LinkItemBombSolidTop</name>
+		<name>LinkItemFire</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombSolidBottom</name>
+		<name>LinkItemFood</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombSolidRight</name>
+		<name>LinkItemHeartContainer</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBombSolidLeft</name>
+		<name>LinkItemLetter</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-
 	<Collision>
-		<name>LinkItemBookOfMagicTop</name>
+		<name>LinkItemLifePotion</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBookOfMagicBottom</name>
+		<name>LinkItemMagicalBoomerangSolid</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBookOfMagicRight</name>
+		<name>LinkItemMagicalKey</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBookOfMagicLeft</name>
+		<name>LinkItemMagicalRod</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-
 	<Collision>
-		<name>LinkItemBoomerangSolidTop</name>
+		<name>LinkItemMagicalShield</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemBoomerangSolidBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBoomerangSolidRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBoomerangSolidLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemBowTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBowBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBowRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBowLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	<Collision>
-		<name>LinkItemClockTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemClockBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemClockRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemClockLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemCompassTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemCompassBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemCompassRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemCompassLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemDungeonMapTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemDungeonMapBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemDungeonMapRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemDungeonMapLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemFireTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFireBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFireRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFireLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemFoodTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFoodBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFoodRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFoodLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemHeartContainerTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemHeartContainerBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemHeartContainerRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemHeartContainerLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemLetterTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLetterBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLetterRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLetterLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemLifePotionTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLifePotionBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLifePotionRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemLifePotionLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemMagicalBoomerangSolidTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalBoomerangSolidBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalBoomerangSolidRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalBoomerangSolidLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemMagicalKeyTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalKeyBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalKeyRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalKeyLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemMagicalRodTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalRodBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalRodRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalRodLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemMagicalShieldTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalShieldBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalShieldRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalShieldLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemMagicalSwordTop</name>
+		<name>LinkItemMagicalSword</name>
 		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemMagicalSwordBottom</name>
-		<command1>LinkMagicalSword</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalSwordRight</name>
-		<command1>LinkMagicalSword</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemMagicalSwordLeft</name>
-		<command1>LinkMagicalSword</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemOrangeRupeeTop</name>
+		<name>LinkItemOrangeRupee</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemOrangeRupeeBottom</name>
+		<name>LinkItemPowerBracelet</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemOrangeRupeeRight</name>
+		<name>LinkItemRaft</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemOrangeRupeeLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemPowerBraceletTop</name>
+		<name>LinkItemRecorder</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemPowerBraceletBottom</name>
+		<name>LinkItemRecoveryHeart</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemPowerBraceletRight</name>
+		<name>LinkItemRedCandle</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemPowerBraceletLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemRaftTop</name>
+		<name>LinkItemRedRing</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRaftBottom</name>
+		<name>LinkItemSecondLifePotion</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRaftRight</name>
+		<name>LinkItemSilverArrow</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRaftLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemRecorderTop</name>
+		<name>LinkItemSmallKey</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRecorderBottom</name>
+		<name>LinkItemStepladder</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRecorderRight</name>
+		<name>LinkItemTriforceFragment</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRecorderLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemRecoveryHeartTop</name>
+		<name>LinkItemWhiteSword</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
-		<name>LinkItemRecoveryHeartBottom</name>
+		<name>LinkItemWoodenSword</name>
 		<command1>NoCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRecoveryHeartRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRecoveryHeartLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemRedCandleTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedCandleBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedCandleRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedCandleLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemRedRingTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedRingBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedRingRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemRedRingLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemSecondLifePotionTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSecondLifePotionBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSecondLifePotionRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSecondLifePotionLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemSilverArrowTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSilverArrowBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSilverArrowRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSilverArrowLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemSmallKeyTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSmallKeyBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSmallKeyRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemSmallKeyLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemStepladderTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemStepladderBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemStepladderRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemStepladderLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemTriforceFragmentTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemTriforceFragmentBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemTriforceFragmentRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemTriforceFragmentLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemWhiteSwordTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWhiteSwordBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWhiteSwordRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWhiteSwordLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkItemWoodenSwordTop</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWoodenSwordBottom</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWoodenSwordRight</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemWoodenSwordLeft</name>
-		<command1>NoCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	<Collision>
-		<name>LinkEnemyAquamentusTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyAquamentusBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyAquamentusRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyAquamentusLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkEnemyMoblinTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyMoblinBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyMoblinRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyMoblinLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkEnemyTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkEnemyLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	
-	<Collision>
-		<name>LinkProjectileMoblinTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileMoblinBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileMoblinRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileMoblinLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkProjectileAquamentusTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileAquamentusBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileAquamentusRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileAquamentusLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkProjectileGoriyaTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileGoriyaBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileGoriyaRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileGoriyaLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>LinkProjectileBombRight</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileBombLeft</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileBombTop</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkProjectileBombBottom</name>
-		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	
-
-	<Collision>
-		<name>EnemyProjectileArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	
-
-	<Collision>
-		<name>EnemyProjectileBombRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBombLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBombTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBombBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	
-
-	<Collision>
-		<name>EnemyProjectileBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	
-
-	<Collision>
-		<name>EnemyProjectileFireRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileFireLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileFireTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileFireBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	
-
-	<Collision>
-		<name>EnemyProjectileMagicalBoomerangRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileMagicalBoomerangLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileMagicalBoomerangTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileMagicalBoomerangBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	
-
-	<Collision>
-		<name>EnemyProjectileSilverArrowRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileSilverArrowLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileSilverArrowTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyProjectileSilverArrowBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	
 	
 	
 	<Collision>
-		<name>EnemyWoodenSwordAttackTop</name>
-		<command1>EnemyTakeDamageCmd</command1>
+		<name>LinkEnemy</name>
+		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
-	<Collision>
-		<name>EnemyWoodenSwordAttackBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyWoodenSwordAttackRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyWoodenSwordAttackLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
 	
+	<Collision>
+		<name>LinkProjectileMoblin</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>LinkProjectileAquamentus</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
 
 	<Collision>
-		<name>EnemyEnemyTop</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>EnemyAvoidOtherCmd</command2>
+		<name>LinkProjectileGoriya</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
+	
 	<Collision>
-		<name>EnemyEnemyBottom</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>EnemyAvoidOtherCmd</command2>
+		<name>LinkProjectileBomb</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
 	</Collision>
+
 	<Collision>
-		<name>EnemyEnemyRight</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>EnemyAvoidOtherCmd</command2>
+		<name>EnemyProjectileArrow</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
+	
 	<Collision>
-		<name>EnemyEnemyLeft</name>
+		<name>EnemyProjectileBomb</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyProjectileBoomerang</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyProjectileFire</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyProjectileMagicalBoomerang</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyProjectileSilverArrow</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyWoodenSwordAttack</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyEnemy</name>
 		<command1>EnemyAvoidOtherCmd</command1>
 		<command2>EnemyAvoidOtherCmd</command2>
 	</Collision>

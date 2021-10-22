@@ -11,6 +11,7 @@ namespace Project1.CollisionComponents
         public string First { get; set; }
         public string Second { get; set; }
         public String Key { get; set; }
+        public string SpecificKey { get; set; }
 
         public string Direction 
         { 

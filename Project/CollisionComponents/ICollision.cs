@@ -11,6 +11,7 @@ namespace Project1.CollisionComponents
         public ICollidable Item2 { get; set; }
         //string First { get; set; }
         //string Second { get; set; }
+        string SpecificKey { get; set; }
         string Key { get; set; }
         public string Direction { get; set; }   // direction item1 collides with item 2
         void Execute();
