@@ -87,7 +87,7 @@ namespace Project1
 
         public void Update()
         {
-            //UpdateRoomItems(); 
+            UpdateRoomItems(); 
 
             foreach (IController controller in Controllers)
             {
@@ -150,6 +150,10 @@ namespace Project1
             foreach (IEnemy enemy in Enemies)
             {
                 CollisionManager.Instance.AddObject((ICollidable)enemy);
+            }
+            foreach (IProjectile projectile in Projectiles)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)projectile);
             }
         }
 
