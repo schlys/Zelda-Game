@@ -24,7 +24,7 @@ namespace Project1.EnemyComponents
 
         // Other Properties 
         private double Step = .1;
-        private int knockback = 4;
+        private int knockback = 1;
         private double counter = 0.0;
         private bool IsDead = false;
         private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
