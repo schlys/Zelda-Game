@@ -19,6 +19,7 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         public bool isUsing { get; set; }
+        private int negSpeed = -6;
         private int speed = 6;
         int counter;
         private bool isBlocked = false;
@@ -34,14 +35,17 @@ namespace Project1.ProjectileComponents
         public void StopMotion()
         {
             isBlocked = true;
-            speed = (-1) * speed;
+            speed *= -1;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+           
             if (Projectile.InMotion)
+                if (counter > 45 && speed > 0) speed *= -1;
                 if (counter < 90)
-                {
+                {              
                     counter++;
+                   
                     Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
                 }else
                 {
@@ -51,23 +55,28 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
-                    
+              
             Sprite.Update();
-                switch (Direction.ID)
-                {
-                    case "Up":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
-                        break;
-                    case "Down":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
-                        break;
-                    case "Right":
-                        Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
-                        break;
-                    default:
-                        Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
-                        break;
-                }
+            
+
+            switch (Direction.ID)
+            {
+                case "Up":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
+                    break;
+                case "Down":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
+                    break;
+                case "Right":
+                    Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
+                    break;
+                default:
+                    Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
+                    break;
+            }
+            
+          
+           
         }
     }
 }

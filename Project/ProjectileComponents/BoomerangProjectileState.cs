@@ -35,12 +35,13 @@ namespace Project1.ProjectileComponents
         public void StopMotion()
         {
             isBlocked = true;
-            speed = (-1) * speed;
+            speed *= -1;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (Projectile.InMotion)
             {
+                if (counter > 25 && speed > 0) speed *= -1;
                 if (counter < 50)
                 {
                     counter++;
@@ -72,13 +73,14 @@ namespace Project1.ProjectileComponents
                         break;
                 }
 
+            /*
                 if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 120 ||
                 Projectile.Position.Y > Projectile.OriginalPosition.Y + 120 ||
                 Projectile.Position.X < Projectile.OriginalPosition.X - 120 ||
                 Projectile.Position.X > Projectile.OriginalPosition.X + 120)
                 {
-                    speed = -4;
-                }
+                    speed = (-1)*speed;
+                }*/
            
         }
     }

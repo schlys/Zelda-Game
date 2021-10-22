@@ -93,7 +93,9 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
             State.Update();
-            
+
+            if (Position.Equals(OriginalPosition)) InMotion = false;
+
             // Update Hitbox for collisions 
             if(InMotion)
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);

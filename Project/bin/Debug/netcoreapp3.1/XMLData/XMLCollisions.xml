@@ -1097,22 +1097,22 @@
 	<Collision>
 		<name>EnemyProjectileArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	
@@ -1143,22 +1143,22 @@
 	<Collision>
 		<name>EnemyProjectileBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	
@@ -1189,22 +1189,22 @@
 	<Collision>
 		<name>EnemyProjectileMagicalBoomerangRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileMagicalBoomerangLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileMagicalBoomerangTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileMagicalBoomerangBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	
@@ -1212,22 +1212,22 @@
 	<Collision>
 		<name>EnemyProjectileSilverArrowRight</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileSilverArrowLeft</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileSilverArrowTop</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyProjectileSilverArrowBottom</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	
 	
