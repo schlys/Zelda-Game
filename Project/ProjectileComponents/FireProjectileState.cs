@@ -33,6 +33,7 @@ namespace Project1.ProjectileComponents
         public void StopMotion()
         {
             isBlocked = true;
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {

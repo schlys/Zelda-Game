@@ -22,8 +22,8 @@ namespace Project1.EnemyComponents
             Enemy = enemy;
             DirectionState = new DirectionStateNotMoving();
             ((ICollidable)Enemy).IsMoving = false;
-            ID = "OldMan";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            ID = "";
+            Sprite = SpriteFactory.Instance.GetSpriteData("OldMan");
             Size = 100; 
         }
         public void TakeDamage(double damage)

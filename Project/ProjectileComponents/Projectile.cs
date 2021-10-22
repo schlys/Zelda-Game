@@ -97,6 +97,7 @@ namespace Project1.ProjectileComponents
             // Update Hitbox for collisions 
             if(InMotion)
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox, Size);
+            
         }
     }
 }

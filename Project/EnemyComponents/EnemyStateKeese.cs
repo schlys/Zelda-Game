@@ -26,8 +26,8 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
-            ID = "Keese";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            ID = "";
+            Sprite = SpriteFactory.Instance.GetSpriteData("Keese");
             Step = 1;
             RandomInt = R.Next(0, 9);
             Size = 100; 
@@ -124,7 +124,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving() 
         {
-            ((ICollidable)Enemy).IsMoving = false;
+            //((ICollidable)Enemy).IsMoving = false;
         }
         public void TakeDamage(double damage)
         {

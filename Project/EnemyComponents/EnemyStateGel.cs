@@ -26,8 +26,8 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
-            ID = "Gel";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            ID = "";
+            Sprite = SpriteFactory.Instance.GetSpriteData("Gel");
             Step = 1;
             RandomInt = R.Next(0, 9);
             Size = 100; 
@@ -125,7 +125,7 @@ namespace Project1.EnemyComponents
             }
         }
         private void StopMoving() {
-            ((ICollidable)Enemy).IsMoving = false;
+            //((ICollidable)Enemy).IsMoving = false;
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

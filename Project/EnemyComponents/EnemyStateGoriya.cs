@@ -31,7 +31,7 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             DirectionState = new DirectionStateUp();
-            ID = "Goriya";
+            ID = "";
             UpdateSprite();
             IsAttacking = false;
             RandomInt = R.Next(RandomRange);
@@ -117,7 +117,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            ((ICollidable)Enemy).IsMoving = false;
+            //((ICollidable)Enemy).IsMoving = false;
             Sprite.TotalFrames = 1;
         }
         private void Attack(string direction)
@@ -127,12 +127,12 @@ namespace Project1.EnemyComponents
             {
                 IsAttacking = true; 
                 Sprite.MaxDelay = 10;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, ID));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, "Goriya"));
             }
         }
         private void UpdateSprite()
         {
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID + DirectionState.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Goriya" + DirectionState.ID);
         }
         public void TakeDamage(double damage)
         {

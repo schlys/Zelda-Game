@@ -28,8 +28,8 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft(); 
-            ID = "Aquamentus";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
+            ID = "";
             IsAttacking = false;
             Size = 100; 
         }
@@ -78,18 +78,18 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = 3;
-            ((ICollidable)Enemy).IsMoving = false; 
+            //((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()
         {
             if (!IsAttacking)
             {
                 IsAttacking = true;
-                Sprite = SpriteFactory.Instance.GetSpriteData("Attack" + ID);
+                Sprite = SpriteFactory.Instance.GetSpriteData("AttackAquamentus");
                 Sprite.MaxDelay = 30;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Up", ID));
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Left", ID));
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Down", ID));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Up", "Aquamentus"));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Left", "Aquamentus"));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Down", "Aquamentus"));
             }
         }
 
@@ -121,7 +121,7 @@ namespace Project1.EnemyComponents
                 if (IsAttacking)
                 {
                     IsAttacking = false;
-                    Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+                    Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
                     Sprite.MaxDelay = Sprite.startDelay;
                 }
             }

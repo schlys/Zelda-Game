@@ -26,8 +26,8 @@ namespace Project1.EnemyComponents
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
-            ID = "Stalfos";
-            Sprite = SpriteFactory.Instance.GetSpriteData(ID);
+            ID = "";
+            Sprite = SpriteFactory.Instance.GetSpriteData("Stalfos");
             Step = 1;
             Size = 100; 
         }
@@ -79,7 +79,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            ((ICollidable)Enemy).IsMoving = false;
+            //((ICollidable)Enemy).IsMoving = false;
             Sprite.TotalFrames = 1;
         }
         public void TakeDamage(double damage)
