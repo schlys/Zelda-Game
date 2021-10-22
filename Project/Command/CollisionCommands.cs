@@ -72,14 +72,16 @@ namespace Project1.Command
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }
+        private string direction;
         public EnemyTakeDamageCmd(ICollidable enemy, string direction)
         {
             Enemy = (IEnemy)enemy;
+            this.direction = direction;
         }
 
         public void Execute()
         {
-            Enemy.TakeDamage(0.5);
+            Enemy.TakeDamage(0.5, direction);
         }
     }
 
@@ -96,6 +98,28 @@ namespace Project1.Command
         public void Execute()
         {
             Enemy.AvoidEnemy(Direction);
+        }
+    }
+
+    public class EnemyHitPlayerCmd: ICommand
+    {
+        public IEnemy Enemy { get; set; }
+        string Direction;
+        Dictionary<string,string> dir = new Dictionary<string, string> {
+            { "Top", "Bottom"},
+            { "Bottom", "Top"},
+            {"Right","Left" },
+            {"Left","Right" }
+        };
+
+        public EnemyHitPlayerCmd(ICollidable enemy, string direction)
+        {
+            Direction = direction;
+            Enemy = (IEnemy)enemy;
+        }
+        public void Execute()
+        {
+            Enemy.AvoidEnemy(dir[Direction], 20);
         }
     }
 

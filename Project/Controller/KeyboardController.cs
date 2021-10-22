@@ -123,8 +123,8 @@ namespace Project1.Controller
         public void InitializeEnemyCommands(IEnemy Enemy)
         {
             // Use keys "o" and "p" to cycle between which enemy or npc is currently being shown 
-            RegisterCommand(new PreviousEnemyCmd(Game, Enemy), Keys.O);
-            RegisterCommand(new NextEnemyCmd(Game, Enemy), Keys.P);
+           // RegisterCommand(new PreviousEnemyCmd(Game, Enemy), Keys.O);
+            //RegisterCommand(new NextEnemyCmd(Game, Enemy), Keys.P);
         }
 
         private void RegisterCommand(ICommand command, Keys key)

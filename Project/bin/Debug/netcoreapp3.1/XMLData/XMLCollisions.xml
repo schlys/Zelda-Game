@@ -1,22 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Collisions>
 	<Collision>
-		<name>LinkBlockTop</name>
-		<command1>LinkBlockToGoCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkBlockBottom</name>
-		<command1>LinkBlockToGoCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkBlockRight</name>
-		<command1>LinkBlockToGoCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkBlockLeft</name>
+		<name>LinkBlock</name>
 		<command1>LinkBlockToGoCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -398,7 +383,7 @@
 	<Collision>
 		<name>LinkEnemy</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command2>EnemyHitPlayerCmd</command2>
 	</Collision>
 	
 	<Collision>
@@ -463,6 +448,12 @@
 	
 	<Collision>
 		<name>EnemyWoodenSwordAttack</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMagicalSwordAttack</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>

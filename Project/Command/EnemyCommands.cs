@@ -3,7 +3,7 @@ using Project1.EnemyComponents;
 using Project1.ItemComponents;
 
 namespace Project1.Command
-{
+{/*
     class PreviousEnemyCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -36,7 +36,7 @@ namespace Project1.Command
         {
             Enemy.NextEnemy();
         }
-    }
+    }*/
 
     class ResetEnemyCmd : ICommand
     {

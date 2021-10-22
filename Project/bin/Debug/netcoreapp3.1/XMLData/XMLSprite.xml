@@ -7,8 +7,8 @@
 		<startFrame>1</startFrame>
 		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>35</hitX>
-		<hitY>45</hitY>
+		<hitX>30</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Down</name>
@@ -17,8 +17,8 @@
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>35</hitX>
-		<hitY>45</hitY>
+		<hitX>30</hitX>
+		<hitY>40</hitY>
 	</Sprite>	
 	<Sprite>
 		<name>Right</name>
@@ -27,8 +27,8 @@
 		<startFrame>1</startFrame>
 		<row>1</row>
 		<originalSize>40</originalSize>
-		<hitX>35</hitX>
-		<hitY>45</hitY>
+		<hitX>30</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	<Sprite>
 		<name>Left</name>
@@ -37,8 +37,8 @@
 		<startFrame>1</startFrame>
 		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>35</hitX>
-		<hitY>45</hitY>
+		<hitX>30</hitX>
+		<hitY>40</hitY>
 	</Sprite>
 	
 	<Sprite>

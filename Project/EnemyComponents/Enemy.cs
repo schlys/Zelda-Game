@@ -24,11 +24,10 @@ namespace Project1.EnemyComponents
 
         // Other Properties 
         private double Step = .1;
-        private int knockback = 1;
+        //private int knockback = 1;
         private double counter = 0.0;
         private bool IsDead = false;
-        private string[] EnemyTypeKeys = { "Moblin" , "Keese", "Stalfos", "Aquamentus", "Gel", "Goriya", "OldMan"};
-
+        
         public Enemy(Vector2 position, string type)
         {
             // TODO: switch to jump table /
@@ -51,16 +50,17 @@ namespace Project1.EnemyComponents
             TypeID = GetType().Name.ToString();
         }
 
-        public void TakeDamage(double damage)
+        public void TakeDamage(double damage, string direction)
         {
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
             //EnemyState.TakeDamage(damage);
+            AvoidEnemy(direction, 15);
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }       
 
-        public void AvoidEnemy(string direction)
+        public void AvoidEnemy(string direction, int knockback = 1)
         {
             // Given the direction of the collision, move in the oppositie direction if it's within bounds 
             Vector2 newpos = Position;
@@ -101,59 +101,9 @@ namespace Project1.EnemyComponents
 
         }
 
-        public void PreviousEnemy()
-        {
-            ResetPosition();
-            SetEnemyState((int)counter);
-            IncrementCounter(-Step);
-        }
-
-        public void NextEnemy()
-        {
-            ResetPosition();
-            SetEnemyState((int)counter);
-            IncrementCounter(Step);
-        }
-        public void SetEnemyState(int i)
-        {
-            // TODO: switch to jump table 
-            switch (EnemyTypeKeys[i])
-            {
-                case "Moblin":
-                    EnemyState = new EnemyStateMoblin(this);
-                    break;
-                case "Stalfos":
-                    EnemyState = new EnemyStateStalfos(this);
-                    break;
-                case "Keese":
-                    EnemyState = new EnemyStateKeese(this);
-                    break;
-                case "Aquamentus":
-                    EnemyState = new EnemyStateAquamentus(this);
-                    break;
-                case "Gel":
-                    EnemyState = new EnemyStateGel(this);
-                    break;
-                case "Goriya":
-                    EnemyState = new EnemyStateGoriya(this);
-                    break;
-                case "OldMan":
-                    EnemyState = new EnemyStateOldMan(this);
-                    break;
-            }
-        }
-        public void IncrementCounter(double i)
-        {
-            counter += i;
-            if (counter > (EnemyTypeKeys.Length - Step / 2))
-            {
-                counter = 0;
-            }
-            else if (counter < -Step / 2)
-            {
-                counter = EnemyTypeKeys.Length - 1;
-            }
-        }
+        
+       
+      
 
         public void Reset()
         {
