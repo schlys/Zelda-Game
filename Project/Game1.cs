@@ -54,7 +54,7 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.DarkGray);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
 
             GameObjectManager.Instance.Draw(_spriteBatch);
 
