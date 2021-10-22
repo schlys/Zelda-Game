@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
+using Project1.LevelComponents;
 using Project1.DirectionState;
 using System.Reflection;
 
@@ -47,7 +48,7 @@ namespace Project1.EnemyComponents
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
             IsMoving = true;
-            TypeID = GetType().Name.ToString()+EnemyState.ID;
+            TypeID = GetType().Name.ToString();
         }
 
         public void TakeDamage(double damage)
@@ -70,26 +71,32 @@ namespace Project1.EnemyComponents
                 {
                     case "Top":     // move down 
                         // NOTE: Account for sprite size 
-                        location = Position + new Vector2(0, knockback + EnemyState.Size);
-                        newpos.Y += knockback;
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + EnemyState.Size);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                            newpos.Y += knockback;
                         break;
                     case "Bottom":  // move up 
-                        location = Position + new Vector2(0, knockback);
-                        newpos.Y -= knockback;
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                            newpos.Y -= knockback;
                         break;
                     case "Right":   // move left 
-                        location = Position + new Vector2(-knockback, 0);
-                        newpos.X -= knockback;
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-knockback, 0);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                            newpos.X -= knockback;
                         break;
                     case "Left":    // move right  
                         // NOTE: Account for sprite size 
-                        location = Position + new Vector2(EnemyState.Size + knockback, 0);
-                        newpos.X += knockback;
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(EnemyState.Size + knockback, 0);
+                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                            newpos.X += knockback;
                         break;
                     default:
                         break;
                 }
             }
+
+            Position = newpos;
             
 
         }

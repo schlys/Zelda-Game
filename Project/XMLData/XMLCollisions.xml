@@ -22,6 +22,27 @@
 	</Collision>
 
 	<Collision>
+		<name>EnemyBlockTop</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyBlockBottom</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyBlockRight</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyBlockLeft</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
 		<name>ProjectileArrowBlockTop</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
@@ -1257,23 +1278,23 @@
 
 	<Collision>
 		<name>EnemyEnemyTop</name>
-		<command1>NoCmd</command1>
-		<command2>NoCmd</command2>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>EnemyAvoidOtherCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyEnemyBottom</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>EnemyAvoidOtherCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyEnemyRight</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>EnemyAvoidOtherCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyEnemyLeft</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>NoCmd</command2>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>EnemyAvoidOtherCmd</command2>
 	</Collision>
 	
 </Collisions>

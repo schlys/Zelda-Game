@@ -88,7 +88,7 @@ namespace Project1.Command
 
         public IEnemy Enemy { get; set; }
         string Direction;
-        public EnemyAvoidOtherCmd(ICollidable enemy, string direction = "")
+        public EnemyAvoidOtherCmd(ICollidable enemy, string direction)
         {
             Direction = direction;
             Enemy = (IEnemy)enemy;
