@@ -1,1 +1,16 @@
 
+Author of the code review: Sam Chlystek
+
+Date of the code review: 10-21-21
+
+Sprint number: 3
+
+Namr of the .cs file being reviewed: LevelFactory.cs
+
+Author of the .cs file being reviewed: Elise
+
+Number of minutes taken to complete the review: 10
+
+Readabiliity Review- Specific comments on what is readable and what is not:
+- variable names are descriptive but not overly lengthy
+- comments are present and useful 
