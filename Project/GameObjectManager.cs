@@ -87,7 +87,7 @@ namespace Project1
 
         public void Update()
         {
-            UpdateRoomItems(); 
+            //UpdateRoomItems(); 
 
             foreach (IController controller in Controllers)
             {
@@ -126,7 +126,7 @@ namespace Project1
             CollisionManager.Instance.Update();
         }
 
-        private void UpdateRoomItems()
+        public void UpdateRoomItems()
         {
             Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;

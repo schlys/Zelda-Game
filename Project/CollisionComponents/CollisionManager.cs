@@ -102,6 +102,9 @@ namespace Project1.CollisionComponents
             } else if(!item.IsMoving && !NonMovingObjects.Contains(item))   // Not allow duplicate objects 
             {
                 NonMovingObjects.Add(item);
+            } else
+            {
+                Console.WriteLine("what is happening");
             }
         }
         public void RemoveObject(ICollidable item)

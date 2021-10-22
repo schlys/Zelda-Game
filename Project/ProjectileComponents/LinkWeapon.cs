@@ -32,7 +32,7 @@ namespace Project1.ProjectileComponents
         // dont hardcode width and length
         private int width; //10
         private int length; //40
-        private int offsetX = 8;
+        
         
         public LinkWeapon(string ID, string direction, int delay, Rectangle parent)
         {
@@ -40,7 +40,11 @@ namespace Project1.ProjectileComponents
             TypeID = ID + "Attack";
             IsMoving = false;
             InMotion = true;
+
+            // weapon length is 75% of links length
             length = (int)Math.Ceiling(.75 * parent.Width);
+
+            // weapom width is 20% of links width
             width = (int)(.20 * parent.Height);
 
             switch (direction)

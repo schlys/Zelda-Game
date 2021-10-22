@@ -184,6 +184,7 @@ namespace Project1.LevelComponents
             if (!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
+                GameObjectManager.Instance.UpdateRoomItems();
             }
         }
         public void MoveDown()
@@ -191,6 +192,7 @@ namespace Project1.LevelComponents
             if (!CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.DownRoom];
+                GameObjectManager.Instance.UpdateRoomItems();
             }
         }
         public void MoveLeft()
@@ -198,6 +200,7 @@ namespace Project1.LevelComponents
             if (!CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+                GameObjectManager.Instance.UpdateRoomItems();
             }
         }
         public void MoveRight()
@@ -205,6 +208,7 @@ namespace Project1.LevelComponents
             if (!CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
+                GameObjectManager.Instance.UpdateRoomItems();
             }
         }
         public Rectangle GetPlayableRoomBounds()
