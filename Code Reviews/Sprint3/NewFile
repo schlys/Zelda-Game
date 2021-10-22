@@ -1,0 +1,16 @@
+Author of the code review: Jake Haskins
+
+Date of the code review: 10-22-21
+
+Sprint number: 3
+
+Name of the .cs file being reviewed: LevelFactory.cs
+
+Author of the .cs file being reviewed: Elise
+
+Number of minutes taken to complete the review: 10
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+-Firstly, I think a general change that should be done to all files will need to be the addition of comments, as it would increase readibility significantly
+-Second, we will need to respec the room dimensions to fit the 16:9 ratio of the sprites in order to properly size the room
+-Third, what purpose does reset hold? I assume it's a function for this sprint, but the room doesn't need an inherent reset function for the finished game
