@@ -24,7 +24,7 @@ namespace Project1.EnemyComponents
 
         // Other Properties 
         private double Step = .1;
-        //private int knockback = 1;
+        private int knockback = 1;
         private double counter = 0.0;
         private bool IsDead = false;
         
@@ -60,7 +60,7 @@ namespace Project1.EnemyComponents
             IsDead = Health.Dead();
         }       
 
-        public void AvoidEnemy(string direction, int knockback = 1)
+        public void AvoidEnemy(string direction, int knockback)
         {
             // Given the direction of the collision, move in the oppositie direction if it's within bounds 
             Vector2 newpos = Position;
