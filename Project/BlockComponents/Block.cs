@@ -67,7 +67,8 @@ namespace Project1.BlockComponents
 
             Position = position; 
             Size = 40; 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);
+            // TODO: Hard coding, Size changed for collision with projectiles 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size+20);
             IsMoving = false;
             TypeID = this.GetType().Name.ToString();
         }
@@ -139,7 +140,7 @@ namespace Project1.BlockComponents
         public void Reset()
         {
             BlockState = new BlockBaseState(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size+20);
         }
 
         public void Draw(SpriteBatch spriteBatch)

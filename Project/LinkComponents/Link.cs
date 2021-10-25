@@ -74,7 +74,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
                 }
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step + LinkSize);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(0, Step);
