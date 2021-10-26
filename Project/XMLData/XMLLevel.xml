@@ -1854,6 +1854,42 @@
 				<type>Block</type>
 				<type2>Blue</type2>
 				<row>3</row>
+				<column>3</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
+				<column>4</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
+				<column>5</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
+				<column>6</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
+				<column>7</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
+				<column>8</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Blue</type2>
+				<row>3</row>
 				<column>10</column>
 			</object>
 			<object>
