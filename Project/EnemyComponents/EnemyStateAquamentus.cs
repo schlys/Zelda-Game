@@ -24,6 +24,8 @@ namespace Project1.EnemyComponents
         private int Timer = 0;
         private int Rand;
 
+        private int attack = 200;
+
         public EnemyStateAquamentus(IEnemy enemy)
         {
             Enemy = enemy;
@@ -110,7 +112,7 @@ namespace Project1.EnemyComponents
 
             Timer++;
 
-            if (Timer > 250)
+            if (Timer >= attack)
             {
                 Attack();
                 Timer = 0;

@@ -178,7 +178,8 @@ namespace Project1.LinkComponents
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
-                LinkSprite.MaxDelay = 2;
+                //attack animation should be fast
+                LinkSprite.MaxDelay = 0;
                 GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
             }
         }

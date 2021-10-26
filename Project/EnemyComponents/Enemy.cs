@@ -23,9 +23,9 @@ namespace Project1.EnemyComponents
         public String TypeID { get; set; }
 
         // Other Properties 
-        private double Step = .1;
-        private int knockback = 1;
-        private double counter = 0.0;
+        
+        private int counter = 0;
+        private int colorDelay = 10;
         private bool IsDead = false;
         
         public Enemy(Vector2 position, string type)
@@ -120,6 +120,12 @@ namespace Project1.EnemyComponents
 
         public void Update()
         {
+            counter++;
+            if (counter > colorDelay)
+            {
+                EnemyState.Sprite.Color = Color.White;
+                counter = 0;
+            }
             if (!IsDead)
             {
                 IsMoving = true;

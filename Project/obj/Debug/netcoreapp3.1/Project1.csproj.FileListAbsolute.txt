@@ -87,7 +87,6 @@ C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Room
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.png
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.png
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLLevel.xml
-C:\Users\samch\source\repos\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room1.png
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.png
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.png

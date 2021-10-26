@@ -64,6 +64,7 @@ namespace Project1.SpriteComponents
             delay+=DelayRate;
             if (delay > MaxDelay)
             {
+                //Color = Color.White;
                 if (CurrentFrame < TotalFrames)
                 {
                     CurrentFrame++;
