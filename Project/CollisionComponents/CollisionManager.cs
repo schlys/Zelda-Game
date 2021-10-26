@@ -175,6 +175,8 @@ namespace Project1.CollisionComponents
                         {
                             ExecuteCommands(collision, commands);
                         }
+                        // break here so movers don't get knocked back by two different blocks
+                        break;
                     }
   
                 }
