@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Project1.CollisionComponents;
+using Project1.LevelComponents; 
 using Project1.DirectionState;
 using System;
 
@@ -63,14 +64,21 @@ namespace Project1.BlockComponents
                     BlockState = new BlockLastState(this);
                     break;
             }
-            
 
+            /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
+            /* account for hitbox buffer room */
+            int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            Position -= new Vector2((RoomBlockSize-Hitbox.Width)/2, (RoomBlockSize -Hitbox.Height) / 2);
+            /* Get correct hibox for updated position */
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
+
             Size = 32; 
-            // TODO: Hard coding, Size changed for collision with projectiles 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size+20);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
             IsMoving = false;
             TypeID = this.GetType().Name.ToString();
+
         }
 
         private void SetBlockState(int i)
@@ -140,7 +148,7 @@ namespace Project1.BlockComponents
         public void Reset()
         {
             BlockState = new BlockBaseState(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size+20);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
         }
 
         public void Draw(SpriteBatch spriteBatch)

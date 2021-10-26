@@ -169,6 +169,7 @@ namespace Project1.LevelComponents
             {
                 throw new ArgumentException("Index is out of range");
             }
+            
             float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);
             float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row);
             return new Vector2(x, y);
@@ -182,18 +183,17 @@ namespace Project1.LevelComponents
             dummyTexture.SetData(new Color[] { Color.White });
             Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
             Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
+            Rectangle roomTile = new Rectangle((int)GetItemPosition(0,1).X, (int)GetItemPosition(0, 1).Y, RoomBlockSize, RoomBlockSize);
+
             CurrentRoom.Draw(spriteBatch);
 
-            //spriteBatch.Draw(dummyTexture, roomBorder, Color.White);
-
-
+            //spriteBatch.Draw(dummyTexture, roomTile, Color.Red); 
             //spriteBatch.Draw(dummyTexture, roomFloor, Color.White);
 
         }
 
         public void MoveUp()
         {
-            // TODO: check if room found in dictionary 
             if (!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
@@ -227,8 +227,6 @@ namespace Project1.LevelComponents
         public Rectangle GetPlayableRoomBounds()
         {
             // NOTE: Return the playable space within the room 
-            /*return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize),
-                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows);*/
             return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, 
                 (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
 

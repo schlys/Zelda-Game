@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/OverworldEnemies/Ghini.png</SourceFile>
-  <SourceTime>2021-09-21T09:11:52.5926792-04:00</SourceTime>
-  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/OverworldEnemies/Ghini.xnb</DestFile>
-  <DestTime>2021-10-26T14:23:34.2852442-04:00</DestTime>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Ghini.png</SourceFile>
+  <SourceTime>2021-10-20T12:35:40.5378562-04:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/OverworldEnemies/Ghini.xnb</DestFile>
+  <DestTime>2021-10-26T16:40:30.8993045-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
