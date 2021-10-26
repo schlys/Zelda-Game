@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics; 
 
 namespace Project1.SpriteComponents
 {
@@ -49,7 +49,16 @@ namespace Project1.SpriteComponents
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
-        
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            int scalingFactor = GameObjectManager.Instance.ScalingFactor;
+            int universalSize = SpriteFactory.Instance.UniversalSize; 
+            Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * universalSize, Row * universalSize, universalSize, universalSize);
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, universalSize * scalingFactor, universalSize * scalingFactor);
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
+        }
+
         public void Update()
         {
             delay+=DelayRate;

@@ -21,6 +21,7 @@ namespace Project1.BlockComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             BlockSprite.Draw(spriteBatch, Block.Position, Block.Size);
+            //BlockSprite.Draw(spriteBatch, Block.Position);
         }
 
     }

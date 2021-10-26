@@ -129,7 +129,8 @@ namespace Project1.EnemyComponents
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite.Draw(spriteBatch, position, Size);     
+            //Sprite.Draw(spriteBatch, position, Size);
+            Sprite.Draw(spriteBatch, position);
         }
         public void TakeDamage(double damage)
         {

@@ -34,8 +34,8 @@ namespace Project1.LevelComponents
 
         // NOTE: belong in room? 
         private static Vector2 RoomPosition = new Vector2(50, 50);
-        private static int RoomBorderSize = 80;
-        private static int RoomBlockSize = 40;
+        private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;
+        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;    //40;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
@@ -176,8 +176,21 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            // TODO: Remove before submission 
+            // For testing collision hitbox 
+            Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { Color.White });
+            Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
+            Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
             CurrentRoom.Draw(spriteBatch);
+
+            //spriteBatch.Draw(dummyTexture, roomBorder, Color.White);
+
+
+            //spriteBatch.Draw(dummyTexture, roomFloor, Color.White);
+
         }
+
         public void MoveUp()
         {
             // TODO: check if room found in dictionary 
@@ -214,14 +227,18 @@ namespace Project1.LevelComponents
         public Rectangle GetPlayableRoomBounds()
         {
             // NOTE: Return the playable space within the room 
-            return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize),
-                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows);
+            /*return new Rectangle((int)(RoomPosition.X + RoomBorderSize), (int)(RoomPosition.Y + RoomBorderSize),
+                RoomBlockSize * RoomColumns, RoomBlockSize * RoomRows);*/
+            return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, 
+                (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
+
         }
 
         public bool IsWithinRoomBounds(Vector2 location)
         {
             // NOTE: Return true if the given location is within the playable space within the room 
-            if (GetPlayableRoomBounds().Contains(location.X, location.Y))
+            Rectangle bounds = GetPlayableRoomBounds(); 
+            if (bounds.Contains(location.X, location.Y))
             {
                 return true;
             }

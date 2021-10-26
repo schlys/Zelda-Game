@@ -66,7 +66,7 @@ namespace Project1.BlockComponents
             
 
             Position = position; 
-            Size = 40; 
+            Size = 32; 
             // TODO: Hard coding, Size changed for collision with projectiles 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox, Size+20);
             IsMoving = false;

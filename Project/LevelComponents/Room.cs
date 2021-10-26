@@ -25,8 +25,8 @@ namespace Project1.LevelComponents
         public Texture2D Texture { get; set; }
 
         private Color Color = Color.White;
-        private int Height = 440;
-        private int Width = 640; 
+        private int Height = 176 * GameObjectManager.Instance.ScalingFactor; //440;
+        private int Width = 256 * GameObjectManager.Instance.ScalingFactor; //640; 
 
         public Room(string id, Vector2 position, string up, string down, string left, string right, Texture2D texture)
         {

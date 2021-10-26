@@ -46,11 +46,13 @@ namespace Project1.ProjectileComponents
                     if (counter < 50)
                     {
                         counter++;
-                        Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        //Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        Sprite.Draw(spriteBatch, Projectile.Position);
                     }
                     else if (counter < 60)
                     {
-                        Poof.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        //Poof.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                        Poof.Draw(spriteBatch, Projectile.Position);
                         counter++;
                     }
                     else

@@ -34,7 +34,7 @@ namespace Project1.ItemComponents
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!IsPicked) Sprite.Draw(spriteBatch, Position, Size);
+            if (!IsPicked) Sprite.Draw(spriteBatch, Position); //Sprite.Draw(spriteBatch, Position, Size);
         }
         public void Update()
         {

@@ -38,7 +38,9 @@ namespace Project1.ProjectileComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             if (Projectile.InMotion)
-                Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                //Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
+                Sprite.Draw(spriteBatch, Projectile.Position);
+
             else
                 Projectile.InMotion = false;
         }

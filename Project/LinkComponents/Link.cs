@@ -44,7 +44,7 @@ namespace Project1.LinkComponents
             Position = position;
             InitialPosition = position; 
             UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); //CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
             IsMoving = true;
             TypeID = GetType().Name.ToString();
         }
@@ -57,7 +57,7 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) - new Vector2(0, Step);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y)- new Vector2(0, Step);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(0, Step);
@@ -74,7 +74,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
                 }
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step+LinkSize);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step + Hitbox.Height);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(0, Step);
@@ -110,7 +110,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
                 }
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + LinkSize, 0);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(Step, 0);
@@ -136,21 +136,21 @@ namespace Project1.LinkComponents
                 {
                     case "Top":     // move down 
                         // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + LinkSize);
+                        location = new Vector2(Hitbox.X, Hitbox.Y); //+ new Vector2(0, knockback + LinkSize);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                         {
                             newpos.Y += knockback;
                         }
                         break;
                     case "Bottom":  // move up 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback);
+                        location = new Vector2(Hitbox.X, Hitbox.Y); //+ new Vector2(0, knockback);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                         {
                             newpos.Y -= knockback;
                         } 
                         break;
                     case "Right":   // move left 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-knockback, 0);
+                        location = new Vector2(Hitbox.X, Hitbox.Y); //+ new Vector2(-knockback, 0);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                         {
                             newpos.X -= knockback;
@@ -158,7 +158,7 @@ namespace Project1.LinkComponents
                         break;
                     case "Left":    // move right  
                         // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(LinkSize + knockback, 0);
+                        location = new Vector2(Hitbox.X, Hitbox.Y); //+ new Vector2(LinkSize + knockback, 0);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                         {
                             newpos.X += knockback;
@@ -195,6 +195,7 @@ namespace Project1.LinkComponents
                 GameObjectManager.Instance.AddProjectile(Item);
             }
         }
+        
 
         public void PickUpItem(string name)
         {
@@ -250,7 +251,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             LockFrame = false;
             UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); //CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
         }
         public void Update()
         {
@@ -277,11 +278,12 @@ namespace Project1.LinkComponents
             }
 
             // Update Hitbox for collisions  
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); //CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox, LinkSize);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            LinkSprite.Draw(spriteBatch, Position, LinkSize);
+            //LinkSprite.Draw(spriteBatch, Position, LinkSize);
+            LinkSprite.Draw(spriteBatch, Position);
         }
     }
 }

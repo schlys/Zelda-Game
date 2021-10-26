@@ -26,6 +26,7 @@ namespace Project1
         }
         private GameObjectManager() { }
 
+        public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -34,7 +35,7 @@ namespace Project1
         private List<IController> Controllers;
         private IRoom Room; 
 
-        Game1 Game; 
+        public Game1 Game; 
 
         public void Initialize(Game1 game)
         {
@@ -161,12 +162,13 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Room.Draw(spriteBatch); 
+            LevelFactory.Instance.Draw(spriteBatch); 
+            //Room.Draw(spriteBatch); 
             // TODO: Remove before submission 
             // For testing collision hitbox 
-            Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
+            /*Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { Color.White });
-            /*
+            
             foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
             {
                 spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
@@ -175,6 +177,7 @@ namespace Project1
             {
                 spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
             }*/
+
             foreach (ILink link in Links)
             {
                 link.Draw(spriteBatch);
