@@ -10,14 +10,18 @@ namespace Project1.ItemComponents
 {
     class NonMovingItem : IItem, ICollidable
     {
-      
-        private Sprite Sprite { get; set; }
+        // Properties from IItem 
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
-        public int Size { get; set; }
+        
+        // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+        
+        // Other properties 
+        public int Size { get; set; }
+        private Sprite Sprite { get; set; }
 
         private bool IsPicked = false;
 
@@ -30,7 +34,7 @@ namespace Project1.ItemComponents
             TypeID = "Item" + type;
 
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -40,7 +44,7 @@ namespace Project1.ItemComponents
         {
             if (!IsPicked) Sprite.Update();
             else CollisionManager.Instance.RemoveObject(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
         }
 
         public void RemoveItem()
@@ -52,7 +56,7 @@ namespace Project1.ItemComponents
         {
             IsPicked = false;
             Position = InitialPosition;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
             CollisionManager.Instance.AddObject(this);
         }
 

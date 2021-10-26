@@ -11,15 +11,20 @@ namespace Project1.ItemComponents
 {
     class MovingItem : IItem, ICollidable
     {
+        // Properties from IItem 
+        public Vector2 Position { get; set; }
+        public Vector2 InitialPosition { get; set; }
+        
+        // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+        
+        // Other Properies 
         private IItemState ItemState { get; set; }
-       
-        public Vector2 Position { get; set; }
-        public Vector2 InitialPosition { get; set; }
         public int Size { get; set; }
         private bool IsPicked = false;
+
         public MovingItem(Vector2 position, string type)
         {
             Size = 80;
@@ -33,6 +38,8 @@ namespace Project1.ItemComponents
             ConstructorInfo enemyConstructor = itemType.GetConstructor(new[] { typeof(IItem) });
             object enemyState = enemyConstructor.Invoke(new object[] { this });
             ItemState = (IItemState)enemyState;
+
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -48,7 +55,7 @@ namespace Project1.ItemComponents
         {
             IsPicked = false;
             Position = InitialPosition;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
             CollisionManager.Instance.AddObject(this);
         }
 
@@ -56,7 +63,7 @@ namespace Project1.ItemComponents
         {
             if (!IsPicked) ItemState.Update();
             else CollisionManager.Instance.RemoveObject(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
         }
     }
 }

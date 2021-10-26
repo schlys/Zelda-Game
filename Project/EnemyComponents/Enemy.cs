@@ -29,9 +29,7 @@ namespace Project1.EnemyComponents
         private bool IsDead = false;
         
         public Enemy(Vector2 position, string type)
-        {
-            // TODO: switch to jump table /
-           
+        {           
             Assembly assem = typeof(IEnemyState).Assembly;
             Type enemyType = assem.GetType("Project1.EnemyComponents.EnemyState" + type);
             ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy) });    
@@ -39,13 +37,10 @@ namespace Project1.EnemyComponents
             object enemyState = enemyConstructor.Invoke(new object[] { this});
             EnemyState = (IEnemyState)enemyState;
            
-
-
-
             Health = new EnemyHealth(3, 30);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
             IsMoving = true;
             TypeID = GetType().Name.ToString();
         }
@@ -62,7 +57,7 @@ namespace Project1.EnemyComponents
 
         public void AvoidEnemy(string direction, int knockback)
         {
-            // Given the direction of the collision, move in the oppositie direction if it's within bounds 
+            // NTOE: Given the direction of the collision, move in the oppositie direction if it's within bounds 
             Vector2 newpos = Position;
             Vector2 location;
             if (knockback > 0)
@@ -71,7 +66,7 @@ namespace Project1.EnemyComponents
                 {
                     case "Top":     // move down 
                         // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + EnemyState.Size);
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + Hitbox.Height);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                             newpos.Y += knockback;
                         break;
@@ -87,7 +82,7 @@ namespace Project1.EnemyComponents
                         break;
                     case "Left":    // move right  
                         // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(EnemyState.Size + knockback, 0);
+                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(knockback + Hitbox.Width, 0);
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                             newpos.X += knockback;
                         break;
@@ -95,14 +90,8 @@ namespace Project1.EnemyComponents
                         break;
                 }
             }
-
             Position = newpos;
-            
-
         }
-
-        
-       
       
 
         public void Reset()
@@ -114,9 +103,10 @@ namespace Project1.EnemyComponents
             IsDead = false;
             EnemyState.Sprite.Color = Color.White;
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
             CollisionManager.Instance.AddObject(this);
         }
+
         public void ResetPosition()
         {
             Position = InitialPosition;
@@ -135,7 +125,7 @@ namespace Project1.EnemyComponents
                 IsMoving = true;
                 EnemyState.Update();
                 // Update Hitbox for collisions 
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox, EnemyState.Size);
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
             }
             else
             {
