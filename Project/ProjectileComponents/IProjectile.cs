@@ -13,7 +13,6 @@ namespace Project1.ProjectileComponents
         Vector2 Position { get; set; }
         Vector2 OriginalPosition { get; set; }
         IProjectileState State { get; set; }
-        int Size { get; set; }
         bool InMotion { get; set; }
         void OffsetOriginalPosition(IDirectionState direction);
         void StopMotion(); 

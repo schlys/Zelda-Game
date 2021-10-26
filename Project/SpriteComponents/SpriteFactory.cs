@@ -26,8 +26,8 @@ namespace Project1.SpriteComponents
         private static Dictionary<string, Sprite> SpriteDict;
         private static Dictionary<string, Texture2D> TextureDict;
         
-        public int UniversalSize = 40;     /* size of area sprites are in in sprite sheets */
-        public int BlockSize = 16;     /* size of area sprites are in in sprite sheets */
+        public int UniversalSize = 40;  /* size of area sprites are in in sprite sheets */
+        public int BlockSize = 16;      /* size of area sprites are in in sprite sheets */
 
         public void LoadAllTextures(ContentManager content)
         {

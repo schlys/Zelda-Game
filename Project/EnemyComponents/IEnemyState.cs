@@ -14,8 +14,9 @@ namespace Project1.EnemyComponents
     {
         IEnemy Enemy { get; set; }
         IDirectionState DirectionState {get;set;}
-        Sprite Sprite { get; set; }     //change to ISprite later 
+        Sprite Sprite { get; set; }
         string ID { get; set; }
+        // TODO: Remove 
         int Size { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();

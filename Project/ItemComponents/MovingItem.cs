@@ -39,7 +39,7 @@ namespace Project1.ItemComponents
             object enemyState = enemyConstructor.Invoke(new object[] { this });
             ItemState = (IItemState)enemyState;
 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -55,7 +55,7 @@ namespace Project1.ItemComponents
         {
             IsPicked = false;
             Position = InitialPosition;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); 
             CollisionManager.Instance.AddObject(this);
         }
 
@@ -63,7 +63,7 @@ namespace Project1.ItemComponents
         {
             if (!IsPicked) ItemState.Update();
             else CollisionManager.Instance.RemoveObject(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox); 
         }
     }
 }

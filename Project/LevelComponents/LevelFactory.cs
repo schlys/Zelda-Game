@@ -32,10 +32,10 @@ namespace Project1.LevelComponents
         private static Dictionary<string, Texture2D> TextureDict;
         public static int[,] textureMatrix;
 
-        // NOTE: belong in room? 
+        // TODO: Load in XML
         private static Vector2 RoomPosition = new Vector2(50, 50);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;
-        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;    //40;
+        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
@@ -95,7 +95,6 @@ namespace Project1.LevelComponents
         }
         private static void CreateDict()
         {
-            // TODO: load specific room item data 
             // NOTE: Load the room data from XMLLevel.XML to the level dictionary. 
 
             textureMatrix = new int[RoomRows, RoomColumns];

@@ -46,7 +46,6 @@ namespace Project1.ProjectileComponents
                 {              
                     counter++;
                    
-                    //Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
                     Sprite.Draw(spriteBatch, Projectile.Position);
 
                 }

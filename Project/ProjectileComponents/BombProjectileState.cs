@@ -56,7 +56,6 @@ namespace Project1.ProjectileComponents
                 if (counter < 120)
                 {
                     counter++;
-                    //Sprite.Draw(spriteBatch, Projectile.Position, Projectile.Size);
                     Sprite.Draw(spriteBatch, Projectile.Position);
                 }
                 else

@@ -27,24 +27,23 @@ namespace Project1.ItemComponents
 
         public NonMovingItem(Vector2 position, string type)
         {
-            Size = 80;
             IsMoving = false;
             InitialPosition = position;
             Position = InitialPosition;
             TypeID = "Item" + type;
 
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!IsPicked) Sprite.Draw(spriteBatch, Position); //Sprite.Draw(spriteBatch, Position, Size);
+            if (!IsPicked) Sprite.Draw(spriteBatch, Position);
         }
         public void Update()
         {
             if (!IsPicked) Sprite.Update();
             else CollisionManager.Instance.RemoveObject(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
         }
 
         public void RemoveItem()
@@ -56,7 +55,7 @@ namespace Project1.ItemComponents
         {
             IsPicked = false;
             Position = InitialPosition;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); 
             CollisionManager.Instance.AddObject(this);
         }
 

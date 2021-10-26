@@ -16,7 +16,6 @@ namespace Project1.ProjectileComponents
         public Vector2 Position { get; set; }
         public Vector2 OriginalPosition { get; set; }
         public IProjectileState State { get; set; }
-        public int Size { get; set; }
         public bool InMotion { get; set; }
 
         // Properties from ICollidable 
@@ -32,11 +31,9 @@ namespace Project1.ProjectileComponents
             Position = position;
             OriginalPosition = Position;
             State = GetProjectileState(state, direction, beam);
-            Size = 80;
             InMotion = true;
 
-
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox); //, Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox); 
             IsMoving = true;
             TypeID = this.GetType().Name.ToString() + State.TypeID;
         }
@@ -111,7 +108,7 @@ namespace Project1.ProjectileComponents
 
             // Update Hitbox for collisions 
             if (InMotion)
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox); //, Size);
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox);
             
         }
     }

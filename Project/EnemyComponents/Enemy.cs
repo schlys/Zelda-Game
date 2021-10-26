@@ -40,7 +40,7 @@ namespace Project1.EnemyComponents
             Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
             IsMoving = true;
             TypeID = GetType().Name.ToString();
         }
@@ -103,7 +103,7 @@ namespace Project1.EnemyComponents
             IsDead = false;
             EnemyState.Sprite.Color = Color.White;
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
             CollisionManager.Instance.AddObject(this);
         }
 
@@ -131,7 +131,7 @@ namespace Project1.EnemyComponents
                 IsMoving = true;
                 EnemyState.Update();
                 // Update Hitbox for collisions 
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
             }
             else
             {

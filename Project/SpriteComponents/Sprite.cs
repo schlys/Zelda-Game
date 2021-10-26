@@ -14,8 +14,7 @@ namespace Project1.SpriteComponents
         public int CurrentFrame;
         public int Row;
         public Vector2 HitBox; 
-        //public int hitX;
-        //public int hitY;
+
         public int OriginalSize { get; set; }
         public int Col { get; set; }
         public int MaxDelay { get; set; }
@@ -40,14 +39,6 @@ namespace Project1.SpriteComponents
             startDelay = MaxDelay;
             Color = Color.White;
             HitBox = new Vector2(hitx, hity); 
-        }
-
-        // TODO: should add size as poroperty of sprite? 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, int size)
-        {
-            Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * OriginalSize, Row * OriginalSize, OriginalSize, OriginalSize);
-            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, size, size);
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
