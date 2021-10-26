@@ -37,7 +37,7 @@ namespace Project1.EnemyComponents
             object enemyState = enemyConstructor.Invoke(new object[] { this});
             EnemyState = (IEnemyState)enemyState;
            
-            Health = new EnemyHealth(3, 30);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
+            Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
             Position = position;
             InitialPosition = Position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); //, EnemyState.Size);
