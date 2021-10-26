@@ -2,7 +2,7 @@
 <Controllers>
 	<Control>
 		<name>LinkMoveUpCmd</name>
-		<key>Keys.W</key>
+		<key>W</key>
 		<object>ILink</object>
 
 	</Control>

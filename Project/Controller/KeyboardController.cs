@@ -45,7 +45,7 @@ namespace Project1.Controller
             */
  
 
-            RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
+            //RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
             Assembly assem = typeof(ICommand).Assembly;
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
             XmlDocument XMLData = new XmlDocument();
@@ -63,12 +63,12 @@ namespace Project1.Controller
                 //get constructor for the type
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
                 //convert string to  key object
-                //Keys keyObj = (Keys)converter.ConvertFromString(key);
+                Keys keyObj = (Keys)converter.ConvertFromString(key);
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
+                object command1 = constructor1.Invoke(new object[] { Game, Link });
+                ICommand cmd1 = (ICommand)command1;
+                RegisterCommand(cmd1, keyObj);
 
-
-                //ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
-                
- 
             }
             RegisterCommand(new LinkMoveDownCmd(Game, Link), Keys.S);
             RegisterCommand(new LinkMoveRightCmd(Game, Link), Keys.D);
