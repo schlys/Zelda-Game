@@ -72,21 +72,24 @@ namespace Project1.ProjectileComponents
         {
             // Adjust start location to be beside the sprite based on the direction
             // TODO: not hardcode offset values 
-            switch (direction.ID)
-            {
-                case "Up":
-                    Position += new Vector2(5, -8);
-                    break;
-                case "Down":
-                    Position += new Vector2(5, 15);
-                    break;
-                case "Right":
-                    Position += new Vector2(13, 8);
-                    break;
-                default: // Left
-                    Position += new Vector2(-8, 8);
-                    break;
-            }
+            
+           
+                switch (direction.ID)
+                {
+                    case "Up":
+                        Position += new Vector2(5, -8);
+                        break;
+                    case "Down":
+                        Position += new Vector2(5, 15);
+                        break;
+                    case "Right":
+                        Position += new Vector2(13, 8);
+                        break;
+                    default: // Left
+                        Position += new Vector2(-8, 8);
+                        break;
+                }
+            
             OriginalPosition = Position; 
         }
 

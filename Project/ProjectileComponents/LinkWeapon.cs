@@ -43,18 +43,18 @@ namespace Project1.ProjectileComponents
             InMotion = true;
 
             // weapon length is 75% of links length
-            length = (int)Math.Ceiling(.75 * parent.Width);
+            length = (int)Math.Ceiling(.8 * parent.Width);
 
             // weapom width is 20% of links width
-            width = (int)(.20 * parent.Height);
+            width = (int)(.25 * parent.Height);
 
             switch (direction)
             {
                 case "Up":
-                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.3 * parent.Width), parent.Y - length - 1, width, length);
+                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.3 * parent.Width), parent.Y - length - 3, width, length);
                     break;
                 case "Down":
-                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.45 * parent.Width), parent.Y + parent.Height + 1, width, length);
+                    Hitbox = new Rectangle(parent.X + (int)Math.Floor(.45 * parent.Width), parent.Y + parent.Height + 3, width, length);
                     break;
                 case "Right":
                     Hitbox = new Rectangle(parent.X + parent.Width + 3, parent.Y + parent.Height/2, length, width);
@@ -63,7 +63,7 @@ namespace Project1.ProjectileComponents
                     Hitbox = new Rectangle(parent.X - length - 3, parent.Y + parent.Height/2, length, width);
                     break;
             }
-            if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(Position, direction, "SwordBeam", ID));
+            if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(new Vector2(Hitbox.X, Hitbox.Y), direction, "SwordBeam", ID));
         }
         public void OffsetOriginalPosition(IDirectionState direction) { }
 
