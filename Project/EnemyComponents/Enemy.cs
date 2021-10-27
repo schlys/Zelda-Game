@@ -98,7 +98,8 @@ namespace Project1.EnemyComponents
                         break;
                 }
             }
-            Position = newpos;
+            if(LevelFactory.Instance.IsWithinRoomBounds(newpos))
+                Position = newpos;
         }
       
 
