@@ -14,7 +14,6 @@ namespace Project1.BlockComponents
         // Properties from IBlock 
         public IBlockState BlockState { get; set; }
         public Vector2 Position { get; set; }
-        public int Size { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -74,7 +73,6 @@ namespace Project1.BlockComponents
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
 
-            Size = 32; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
             IsMoving = false;
             TypeID = this.GetType().Name.ToString();

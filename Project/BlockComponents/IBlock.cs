@@ -11,7 +11,6 @@ namespace Project1.BlockComponents
     {
         IBlockState BlockState { get; set; }
         Vector2 Position { get; set; }
-        int Size { get; set; }
         void PreviousBlock();
         void NextBlock();
         void Draw(SpriteBatch spriteBatch);
