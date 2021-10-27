@@ -12,18 +12,19 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateOldMan: IEnemyState
     {
-        public Enemy Enemy { get; set; }
+        public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public EnemyStateOldMan(IEnemy enemy)
         {
-            Enemy = (Enemy)enemy;
+            Enemy = enemy;
             DirectionState = new DirectionStateNotMoving();
             ((ICollidable)Enemy).IsMoving = false;
             ID = "";
             Sprite = SpriteFactory.Instance.GetSpriteData("OldMan");
         }
+
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);

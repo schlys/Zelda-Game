@@ -13,7 +13,7 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateAquamentus : IEnemyState
     {
-        public Enemy Enemy { get; set; }
+        public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
@@ -27,12 +27,18 @@ namespace Project1.EnemyComponents
 
         public EnemyStateAquamentus(IEnemy enemy)
         {
-            Enemy = (Enemy)enemy;
+            Enemy = enemy;
             DirectionState = new DirectionStateLeft(); 
             Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
             ID = "";
             IsAttacking = false;
         }
+
+        private Rectangle GetEnemyHitBox()
+        {
+            return ((ICollidable)Enemy).Hitbox;
+        }
+
         public void MoveLeft()
         {
             if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - 50)
@@ -40,8 +46,9 @@ namespace Project1.EnemyComponents
                 Sprite.TotalFrames = 4;
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveLeft();
-                
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) - new Vector2(Step, 0);
+
+                Rectangle Hitbox = GetEnemyHitBox(); 
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(-Step, 0);
@@ -64,7 +71,8 @@ namespace Project1.EnemyComponents
                 DirectionState = DirectionState.MoveRight();
 
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, 0);
+                Rectangle Hitbox = GetEnemyHitBox();
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(Step, 0);

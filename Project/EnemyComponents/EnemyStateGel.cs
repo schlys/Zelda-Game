@@ -12,7 +12,7 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateGel: IEnemyState
     {
-        public Enemy Enemy { get; set; }
+        public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
@@ -23,19 +23,27 @@ namespace Project1.EnemyComponents
         private int RandomInt;
         public EnemyStateGel(IEnemy enemy)
         {
-            Enemy = (Enemy)enemy;
+            Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             ID = "";
             Sprite = SpriteFactory.Instance.GetSpriteData("Gel");
             Step = 1;
             RandomInt = R.Next(0, 9);
         }
+
+        private Rectangle GetEnemyHitBox()
+        {
+            return ((ICollidable)Enemy).Hitbox;
+        }
+
+
         private void MoveUp()
         {
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveUp();
 
-            Vector2 location = Enemy.Position - new Vector2(0, Step);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, -Step);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(0, -Step);
@@ -47,7 +55,8 @@ namespace Project1.EnemyComponents
             DirectionState = DirectionState.MoveUp();
 
             // NOTE: Account for sprite size 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(0, Step + Enemy.Hitbox.Height);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step + Hitbox.Height);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(0, Step);
@@ -59,7 +68,8 @@ namespace Project1.EnemyComponents
             DirectionState = DirectionState.MoveRight();
 
             // NOTE: Account for sprite size 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, 0);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, 0);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(Step, 0);
@@ -70,7 +80,8 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveLeft();
 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) - new Vector2(Step, 0);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) - new Vector2(Step, 0);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(-Step, 0);
@@ -82,7 +93,8 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveUp();
 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, -Step);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, -Step);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(Step, -Step);
@@ -93,7 +105,8 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveUp();
 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(-Step, -Step);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, -Step);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(-Step, -Step);
@@ -104,7 +117,8 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveDown();
 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, Step + Enemy.Hitbox.Height);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, Step + Hitbox.Height);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
 
@@ -116,7 +130,8 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = true;
             DirectionState = DirectionState.MoveDown();
 
-            Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(-Step, Step + Enemy.Hitbox.Height);
+            Rectangle Hitbox = GetEnemyHitBox();
+            Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, Step + Hitbox.Height);
             if (LevelFactory.Instance.IsWithinRoomBounds(location))
             {
                 Enemy.Position += new Vector2(-Step, Step);

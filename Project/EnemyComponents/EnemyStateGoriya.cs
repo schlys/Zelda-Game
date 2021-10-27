@@ -12,7 +12,7 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateGoriya : IEnemyState
     {
-        public Enemy Enemy { get; set; }
+        public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }     
         public string ID { get; set; }
@@ -28,7 +28,7 @@ namespace Project1.EnemyComponents
 
         public EnemyStateGoriya(IEnemy enemy)
         {
-            Enemy = (Enemy)enemy;
+            Enemy = enemy;
             DirectionState = new DirectionStateUp();
             ID = "";
             UpdateSprite();
@@ -36,6 +36,12 @@ namespace Project1.EnemyComponents
             RandomInt = R.Next(RandomRange);
             Step = 1;
         }
+
+        private Rectangle GetEnemyHitBox()
+        {
+            return ((ICollidable)Enemy).Hitbox;
+        }
+
 
         private void MoveUp()
         {
@@ -47,8 +53,9 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-               
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(0, -Step);
+
+                Rectangle Hitbox = GetEnemyHitBox();
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, -Step);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(0, -Step);
@@ -66,9 +73,10 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
                 }
-                
+
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(0, Step + Enemy.Hitbox.Height);
+                Rectangle Hitbox = GetEnemyHitBox();
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step + Hitbox.Height);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(0, Step);
@@ -85,9 +93,10 @@ namespace Project1.EnemyComponents
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
                 }
-               
+
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, 0);
+                Rectangle Hitbox = GetEnemyHitBox();
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(Step, 0);
@@ -105,8 +114,8 @@ namespace Project1.EnemyComponents
                     UpdateSprite();
                 }
 
-                
-                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(-Step, 0);
+                Rectangle Hitbox = GetEnemyHitBox();
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(-Step, 0);
