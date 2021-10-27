@@ -20,7 +20,6 @@ namespace Project1.ItemComponents
         public string TypeID { get; set; }
         
         // Other properties 
-        public int Size { get; set; }
         private Sprite Sprite { get; set; }
 
         private bool IsPicked = false;

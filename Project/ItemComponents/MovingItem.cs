@@ -22,12 +22,10 @@ namespace Project1.ItemComponents
         
         // Other Properies 
         private IItemState ItemState { get; set; }
-        public int Size { get; set; }
         private bool IsPicked = false;
 
         public MovingItem(Vector2 position, string type)
         {
-            Size = 80;
             IsMoving = true;
             TypeID = "Item" + type;
 

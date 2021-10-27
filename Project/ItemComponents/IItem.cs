@@ -12,8 +12,6 @@ namespace Project1.ItemComponents
 
         Vector2 Position { get; set; }
         Vector2 InitialPosition { get; set; }
-        // TODO: Remove 
-        int Size { get; set; }
         void Draw(SpriteBatch spriteBatch);
         void Update();
         void Reset();

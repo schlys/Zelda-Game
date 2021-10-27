@@ -64,7 +64,7 @@ namespace Project1.ItemComponents
         {
             if (Item.Position.Y - Step > Item.InitialPosition.Y - PositionBounds)
             {
-                Vector2 location = Item.Position - new Vector2(0, Step);
+                Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) - new Vector2(0, Step);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Item.Position = new Vector2(Item.Position.X, Item.Position.Y - Step);
@@ -76,7 +76,7 @@ namespace Project1.ItemComponents
             if (Item.Position.Y + Step < Item.InitialPosition.Y + PositionBounds)
             {
                 // NOTE: Account for sprite size 
-                Vector2 location = Item.Position + new Vector2(0, Step + Item.Size);
+                Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) + new Vector2(0, Step + ((ICollidable)Item).Hitbox.Height);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Item.Position = new Vector2(Item.Position.X, Item.Position.Y + Step);
@@ -87,7 +87,7 @@ namespace Project1.ItemComponents
         {
             if (Item.Position.X - Step > Item.InitialPosition.X - PositionBounds)
             {
-                Vector2 location = Item.Position - new Vector2(Step, 0);
+                Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) - new Vector2(Step, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Item.Position = new Vector2(Item.Position.X - Step, Item.Position.Y);
@@ -99,7 +99,7 @@ namespace Project1.ItemComponents
             if (Item.Position.X + Step < Item.InitialPosition.X + PositionBounds)
             {
                 // NOTE: Account for sprite size 
-                Vector2 location = Item.Position + new Vector2(Step + Item.Size, 0);
+                Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) + new Vector2(Step + ((ICollidable)Item).Hitbox.Width, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
