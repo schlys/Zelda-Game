@@ -209,7 +209,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueCandle</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddBlueCandleToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>

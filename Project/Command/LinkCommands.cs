@@ -199,7 +199,6 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("Arrow");
-            //Link.UseArrow();
         }
     }
 
@@ -216,7 +215,6 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("SilverArrow");
-            //Link.UseSilverArrow();
         }
     }
 
@@ -233,7 +231,6 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("Fire");
-            //Link.UseFire();
         }
     }
 
@@ -250,7 +247,6 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("Bomb");
-            //Link.UseBomb();
         }
     }
 
@@ -267,7 +263,6 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("Boomerang");
-            //Link.UseBoomerang();
         }
     }
 
@@ -284,11 +279,8 @@ namespace Project1.Command
         public void Execute()
         {
             Link.UseItem("MagicalBoomerang");
-            //Link.UseMagicalBoomerang();
         }
     }
-
-    
 
     public class LinkResetCmd : ICommand
     {

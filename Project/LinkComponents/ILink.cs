@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
-using Project1.CollisionComponents;
+using Project1.ItemComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -17,6 +16,7 @@ namespace Project1.LinkComponents
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
         string Weapon { get; set; }
+        Dictionary<string, int> Inventory { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();

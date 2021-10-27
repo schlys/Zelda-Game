@@ -7,7 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Project1.ItemComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -19,7 +20,8 @@ namespace Project1.LinkComponents
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
-        public string Weapon { get; set; }
+        public string Weapon { get; set; }                      // represents Link's current weapon being used
+        public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -40,6 +42,9 @@ namespace Project1.LinkComponents
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
             UseItemName = "";
+
+            // TODO: start with items? 
+            Inventory = new Dictionary<string, int>(); 
 
             UpdateSprite(); // Generate LinkSprite 
             IsMoving = true;
@@ -198,6 +203,7 @@ namespace Project1.LinkComponents
 
         public void UseItem(string name)
         {
+            // TODO: remove from inventory to use 
             if (!LockFrame)
             {
                 LockFrame = true;
@@ -212,9 +218,14 @@ namespace Project1.LinkComponents
 
         public void PickUpItem(string name)
         {
-            // TODO: implement method 
-            // add item to inventory 
-            
+            // NOTE: Add or increment count of <name> in <Inventory> 
+            if(Inventory.ContainsKey(name))
+            {
+                Inventory[name] = Inventory[name] + 1; 
+            } else
+            {
+                Inventory.TryAdd(name, 1); 
+            }
         }
         public void TakeDamage(string direction, int knockback = 0)
         {

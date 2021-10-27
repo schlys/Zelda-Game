@@ -39,7 +39,6 @@ namespace Project1.Command
 
     public class LinkTakeDamageCmd : ICommand
     {
-
         public ILink Link { get; set; }
         string Direction;
         public LinkTakeDamageCmd(ICollidable link, string direction = "")
@@ -66,6 +65,37 @@ namespace Project1.Command
         public void Execute()
         {
             Link.BlockToGo(Direction);
+        }
+    }
+
+    // TODO: not hardcode item keys, how else can get them?
+    public class LinkAddArrowToInventoryCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public string ItemKey { get; set; }
+        public LinkAddArrowToInventoryCmd(ICollidable link, string direction)
+        {
+            Link = (ILink)link;
+            ItemKey = "Arrow"; 
+        }
+        public void Execute()
+        {
+            Link.PickUpItem(ItemKey);
+        }
+    }
+
+    public class LinkAddBlueCandleToInventoryCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public string ItemKey { get; set; }
+        public LinkAddBlueCandleToInventoryCmd(ICollidable link, string direction)
+        {
+            Link = (ILink)link;
+            ItemKey = "BlueCandle";
+        }
+        public void Execute()
+        {
+            Link.PickUpItem(ItemKey);
         }
     }
 
@@ -123,7 +153,7 @@ namespace Project1.Command
         }
     }
 
-    class ItemPickedUpCmd : ICommand
+    public class ItemPickedUpCmd : ICommand
     {
         public IItem Item { get; set; }
         public ItemPickedUpCmd(ICollidable item, string direction)
