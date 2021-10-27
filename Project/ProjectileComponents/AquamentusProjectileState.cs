@@ -19,6 +19,8 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         private int counter;
+        private int speedX = 2;
+        private int speedY = 1;
         public AquamentusProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -44,11 +46,11 @@ namespace Project1.ProjectileComponents
             if (counter < 200)
             {
                 if (Direction.ID.Equals("Up"))  // up and left 
-                    Projectile.Position += new Vector2((float)-2, -1);
+                    Projectile.Position += new Vector2((float)-speedX, -speedY);
                 else if (Direction.ID.Equals("Left"))
-                    Projectile.Position += new Vector2((float)-2, 0);
+                    Projectile.Position += new Vector2((float)-speedX, 0);
                 else if (Direction.ID.Equals("Down"))   // down and left 
-                    Projectile.Position += new Vector2((float)-2, 1);
+                    Projectile.Position += new Vector2((float)-speedX, speedY);
             }
             else
             {

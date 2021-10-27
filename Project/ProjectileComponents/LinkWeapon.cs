@@ -39,7 +39,7 @@ namespace Project1.ProjectileComponents
         {
             this.delay = delay;
             TypeID = ID + "Attack";
-            IsMoving = false;
+            IsMoving = true;
             InMotion = true;
 
             // weapon length is 75% of links length

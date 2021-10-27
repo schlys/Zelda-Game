@@ -17,6 +17,7 @@ namespace Project1.Controller
         public Game1 Game { get; set; }
         private Dictionary<Rectangle, ICommand> ControllerMappingsLeftClick;
         private Dictionary<Rectangle, ICommand> ControllerMappingsRightClick;
+        private int counter = 0;
         public MouseController(Game1 game) 
         {
             Game = game;
@@ -72,28 +73,33 @@ namespace Project1.Controller
              * the entries of controllerMappingsLeftClick and 
              * controllerMappingsRightClick and execute the command. 
              */
-
-            MouseState mouseState = Mouse.GetState();
-            Point clickLoc = new Point(mouseState.X, mouseState.Y);
-
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            counter++;
+            if (counter > 4)
             {
-                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsLeftClick)
+                counter = 0;
+
+                MouseState mouseState = Mouse.GetState();
+                Point clickLoc = new Point(mouseState.X, mouseState.Y);
+
+                if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    if (entry.Key.Contains(clickLoc))
+                    foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsLeftClick)
                     {
-                        entry.Value.Execute(); 
+                        if (entry.Key.Contains(clickLoc))
+                        {
+                            entry.Value.Execute();
+                        }
                     }
                 }
-            }
 
-            if (mouseState.RightButton == ButtonState.Pressed)
-            {
-                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsRightClick)
+                if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                    if (entry.Key.Contains(clickLoc))
+                    foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsRightClick)
                     {
-                        entry.Value.Execute();
+                        if (entry.Key.Contains(clickLoc))
+                        {
+                            entry.Value.Execute();
+                        }
                     }
                 }
             }
