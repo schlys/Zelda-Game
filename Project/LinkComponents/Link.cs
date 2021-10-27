@@ -176,7 +176,11 @@ namespace Project1.LinkComponents
                         break; 
                 }
             }
-            return newpos;
+            if(LevelFactory.Instance.IsWithinRoomBounds(newpos))
+            {
+                return newpos;
+            }
+            return position; 
         }
 
         public void Attack()
