@@ -73,19 +73,19 @@ namespace Project1.Command
         }
     }
 
-    public class LinkStopMovingCmd : ICommand
+    public class LinkStopMotionCmd : ICommand
     {
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkStopMovingCmd(ICollidable link)
+        public LinkStopMotionCmd(ICollidable link)
         {
             Link = (ILink)link;
         }
 
         public void Execute()
         {
-            Link.StopMoving();
+            Link.StopMotion();
         }
     }
 

@@ -52,19 +52,19 @@ namespace Project1.Command
         }
     }
 
-    public class LinkBlockToGoCmd : ICommand
+    public class LinkHitBlockCmd : ICommand
     {
 
         public ILink Link { get; set; }
         string Direction;
-        public LinkBlockToGoCmd(ICollidable link, string direction = "")
+        public LinkHitBlockCmd(ICollidable link, string direction)
         {
             Direction = direction;
             Link = (ILink)link;
         }
         public void Execute()
         {
-            Link.BlockToGo(Direction);
+            Link.HitBlock(Direction);
         }
     }
 

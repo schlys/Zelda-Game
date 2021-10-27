@@ -163,7 +163,7 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             LevelFactory.Instance.Draw(spriteBatch); 
-            //Room.Draw(spriteBatch); 
+
             // TODO: Remove before submission 
             // For testing collision hitbox 
             /*Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);

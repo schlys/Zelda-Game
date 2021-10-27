@@ -61,6 +61,7 @@ namespace Project1.LinkComponents
             
             InitialPosition = Position;
         }
+
         public void MoveUp()
         {
             if (!LockFrame)
@@ -77,6 +78,7 @@ namespace Project1.LinkComponents
                 }
             }
         }
+
         public void MoveDown()
         {
             if (!LockFrame)
@@ -130,19 +132,75 @@ namespace Project1.LinkComponents
                 }
             }
         }
-        public void StopMoving()
+
+        public void StopMotion()
         {
+            // NOTE: Stops the moving animation of Link, not actual movement
             if (!LockFrame)
             {
                 LinkSprite.TotalFrames = 1;
             } 
         }
 
-        private Vector2 Knockback(Vector2 position, string direction, int knockback = 0)
+        private Vector2 Knockback(Vector2 position, string direction, int knockback)
         {
-            // Given the direction of the collision, move in the oppositie direction if it's within bounds 
+            /* This is used when Link collides with objects so he doesn't keep moving and overlap. 
+             * Given the <direction> of the collision, return an updated legal location. If he can't 
+             * move in the opposite of <direction>, try moving in every other direction until a legal 
+             * move is found. If no move is found, not 
+             * update position. 
+             */ 
+            
+            Vector2 newpos = TryKnockback(position, direction, knockback);
+            
+            for (int count = 0; count < 4; count++)
+            {
+                if (position != newpos && LevelFactory.Instance.IsWithinRoomBounds(newpos))
+                {
+                    return newpos;
+                }
+                // Try moving in another direction 
+                direction = GetNextDirection(direction); 
+                newpos = TryKnockback(position, direction, knockback);
+            }
+            return newpos; 
+        }
+
+        private string GetNextDirection(string direction)
+        {
+            // Order Top > Bottom > Right > Left > Top ...
+            string newDirection; 
+            switch(direction)
+            {
+                case "Top":
+                    newDirection = "Bottom";
+                    break;
+                case "Bottom":
+                    newDirection = "Right";
+                    break;
+                case "Right":
+                    newDirection = "Left";
+                    break;
+                case "Left":
+                    newDirection = "Top";
+                    break;
+                default:
+                    newDirection = "Top";
+                    break;
+            }
+            return newDirection; 
+        }
+
+        private Vector2 TryKnockback(Vector2 position, string direction, int knockback)
+        {
+            /* Returns a legal location moving <position> the amount of <knockback> in the oppositie of 
+             * <direction> if possible. Otherwise, returns position. 
+             */
+
             Vector2 newpos = position;
-            Vector2 location; 
+            Vector2 location;
+            
+            // Update <newpos> if can move <position> in the opposite of <direction> the amount of <knockback> 
             if (knockback > 0)
             {
                 switch (direction)
@@ -160,7 +218,7 @@ namespace Project1.LinkComponents
                         if (LevelFactory.Instance.IsWithinRoomBounds(location))
                         {
                             newpos.Y -= knockback;
-                        } 
+                        }
                         break;
                     case "Right":   // move left 
                         location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-knockback, 0);
@@ -178,14 +236,10 @@ namespace Project1.LinkComponents
                         }
                         break;
                     default:
-                        break; 
+                        break;
                 }
             }
-            if(LevelFactory.Instance.IsWithinRoomBounds(newpos))
-            {
-                return newpos;
-            }
-            return position; 
+            return newpos;
         }
 
         public void Attack()
@@ -214,7 +268,6 @@ namespace Project1.LinkComponents
                 GameObjectManager.Instance.AddProjectile(Item);
             }
         }
-        
 
         public void PickUpItem(string name)
         {
@@ -227,6 +280,7 @@ namespace Project1.LinkComponents
                 Inventory.TryAdd(name, 1); 
             }
         }
+
         public void TakeDamage(string direction, int knockback = 0)
         {
             // TODO: determine value to decrease by  
@@ -234,27 +288,33 @@ namespace Project1.LinkComponents
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
         }
-        public void BlockToGo(string direction)
+
+        public void HitBlock(string direction)
         {
-            StopMoving();
+            StopMotion();
             Position = Knockback(Position, direction, Step);
         }
+
         public void UseMagicalRod()
         {
             LinkWeaponState.UseMagicalRod(); 
         }
+
         public void UseMagicalSheild()
         {
             LinkWeaponState.UseMagicalSheild();
         }
+
         public void UseMagicalSword()
         {
             LinkWeaponState.UseMagicalSword();
         }
+
         public void UseWhiteSword()
         {
             LinkWeaponState.UseWhiteSword();
         }
+
         public void UseWoodenSword()
         {
             LinkWeaponState.UseWoodenSword();
@@ -267,6 +327,7 @@ namespace Project1.LinkComponents
             if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
         }
+
         public void Reset()
         {
             Position = InitialPosition;
@@ -278,6 +339,7 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); 
         }
+
         public void Update()
         {
             LinkSprite.delay++;
@@ -305,6 +367,7 @@ namespace Project1.LinkComponents
             // Update Hitbox for collisions  
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             LinkSprite.Draw(spriteBatch, Position);

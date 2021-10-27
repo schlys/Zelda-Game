@@ -21,12 +21,12 @@ namespace Project1.LinkComponents
         void MoveDown();
         void MoveRight();
         void MoveLeft();
-        void StopMoving();
+        void StopMotion();
         void Attack();
         void UseItem(string name);
         void PickUpItem(string name);
         void TakeDamage(string direction, int knockback = 0);
-        void BlockToGo(string direction);
+        void HitBlock(string direction);
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();

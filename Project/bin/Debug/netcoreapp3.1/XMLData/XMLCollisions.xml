@@ -2,7 +2,7 @@
 <Collisions>
 	<Collision>
 		<name>LinkBlock</name>
-		<command1>LinkBlockToGoCmd</command1>
+		<command1>LinkHitBlockCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
