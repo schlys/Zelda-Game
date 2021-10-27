@@ -42,10 +42,11 @@ namespace Project1.ProjectileComponents
             IsMoving = true;
             InMotion = true;
 
+            // make sword hitbox slightly longer and wider than sword sprite
             // weapon length is 75% of links length
             length = (int)Math.Ceiling(.8 * parent.Width);
 
-            // weapom width is 20% of links width
+            // weapon width is 20% of links width
             width = (int)(.25 * parent.Height);
 
             switch (direction)
@@ -63,7 +64,7 @@ namespace Project1.ProjectileComponents
                     Hitbox = new Rectangle(parent.X - length - 3, parent.Y + parent.Height/2, length, width);
                     break;
             }
-            if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(new Vector2(Hitbox.X, Hitbox.Y), direction, "SwordBeam", ID));
+            //if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(new Vector2(Hitbox.X, Hitbox.Y), direction, "SwordBeam", ID));
         }
         public void OffsetOriginalPosition(IDirectionState direction) { }
 
@@ -74,9 +75,6 @@ namespace Project1.ProjectileComponents
             if (counter > 4 * delay) InMotion = false;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            
-        }
+        public void Draw(SpriteBatch spriteBatch) { }
     }
 }

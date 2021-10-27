@@ -65,10 +65,7 @@ namespace Project1.CollisionComponents
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
             string key = collision.SpecificKey;
-            if (CollisionMappings.ContainsKey(key))
-            {
-                return CollisionMappings[key];
-            }
+            if (CollisionMappings.ContainsKey(key)) return CollisionMappings[key];
             else if (CollisionMappings.ContainsKey(collision.Key)) return CollisionMappings[collision.Key];
             //TODO: create Null object instead of returning null 
             return null; 
@@ -104,10 +101,7 @@ namespace Project1.CollisionComponents
             } else if(!item.IsMoving && !NonMovingObjects.Contains(item))   // Not allow duplicate objects 
             {
                 NonMovingObjects.Add(item);
-            } else
-            {
-                Console.WriteLine("what is happening");
-            }
+            } 
         }
         public void RemoveObject(ICollidable item)
         {
@@ -148,7 +142,6 @@ namespace Project1.CollisionComponents
             {
                 ICollidable item1 = MovingObjects[i];
 
-                //foreach(ICollidable item2 in MovingObjects)
                 for (int j = i+1; j < MovingObjects.Count; j++)
                 {
                     ICollidable item2 = MovingObjects[j];
@@ -169,7 +162,6 @@ namespace Project1.CollisionComponents
                     ICollision collision = DetectCollision(item1, item2);
                     if (!collision.GetType().Name.ToString().Equals("NullCollision"))
                     {
-                        //collision.Execute();
                         Tuple<ConstructorInfo, ConstructorInfo> commands = GetCommands(collision);
                         if (commands != null)
                         {

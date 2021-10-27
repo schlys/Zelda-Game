@@ -22,9 +22,6 @@ namespace Project1.CollisionComponents
         {
             Key = "Null"; 
         }
-        public void Execute()
-        {
-
-        }
+      
     }
 }
