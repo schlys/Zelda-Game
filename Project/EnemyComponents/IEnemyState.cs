@@ -12,12 +12,11 @@ namespace Project1.EnemyComponents
 {
     public interface IEnemyState
     {
-        IEnemy Enemy { get; set; }
+        // NOTE: changed from IEnemy to Enemy in order to access the Hitbox property which is not a member of IEnemy
+        Enemy Enemy { get; set; }
         IDirectionState DirectionState {get;set;}
         Sprite Sprite { get; set; }
         string ID { get; set; }
-        // TODO: Remove 
-        int Size { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
         void TakeDamage(double damage);

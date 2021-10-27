@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace Project1.EnemyComponents
 {
-    class Enemy : IEnemy, ICollidable 
+    public class Enemy : IEnemy, ICollidable 
     {
         // Properties from IEnemy 
         public IEnemyState EnemyState { get; set; }

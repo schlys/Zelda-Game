@@ -13,11 +13,10 @@ namespace Project1.EnemyComponents
 {
     class EnemyStateAquamentus : IEnemyState
     {
-        public IEnemy Enemy { get; set; }
+        public Enemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
-        public int Size { get; set; }
         private bool IsAttacking;
         private int Step = 1;
         private Random R = new Random();
@@ -28,12 +27,11 @@ namespace Project1.EnemyComponents
 
         public EnemyStateAquamentus(IEnemy enemy)
         {
-            Enemy = enemy;
+            Enemy = (Enemy)enemy;
             DirectionState = new DirectionStateLeft(); 
             Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
             ID = "";
             IsAttacking = false;
-            Size = 100; 
         }
         public void MoveLeft()
         {
@@ -43,7 +41,7 @@ namespace Project1.EnemyComponents
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveLeft();
                 
-                Vector2 location = Enemy.Position - new Vector2(Step, 0);
+                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) - new Vector2(Step, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(-Step, 0);
@@ -66,7 +64,7 @@ namespace Project1.EnemyComponents
                 DirectionState = DirectionState.MoveRight();
 
                 // NOTE: Account for sprite size 
-                Vector2 location = Enemy.Position + new Vector2(Step + Size, 0);
+                Vector2 location = new Vector2(Enemy.Hitbox.X, Enemy.Hitbox.Y) + new Vector2(Step + Enemy.Hitbox.Width, 0);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(Step, 0);

@@ -166,7 +166,7 @@ namespace Project1
             //Room.Draw(spriteBatch); 
             // TODO: Remove before submission 
             // For testing collision hitbox 
-            Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
+            /*Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { Color.White });
             
             foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
@@ -176,7 +176,7 @@ namespace Project1
             foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
             {
                 spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
-            }
+            }*/
 
             foreach (ILink link in Links)
             {
