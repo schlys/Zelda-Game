@@ -68,7 +68,7 @@ namespace Project1.BlockComponents
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
-            /* account for hitbox buffer room */
+            /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
             Position -= new Vector2((RoomBlockSize-Hitbox.Width)/2, (RoomBlockSize -Hitbox.Height) / 2);
             /* Get correct hibox for updated position */

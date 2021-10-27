@@ -28,12 +28,19 @@ namespace Project1.ItemComponents
         public NonMovingItem(Vector2 position, string type)
         {
             IsMoving = false;
-            InitialPosition = position;
-            Position = InitialPosition;
             TypeID = "Item" + type;
-
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox); 
+            
+            /* Get accurate dimensions for the hitbox, but position is off */
+            Position = position;
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
+            /* Correct the position to account for empty space around the hitbox */
+            int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+            /* Get correct hibox for updated position */
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
+
+            InitialPosition = Position;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
