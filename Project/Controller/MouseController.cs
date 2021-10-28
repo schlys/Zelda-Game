@@ -17,14 +17,13 @@ namespace Project1.Controller
         public Game1 Game { get; set; }
         private Dictionary<Rectangle, ICommand> ControllerMappingsLeftClick;
         private Dictionary<Rectangle, ICommand> ControllerMappingsRightClick;
-        private int counter = 0;
+        private MouseState PreviousState; 
+
         public MouseController(Game1 game) 
         {
             Game = game;
             ControllerMappingsLeftClick = new Dictionary<Rectangle, ICommand>();
             ControllerMappingsRightClick = new Dictionary<Rectangle, ICommand>();
-
-
         }
 
         public void InitializeGameCommands()
@@ -67,42 +66,38 @@ namespace Project1.Controller
         }
         public void Update()
         {
-            // NOTE: taken from Elise's Sprint 0 - check if plagerism!! 
-
             /* Determine if the mouse click is within the bounds defined by 
-             * the entries of controllerMappingsLeftClick and 
-             * controllerMappingsRightClick and execute the command. 
+             * the entries of <controllerMappingsLeftClick> and 
+             * <controllerMappingsRightClick>. Execute the command if the button 
+             * not previously pressed. 
              */
-            counter++;
-            if (counter > 4)
+
+            MouseState mouseState = Mouse.GetState();
+            Point clickLoc = new Point(mouseState.X, mouseState.Y);
+
+            if (mouseState.LeftButton == ButtonState.Pressed && PreviousState.LeftButton != ButtonState.Pressed)
             {
-                counter = 0;
-
-                MouseState mouseState = Mouse.GetState();
-                Point clickLoc = new Point(mouseState.X, mouseState.Y);
-
-                if (mouseState.LeftButton == ButtonState.Pressed)
+                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsLeftClick)
                 {
-                    foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsLeftClick)
+                    if (entry.Key.Contains(clickLoc))
                     {
-                        if (entry.Key.Contains(clickLoc))
-                        {
-                            entry.Value.Execute();
-                        }
-                    }
-                }
-
-                if (mouseState.RightButton == ButtonState.Pressed)
-                {
-                    foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsRightClick)
-                    {
-                        if (entry.Key.Contains(clickLoc))
-                        {
-                            entry.Value.Execute();
-                        }
+                        entry.Value.Execute();
                     }
                 }
             }
+
+            if (mouseState.RightButton == ButtonState.Pressed && PreviousState.RightButton != ButtonState.Pressed)
+            {
+                foreach (KeyValuePair<Rectangle, ICommand> entry in ControllerMappingsRightClick)
+                {
+                    if (entry.Key.Contains(clickLoc))
+                    {
+                        entry.Value.Execute();
+                    }
+                }
+            }
+
+            PreviousState = mouseState;
         }
     }
 }

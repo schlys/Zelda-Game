@@ -73,6 +73,7 @@ namespace Project1.Command
         }
     }
 
+    // TODO - is this used, delete ? 
     public class LinkStopMotionCmd : ICommand
     {
         public Game1 Game { get; set; }

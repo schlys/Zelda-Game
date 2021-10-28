@@ -1,11 +1,13 @@
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 using Project1.Command;
 using System.Collections.Generic;
 using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
-using Microsoft.Xna.Framework;
 using System;
 using System.Reflection;
 using System.Text;
@@ -19,21 +21,26 @@ namespace Project1.Controller
     class KeyboardController : IController
     {
         public Game1 Game { get; set; }
-        private Dictionary<Keys, ICommand> ControllerMappings;
+        private Dictionary<Keys, ICommand> ControllerMappingsHoldKey;   // Keys can be held and continue to execute
+        private Dictionary<Keys, ICommand> ControllerMappingsPressKey;  // Keys are executed once per press 
+
         private Keys LinkStopKey = Keys.B;          // a key not used in the game 
+        private KeyboardState PreviousState; 
 
         public KeyboardController(Game1 game)
         {
-            ControllerMappings = new Dictionary<Keys, ICommand>();
+            ControllerMappingsHoldKey = new Dictionary<Keys, ICommand>();
+            ControllerMappingsPressKey = new Dictionary<Keys, ICommand>();
             Game = game;
         }
 
         public void InitializeGameCommands()
         {
+            // Register link movement commands in <ControllerMappingsPressKey>
 
             // Use 'q' to quit the program and 'r' to reset the program back to its initial state 
-            RegisterCommand(new GameEndCmd(Game), Keys.Q);
-            RegisterCommand(new GameRestartCmd(Game), Keys.R);
+            RegisterPressCommand(new GameEndCmd(Game), Keys.Q);
+            RegisterPressCommand(new GameRestartCmd(Game), Keys.R);
         }
 
         public void InitializeLinkCommands(ILink Link)
@@ -44,6 +51,7 @@ namespace Project1.Controller
              * Use 'e' to cause Link to become damaged
             */
 
+            // Register link movement commands in <ControllerMappingsHoldKey>
 
             //RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
             Assembly assem = typeof(ICommand).Assembly;
@@ -71,45 +79,45 @@ namespace Project1.Controller
                 ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
                 object command1 = constructor1.Invoke(new object[] { Game, Link });
                 ICommand cmd1 = (ICommand)command1;
-                RegisterCommand(cmd1, keyObj);
+                RegisterHoldCommand(cmd1, keyObj);
 
             }
 
 
 
-
-            RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.Z);
-            RegisterCommand(new LinkSwordAttackCmd(Game, Link), Keys.N);
+            // Register link use item commands in <ControllerMappingsPressKey>
+            RegisterPressCommand(new LinkSwordAttackCmd(Game, Link), Keys.Z);
+            RegisterPressCommand(new LinkSwordAttackCmd(Game, Link), Keys.N);
 
             //RegisterCommand(new LinkTakeDamageCmd((ICollidable)Link), Keys.E);
 
-            RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
-            RegisterCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
+            RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
+            RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
 
-            RegisterCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.NumPad2);
-            RegisterCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.D2);
+            RegisterPressCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.NumPad2);
+            RegisterPressCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.D2);
 
-            RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.NumPad3);
-            RegisterCommand(new LinkUseFireCmd(Game, Link), Keys.D3);
+            RegisterPressCommand(new LinkUseFireCmd(Game, Link), Keys.NumPad3);
+            RegisterPressCommand(new LinkUseFireCmd(Game, Link), Keys.D3);
 
-            RegisterCommand(new LinkUseBombCmd(Game, Link), Keys.NumPad4);
-            RegisterCommand(new LinkUseBombCmd(Game, Link), Keys.D4);
+            RegisterPressCommand(new LinkUseBombCmd(Game, Link), Keys.NumPad4);
+            RegisterPressCommand(new LinkUseBombCmd(Game, Link), Keys.D4);
 
-            RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.NumPad5);
-            RegisterCommand(new LinkUseBoomerangCmd(Game, Link), Keys.D5);
+            RegisterPressCommand(new LinkUseBoomerangCmd(Game, Link), Keys.NumPad5);
+            RegisterPressCommand(new LinkUseBoomerangCmd(Game, Link), Keys.D5);
 
-            RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.NumPad6);
-            RegisterCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
+            RegisterPressCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.NumPad6);
+            RegisterPressCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
 
             // Command so link does not animate in place 
-            RegisterCommand(new LinkStopMotionCmd((ICollidable)Link), LinkStopKey);
+            RegisterPressCommand(new LinkStopMotionCmd((ICollidable)Link), LinkStopKey);
         }
 
         public void InitializeBlockCommands(IBlock Block)
         {
             // Use keys "t" and "y" to cycle between which block is currently being shown 
-            RegisterCommand(new PreviousBlockCmd(Game, Block), Keys.T);
-            RegisterCommand(new NextBlockCmd(Game, Block), Keys.Y);
+            //RegisterCommand(new PreviousBlockCmd(Game, Block), Keys.T);
+            //RegisterCommand(new NextBlockCmd(Game, Block), Keys.Y);
         }
 
         public void InitializeItemCommands(IItem Item)
@@ -126,29 +134,51 @@ namespace Project1.Controller
             //RegisterCommand(new NextEnemyCmd(Game, Enemy), Keys.P);
         }
 
-        private void RegisterCommand(ICommand command, Keys key)
+        private void RegisterHoldCommand(ICommand command, Keys key)
         {
-            ControllerMappings.TryAdd(key, command);
+            ControllerMappingsHoldKey.TryAdd(key, command);
+        }
+
+        private void RegisterPressCommand(ICommand command, Keys key)
+        {
+            ControllerMappingsPressKey.TryAdd(key, command);
         }
 
         public void Update()
         {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            KeyboardState state = Keyboard.GetState(); 
+            Keys[] pressedKeys = state.GetPressedKeys();
 
-            ICommand stop = ControllerMappings[LinkStopKey];
+            // ????????? What is this for? 
+            ICommand stop = ControllerMappingsPressKey[LinkStopKey];
             if (!(pressedKeys.Length > 0))
             {
                 stop.Execute();
             }
 
+            // Execute commands for held keys
             foreach (Keys key in pressedKeys)
             {
-                if (ControllerMappings.ContainsKey(key))
+                // not previously pressed 
+                if (ControllerMappingsHoldKey.ContainsKey(key))
                 {
-                    ControllerMappings[key].Execute();
+                    ControllerMappingsHoldKey[key].Execute();
                 }
                 break;
             }
+
+            // Execute commands for pressed keys that weren't previously pressed
+            foreach (Keys key in pressedKeys)
+            {
+                // not previously pressed 
+                if (ControllerMappingsPressKey.ContainsKey(key) && !PreviousState.IsKeyDown(key))
+                {
+                    ControllerMappingsPressKey[key].Execute();
+                }
+                break;
+            }
+
+            PreviousState = state; 
         }
 
 
