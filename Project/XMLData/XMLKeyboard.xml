@@ -3,42 +3,41 @@
 	<Control>
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveDownCmd</name>
 		<key>S</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveRightCmd</name>
 		<key>D</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
-		<object>ILink</object>
 	</Control>
 	<Control>
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
-		<object>ILink</object>
 	</Control>
+
+
+	<Control>
+		<name>LinkSwordAttackCmd</name>
+		<key>Z</key>
+	</Control>
+	
 
 </Controllers>

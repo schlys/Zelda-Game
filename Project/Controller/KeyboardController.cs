@@ -66,7 +66,7 @@ namespace Project1.Controller
                 //Strings read from xml
                 string cmdName = node.SelectSingleNode("name").InnerText;
                 string key = node.SelectSingleNode("key").InnerText;
-                string obj = node.SelectSingleNode("object").InnerText;
+                //string obj = node.SelectSingleNode("object").InnerText;
                 //get constructor type
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
 
