@@ -28,7 +28,6 @@ namespace Project1.LinkComponents
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
 
-
         // Other Link Properties 
         private string UseItemName;       // NOTE: should change useitem string to something less hard coded? 
         private Vector2 InitialPosition; 

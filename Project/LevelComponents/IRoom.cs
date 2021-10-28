@@ -28,8 +28,7 @@ namespace Project1.LevelComponents
         void AddBlock(IBlock block);
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);
-
+        void Draw(SpriteBatch spriteBatch);
         void Reset();
-        void Draw(SpriteBatch spriteBatch); 
     }
 }

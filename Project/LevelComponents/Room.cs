@@ -57,7 +57,7 @@ namespace Project1.LevelComponents
 
         public void Reset()
         {
-
+            // TODO: should we handle object reset here and not in gameobject manager? 
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -129,6 +129,11 @@ namespace Project1
 
         public void UpdateRoomItems()
         {
+            /* Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
+             * <Enemies> to be the items in <Room>. Remove all past <Projectiles>. Removes all objects 
+             * from the CollisionManager and adds the newly added <Room> objects. 
+             */ 
+
             Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
             Blocks = Room.Blocks;
@@ -202,7 +207,8 @@ namespace Project1
 
         public void Reset()
         {
-            Room.Reset(); 
+            LevelFactory.Instance.Reset(); 
+
             foreach (ILink link in Links)
             {
                 link.Reset();
