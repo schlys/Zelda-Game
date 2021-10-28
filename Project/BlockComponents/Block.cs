@@ -6,6 +6,8 @@ using Project1.CollisionComponents;
 using Project1.LevelComponents; 
 using Project1.DirectionState;
 using System;
+using System.Xml;
+using System.Reflection;
 
 namespace Project1.BlockComponents
 {
@@ -24,17 +26,20 @@ namespace Project1.BlockComponents
 
         private double Counter = 0.0;
         private double Step = 0.2; 
-
+        private Dictionary<String, String> BlockConstructors = new Dictionary<string, string>();
         private string[] BlockTypeKeys = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
 
         public Block(Vector2 position, String type)
         {
+            
+
+
             // TODO: change to jump table 
             switch (type)
             {
-                case "Base":
-                    BlockState = new BlockBaseState(this);
-                    break;
+                //case "Base":
+                    //BlockState = new BlockBaseState(this);
+                    //break;
                 case "Stripe":
                     BlockState = new BlockStripeState(this);
                     break;
@@ -64,6 +69,29 @@ namespace Project1.BlockComponents
                     break;
             }
 
+
+            //Trying to data drive block 
+            Assembly assem = typeof(IBlockState).Assembly;
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLBlock.xml";
+            XMLData.Load(path);
+            XmlNodeList Blocks = XMLData.DocumentElement.SelectNodes("/Blocks/Block");
+            foreach (XmlNode node in Blocks)
+            {
+                //Strings read from xml
+                string name = node.SelectSingleNode("Name").InnerText;
+                string Type = node.SelectSingleNode("Type").InnerText;
+                BlockConstructors.Add(name, Type);
+   
+            }
+            if (BlockConstructors.ContainsKey(type)) {
+                Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[type]);
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(IBlock) });
+                object command1 = constructor1.Invoke(new object[] { this });
+                IBlockState cmd1 = (IBlockState)command1;
+            }
+
+
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
@@ -78,6 +106,7 @@ namespace Project1.BlockComponents
             TypeID = this.GetType().Name.ToString();
 
         }
+        
 
         private void SetBlockState(int i)
         {

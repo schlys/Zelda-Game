@@ -38,6 +38,10 @@
 		<name>LinkSwordAttackCmd</name>
 		<key>Z</key>
 	</Control>
-	
+	<Control>
+		<name>LinkSwordAttackCmd</name>
+		<key>N</key>
+	</Control>
+
 
 </Controllers>
