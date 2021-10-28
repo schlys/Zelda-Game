@@ -95,36 +95,38 @@ namespace Project1
                 controller.Update();
             }
 
-            foreach (ILink link in Links)
+            if (GameState.GameState.Instance.CanPlayGame())
             {
-                link.Update();             
-            }
-
-            // NOTE: Blocks do not update 
-
-            foreach (IItem item in Items)
-            {
-                item.Update();
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                enemy.Update();
-            }
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                IProjectile Projectile = Projectiles[i];
-                if (Projectile.InMotion)
+                foreach (ILink link in Links)
                 {
-                    Projectile.Update();
+                    link.Update();
                 }
-                else
-                {
-                    CollisionManager.Instance.RemoveObject((ICollidable)Projectile);
-                    Projectiles.Remove(Projectile);
-                }
-            }
 
-            CollisionManager.Instance.Update();
+                // NOTE: Blocks do not update 
+
+                foreach (IItem item in Items)
+                {
+                    item.Update();
+                }
+                foreach (IEnemy enemy in Enemies)
+                {
+                    enemy.Update();
+                }
+                for (int i = 0; i < Projectiles.Count; i++)
+                {
+                    IProjectile Projectile = Projectiles[i];
+                    if (Projectile.InMotion)
+                    {
+                        Projectile.Update();
+                    }
+                    else
+                    {
+                        CollisionManager.Instance.RemoveObject((ICollidable)Projectile);
+                        Projectiles.Remove(Projectile);
+                    }
+                }
+                CollisionManager.Instance.Update();
+            }
         }
 
         public void UpdateRoomItems()
@@ -207,7 +209,8 @@ namespace Project1
 
         public void Reset()
         {
-            LevelFactory.Instance.Reset(); 
+            LevelFactory.Instance.Reset();
+            UpdateRoomItems(); 
 
             foreach (ILink link in Links)
             {

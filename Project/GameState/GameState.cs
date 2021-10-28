@@ -21,16 +21,31 @@ namespace Project1.GameState
             }
         }
         public IWindow CurrentWindow { get; set; }
-
-        private GameState() { }
+        private bool IsPaused; 
+        private GameState() 
+        {
+            // TODO: set default room 
+            IsPaused = false; 
+        }
         
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) { }
-        public void Reset() { }
-        public void ToPauseScreen() { }
+        public void Reset() 
+        {
+            // TODO: set default room 
+            IsPaused = false;
+        }
+        public void Pause() 
+        {
+            IsPaused = !IsPaused; 
+        }
         public void ToRoomScreen() { }
         public void ToItemSelectionWindow() { }
         public void ToGameOverLoseWindow() { }
         public void ToGameOverWinWindow() { }
+        public bool CanPlayGame()
+        {
+            return !IsPaused; 
+        }
     }
 }

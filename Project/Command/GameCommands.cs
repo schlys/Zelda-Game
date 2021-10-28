@@ -43,5 +43,23 @@ namespace Project1.Command
             game.Restart();
         }
     }
+    class GamePauseCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GamePauseCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.Pause();
+        }
+    }
 
 }

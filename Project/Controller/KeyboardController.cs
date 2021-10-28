@@ -41,6 +41,7 @@ namespace Project1.Controller
             // Use 'q' to quit the program and 'r' to reset the program back to its initial state 
             RegisterPressCommand(new GameEndCmd(Game), Keys.Q);
             RegisterPressCommand(new GameRestartCmd(Game), Keys.R);
+            RegisterPressCommand(new GamePauseCmd(Game), Keys.Space);
         }
 
         public void InitializeLinkCommands(ILink Link)

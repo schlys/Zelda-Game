@@ -8,13 +8,14 @@ namespace Project1.GameState
     {
         static IGameState Instance { get; set; }
         IWindow CurrentWindow { get; set; }
-
-        void ToPauseScreen();
+        void Reset(); 
+        void Pause();
         void ToRoomScreen();
         void ToItemSelectionWindow();
         void ToGameOverLoseWindow();
         void ToGameOverWinWindow();
 
+        bool CanPlayGame(); 
 
     }
 }

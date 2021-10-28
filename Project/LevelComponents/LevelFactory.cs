@@ -193,10 +193,8 @@ namespace Project1.LevelComponents
 
         public void Reset()
         {
-            /* Update <CurrentRoom> to be the <StartRoom>, reset the room, and update the items
-             * in GameObjectManager. 
+            /* Update <CurrentRoom> to be the <StartRoom> and reset the room.
              */
-            
             if (LevelDict.ContainsKey(StartRoom))
             {
                 CurrentRoom = LevelDict[StartRoom];
@@ -206,7 +204,6 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found");
             }
             CurrentRoom.Reset();
-            GameObjectManager.Instance.UpdateRoomItems();
         }
 
         public void MoveUp()

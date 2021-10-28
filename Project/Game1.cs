@@ -65,6 +65,12 @@ namespace Project1
         public void Restart()
         {
             GameObjectManager.Instance.Reset();
+            GameState.GameState.Instance.Reset(); 
+        }
+
+        public void Pause()
+        {
+            GameState.GameState.Instance.Pause(); 
         }
     }
 }

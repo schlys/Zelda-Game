@@ -61,9 +61,14 @@ namespace Project1.LinkComponents
             InitialPosition = Position;
         }
 
+        // NOTE: commands will be called even when the game is paused, so must check if can play
+        private bool CanPlay()
+        {
+            return GameState.GameState.Instance.CanPlayGame();
+        }
         public void MoveUp()
         {
-            if (!LockFrame)
+            if (CanPlay() && !LockFrame)
             {
                 if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
                 {
@@ -80,7 +85,7 @@ namespace Project1.LinkComponents
 
         public void MoveDown()
         {
-            if (!LockFrame)
+            if (CanPlay() && !LockFrame)
             {
                 if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
                 {
@@ -98,7 +103,7 @@ namespace Project1.LinkComponents
 
         public void MoveLeft()
         {
-            if (!LockFrame )
+            if (CanPlay() && !LockFrame )
             {
                 if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
                 {
@@ -116,7 +121,7 @@ namespace Project1.LinkComponents
 
         public void MoveRight()
         {
-            if (!LockFrame )
+            if (CanPlay() && !LockFrame )
             {
                 if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
                 {
@@ -167,7 +172,7 @@ namespace Project1.LinkComponents
 
         public void Attack()
         {
-            if (!LockFrame)
+            if (CanPlay() && !LockFrame)
             {
                 LockFrame = true;
                 LinkWeaponState = new LinkStateWoodenSword(this);
@@ -181,7 +186,7 @@ namespace Project1.LinkComponents
         public void UseItem(string name)
         {
             // TODO: remove from inventory to use 
-            if (!LockFrame)
+            if (CanPlay() && !LockFrame)
             {
                 LockFrame = true;
                 UseItemName = "UseItem";
@@ -220,27 +225,32 @@ namespace Project1.LinkComponents
 
         public void UseMagicalRod()
         {
-            LinkWeaponState.UseMagicalRod(); 
+            if(CanPlay())
+                LinkWeaponState.UseMagicalRod(); 
         }
 
         public void UseMagicalSheild()
         {
-            LinkWeaponState.UseMagicalSheild();
+            if (CanPlay())
+                LinkWeaponState.UseMagicalSheild();
         }
 
         public void UseMagicalSword()
         {
-            LinkWeaponState.UseMagicalSword();
+            if (CanPlay())
+                LinkWeaponState.UseMagicalSword();
         }
 
         public void UseWhiteSword()
         {
-            LinkWeaponState.UseWhiteSword();
+            if (CanPlay())
+                LinkWeaponState.UseWhiteSword();
         }
 
         public void UseWoodenSword()
         {
-            LinkWeaponState.UseWoodenSword();
+            if (CanPlay())
+                LinkWeaponState.UseWoodenSword();
         } 
 
         private void UpdateSprite()
