@@ -144,6 +144,10 @@ namespace Project1.LinkComponents
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback)
         {
+            /* Given the direction of the collision, try moving <position> the amount of <knockback> in 
+             * the opposite of <direction> if it is legal. if it is not legal, return <position> unchanged. 
+             */ 
+
             Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
                 { "Top", Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },

@@ -16,6 +16,7 @@ namespace Project1.EnemyComponents
         IDirectionState DirectionState {get;set;}
         Sprite Sprite { get; set; }
         string ID { get; set; }
+        int Step { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
         void TakeDamage(double damage);

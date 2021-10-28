@@ -16,6 +16,7 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+        public int Step { get; set; }
         public EnemyStateOldMan(IEnemy enemy)
         {
             Enemy = enemy;
@@ -23,6 +24,7 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = false;
             ID = "";
             Sprite = SpriteFactory.Instance.GetSpriteData("OldMan");
+            Step = 0;
         }
 
         public void TakeDamage(double damage)

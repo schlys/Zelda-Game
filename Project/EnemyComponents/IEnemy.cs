@@ -15,7 +15,7 @@ namespace Project1.EnemyComponents
         Vector2 Position { get; set; }
         Vector2 InitialPosition { get; set; }
         void TakeDamage(double damage, string direction);
-        void AvoidEnemy(string direction, int knockback = 1);
+        void AvoidEnemy(string direction);
         
         void Draw(SpriteBatch spriteBatch);
         void Update();

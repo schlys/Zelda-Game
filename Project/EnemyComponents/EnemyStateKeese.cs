@@ -16,8 +16,8 @@ namespace Project1.EnemyComponents
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+        public int Step { get; set; }
 
-        private int Step;
         private int MovementTimer;
         private Random R = new Random();
         private int RandomInt;

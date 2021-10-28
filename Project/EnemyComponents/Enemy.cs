@@ -6,6 +6,7 @@ using Project1.CollisionComponents;
 using Project1.LevelComponents;
 using Project1.DirectionState;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace Project1.EnemyComponents
 {
@@ -53,55 +54,45 @@ namespace Project1.EnemyComponents
             TypeID = GetType().Name.ToString();
         }
 
+        private Vector2 Knockback(Vector2 position, string direction, int knockback)
+        {
+            /* Given the direction of the collision, try moving <position> the amount of <knockback> in 
+             * the opposite of <direction> if it is legal. if it is not legal, return <position> unchanged. 
+             */
+
+            Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
+            {
+                { "Top", Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
+                { "Bottom", Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
+                { "Right", Tuple.Create(new Vector2(-knockback, 0), new Vector2(-knockback, 0)) },
+                { "Left", Tuple.Create(new Vector2(knockback + Hitbox.Width, 0), new Vector2(knockback, 0))}
+            };
+
+            if (knockback > 0)
+            {
+                Tuple<Vector2, Vector2> pair = directions[direction];
+                if (LevelFactory.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
+                    return position += pair.Item2;
+
+            }
+            return position;
+        }
+
         public void TakeDamage(double damage, string direction)
         {
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
             //EnemyState.TakeDamage(damage);
-            AvoidEnemy(direction, 15);
+            AvoidEnemy(direction);
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
         }       
 
-        public void AvoidEnemy(string direction, int knockback)
+        public void AvoidEnemy(string direction)
         {
-            // NTOE: Given the direction of the collision, move in the oppositie direction if it's within bounds 
-            Vector2 newpos = Position;
-            Vector2 location;
-            if (knockback > 0)
-            {
-                switch (direction)
-                {
-                    case "Top":     // move down 
-                        // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + Hitbox.Height);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                            newpos.Y += knockback;
-                        break;
-                    case "Bottom":  // move up 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                            newpos.Y -= knockback;
-                        break;
-                    case "Right":   // move left 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-knockback, 0);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                            newpos.X -= knockback;
-                        break;
-                    case "Left":    // move right  
-                        // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(knockback + Hitbox.Width, 0);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                            newpos.X += knockback;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            if(LevelFactory.Instance.IsWithinRoomBounds(newpos))
-                Position = newpos;
+            // knockback <Position> 
+            Position = Knockback(Position, direction, EnemyState.Step); 
         }
-      
 
         public void Reset()
         {

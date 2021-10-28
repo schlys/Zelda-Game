@@ -135,6 +135,7 @@ namespace Project1.Command
     {
         public IEnemy Enemy { get; set; }
         string Direction;
+        // Change Direction to opposite
         Dictionary<string,string> dir = new Dictionary<string, string> {
             { "Top", "Bottom"},
             { "Bottom", "Top"},
@@ -149,7 +150,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Enemy.AvoidEnemy(dir[Direction], 20);
+            Enemy.AvoidEnemy(dir[Direction]);
         }
     }
 

@@ -16,9 +16,9 @@ namespace Project1.EnemyComponents
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
+        public int Step { get; set; }
         public string ID { get; set; }
         private bool IsAttacking;
-        private int Step = 1;
         private Random R = new Random();
         private int Timer = 0;
         private int Rand;
@@ -32,6 +32,7 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
             ID = "";
             IsAttacking = false;
+            Step = 1;
         }
 
         private Rectangle GetEnemyHitBox()
