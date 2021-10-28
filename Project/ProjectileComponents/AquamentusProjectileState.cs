@@ -18,9 +18,10 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
-        private int counter;
-        private int speedX = 2;
-        private int speedY = 1;
+        private int Counter;
+        private int MaxCounter = 200; 
+        private int SpeedX = 2;
+        private int SpeedY = 1;
         public AquamentusProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -28,7 +29,7 @@ namespace Project1.ProjectileComponents
             TypeID = "AquamentusProjectile";    // used for the sprite key
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             TypeID = "Aquamentus";              // used for the collisions key
-            counter = 0;
+            Counter = 0;
         }
         public void StopMotion()
         {
@@ -42,15 +43,15 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
             Sprite.Update();
-            counter++;
-            if (counter < 200)
+            Counter++;
+            if (Counter < MaxCounter)
             {
                 if (Direction.ID.Equals("Up"))  // up and left 
-                    Projectile.Position += new Vector2((float)-speedX, -speedY);
+                    Projectile.Position += new Vector2((float)-SpeedX, -SpeedY);
                 else if (Direction.ID.Equals("Left"))
-                    Projectile.Position += new Vector2((float)-speedX, 0);
+                    Projectile.Position += new Vector2((float)-SpeedX, 0);
                 else if (Direction.ID.Equals("Down"))   // down and left 
-                    Projectile.Position += new Vector2((float)-speedX, speedY);
+                    Projectile.Position += new Vector2((float)-SpeedX, SpeedY);
             }
             else
             {

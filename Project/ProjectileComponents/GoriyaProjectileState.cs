@@ -18,9 +18,9 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties 
-        private int counter;
-        private int speed = 2;
-        private bool isBlocked = false;
+        private int Counter = 0;
+        private int CounterMax = 100;
+        private int Speed = 2;
 
         public GoriyaProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -29,74 +29,49 @@ namespace Project1.ProjectileComponents
             TypeID = "GoriyaProjectile";    // used for the sprite key 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             TypeID = "Goriya";              // used for the collisions key 
-            counter = 0;
         }
         public void StopMotion()
         {
-            isBlocked = true;
+            Speed *= -1; 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
-                Sprite.Draw(spriteBatch, Projectile.Position);
-
-            else
-                Projectile.InMotion = false;
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
         public void Update()
         {
             Sprite.Update();
-            counter++;
-            if (!isBlocked)
+
+            Counter++;
+
+            if (Counter < CounterMax)
             {
-                if (counter < 100)
+                switch (Direction.ID)
                 {
-                    if (Direction.ID.Equals("Up"))
-                        Projectile.Position += new Vector2(0, (float)-speed);
-                    else if (Direction.ID.Equals("Down"))
-                        Projectile.Position += new Vector2(0, (float)speed);
-                    else if (Direction.ID.Equals("Right"))
-                        Projectile.Position += new Vector2((float)speed, 0);
-                    else if (Direction.ID.Equals("Left"))
-                        Projectile.Position += new Vector2((float)-speed, 0);
-
-                    if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 100 ||
-                        Projectile.Position.Y > Projectile.OriginalPosition.Y + 100 ||
-                        Projectile.Position.X < Projectile.OriginalPosition.X - 100 ||
-                        Projectile.Position.X > Projectile.OriginalPosition.X + 100)
-                    {
-                        speed = -2;
-                    }
+                    case "Up":
+                        Projectile.Position += new Vector2(0, (float)-Speed);
+                        break;
+                    case "Down":
+                        Projectile.Position += new Vector2(0, (float)Speed);
+                        break;
+                    case "Right":
+                        Projectile.Position += new Vector2((float)Speed, 0);
+                        break;
+                    default: //Left
+                        Projectile.Position += new Vector2((float)-Speed, 0);
+                        break;
                 }
-                else
-                    Projectile.InMotion = false;
-            }
-            else
+            }        
+
+            if (Counter > (CounterMax / 2) && Speed > 0)
             {
-                if (counter < 100)
-                {
-                    if (Direction.ID.Equals("Up"))
-                        Projectile.Position += new Vector2(0, (float)speed);
-                    else if (Direction.ID.Equals("Down"))
-                        Projectile.Position += new Vector2(0, (float)-speed);
-                    else if (Direction.ID.Equals("Right"))
-                        Projectile.Position += new Vector2((float)-speed, 0);
-                    else if (Direction.ID.Equals("Left"))
-                        Projectile.Position += new Vector2((float)speed, 0);
-
-                    if (Projectile.Position.Y < Projectile.OriginalPosition.Y - 100 ||
-                        Projectile.Position.Y > Projectile.OriginalPosition.Y + 100 ||
-                        Projectile.Position.X < Projectile.OriginalPosition.X - 100 ||
-                        Projectile.Position.X > Projectile.OriginalPosition.X + 100)
-                    {
-                        speed = -2;
-                    }
-                }
-                else
-                    Projectile.InMotion = false;
+                    Speed *= -1;
             }
-            
 
+            if(Counter > CounterMax)
+            {
+                Projectile.InMotion = false;    // Indicate stop projectile 
+            }
         }
     }
 }

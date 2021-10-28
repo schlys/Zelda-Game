@@ -19,66 +19,58 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         public bool isUsing { get; set; }
-        private int negSpeed = -6;
-        private int speed = 6;
-        int counter;
-        private bool isBlocked = false;
+        private int Speed = 6;
+        private int Counter = 0;
+        private int CounterMax = 90;
+
         public MagicalBoomerangProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction; 
             TypeID = "MagicalBoomerang"; 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
         }
         public void StopMotion()
         {
-            isBlocked = true;
-            speed *= -1;
+            Speed *= -1;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-           
-            if (Projectile.InMotion)
-                if (counter > 45 && speed > 0) speed *= -1;
-                if (counter < 90)
-                {              
-                    counter++;
-                   
-                    Sprite.Draw(spriteBatch, Projectile.Position);
-
-                }
-                else
-                {
-                    Projectile.InMotion = false;
-                }
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
         public void Update()
         {
-              
             Sprite.Update();
-            
 
             switch (Direction.ID)
             {
                 case "Up":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - Speed);
                     break;
                 case "Down":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + Speed);
                     break;
                 case "Right":
-                    Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
+                    Projectile.Position = new Vector2(Projectile.Position.X + Speed, Projectile.Position.Y);
                     break;
                 default:
-                    Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
+                    Projectile.Position = new Vector2(Projectile.Position.X - Speed, Projectile.Position.Y);
                     break;
             }
-            
-          
-           
+
+            Counter++;
+
+            if (Counter > (CounterMax / 2) && Speed > 0)  // reverse direction for first time 
+            {
+                Speed *= -1;
+            }
+            else if (Counter > CounterMax)
+            {
+                Projectile.InMotion = false;    // indicate stop projectile 
+            }
+
         }
     }
 }

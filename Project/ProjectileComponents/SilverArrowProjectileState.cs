@@ -20,9 +20,10 @@ namespace Project1.ProjectileComponents
 
         // Other Properties
         public Sprite Poof { get; set; }
-        private int speed = 4;
-        int counter;
-        private bool isBlocked=false;
+        private int Speed = 4;
+        int Counter;
+        private int CounterPoof = 50;   // when stop displaying arrow, show poof, and stop motion
+        private int CounterMax = 60;    // time when arrow now done
         public SilverArrowProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -30,62 +31,51 @@ namespace Project1.ProjectileComponents
             TypeID = "SilverArrow"; 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
             Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
-            counter = 0;
+            Counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
         }
+
         public void StopMotion()
         {
-            isBlocked = true;
+            if (Counter < CounterPoof)
+            {
+                Counter = CounterPoof;  // start poof animation
+            }
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!isBlocked)
-            {
-                if (Projectile.InMotion)
-                {
-                    if (counter < 50)
-                    {
-                        counter++;
-                        Sprite.Draw(spriteBatch, Projectile.Position);
-                    }
-                    else if (counter < 60)
-                    {
-                        Poof.Draw(spriteBatch, Projectile.Position);
-                        counter++;
-                    }
-                    else
-                    {
-                        Projectile.InMotion = false;
-                    }
-                }
-            }
-            else
-            {
-                Poof.Draw(spriteBatch, Projectile.Position);
-                Projectile.InMotion = false;
-            }
-            
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
         public void Update()
         {
-            if (counter < 50)
+            Counter++;
+            if (Counter < CounterPoof)
             {
                 switch (Direction.ID)
                 {
                     case "Up":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
+                        Projectile.Position += new Vector2(0, -Speed);
                         break;
                     case "Down":
-                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
+                        Projectile.Position += new Vector2(0, +Speed);
                         break;
                     case "Right":
-                        Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
+                        Projectile.Position += new Vector2(Speed, 0);
                         break;
                     default:
-                        Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
+                        Projectile.Position += new Vector2(-Speed, 0);
                         break;
                 }
+            }
+            else if (Counter < CounterMax)      // Poof animation 
+            {   
+                Sprite = Poof;
+            }
+            else
+            {
+                Projectile.InMotion = false;    // Indicate projectile is done 
             }
         }
     }

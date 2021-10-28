@@ -18,64 +18,71 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties 
-        private int speed = 4;
-        int counter;
-        private bool isBlocked = false;
+        private int Speed = 4;
+        private int Counter = 0;
+        private int CounterMax = 45; 
+        private bool IsBlocked = false;
         public FireProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction; 
             TypeID = "Fire"; 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
         }
+
         public void StopMotion()
         {
-            isBlocked = true;
-
+            IsBlocked = true;
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
+            Sprite.Draw(spriteBatch, Projectile.Position);
+
+            /*if (Projectile.InMotion)
             {
-                if (counter < 45)
+                if (Counter < 45)
                 {
-                    counter++;
-                    Sprite.Draw(spriteBatch, Projectile.Position);
+                    Counter++;
                 }
                 else
                 {
                     Projectile.InMotion = false;
                 }
-            }
+            }*/
         }
 
         public void Update()
         {
             Sprite.Update();
-            if (!isBlocked)
+
+            if (!IsBlocked && Counter < (CounterMax / 2))
             {
-                if (counter < 25)
+                switch (Direction.ID)
                 {
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - speed);
-                            break;
-                        case "Down":
-                            Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + speed);
-                            break;
-                        case "Right":
-                            Projectile.Position = new Vector2(Projectile.Position.X + speed, Projectile.Position.Y);
-                            break;
-                        default:
-                            Projectile.Position = new Vector2(Projectile.Position.X - speed, Projectile.Position.Y);
-                            break;
-                    }
+                    case "Up":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - Speed);
+                        break;
+                    case "Down":
+                        Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + Speed);
+                        break;
+                    case "Right":
+                        Projectile.Position = new Vector2(Projectile.Position.X + Speed, Projectile.Position.Y);
+                        break;
+                    default:
+                        Projectile.Position = new Vector2(Projectile.Position.X - Speed, Projectile.Position.Y);
+                        break;
                 }
             }
-            
+
+            Counter++; 
+
+            if (Counter > CounterMax)
+            {
+                Projectile.InMotion = false;    // indicate stop projectile 
+            }
+        
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 using System.Reflection;
+using Project1.LevelComponents;
 
 namespace Project1.ProjectileComponents
 {
@@ -92,7 +93,6 @@ namespace Project1.ProjectileComponents
 
         public void StopMotion()
         {
-            //InMotion = false; 
             State.StopMotion(); 
         }
 
@@ -109,7 +109,15 @@ namespace Project1.ProjectileComponents
             // Update Hitbox for collisions 
             if (InMotion)
                 Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox);
-            
+
+            // stop projectile from going out of bounds
+            Vector2 TopLeft = new Vector2(Hitbox.X, Hitbox.Y);
+            Vector2 BottomRight = new Vector2(Hitbox.X + Hitbox.Width, Hitbox.Y + Hitbox.Height);
+            if (!LevelFactory.Instance.IsWithinRoomBounds(TopLeft) || !LevelFactory.Instance.IsWithinRoomBounds(TopLeft))
+            {
+                State.StopMotion(); 
+            }
+
         }
     }
 }

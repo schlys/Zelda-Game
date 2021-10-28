@@ -19,7 +19,11 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
-        private int counter;
+        private Sprite PoofSprite;
+        private int Speed = 2;
+        private int Counter;
+        private int CounterPoof = 50;   // when stop displaying arrow, show poof, and stop motion
+        private int CounterMax = 60;    // time when arrow now done
 
         public MoblinProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -27,35 +31,53 @@ namespace Project1.ProjectileComponents
             Direction = direction;
             TypeID = "MoblinProjectile";    // used for the sprite key 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
+            PoofSprite = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
             TypeID = "Moblin";              // used for the collisions key 
-            counter = 0;
+            Counter = 0;
         }
         public void StopMotion()
         {
-            // Draw Poof 
+            if (Counter < CounterPoof)
+            {
+                Counter = CounterPoof;  // start poof animation
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
-                Sprite.Draw(spriteBatch, Projectile.Position);
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
         public void Update()
         {
             Sprite.Update();
-            counter++;
-            if (counter < 200)
+            
+            Counter++;
+            
+            if (Counter < CounterPoof)
             {
-                if (Direction.ID.Equals("Up"))
-                    Projectile.Position += new Vector2(0, (float)-2);
-                else if (Direction.ID.Equals("Down"))
-                    Projectile.Position += new Vector2(0, (float)2);
-                else if (Direction.ID.Equals("Right"))
-                    Projectile.Position += new Vector2((float)2, 0);
-                else if (Direction.ID.Equals("Left"))
-                    Projectile.Position += new Vector2((float)-2, 0);
+                switch (Direction.ID)
+                {
+                    case "Up":
+                        Projectile.Position += new Vector2(0, (float)-Speed);
+                        break;
+                    case "Down":
+                        Projectile.Position += new Vector2(0, (float)Speed);
+                        break;
+                    case "Right":
+                        Projectile.Position += new Vector2((float)Speed, 0);
+                        break;
+                    default:    // Left
+                        Projectile.Position += new Vector2((float)-Speed, 0);
+                        break;
+                }
             }
-            else
-                Projectile.InMotion = false; 
+            else if(Counter < CounterMax)
+            {
+                Sprite = PoofSprite;
+            } else
+            {
+                Projectile.InMotion = false;
+            }
+                
         }
     }
 }

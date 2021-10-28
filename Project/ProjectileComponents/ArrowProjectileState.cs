@@ -19,10 +19,11 @@ namespace Project1.ProjectileComponents
 
         // Other Properties 
         public Sprite PoofSprite { get; set; }
-        public bool isUsing { get; set; }
-        private int speed = 4;
-        private int counter;
-        private bool isBlocked = false;
+        public bool IsUsing { get; set; }
+        private int Speed = 4;
+        private int Counter = 0;
+        private int CounterPoof = 50;   // when stop displaying arrow, show poof, and stop motion
+        private int CounterMax = 60;    // time when arrow now done
 
         public ArrowProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -31,68 +32,49 @@ namespace Project1.ProjectileComponents
             TypeID = "Arrow";
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
             PoofSprite = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
-            counter = 0;
-            isUsing = true;
+            IsUsing = true;
             Projectile.OffsetOriginalPosition(Direction); 
         }
 
         public void StopMotion()
         {
-            isBlocked = true;
+            if(Counter < CounterPoof)
+            {
+                Counter = CounterPoof;  // start poof animation
+            }
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!isBlocked)
-            {
-                if (Projectile.InMotion)
-                {
-                    if (counter < 50)
-                    {
-                        counter++;
-                        Sprite.Draw(spriteBatch, Projectile.Position);
-                    }
-                    else if (counter < 60)
-                    {
-                        PoofSprite.Draw(spriteBatch, Projectile.Position);
-                        counter++;
-                    }
-                    else
-                    {
-                        Projectile.InMotion = false;
-                    }
-                }
-            }
-            else
-            {
-                PoofSprite.Draw(spriteBatch, Projectile.Position);
-                Projectile.InMotion = false;
-            }
-            
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
+
         public void Update()
         {
-            if (!isBlocked)
+            Counter++;
+            if (Counter < CounterPoof)
             {
-                if (counter < 50)
+                switch (Direction.ID)   
                 {
-                    switch (Direction.ID)
-                    {
-                        case "Up":
-                            Projectile.Position += new Vector2(0, -speed);
-                            break;
-                        case "Down":
-                            Projectile.Position += new Vector2(0, +speed);
-                            break;
-                        case "Right":
-                            Projectile.Position += new Vector2(speed, 0);
-                            break;
-                        default:
-                            Projectile.Position += new Vector2(-speed, 0);
-                            break;
-                    }
+                    case "Up":
+                        Projectile.Position += new Vector2(0, -Speed);
+                        break;
+                    case "Down":
+                        Projectile.Position += new Vector2(0, +Speed);
+                        break;
+                    case "Right":
+                        Projectile.Position += new Vector2(Speed, 0);
+                        break;
+                    default:
+                        Projectile.Position += new Vector2(-Speed, 0);
+                        break;
                 }
+            } else if(Counter < CounterMax) {   // Poof animation 
+                Sprite = PoofSprite;                 
+            } else
+            {
+                Projectile.InMotion = false;    // Indicate projectile is done 
             }
-            
         }
     }
 }
