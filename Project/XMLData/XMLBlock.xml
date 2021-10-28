@@ -4,4 +4,43 @@
 		<Name>Base</Name>
 		<Type>BlockBaseState</Type>
 	</Block>
+	<Block>
+		<Name>Stripe</Name>
+		<Type>BlockStripeState</Type>
+	</Block>
+	<Block>
+		<Name>Brick</Name>
+		<Type>BlockBrickState</Type>
+	</Block>
+	<Block>
+		<Name>Stair</Name>
+		<Type>BlockStairState</Type>
+	</Block>
+	<Block>
+		<Name>Blue</Name>
+		<Type>BlockBlueState</Type>
+	</Block>
+	<Block>
+		<Name>Dots</Name>
+		<Type>BlockDotsState</Type>
+	</Block>
+
+
+
+	<Block>
+		<Name>Black</Name>
+		<Type>BlockBlackState</Type>
+	</Block>
+	<Block>
+		<Name>Dragon</Name>
+		<Type>BlockDragonState</Type>
+	</Block>
+	<Block>
+		<Name>Fish</Name>
+		<Type>BlockFishState</Type>
+	</Block>
+	<Block>
+		<Name>Last</Name>
+		<Type>BlockLastState</Type>
+	</Block>
 </Blocks>

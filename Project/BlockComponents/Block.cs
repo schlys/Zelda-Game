@@ -35,39 +35,7 @@ namespace Project1.BlockComponents
 
 
             // TODO: change to jump table 
-            switch (type)
-            {
-                //case "Base":
-                    //BlockState = new BlockBaseState(this);
-                    //break;
-                case "Stripe":
-                    BlockState = new BlockStripeState(this);
-                    break;
-                case "Brick":
-                    BlockState = new BlockBrickState(this);
-                    break;
-                case "Stair":
-                    BlockState = new BlockStairState(this);
-                    break;
-                case "Blue":
-                    BlockState = new BlockBlueState(this);
-                    break;
-                case "Dots":
-                    BlockState = new BlockDotsState(this);
-                    break;
-                case "Black":
-                    BlockState = new BlockBlackState(this);
-                    break;
-                case "Dragon":
-                    BlockState = new BlockDragonState(this);
-                    break;
-                case "Fish":
-                    BlockState = new BlockFishState(this);
-                    break;
-                case "Last":
-                    BlockState = new BlockLastState(this);
-                    break;
-            }
+  
 
 
             //Trying to data drive block 
@@ -88,8 +56,10 @@ namespace Project1.BlockComponents
                 Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[type]);
                 ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(IBlock) });
                 object command1 = constructor1.Invoke(new object[] { this });
-                IBlockState cmd1 = (IBlockState)command1;
+                BlockState = (IBlockState)command1;
             }
+
+ 
 
 
             /* Get accurate dimensions for the hitbox, but position is off */
@@ -110,39 +80,15 @@ namespace Project1.BlockComponents
 
         private void SetBlockState(int i)
         {
+            Assembly assem = typeof(IBlockState).Assembly;
             // TODO: change to jump table 
-            switch (BlockTypeKeys[i])
+
+            if (BlockConstructors.ContainsKey(BlockTypeKeys[i]))
             {
-                case "Base":
-                    BlockState = new BlockBaseState(this);
-                    break;
-                case "Stripe":
-                    BlockState = new BlockStripeState(this);
-                    break;
-                case "Brick":
-                    BlockState = new BlockBrickState(this);
-                    break;
-                case "Stair":
-                    BlockState = new BlockStairState(this);
-                    break;
-                case "Blue":
-                    BlockState = new BlockBlueState(this);
-                    break;
-                case "Dots":
-                    BlockState = new BlockDotsState(this);
-                    break;
-                case "Black":
-                    BlockState = new BlockBlackState(this);
-                    break;
-                case "Dragon":
-                    BlockState = new BlockDragonState(this);
-                    break;
-                case "Fish":
-                    BlockState = new BlockFishState(this);
-                    break;
-                case "Last":
-                    BlockState = new BlockLastState(this);
-                    break;
+                Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[BlockTypeKeys[i]]);
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(IBlock) });
+                object command1 = constructor1.Invoke(new object[] { this });
+                BlockState = (IBlockState)command1;
             }
         }
 
