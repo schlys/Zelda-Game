@@ -83,12 +83,6 @@ namespace Project1.Controller
 
             }
 
-
-
-            // Register link use item commands in <ControllerMappingsPressKey>
-            RegisterPressCommand(new LinkSwordAttackCmd(Game, Link), Keys.Z);
-            RegisterPressCommand(new LinkSwordAttackCmd(Game, Link), Keys.N);
-
             //RegisterCommand(new LinkTakeDamageCmd((ICollidable)Link), Keys.E);
 
             RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
