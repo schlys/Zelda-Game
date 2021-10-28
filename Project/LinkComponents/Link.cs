@@ -144,102 +144,22 @@ namespace Project1.LinkComponents
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback)
         {
-            /* This is used when Link collides with objects so he doesn't keep moving and overlap. 
-             * Given the <direction> of the collision, return an updated legal location. If he can't 
-             * move in the opposite of <direction>, try moving in every other direction until a legal 
-             * move is found. If no move is found, not 
-             * update position. 
-             */ 
-            
-            Vector2 newpos = TryKnockback(position, direction, knockback);
-            
-            for (int count = 0; count < 4; count++)
+            Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
-                if (position != newpos && LevelFactory.Instance.IsWithinRoomBounds(newpos))
-                {
-                    return newpos;
-                }
-                // Try moving in another direction 
-                direction = GetNextDirection(direction); 
-                newpos = TryKnockback(position, direction, knockback);
-            }
-            return newpos; 
-        }
+                { "Top", Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
+                { "Bottom", Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
+                { "Right", Tuple.Create(new Vector2(-knockback, 0), new Vector2(-knockback, 0)) },
+                { "Left", Tuple.Create(new Vector2(knockback + Hitbox.Width, 0), new Vector2(knockback, 0))}
+            };
 
-        private string GetNextDirection(string direction)
-        {
-            // Order Top > Bottom > Right > Left > Top ...
-            string newDirection; 
-            switch(direction)
-            {
-                case "Top":
-                    newDirection = "Bottom";
-                    break;
-                case "Bottom":
-                    newDirection = "Right";
-                    break;
-                case "Right":
-                    newDirection = "Left";
-                    break;
-                case "Left":
-                    newDirection = "Top";
-                    break;
-                default:
-                    newDirection = "Top";
-                    break;
-            }
-            return newDirection; 
-        }
-
-        private Vector2 TryKnockback(Vector2 position, string direction, int knockback)
-        {
-            /* Returns a legal location moving <position> the amount of <knockback> in the oppositie of 
-             * <direction> if possible. Otherwise, returns position. 
-             */
-
-            Vector2 newpos = position;
-            Vector2 location;
-            
-            // Update <newpos> if can move <position> in the opposite of <direction> the amount of <knockback> 
             if (knockback > 0)
             {
-                switch (direction)
-                {
-                    case "Top":     // move down 
-                        // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback + Hitbox.Height);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                        {
-                            newpos.Y += knockback;
-                        }
-                        break;
-                    case "Bottom":  // move up 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, knockback);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                        {
-                            newpos.Y -= knockback;
-                        }
-                        break;
-                    case "Right":   // move left 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-knockback, 0);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                        {
-                            newpos.X -= knockback;
-                        }
-                        break;
-                    case "Left":    // move right  
-                        // NOTE: Account for sprite size 
-                        location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(knockback + Hitbox.Width, 0);
-                        if (LevelFactory.Instance.IsWithinRoomBounds(location))
-                        {
-                            newpos.X += knockback;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                Tuple<Vector2, Vector2> pair = directions[direction];
+                if (LevelFactory.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
+                    return position += pair.Item2;
+
             }
-            return newpos;
+            return position;
         }
 
         public void Attack()
