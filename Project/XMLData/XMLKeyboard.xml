@@ -43,5 +43,62 @@
 		<key>N</key>
 	</Control>
 
+	<Control>
+		<name>LinkUseArrowCmd</name>
+		<key>NumPad1</key>
+	</Control>
+	<Control>
+		<name>LinkUseArrowCmd</name>
+		<key>D1</key>
+	</Control>
 
+	<Control>
+		<name>LinkUseSilverArrowCmd</name>
+		<key>NumPad2</key>
+	</Control>
+	<Control>
+		<name>LinkUseSilverArrowCmd</name>
+		<key>D2</key>
+	</Control>
+
+
+	<Control>
+		<name>LinkUseFireCmd</name>
+		<key>NumPad3</key>
+	</Control>
+	<Control>
+		<name>LinkUseFireCmd</name>
+		<key>D3</key>
+	</Control>
+
+	<Control>
+		<name>LinkUseBombCmd</name>
+		<key>NumPad4</key>
+	</Control>
+
+	<Control>
+		<name>LinkUseBombCmd</name>
+		<key>D4</key>
+	</Control>
+
+	<Control>
+		<name>LinkUseBoomerangCmd</name>
+		<key>NumPad5</key>
+	</Control>
+
+	<Control>
+		<name>LinkUseBoomerangCmd</name>
+		<key>D5</key>
+	</Control>
+
+
+	<Control>
+		<name>LinkUseMagicalBoomerangCmd</name>
+		<key>NumPad6</key>
+	</Control>
+
+	<Control>
+		<name>LinkUseMagicalBoomerangCmd</name>
+		<key>D6</key>
+	</Control>
 </Controllers>

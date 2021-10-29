@@ -78,23 +78,6 @@ namespace Project1.Controller
             }
 
 
-            RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
-            RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);
-
-            RegisterPressCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.NumPad2);
-            RegisterPressCommand(new LinkUseSilverArrowCmd(Game, Link), Keys.D2);
-
-            RegisterPressCommand(new LinkUseFireCmd(Game, Link), Keys.NumPad3);
-            RegisterPressCommand(new LinkUseFireCmd(Game, Link), Keys.D3);
-
-            RegisterPressCommand(new LinkUseBombCmd(Game, Link), Keys.NumPad4);
-            RegisterPressCommand(new LinkUseBombCmd(Game, Link), Keys.D4);
-
-            RegisterPressCommand(new LinkUseBoomerangCmd(Game, Link), Keys.NumPad5);
-            RegisterPressCommand(new LinkUseBoomerangCmd(Game, Link), Keys.D5);
-
-            RegisterPressCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.NumPad6);
-            RegisterPressCommand(new LinkUseMagicalBoomerangCmd(Game, Link), Keys.D6);
 
             // Command so link does not animate in place 
             RegisterPressCommand(new LinkStopMotionCmd((ICollidable)Link), LinkStopKey);
