@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/sd/project/Content/OverworldEnemies/Armos.png</SourceFile>
+  <SourceFile>C:/Users/Andy/Desktop/sd/Project/Content/OverworldEnemies/Armos.png</SourceFile>
   <SourceTime>2021-10-29T11:07:51.9859372-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/sd/project/Content/bin/Windows/Content/OverworldEnemies/Armos.xnb</DestFile>
-  <DestTime>2021-10-29T11:23:43.7520627-04:00</DestTime>
+  <DestFile>C:/Users/Andy/Desktop/sd/Project/Content/bin/Windows/Content/OverworldEnemies/Armos.xnb</DestFile>
+  <DestTime>2021-10-29T11:41:15.6271284-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

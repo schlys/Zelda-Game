@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/sd/project/Content/DungeonEnemies/Aquamentus.png</SourceFile>
+  <SourceFile>C:/Users/Andy/Desktop/sd/Project/Content/DungeonEnemies/Aquamentus.png</SourceFile>
   <SourceTime>2021-10-29T11:07:51.9749671-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/sd/project/Content/bin/Windows/Content/DungeonEnemies/Aquamentus.xnb</DestFile>
-  <DestTime>2021-10-29T11:23:43.6662936-04:00</DestTime>
+  <DestFile>C:/Users/Andy/Desktop/sd/Project/Content/bin/Windows/Content/DungeonEnemies/Aquamentus.xnb</DestFile>
+  <DestTime>2021-10-29T11:41:15.5473407-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

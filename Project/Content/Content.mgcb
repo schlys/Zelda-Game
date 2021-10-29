@@ -565,3 +565,165 @@
 /processorParam:TextureFormat=Color
 /build:Rooms/Room9.png
 
+#begin Sounds/Arrow_Boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Arrow_Boomerang.wav
+
+#begin Sounds/Bomb_Blow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Bomb_Blow.wav
+
+#begin Sounds/Bomb_Drop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Bomb_Drop.wav
+
+#begin Sounds/Boss_Scream1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Boss_Scream1.wav
+
+#begin Sounds/Candle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Candle.wav
+
+#begin Sounds/Door_Unlock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Door_Unlock.wav
+
+#begin Sounds/Enemy_Die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Enemy_Die.wav
+
+#begin Sounds/Enemy_Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Enemy_Hit.wav
+
+#begin Sounds/Fanfare.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Fanfare.wav
+
+#begin Sounds/Get_Heart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Get_Heart.wav
+
+#begin Sounds/Get_Item.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Get_Item.wav
+
+#begin Sounds/Get_Rupee.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Get_Rupee.wav
+
+#begin Sounds/Key_Appear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Key_Appear.wav
+
+#begin Sounds/Link_Die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Link_Die.wav
+
+#begin Sounds/Link_Hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Link_Hurt.wav
+
+#begin Sounds/LowHealth.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/LowHealth.wav
+
+#begin Sounds/MagicalRod.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/MagicalRod.wav
+
+#begin Sounds/Recorder.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Recorder.wav
+
+#begin Sounds/Refill_Loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Refill_Loop.wav
+
+#begin Sounds/Secret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Secret.wav
+
+#begin Sounds/Shield.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Shield.wav
+
+#begin Sounds/Stairs.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Stairs.wav
+
+#begin Sounds/Sword_Combined.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Sword_Combined.wav
+
+#begin Sounds/Sword_Shoot.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Sword_Shoot.wav
+
+#begin Sounds/Sword_Slash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Sword_Slash.wav
+
+#begin Sounds/Text.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Text.wav
+
+#begin Sounds/Text_Slow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Text_Slow.wav
+
