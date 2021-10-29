@@ -66,16 +66,10 @@ namespace Project1.Controller
                 //Strings read from xml
                 string cmdName = node.SelectSingleNode("name").InnerText;
                 string key = node.SelectSingleNode("key").InnerText;
-                //string obj = node.SelectSingleNode("object").InnerText;
-                //get constructor type
+
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
 
-
-                //eventually reead in type (Link) from xml
-                //Type command2Type = assem.GetType("Project1.Command." + obj);
-                //convert string to  key object
                 Keys keyObj = (Keys)converter.ConvertFromString(key);
-                //ConstructorInfo constructor2 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
                 ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
                 object command1 = constructor1.Invoke(new object[] { Game, Link });
                 ICommand cmd1 = (ICommand)command1;
@@ -83,7 +77,6 @@ namespace Project1.Controller
 
             }
 
-            //RegisterCommand(new LinkTakeDamageCmd((ICollidable)Link), Keys.E);
 
             RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.NumPad1);
             RegisterPressCommand(new LinkUseArrowCmd(Game, Link), Keys.D1);

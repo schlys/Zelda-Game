@@ -8,6 +8,7 @@ using Project1.DirectionState;
 using System;
 using System.Xml;
 using System.Reflection;
+using System.Linq;
 
 namespace Project1.BlockComponents
 {
@@ -27,18 +28,11 @@ namespace Project1.BlockComponents
         private double Counter = 0.0;
         private double Step = 0.2; 
         private Dictionary<String, String> BlockConstructors = new Dictionary<string, string>();
-        private string[] BlockTypeKeys = { "Base", "Stripe", "Brick", "Stair", "Blue", "Dots", "Black", "Dragon", "Fish", "Last", "Empty" };
+        private string[] BlockTypeKeys = {  };
 
         public Block(Vector2 position, String type)
         {
-            
 
-
-            // TODO: change to jump table 
-  
-
-
-            //Trying to data drive block 
             Assembly assem = typeof(IBlockState).Assembly;
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLBlock.xml";
@@ -46,11 +40,11 @@ namespace Project1.BlockComponents
             XmlNodeList Blocks = XMLData.DocumentElement.SelectNodes("/Blocks/Block");
             foreach (XmlNode node in Blocks)
             {
-                //Strings read from xml
                 string name = node.SelectSingleNode("Name").InnerText;
                 string Type = node.SelectSingleNode("Type").InnerText;
                 BlockConstructors.Add(name, Type);
-   
+                BlockTypeKeys.Append(name);
+
             }
             if (BlockConstructors.ContainsKey(type)) {
                 Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[type]);
@@ -81,7 +75,6 @@ namespace Project1.BlockComponents
         private void SetBlockState(int i)
         {
             Assembly assem = typeof(IBlockState).Assembly;
-            // TODO: change to jump table 
 
             if (BlockConstructors.ContainsKey(BlockTypeKeys[i]))
             {
