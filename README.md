@@ -14,6 +14,9 @@ This program is a replication of the legend of Zelda.
 Sprites sourced from https://www.spriters-resource.com/nes/legendofzelda/
 Credit: Mister Mike
 
+Sounds sourced from https://www.ZeldaSounds.com
+Credit: HelpTheWretched
+
 # Sprint 2 
 Submitted on 10/2/21
 
