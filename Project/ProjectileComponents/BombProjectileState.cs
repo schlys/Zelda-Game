@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
+using Project1.LevelComponents;
 
 namespace Project1.ProjectileComponents
 {
@@ -18,8 +19,9 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
-        private int speed = 8;
+        private int speed = 60;
         private int counter;
+        private bool IsBlocked = false;
         public BombProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
@@ -45,14 +47,16 @@ namespace Project1.ProjectileComponents
                     Projectile.Position = new Vector2(Projectile.Position.X - 60, Projectile.Position.Y);
                     break;
             }
+
         }
         public void StopMotion()
         {
-            // Explode 
+            // Explode
+            IsBlocked = true;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
+            if (!IsBlocked && Projectile.InMotion)
                 if (counter < 120)
                 {
                     counter++;
@@ -68,7 +72,9 @@ namespace Project1.ProjectileComponents
         {
             Sprite.DelayRate = 0.1;
             Sprite.MaxDelay = 1;
-            if (counter < 70)
+            if (!IsBlocked)
+            {               
+                if (counter < 70)
             {
                 counter++;
             }
@@ -81,6 +87,8 @@ namespace Project1.ProjectileComponents
             {
                 Projectile.InMotion = true;
             }
+            }
+            
         }
     }
 }
