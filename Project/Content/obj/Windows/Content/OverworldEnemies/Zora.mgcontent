@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Zora.png</SourceFile>
-  <SourceTime>2021-10-28T17:23:21.5160224-04:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/OverworldEnemies/Zora.xnb</DestFile>
-  <DestTime>2021-10-29T12:52:38.6470988-04:00</DestTime>
+  <SourceFile>C:/Users/Andy/Desktop/d/Project/Content/OverworldEnemies/Zora.png</SourceFile>
+  <SourceTime>2021-10-29T15:52:12.225362-04:00</SourceTime>
+  <DestFile>C:/Users/Andy/Desktop/d/Project/Content/bin/Windows/Content/OverworldEnemies/Zora.xnb</DestFile>
+  <DestTime>2021-10-29T15:52:21.5477445-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
