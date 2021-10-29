@@ -833,3 +833,8 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Sword_Slash.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Text.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Text_Slow.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\HUD\HUD.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\HUD\HUD2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\HUD\HUD3.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\HUD\HUDItems.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\HUD\HUDMap.xnb

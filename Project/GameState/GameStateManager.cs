@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Project1.GameState
 {
-    /* GameState is a singleton that manages the current window displayed for the game
-     * using CurrentWindow. The windows include the item selection screen, game over 
+    /* GameStateManager is a singleton that manages the current window displayed for the game
+     * using <CurrentState>. The windows include the item selection screen, game over 
      * screen, pause screen, and winning screen. 
      */ 
     public class GameStateManager: IGameStateManager
@@ -20,14 +20,13 @@ namespace Project1.GameState
                 return instance;
             }
         }
-        public IGameState CurrentWindow { get; set; }
+        public IGameState CurrentState { get; set; }
         private bool IsPaused; 
         private GameStateManager() 
         {
             // TODO: set default room 
             IsPaused = false; 
         }
-        
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) { }
         public void Reset() 
@@ -37,12 +36,14 @@ namespace Project1.GameState
         }
         public void Pause() 
         {
-            IsPaused = !IsPaused; 
+            IsPaused = !IsPaused;
         }
-        public void ToRoomScreen() { }
-        public void ToItemSelectionWindow() { }
-        public void ToGameOverLoseWindow() { }
-        public void ToGameOverWinWindow() { }
+        public void Start() { }
+        public void PlayGame() { }
+        public void ItemSelection() { }
+        public void GameOverLose() { }
+        public void GameOverWin() { }
+        public void GameOver() { }
         public bool CanPlayGame()
         {
             return !IsPaused; 

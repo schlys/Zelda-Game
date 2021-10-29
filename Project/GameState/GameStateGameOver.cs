@@ -16,6 +16,35 @@ namespace Project1.GameState
         }
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) { }
-        public void Reset() { }
+
+        public IGameState Reset()
+        {
+            throw new NotImplementedException(); 
+        }
+        public IGameState Pause()
+        {
+            throw new NotImplementedException();
+        }
+        public IGameState StartGame()
+        {
+            throw new NotImplementedException();
+
+        }
+        public IGameState WinGame()
+        {
+            throw new NotImplementedException();
+        }
+        public IGameState LoseGame()
+        {
+            throw new NotImplementedException();
+        }
+        public IGameState ItemSelectMenu()
+        {
+            throw new NotImplementedException();
+        }
+        public IGameState GameOver()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

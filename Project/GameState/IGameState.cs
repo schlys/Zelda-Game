@@ -13,6 +13,12 @@ namespace Project1.GameState
 
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        void Reset();
+        IGameState Reset();
+        IGameState Pause();
+        IGameState StartGame();
+        IGameState WinGame();
+        IGameState LoseGame();
+        IGameState ItemSelectMenu();
+        IGameState GameOver();
     }
 }
