@@ -6,7 +6,7 @@
 			<sheet>room1</sheet>
 			<up></up>
 			<down></down>
-			<left>room18</left>
+			<left></left>
 			<right>room2</right>
 			<object>
 				<type>Enemy</type>
@@ -37,7 +37,7 @@
 		<Room>
 			<name>Room2</name>
 			<sheet>room2</sheet>
-			<up></up>
+			<up>room4</up>
 			<down></down>
 			<left>room1</left>
 			<right>room3</right>
@@ -355,7 +355,7 @@
 			<up></up>
 			<down></down>
 			<left>room2</left>
-			<right>room4</right>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -469,10 +469,10 @@
 		<Room>
 			<name>Room4</name>
 			<sheet>room4</sheet>
-			<up></up>
-			<down></down>
-			<left>room3</left>
-			<right>room5</right>
+			<up>room6</up>
+			<down>room2</down>
+			<left></left>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -532,9 +532,9 @@
 		<Room>
 			<name>Room5</name>
 			<sheet>room5</sheet>
-			<up></up>
+			<up>room9</up>
 			<down></down>
-			<left>room4</left>
+			<left></left>
 			<right>room6</right>
 			<object>
 				<type>Block</type>
@@ -613,8 +613,8 @@
 		<Room>
 			<name>Room6</name>
 			<sheet>room6</sheet>
-			<up></up>
-			<down></down>
+			<up>room10</up>
+			<down>room4</down>
 			<left>room5</left>
 			<right>room7</right>
 			<object>
@@ -682,10 +682,10 @@
 		<Room>
 			<name>Room7</name>
 			<sheet>room7</sheet>
-			<up></up>
+			<up>room11</up>
 			<down></down>
 			<left>room6</left>
-			<right>room8</right>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -771,16 +771,15 @@
 			<sheet>room8</sheet>
 			<up></up>
 			<down></down>
-			<left>room7</left>
+			<left></left>
 			<right>room9</right>
-			
 		</Room>
 
 		<Room>
 			<name>Room9</name>
 			<sheet>room9</sheet>
 			<up></up>
-			<down></down>
+			<down>room5</down>
 			<left>room8</left>
 			<right>room10</right>
 			<object>
@@ -812,8 +811,8 @@
 		<Room>
 			<name>Room10</name>
 			<sheet>room10</sheet>
-			<up></up>
-			<down></down>
+			<up>room13</up>
+			<down>room6</down>
 			<left>room9</left>
 			<right>room11</right>
 			<object>
@@ -918,7 +917,7 @@
 			<name>Room11</name>
 			<sheet>room11</sheet>
 			<up></up>
-			<down></down>
+			<down>room7</down>
 			<left>room10</left>
 			<right>room12</right>
 			<object>
@@ -974,10 +973,10 @@
 		<Room>
 			<name>Room12</name>
 			<sheet>room12</sheet>
-			<up></up>
+			<up>room14</up>
 			<down></down>
 			<left>room11</left>
-			<right>room13</right>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1097,10 +1096,10 @@
 		<Room>
 			<name>Room13</name>
 			<sheet>room13</sheet>
-			<up></up>
-			<down></down>
-			<left>room12</left>
-			<right>room14</right>
+			<up>room18</up>
+			<down>room10</down>
+			<left></left>
+			<right></right>
 			<object>
 				<type>Enemy</type>
 				<type2>Stalfos</type2>
@@ -1407,8 +1406,8 @@
 			<name>Room14</name>
 			<sheet>room14</sheet>
 			<up></up>
-			<down></down>
-			<left>room13</left>
+			<down>room13</down>
+			<left></left>
 			<right>room15</right>
 			<object>
 				<type>Block</type>
@@ -1544,7 +1543,7 @@
 			<up></up>
 			<down></down>
 			<left>room14</left>
-			<right>room16</right>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1724,10 +1723,10 @@
 		<Room>
 			<name>Room16</name>
 			<sheet>room16</sheet>
-			<up></up>
+			<up>room17</up>
 			<down></down>
-			<left>room15</left>
-			<right>room17</right>
+			<left></left>
+			<right></right>
 
 		</Room>
 
@@ -1735,8 +1734,8 @@
 			<name>Room17</name>
 			<sheet>room17</sheet>
 			<up></up>
-			<down></down>
-			<left>room16</left>
+			<down>room16</down>
+			<left></left>
 			<right>room18</right>
 			<object>
 				<type>Block</type>
@@ -1793,9 +1792,9 @@
 			<name>Room18</name>
 			<sheet>room18</sheet>
 			<up></up>
-			<down></down>
+			<down>room13</down>
 			<left>room17</left>
-			<right>room1</right>
+			<right></right>
 			<object>
 				<type>Block</type>
 				<type2>Blue</type2>
