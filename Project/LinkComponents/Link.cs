@@ -64,7 +64,7 @@ namespace Project1.LinkComponents
         // NOTE: commands will be called even when the game is paused, so must check if can play
         private bool CanPlay()
         {
-            return GameState.GameState.Instance.CanPlayGame();
+            return GameState.GameStateManager.Instance.CanPlayGame();
         }
         public void MoveUp()
         {

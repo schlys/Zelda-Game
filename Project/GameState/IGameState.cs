@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,16 +8,11 @@ namespace Project1.GameState
 {
     public interface IGameState
     {
-        static IGameState Instance { get; set; }
-        IWindow CurrentWindow { get; set; }
-        void Reset(); 
-        void Pause();
-        void ToRoomScreen();
-        void ToItemSelectionWindow();
-        void ToGameOverLoseWindow();
-        void ToGameOverWinWindow();
+        Vector2 RoomPosition { get; set; }
+        string ID { get; set; }
 
-        bool CanPlayGame(); 
-
+        void Update();
+        void Draw(SpriteBatch spriteBatch);
+        void Reset();
     }
 }

@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Project1.GameState
 {
-    public class WindowGameOver: IWindow
+    public class GameStateWin: IGameState
     {
         public Vector2 RoomPosition { get; set; }
         public string ID { get; set; }
-        public WindowGameOver()
+        public GameStateWin()
         {
 
         }

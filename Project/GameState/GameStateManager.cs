@@ -10,19 +10,19 @@ namespace Project1.GameState
      * using CurrentWindow. The windows include the item selection screen, game over 
      * screen, pause screen, and winning screen. 
      */ 
-    public class GameState: IGameState
+    public class GameStateManager: IGameStateManager
     {
-        private static GameState instance = new GameState();
-        public static GameState Instance
+        private static GameStateManager instance = new GameStateManager();
+        public static GameStateManager Instance
         {
             get
             {
                 return instance;
             }
         }
-        public IWindow CurrentWindow { get; set; }
+        public IGameState CurrentWindow { get; set; }
         private bool IsPaused; 
-        private GameState() 
+        private GameStateManager() 
         {
             // TODO: set default room 
             IsPaused = false; 
