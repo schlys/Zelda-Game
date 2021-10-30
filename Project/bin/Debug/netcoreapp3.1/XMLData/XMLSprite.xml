@@ -123,7 +123,17 @@
 		<hitY>14</hitY>
 	</Sprite>
 
-
+	<Sprite>
+		<name>PickUpItem</name>
+		<sheet>pickUpItem</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	
 	<Sprite>
 		<name>UseItemUp</name>
 		<sheet>useItem</sheet>
