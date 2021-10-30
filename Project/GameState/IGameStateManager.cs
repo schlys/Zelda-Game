@@ -8,6 +8,8 @@ namespace Project1.GameState
     {
         static IGameState Instance { get; set; }
         IGameState CurrentState { get; set; }
+        Game1 Game { get; set; }
+        void Initialize(Game1 game);
         void Reset(); 
         void Pause();
         void Start();
@@ -15,7 +17,6 @@ namespace Project1.GameState
         void ItemSelection();
         void GameOverLose();
         void GameOverWin();
-        void GameOver();
         bool CanPlayGame(); 
 
     }

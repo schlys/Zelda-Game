@@ -12,38 +12,37 @@ namespace Project1.GameState
         public string ID { get; set; }
         public GameStateItemSelect()
         {
-
+            ID = "ItemSelect";
         }
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) { }
         public IGameState Reset()
         {
-            throw new NotImplementedException();
+            return new GameStateStart();
         }
         public IGameState Pause()
         {
-            throw new NotImplementedException();
+            // TODO: Cannot go from item selection to pause? 
+            return this;
         }
         public IGameState StartGame()
         {
-            throw new NotImplementedException();
-
+            return new GameStateGamePlay();
         }
         public IGameState WinGame()
         {
-            throw new NotImplementedException();
+            // TODO: Cannot go from item selection to win? 
+            return new GameStateWin();
         }
         public IGameState LoseGame()
         {
-            throw new NotImplementedException();
+            // TODO: Cannot go from item selection to lose? 
+            return new GameStateLose();
         }
         public IGameState ItemSelectMenu()
         {
-            throw new NotImplementedException();
-        }
-        public IGameState GameOver()
-        {
-            throw new NotImplementedException();
+            // TODO: this cause game play? 
+            return new GameStateGamePlay();
         }
     }
 }
