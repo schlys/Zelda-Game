@@ -22,22 +22,23 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            // TODO: Cannot go from item selection to pause? 
-            return this;
+            // TODO: Can go from item selection to pause? 
+            return new GameStatePause();
         }
         public IGameState StartGame()
         {
-            return new GameStateGamePlay();
+            // TODO: Cannot go from item selection to start this way? 
+            return this;
         }
         public IGameState WinGame()
         {
             // TODO: Cannot go from item selection to win? 
-            return new GameStateWin();
+            return this;
         }
         public IGameState LoseGame()
         {
             // TODO: Cannot go from item selection to lose? 
-            return new GameStateLose();
+            return this;
         }
         public IGameState ItemSelectMenu()
         {

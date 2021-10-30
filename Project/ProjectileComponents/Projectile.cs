@@ -113,7 +113,7 @@ namespace Project1.ProjectileComponents
             // stop projectile from going out of bounds
             Vector2 TopLeft = new Vector2(Hitbox.X, Hitbox.Y);
             Vector2 BottomRight = new Vector2(Hitbox.X + Hitbox.Width, Hitbox.Y + Hitbox.Height);
-            if (!LevelFactory.Instance.IsWithinRoomBounds(TopLeft) || !LevelFactory.Instance.IsWithinRoomBounds(TopLeft))
+            if (!LevelFactory.Instance.IsWithinRoomBounds(TopLeft) || !LevelFactory.Instance.IsWithinRoomBounds(BottomRight))
             {
                 State.StopMotion(); 
             }

@@ -11,6 +11,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using System.Xml;
 using System.IO;
+using Project1.GameState; 
 
 namespace Project1.LevelComponents
 {
@@ -208,7 +209,7 @@ namespace Project1.LevelComponents
 
         public void MoveUp()
         {
-            if (!CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
+            if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
@@ -216,7 +217,7 @@ namespace Project1.LevelComponents
         }
         public void MoveDown()
         {
-            if (!CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
+            if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.DownRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
@@ -224,7 +225,7 @@ namespace Project1.LevelComponents
         }
         public void MoveLeft()
         {
-            if (!CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
+            if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
@@ -232,7 +233,7 @@ namespace Project1.LevelComponents
         }
         public void MoveRight()
         {
-            if (!CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
+            if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
                 GameObjectManager.Instance.UpdateRoomItems();

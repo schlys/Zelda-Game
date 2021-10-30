@@ -40,14 +40,14 @@ namespace Project1.GameState
             String text = "Game state: " + CurrentState.ID; 
             spriteBatch.DrawString(font, text, new Vector2(10, 10), Color.Black);
 
-            String text2 = "Commands: \nZ - start\nSpace - pause \nI - Item select";
+            String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
             spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);
         }
         public void Reset() 
         {
             // Restart the game from the beginning 
             IsPaused = false;
-            CurrentState = CurrentState.StartGame();
+            CurrentState = CurrentState.Reset();
         }
         public void Pause() 
         {
