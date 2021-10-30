@@ -34,6 +34,7 @@ namespace Project1.LinkComponents
         private int Step = 4;
         private bool LockFrame;     // TODO: Belong in sprite draw? 
         private bool IsPicked = false;       // Check whether Link picked up (for sprite change)
+        private bool IsDead = false;
         public Link(Vector2 position)
         {
             Weapon = "WoodenSword";
@@ -217,6 +218,7 @@ namespace Project1.LinkComponents
             Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
+            IsDead = Health.Dead();
         }
 
         public void HitBlock(string direction)
@@ -275,6 +277,7 @@ namespace Project1.LinkComponents
             UseItemName = "";
             LockFrame = false;
             IsPicked = false;
+            IsDead = false;
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); 
         }

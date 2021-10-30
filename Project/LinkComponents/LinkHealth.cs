@@ -32,5 +32,13 @@ namespace Project1.LinkComponents
         {
             return TotalNumHearts == CurrNumHearts;
         }
+        public bool Dead()
+        {
+            if (CurrNumHearts == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
