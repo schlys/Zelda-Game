@@ -42,6 +42,8 @@ namespace Project1.Controller
             RegisterPressCommand(new GameEndCmd(Game), Keys.Q);
             RegisterPressCommand(new GameRestartCmd(Game), Keys.R);
             RegisterPressCommand(new GamePauseCmd(Game), Keys.Space);
+            RegisterPressCommand(new GameItemSelectCmd(Game), Keys.I);
+            RegisterPressCommand(new GameStartCmd(Game), Keys.X);
         }
 
         public void InitializeLinkCommands(ILink Link)

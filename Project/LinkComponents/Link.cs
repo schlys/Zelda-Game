@@ -33,7 +33,8 @@ namespace Project1.LinkComponents
         private Vector2 InitialPosition; 
         private int Step = 4;
         private bool LockFrame;     // TODO: Belong in sprite draw? 
-
+        private bool IsPicked = false;       // Check whether Link picked up (for sprite change)
+        private bool IsDead = false;
         public Link(Vector2 position)
         {
             Weapon = "WoodenSword";
@@ -64,7 +65,7 @@ namespace Project1.LinkComponents
         // NOTE: commands will be called even when the game is paused, so must check if can play
         private bool CanPlay()
         {
-            return GameState.GameState.Instance.CanPlayGame();
+            return GameState.GameStateManager.Instance.CanPlayGame();
         }
         public void MoveUp()
         {
@@ -199,8 +200,10 @@ namespace Project1.LinkComponents
 
         public void PickUpItem(string name)
         {
+            IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
+            UpdateSprite();
             // NOTE: Add or increment count of <name> in <Inventory> 
-            if(Inventory.ContainsKey(name))
+            if (Inventory.ContainsKey(name))
             {
                 Inventory[name] = Inventory[name] + 1; 
             } else
@@ -215,6 +218,7 @@ namespace Project1.LinkComponents
             Health.DecreaseHealth(0.5);             
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
+            IsDead = Health.Dead();
         }
 
         public void HitBlock(string direction)
@@ -259,6 +263,9 @@ namespace Project1.LinkComponents
             string Weapon = "";
             if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
+
+            if(IsPicked) LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            IsPicked = false;
         }
 
         public void Reset()
@@ -269,6 +276,8 @@ namespace Project1.LinkComponents
             Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
             UseItemName = "";
             LockFrame = false;
+            IsPicked = false;
+            IsDead = false;
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); 
         }

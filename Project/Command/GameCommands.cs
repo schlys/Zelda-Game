@@ -62,4 +62,79 @@ namespace Project1.Command
         }
     }
 
+    class GameStartCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameStartCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.StartGame();
+        }
+    }
+
+    class GameItemSelectCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameItemSelectCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.ItemSelection();
+        }
+    }
+
+    class GameWinCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameWinCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.Win();
+        }
+    }
+
+    class GameLoseCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameLoseCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.Lose();
+        }
+    }
 }

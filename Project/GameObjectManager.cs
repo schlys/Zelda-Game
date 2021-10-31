@@ -95,7 +95,7 @@ namespace Project1
                 controller.Update();
             }
 
-            if (GameState.GameState.Instance.CanPlayGame())
+            if (GameState.GameStateManager.Instance.CanPlayGame())
             {
                 foreach (ILink link in Links)
                 {

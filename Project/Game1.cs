@@ -11,6 +11,7 @@ using Project1.LevelComponents;
 using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
+using Project1.GameState;
 
 namespace Project1
 {
@@ -38,6 +39,7 @@ namespace Project1
             LevelFactory.Instance.LoadAllTextures(Content); 
 
             GameObjectManager.Instance.Initialize(this);
+            GameStateManager.Instance.Initialize(this); 
         }
 
         protected override void Update(GameTime gameTime)
@@ -55,7 +57,8 @@ namespace Project1
             GraphicsDevice.Clear(Color.DarkGray);
 
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-
+           
+            GameStateManager.Instance.Draw(_spriteBatch);
             GameObjectManager.Instance.Draw(_spriteBatch);
 
             _spriteBatch.End();
@@ -64,13 +67,32 @@ namespace Project1
 
         public void Restart()
         {
+            GameStateManager.Instance.Reset();
             GameObjectManager.Instance.Reset();
-            GameState.GameState.Instance.Reset(); 
         }
 
         public void Pause()
         {
-            GameState.GameState.Instance.Pause(); 
+            GameStateManager.Instance.Pause(); 
+        }
+
+        public void StartGame()
+        {
+            GameStateManager.Instance.Start();
+        }
+
+        public void ItemSelection()
+        {
+            GameStateManager.Instance.ItemSelection();
+        }
+
+        public void Win()
+        {
+            GameStateManager.Instance.GameOverWin();
+        }
+        public void Lose()
+        {
+            GameStateManager.Instance.GameOverLose();
         }
     }
 }

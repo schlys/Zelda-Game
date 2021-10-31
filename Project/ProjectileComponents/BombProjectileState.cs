@@ -19,76 +19,64 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
-        private int speed = 60;
-        private int counter;
-        private bool IsBlocked = false;
+        private int Speed = 4;
+        private int Counter = 0;
+        private int CounterExplode = 15;
+        private int CounterMax;
         public BombProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction; 
             TypeID = "Bomb";
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            counter = 0;
-            Projectile.OffsetOriginalPosition(Direction);
             Projectile.InMotion = false;
-
-            switch (Direction.ID)
-            {
-                case "Up":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - 60);
-                    break;
-                case "Down":
-                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + 60);
-                    break;
-                case "Right":
-                    Projectile.Position = new Vector2(Projectile.Position.X + 60, Projectile.Position.Y);
-                    break;
-                default:
-                    Projectile.Position = new Vector2(Projectile.Position.X - 60, Projectile.Position.Y);
-                    break;
-            }
-
+            CounterMax = CounterExplode + (int)((Sprite.TotalFrames)*(Sprite.MaxDelay * Sprite.DelayRate));
+            Projectile.OffsetOriginalPosition(Direction);
         }
         public void StopMotion()
         {
-            // Explode
-            IsBlocked = true;
+            // trigger explosion
+            if (Counter < CounterExplode)
+            {
+                Counter = CounterExplode;  
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!IsBlocked && Projectile.InMotion)
-                if (counter < 120)
-                {
-                    counter++;
-                    Sprite.Draw(spriteBatch, Projectile.Position);
-                }
-                else
-                {
-                    Projectile.InMotion = false;
-                }
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
         public void Update()
         {
-            Sprite.DelayRate = 0.1;
-            Sprite.MaxDelay = 1;
-            if (!IsBlocked)
-            {               
-                if (counter < 70)
+
+            Counter++;
+            if (Counter < CounterExplode)
             {
-                counter++;
+                switch (Direction.ID)
+                {
+                    case "Up":
+                        Projectile.Position += new Vector2(0, -Speed);
+                        break;
+                    case "Down":
+                        Projectile.Position += new Vector2(0, +Speed);
+                        break;
+                    case "Right":
+                        Projectile.Position += new Vector2(Speed, 0);
+                        break;
+                    default:
+                        Projectile.Position += new Vector2(-Speed, 0);
+                        break;
+                }
             }
-            else if (counter < 90)
-            {
-                
+            else if (Counter < CounterMax) // Explosion animation 
+            {   
                 Sprite.Update();
             }
             else
             {
-                Projectile.InMotion = true;
+                Projectile.InMotion = false;    // Indicate projectile is done 
             }
-            }
-            
+
         }
     }
 }

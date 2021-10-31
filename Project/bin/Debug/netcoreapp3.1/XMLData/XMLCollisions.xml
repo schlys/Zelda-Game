@@ -404,12 +404,14 @@
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	
+	<!--- TOOK OUT SO LINK NOT COLLIDE WITH HIS BOMB
 	<Collision>
 		<name>LinkProjectileBomb</name>
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
-
+	-->
+	
 	<Collision>
 		<name>EnemyProjectileArrow</name>
 		<command1>EnemyTakeDamageCmd</command1>

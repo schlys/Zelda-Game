@@ -37,6 +37,7 @@ namespace Project1.SpriteComponents
             TextureDict.Add("blocks", content.Load<Texture2D>("Blocks"));
             TextureDict.Add("items", content.Load<Texture2D>("ItemsAndWeapons"));
             TextureDict.Add("linkItems", content.Load<Texture2D>("LinkSprites/Items"));
+            TextureDict.Add("pickUpItem", content.Load<Texture2D>("LinkSprites/PickUpItem"));
             TextureDict.Add("useItem", content.Load<Texture2D>("LinkSprites/UseItem"));
             TextureDict.Add("woodenSword", content.Load<Texture2D>("LinkSprites/WoodenSword"));
             TextureDict.Add("magicalSword", content.Load<Texture2D>("LinkSprites/MagicalSword"));
