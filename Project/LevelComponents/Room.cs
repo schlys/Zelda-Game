@@ -24,7 +24,7 @@ namespace Project1.LevelComponents
         public List<IEnemy> Enemies { get; set; }
         public Texture2D Texture { get; set; }
 
-        private Color Color = Color.White;
+        public Color Color = Color.White;
         private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
         private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 

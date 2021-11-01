@@ -58,8 +58,8 @@ namespace Project1
 
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
            
-            GameStateManager.Instance.Draw(_spriteBatch);
             GameObjectManager.Instance.Draw(_spriteBatch);
+            GameStateManager.Instance.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);

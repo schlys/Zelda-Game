@@ -59,16 +59,24 @@ namespace Project1.GameState
 
             // TODO: Make black screen for lose/win
             // TODO: Remove magic numbers
-            //Texture2D texture = Game.Content.Load<Texture2D>("Rooms/Room1");
-            if (IsLose) spriteBatch.DrawString(font, "GAME OVER", new Vector2(600, 200), Color.Black);
+            Texture2D blackRectangle = new Texture2D(Game.GraphicsDevice, 1, 1);
+            blackRectangle.SetData(new[] { Color.Black });
+
+            if (IsLose)
+            {
+                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
+
+                spriteBatch.DrawString(font, "GAME OVER", new Vector2(Width / 2, Height / 2), Color.White);
+            }
 
             if (IsWin)
             {
-                //Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
-                //spriteBatch.Draw(texture, destinationRectangle, Color.White);
-
-                TriForceFragment.Draw(spriteBatch, new Vector2(600, 180));
-                Link.Draw(spriteBatch, new Vector2(600, 200));
+                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
+                
+                TriForceFragment.Draw(spriteBatch, new Vector2(Width / 2, Height / 2-20));
+                Link.Draw(spriteBatch, new Vector2(Width/2, Height/2));
             }
         }
         public void Reset() 
