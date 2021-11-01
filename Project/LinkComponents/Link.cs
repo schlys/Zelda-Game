@@ -10,6 +10,7 @@ using Project1.DirectionState;
 using Project1.LevelComponents;
 using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
+using Project1.GameState;
 
 namespace Project1.LinkComponents
 {
@@ -37,12 +38,14 @@ namespace Project1.LinkComponents
         private bool LockFrame;     // TODO: Belong in sprite draw? 
         private bool IsPicked = false;       // Check whether Link picked up (for sprite change)
         private bool IsDead = false;
+        private int TotalNumHearts;
         public Link(Vector2 position)
         {
             Weapon = "WoodenSword";
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
-            Health = new LinkHealth(3, 3);                  // default health is 3 of 3 hearts 
+            TotalNumHearts = 3;
+            Health = new LinkHealth(TotalNumHearts, 3);                  // default health is 3 of 3 hearts 
             UseItemName = "";
 
             // TODO: start with items? 
@@ -224,10 +227,20 @@ namespace Project1.LinkComponents
         public void TakeDamage(string direction, int knockback = 0)
         {
             // TODO: determine value to decrease by  
-            Health.DecreaseHealth(0.5);             
+            Health.DecreaseHealth(0.5);
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
+            if (Health.IsLoseHeart())
+            {
+                Reset(); // TODO: Reset all states?
+                TotalNumHearts--;
+            }
+            if (TotalNumHearts == 0)
+            {
+                IsDead = true;
+                GameStateManager.Instance.GameOverLose();
+            }
         }
 
         public void HitBlock(string direction)
@@ -282,14 +295,20 @@ namespace Project1.LinkComponents
             Position = InitialPosition;
             DirectionState = new DirectionStateUp();             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
-            Health = new LinkHealth(3, 3);                          // default health is 3 of 3 hearts 
+            Health = new LinkHealth(TotalNumHearts, 3);                          // default health is 3 of 3 hearts 
             UseItemName = "";
             LockFrame = false;
             IsPicked = false;
-            IsDead = false;
+            //IsDead = false;
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             HUD.Reset();
+
+            if (IsDead) //This is for reset after game over
+            {
+                TotalNumHearts = 3;
+                IsDead = false;
+            }
         }
 
         public void Update()
@@ -323,7 +342,7 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            LinkSprite.Draw(spriteBatch, Position);
+            if(!IsDead) LinkSprite.Draw(spriteBatch, Position);
             HUD.Draw(spriteBatch);
         }
     }

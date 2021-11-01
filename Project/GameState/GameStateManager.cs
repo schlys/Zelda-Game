@@ -23,6 +23,7 @@ namespace Project1.GameState
         public IGameState CurrentState { get; set; }
         public Game1 Game { get; set; }
         private bool IsPaused;
+        private bool IsLose=false;
         private GameStateManager() 
         {
             // TODO: set default room 
@@ -42,6 +43,8 @@ namespace Project1.GameState
 
             String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
             spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);
+
+            //if(IsLose) spriteBatch.DrawString(font, "GAME OVER", new Vector2(400, 200), Color.Black);
         }
         public void Reset() 
         {
@@ -73,6 +76,7 @@ namespace Project1.GameState
         {
             // Game is lost, can restart the game or exit 
             CurrentState = CurrentState.LoseGame();
+            IsLose = true;
         }
         public void GameOverWin() 
         {

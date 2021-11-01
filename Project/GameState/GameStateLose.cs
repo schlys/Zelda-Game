@@ -15,7 +15,10 @@ namespace Project1.GameState
             ID = "Lose";
         }
         public void Update() { }
-        public void Draw(SpriteBatch spriteBatch) { }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            //spriteBatch.Draw();
+        }
         public IGameState Reset()
         {
             return new GameStateStart();

@@ -32,9 +32,17 @@ namespace Project1.LinkComponents
         {
             return TotalNumHearts == CurrNumHearts;
         }
+        public bool IsLoseHeart()
+        {
+            if (CurrNumHearts == 0) // Link loses his heart when its 
+            {
+                return true;
+            }
+            return false;
+        }
         public bool Dead()
         {
-            if (CurrNumHearts == 0)
+            if (TotalNumHearts == 0)
             {
                 return true;
             }
