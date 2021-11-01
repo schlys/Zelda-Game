@@ -204,92 +204,92 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemArrowUp</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueCandle</name>
-		<command1>LinkAddBlueCandleToInventoryCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueRing</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueRupee</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBombSolid</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBookOfMagic</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBoomerangSolid</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBow</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemClock</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemCompass</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemDungeonMap</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemFire</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemFood</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemHeartContainer</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemLetter</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemLifePotion</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalBoomerangSolid</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalKey</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -309,62 +309,62 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemOrangeRupee</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemPowerBracelet</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRaft</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRecorder</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRecoveryHeart</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRedCandle</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemRedRing</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemSecondLifePotion</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemSilverArrow</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemSmallKey</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemStepladder</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemTriforceFragment</name>
-		<command1>NoCmd</command1>
+		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>

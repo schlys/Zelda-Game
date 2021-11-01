@@ -8,7 +8,8 @@ using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 using Project1.LevelComponents;
-using Project1.ItemComponents; 
+using Project1.ItemComponents;
+using Project1.HeadsUpDisplay;
 
 namespace Project1.LinkComponents
 {
@@ -22,6 +23,7 @@ namespace Project1.LinkComponents
         public Vector2 Position { get; set; }
         public string Weapon { get; set; }                      // represents Link's current weapon being used
         public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
+        public IHUD HUD;
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -60,6 +62,7 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             
             InitialPosition = Position;
+            HUD = new HUD(this);
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play
@@ -189,27 +192,33 @@ namespace Project1.LinkComponents
             // TODO: remove from inventory to use 
             if (CanPlay() && !LockFrame)
             {
-                LockFrame = true;
-                UseItemName = "UseItem";
-                UpdateSprite();
-                LinkSprite.MaxDelay = 25;
-                IProjectile Item = new Projectile(Position, DirectionState.ID, name);
-                GameObjectManager.Instance.AddProjectile(Item);
+                if (HUD.CanUse(name))
+                {
+                    LockFrame = true;
+                    UseItemName = "UseItem";
+                    UpdateSprite();
+                    LinkSprite.MaxDelay = 25;
+                    IProjectile Item = new Projectile(Position, DirectionState.ID, name);
+                    GameObjectManager.Instance.AddProjectile(Item);
+                }
             }
         }
 
         public void PickUpItem(string name)
         {
-            IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
+            if (name.Equals("ItemTriforceFragment"))
+                IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
             UpdateSprite();
             // NOTE: Add or increment count of <name> in <Inventory> 
+            HUD.AddItem(name);
+            /*
             if (Inventory.ContainsKey(name))
             {
                 Inventory[name] = Inventory[name] + 1; 
             } else
             {
                 Inventory.TryAdd(name, 1); 
-            }
+            }*/
         }
 
         public void TakeDamage(string direction, int knockback = 0)
@@ -308,11 +317,13 @@ namespace Project1.LinkComponents
 
             // Update Hitbox for collisions  
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+            HUD.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             LinkSprite.Draw(spriteBatch, Position);
+            HUD.Draw(spriteBatch);
         }
     }
 }

@@ -56,8 +56,8 @@ namespace Project1.CollisionComponents
                 Type command2Type = assem.GetType("Project1.Command." + command2);
 
                 // Get the constructors for the commands
-                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(ICollidable), typeof(string) });
-                ConstructorInfo constructor2 = command2Type.GetConstructor(new[] { typeof(ICollidable), typeof(string) });
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(ICollidable), typeof(ICollidable), typeof(string) });
+                ConstructorInfo constructor2 = command2Type.GetConstructor(new[] { typeof(ICollidable), typeof(ICollidable), typeof(string) });
 
                 CollisionMappings.Add(name, Tuple.Create(constructor1, constructor2));
             }   
@@ -81,8 +81,8 @@ namespace Project1.CollisionComponents
 
             // NOTE: All of the parameters in the commands will have to be changed to ICollidable types
             // Create the commands
-            object command1 = constructor1.Invoke(new object[] { item1, collision.Direction });
-            object command2 = constructor2.Invoke(new object[] { item2, collision.Direction });
+            object command1 = constructor1.Invoke(new object[] { item1, item2, collision.Direction });
+            object command2 = constructor2.Invoke(new object[] { item2, item1, collision.Direction });
 
             // Execute the commands if they are not "NoCmd" 
             ICommand cmd1 = (ICommand)command1;

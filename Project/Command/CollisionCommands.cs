@@ -12,7 +12,7 @@ namespace Project1.Command
     public class ProjectileHitCmd : ICommand 
     {
         IProjectile Projectile;
-        public ProjectileHitCmd(ICollidable projectile, string direction)
+        public ProjectileHitCmd(ICollidable projectile, ICollidable holder, string direction)
         {
             Projectile = (IProjectile)projectile;
         }
@@ -27,7 +27,7 @@ namespace Project1.Command
     public class LinkMagicalSword : ICommand
     {
         private ILink Link;
-        public LinkMagicalSword(ICollidable link, string direction = "")
+        public LinkMagicalSword(ICollidable link, ICollidable holder, string direction = "")
         {
             Link = (ILink)link;
         }
@@ -41,7 +41,7 @@ namespace Project1.Command
     {
         public ILink Link { get; set; }
         string Direction;
-        public LinkTakeDamageCmd(ICollidable link, string direction = "")
+        public LinkTakeDamageCmd(ICollidable link, ICollidable holder, string direction = "")
         {
             Direction = direction;
             Link = (ILink)link;
@@ -57,7 +57,7 @@ namespace Project1.Command
 
         public ILink Link { get; set; }
         string Direction;
-        public LinkHitBlockCmd(ICollidable link, string direction)
+        public LinkHitBlockCmd(ICollidable link, ICollidable holder, string direction)
         {
             Direction = direction;
             Link = (ILink)link;
@@ -73,7 +73,7 @@ namespace Project1.Command
     {
         public ILink Link { get; set; }
         public string ItemKey { get; set; }
-        public LinkAddArrowToInventoryCmd(ICollidable link, string direction)
+        public LinkAddArrowToInventoryCmd(ICollidable link, ICollidable holder, string direction)
         {
             Link = (ILink)link;
             ItemKey = "Arrow"; 
@@ -84,18 +84,20 @@ namespace Project1.Command
         }
     }
 
-    public class LinkAddBlueCandleToInventoryCmd : ICommand
+    public class LinkAddItemToInventoryCmd : ICommand
     {
         public ILink Link { get; set; }
-        public string ItemKey { get; set; }
-        public LinkAddBlueCandleToInventoryCmd(ICollidable link, string direction)
+        string item;
+        
+        public LinkAddItemToInventoryCmd(ICollidable link, ICollidable item, string direction)
         {
             Link = (ILink)link;
-            ItemKey = "BlueCandle";
+            this.item = item.TypeID;
+            
         }
         public void Execute()
         {
-            Link.PickUpItem(ItemKey);
+            Link.PickUpItem(item);
         }
     }
 
@@ -103,7 +105,7 @@ namespace Project1.Command
     {
         public IEnemy Enemy { get; set; }
         private string direction;
-        public EnemyTakeDamageCmd(ICollidable enemy, string direction)
+        public EnemyTakeDamageCmd(ICollidable enemy, ICollidable holder, string direction)
         {
             Enemy = (IEnemy)enemy;
             this.direction = direction;
@@ -120,7 +122,7 @@ namespace Project1.Command
 
         public IEnemy Enemy { get; set; }
         string Direction;
-        public EnemyAvoidOtherCmd(ICollidable enemy, string direction)
+        public EnemyAvoidOtherCmd(ICollidable enemy, ICollidable holder, string direction)
         {
             Direction = direction;
             Enemy = (IEnemy)enemy;
@@ -143,7 +145,7 @@ namespace Project1.Command
             {"Left","Right" }
         };
 
-        public EnemyHitPlayerCmd(ICollidable enemy, string direction)
+        public EnemyHitPlayerCmd(ICollidable enemy, ICollidable holder, string direction)
         {
             Direction = direction;
             Enemy = (IEnemy)enemy;
@@ -157,7 +159,7 @@ namespace Project1.Command
     public class ItemPickedUpCmd : ICommand
     {
         public IItem Item { get; set; }
-        public ItemPickedUpCmd(ICollidable item, string direction)
+        public ItemPickedUpCmd(ICollidable item, ICollidable holder, string direction)
         {
             Item = (IItem)item;
         }
@@ -171,7 +173,7 @@ namespace Project1.Command
     {
 
         public IProjectile Projectile { get; set; }
-        public WeaponsBlockedCmd(ICollidable projectile, string direction = "")
+        public WeaponsBlockedCmd(ICollidable projectile, ICollidable holder, string direction = "")
         {
             Projectile = (IProjectile)projectile;
         }
@@ -184,7 +186,7 @@ namespace Project1.Command
 
     class NoCmd : ICommand
     {
-        public NoCmd(ICollidable holder, string direction)
+        public NoCmd(ICollidable holder, ICollidable holder2, string direction)
         {
 
         }
