@@ -314,6 +314,37 @@ namespace Project1.Command
             Link.PickUpItem("Arrow");
         }
     }
+
+    public class LinkNextItemCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkNextItemCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.HUD.NextItem();
+        }
+    }
+    public class LinkPreviousItemCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkPreviousItemCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.HUD.PreviousItem();
+        }
+    }
 }
 
 

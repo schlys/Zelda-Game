@@ -39,7 +39,7 @@ namespace Project1.LinkComponents
         private bool IsPicked = false;       // Check whether Link picked up (for sprite change)
         private bool IsDead = false;
         private int TotalNumHearts;
-        public Link(Vector2 position)
+        public Link(Vector2 position, Game1 game)
         {
             Weapon = "WoodenSword";
             DirectionState = new DirectionStateUp();     // default state is up           
@@ -65,7 +65,7 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             
             InitialPosition = Position;
-            HUD = new HUD(this);
+            HUD = new HUD(this, game);
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play

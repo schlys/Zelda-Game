@@ -30,19 +30,7 @@ namespace Project1.Controller
         {
             InitializeRoomCommands(); 
         }
-        public void InitializeLinkCommands(ILink Link)
-        {
-
-        }
-        public void InitializeBlockCommands(IBlock Block)
-        {
-
-        }
-        public void InitializeItemCommands(IItem Item)
-        {
-
-        }
-        public void InitializeEnemyCommands(IEnemy Enemy)
+        public void InitializeLinkCommands(ILink Link, int player)
         {
 
         }

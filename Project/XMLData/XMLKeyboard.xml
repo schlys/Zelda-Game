@@ -1,36 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Controllers>
-	<Control>
+	<Control player="1">
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>
+		
 	</Control>
-	<Control>
+	<Control player="1">
 		<name>LinkMoveDownCmd</name>
 		<key>S</key>
+		
 	</Control>
-	<Control>
+	<Control player="1">
 		<name>LinkMoveRightCmd</name>
 		<key>D</key>
+		
 	</Control>
-	<Control>
+	<Control player="1">
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
+		<player>1</player>
 	</Control>
-	<Control>
+	<Control player="2">
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
+		
 	</Control>
-	<Control>
+	<Control player="2">
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
+		
 	</Control>
-	<Control>
+	<Control player="2">
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
+		
 	</Control>
-	<Control>
+	<Control player="2">
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
+		
+	</Control>
+	<Control>
+		<name>LinkNextItemCmd</name>
+		<key>R</key>
+	</Control>
+	<Control>
+		<name>LinkPreviousItemCmd</name>
+		<key>E</key>
 	</Control>
 
 

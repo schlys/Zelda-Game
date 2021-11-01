@@ -44,9 +44,10 @@ namespace Project1.Controller
             RegisterPressCommand(new GamePauseCmd(Game), Keys.Space);
             RegisterPressCommand(new GameItemSelectCmd(Game), Keys.I);
             RegisterPressCommand(new GameStartCmd(Game), Keys.X);
+           
         }
 
-        public void InitializeLinkCommands(ILink Link)
+        public void InitializeLinkCommands(ILink Link, int player)
         {
             /* Use arrow keys or WSAD to cause Link to move 
              * Use 'z' and 'n' to cause Link to attack using his sword 
@@ -70,13 +71,16 @@ namespace Project1.Controller
                 string cmdName = node.SelectSingleNode("name").InnerText;
                 string key = node.SelectSingleNode("key").InnerText;
 
+                
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
 
                 Keys keyObj = (Keys)converter.ConvertFromString(key);
                 ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
                 object command1 = constructor1.Invoke(new object[] { Game, Link });
                 ICommand cmd1 = (ICommand)command1;
-                RegisterHoldCommand(cmd1, keyObj);
+
+                if (node.Attributes["player"] == null) RegisterHoldCommand(cmd1, keyObj);
+                else if (Int16.Parse(node.Attributes["player"].Value) == player) RegisterHoldCommand(cmd1, keyObj);
 
             }
 
@@ -84,27 +88,6 @@ namespace Project1.Controller
 
             // Command so link does not animate in place 
             RegisterPressCommand(new LinkStopMotionCmd((ICollidable)Link), LinkStopKey);
-        }
-
-        public void InitializeBlockCommands(IBlock Block)
-        {
-            // Use keys "t" and "y" to cycle between which block is currently being shown 
-            //RegisterCommand(new PreviousBlockCmd(Game, Block), Keys.T);
-            //RegisterCommand(new NextBlockCmd(Game, Block), Keys.Y);
-        }
-
-        public void InitializeItemCommands(IItem Item)
-        {
-            //Use keys "u" and "i" to cycle between which item is currently being shown 
-            //RegisterCommand(new PreviousItemCmd(Game, Item), Keys.U);
-            //RegisterCommand(new NextItemCmd(Game, Item), Keys.I);
-        }
-
-        public void InitializeEnemyCommands(IEnemy Enemy)
-        {
-            // Use keys "o" and "p" to cycle between which enemy or npc is currently being shown 
-            // RegisterCommand(new PreviousEnemyCmd(Game, Enemy), Keys.O);
-            //RegisterCommand(new NextEnemyCmd(Game, Enemy), Keys.P);
         }
 
         private void RegisterHoldCommand(ICommand command, Keys key)

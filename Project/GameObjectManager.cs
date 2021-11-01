@@ -57,28 +57,18 @@ namespace Project1
             // Add Link 
             // TODO: Data drive Link Position 
             Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition;
-            ILink Link = new Link(LinkPosition); 
+            ILink Link = new Link(LinkPosition, Game); 
             Links.Add(Link);
 
             UpdateRoomItems();
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
+            int player = 1;
             foreach(ILink link in Links) 
             {
-                KeyboardController.InitializeLinkCommands(link);
-            }
-            foreach (IBlock block in Blocks)
-            {
-                KeyboardController.InitializeBlockCommands(block);
-            }
-            foreach (IItem item in Items)
-            {
-                KeyboardController.InitializeItemCommands(item);
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                KeyboardController.InitializeEnemyCommands(enemy);
+                KeyboardController.InitializeLinkCommands(link, player);
+                player++;
             }
 
             // Register Mouse commands 

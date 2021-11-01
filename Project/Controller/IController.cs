@@ -16,10 +16,7 @@ namespace Project1.Controller
     {
         Game1 Game { get; set; }
         void InitializeGameCommands();
-        void InitializeLinkCommands(ILink Link); 
-        void InitializeBlockCommands(IBlock Block);
-        void InitializeItemCommands(IItem Item);
-        void InitializeEnemyCommands(IEnemy Enemy); 
+        void InitializeLinkCommands(ILink Link, int player); 
         void Update();
     }
     
