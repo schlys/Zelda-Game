@@ -4,6 +4,7 @@ using Project1.LinkComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.LevelComponents;
 
 namespace Project1.HeadsUpDisplay
 {
@@ -82,6 +83,9 @@ namespace Project1.HeadsUpDisplay
             SpriteFont font = game.Content.Load<SpriteFont>("Fonts/TitleFont");
             string item = "Current Item: " + currItem;
             spriteBatch.DrawString(font, item, new Vector2(400, 30), Color.Black);
+
+            // Draw the <LevelMap> found in <LevelFactory>
+            LevelFactory.Instance.LevelMap.Draw(spriteBatch);
         }
         public void Reset()
         {

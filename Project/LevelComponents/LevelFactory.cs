@@ -27,6 +27,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
+        public ILevelMap LevelMap { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
 
         private static Dictionary<string, IRoom> LevelDict;
@@ -34,7 +35,7 @@ namespace Project1.LevelComponents
         public static int[,] textureMatrix;
 
         // TODO: Load in XML
-        private static Vector2 RoomPosition = new Vector2(50, 50);
+        private static Vector2 RoomPosition = new Vector2(50, 80);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
@@ -81,8 +82,11 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found"); 
             }
 
-            LinkStartingPosition = GetItemPosition(4, 1); 
-            
+            LinkStartingPosition = GetItemPosition(4, 1);
+
+            // Load Level Map
+            Texture2D LevelMapTexture = content.Load<Texture2D>("HUD/HUDMap");
+            LevelMap = new LevelMap(LevelMapTexture);
         }
 
         private static Texture2D GetTexture(String key)
@@ -213,6 +217,7 @@ namespace Project1.LevelComponents
             {
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
+                LevelMap.MoveUp();
             }
         }
         public void MoveDown()
@@ -221,6 +226,7 @@ namespace Project1.LevelComponents
             {
                 CurrentRoom = LevelDict[CurrentRoom.DownRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
+                LevelMap.MoveDown();
             }
         }
         public void MoveLeft()
@@ -229,6 +235,7 @@ namespace Project1.LevelComponents
             {
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
+                LevelMap.MoveLeft();
             }
         }
         public void MoveRight()
@@ -237,6 +244,7 @@ namespace Project1.LevelComponents
             {
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
                 GameObjectManager.Instance.UpdateRoomItems();
+                LevelMap.MoveRight();
             }
         }
         public Rectangle GetPlayableRoomBounds()
