@@ -263,7 +263,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseItem("Boomerang");
+            Link.UseItem("BoomerangSolid");
         }
     }
 
@@ -279,7 +279,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseItem("MagicalBoomerang");
+            Link.UseItem("MagicalBoomerangSolid");
         }
     }
 

@@ -219,12 +219,12 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueRupee</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>AddRupeeCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkItemBombSolid</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>AddBombCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -289,7 +289,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemMagicalKey</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>AddKeyCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -309,7 +309,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemOrangeRupee</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>AddRupeeCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -354,7 +354,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemSmallKey</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>AddKeyCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>

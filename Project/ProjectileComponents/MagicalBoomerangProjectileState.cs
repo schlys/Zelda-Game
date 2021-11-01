@@ -9,7 +9,7 @@ using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents
 {
-    class MagicalBoomerangProjectileState : IProjectileState
+    class MagicalBoomerangSolidProjectileState : IProjectileState
     {
         // Properties from IProjectileState
         public IProjectile Projectile { get; set; }
@@ -23,7 +23,7 @@ namespace Project1.ProjectileComponents
         private int Counter = 0;
         private int CounterMax = 90;
 
-        public MagicalBoomerangProjectileState(IProjectile projectile, IDirectionState direction)
+        public MagicalBoomerangSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction; 

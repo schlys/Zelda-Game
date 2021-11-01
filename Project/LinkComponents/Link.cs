@@ -23,7 +23,7 @@ namespace Project1.LinkComponents
         public Vector2 Position { get; set; }
         public string Weapon { get; set; }                      // represents Link's current weapon being used
         public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
-        public IHUD HUD;
+        public IHUD HUD { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -288,7 +288,8 @@ namespace Project1.LinkComponents
             IsPicked = false;
             IsDead = false;
             UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox); 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+            HUD.Reset();
         }
 
         public void Update()

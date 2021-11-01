@@ -9,7 +9,7 @@ using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents
 {
-    class BoomerangProjectileState : IProjectileState
+    class BoomerangSolidProjectileState : IProjectileState
     {
         // Properties from IProjectileState
         public IProjectile Projectile { get; set; }
@@ -23,7 +23,7 @@ namespace Project1.ProjectileComponents
         int Counter;
         int CounterMax = 50; 
 
-        public BoomerangProjectileState(IProjectile projectile, IDirectionState direction)
+        public BoomerangSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Projectile.InMotion = true;

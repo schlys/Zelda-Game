@@ -68,19 +68,40 @@ namespace Project1.Command
         }
     }
 
-    // TODO: not hardcode item keys, how else can get them?
-    public class LinkAddArrowToInventoryCmd : ICommand
+    public class AddKeyCmd : ICommand
     {
         public ILink Link { get; set; }
-        public string ItemKey { get; set; }
-        public LinkAddArrowToInventoryCmd(ICollidable link, ICollidable holder, string direction)
+        public AddKeyCmd(ICollidable link, ICollidable item, string direction)
         {
             Link = (ILink)link;
-            ItemKey = "Arrow"; 
         }
         public void Execute()
         {
-            Link.PickUpItem(ItemKey);
+            Link.HUD.AddKey();
+        }
+    }
+    public class AddRupeeCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public AddRupeeCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.HUD.AddRupee();
+        }
+    }
+    public class AddBombCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public AddBombCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.HUD.AddBomb();
         }
     }
 

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
-using Project1.ItemComponents; 
+using Project1.ItemComponents;
+using Project1.HeadsUpDisplay;
 
 namespace Project1.LinkComponents
 {
@@ -16,7 +17,8 @@ namespace Project1.LinkComponents
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
         string Weapon { get; set; }
-        Dictionary<string, int> Inventory { get; set; }
+        //Dictionary<string, int> Inventory { get; set; }
+        IHUD HUD { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();

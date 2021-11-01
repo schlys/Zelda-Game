@@ -9,29 +9,41 @@ namespace Project1.HeadsUpDisplay
     class HUD : IHUD
     {
         public ILink Link { get; set; }
-        public Dictionary<string, int> Items { get; set; }
         public List<string> ItemNames { get; set; }
+
         private int i = 0;
         private string currItem;
+        private int rupeeCount = 0;
+        private int keyCount = 0;
+        private int bombCount = 0;
 
         public HUD(ILink link)
         {
-            Items = new Dictionary<string, int>();
+            
             ItemNames = new List<string>();
 
             Link = link;
-            Items.Add("ItemBomb", 0);
-            ItemNames.Add("ItemBomb");
-            currItem = ItemNames[i];
+            
+            //currItem = ItemNames[i];
         }
         public void AddItem(string name)
         {
-            if (Items.ContainsKey(name)) Items[name]++;
-            else
-            {
-                Items.Add(name, 1);
-                ItemNames.Add(name);
-            }
+            // remove Item from each name
+            string trim = name.Substring(4);
+            if (!ItemNames.Contains(trim)) ItemNames.Add(trim);
+        }
+        public void AddKey()
+        {
+            keyCount++;
+        }
+        public void AddRupee()
+        {
+            rupeeCount++;
+        }
+        public void AddBomb()
+        {
+            bombCount++;
+            AddItem("ItemBomb");
         }
         public void NextItem()
         {
@@ -45,21 +57,22 @@ namespace Project1.HeadsUpDisplay
         }
         public bool CanUse(string name)
         {
-            if (Items.ContainsKey(name) && Items[name] > 0)
-            {
-                Items[name]--;
-                return true;
-            }
-            return false;
+            if (name.Equals("Bomb")) bombCount--;
+            return ItemNames.Contains(name);
         }
         public void Update()
         {
-            currItem = ItemNames[i];
+            //currItem = ItemNames[i];
+            if (bombCount <= 0 && ItemNames.Contains("Bomb")) ItemNames.Remove("Bomb");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
            
+        }
+        public void Reset()
+        {
+            ItemNames = new List<string>();
         }
     }
 }
