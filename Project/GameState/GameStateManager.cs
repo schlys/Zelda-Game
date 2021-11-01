@@ -57,13 +57,16 @@ namespace Project1.GameState
             String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
             spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);
 
-            //if(IsLose) spriteBatch.DrawString(font, "GAME OVER", new Vector2(400, 200), Color.Black);
+            // TODO: Make black screen for lose/win
+            // TODO: Remove magic numbers
+            //Texture2D texture = Game.Content.Load<Texture2D>("Rooms/Room1");
+            if (IsLose) spriteBatch.DrawString(font, "GAME OVER", new Vector2(600, 200), Color.Black);
 
             if (IsWin)
             {
-                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
-                //spriteBatch.Draw(, destinationRectangle, Color.Black);
-                // TODO: Remove magic numbers
+                //Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                //spriteBatch.Draw(texture, destinationRectangle, Color.White);
+
                 TriForceFragment.Draw(spriteBatch, new Vector2(600, 180));
                 Link.Draw(spriteBatch, new Vector2(600, 200));
             }
@@ -72,6 +75,8 @@ namespace Project1.GameState
         {
             // Restart the game from the beginning 
             IsPaused = false;
+            IsLose = false;
+            IsWin = false;
             CurrentState = CurrentState.Reset();
         }
         public void Pause() 

@@ -21,7 +21,7 @@ namespace Project1.GameState
         }
         public void Update()
         {
-            TriForceFragment = SpriteFactory.Instance.GetSpriteData("triForceFragment");
+            TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriForceFragment");
             Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }
         public void Draw(SpriteBatch spriteBatch)
