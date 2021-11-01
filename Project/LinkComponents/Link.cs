@@ -286,12 +286,23 @@ namespace Project1.LinkComponents
             if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
 
-            if(IsPicked) LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            if (IsPicked)
+            {
+                LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+                GameStateManager.Instance.GameOverWin();
+            }
+                
             IsPicked = false;
         }
 
         public void Reset()
         {
+            if (IsDead) //This is for reset after game over
+            {
+                TotalNumHearts = 3;
+                IsDead = false;
+            }
+
             Position = InitialPosition;
             DirectionState = new DirectionStateUp();             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
@@ -303,12 +314,6 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             HUD.Reset();
-
-            if (IsDead) //This is for reset after game over
-            {
-                TotalNumHearts = 3;
-                IsDead = false;
-            }
         }
 
         public void Update()

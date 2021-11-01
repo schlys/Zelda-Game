@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.SpriteComponents;
 
 namespace Project1.GameState
 {
@@ -24,6 +25,11 @@ namespace Project1.GameState
         public Game1 Game { get; set; }
         private bool IsPaused;
         private bool IsLose=false;
+        private bool IsWin = false;
+        private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+        private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
+        private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
+        private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
         private GameStateManager() 
         {
             // TODO: set default room 
@@ -34,7 +40,14 @@ namespace Project1.GameState
         {
             Game = game;
         }
-        public void Update() { }
+        public void Update()
+        {
+            if (IsWin)
+            {
+                TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriForceFragment");
+                Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            }
+        }
         public void Draw(SpriteBatch spriteBatch) 
         {
             SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
@@ -45,6 +58,15 @@ namespace Project1.GameState
             spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);
 
             //if(IsLose) spriteBatch.DrawString(font, "GAME OVER", new Vector2(400, 200), Color.Black);
+
+            if (IsWin)
+            {
+                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                //spriteBatch.Draw(, destinationRectangle, Color.Black);
+                // TODO: Remove magic numbers
+                TriForceFragment.Draw(spriteBatch, new Vector2(600, 180));
+                Link.Draw(spriteBatch, new Vector2(600, 200));
+            }
         }
         public void Reset() 
         {
@@ -82,6 +104,7 @@ namespace Project1.GameState
         {
             // Game is won, can restart the game or exit 
             CurrentState = CurrentState.WinGame();
+            IsWin = true;
         }
         public bool CanPlayGame()
         {
