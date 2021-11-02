@@ -41,11 +41,12 @@
 		
 	</Control>
 	
+	<!--
 	<Control press="true">
 		<name>LinkNextItemCmd</name>
 		<key>E</key>
 	</Control>
-
+	-->
 
 	<Control>
 		<name>LinkSwordAttackCmd</name>

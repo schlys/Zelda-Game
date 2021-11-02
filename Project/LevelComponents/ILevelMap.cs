@@ -13,6 +13,7 @@ namespace Project1.LevelComponents
 		Vector2 Position { get; set; }
 		Texture2D Texture { get; set; }
 		void Draw(SpriteBatch spriteBatch);
+		void Reset();
 		void MoveUp();
 		void MoveDown();
 		void MoveRight();

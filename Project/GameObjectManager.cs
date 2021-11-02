@@ -10,7 +10,8 @@ using Project1.ProjectileComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
 using Microsoft.Xna.Framework;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Project1.HeadsUpDisplay;
 
 namespace Project1
 {
@@ -28,6 +29,7 @@ namespace Project1
 
         public int ScalingFactor = 2; 
         public List<ILink> Links;
+        public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
         public List<IEnemy> Enemies;
@@ -40,6 +42,7 @@ namespace Project1
         public void Initialize(Game1 game)
         {
             Links = new List<ILink>();
+            HUDs = new List<IHUD>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
@@ -54,11 +57,13 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
-            // Add Link 
+            // Add Link and their HUD
             // TODO: Data drive Link Position 
             Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition;
             ILink Link = new Link(LinkPosition, Game); 
             Links.Add(Link);
+            IHUD HUD = new HUD(Link, game);
+            HUDs.Add(HUD); 
 
             UpdateRoomItems();
 
@@ -90,6 +95,10 @@ namespace Project1
                 foreach (ILink link in Links)
                 {
                     link.Update();
+                }
+                foreach (IHUD HUD in HUDs)
+                {
+                    HUD.Update();
                 }
 
                 // NOTE: Blocks do not update 
@@ -179,6 +188,10 @@ namespace Project1
             {
                 link.Draw(spriteBatch);
             }
+            foreach (IHUD HUD in HUDs)
+            {
+                HUD.Draw(spriteBatch);
+            }
             foreach (IBlock block in Blocks)
             {
                 block.Draw(spriteBatch);
@@ -205,6 +218,10 @@ namespace Project1
             foreach (ILink link in Links)
             {
                 link.Reset();
+            }
+            foreach (IHUD HUD in HUDs)
+            {
+                HUD.Reset();
             }
             foreach (IItem item in Items)
             {

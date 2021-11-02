@@ -941,3 +941,5 @@ C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Sword_Slas
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Text.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Text_Slow.xnb
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSpriteSheets.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLSpriteSheets.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\RoomMap.xnb

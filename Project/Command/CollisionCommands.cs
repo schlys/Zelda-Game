@@ -67,7 +67,7 @@ namespace Project1.Command
             Link.HitBlock(Direction);
         }
     }
-
+    /*
     public class AddKeyCmd : ICommand
     {
         public ILink Link { get; set; }
@@ -104,7 +104,7 @@ namespace Project1.Command
             Link.HUD.AddBomb();
         }
     }
-
+    */
     public class LinkAddItemToInventoryCmd : ICommand
     {
         public ILink Link { get; set; }

@@ -23,9 +23,7 @@ namespace Project1.LinkComponents
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
         public string Weapon { get; set; }                      // represents Link's current weapon being used
-        //public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
         public IInventory Inventory { get; set; }
-        public IHUD HUD { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -65,7 +63,6 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             
             InitialPosition = Position;
-            HUD = new HUD(this, game);
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play
@@ -190,56 +187,30 @@ namespace Project1.LinkComponents
             }
         }
 
-        public void UseItem()
-        {
-            // TODO: remove from inventory to use 
-            if (CanPlay() && !LockFrame)
-            {
-                if (HUD.CanUse(HUD.CurrItem))
-                {
-                    LockFrame = true;
-                    UseItemName = "UseItem";
-                    UpdateSprite();
-                    LinkSprite.MaxDelay = 25;
-                    //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
-                    //GameObjectManager.Instance.AddProjectile(Item);
-                }
-            }
-        }
-
         public void UseItem1()
         {
-            // TODO: remove from inventory to use 
+            // Remove from inventory to use 
             if (CanPlay() && !LockFrame)
             {
-                //if (HUD.CanUse(HUD.CurrItem))
-                //{
-                    LockFrame = true;
-                    UseItemName = "UseItem";
-                    UpdateSprite();     // trigger item pick use animation 
-                    LinkSprite.MaxDelay = 25;
+                LockFrame = true;
+                UseItemName = "UseItem";
+                UpdateSprite();     // trigger item pick use animation 
+                LinkSprite.MaxDelay = 25;
+
                 Inventory.UseItem1(); 
-                    //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
-                    //GameObjectManager.Instance.AddProjectile(Item);
-                //}
             }
         }
 
         public void UseItem2()
         {
-            // TODO: remove from inventory to use 
+            // Remove from inventory to use 
             if (CanPlay() && !LockFrame)
             {
-                //if (HUD.CanUse(HUD.CurrItem))
-                //{
                 LockFrame = true;
                 UseItemName = "UseItem";
                 UpdateSprite();     // trigger item pick use animation 
                 LinkSprite.MaxDelay = 25;
                 Inventory.UseItem2();
-                //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
-                //GameObjectManager.Instance.AddProjectile(Item);
-                //}
             }
         }
 
@@ -248,17 +219,9 @@ namespace Project1.LinkComponents
             if (name.Equals("ItemTriforceFragment"))
                 IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
             UpdateSprite();
+
             // NOTE: Add or increment count of <name> in <Inventory> 
             Inventory.AddItem(name); 
-            //HUD.AddItem(name);
-            /*
-            if (Inventory.ContainsKey(name))
-            {
-                Inventory[name] = Inventory[name] + 1; 
-            } else
-            {
-                Inventory.TryAdd(name, 1); 
-            }*/
         }
 
         public void TakeDamage(string direction, int knockback = 0)
@@ -351,7 +314,6 @@ namespace Project1.LinkComponents
             //IsDead = false;
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-            HUD.Reset();
             Inventory.Reset(); 
         }
 
@@ -381,13 +343,11 @@ namespace Project1.LinkComponents
 
             // Update Hitbox for collisions  
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-            HUD.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             if(!IsDead) LinkSprite.Draw(spriteBatch, Position);
-            HUD.Draw(spriteBatch);
         }
     }
 }

@@ -213,6 +213,7 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found");
             }
             CurrentRoom.Reset();
+            LevelMap.Reset();
         }
 
         public void MoveUp()

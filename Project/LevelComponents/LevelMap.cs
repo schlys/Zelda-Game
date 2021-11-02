@@ -15,6 +15,7 @@ namespace Project1.LevelComponents
 		private Vector2 Size;
 		private Vector2 BlockSize;
 		private Vector2 DestinationBlockSize;
+		private Vector2 StartBlock;
 		private Vector2 CurrentBlock;
 		private int BufferSize; 
 
@@ -27,6 +28,7 @@ namespace Project1.LevelComponents
 			Size = new Vector2(63 * GameObjectManager.Instance.ScalingFactor, 31 * GameObjectManager.Instance.ScalingFactor);
 			BlockSize = new Vector2(7 * GameObjectManager.Instance.ScalingFactor, 3 * GameObjectManager.Instance.ScalingFactor);
 			CurrentBlock = new Vector2(24 * GameObjectManager.Instance.ScalingFactor, 27 * GameObjectManager.Instance.ScalingFactor) + Position;
+			StartBlock = CurrentBlock;
 			BufferSize = 1 * GameObjectManager.Instance.ScalingFactor;
 		}
 
@@ -42,6 +44,11 @@ namespace Project1.LevelComponents
 			CurrentBlockTexture.SetData(new Color[] { Color.White });
 			spriteBatch.Draw(CurrentBlockTexture, destinationRectangle, Color.White);
 		}
+		public void Reset()
+        {
+			CurrentBlock = StartBlock;
+        }
+
 		public void MoveUp()
         {
 			CurrentBlock.Y -= (BlockSize.Y + BufferSize);

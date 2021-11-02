@@ -186,7 +186,7 @@ namespace Project1.Command
                 Link.UseWhiteSword();
             }
         }
-
+    /*
     public class LinkUseItemCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -202,7 +202,7 @@ namespace Project1.Command
             Link.UseItem();
         }
     }
-
+    */
     public class LinkUseItem1Cmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -265,7 +265,7 @@ namespace Project1.Command
             Link.PickUpItem("Arrow");
         }
     }
-
+    /*
     public class LinkNextItemCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -295,7 +295,7 @@ namespace Project1.Command
         {
             Link.HUD.PreviousItem();
         }
-    }
+    }*/
 }
 
 

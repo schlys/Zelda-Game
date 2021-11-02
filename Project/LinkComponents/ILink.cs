@@ -17,16 +17,13 @@ namespace Project1.LinkComponents
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
         string Weapon { get; set; }
-        //Dictionary<string, int> Inventory { get; set; }
         IInventory Inventory { get; set; }
-        IHUD HUD { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();
         void MoveLeft();
         void StopMotion();
         void Attack();
-        void UseItem();
         void UseItem1();
         void UseItem2();
         void PickUpItem(string name);
