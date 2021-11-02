@@ -44,7 +44,7 @@ namespace Project1.LinkComponents
             DirectionState = new DirectionStateUp();     // default state is up           
             LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
             TotalNumHearts = 3;
-            Health = new LinkHealth(TotalNumHearts, 3);                  // default health is 3 of 3 hearts 
+            Health = new LinkHealth(TotalNumHearts);                  // default health is 3 of 3 hearts 
             UseItemName = "";
 
             Inventory = new Inventory(this); //new Dictionary<string, int>(); 
@@ -235,7 +235,7 @@ namespace Project1.LinkComponents
         public void TakeDamage(string direction, int knockback = 0)
         {
             // TODO: determine value to decrease by  
-            Health.DecreaseHealth(0.5);
+            Health.Decrease(0.5);
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
@@ -252,6 +252,18 @@ namespace Project1.LinkComponents
             }*/
         }
 
+        public void IncreaseHealth()
+        {
+            Health.Increase(1); 
+        }
+        public void RestoreHealth()
+        {
+            Health.Restore();
+        }
+        public void IncreaseHealthHeartCount()
+        {
+            Health.IncreaseHeartCount(1);
+        }
         public void HitBlock(string direction)
         {
             StopMotion();
@@ -308,14 +320,15 @@ namespace Project1.LinkComponents
         {
             if (IsDead) //This is for reset after game over
             {
-                TotalNumHearts = 3;
+                //TotalNumHearts = 3;
+                //Health.Reset();
                 IsDead = false;
             }
 
             Position = InitialPosition;
             DirectionState = new DirectionStateUp();             // default state is up
             LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
-            Health = new LinkHealth(TotalNumHearts, 3);                          // default health is 3 of 3 hearts 
+            Health.Reset();
             UseItemName = "";
             LockFrame = false;
             IsPicked = false;

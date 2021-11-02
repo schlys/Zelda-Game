@@ -10,24 +10,46 @@ namespace Project1.LinkComponents
     public class LinkHealth
     {
 
-        int TotalNumHearts { get; set; } 
-        double CurrNumHearts { get; set; }
-        int count;
+        public int TotalNumHearts { get; set; }
+        public double CurrNumHearts { get; set; }
+        private int DefaultTotalNumHearts; 
 
-        public LinkHealth(int total, double curr)
+        public LinkHealth(int total)
         {
             TotalNumHearts = total;
-            CurrNumHearts = curr;
-            count = 0;
+            CurrNumHearts = TotalNumHearts;
+            DefaultTotalNumHearts = TotalNumHearts; 
         }
-        public void IncreaseHealth(double x)
+        public void Increase(double x)
         {
-            CurrNumHearts += x; 
+            if (CurrNumHearts  + x < TotalNumHearts)
+            {
+                CurrNumHearts += x;
+            } else
+            {
+                CurrNumHearts = TotalNumHearts; 
+            }
         }
-        public void DecreaseHealth(double x)
+        public void IncreaseHeartCount(int x)
         {
-            CurrNumHearts -= x; 
+            TotalNumHearts += x;
         }
+        public void Decrease(double x)
+        {
+            if (CurrNumHearts - x > 0)
+            {
+                CurrNumHearts -= x;
+            }
+            else
+            {
+                CurrNumHearts = 0;
+            }
+        }
+        public void Restore()
+        {
+            CurrNumHearts = TotalNumHearts;
+        }
+
         public bool IsFull()
         {
             return TotalNumHearts == CurrNumHearts;
@@ -47,6 +69,11 @@ namespace Project1.LinkComponents
                 return true;
             }
             return false;
+        }
+        public void Reset()
+        {
+            TotalNumHearts = DefaultTotalNumHearts;
+            CurrNumHearts = TotalNumHearts; 
         }
     }
 }

@@ -204,7 +204,7 @@
 	
 	<Collision>
 		<name>LinkItemAngel</name>
-		<command1>NoCmd</command1>
+		<command1>LinkRestoreHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -274,7 +274,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemHeartContainer</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>LinkRestoreHealthIncreaseAndHeartCountCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -284,7 +284,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemLifePotion</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>LinkRestoreHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
@@ -334,7 +334,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemRecoveryHeart</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>LinkIncreaseHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>

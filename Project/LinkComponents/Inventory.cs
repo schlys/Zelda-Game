@@ -21,37 +21,48 @@ namespace Project1.LinkComponents
         private String DefaultItem1;
         private String DefaultItem2;
         private List<String> ItemKeys;
+
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
-         * Compass
-         * Map
-         * Key
-         * Heart container
-         * Triforce piece
+         * ITEMS 
+         * Compass - indicate boss and treasure chest location on dungeon maps
+         * Map - shows all rooms and how connect. combine with compass show location trasure chests
+         * Small Key - unlock locked doors or blocks (not doors to boss rooms)
+         * (NOT ON LIST) Magical Key 
+         * Triforce piece - heart healed (needs 8 in real game, but here can win?)
+         * Recovery Heart - health by one heart
+         * Heart container - increase max num hearts by one, and refill health compeltely 
+         * Rupee - used to buy things 
+         * Fairy/Angel -  restore all hearts
+         * Clock - freeze all enemies on screen 
+         * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front. use once per screen.
+         * Red Candle - light dark rooms, burn bush, shoot 2 flames at time. use infinitely one screen.  
+         * (Blue) Life Potion - restore health compeltely 
+         * (NOT ON LIST) (Red) Second Life Potion - restores health completely, use once change to life potion, can be used again. (2x total)
+         * Blue ring - change outfit to blue color. cuts all damage recieved in half.
+         * (NOT ON LIST) Red ring - change outfit brown red. cut damage recieved in quarter 
+         * (NOT ON LIST) Power Braclet - strength, lift/pull items 
+         * (NOT ON LIST) Letter
+         * 
          * Wooden boomerang
          * Bow
-         * Heart
-         * Rupee
          * Arrow
          * Bomb
-         * Fairy/Angel -  
-         * Clock
-         * Wooden Sword
-         * Sword beam
-         * Arrows
-         * Boomerang
-         * Bombs
-         * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front 
-         * Blue Potion - restore health compeltely 
-         * Blue ring
+         * Wooden Sword 
+         * Sword Beam
+         * Boomerang 
+         * Fire
+         * (NOT ON LIST) Magical Rod 
+         * 
+         * ENVIORNMENT 
          * Statues
          * Bombed opening
          * Gap tile
          * Stairs
          * Ladder tile
          * Brick tile
-         * Fire
          */
+
         public Inventory(ILink link)
         {
             Link = link;

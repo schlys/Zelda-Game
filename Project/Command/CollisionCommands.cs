@@ -139,6 +139,46 @@ namespace Project1.Command
         }
     }
 
+    public class LinkIncreaseHealthCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public LinkIncreaseHealthCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.IncreaseHealth();
+        }
+    }
+
+    public class LinkRestoreHealthCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public LinkRestoreHealthCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.RestoreHealth();
+        }
+    }
+
+    public class LinkRestoreHealthIncreaseAndHeartCountCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public LinkRestoreHealthIncreaseAndHeartCountCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.IncreaseHealthHeartCount(); 
+            Link.RestoreHealth();
+        }
+    }
+
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }
