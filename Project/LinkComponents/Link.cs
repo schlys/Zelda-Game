@@ -190,18 +190,18 @@ namespace Project1.LinkComponents
             }
         }
 
-        public void UseItem(string name)
+        public void UseItem()
         {
             // TODO: remove from inventory to use 
             if (CanPlay() && !LockFrame)
             {
-                if (HUD.CanUse(name))
+                if (HUD.CanUse(HUD.CurrItem))
                 {
                     LockFrame = true;
                     UseItemName = "UseItem";
                     UpdateSprite();
                     LinkSprite.MaxDelay = 25;
-                    IProjectile Item = new Projectile(Position, DirectionState.ID, name);
+                    IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
                     GameObjectManager.Instance.AddProjectile(Item);
                 }
             }
@@ -231,6 +231,7 @@ namespace Project1.LinkComponents
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
+            /*
             if (Health.IsLoseHeart())
             {
                 Reset(); // TODO: Reset all states?
@@ -240,7 +241,7 @@ namespace Project1.LinkComponents
             {
                 IsDead = true;
                 GameStateManager.Instance.GameOverLose();
-            }
+            }*/
         }
 
         public void HitBlock(string direction)

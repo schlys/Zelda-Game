@@ -10,6 +10,7 @@ namespace Project1.HeadsUpDisplay
     {
         ILink Link { get; set; }
         List<string> ItemNames { get; set; }
+        string CurrItem { get; set; }
         void AddItem(string name);
         void AddKey();
         void AddRupee();

@@ -187,102 +187,22 @@ namespace Project1.Command
             }
         }
 
-    public class LinkUseArrowCmd : ICommand
+    public class LinkUseItemCmd : ICommand
     {
         public Game1 Game { get; set; }
         public ILink Link { get; set; }
 
-        public LinkUseArrowCmd(Game1 game, ILink link)
+        public LinkUseItemCmd(Game1 game, ILink link)
         {
             Game = game;
             Link = link;
         }
         public void Execute()
         {
-            Link.UseItem("Arrow");
+            Link.UseItem();
         }
     }
-
-    public class LinkUseSilverArrowCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseSilverArrowCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.UseItem("SilverArrow");
-        }
-    }
-
-    public class LinkUseFireCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseFireCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.UseItem("Fire");
-        }
-    }
-
-    public class LinkUseBombCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseBombCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.UseItem("Bomb");
-        }
-    }
-
-    public class LinkUseBoomerangCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseBoomerangCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.UseItem("BoomerangSolid");
-        }
-    }
-
-    public class LinkUseMagicalBoomerangCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkUseMagicalBoomerangCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.UseItem("MagicalBoomerangSolid");
-        }
-    }
-
+   
     public class LinkResetCmd : ICommand
     {
         public Game1 Game { get; set; }

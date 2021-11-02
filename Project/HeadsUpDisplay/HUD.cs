@@ -14,7 +14,7 @@ namespace Project1.HeadsUpDisplay
         public List<string> ItemNames { get; set; }
 
         private int i = 0;
-        private string currItem;
+        public string CurrItem { get; set; }
         private int rupeeCount = 0;
         private int keyCount = 0;
         private int bombCount = 0;
@@ -36,7 +36,7 @@ namespace Project1.HeadsUpDisplay
             // remove Item from each name
             string trim = name.Substring(4);
             if (!ItemNames.Contains(trim)) ItemNames.Add(trim);
-            if (ItemNames.Count == 1) currItem = ItemNames[0];
+            if (ItemNames.Count == 1) CurrItem = ItemNames[0];
         }
         public void AddKey()
         {
@@ -74,14 +74,14 @@ namespace Project1.HeadsUpDisplay
         }
         public void Update()
         {
-            if (ItemNames.Count > 0) currItem = ItemNames[i];
+            if (ItemNames.Count > 0) CurrItem = ItemNames[i];
             if (bombCount <= 0 && ItemNames.Contains("Bomb")) ItemNames.Remove("Bomb");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             SpriteFont font = game.Content.Load<SpriteFont>("Fonts/TitleFont");
-            string item = "Current Item: " + currItem;
+            string item = "Current Item: " + CurrItem;
             spriteBatch.DrawString(font, item, new Vector2(400, 30), Color.Black);
 
             // Draw the <LevelMap> found in <LevelFactory>

@@ -40,12 +40,9 @@
 		<key>Left</key>
 		
 	</Control>
-	<Control>
+	
+	<Control press="true">
 		<name>LinkNextItemCmd</name>
-		<key>R</key>
-	</Control>
-	<Control>
-		<name>LinkPreviousItemCmd</name>
 		<key>E</key>
 	</Control>
 
@@ -59,6 +56,15 @@
 		<key>N</key>
 	</Control>
 
+	<Control>
+		<name>LinkUseItemCmd</name>
+		<key>NumPad1</key>
+	</Control>
+	<Control>
+		<name>LinkUseItemCmd</name>
+		<key>D1</key>
+	</Control>
+<!--
 	<Control>
 		<name>LinkUseArrowCmd</name>
 		<key>NumPad1</key>
@@ -117,4 +123,5 @@
 		<name>LinkUseMagicalBoomerangCmd</name>
 		<key>D6</key>
 	</Control>
+	-->
 </Controllers>

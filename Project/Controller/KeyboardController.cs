@@ -79,8 +79,12 @@ namespace Project1.Controller
                 object command1 = constructor1.Invoke(new object[] { Game, Link });
                 ICommand cmd1 = (ICommand)command1;
 
-                if (node.Attributes["player"] == null) RegisterHoldCommand(cmd1, keyObj);
-                else if (Int16.Parse(node.Attributes["player"].Value) == player) RegisterHoldCommand(cmd1, keyObj);
+                if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == player)
+                    if (node.Attributes["press"] != null)
+                        RegisterPressCommand(cmd1, keyObj);
+                    else 
+                        RegisterHoldCommand(cmd1, keyObj);
+                
 
             }
 
