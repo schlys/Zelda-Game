@@ -598,6 +598,36 @@
 		<hitY>8</hitY>
 	</Sprite>
 	<Sprite>
+		<name>HeartFull</name>
+		<sheet>items</sheet>
+		<totalFrames>3</totalFrames>
+		<startFrame>3</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>8</hitX>
+		<hitY>8</hitY>
+	</Sprite>
+	<Sprite>
+		<name>HeartHalf</name>
+		<sheet>items</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>4</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>8</hitX>
+		<hitY>8</hitY>
+	</Sprite>
+	<Sprite>
+		<name>HeartEmpty</name>
+		<sheet>items</sheet>
+		<totalFrames>5</totalFrames>
+		<startFrame>5</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>8</hitX>
+		<hitY>8</hitY>
+	</Sprite>
+	<Sprite>
 		<name>HeartContainer</name>
 		<sheet>items</sheet>
 		<totalFrames>7</totalFrames>
