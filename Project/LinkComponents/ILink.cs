@@ -26,6 +26,7 @@ namespace Project1.LinkComponents
         void Attack();
         void UseItem1();
         void UseItem2();
+        bool UseKey();
         void PickUpItem(string name);
         void TakeDamage(string direction, int knockback = 0);
         void HitBlock(string direction);

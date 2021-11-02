@@ -28,5 +28,11 @@ namespace Project1.LevelComponents
 			Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
 			spriteBatch.Draw(Texture, destinationRectangle, Color);
 		}
+
+		public bool Unlock()
+        {
+			// TODO: Implement 
+			return false; 
+        }
 	}
 }

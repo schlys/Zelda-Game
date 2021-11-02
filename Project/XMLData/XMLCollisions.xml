@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Collisions>
+
+	<!-- BLOCK -->
+	
 	<Collision>
 		<name>LinkBlock</name>
 		<command1>LinkHitBlockCmd</command1>
@@ -26,6 +29,8 @@
 		<command1>EnemyAvoidOtherCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
+
+	<!-- PROJECTILE -->
 
 	<Collision>
 		<name>ProjectileArrowBlockTop</name>
@@ -195,7 +200,7 @@
 		<command2>NoCmd</command2>
 	</Collision>
 
-	
+	<!-- LINK -->
 	
 	<Collision>
 		<name>LinkItemAngel</name>
@@ -411,7 +416,14 @@
 		<command2>NoCmd</command2>
 	</Collision>
 	-->
+
+	<Collision>
+		<name>LinkDoor</name>
+		<command1>LinkUseKeyCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
+	<!-- ENEMY -->
 	<Collision>
 		<name>EnemyProjectileArrow</name>
 		<command1>EnemyTakeDamageCmd</command1>

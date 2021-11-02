@@ -1,41 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Controllers>
-	<Control player="1">
+	<Control player="2">
 		<name>LinkMoveUpCmd</name>
-		<key>W</key>
-		
+		<key>W</key>	
 	</Control>
-	<Control player="1">
+	
+	<Control player="2">
 		<name>LinkMoveDownCmd</name>
-		<key>S</key>
-		
+		<key>S</key>	
 	</Control>
-	<Control player="1">
+	
+	<Control player="2">
 		<name>LinkMoveRightCmd</name>
-		<key>D</key>
-		
+		<key>D</key>	
 	</Control>
-	<Control player="1">
+	
+	<Control player="2">
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
-		<player>1</player>
+		<player>2</player>
 	</Control>
-	<Control player="2">
+	
+	<Control player="1">
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
-		
 	</Control>
-	<Control player="2">
+	
+	<Control player="1">
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
-		
 	</Control>
-	<Control player="2">
+	
+	<Control player="1">
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
-		
 	</Control>
-	<Control player="2">
+	
+	<Control player="1">
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
 		
@@ -52,6 +53,7 @@
 		<name>LinkSwordAttackCmd</name>
 		<key>Z</key>
 	</Control>
+	
 	<Control>
 		<name>LinkSwordAttackCmd</name>
 		<key>N</key>
@@ -61,20 +63,20 @@
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
+	
 	<Control>
 		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</Control>
+	
 	<Control>
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
+	
 	<Control>
 		<name>LinkUseItem2Cmd</name>
 		<key>D2</key>
 	</Control>
-<!--
 
-	
-	-->
 </Controllers>

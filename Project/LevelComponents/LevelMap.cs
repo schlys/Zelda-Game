@@ -14,7 +14,6 @@ namespace Project1.LevelComponents
 		public Texture2D Texture { get; set; }
 		private Vector2 Size;
 		private Vector2 BlockSize;
-		private Vector2 DestinationBlockSize;
 		private Vector2 StartBlock;
 		private Vector2 CurrentBlock;
 		private int BufferSize; 

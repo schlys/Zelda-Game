@@ -6,6 +6,7 @@ using Project1.ProjectileComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.LevelComponents; 
 
 namespace Project1.Command
 {
@@ -54,7 +55,6 @@ namespace Project1.Command
 
     public class LinkHitBlockCmd : ICommand
     {
-
         public ILink Link { get; set; }
         string Direction;
         public LinkHitBlockCmd(ICollidable link, ICollidable holder, string direction)
@@ -108,17 +108,34 @@ namespace Project1.Command
     public class LinkAddItemToInventoryCmd : ICommand
     {
         public ILink Link { get; set; }
-        string item;
+        string Item;
         
         public LinkAddItemToInventoryCmd(ICollidable link, ICollidable item, string direction)
         {
             Link = (ILink)link;
-            this.item = item.TypeID;
-            
+            Item = item.TypeID;
         }
         public void Execute()
         {
-            Link.PickUpItem(item);
+            Link.PickUpItem(Item);
+        }
+    }
+
+    public class LinkUseKeyCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public IDoor Door { get; set; }
+
+        public LinkUseKeyCmd(ICollidable link, ICollidable door, string direction)
+        {
+            Link = (ILink)link;
+            Door = (IDoor)door;
+        }
+        public void Execute()
+        {
+            // Unlock the door if link has a key
+            if (Link.UseKey())
+                Door.Unlock();
         }
     }
 

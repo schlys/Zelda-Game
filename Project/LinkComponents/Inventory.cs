@@ -19,8 +19,39 @@ namespace Project1.LinkComponents
 
         private Dictionary<string, int> DefaultItems;
         private String DefaultItem1;
-        private String DefaultItem2; 
-
+        private String DefaultItem2;
+        private List<String> ItemKeys;
+        /* FUNCTIONS OF EACH RECCOMENDED ITEM 
+         * 
+         * Compass
+         * Map
+         * Key
+         * Heart container
+         * Triforce piece
+         * Wooden boomerang
+         * Bow
+         * Heart
+         * Rupee
+         * Arrow
+         * Bomb
+         * Fairy/Angel -  
+         * Clock
+         * Wooden Sword
+         * Sword beam
+         * Arrows
+         * Boomerang
+         * Bombs
+         * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front 
+         * Blue Potion - restore health compeltely 
+         * Blue ring
+         * Statues
+         * Bombed opening
+         * Gap tile
+         * Stairs
+         * Ladder tile
+         * Brick tile
+         * Fire
+         */
         public Inventory(ILink link)
         {
             Link = link;
@@ -40,7 +71,11 @@ namespace Project1.LinkComponents
             Items = new Dictionary<string, int>(DefaultItems); 
 
             Item1 = DefaultItem1;
-            Item2 = DefaultItem2; 
+            Item2 = DefaultItem2;
+
+            ItemKeys = new List<String>();
+            ItemKeys.Add("ItemSmallKey");
+            ItemKeys.Add("ItemMagicalKey");
         }
         public void AddItem(String name)
         {
@@ -68,6 +103,23 @@ namespace Project1.LinkComponents
                 throw new InvalidOperationException();
             }
             UseItem(Item2);
+        }
+        public bool UseKey()
+        {
+            // TODO: distinguish between magical and small key? 
+            /* Return true if there is a key and remove it from the inventory. false otherwise
+             */ 
+
+            foreach(String key in ItemKeys)
+            {
+                if (Items.ContainsKey(key))
+                {
+                    Items.Remove(key);
+                    return true; 
+                }
+            }
+            return false;   // no key found
+            
         }
         private void UseItem(String name)
         {

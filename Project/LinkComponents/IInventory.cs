@@ -18,6 +18,7 @@ namespace Project1.LinkComponents
         void AddItem(String name);
         void UseItem1();
         void UseItem2();
+        bool UseKey(); 
         void SetItem1(String name);
         void SetItem2(String name);
         void Reset();

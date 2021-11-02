@@ -214,6 +214,14 @@ namespace Project1.LinkComponents
             }
         }
 
+        public bool UseKey()
+        {
+            /* Returns true of Link has any key in his <Inventory>
+             */ 
+
+            return Inventory.UseKey();
+        }
+
         public void PickUpItem(string name)
         {
             if (name.Equals("ItemTriforceFragment"))

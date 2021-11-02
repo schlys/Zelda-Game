@@ -16,5 +16,6 @@ namespace Project1.LevelComponents
 		 * will call a command to LevelFactory. Therefore, we only need to draw the door
 		 */
 		void Draw(SpriteBatch spriteBatch);
+		bool Unlock();
 	}
 }
