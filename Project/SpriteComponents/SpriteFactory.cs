@@ -32,8 +32,18 @@ namespace Project1.SpriteComponents
         public void LoadAllTextures(ContentManager content)
         {
             TextureDict = new Dictionary<string, Texture2D>();
+            SpriteDict = new Dictionary<string, Sprite>();
 
-            TextureDict.Add("directions", content.Load<Texture2D>("LinkSprites/BasicMovement"));
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLSpriteSheets.xml";
+            XMLData.Load(path);
+            XmlNodeList Sheets = XMLData.DocumentElement.SelectNodes("/Sheets/Sheet");
+
+            foreach (XmlNode node in Sheets)
+            {
+                TextureDict.Add(node.SelectSingleNode("name").InnerText, content.Load<Texture2D>(node.SelectSingleNode("sheet").InnerText));
+            }
+            //to do: add these elements to XMLSpriteSheets.xml
             TextureDict.Add("blocks", content.Load<Texture2D>("Blocks"));
             TextureDict.Add("items", content.Load<Texture2D>("ItemsAndWeapons"));
             TextureDict.Add("linkItems", content.Load<Texture2D>("LinkSprites/Items"));
