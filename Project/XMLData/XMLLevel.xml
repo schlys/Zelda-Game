@@ -3,7 +3,9 @@
 	<Level>
 		<Room>
 			<name>Room1</name>
-			<sheet>room1</sheet>
+			<sheet>room</sheet>
+			<xPos>257</xPos>
+			<yPos>885</yPos>
 			<up></up>
 			<down></down>
 			<left></left>
@@ -36,7 +38,9 @@
 
 		<Room>
 			<name>Room2</name>
-			<sheet>room2</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>885</yPos>
 			<up>room4</up>
 			<down></down>
 			<left>room1</left>
@@ -351,7 +355,9 @@
 
 		<Room>
 			<name>Room3</name>
-			<sheet>room3</sheet>
+			<sheet>room</sheet>
+			<xPos>772</xPos>
+			<yPos>885</yPos>
 			<up></up>
 			<down></down>
 			<left>room2</left>
@@ -468,7 +474,9 @@
 
 		<Room>
 			<name>Room4</name>
-			<sheet>room4</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>708</yPos>
 			<up>room6</up>
 			<down>room2</down>
 			<left></left>
@@ -531,7 +539,9 @@
 
 		<Room>
 			<name>Room5</name>
-			<sheet>room5</sheet>
+			<sheet>room</sheet>
+			<xPos>257</xPos>
+			<yPos>531</yPos>
 			<up>room9</up>
 			<down></down>
 			<left></left>
@@ -612,7 +622,9 @@
 
 		<Room>
 			<name>Room6</name>
-			<sheet>room6</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>531</yPos>
 			<up>room10</up>
 			<down>room4</down>
 			<left>room5</left>
@@ -681,7 +693,9 @@
 
 		<Room>
 			<name>Room7</name>
-			<sheet>room7</sheet>
+			<sheet>room</sheet>
+			<xPos>771</xPos>
+			<yPos>531</yPos>
 			<up>room11</up>
 			<down></down>
 			<left>room6</left>
@@ -768,7 +782,9 @@
 
 		<Room>
 			<name>Room8</name>
-			<sheet>room8</sheet>
+			<sheet>room</sheet>
+			<xPos>1</xPos>
+			<yPos>354</yPos>
 			<up></up>
 			<down></down>
 			<left></left>
@@ -777,7 +793,9 @@
 
 		<Room>
 			<name>Room9</name>
-			<sheet>room9</sheet>
+			<sheet>room</sheet>
+			<xPos>257</xPos>
+			<yPos>354</yPos>
 			<up></up>
 			<down>room5</down>
 			<left>room8</left>
@@ -810,7 +828,9 @@
 
 		<Room>
 			<name>Room10</name>
-			<sheet>room10</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>354</yPos>
 			<up>room13</up>
 			<down>room6</down>
 			<left>room9</left>
@@ -915,7 +935,9 @@
 
 		<Room>
 			<name>Room11</name>
-			<sheet>room11</sheet>
+			<sheet>room</sheet>
+			<xPos>771</xPos>
+			<yPos>354</yPos>
 			<up></up>
 			<down>room7</down>
 			<left>room10</left>
@@ -972,7 +994,9 @@
 
 		<Room>
 			<name>Room12</name>
-			<sheet>room12</sheet>
+			<sheet>room</sheet>
+			<xPos>1029</xPos>
+			<yPos>354</yPos>
 			<up>room14</up>
 			<down></down>
 			<left>room11</left>
@@ -1095,7 +1119,9 @@
 
 		<Room>
 			<name>Room13</name>
-			<sheet>room13</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>177</yPos>
 			<up>room18</up>
 			<down>room10</down>
 			<left></left>
@@ -1404,7 +1430,9 @@
 
 		<Room>
 			<name>Room14</name>
-			<sheet>room14</sheet>
+			<sheet>room</sheet>
+			<xPos>1029</xPos>
+			<yPos>177</yPos>
 			<up></up>
 			<down>room13</down>
 			<left></left>
@@ -1539,7 +1567,9 @@
 
 		<Room>
 			<name>Room15</name>
-			<sheet>room15</sheet>
+			<sheet>room</sheet>
+			<xPos>1285</xPos>
+			<yPos>177</yPos>
 			<up></up>
 			<down></down>
 			<left>room14</left>
@@ -1722,7 +1752,9 @@
 
 		<Room>
 			<name>Room16</name>
-			<sheet>room16</sheet>
+			<sheet>room</sheet>
+			<xPos>1</xPos>
+			<yPos>1</yPos>
 			<up>room17</up>
 			<down></down>
 			<left></left>
@@ -1732,7 +1764,9 @@
 
 		<Room>
 			<name>Room17</name>
-			<sheet>room17</sheet>
+			<sheet>room</sheet>
+			<xPos>257</xPos>
+			<yPos>1</yPos>
 			<up></up>
 			<down>room16</down>
 			<left></left>
@@ -1785,12 +1819,14 @@
 				<row>5</row>
 				<column>6</column>
 			</object>
-			
+
 		</Room>
 
 		<Room>
 			<name>Room18</name>
-			<sheet>room18</sheet>
+			<sheet>room</sheet>
+			<xPos>514</xPos>
+			<yPos>1</yPos>
 			<up></up>
 			<down>room13</down>
 			<left>room17</left>

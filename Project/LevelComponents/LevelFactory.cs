@@ -53,6 +53,8 @@ namespace Project1.LevelComponents
 
             TextureDict = new Dictionary<String, Texture2D>();
 
+            TextureDict.Add("room", content.Load<Texture2D>("Rooms/RoomMap")); // All rooms are in one png file.
+            /*
             TextureDict.Add("room1", content.Load<Texture2D>("Rooms/Room1"));
             TextureDict.Add("room2", content.Load<Texture2D>("Rooms/Room2"));
             TextureDict.Add("room3", content.Load<Texture2D>("Rooms/Room3"));
@@ -71,7 +73,7 @@ namespace Project1.LevelComponents
             TextureDict.Add("room16", content.Load<Texture2D>("Rooms/Room16"));
             TextureDict.Add("room17", content.Load<Texture2D>("Rooms/Room17"));
             TextureDict.Add("room18", content.Load<Texture2D>("Rooms/Room18"));
-
+            */
             CreateDict();
 
             if (LevelDict.ContainsKey(StartRoom))
@@ -114,13 +116,15 @@ namespace Project1.LevelComponents
             {
                 string name = node.SelectSingleNode("name").InnerText;
                 string sheet = node.SelectSingleNode("sheet").InnerText;
+                int xPos = Int32.Parse(node.SelectSingleNode("xPos").InnerText);
+                int yPos = Int32.Parse(node.SelectSingleNode("yPos").InnerText);
                 string up = node.SelectSingleNode("up").InnerText.ToLower();
                 string down = node.SelectSingleNode("down").InnerText.ToLower();
                 string left = node.SelectSingleNode("left").InnerText.ToLower();
                 string right = node.SelectSingleNode("right").InnerText.ToLower();
 
                 Texture2D Texture = GetTexture(sheet);
-                IRoom Room = new Room(name, RoomPosition, up, down, left, right, TextureDict[sheet]);
+                IRoom Room = new Room(name, RoomPosition, xPos, yPos, up, down, left, right, TextureDict[sheet]);
 
                 // Load the objects within each room 
                 XmlNodeList objectsData = node.SelectNodes("object");

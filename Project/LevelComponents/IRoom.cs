@@ -16,6 +16,8 @@ namespace Project1.LevelComponents
     {
         String ID { get; set; } // OR name? 
         Vector2 Position { get; set; }
+        int XPos { get; set; }
+        int YPos { get; set; }
         String UpRoom { get; set; }
         String DownRoom { get; set; }
         String LeftRoom { get; set; }

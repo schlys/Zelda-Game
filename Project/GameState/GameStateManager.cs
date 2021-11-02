@@ -64,7 +64,7 @@ namespace Project1.GameState
 
             if (IsLose)
             {
-                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                Rectangle destinationRectangle = new Rectangle(50, 80, Width, Height);
                 spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
                 spriteBatch.DrawString(font, "GAME OVER", new Vector2(Width / 2, Height / 2), Color.White);
@@ -72,9 +72,10 @@ namespace Project1.GameState
 
             if (IsWin)
             {
-                Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+                Rectangle destinationRectangle = new Rectangle(50, 80, Width, Height);
                 spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
-                
+
+                spriteBatch.DrawString(font, "YOU WIN", new Vector2(Width / 2, Height / 2-40), Color.White);
                 TriForceFragment.Draw(spriteBatch, new Vector2(Width / 2, Height / 2-20));
                 Link.Draw(spriteBatch, new Vector2(Width/2, Height/2));
             }

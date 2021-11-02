@@ -15,6 +15,8 @@ namespace Project1.LevelComponents
     {
         public string ID { get; set; }
         public Vector2 Position { get; set; }
+        public int XPos { get; set; }
+        public int YPos { get; set; }
         public string UpRoom { get; set; }
         public string DownRoom { get; set; }
         public string LeftRoom { get; set; }
@@ -28,10 +30,12 @@ namespace Project1.LevelComponents
         private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
         private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
-        public Room(string id, Vector2 position, string up, string down, string left, string right, Texture2D texture)
+        public Room(string id, Vector2 position, int xPos, int yPos, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
-            Position = position; 
+            Position = position;
+            XPos = xPos;
+            YPos = yPos;
             UpRoom = up;
             DownRoom = down;
             LeftRoom = left;
@@ -62,8 +66,9 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Rectangle sourceRectangle = new Rectangle(XPos, YPos, 256, 176);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
-            spriteBatch.Draw(Texture, destinationRectangle, Color);
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
     }
 }
