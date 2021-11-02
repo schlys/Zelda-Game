@@ -81,8 +81,11 @@ namespace Project1.HeadsUpDisplay
         public void Draw(SpriteBatch spriteBatch)
         {
             SpriteFont font = game.Content.Load<SpriteFont>("Fonts/TitleFont");
-            string item = "Current Item: " + CurrItem;
-            spriteBatch.DrawString(font, item, new Vector2(400, 30), Color.Black);
+            //string item = "Current Item: " + CurrItem;
+            string item1 = "Item1: " + Link.Inventory.Item1;
+            string item2 = "Item2: " + Link.Inventory.Item2;
+            spriteBatch.DrawString(font, item1, new Vector2(400, 30), Color.Black);
+            spriteBatch.DrawString(font, item1, new Vector2(400, 45), Color.Black);
 
             // Draw the <LevelMap> found in <LevelFactory>
             LevelFactory.Instance.LevelMap.Draw(spriteBatch);

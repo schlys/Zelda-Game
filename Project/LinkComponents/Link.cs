@@ -23,7 +23,8 @@ namespace Project1.LinkComponents
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
         public string Weapon { get; set; }                      // represents Link's current weapon being used
-        public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
+        //public Dictionary<string, int> Inventory { get; set; }  // holds the item key and amount of items in possession
+        public IInventory Inventory { get; set; }
         public IHUD HUD { get; set; }
 
         // Properties from ICollidable 
@@ -48,8 +49,7 @@ namespace Project1.LinkComponents
             Health = new LinkHealth(TotalNumHearts, 3);                  // default health is 3 of 3 hearts 
             UseItemName = "";
 
-            // TODO: start with items? 
-            Inventory = new Dictionary<string, int>(); 
+            Inventory = new Inventory(this); //new Dictionary<string, int>(); 
 
             UpdateSprite(); // Generate LinkSprite 
             IsMoving = true;
@@ -71,7 +71,7 @@ namespace Project1.LinkComponents
         // NOTE: commands will be called even when the game is paused, so must check if can play
         private bool CanPlay()
         {
-            return GameState.GameStateManager.Instance.CanPlayGame();
+            return GameStateManager.Instance.CanPlayGame();
         }
         public void MoveUp()
         {
@@ -201,9 +201,45 @@ namespace Project1.LinkComponents
                     UseItemName = "UseItem";
                     UpdateSprite();
                     LinkSprite.MaxDelay = 25;
-                    IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
-                    GameObjectManager.Instance.AddProjectile(Item);
+                    //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
+                    //GameObjectManager.Instance.AddProjectile(Item);
                 }
+            }
+        }
+
+        public void UseItem1()
+        {
+            // TODO: remove from inventory to use 
+            if (CanPlay() && !LockFrame)
+            {
+                //if (HUD.CanUse(HUD.CurrItem))
+                //{
+                    LockFrame = true;
+                    UseItemName = "UseItem";
+                    UpdateSprite();     // trigger item pick use animation 
+                    LinkSprite.MaxDelay = 25;
+                Inventory.UseItem1(); 
+                    //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
+                    //GameObjectManager.Instance.AddProjectile(Item);
+                //}
+            }
+        }
+
+        public void UseItem2()
+        {
+            // TODO: remove from inventory to use 
+            if (CanPlay() && !LockFrame)
+            {
+                //if (HUD.CanUse(HUD.CurrItem))
+                //{
+                LockFrame = true;
+                UseItemName = "UseItem";
+                UpdateSprite();     // trigger item pick use animation 
+                LinkSprite.MaxDelay = 25;
+                Inventory.UseItem2();
+                //IProjectile Item = new Projectile(Position, DirectionState.ID, HUD.CurrItem);
+                //GameObjectManager.Instance.AddProjectile(Item);
+                //}
             }
         }
 
@@ -213,7 +249,8 @@ namespace Project1.LinkComponents
                 IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
             UpdateSprite();
             // NOTE: Add or increment count of <name> in <Inventory> 
-            HUD.AddItem(name);
+            Inventory.AddItem(name); 
+            //HUD.AddItem(name);
             /*
             if (Inventory.ContainsKey(name))
             {
@@ -315,6 +352,7 @@ namespace Project1.LinkComponents
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             HUD.Reset();
+            Inventory.Reset(); 
         }
 
         public void Update()

@@ -57,14 +57,23 @@
 	</Control>
 
 	<Control>
-		<name>LinkUseItemCmd</name>
+		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 	<Control>
-		<name>LinkUseItemCmd</name>
+		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</Control>
+	<Control>
+		<name>LinkUseItem2Cmd</name>
+		<key>NumPad2</key>
+	</Control>
+	<Control>
+		<name>LinkUseItem2Cmd</name>
+		<key>D2</key>
+	</Control>
 <!--
+
 	
 	-->
 </Controllers>

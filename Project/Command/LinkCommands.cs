@@ -202,7 +202,38 @@ namespace Project1.Command
             Link.UseItem();
         }
     }
-   
+
+    public class LinkUseItem1Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkUseItem1Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.UseItem1();
+        }
+    }
+    public class LinkUseItem2Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkUseItem2Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.UseItem2();
+        }
+    }
+
     public class LinkResetCmd : ICommand
     {
         public Game1 Game { get; set; }

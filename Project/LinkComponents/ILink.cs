@@ -18,6 +18,7 @@ namespace Project1.LinkComponents
         Vector2 Position { get; set; }
         string Weapon { get; set; }
         //Dictionary<string, int> Inventory { get; set; }
+        IInventory Inventory { get; set; }
         IHUD HUD { get; set; }
         void MoveUp();
         void MoveDown();
@@ -26,6 +27,8 @@ namespace Project1.LinkComponents
         void StopMotion();
         void Attack();
         void UseItem();
+        void UseItem1();
+        void UseItem2();
         void PickUpItem(string name);
         void TakeDamage(string direction, int knockback = 0);
         void HitBlock(string direction);
