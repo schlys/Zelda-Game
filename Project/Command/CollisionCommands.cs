@@ -125,33 +125,36 @@ namespace Project1.Command
     {
         public ILink Link { get; set; }
         public IDoor Door { get; set; }
-        private string direction;
+        
+        
+        
         public LinkUseKeyCmd(ICollidable link, ICollidable door, string direction)
         {
             Link = (ILink)link;
             Door = (IDoor)door;
-            this.direction = direction;
-            if (this.direction.Equals("Top")) this.direction = "Up";
-            else if (this.direction.Equals("Bottom")) this.direction = "Down";
+           
+            
         }
         public void Execute()
         {
             // Unlock the door if link has a key
-            if (Link.DirectionState.ID.Equals(direction))
+            if (Link.DirectionState.ID.Equals(Door.Direction))
+            {
                 Door.Unlock();
-            /*
-            if (Door.IsLocked())
-            {
-                if (Link.UseKey())
+                /*
+                if (Door.IsLocked())
                 {
-                    Door.Unlock();
+                    if (Link.UseKey())
+                    {
+                        Door.Unlock();
+                        //room transition
+                    }                 
+                }
+                else
+                {
                     //room transition
-                }                 
+                }*/
             }
-            else
-            {
-                //room transition
-            }*/
         }
     }
 

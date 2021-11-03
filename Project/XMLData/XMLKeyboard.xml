@@ -18,7 +18,6 @@
 	<Control player="2">
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
-		<player>2</player>
 	</Control>
 	
 	<Control player="1">

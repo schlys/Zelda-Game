@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/Boss_Scream1.wav</SourceFile>
   <SourceTime>2021-11-03T11:29:58.1162837-04:00</SourceTime>
   <DestFile>C:/Users/chaew/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Boss_Scream1.xnb</DestFile>
   <DestTime>2021-11-03T12:14:58.6025793-04:00</DestTime>
+=======
+  <SourceFile>C:/Users/Andy/Desktop/a/Project/Content/Sounds/Boss_Scream1.wav</SourceFile>
+  <SourceTime>2021-11-03T11:38:14.4587055-04:00</SourceTime>
+  <DestFile>C:/Users/Andy/Desktop/a/Project/Content/bin/Windows/Content/Sounds/Boss_Scream1.xnb</DestFile>
+  <DestTime>2021-11-03T12:24:27.7207412-04:00</DestTime>
+>>>>>>> 704a65e9ea7e1d3429f8b1713dcc8bea3db7d2e9
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

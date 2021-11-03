@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8mNfK8epEcto3bLyUSviRzFqd58ZGaEQNcWMnXm9nnDd5W91R03TNm6Y+ioivYn8wiuUSoekksx+1xmMyltKuQ==",
+  "dgSpecHash": "Iy3QIFXQuPHxFZafjEcxBvMZ8vIdDMboz7z71zQ+IfmMZmwnbfgyxG2+z/xHhh60CEmzy++Tovban1cg8rBQ7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chaew\\Source\\Repos\\3902-dream-team\\Project\\Project\\Project1.csproj",
+  "projectFilePath": "C:\\Users\\chaew\\source\\repos\\3902-dream-team\\Project\\Project\\Project1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chaew\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\chaew\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
@@ -126,5 +126,12 @@
     "C:\\Users\\chaew\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\chaew\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\chaew\\source\\repos\\3902-dream-team\\Project\\Project\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
