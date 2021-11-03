@@ -15,6 +15,7 @@ namespace Project1.LinkComponents
         Dictionary<string, int> Items { get; set; } 
         String Item1 { get; set; } 
         String Item2 { get; set; }
+        int RupeeCount { get; set; }
         void AddItem(String name);
         void UseItem1();
         void UseItem2();

@@ -20,7 +20,8 @@ namespace Project1.HeadsUpDisplay
         private Game1 Game;
         private Vector2 Position;
         private Vector2 MapPosition;
-        private Vector2 HeartPosition; 
+        private Vector2 HeartPosition;
+        private Vector2 RupeeCountPosition; 
         public HUD(ILink link, Game1 game)
         {
             Game = game;
@@ -30,6 +31,7 @@ namespace Project1.HeadsUpDisplay
             Position = new Vector2(0, 0);
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
+            RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
 
             HUDMain = LevelFactory.Instance.HUDTextures["HUDMain"];
             //HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
@@ -61,7 +63,12 @@ namespace Project1.HeadsUpDisplay
             LevelFactory.Instance.LevelMap.Draw(spriteBatch, MapPosition);
 
             // Draw Link's Health Hearts 
-            DrawLinkHealth(spriteBatch, HeartPosition); 
+            DrawLinkHealth(spriteBatch, HeartPosition);
+
+            // Draw Rupee Count
+            SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+            string RupeeCount = Link.Inventory.RupeeCount.ToString();
+            spriteBatch.DrawString(font, RupeeCount, RupeeCountPosition, Color.White);
         }
 
         private void DrawLinkHealth(SpriteBatch spriteBatch, Vector2 position)
