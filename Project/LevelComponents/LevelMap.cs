@@ -23,22 +23,25 @@ namespace Project1.LevelComponents
 			Texture = texture;
 
 			// TODO: load from XML
-			Position = new Vector2(10, 10);
-			Size = new Vector2(63 * GameObjectManager.Instance.ScalingFactor, 31 * GameObjectManager.Instance.ScalingFactor);
+			//Position = new Vector2(10, 10);
+			//Size = new Vector2(63 * GameObjectManager.Instance.ScalingFactor, 31 * GameObjectManager.Instance.ScalingFactor);
 			BlockSize = new Vector2(7 * GameObjectManager.Instance.ScalingFactor, 3 * GameObjectManager.Instance.ScalingFactor);
-			CurrentBlock = new Vector2(24 * GameObjectManager.Instance.ScalingFactor, 27 * GameObjectManager.Instance.ScalingFactor) + Position;
+			CurrentBlock = new Vector2(24 * GameObjectManager.Instance.ScalingFactor, 28 * GameObjectManager.Instance.ScalingFactor) + Position;
 			StartBlock = CurrentBlock;
 			BufferSize = 1 * GameObjectManager.Instance.ScalingFactor;
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
 			// draw map
-			Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
+			Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 
+				(int)Texture.Width * GameObjectManager.Instance.ScalingFactor, 
+				(int)Texture.Height * GameObjectManager.Instance.ScalingFactor);
 			spriteBatch.Draw(Texture, destinationRectangle, Color.White);
 
 			// draw block highlighting current room
-			destinationRectangle = new Rectangle((int)CurrentBlock.X, (int)CurrentBlock.Y, (int)BlockSize.X, (int)BlockSize.Y);
+			destinationRectangle = new Rectangle((int)(CurrentBlock.X + position.X), (int)(CurrentBlock.Y+ position.X), 
+				(int)BlockSize.X, (int)BlockSize.Y);
 			Texture2D CurrentBlockTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
 			CurrentBlockTexture.SetData(new Color[] { Color.White });
 			spriteBatch.Draw(CurrentBlockTexture, destinationRectangle, Color.White);

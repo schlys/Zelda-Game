@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/Enemy_Hit.wav</SourceFile>
-  <SourceTime>2021-10-29T12:23:31.921292-04:00</SourceTime>
-  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/Enemy_Hit.xnb</DestFile>
-  <DestTime>2021-11-02T18:30:31.5119196-04:00</DestTime>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/Enemy_Hit.wav</SourceFile>
+  <SourceTime>2021-11-01T19:31:55.8665559-04:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Enemy_Hit.xnb</DestFile>
+  <DestTime>2021-11-02T21:29:29.8822796-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

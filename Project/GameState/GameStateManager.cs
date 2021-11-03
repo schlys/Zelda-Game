@@ -52,7 +52,7 @@ namespace Project1.GameState
         {
             SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             String text = "Game state: " + CurrentState.ID; 
-            spriteBatch.DrawString(font, text, new Vector2(10, 10), Color.Black);
+            spriteBatch.DrawString(font, text, new Vector2(600, 10), Color.Black);
 
             String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
             spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);

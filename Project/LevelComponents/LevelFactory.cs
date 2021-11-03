@@ -28,6 +28,7 @@ namespace Project1.LevelComponents
 
         public IRoom CurrentRoom { get; set; }
         public ILevelMap LevelMap { get; set; }
+        public Dictionary<String, Texture2D> HUDTextures { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
 
         private static Dictionary<string, IRoom> LevelDict;
@@ -35,7 +36,7 @@ namespace Project1.LevelComponents
         public static int[,] textureMatrix;
 
         // TODO: Load in XML
-        private static Vector2 RoomPosition = new Vector2(50, 80);
+        private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
@@ -86,9 +87,17 @@ namespace Project1.LevelComponents
 
             LinkStartingPosition = GetItemPosition(4, 1);
 
+            // Load Textures for HUD
+            HUDTextures = new Dictionary<String, Texture2D>();
+            HUDTextures.Add("HUDMain", content.Load<Texture2D>("HUD/HUD"));
+            HUDTextures.Add("HUDLevelMap", content.Load<Texture2D>("HUD/HUDMap"));
+            HUDTextures.Add("Inventory", content.Load<Texture2D>("HUD/HUD3"));
+            HUDTextures.Add("HUDMap", content.Load<Texture2D>("HUD/HUD2"));
+            HUDTextures.Add("HUDItems", content.Load<Texture2D>("HUD/HUDItems"));
+
             // Load Level Map
-            Texture2D LevelMapTexture = content.Load<Texture2D>("HUD/HUDMap");
-            LevelMap = new LevelMap(LevelMapTexture);
+            //Texture2D LevelMapTexture = content.Load<Texture2D>("HUD/HUDMap");
+            LevelMap = new LevelMap(HUDTextures["HUDLevelMap"]);
         }
 
         private static Texture2D GetTexture(String key)
@@ -102,7 +111,7 @@ namespace Project1.LevelComponents
         }
         private static void CreateDict()
         {
-            // NOTE: Load the room data from XMLLevel.XML to the level dictionary. 
+            // NOTE: Load the room data from XMLLevel.XML to the level dictionary 
 
             textureMatrix = new int[RoomRows, RoomColumns];
             LevelDict = new Dictionary<string, IRoom>();
@@ -135,8 +144,6 @@ namespace Project1.LevelComponents
                     string type2 = itemNode.SelectSingleNode("type2").InnerText;
                     int row = Int16.Parse(itemNode.SelectSingleNode("row").InnerText);
                     int column = Int16.Parse(itemNode.SelectSingleNode("column").InnerText);
-
-
 
                     //TODO: replace with reflection 
                     switch (type)
