@@ -235,6 +235,7 @@ namespace Project1.LinkComponents
         public void TakeDamage(string direction, int knockback = 0)
         {
             // TODO: determine value to decrease by  
+            GameSoundManager.Instance.PlaySound("LinkHurt");
             Health.Decrease(0.5);
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);

@@ -39,7 +39,8 @@ namespace Project1
             LevelFactory.Instance.LoadAllTextures(Content); 
 
             GameObjectManager.Instance.Initialize(this);
-            GameStateManager.Instance.Initialize(this); 
+            GameStateManager.Instance.Initialize(this);
+            GameSoundManager.Instance.Initialize(this);
         }
 
         protected override void Update(GameTime gameTime)
