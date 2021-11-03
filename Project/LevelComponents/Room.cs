@@ -17,6 +17,7 @@ namespace Project1.LevelComponents
         public Vector2 Position { get; set; }
         public int XPos { get; set; }
         public int YPos { get; set; }
+        public Vector2 Size { get; set; }
         public string UpRoom { get; set; }
         public string DownRoom { get; set; }
         public string LeftRoom { get; set; }
@@ -28,13 +29,14 @@ namespace Project1.LevelComponents
         public Texture2D Texture { get; set; }
 
         public Color Color = Color.White;
-        private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
-        private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
+        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
+        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
         public Room(string id, Vector2 position, int xPos, int yPos, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
             Position = position;
+            // TODO: how is xpos, ypos different than position? 
             XPos = xPos;
             YPos = yPos;
             UpRoom = up;
@@ -45,7 +47,10 @@ namespace Project1.LevelComponents
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
-            Texture = texture; 
+            Texture = texture;
+
+            // TODO: data drive 
+            Size = new Vector2(256, 176) * GameObjectManager.Instance.ScalingFactor;
         }
 
         public void AddBlock(IBlock block)
@@ -73,7 +78,7 @@ namespace Project1.LevelComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRectangle = new Rectangle(XPos, YPos, 256, 176);
-            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
     }

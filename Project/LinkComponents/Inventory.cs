@@ -16,8 +16,9 @@ namespace Project1.LinkComponents
         public Dictionary<string, int> Items { get; set; }
         public string Item1 { get; set; }
         public string Item2 { get; set; }
-
+        public int RupeeCount { get; set; }
         private Dictionary<string, int> DefaultItems;
+        private Dictionary<string, int> RupeeValues;
         private string DefaultItem1;
         private string DefaultItem2;
         private List<string> ItemKeys;
@@ -27,17 +28,17 @@ namespace Project1.LinkComponents
          * ITEMS 
          * Compass - indicate boss and treasure chest location on dungeon maps
          * Map - shows all rooms and how connect. combine with compass show location trasure chests
-         * Small Key - unlock locked doors or blocks (not doors to boss rooms)
+         *      Small Key - unlock locked doors or blocks (not doors to boss rooms)
          * (NOT ON LIST) Magical Key 
-         * Triforce piece - heart healed (needs 8 in real game, but here can win?)
-         * Recovery Heart - health by one heart
-         * Heart container - increase max num hearts by one, and refill health compeltely 
-         * Rupee - used to buy things 
-         * Fairy/Angel -  restore all hearts
+         *      Triforce piece - heart healed (needs 8 in real game, but here can win?)
+         *      Recovery Heart - health by one heart
+         *      Heart container - increase max num hearts by one, and refill health compeltely 
+         *      Rupee - Blue (worth 5) Orange (worth 1) used to buy things?
+         *      Fairy/Angel -  restore all hearts
          * Clock - freeze all enemies on screen 
          * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front. use once per screen.
          * Red Candle - light dark rooms, burn bush, shoot 2 flames at time. use infinitely one screen.  
-         * (Blue) Life Potion - restore health compeltely 
+         *      (Blue) Life Potion - restore health compeltely 
          * (NOT ON LIST) (Red) Second Life Potion - restores health completely, use once change to life potion, can be used again. (2x total)
          * Blue ring - change outfit to blue color. cuts all damage recieved in half.
          * (NOT ON LIST) Red ring - change outfit brown red. cut damage recieved in quarter 
@@ -84,9 +85,15 @@ namespace Project1.LinkComponents
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
 
+            RupeeValues = new Dictionary<string, int>();
+            RupeeValues.TryAdd("ItemBlueRupee", 5);
+            RupeeValues.TryAdd("ItemOrangeRupee", 1); 
+
             ItemKeys = new List<string>();
             ItemKeys.Add("ItemSmallKey");
             ItemKeys.Add("ItemMagicalKey");
+
+            RupeeCount = 0; 
         }
         public void AddItem(String name)
         {
@@ -97,6 +104,11 @@ namespace Project1.LinkComponents
             else
             {
                 Items.TryAdd(name, 1);
+            }
+
+            if (RupeeValues.ContainsKey(name))
+            {
+                CollectRupee(name);
             }
         }
         public void UseItem1()
@@ -131,6 +143,10 @@ namespace Project1.LinkComponents
             }
             return false;   // no key found
             
+        }
+        private void CollectRupee(string name)
+        {
+            RupeeCount += RupeeValues[name];
         }
         private void UseItem(string name)
         {
@@ -173,6 +189,7 @@ namespace Project1.LinkComponents
             Items = DefaultItems;
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
+            RupeeCount = 0; 
         }
     }
 }

@@ -189,6 +189,19 @@ namespace Project1.Command
         }
     }
 
+    public class LinkWinCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public LinkWinCmd(ICollidable link, ICollidable item, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.Win();
+        }
+    }
+
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }

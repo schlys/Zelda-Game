@@ -369,7 +369,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemTriforceFragment</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>LinkWinCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>
