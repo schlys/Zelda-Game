@@ -945,7 +945,7 @@
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -955,7 +955,7 @@
 		<totalFrames>2</totalFrames>
 		<startFrame>2</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -965,7 +965,7 @@
 		<totalFrames>3</totalFrames>
 		<startFrame>3</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -985,7 +985,7 @@
 		<totalFrames>5</totalFrames>
 		<startFrame>5</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -995,7 +995,7 @@
 		<totalFrames>6</totalFrames>
 		<startFrame>6</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -1005,7 +1005,7 @@
 		<totalFrames>7</totalFrames>
 		<startFrame>7</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -1015,7 +1015,7 @@
 		<totalFrames>8</totalFrames>
 		<startFrame>8</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -1025,7 +1025,7 @@
 		<totalFrames>9</totalFrames>
 		<startFrame>9</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>
@@ -1035,7 +1035,7 @@
 		<totalFrames>10</totalFrames>
 		<startFrame>10</startFrame>
 		<row>0</row>
-		<originalSize>16</originalSize>
+		<originalSize>40</originalSize>
 		<hitX>16</hitX>
 		<hitY>16</hitY>
 	</Sprite>

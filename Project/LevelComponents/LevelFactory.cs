@@ -134,7 +134,7 @@ namespace Project1.LevelComponents
                     string type = itemNode.SelectSingleNode("type").InnerText;
                     string type2 = itemNode.SelectSingleNode("type2").InnerText;
                     int row = Int16.Parse(itemNode.SelectSingleNode("row").InnerText);
-                    int column = Int16.Parse(itemNode.SelectSingleNode("column").InnerText);
+                    float column = float.Parse(itemNode.SelectSingleNode("column").InnerText);
 
 
 
@@ -171,7 +171,7 @@ namespace Project1.LevelComponents
             }
         }
 
-        private static Vector2 GetItemPosition(int row, int column)
+        private static Vector2 GetItemPosition(int row, float column)
         {
             /* NOTE: return the location of the item in the room given the row and column. 
              * Throw an exception if the row or column is out of the room range. 

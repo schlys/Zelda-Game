@@ -357,6 +357,30 @@
 				<row>3</row>
 				<column>5</column>
 			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 		</Room>
 
 		<Room>
