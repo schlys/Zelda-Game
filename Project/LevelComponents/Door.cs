@@ -18,14 +18,17 @@ namespace Project1.LevelComponents
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+		public string Direction { get; set; }
 
         private Color Color = Color.White;
 		private int Height = 16 * GameObjectManager.Instance.ScalingFactor;
 		private int Width = 16 * GameObjectManager.Instance.ScalingFactor;
 		private bool locked;
+		
 
 		public Door(Vector2 position, string direction, bool locked)
         {
+			Direction = direction;
 			this.locked = locked;
 			if (this.locked) Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
 			Position = position;
