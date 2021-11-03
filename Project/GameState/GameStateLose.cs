@@ -20,15 +20,16 @@ namespace Project1.GameState
         {
             //spriteBatch.Draw();
             SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+            int sizeCorrector=40;
 
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
 
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
-            Rectangle destinationRectangle = new Rectangle(50, 80, (int)RoomSize.X, (int)RoomSize.Y);
+            Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(font, "GAME OVER", new Vector2(RoomSize.X / 2, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "GAME OVER", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {

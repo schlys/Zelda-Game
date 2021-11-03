@@ -28,12 +28,19 @@ namespace Project1.GameState
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
+            int sizeCorrector = 40;
 
-            Rectangle destinationRectangle = new Rectangle(50, 50, (int)RoomSize.X, (int)RoomSize.Y);
-            //spriteBatch.Draw(, destinationRectangle, Color.White);
-            TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X / 2, RoomSize.Y / 4));
-            Link.Draw(spriteBatch, new Vector2(RoomSize.X/2, RoomSize.Y / 2));
+            Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
+            blackRectangle.SetData(new[] { Color.Black });
+
+            Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
+            spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
+
+            spriteBatch.DrawString(font, "YOU WIN", new Vector2(RoomSize.X / 2- sizeCorrector, RoomSize.Y / 2), Color.White);
+            TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector/2));
+            Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector));
         }
         public IGameState Reset()
         {

@@ -239,17 +239,17 @@ namespace Project1.LinkComponents
             LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
-            /*
+            
             if (Health.IsLoseHeart())
             {
-                Reset(); // TODO: Reset all states?
+                //Reset(); // TODO: Reset all states?
                 TotalNumHearts--;
             }
             if (TotalNumHearts == 0)
             {
                 IsDead = true;
                 GameStateManager.Instance.GameOverLose();
-            }*/
+            }
         }
 
         public void IncreaseHealth()
