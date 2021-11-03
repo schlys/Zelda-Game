@@ -55,7 +55,7 @@ namespace Project1.GameState
             spriteBatch.DrawString(font, text, new Vector2(600, 10), Color.Black);
 
             String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
-            spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.Black);
+            spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.White);
 
             // TODO: Make black screen for lose/win
             // TODO: Remove magic numbers

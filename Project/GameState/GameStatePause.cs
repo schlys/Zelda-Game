@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.LevelComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +16,21 @@ namespace Project1.GameState
             ID = "Pause";
         }
         public void Update() { }
-        public void Draw(SpriteBatch spriteBatch) { }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+            Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
+            int sizeCorrector = 40;
+
+            Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
+            blackRectangle.SetData(new[] { Color.Black });
+
+            Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
+            spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
+
+            spriteBatch.DrawString(font, "PAUSED", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "\n\nStart again, press space bar again", new Vector2(RoomSize.X / 2 - sizeCorrector*3, RoomSize.Y / 2), Color.White);
+        }
         public IGameState Reset()
         {
             return new GameStateStart();
