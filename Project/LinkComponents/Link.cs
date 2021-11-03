@@ -35,7 +35,7 @@ namespace Project1.LinkComponents
         private Vector2 InitialPosition; 
         private int Step = 4;
         private bool LockFrame;     // TODO: Belong in sprite draw? 
-        private bool IsPicked = false;       // Check whether Link picked up (for sprite change)
+        private bool HasWon = false;       // Check whether Link picked up the TriforceFragment
         private bool IsDead = false;
         private int TotalNumHearts;
         public Link(Vector2 position, Game1 game)
@@ -224,8 +224,8 @@ namespace Project1.LinkComponents
 
         public void PickUpItem(string name)
         {
-            if (name.Equals("ItemTriforceFragment"))
-                IsPicked = true; // TODO: This is for TriforceFragment, make if statement.
+            /*if (name.Equals("ItemTriforceFragment"))
+                IsPicked = true; // TODO: This is for TriforceFragment, make if statement.*/
             UpdateSprite();
 
             // NOTE: Add or increment count of <name> in <Inventory> 
@@ -307,13 +307,20 @@ namespace Project1.LinkComponents
             if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
 
-            if (IsPicked)
+            /*if (IsPicked)
             {
                 LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
                 GameStateManager.Instance.GameOverWin();
-            }
+            }*/
                 
-            IsPicked = false;
+            //IsPicked = false;
+        }
+
+        public void Win()
+        {
+            // trigger win in <GameStateManager> and change Link sprite 
+            LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            GameStateManager.Instance.GameOverWin();
         }
 
         public void Reset()
@@ -331,7 +338,7 @@ namespace Project1.LinkComponents
             Health.Reset();
             UseItemName = "";
             LockFrame = false;
-            IsPicked = false;
+            //IsPicked = false;
             //IsDead = false;
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);

@@ -42,7 +42,7 @@ namespace Project1.LinkComponents
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
-
+        void Win(); 
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);

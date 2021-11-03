@@ -45,14 +45,11 @@ namespace Project1.HeadsUpDisplay
         public void Draw(SpriteBatch spriteBatch)
         {
             // Draw the <HUDMain> background
-            //Vector2 position = StartPosition;
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, 
                 HUDMain.Width * GameObjectManager.Instance.ScalingFactor, 
                 HUDMain.Height * GameObjectManager.Instance.ScalingFactor);
             spriteBatch.Draw(HUDMain, destinationRectangle, Color.White); 
-            //HUDLevelMap.Draw(spriteBatch, StartPosition);
-            //position.X += (HUDLevelMap.HitBox.X * GameObjectManager.Instance.ScalingFactor);
-
+           
             // Display <Item1> and <Item2> of Link's <Inventory>
             /*SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             string item1 = "Item1: " + Link.Inventory.Item1;
@@ -73,7 +70,6 @@ namespace Project1.HeadsUpDisplay
             Sprite HeartHalf = SpriteFactory.Instance.GetSpriteData("HeartHalf");
             Sprite HeartEmpty = SpriteFactory.Instance.GetSpriteData("HeartEmpty");
 
-            //Vector2 position = new Vector2(200, 10);
             int spaceX = (int)(HeartFull.HitBox.X * GameObjectManager.Instance.ScalingFactor * 1.5); 
             LinkHealth Health = Link.Health;
             for(int i = 1; i <= Health.TotalNumHearts; i++)

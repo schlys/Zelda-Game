@@ -18,6 +18,7 @@ namespace Project1.LevelComponents
         Vector2 Position { get; set; }
         int XPos { get; set; }
         int YPos { get; set; }
+        Vector2 Size { get; set; }
         String UpRoom { get; set; }
         String DownRoom { get; set; }
         String LeftRoom { get; set; }

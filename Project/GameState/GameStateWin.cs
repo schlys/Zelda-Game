@@ -14,23 +14,26 @@ namespace Project1.GameState
         public string ID { get; set; }
         private Sprite Link;
         private Sprite TriForceFragment;
-        private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
-        private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
+        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
+        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
         public GameStateWin()
         {
-            ID = "Win"; 
+            ID = "Win";
+            TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
+            Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }
         public void Update()
         {
-            TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriForceFragment");
-            Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle destinationRectangle = new Rectangle(50, 50, Width, Height);
+            Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
+
+            Rectangle destinationRectangle = new Rectangle(50, 50, (int)RoomSize.X, (int)RoomSize.Y);
             //spriteBatch.Draw(, destinationRectangle, Color.White);
-            TriForceFragment.Draw(spriteBatch, new Vector2(Width / 2, Height / 4));
-            Link.Draw(spriteBatch, new Vector2(Width/2, Height / 2));
+            TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X / 2, RoomSize.Y / 4));
+            Link.Draw(spriteBatch, new Vector2(RoomSize.X/2, RoomSize.Y / 2));
         }
         public IGameState Reset()
         {
