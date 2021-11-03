@@ -34,6 +34,12 @@
 				<row>6</row>
 				<column>8</column>
 			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
 		</Room>
 
 		<Room>

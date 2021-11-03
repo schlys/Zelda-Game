@@ -136,6 +136,8 @@ namespace Project1.LevelComponents
                     int row = Int16.Parse(itemNode.SelectSingleNode("row").InnerText);
                     int column = Int16.Parse(itemNode.SelectSingleNode("column").InnerText);
 
+
+
                     //TODO: replace with reflection 
                     switch (type)
                     {
@@ -154,6 +156,11 @@ namespace Project1.LevelComponents
                         case "Enemy":
                             IEnemy enemy = new Enemy(GetItemPosition(row, column), type2);
                             Room.AddEnemy(enemy);
+                            break;
+                        case "Door":
+                            bool locked = XmlConvert.ToBoolean(itemNode.Attributes["locked"].Value);
+                            IDoor door = new Door(GetItemPosition(row, column), type2, locked);
+                            Room.AddDoor(door);
                             break;
                         default:
                             break;

@@ -24,6 +24,7 @@ namespace Project1.LevelComponents
         public List<IBlock> Blocks { get; set; }
         public List<IItem> Items { get; set; }
         public List<IEnemy> Enemies { get; set; }
+        public List<IDoor> Doors { get; set; }
         public Texture2D Texture { get; set; }
 
         public Color Color = Color.White;
@@ -42,7 +43,8 @@ namespace Project1.LevelComponents
             RightRoom = right;
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
-            Enemies = new List<IEnemy>(); 
+            Enemies = new List<IEnemy>();
+            Doors = new List<IDoor>();
             Texture = texture; 
         }
 
@@ -57,6 +59,10 @@ namespace Project1.LevelComponents
         public void AddEnemy(IEnemy enemy)
         {
             Enemies.Add(enemy);
+        }
+        public void AddDoor(IDoor door)
+        {
+            Doors.Add(door);
         }
 
         public void Reset()

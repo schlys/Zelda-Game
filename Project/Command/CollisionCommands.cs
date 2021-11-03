@@ -134,8 +134,18 @@ namespace Project1.Command
         public void Execute()
         {
             // Unlock the door if link has a key
-            if (Link.UseKey())
-                Door.Unlock();
+            if (Door.IsLocked())
+            {
+                if (Link.UseKey())
+                {
+                    Door.Unlock();
+                    //room transition
+                }                 
+            }
+            else
+            {
+                //room transition
+            }
         }
     }
 

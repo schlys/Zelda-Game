@@ -5,34 +5,50 @@ using System.Text;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
+using Project1.CollisionComponents;
 
 namespace Project1.LevelComponents
 {
-	public class Door : IDoor
+	public class Door : IDoor, ICollidable
 	{
+		// from IDoor
 		public Vector2 Position { get; set; }
-		public Texture2D Texture { get; set; }
+		public Sprite Sprite { get; set; }
+		// from ICollidable
+        public Rectangle Hitbox { get; set; }
+        public bool IsMoving { get; set; }
+        public string TypeID { get; set; }
 
-		private Color Color = Color.White;
+        private Color Color = Color.White;
 		private int Height = 16 * GameObjectManager.Instance.ScalingFactor;
 		private int Width = 16 * GameObjectManager.Instance.ScalingFactor;
+		private bool locked;
 
-		public Door(Vector2 position, Texture2D texture)
+		public Door(Vector2 position, string direction, bool locked)
         {
+			this.locked = locked;
+			if (this.locked) Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
 			Position = position;
-			Texture = texture;
+			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
+			/* Correct the position to account for empty space around the hitbox */
+			int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+			Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+			/* Get correct hibox for updated position */
+			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
+			IsMoving = false;
         }
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
-			spriteBatch.Draw(Texture, destinationRectangle, Color);
+			if (locked) Sprite.Draw(spriteBatch, Position);
 		}
-
-		public bool Unlock()
+		public bool IsLocked()
         {
-			// TODO: Implement 
-			return false; 
+			return locked;
+        }
+		public void Unlock()
+        {
+			locked = false;
         }
 	}
 }

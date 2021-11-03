@@ -14,13 +14,13 @@ namespace Project1.LinkComponents
     {
         public ILink Link { get; set; }
         public Dictionary<string, int> Items { get; set; }
-        public String Item1 { get; set; }
-        public String Item2 { get; set; }
+        public string Item1 { get; set; }
+        public string Item2 { get; set; }
 
         private Dictionary<string, int> DefaultItems;
-        private String DefaultItem1;
-        private String DefaultItem2;
-        private List<String> ItemKeys;
+        private string DefaultItem1;
+        private string DefaultItem2;
+        private List<string> ItemKeys;
 
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
@@ -84,7 +84,7 @@ namespace Project1.LinkComponents
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
 
-            ItemKeys = new List<String>();
+            ItemKeys = new List<string>();
             ItemKeys.Add("ItemSmallKey");
             ItemKeys.Add("ItemMagicalKey");
         }
@@ -121,7 +121,7 @@ namespace Project1.LinkComponents
             /* Return true if there is a key and remove it from the inventory. false otherwise
              */ 
 
-            foreach(String key in ItemKeys)
+            foreach(string key in ItemKeys)
             {
                 if (Items.ContainsKey(key))
                 {
@@ -132,7 +132,7 @@ namespace Project1.LinkComponents
             return false;   // no key found
             
         }
-        private void UseItem(String name)
+        private void UseItem(string name)
         {
             /* Precondition: <name> is guarenteed to be in <Items>
              * Decrement the occurance of <name> in <Items>. If <name> occurs once, remove it from <Items>.
@@ -148,11 +148,11 @@ namespace Project1.LinkComponents
             }
 
             // Add Projectile 
-            String itemName = name.Substring(4); // Remove "Item" keyword from start
+            string itemName = name.Substring(4); // Remove "Item" keyword from start
             IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, itemName);
             GameObjectManager.Instance.AddProjectile(Item);
         }
-        public void SetItem1(String name)
+        public void SetItem1(string name)
         {
             if (!Items.ContainsKey(Item1))
             {
@@ -160,7 +160,7 @@ namespace Project1.LinkComponents
             }
             Item1 = name;
         }
-        public void SetItem2(String name)
+        public void SetItem2(string name)
         {
             if (!Items.ContainsKey(Item2))
             {

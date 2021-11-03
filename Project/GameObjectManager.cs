@@ -33,6 +33,7 @@ namespace Project1
         public List<IBlock> Blocks;
         public List<IItem> Items;
         public List<IEnemy> Enemies;
+        public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
         private IRoom Room; 
@@ -46,6 +47,7 @@ namespace Project1
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
+            Doors = new List<IDoor>();
             Controllers = new List<IController>();
             Projectiles = new List<IProjectile>();
             
@@ -139,6 +141,7 @@ namespace Project1
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
+            Doors = Room.Doors;
             Projectiles = new List<IProjectile>();
 
             CollisionManager.Instance.Reset();
@@ -158,6 +161,10 @@ namespace Project1
             foreach (IEnemy enemy in Enemies)
             {
                 CollisionManager.Instance.AddObject((ICollidable)enemy);
+            }
+            foreach (IDoor door in Doors)
+            {
+                CollisionManager.Instance.AddObject((ICollidable)door);
             }
             /*
             foreach (IProjectile projectile in Projectiles)
@@ -204,7 +211,11 @@ namespace Project1
             {
                 enemy.Draw(spriteBatch);
             }
-            foreach(IProjectile Projectile in Projectiles)
+            foreach (IDoor door in Doors)
+            {
+                door.Draw(spriteBatch);
+            }
+            foreach (IProjectile Projectile in Projectiles)
             {
                 Projectile.Draw(spriteBatch);
             }

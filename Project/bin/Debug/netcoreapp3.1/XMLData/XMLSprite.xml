@@ -1041,4 +1041,46 @@
 	</Sprite>
 	
 	
+	<Sprite>
+		<name>DoorUp</name>
+		<sheet>doors</sheet>
+		<totalFrames>3</totalFrames>
+		<startFrame>3</startFrame>
+		<row>0</row>
+		<originalSize>16</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>DoorDown</name>
+		<sheet>doors</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>16</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>DoorRight</name>
+		<sheet>doors</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>2</startFrame>
+		<row>0</row>
+		<originalSize>16</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>DoorLeft</name>
+		<sheet>doors</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>4</startFrame>
+		<row>0</row>
+		<originalSize>16</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	
+	
 </Sprites>

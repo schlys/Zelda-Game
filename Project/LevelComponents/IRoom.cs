@@ -25,11 +25,13 @@ namespace Project1.LevelComponents
         List<IBlock> Blocks { get; set; }
         List<IItem> Items { get; set; }
         List<IEnemy> Enemies { get; set; }
+        List<IDoor> Doors { get; set; }
         Texture2D Texture { get; set; }
 
         void AddBlock(IBlock block);
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);
+        void AddDoor(IDoor door);
         void Draw(SpriteBatch spriteBatch);
         void Reset();
     }

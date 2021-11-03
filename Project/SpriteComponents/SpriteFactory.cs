@@ -45,6 +45,7 @@ namespace Project1.SpriteComponents
             }
             //to do: add these elements to XMLSpriteSheets.xml
             TextureDict.Add("blocks", content.Load<Texture2D>("Blocks"));
+            TextureDict.Add("doors", content.Load<Texture2D>("Doors"));
             TextureDict.Add("items", content.Load<Texture2D>("ItemsAndWeapons"));
             TextureDict.Add("linkItems", content.Load<Texture2D>("LinkSprites/Items"));
             TextureDict.Add("pickUpItem", content.Load<Texture2D>("LinkSprites/PickUpItem"));
