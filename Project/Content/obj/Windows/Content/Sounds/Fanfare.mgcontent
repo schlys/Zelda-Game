@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/Fanfare.wav</SourceFile>
-  <SourceTime>2021-10-29T12:23:31.9223294-04:00</SourceTime>
-  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/Fanfare.xnb</DestFile>
-  <DestTime>2021-11-03T09:25:25.9543063-04:00</DestTime>
+  <SourceFile>c:/users/andy/desktop/a/project/Content/Sounds/Fanfare.wav</SourceFile>
+  <SourceTime>2021-11-03T11:38:14.4606999-04:00</SourceTime>
+  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/Sounds/Fanfare.xnb</DestFile>
+  <DestTime>2021-11-03T12:46:45.0013774-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

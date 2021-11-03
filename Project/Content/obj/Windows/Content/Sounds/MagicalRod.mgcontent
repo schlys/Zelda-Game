@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/MagicalRod.wav</SourceFile>
-  <SourceTime>2021-10-29T12:23:31.9302908-04:00</SourceTime>
-  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/MagicalRod.xnb</DestFile>
-  <DestTime>2021-11-03T09:25:34.9429248-04:00</DestTime>
+  <SourceFile>c:/users/andy/desktop/a/project/Content/Sounds/MagicalRod.wav</SourceFile>
+  <SourceTime>2021-11-03T11:38:14.4636919-04:00</SourceTime>
+  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/Sounds/MagicalRod.xnb</DestFile>
+  <DestTime>2021-11-03T12:46:52.6710403-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
