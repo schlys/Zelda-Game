@@ -36,6 +36,7 @@ namespace Project1.LevelComponents
 			/* Get correct hibox for updated position */
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 			IsMoving = false;
+			TypeID = "Door";
         }
 
 		public void Draw(SpriteBatch spriteBatch)

@@ -10,192 +10,57 @@
 	</Collision>
 
 	<Collision>
-		<name>EnemyBlockTop</name>
+		<name>EnemyBlock</name>
 		<command1>EnemyAvoidOtherCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
-	<Collision>
-		<name>EnemyBlockBottom</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyBlockRight</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>EnemyBlockLeft</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
+	
 	<!-- PROJECTILE -->
 
 	<Collision>
-		<name>ProjectileArrowBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileArrowBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileArrowBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileArrowBlockLeft</name>
+		<name>ProjectileArrowBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileBoomerangBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileBoomerangBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileBoomerangBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileBoomerangBlockLeft</name>
+		<name>ProjectileBoomerangBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileFireBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileFireBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileFireBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileFireBlockLeft</name>
+		<name>ProjectileFireBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileMagicalBoomerangBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMagicalBoomerangBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMagicalBoomerangBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMagicalBoomerangBlockLeft</name>
+		<name>ProjectileMagicalBoomerangBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileSilverArrowBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileSilverArrowBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileSilverArrowBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileSilverArrowBlockLeft</name>
+		<name>ProjectileSilverArrowBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileAquamentusBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileAquamentusBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileAquamentusBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileAquamentusBlockLeft</name>
+		<name>ProjectileAquamentusBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileGoriyaBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileGoriyaBlockLeft</name>
+		<name>ProjectileGoriyaBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
-		<name>ProjectileMoblinBlockTop</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMoblinBlockBottom</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMoblinBlockRight</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-	<Collision>
-		<name>ProjectileMoblinBlockLeft</name>
+		<name>ProjectileMoblinBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>

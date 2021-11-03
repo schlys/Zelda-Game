@@ -36,11 +36,13 @@ namespace Project1.LevelComponents
         public static int[,] textureMatrix;
 
         // TODO: Load in XML
+        private static int adjust = 2 * GameObjectManager.Instance.ScalingFactor;
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
-        private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;
+        private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
+        
 
         private static string StartRoom = "room2";
 
@@ -52,7 +54,7 @@ namespace Project1.LevelComponents
              * CurrentRoom to the starting room, and set the LinkStartingPosition. 
              */ 
 
-            TextureDict = new Dictionary<String, Texture2D>();
+            TextureDict = new Dictionary<string, Texture2D>();
 
             TextureDict.Add("room", content.Load<Texture2D>("Rooms/RoomMap")); // All rooms are in one png file.
             /*
@@ -191,9 +193,9 @@ namespace Project1.LevelComponents
             {
                 throw new ArgumentException("Index is out of range");
             }
-            
-            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);
-            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row);
+
+            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);// - adjust;
+            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row); //+ adjust;
             return new Vector2(x, y);
         }
 
@@ -270,7 +272,7 @@ namespace Project1.LevelComponents
         {
             // NOTE: Return the playable space within the room 
             return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, 
-                (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
+                (RoomBlockSize * RoomColumns) + adjust, (RoomBlockSize * RoomRows) + adjust);
 
         }
 

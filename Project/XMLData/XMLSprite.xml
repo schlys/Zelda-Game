@@ -1049,7 +1049,7 @@
 		<row>0</row>
 		<originalSize>16</originalSize>
 		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitY>17</hitY>
 	</Sprite>
 	<Sprite>
 		<name>DoorDown</name>
@@ -1059,7 +1059,7 @@
 		<row>0</row>
 		<originalSize>16</originalSize>
 		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitY>17</hitY>
 	</Sprite>
 	<Sprite>
 		<name>DoorRight</name>
@@ -1068,7 +1068,7 @@
 		<startFrame>2</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
+		<hitX>17</hitX>
 		<hitY>16</hitY>
 	</Sprite>
 	<Sprite>
@@ -1078,7 +1078,7 @@
 		<startFrame>4</startFrame>
 		<row>0</row>
 		<originalSize>16</originalSize>
-		<hitX>16</hitX>
+		<hitX>17</hitX>
 		<hitY>16</hitY>
 	</Sprite>
 	
