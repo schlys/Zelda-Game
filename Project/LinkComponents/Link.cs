@@ -327,7 +327,7 @@ namespace Project1.LinkComponents
         {
             if (IsDead) //This is for reset after game over
             {
-                //TotalNumHearts = 3;
+                TotalNumHearts = 3;
                 //Health.Reset();
                 IsDead = false;
             }
