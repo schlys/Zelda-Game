@@ -184,6 +184,7 @@ namespace Project1.LinkComponents
                 //attack animation should be fast
                 LinkSprite.MaxDelay = 0;
                 GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
+                GameSoundManager.Instance.PlaySound("SwordSlash");
             }
         }
 
@@ -229,7 +230,8 @@ namespace Project1.LinkComponents
             UpdateSprite();
 
             // NOTE: Add or increment count of <name> in <Inventory> 
-            Inventory.AddItem(name); 
+            Inventory.AddItem(name);
+            GameSoundManager.Instance.PlaySound("GetItem");
         }
 
         public void TakeDamage(string direction, int knockback = 0)
@@ -249,6 +251,7 @@ namespace Project1.LinkComponents
             if (TotalNumHearts == 0)
             {
                 IsDead = true;
+                GameSoundManager.Instance.PlaySound("LinkDie");
                 GameStateManager.Instance.GameOverLose();
             }
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/vxd/project/Content/Sounds/GetRupee.wav</SourceFile>
-  <SourceTime>2021-11-03T17:25:07.7100063-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/vxd/project/Content/bin/Windows/Content/Sounds/GetRupee.xnb</DestFile>
-  <DestTime>2021-11-03T17:39:19.1230808-04:00</DestTime>
+  <SourceFile>C:/Users/Andy/Desktop/ddddd/Project/Content/Sounds/GetRupee.wav</SourceFile>
+  <SourceTime>2021-11-03T17:40:26.7081751-04:00</SourceTime>
+  <DestFile>C:/Users/Andy/Desktop/ddddd/Project/Content/bin/Windows/Content/Sounds/GetRupee.xnb</DestFile>
+  <DestTime>2021-11-03T18:11:40.841077-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

@@ -131,8 +131,7 @@ namespace Project1.LinkComponents
         {
             // TODO: distinguish between magical and small key? 
             /* Return true if there is a key and remove it from the inventory. false otherwise
-             */ 
-
+             */
             foreach(string key in ItemKeys)
             {
                 if (Items.ContainsKey(key))
@@ -147,6 +146,7 @@ namespace Project1.LinkComponents
         private void CollectRupee(string name)
         {
             RupeeCount += RupeeValues[name];
+            GameSoundManager.Instance.PlaySound("GetRupee");
         }
         private void UseItem(string name)
         {

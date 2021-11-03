@@ -80,6 +80,7 @@ namespace Project1.EnemyComponents
 
         public void TakeDamage(double damage, string direction)
         {
+            GameSoundManager.Instance.PlaySound("EnemyHit");
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
             //EnemyState.TakeDamage(damage);
