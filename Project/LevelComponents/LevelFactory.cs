@@ -91,14 +91,18 @@ namespace Project1.LevelComponents
 
             // Load Textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();
-            HUDTextures.Add("HUDMain", content.Load<Texture2D>("HUD/HUD"));
-            HUDTextures.Add("HUDLevelMap", content.Load<Texture2D>("HUD/HUDMap"));
-            HUDTextures.Add("Inventory", content.Load<Texture2D>("HUD/HUD3"));
-            HUDTextures.Add("HUDMap", content.Load<Texture2D>("HUD/HUD2"));
-            HUDTextures.Add("HUDItems", content.Load<Texture2D>("HUD/HUDItems"));
 
-            // Load Level Map
-            //Texture2D LevelMapTexture = content.Load<Texture2D>("HUD/HUDMap");
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/HUD.xml";
+            XMLData.Load(path);
+            XmlNodeList Sheets = XMLData.DocumentElement.SelectNodes("/Items/Item");
+
+            foreach (XmlNode node in Sheets)
+            {
+                HUDTextures.Add(node.SelectSingleNode("name").InnerText, content.Load<Texture2D>(node.SelectSingleNode("sheet").InnerText));
+            }
+
+
             LevelMap = new LevelMap(HUDTextures["HUDLevelMap"]);
         }
 
