@@ -99,6 +99,7 @@ namespace Project1.EnemyComponents
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Up", "Aquamentus"));
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Left", "Aquamentus"));
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Down", "Aquamentus"));
+                GameSoundManager.Instance.PlaySound("BossScream1");
             }
         }
 

@@ -5,6 +5,7 @@ using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using Project1.LevelComponents;
 
 namespace Project1
@@ -22,15 +23,22 @@ namespace Project1
         private GameSoundManager() { }
 
         private static Dictionary<string, SoundEffectInstance> SoundDict;
-
+        private Song song;
         public Game1 Game; 
 
         public void Initialize(Game1 game)
         {
             Game = game;
             CreateDict(game);
+            PlaySong(game);
         }
-
+        private void PlaySong(Game1 game)
+        {
+            song = game.Content.Load<Song>("Sounds/Song");
+            MediaPlayer.Play(song);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.3f;       // 0.0f is silent, 1.0f is full volume
+        }
         private void CreateDict(Game1 game)
         {
             SoundDict = new Dictionary<string, SoundEffectInstance>();
@@ -51,7 +59,6 @@ namespace Project1
                 System.Diagnostics.Debug.WriteLine("\n name: " + name);
                 System.Diagnostics.Debug.WriteLine("\n bool: " + loop);
             }
-
         }
 
         public void PlaySound(string key)
