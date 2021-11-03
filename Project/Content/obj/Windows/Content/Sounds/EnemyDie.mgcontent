@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/a/project/Content/Sounds/EnemyDie.wav</SourceFile>
-  <SourceTime>2021-11-03T11:38:14.4597025-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/Sounds/EnemyDie.xnb</DestFile>
-  <DestTime>2021-11-03T12:46:43.1004585-04:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/Sounds/EnemyDie.wav</SourceFile>
+  <SourceTime>2021-11-03T13:04:19.3433884-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/EnemyDie.xnb</DestFile>
+  <DestTime>2021-11-03T13:04:29.8849851-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

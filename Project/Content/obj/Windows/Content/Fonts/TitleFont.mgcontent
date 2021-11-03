@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/a/project/Content/Fonts/File.spritefont</SourceFile>
-  <SourceTime>2021-11-03T11:38:14.4387594-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/Fonts/TitleFont.xnb</DestFile>
-  <DestTime>2021-11-03T12:46:36.123931-04:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/Fonts/File.spritefont</SourceFile>
+  <SourceTime>2021-11-02T09:42:46.1780943-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Fonts/TitleFont.xnb</DestFile>
+  <DestTime>2021-11-03T13:04:20.7612421-04:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

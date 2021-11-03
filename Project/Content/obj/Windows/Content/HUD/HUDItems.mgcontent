@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/a/project/Content/HUD/HUDItems.png</SourceFile>
-  <SourceTime>2021-11-03T11:38:14.439756-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/HUD/HUDItems.xnb</DestFile>
-  <DestTime>2021-11-03T12:46:36.14288-04:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/HUD/HUDItems.png</SourceFile>
+  <SourceTime>2021-11-02T09:42:46.1800891-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/HUD/HUDItems.xnb</DestFile>
+  <DestTime>2021-11-03T13:04:20.7881719-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

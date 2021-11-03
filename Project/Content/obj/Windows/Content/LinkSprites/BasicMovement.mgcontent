@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/a/project/Content/LinkSprites/BasicMovement.png</SourceFile>
-  <SourceTime>2021-11-03T11:38:14.4407537-04:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/LinkSprites/BasicMovement.xnb</DestFile>
-  <DestTime>2021-11-03T12:46:36.1508591-04:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/LinkSprites/BasicMovement.png</SourceFile>
+  <SourceTime>2021-10-27T02:50:44.7508048-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/LinkSprites/BasicMovement.xnb</DestFile>
+  <DestTime>2021-11-03T13:04:20.801137-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
