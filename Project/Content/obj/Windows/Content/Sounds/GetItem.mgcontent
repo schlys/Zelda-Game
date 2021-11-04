@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/GetItem.wav</SourceFile>
   <SourceTime>2021-11-03T13:14:09.7206852-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/GetItem.xnb</DestFile>
-  <DestTime>2021-11-04T14:32:01.6780581-04:00</DestTime>
-=======
-  <SourceFile>C:/Users/blum1/Project/Project/Content/Sounds/GetItem.wav</SourceFile>
-  <SourceTime>2021-11-04T14:35:03.9254262-04:00</SourceTime>
-  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/GetItem.xnb</DestFile>
-  <DestTime>2021-11-04T10:38:19.4890338-04:00</DestTime>
->>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
+  <DestTime>2021-11-04T14:33:46.0170152-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
