@@ -15,7 +15,10 @@ namespace Project1.GameState
             ID = "ItemSelect";
         }
         public void Update() { }
-        public void Draw(SpriteBatch spriteBatch) { }
+        public void Draw(SpriteBatch spriteBatch) 
+        {
+            // Display the Inventory, map, and HUD 
+        }
         public IGameState Reset()
         {
             return new GameStateStart();
