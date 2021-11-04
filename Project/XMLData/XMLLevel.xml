@@ -307,14 +307,12 @@
 				<row>1</row>
 				<column>4</column>
 			</object>
-			<!--
 			<object>
 				<type>Item</type>
 				<type2>Letter</type2>
 				<row>2</row>
 				<column>4</column>
 			</object>
-			-->
 			<object>
 				<type>Item</type>
 				<type2>TriforceFragment</type2>

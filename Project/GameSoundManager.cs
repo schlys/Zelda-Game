@@ -27,10 +27,10 @@ namespace Project1
         public Game1 Game; 
 
         public void Initialize(Game1 game)
-        {
+        {/*
             Game = game;
             CreateDict(game);
-            PlaySong(game);
+            PlaySong(game);*/
         }
         private void PlaySong(Game1 game)
         {
@@ -62,7 +62,7 @@ namespace Project1
         }
 
         public void PlaySound(string key)
-        {
+        {/*
             if (SoundDict.ContainsKey(key))
             {
                 SoundDict[key].Play();
@@ -70,7 +70,7 @@ namespace Project1
             else
             {
                 throw new NotImplementedException();
-            }
+            }*/
         }
 
         public void Reset()
