@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Collisions>
+
+	<!-- BLOCK -->
+	
+	<Collision>
+		<name>LinkBlock</name>
+		<command1>LinkHitBlockCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyBlock</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<!-- PROJECTILE -->
+
+	<Collision>
+		<name>ProjectileArrowBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileBoomerangBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileFireBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileMagicalBoomerangBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileSilverArrowBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileAquamentusBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileGoriyaBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>ProjectileMoblinBlock</name>
+		<command1>WeaponsBlockedCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<!-- LINK -->
+	
+	<Collision>
+		<name>LinkItemAngel</name>
+		<command1>LinkRestoreHealthCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemArrowUp</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBlueCandle</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBlueRing</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBlueRupee</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBombSolid</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBookOfMagic</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBoomerangSolid</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemBow</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemClock</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemCompass</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemDungeonMap</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemFire</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemFood</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemHeartContainer</name>
+		<command1>LinkRestoreHealthIncreaseAndHeartCountCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemLetter</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemLifePotion</name>
+		<command1>LinkRestoreHealthCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalBoomerangSolid</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalKey</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalRod</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalShield</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemMagicalSword</name>
+		<command1>LinkMagicalSword</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemOrangeRupee</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemPowerBracelet</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemRaft</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemRecorder</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemRecoveryHeart</name>
+		<command1>LinkIncreaseHealthCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemRedCandle</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemRedRing</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemSecondLifePotion</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemSilverArrow</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemSmallKey</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemStepladder</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemTriforceFragment</name>
+		<command1>LinkWinCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemWhiteSword</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	<Collision>
+		<name>LinkItemWoodenSword</name>
+		<command1>LinkAddItemToInventoryCmd</command1>
+		<command2>ItemPickedUpCmd</command2>
+	</Collision>
+	
+	
+	
+	<Collision>
+		<name>LinkEnemy</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>EnemyHitPlayerCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>LinkProjectileMoblin</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>LinkProjectileAquamentus</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>LinkProjectileGoriya</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<!--- TOOK OUT SO LINK NOT COLLIDE WITH HIS BOMB
+	<Collision>
+		<name>LinkProjectileBomb</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	-->
+
+	<Collision>
+		<name>LinkDoor</name>
+		<command1>LinkUseKeyCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<!-- ENEMY -->
+	<Collision>
+		<name>EnemyProjectileArrow</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyProjectileBomb</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyProjectileBoomerang</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyProjectileFire</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyProjectileMagicalBoomerang</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyProjectileSilverArrow</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>ProjectileHitCmd</command2>
+	</Collision>
+	
+	<Collision>
+		<name>EnemyWoodenSwordAttack</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyMagicalSwordAttack</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
+		<name>EnemyEnemy</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>EnemyAvoidOtherCmd</command2>
+	</Collision>
+	
+</Collisions>
