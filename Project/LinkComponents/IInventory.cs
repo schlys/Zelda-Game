@@ -23,6 +23,8 @@ namespace Project1.LinkComponents
         void SetItem1(String name);
         void SetItem2(String name);
         bool CanHighlightTreasureMap();
+        bool CanFreezeEnemies();
+        void UnfreezeEnemies();
         void Reset();
     }
 }

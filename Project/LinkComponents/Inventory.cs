@@ -23,6 +23,7 @@ namespace Project1.LinkComponents
         private string DefaultItem2;
         private List<string> ItemKeys;
         private List<string> ItemHighlightMap;
+        private List<string> ItemEnemyFreeze;
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
@@ -35,7 +36,7 @@ namespace Project1.LinkComponents
          *      Heart container - increase max num hearts by one, and refill health compeltely 
          *      Rupee - Blue (worth 5) Orange (worth 1) used to buy things?
          *      Fairy/Angel -  restore all hearts
-         * Clock - freeze all enemies on screen 
+         *      Clock - freeze all enemies on screen until change room
          * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front. use once per screen.
          * Red Candle - light dark rooms, burn bush, shoot 2 flames at time. use infinitely one screen.  
          *      (Blue) Life Potion - restore health compeltely 
@@ -96,6 +97,9 @@ namespace Project1.LinkComponents
             ItemHighlightMap = new List<string>();
             ItemHighlightMap.Add("ItemCompass");
             ItemHighlightMap.Add("ItemDungeonMap");
+
+            ItemEnemyFreeze = new List<string>();
+            ItemEnemyFreeze.Add("ItemClock");
 
             RupeeCount = 0; 
         }
@@ -200,14 +204,27 @@ namespace Project1.LinkComponents
             }
             return true; 
         }
-        // TODO: remove hardcode string 
-        public bool ContainsMap()
+        public bool CanFreezeEnemies()
         {
-            return Items.ContainsKey("ItemDungeonMap");
+            foreach (string i in ItemEnemyFreeze)
+            {
+                if (!Items.ContainsKey(i))
+                {
+                    return false;   // Missing an item needed to freeze enemies
+                }
+            }
+            return true;
         }
-        public bool ContainsCompass()
+        public void UnfreezeEnemies()
         {
-            return Items.ContainsKey("ItemCompass");
+            /* Precondition: CanFreezeEnemies is true so <Items> contains all entries of <ItemEnemyFreeze>
+             * Remoe all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
+             */
+
+            foreach (string i in ItemEnemyFreeze)
+            {
+                Items.Remove(i);
+            }
         }
         public void Reset()
         {

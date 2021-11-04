@@ -504,6 +504,12 @@
 				<row>6</row>
 				<column>3</column>
 			</object>
+			<object>
+				<type>Item</type>
+				<type2>Clock</type2>
+				<row>1</row>
+				<column>3</column>
+			</object>
 		</Room>
 
 		<Room>

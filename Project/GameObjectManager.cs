@@ -36,7 +36,8 @@ namespace Project1
         public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
-        private IRoom Room; 
+        private IRoom Room;
+        private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
 
         public Game1 Game; 
 
@@ -50,7 +51,9 @@ namespace Project1
             Doors = new List<IDoor>();
             Controllers = new List<IController>();
             Projectiles = new List<IProjectile>();
-            
+
+            FreezeEnemies = new Tuple<bool, ILink>(false, null);
+
             Game = game;
 
             IController KeyboardController = new KeyboardController(Game);
@@ -85,8 +88,6 @@ namespace Project1
 
         public void Update()
         {
-            //UpdateRoomItems(); 
-
             foreach (IController controller in Controllers)
             {
                 controller.Update();
@@ -97,6 +98,10 @@ namespace Project1
                 foreach (ILink link in Links)
                 {
                     link.Update();
+                    if (link.Inventory.CanFreezeEnemies()) // check if Link freeze enemies from moving
+                    {
+                        FreezeEnemies = new Tuple<bool, ILink>(true, link);
+                    }
                 }
                 foreach (IHUD HUD in HUDs)
                 {
@@ -109,10 +114,15 @@ namespace Project1
                 {
                     item.Update();
                 }
-                foreach (IEnemy enemy in Enemies)
+
+                if (!FreezeEnemies.Item1)
                 {
-                    enemy.Update();
+                    foreach (IEnemy enemy in Enemies)
+                    {
+                        enemy.Update();
+                    }
                 }
+
                 for (int i = 0; i < Projectiles.Count; i++)
                 {
                     IProjectile Projectile = Projectiles[i];
@@ -132,10 +142,12 @@ namespace Project1
 
         public void UpdateRoomItems()
         {
-            /* Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
+            /* Called when room switch
+             * Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
              * <Enemies> to be the items in <Room>. Remove all past <Projectiles>. Removes all objects 
              * from the CollisionManager and adds the newly added <Room> objects. 
-             */ 
+             * Unfreeze the enemies 
+             */
 
             Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
@@ -166,11 +178,12 @@ namespace Project1
             {
                 CollisionManager.Instance.AddObject((ICollidable)door);
             }
-            /*
-            foreach (IProjectile projectile in Projectiles)
+            
+            if (FreezeEnemies.Item1)
             {
-                CollisionManager.Instance.AddObject((ICollidable)projectile);
-            }*/
+                FreezeEnemies.Item2.Inventory.UnfreezeEnemies();
+                FreezeEnemies = new Tuple<bool, ILink>(false, null);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -23,9 +23,6 @@ namespace Project1.GameState
         }
         public IGameState CurrentState { get; set; }
         public Game1 Game { get; set; }
-        private bool IsPaused;
-        //private bool IsLose=false;
-        //private bool IsWin = false;
         private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
         private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
@@ -33,7 +30,6 @@ namespace Project1.GameState
         private GameStateManager() 
         {
             // TODO: set default room 
-            IsPaused = false;
             CurrentState = new GameStateStart();
         }
         public void Initialize(Game1 game)
@@ -63,37 +59,15 @@ namespace Project1.GameState
             blackRectangle.SetData(new[] { Color.Black });
 
             CurrentState.Draw(spriteBatch);
-            // TODO: These do not belong here, the drawing should be in the individual states 
-
-            /*if (IsLose)
-            {
-                Rectangle destinationRectangle = new Rectangle(50, 80, Width, Height);
-                spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
-
-                spriteBatch.DrawString(font, "GAME OVER", new Vector2(Width / 2, Height / 2), Color.White);
-            }*/
-
-            /*if (IsWin)
-            {
-                Rectangle destinationRectangle = new Rectangle(50, 80, Width, Height);
-                spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
-
-                spriteBatch.DrawString(font, "YOU WIN", new Vector2(Width / 2, Height / 2-40), Color.White);
-                TriForceFragment.Draw(spriteBatch, new Vector2(Width / 2, Height / 2-20));
-                Link.Draw(spriteBatch, new Vector2(Width/2, Height/2));
-            }*/
+            
         }
         public void Reset() 
         {
             // Restart the game from the beginning 
-            IsPaused = false;
-            //IsLose = false;
-            //IsWin = false;
             CurrentState = CurrentState.Reset();
         }
         public void Pause() 
         {
-            IsPaused = !IsPaused;
             CurrentState = CurrentState.Pause();
         }
         public void Start() 
@@ -115,20 +89,17 @@ namespace Project1.GameState
         {
             // Game is lost, can restart the game or exit 
             CurrentState = CurrentState.LoseGame();
-            //IsLose = true;
         }
         public void GameOverWin() 
         {
             // Game is won, can restart the game or exit 
             CurrentState = CurrentState.WinGame();
-            //IsWin = true;
         }
         public bool CanPlayGame()
         {
             // True if <CurrentGame> is of type GameStateGamePlay 
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("GamePlay")); 
-            //return !IsPaused; 
         }
     }
 }

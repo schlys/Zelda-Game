@@ -44,12 +44,12 @@ namespace Project1.EnemyComponents
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
+            UpdateHitBox();
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
             Position -= new Vector2((RoomBlockSize - Hitbox.Width) / TWO, (RoomBlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
+            UpdateHitBox();
 
             InitialPosition = Position;            
             IsMoving = true;
@@ -94,7 +94,8 @@ namespace Project1.EnemyComponents
         public void AvoidEnemy(string direction)
         {
             // knockback <Position> 
-            Position = Knockback(Position, direction, EnemyState.Step); 
+            Position = Knockback(Position, direction, EnemyState.Step);
+            UpdateHitBox();
         }
 
         public void Reset()
@@ -134,13 +135,19 @@ namespace Project1.EnemyComponents
                 IsMoving = true;
                 EnemyState.Update();
                 // Update Hitbox for collisions 
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
+                UpdateHitBox();
             }
             else
             {
                 CollisionManager.Instance.RemoveObject(this);
             }
             
+        }
+
+        private void UpdateHitBox()
+        {
+            // Update Hitbox for collisions 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
         }
     }
 }
