@@ -6,7 +6,8 @@ using Project1.ProjectileComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Microsoft.Xna.Framework;
 
 namespace Project1.Command
 {
@@ -50,6 +51,20 @@ namespace Project1.Command
         public void Execute()
         {
             Link.TakeDamage(Direction, 20);
+        }
+    }
+
+    public class LinkWearBlueRingCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        public LinkWearBlueRingCmd(ICollidable link, ICollidable holder, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.HalfDamageRecieved();
+            Link.SetColor(Color.CornflowerBlue); 
         }
     }
 

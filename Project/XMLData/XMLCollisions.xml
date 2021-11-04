@@ -84,7 +84,7 @@
 	</Collision>
 	<Collision>
 		<name>LinkItemBlueRing</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
+		<command1>LinkWearBlueRingCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	<Collision>

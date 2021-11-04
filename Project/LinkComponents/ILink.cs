@@ -35,6 +35,7 @@ namespace Project1.LinkComponents
         void IncreaseHealth();
         void RestoreHealth();
         void IncreaseHealthHeartCount();
+        void HalfDamageRecieved();
         void HitBlock(string direction);
 
         void UseMagicalRod();
@@ -46,5 +47,6 @@ namespace Project1.LinkComponents
         void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);
+        void SetColor(Color color);
     }
 }

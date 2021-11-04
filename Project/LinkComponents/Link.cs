@@ -33,23 +33,27 @@ namespace Project1.LinkComponents
         // Other Link Properties 
         private string UseItemName;       // NOTE: should change useitem string to something less hard coded? 
         private Vector2 InitialPosition; 
-        private int Step = 4;
-        private bool LockFrame;     // TODO: Belong in sprite draw? 
+        private int Step;
+        private double DamageRecieved; 
+        private bool LockFrame; 
         private bool HasWon = false;       // Check whether Link picked up the TriforceFragment
         private bool IsDead = false;
         private int TotalNumHearts;
-        private int TWO = 2;
-        private int delay = 25;
+        private int TWO = 2;                // TODO: this is still hard coded im confused? 
+        private int delay;
         public Link(Vector2 position, Game1 game)
         {
+            /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
+             * 3 hearts. 
+             */ 
             Weapon = "WoodenSword";
-            DirectionState = new DirectionStateUp();     // default state is up           
-            LinkWeaponState = new LinkStateWoodenSword(this);    // default weapon state is wooden sword
+            DirectionState = new DirectionStateUp();            
+            LinkWeaponState = new LinkStateWoodenSword(this);   
             TotalNumHearts = 3;
-            Health = new LinkHealth(TotalNumHearts);                  // default health is 3 of 3 hearts 
+            Health = new LinkHealth(TotalNumHearts);              
             UseItemName = "";
 
-            Inventory = new Inventory(this); //new Dictionary<string, int>(); 
+            Inventory = new Inventory(this);
 
             UpdateSprite(); // Generate LinkSprite 
             IsMoving = true;
@@ -65,6 +69,10 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             
             InitialPosition = Position;
+
+            DamageRecieved = 0.1;
+            Step = 4;
+            delay = 25; 
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play
@@ -221,30 +229,32 @@ namespace Project1.LinkComponents
         {
             /* Returns true of Link has any key in his <Inventory>
              */ 
-
             return Inventory.UseKey();
         }
 
         public void PickUpItem(string name)
         {
-            /*if (name.Equals("ItemTriforceFragment"))
-                IsPicked = true; // TODO: This is for TriforceFragment, make if statement.*/
+            /* Link picks up an item, adds it to his <Inventory>, does a specific pick up animation, 
+             * and plays a sound.
+             */
             UpdateSprite();
-
-            // NOTE: Add or increment count of <name> in <Inventory> 
             Inventory.AddItem(name);
             GameSoundManager.Instance.PlaySound("GetItem");
         }
 
         public void TakeDamage(string direction, int knockback = 0)
         {
-            // TODO: determine value to decrease by  
+            /* Link's health decrease by <DamageRecieved>, his color is set to red, a hurt sound is 
+             * played, his position is knocked back, and we chack if he has died. 
+             */ 
             GameSoundManager.Instance.PlaySound("LinkHurt");
-            Health.Decrease(0.5);
-            LinkSprite.Color = Color.Red;
+            Health.Decrease(DamageRecieved);
+            SetColor(Color.Red);
+            //LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
             
+            // TODO: not map by totalNumHearts, should use health.dead function here 
             if (Health.IsLoseHeart())
             {
                 //Reset(); // TODO: Reset all states?
@@ -270,6 +280,11 @@ namespace Project1.LinkComponents
         {
             Health.IncreaseHeartCount(1);
         }
+        public void HalfDamageRecieved()
+        {
+            DamageRecieved /= 2;
+        }
+
         public void HitBlock(string direction)
         {
             StopMotion();
@@ -382,6 +397,11 @@ namespace Project1.LinkComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             if(!IsDead) LinkSprite.Draw(spriteBatch, Position);
+        }
+
+        public void SetColor(Color color)
+        {
+            LinkSprite.Color = color;
         }
     }
 }
