@@ -104,7 +104,8 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
             MovementTimer++;
-            if (MovementTimer > 90)
+            int time = 90;
+            if (MovementTimer > time)
             {
                 RandomInt = R.Next(0, 5);
                 MovementTimer = 0;

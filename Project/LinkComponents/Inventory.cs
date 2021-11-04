@@ -22,12 +22,12 @@ namespace Project1.LinkComponents
         private string DefaultItem1;
         private string DefaultItem2;
         private List<string> ItemKeys;
-
+        private List<string> ItemHighlightMap;
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
-         * Compass - indicate boss and treasure chest location on dungeon maps
-         * Map - shows all rooms and how connect. combine with compass show location trasure chests
+         *      Compass - when both compass and map, highlight location of triforce fragment
+         *      Map 
          *      Small Key - unlock locked doors or blocks (not doors to boss rooms)
          * (NOT ON LIST) Magical Key 
          *      Triforce piece - heart healed (needs 8 in real game, but here can win?)
@@ -92,6 +92,10 @@ namespace Project1.LinkComponents
             ItemKeys = new List<string>();
             ItemKeys.Add("ItemSmallKey");
             ItemKeys.Add("ItemMagicalKey");
+
+            ItemHighlightMap = new List<string>();
+            ItemHighlightMap.Add("ItemCompass");
+            ItemHighlightMap.Add("ItemDungeonMap");
 
             RupeeCount = 0; 
         }
@@ -183,6 +187,27 @@ namespace Project1.LinkComponents
                 throw new IndexOutOfRangeException();
             }
             Item2 = name; 
+        }
+
+        public bool CanHighlightTreasureMap()
+        {
+            foreach(string i in ItemHighlightMap)
+            {
+                if (!Items.ContainsKey(i))
+                {
+                    return false;   // Missing an item needed to display the map
+                }
+            }
+            return true; 
+        }
+        // TODO: remove hardcode string 
+        public bool ContainsMap()
+        {
+            return Items.ContainsKey("ItemDungeonMap");
+        }
+        public bool ContainsCompass()
+        {
+            return Items.ContainsKey("ItemCompass");
         }
         public void Reset()
         {

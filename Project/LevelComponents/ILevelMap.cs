@@ -10,9 +10,8 @@ namespace Project1.LevelComponents
 {
 	public interface ILevelMap
 	{
-		Vector2 Position { get; set; }
 		Texture2D Texture { get; set; }
-		void Draw(SpriteBatch spriteBatch, Vector2 position);
+		void Draw(SpriteBatch spriteBatch, Vector2 position, bool CanDrawTriforceFragment);
 		void Reset();
 		void MoveUp();
 		void MoveDown();

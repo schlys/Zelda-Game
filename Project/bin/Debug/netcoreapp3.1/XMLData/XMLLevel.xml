@@ -159,6 +159,10 @@
 				<row>5</row>
 				<column>0</column>
 			</object>
+<<<<<<< HEAD
+=======
+			<!--
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 			<object>
 				<type>Item</type>
 				<type2>BookOfMagic</type2>
@@ -171,18 +175,34 @@
 				<row>0</row>
 				<column>1</column>
 			</object>
+<<<<<<< HEAD
 			<object>
 				<type>Item</type>
 				<type2>Compass</type2>
 				<row>1</row>
+=======
+			-->
+			<object>
+				<type>Item</type>
+				<type2>Compass</type2>
+				<row>0</row>
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 				<column>1</column>
 			</object>
 			<object>
 				<type>Item</type>
+<<<<<<< HEAD
 				<type2>TriforceFragment</type2>
 				<row>2</row>
 				<column>1</column>
 			</object>
+=======
+				<type2>DungeonMap</type2>
+				<row>2</row>
+				<column>1</column>
+			</object>
+			<!--
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 			<object>
 				<type>Item</type>
 				<type2>Stepladder</type2>
@@ -201,6 +221,10 @@
 				<row>5</row>
 				<column>1</column>
 			</object>
+<<<<<<< HEAD
+=======
+			-->
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 			<object>
 				<type>Item</type>
 				<type2>WoodenSword</type2>
@@ -303,16 +327,28 @@
 				<row>1</row>
 				<column>4</column>
 			</object>
+<<<<<<< HEAD
+=======
+			<!--
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 			<object>
 				<type>Item</type>
 				<type2>Letter</type2>
 				<row>2</row>
 				<column>4</column>
 			</object>
+<<<<<<< HEAD
 			<object>
 				<type>Item</type>
 				<type2>DungeonMap</type2>
 				<row>3</row>
+=======
+			-->
+			<object>
+				<type>Item</type>
+				<type2>TriforceFragment</type2>
+				<row>2</row>
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
 				<column>4</column>
 			</object>
 			<object>

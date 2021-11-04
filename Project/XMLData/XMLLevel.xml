@@ -159,6 +159,7 @@
 				<row>5</row>
 				<column>0</column>
 			</object>
+			<!--
 			<object>
 				<type>Item</type>
 				<type2>BookOfMagic</type2>
@@ -171,18 +172,20 @@
 				<row>0</row>
 				<column>1</column>
 			</object>
+			-->
 			<object>
 				<type>Item</type>
 				<type2>Compass</type2>
-				<row>1</row>
+				<row>0</row>
 				<column>1</column>
 			</object>
 			<object>
 				<type>Item</type>
-				<type2>TriforceFragment</type2>
+				<type2>DungeonMap</type2>
 				<row>2</row>
 				<column>1</column>
 			</object>
+			<!--
 			<object>
 				<type>Item</type>
 				<type2>Stepladder</type2>
@@ -201,6 +204,7 @@
 				<row>5</row>
 				<column>1</column>
 			</object>
+			-->
 			<object>
 				<type>Item</type>
 				<type2>WoodenSword</type2>
@@ -303,16 +307,18 @@
 				<row>1</row>
 				<column>4</column>
 			</object>
+			<!--
 			<object>
 				<type>Item</type>
 				<type2>Letter</type2>
 				<row>2</row>
 				<column>4</column>
 			</object>
+			-->
 			<object>
 				<type>Item</type>
-				<type2>DungeonMap</type2>
-				<row>3</row>
+				<type2>TriforceFragment</type2>
+				<row>2</row>
 				<column>4</column>
 			</object>
 			<object>

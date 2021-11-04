@@ -22,6 +22,7 @@ namespace Project1.LinkComponents
         bool UseKey(); 
         void SetItem1(String name);
         void SetItem2(String name);
+        bool CanHighlightTreasureMap();
         void Reset();
     }
 }

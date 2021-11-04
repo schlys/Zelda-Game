@@ -28,6 +28,8 @@ namespace Project1.EnemyComponents
         private int counter = 0;
         private int colorDelay = 10;
         private bool IsDead = false;
+        private int health = 3;
+        private int TWO = 2;
         
         public Enemy(Vector2 position, string type)
         {           
@@ -38,14 +40,14 @@ namespace Project1.EnemyComponents
             object enemyState = enemyConstructor.Invoke(new object[] { this});
             EnemyState = (IEnemyState)enemyState;
            
-            Health = new EnemyHealth(3, 3);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
+            Health = new EnemyHealth(health, health);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / TWO, (RoomBlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
 
@@ -99,7 +101,7 @@ namespace Project1.EnemyComponents
         {
             ResetPosition();
             //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
-            Health = new EnemyHealth(3, 30);                  // default health is 3 of 3 hearts 
+            Health = new EnemyHealth(health, 30);                  // default health is 3 of 3 hearts 
             IsMoving = true;
             IsDead = false;
             EnemyState.Sprite.Color = Color.White;

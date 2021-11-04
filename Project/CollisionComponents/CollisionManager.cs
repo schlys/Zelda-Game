@@ -25,6 +25,7 @@ namespace Project1.CollisionComponents
         public List<ICollidable> NonMovingObjects;
 
         private static Dictionary<string, Tuple<ConstructorInfo, ConstructorInfo>> CollisionMappings;
+        private int TWO = 2; 
 
         private CollisionManager() 
         {
@@ -118,8 +119,8 @@ namespace Project1.CollisionComponents
         // NOTE: Returns the proper hitbox given the position and hitbox dimensions
         public Rectangle GetHitBox(Vector2 position, Vector2 dimensions, int size)
         {
-            int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
-            int yPos = (int)(position.Y + (size / 2) - (dimensions.Y / 2));
+            int xPos = (int)(position.X + (size / TWO) - (dimensions.X / TWO));
+            int yPos = (int)(position.Y + (size / TWO) - (dimensions.Y / TWO));
             return new Rectangle(xPos, yPos, (int)dimensions.X, (int)dimensions.Y); 
         }
 
@@ -129,8 +130,8 @@ namespace Project1.CollisionComponents
             int size = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
             dimensions.X *= GameObjectManager.Instance.ScalingFactor;
             dimensions.Y *= GameObjectManager.Instance.ScalingFactor;
-            int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
-            int yPos = (int)(position.Y + (size / 2) - (dimensions.Y / 2));
+            int xPos = (int)(position.X + (size / TWO) - (dimensions.X / TWO));
+            int yPos = (int)(position.Y + (size / TWO) - (dimensions.Y / TWO));
             return new Rectangle(xPos, yPos, (int)dimensions.X, (int)dimensions.Y);
         }
 

@@ -23,6 +23,7 @@ namespace Project1.ItemComponents
         // Other Properies 
         private IItemState ItemState { get; set; }
         private bool IsPicked = false;
+        private int TWO = 2;
 
         public MovingItem(Vector2 position, string type)
         {
@@ -41,7 +42,7 @@ namespace Project1.ItemComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / TWO, (RoomBlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox);
 

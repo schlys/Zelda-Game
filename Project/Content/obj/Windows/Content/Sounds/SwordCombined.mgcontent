@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/SwordCombined.wav</SourceFile>
   <SourceTime>2021-11-03T13:14:09.7096845-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/SwordCombined.xnb</DestFile>
   <DestTime>2021-11-04T14:32:29.6471912-04:00</DestTime>
+=======
+  <SourceFile>C:/Users/blum1/Project/Project/Content/Sounds/SwordCombined.wav</SourceFile>
+  <SourceTime>2021-11-04T14:35:03.941048-04:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/SwordCombined.xnb</DestFile>
+  <DestTime>2021-11-04T10:38:35.9048343-04:00</DestTime>
+>>>>>>> 1ca83544877628fd56bd8540d97265c92ee52f27
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

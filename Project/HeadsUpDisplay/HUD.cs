@@ -59,9 +59,9 @@ namespace Project1.HeadsUpDisplay
             spriteBatch.DrawString(font, item1, new Vector2(400, 30), Color.Black);
             spriteBatch.DrawString(font, item2, new Vector2(400, 45), Color.Black);*/
 
-            // Draw the <LevelMap> found in <LevelFactory>
-            LevelFactory.Instance.LevelMap.Draw(spriteBatch, MapPosition);
-
+            // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
+            LevelFactory.Instance.LevelMap.Draw(spriteBatch, MapPosition, Link.Inventory.CanHighlightTreasureMap());
+            
             // Draw Link's Health Hearts 
             DrawLinkHealth(spriteBatch, HeartPosition);
 
