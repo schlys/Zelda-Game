@@ -152,7 +152,8 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
             MovementTimer++;
-            if (MovementTimer > 20)
+            int time = 20;
+            if (MovementTimer > time)
             {
                 RandomInt = R.Next(0, 9);
                 MovementTimer = 0;

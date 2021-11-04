@@ -22,6 +22,8 @@ namespace Project1.EnemyComponents
         private Random R = new Random();
         private int Timer = 0;
         private int Rand;
+        private int move = 50;
+        private int frames = 4;
 
         private int attack = 200;
 
@@ -42,9 +44,9 @@ namespace Project1.EnemyComponents
 
         public void MoveLeft()
         {
-            if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - 50)
+            if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - move)
             {
-                Sprite.TotalFrames = 4;
+                Sprite.TotalFrames = frames;
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveLeft();
 
@@ -64,10 +66,10 @@ namespace Project1.EnemyComponents
 
         public void MoveRight()
         {
-            if (!IsAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + 50)
+            if (!IsAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + move)
             {
 
-                Sprite.TotalFrames = 4;
+                Sprite.TotalFrames = frames;
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveRight();
 
@@ -86,7 +88,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            Sprite.TotalFrames = 3;
+            Sprite.TotalFrames = frames - 1;
             //((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()

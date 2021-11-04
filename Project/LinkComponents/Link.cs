@@ -38,6 +38,8 @@ namespace Project1.LinkComponents
         private bool HasWon = false;       // Check whether Link picked up the TriforceFragment
         private bool IsDead = false;
         private int TotalNumHearts;
+        private int TWO = 2;
+        private int delay = 25;
         public Link(Vector2 position, Game1 game)
         {
             Weapon = "WoodenSword";
@@ -58,7 +60,7 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / TWO, (RoomBlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             
@@ -97,7 +99,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
                 }
                 // NOTE: Account for sprite size 
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step/2 + Hitbox.Height);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step/TWO + Hitbox.Height);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(0, Step);
@@ -196,7 +198,7 @@ namespace Project1.LinkComponents
                 LockFrame = true;
                 UseItemName = "UseItem";
                 UpdateSprite();     // trigger item pick use animation 
-                LinkSprite.MaxDelay = 25;
+                LinkSprite.MaxDelay = delay;
 
                 Inventory.UseItem1(); 
             }
@@ -210,7 +212,7 @@ namespace Project1.LinkComponents
                 LockFrame = true;
                 UseItemName = "UseItem";
                 UpdateSprite();     // trigger item pick use animation 
-                LinkSprite.MaxDelay = 25;
+                LinkSprite.MaxDelay = delay;
                 Inventory.UseItem2();
             }
         }
