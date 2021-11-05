@@ -33,6 +33,11 @@ namespace Project1.LevelComponents
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);
         void AddDoor(IDoor door);
+        void Left(Room previousRoom);
+        void Right(Room previousRoom);
+        void Up(Room previousRoom);
+        void Down(Room previousRoom);
+        void Update();
         void Draw(SpriteBatch spriteBatch);
         void Reset();
     }

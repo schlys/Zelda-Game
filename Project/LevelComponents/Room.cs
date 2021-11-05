@@ -29,6 +29,9 @@ namespace Project1.LevelComponents
         public Texture2D Texture { get; set; }
 
         public Color Color = Color.White;
+        Room PreviousRoom;
+        Rectangle sourceRectangle2;
+        Rectangle destinationRectangle2;
         //private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
         //private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
@@ -51,6 +54,7 @@ namespace Project1.LevelComponents
 
             // TODO: data drive 
             Size = new Vector2(256, 176) * GameObjectManager.Instance.ScalingFactor;
+            
         }
 
         public void AddBlock(IBlock block)
@@ -69,7 +73,38 @@ namespace Project1.LevelComponents
         {
             Doors.Add(door);
         }
+        public void Up(Room previousRoom)
+        {
+            PreviousRoom = previousRoom;
+            PreviousRoom.Position = new Vector2((int)Position.X, (int)Position.Y + (int)Position.Y);
+            sourceRectangle2 = new Rectangle(XPos, YPos, 256, 176);
+            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
+        }
+        public void Down(Room previousRoom)
+        {
+            PreviousRoom = previousRoom;
+            PreviousRoom.Position = new Vector2((int)Position.X, (int)Position.Y - (int)Position.Y);
+            sourceRectangle2 = new Rectangle(XPos, YPos, 256, 176);
+            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
+        }
+        public void Left(Room previousRoom)
+        {
+            PreviousRoom = previousRoom;
+            PreviousRoom.Position = new Vector2((int)Position.X - (int)Position.X, (int)Position.Y);
+            sourceRectangle2 = new Rectangle(XPos, YPos, 256, 176);
+            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
+        }
+        public void Right(Room previousRoom)
+        {
+            PreviousRoom = previousRoom;
+            PreviousRoom.Position = new Vector2((int)Position.X + (int)Position.X, (int)Position.Y);
+            sourceRectangle2 = new Rectangle(XPos, YPos, 256, 176);
+            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
+        }
+        public void Update()
+        {
 
+        }
         public void Reset()
         {
             // TODO: should we handle object reset here and not in gameobject manager? 
@@ -80,6 +115,7 @@ namespace Project1.LevelComponents
             Rectangle sourceRectangle = new Rectangle(XPos, YPos, 256, 176);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
+            //spriteBatch.Draw(PreviousRoom.Texture, destinationRectangle2, sourceRectangle2, Color);
         }
     }
 }
