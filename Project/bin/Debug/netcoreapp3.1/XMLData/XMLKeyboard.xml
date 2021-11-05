@@ -43,47 +43,47 @@
 	</Control>
 
 	<!-- ITEM SELECTION -->
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkItemSelectRightCmd</name>
 		<key>Right</key>
 	</Control>
 	
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkItemSelectLeftCmd</name>
 		<key>Left</key>
 	</Control>
 
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkItemSelectUpCmd</name>
 		<key>Up</key>
 	</Control>
 
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkItemSelectDownCmd</name>
 		<key>Down</key>
 	</Control>
 
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkSelectItem1Cmd</name>
 		<key>D1</key>
 	</Control>
 	
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkSelectItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkSelectItem2Cmd</name>
 		<key>D2</key>
 	</Control>
 	
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkSelectItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
 
-	<Control player="1">
+	<Control player="1" press="true">
 		<name>LinkSelectItemCmd</name>
 		<key>Enter</key>
 	</Control>
@@ -105,22 +105,22 @@
 		<key>N</key>
 	</Control>
 
-	<Control>
+	<Control press="true">
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 	
-	<Control>
+	<Control press="true">
 		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</Control>
 	
-	<Control>
+	<Control press="true">
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
 	
-	<Control>
+	<Control press="true">
 		<name>LinkUseItem2Cmd</name>
 		<key>D2</key>
 	</Control>

@@ -278,7 +278,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.ItemUp();
+            Link.Inventory.ItemUp();
         }
     }
 
@@ -294,7 +294,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.ItemDown();
+            Link.Inventory.ItemDown();
         }
     }
     public class LinkItemSelectLeftCmd : ICommand
@@ -309,7 +309,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.ItemLeft();
+            Link.Inventory.ItemLeft();
         }
     }
     public class LinkItemSelectRightCmd : ICommand
@@ -324,7 +324,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.ItemRight();
+            Link.Inventory.ItemRight();
         } 
     }
     public class LinkSelectItemCmd : ICommand
@@ -339,7 +339,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.SelectItem();
+            Link.Inventory.SelectItem();
         }
     }
 
@@ -355,7 +355,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.SelectItem1();
+            Link.Inventory.SelectItem1();
         }
     }
 
@@ -371,7 +371,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.SelectItem2();
+            Link.Inventory.SelectItem2();
         }
     }
     /*

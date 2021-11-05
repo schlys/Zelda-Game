@@ -39,13 +39,6 @@ namespace Project1.LinkComponents
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
-        void SelectItem();
-        void SelectItem1();
-        void SelectItem2();
-        void ItemUp();
-        void ItemDown();
-        void ItemLeft();
-        void ItemRight();
         void Win(); 
         void Reset();
         void Update();
