@@ -253,7 +253,9 @@ namespace Project1.LevelComponents
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
+                Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.UpRoom];
+                CurrentRoom.Up(previousRoom);
                 GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveUp();
             }
@@ -262,7 +264,9 @@ namespace Project1.LevelComponents
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
+                Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.DownRoom];
+                CurrentRoom.Down(previousRoom);
                 GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveDown();
             }
@@ -271,7 +275,9 @@ namespace Project1.LevelComponents
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
+                Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+                CurrentRoom.Left(previousRoom);
                 GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveLeft();
             }
@@ -280,7 +286,9 @@ namespace Project1.LevelComponents
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
+                Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
+                CurrentRoom.Right(previousRoom);
                 GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveRight();
             }
