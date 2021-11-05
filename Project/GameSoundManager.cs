@@ -35,29 +35,26 @@ namespace Project1
         private void PlaySong(Game1 game)
         {
             song = game.Content.Load<Song>("Sounds/Song");
-            MediaPlayer.Play(song);
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.3f;       // 0.0f is silent, 1.0f is full volume
+            MediaPlayer.Play(song);             // Play background song
+            MediaPlayer.IsRepeating = true;     // Loop the song
+            MediaPlayer.Volume = 0.5f;          // 0.0f is silent, 1.0f is full volume
         }
         private void CreateDict(Game1 game)
         {
-            SoundDict = new Dictionary<string, SoundEffectInstance>();
-            XmlDocument XMLData = new XmlDocument();
+            SoundDict = new Dictionary<string, SoundEffectInstance>();      // Key is name of song, Value is the SoundEffectInstance
+            XmlDocument XMLData = new XmlDocument();                        // Sound effect list stored in XMLSounds.xml
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLSounds.xml";
             XMLData.Load(path);
-            XmlNodeList Sounds = XMLData.SelectNodes("Sounds/Sound");
+            XmlNodeList Sounds = XMLData.SelectNodes("Sounds/Sound");       // Select each sound node in XMLSounds.xml
 
-            foreach (XmlNode node in Sounds)
+            foreach (XmlNode node in Sounds)    // Iterate through each sound
             {
-                String name = node.SelectSingleNode("Name").InnerText;
-                bool loop = node.SelectSingleNode("Loop").InnerText.Equals("1");
-
+                String name = node.SelectSingleNode("Name").InnerText;                          // Read sound name from XML
+                bool loop = node.SelectSingleNode("Loop").InnerText.Equals("1");                // Read if sound is looped or not
                 SoundEffect soundEffect = game.Content.Load<SoundEffect>("Sounds/" + name);     // Create the sound effect
-                SoundEffectInstance soundEffectInstance = soundEffect.CreateInstance();
-                soundEffectInstance.IsLooped = loop;
-                SoundDict.Add(name, soundEffectInstance);                                               // Add instance to dictionary
-                System.Diagnostics.Debug.WriteLine("\n name: " + name);
-                System.Diagnostics.Debug.WriteLine("\n bool: " + loop);
+                SoundEffectInstance soundEffectInstance = soundEffect.CreateInstance();         // Create an instance of the sound effect
+                soundEffectInstance.IsLooped = loop;                                            // Set the value of IsLooped
+                SoundDict.Add(name, soundEffectInstance);                                       // Add instance to dictionary
             }
         }
 
@@ -71,11 +68,6 @@ namespace Project1
             {
                 throw new NotImplementedException();
             }*/
-        }
-
-        public void Reset()
-        {
-           
         }
 
     }
