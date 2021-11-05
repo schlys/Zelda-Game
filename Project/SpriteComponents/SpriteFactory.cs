@@ -41,19 +41,12 @@ namespace Project1.SpriteComponents
 
             foreach (XmlNode node in Sheets)
             {
-                TextureDict.Add(node.SelectSingleNode("name").InnerText, content.Load<Texture2D>(node.SelectSingleNode("sheet").InnerText));
+                string name = node.SelectSingleNode("name").InnerText;
+                string sheet = node.SelectSingleNode("sheet").InnerText;
+                TextureDict.Add(name, content.Load<Texture2D>(sheet));
             }
             //to do: add these elements to XMLSpriteSheets.xml
 
-            TextureDict.Add("woodenSword", content.Load<Texture2D>("LinkSprites/WoodenSword"));
-            TextureDict.Add("magicalSword", content.Load<Texture2D>("LinkSprites/MagicalSword"));
-            TextureDict.Add("moblin", content.Load<Texture2D>("OverworldEnemies/MoblinAndMolblin"));
-            TextureDict.Add("stalfos", content.Load<Texture2D>("DungeonEnemies/Stalfos"));
-            TextureDict.Add("keese", content.Load<Texture2D>("DungeonEnemies/Keese"));
-            TextureDict.Add("aquamentus", content.Load<Texture2D>("DungeonEnemies/Aquamentus"));
-            TextureDict.Add("gel", content.Load<Texture2D>("DungeonEnemies/Gel"));
-            TextureDict.Add("goriya", content.Load<Texture2D>("DungeonEnemies/Goriya"));
-            TextureDict.Add("oldMan", content.Load<Texture2D>("NPCs/OldManWoman"));
 
             CreateDict();
         }

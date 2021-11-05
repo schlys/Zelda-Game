@@ -28,4 +28,40 @@
 		<name>useItem</name>
 		<sheet>LinkSprites/useItem</sheet>
 	</Sheet>
+	<Sheet>
+		<name>woodenSword</name>
+		<sheet>LinkSprites/WoodenSword</sheet>
+	</Sheet>
+	<Sheet>
+		<name>magicalSword</name>
+		<sheet>LinkSprites/MagicalSword</sheet>
+	</Sheet>
+	<Sheet>
+		<name>moblin</name>
+		<sheet>OverworldEnemies/MoblinAndMolblin</sheet>
+	</Sheet>
+	<Sheet>
+		<name>stalfos</name>
+		<sheet>DungeonEnemies/Stalfos</sheet>
+	</Sheet>
+	<Sheet>
+		<name>keese</name>
+		<sheet>DungeonEnemies/Keese</sheet>
+	</Sheet>
+	<Sheet>
+		<name>aquamentus</name>
+		<sheet>DungeonEnemies/Aquamentus</sheet>
+	</Sheet>
+	<Sheet>
+		<name>gel</name>
+		<sheet>DungeonEnemies/Gel</sheet>
+	</Sheet>
+	<Sheet>
+		<name>goriya</name>
+		<sheet>DungeonEnemies/Goriya</sheet>
+	</Sheet>
+	<Sheet>
+		<name>oldMan</name>
+		<sheet>NPCs/OldManWoman</sheet>
+	</Sheet>
 </Sheets>
