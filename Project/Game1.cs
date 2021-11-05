@@ -19,6 +19,7 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Camera _camera;
 
         public Game1()
         {
@@ -35,7 +36,7 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            _camera = new Camera();
             SpriteFactory.Instance.LoadAllTextures(Content);
             LevelFactory.Instance.LoadAllTextures(Content); 
 
@@ -50,16 +51,17 @@ namespace Project1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            GameObjectManager.Instance.Update(); 
+            GameObjectManager.Instance.Update();
+            _camera.Follow(GameObjectManager.Instance.Links);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
+            // NOTE: First one is for camera version. 
+            //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: _camera.Transform);
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-           
             GameObjectManager.Instance.Draw(_spriteBatch);
             GameStateManager.Instance.Draw(_spriteBatch);
 

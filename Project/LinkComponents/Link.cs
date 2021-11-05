@@ -130,6 +130,10 @@ namespace Project1.LinkComponents
                 {
                     Position -= new Vector2(Step, 0);
                 }
+                else
+                {
+                    //LevelFactory.Instance.MoveLeft();
+                }
             }
         }
 
