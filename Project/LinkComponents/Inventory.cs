@@ -30,6 +30,7 @@ namespace Project1.LinkComponents
         private List<string> ItemEnemyFreeze;
 
         private int TWO = 2; // TODO: is 2 hard coding? 
+        private Vector2 ItemDimentions;
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
@@ -108,7 +109,9 @@ namespace Project1.LinkComponents
             ItemEnemyFreeze = new List<string>();
             ItemEnemyFreeze.Add("ItemClock");
 
-            RupeeCount = 0; 
+            RupeeCount = 0;
+
+            ItemDimentions = new Vector2(4, 2); 
         }
         public void AddItem(String name)
         {
@@ -241,33 +244,62 @@ namespace Project1.LinkComponents
                 SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 2);
             }
         }
+        private int FindItemIndex(string key)
+        {
+            /* Given a key guarenteed to be in <Items>, find it's index. 
+             */
+            for (int i = 0; i < Items.Count; i++)
+            {
+                if (Items.ElementAt(i).Key.Equals(key))
+                {
+                    return i;
+                }
+            }
+            return -1; 
+        }
 
         public void ItemUp()
         {
             if (CanItemSelect())
             {
-                int i = 0;
+                int newIndex = (int)(FindItemIndex(SelectedItem.Item1) - ItemDimentions.X); 
+                if (newIndex >= 0 && newIndex < Items.Count)
+                {
+                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                }
             }
         }
         public void ItemDown()
         {
             if (CanItemSelect())
             {
-                int i = 0;
+                int newIndex = (int)(FindItemIndex(SelectedItem.Item1) + ItemDimentions.X);
+                if (newIndex >= 0 && newIndex < Items.Count)
+                {
+                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                }
             }
         }
         public void ItemLeft()
         {
             if (CanItemSelect())
             {
-                int i = 0;
+                int newIndex = FindItemIndex(SelectedItem.Item1) - 1;
+                if (newIndex >= 0 && newIndex < Items.Count)
+                {
+                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                }
             }
         }
         public void ItemRight()
         {
             if (CanItemSelect())
             {
-                int i = 0;
+                int newIndex = FindItemIndex(SelectedItem.Item1) + 1;
+                if (newIndex >= 0 && newIndex < Items.Count)
+                {
+                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                }
             }
         }
         public bool CanHighlightTreasureMap()
@@ -310,7 +342,7 @@ namespace Project1.LinkComponents
              */
             
             Vector2 initialPosition = position; 
-            int numItems = 8;
+            int numItems = (int)(ItemDimentions.X * ItemDimentions.Y);
             for (int i = 0; i < Items.Count && i < numItems; i++)
             {
                 string ItemName = Items.ElementAt(i).Key;
