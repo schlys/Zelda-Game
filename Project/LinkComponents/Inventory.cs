@@ -8,7 +8,8 @@ using Project1.DirectionState;
 using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
 using Project1.ProjectileComponents;
-using Project1.CollisionComponents; 
+using Project1.CollisionComponents;
+using Project1.GameState; 
 
 namespace Project1.LinkComponents
 {
@@ -19,6 +20,7 @@ namespace Project1.LinkComponents
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public int RupeeCount { get; set; }
+        private string SelectedItem;    // used when set item1 or item2 
         private Dictionary<string, int> DefaultItems;
         private Dictionary<string, int> RupeeValues;
         private string DefaultItem1;
@@ -84,6 +86,8 @@ namespace Project1.LinkComponents
 
             DefaultItem1 = "ItemBombSolid";
             DefaultItem2 = "ItemMagicalBoomerangSolid";
+            
+            SelectedItem = "ItemBombSolid"; 
 
             Items = new Dictionary<string, int>(DefaultItems); 
 
@@ -123,21 +127,57 @@ namespace Project1.LinkComponents
                 CollectRupee(name);
             }
         }
+        private bool CanPlayGame()
+        {
+            return GameStateManager.Instance.CanPlayGame(); 
+        }
+        private bool CanItemSelect()
+        {
+            return GameStateManager.Instance.CanItemSelect(); 
+        }
         public void UseItem1()
         {
-            if (!Items.ContainsKey(Item1))
+            if (CanPlayGame())
             {
-                throw new InvalidOperationException();
+                if (!Items.ContainsKey(Item1))
+                {
+                    throw new InvalidOperationException();
+                }
+                UseItem(Item1);
             }
-            UseItem(Item1);
+            
         }
         public void UseItem2()
         {
-            if (!Items.ContainsKey(Item2))
+            if (CanPlayGame())
             {
-                throw new InvalidOperationException();
+                if (!Items.ContainsKey(Item2))
+                {
+                    throw new InvalidOperationException();
+                }
+                UseItem(Item2);
             }
-            UseItem(Item2);
+        }
+        private void UseItem(string name)
+        {
+            /* Precondition: <name> is guarenteed to be in <Items>
+             * Decrement the occurance of <name> in <Items>. If <name> occurs once, remove it from <Items>.
+             * Create a projectile of the specific item. 
+             */
+
+            if (Items[name] == 1)
+            {
+                Items.Remove(name);
+            }
+            else
+            {
+                Items[name] = Items[name] - 1;
+            }
+
+            // Add Projectile 
+            string itemName = name.Substring(4); // Remove "Item" keyword from start
+            IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, itemName);
+            GameObjectManager.Instance.AddProjectile(Item);
         }
         public bool UseKey()
         {
@@ -160,43 +200,66 @@ namespace Project1.LinkComponents
             RupeeCount += RupeeValues[name];
             GameSoundManager.Instance.PlayGetRupee();
         }
-        private void UseItem(string name)
+        public void SelectItem()
         {
-            /* Precondition: <name> is guarenteed to be in <Items>
-             * Decrement the occurance of <name> in <Items>. If <name> occurs once, remove it from <Items>.
-             * Create a projectile of the specific item. 
-             */
+            if (CanItemSelect())
+            {
+                if (!Items.ContainsKey(SelectedItem))
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                Item2 = SelectedItem;
+                if (!Items.ContainsKey(SelectedItem))
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                Item1 = SelectedItem;
+            }
             
-            if(Items[name] == 1)
-            {
-                Items.Remove(name);
-            } else
-            {
-                Items[name] = Items[name] - 1;
-            }
-
-            // Add Projectile 
-            string itemName = name.Substring(4); // Remove "Item" keyword from start
-            IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, itemName);
-            GameObjectManager.Instance.AddProjectile(Item);
         }
-        public void SetItem1(string name)
+        public void SelectItem1()
         {
-            if (!Items.ContainsKey(Item1))
+            if (CanItemSelect())
             {
-                throw new IndexOutOfRangeException();
+                int i = 0; 
             }
-            Item1 = name;
         }
-        public void SetItem2(string name)
+        public void SelectItem2()
         {
-            if (!Items.ContainsKey(Item2))
+            if (CanItemSelect())
             {
-                throw new IndexOutOfRangeException();
+                int i = 0;
             }
-            Item2 = name; 
         }
 
+        public void ItemUp()
+        {
+            if (CanItemSelect())
+            {
+                int i = 0;
+            }
+        }
+        public void ItemDown()
+        {
+            if (CanItemSelect())
+            {
+                int i = 0;
+            }
+        }
+        public void ItemLeft()
+        {
+            if (CanItemSelect())
+            {
+                int i = 0;
+            }
+        }
+        public void ItemRight()
+        {
+            if (CanItemSelect())
+            {
+                int i = 0;
+            }
+        }
         public bool CanHighlightTreasureMap()
         {
             foreach(string i in ItemHighlightMap)
@@ -250,7 +313,6 @@ namespace Project1.LinkComponents
                 }
             }
         }
-
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
         {
             /* Get accurate dimensions for the hitbox, but position is off */

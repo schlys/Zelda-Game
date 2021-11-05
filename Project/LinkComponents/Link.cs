@@ -340,6 +340,34 @@ namespace Project1.LinkComponents
                 
             //IsPicked = false;
         }
+        public void SelectItem()
+        {
+            Inventory.SelectItem();
+        }
+        public void SelectItem1()
+        {
+            Inventory.SelectItem1();
+        }
+        public void SelectItem2()
+        {
+            Inventory.SelectItem2();
+        }
+        public void ItemUp()
+        {
+            Inventory.ItemUp();
+        }
+        public void ItemDown()
+        {
+            Inventory.ItemDown();
+        }
+        public void ItemLeft()
+        {
+            Inventory.ItemLeft();
+        }
+        public void ItemRight()
+        {
+            Inventory.ItemRight();
+        }
 
         public void Win()
         {

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Controllers>
+	<!-- PLAYER 2 -->
 	<Control player="2">
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>	
@@ -20,6 +21,7 @@
 		<key>A</key>
 	</Control>
 	
+	<!-- PLAYER 1 -->
 	<Control player="1">
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
@@ -34,11 +36,56 @@
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
 	</Control>
-	
+
 	<Control player="1">
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
-		
+	</Control>
+
+	<!-- ITEM SELECTION -->
+	<Control player="1">
+		<name>LinkItemSelectRightCmd</name>
+		<key>Right</key>
+	</Control>
+	
+	<Control player="1">
+		<name>LinkItemSelectLeftCmd</name>
+		<key>Left</key>
+	</Control>
+
+	<Control player="1">
+		<name>LinkItemSelectUpCmd</name>
+		<key>Up</key>
+	</Control>
+
+	<Control player="1">
+		<name>LinkItemSelectDownCmd</name>
+		<key>Down</key>
+	</Control>
+
+	<Control player="1">
+		<name>LinkSelectItem1Cmd</name>
+		<key>D1</key>
+	</Control>
+	
+	<Control player="1">
+		<name>LinkSelectItem1Cmd</name>
+		<key>NumPad1</key>
+	</Control>
+
+	<Control player="1">
+		<name>LinkSelectItem2Cmd</name>
+		<key>D2</key>
+	</Control>
+	
+	<Control player="1">
+		<name>LinkSelectItem2Cmd</name>
+		<key>NumPad2</key>
+	</Control>
+
+	<Control player="1">
+		<name>LinkSelectItemCmd</name>
+		<key>Enter</key>
 	</Control>
 	
 	<!--

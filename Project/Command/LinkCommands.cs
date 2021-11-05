@@ -265,6 +265,115 @@ namespace Project1.Command
             Link.PickUpItem("Arrow");
         }
     }
+
+    public class LinkItemSelectUpCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkItemSelectUpCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.ItemUp();
+        }
+    }
+
+    public class LinkItemSelectDownCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkItemSelectDownCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.ItemDown();
+        }
+    }
+    public class LinkItemSelectLeftCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkItemSelectLeftCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.ItemLeft();
+        }
+    }
+    public class LinkItemSelectRightCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkItemSelectRightCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.ItemRight();
+        } 
+    }
+    public class LinkSelectItemCmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkSelectItemCmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.SelectItem();
+        }
+    }
+
+    public class LinkSelectItem1Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkSelectItem1Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.SelectItem1();
+        }
+    }
+
+    public class LinkSelectItem2Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkSelectItem2Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.SelectItem2();
+        }
+    }
     /*
     public class LinkNextItemCmd : ICommand
     {

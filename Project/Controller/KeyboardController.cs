@@ -21,24 +21,27 @@ namespace Project1.Controller
     class KeyboardController : IController
     {
         public Game1 Game { get; set; }
-        private Dictionary<Keys, ICommand> ControllerMappingsHoldKey;   // Keys can be held and continue to execute
-        private Dictionary<Keys, ICommand> ControllerMappingsPressKey;  // Keys are executed once per press 
+        private Dictionary<Keys, List<ICommand>> ControllerMappingsHoldKey;   // Keys can be held and continue to execute
+        private Dictionary<Keys, List<ICommand>> ControllerMappingsPressKey;  // Keys are executed once per press 
 
         private Keys LinkStopKey = Keys.B;          // a key not used in the game 
         private KeyboardState PreviousState; 
-
+        
         public KeyboardController(Game1 game)
         {
-            ControllerMappingsHoldKey = new Dictionary<Keys, ICommand>();
-            ControllerMappingsPressKey = new Dictionary<Keys, ICommand>();
+            ControllerMappingsHoldKey = new Dictionary<Keys, List<ICommand>>();
+            ControllerMappingsPressKey = new Dictionary<Keys, List<ICommand>>();
             Game = game;
         }
 
         public void InitializeGameCommands()
         {
-            // Register link movement commands in <ControllerMappingsPressKey>
+            /* Register link movement commands in <ControllerMappingsPressKey> 
+             * Use 'q' to quit the program and 'r' to reset the program back to 
+             * its initial state 
+             */ 
 
-            // Use 'q' to quit the program and 'r' to reset the program back to its initial state 
+            // TODO: data load 
             RegisterPressCommand(new GameEndCmd(Game), Keys.Q);
             RegisterPressCommand(new GameRestartCmd(Game), Keys.R);
             RegisterPressCommand(new GamePauseCmd(Game), Keys.Space);
@@ -96,12 +99,29 @@ namespace Project1.Controller
 
         private void RegisterHoldCommand(ICommand command, Keys key)
         {
-            ControllerMappingsHoldKey.TryAdd(key, command);
+            if (!ControllerMappingsHoldKey.ContainsKey(key))
+            {
+                List<ICommand> list = new List<ICommand>();
+                list.Add(command);
+                ControllerMappingsHoldKey.TryAdd(key, list);
+            } else
+            {
+                ControllerMappingsHoldKey[key].Add(command);
+            }
         }
 
         private void RegisterPressCommand(ICommand command, Keys key)
         {
-            ControllerMappingsPressKey.TryAdd(key, command);
+            if (!ControllerMappingsPressKey.ContainsKey(key))
+            {
+                List<ICommand> list = new List<ICommand>();
+                list.Add(command);
+                ControllerMappingsPressKey.TryAdd(key, list);
+            }
+            else
+            {
+                ControllerMappingsPressKey[key].Add(command);
+            }
         }
 
         public void Update()
@@ -110,10 +130,14 @@ namespace Project1.Controller
             Keys[] pressedKeys = state.GetPressedKeys();
 
             // ????????? What is this for? 
-            ICommand stop = ControllerMappingsPressKey[LinkStopKey];
+            List<ICommand> stop = ControllerMappingsPressKey[LinkStopKey];
+
             if (!(pressedKeys.Length > 0))
             {
-                stop.Execute();
+                foreach(ICommand command in stop)
+                {
+                    command.Execute();
+                }
             }
 
             // Execute commands for held keys
@@ -122,7 +146,10 @@ namespace Project1.Controller
                 // not previously pressed 
                 if (ControllerMappingsHoldKey.ContainsKey(key))
                 {
-                    ControllerMappingsHoldKey[key].Execute();
+                    foreach(ICommand command in ControllerMappingsHoldKey[key])
+                    {
+                        command.Execute();
+                    }
                 }
                 break;
             }
@@ -133,7 +160,10 @@ namespace Project1.Controller
                 // not previously pressed 
                 if (ControllerMappingsPressKey.ContainsKey(key) && !PreviousState.IsKeyDown(key))
                 {
-                    ControllerMappingsPressKey[key].Execute();
+                    foreach (ICommand command in ControllerMappingsPressKey[key])
+                    {
+                        command.Execute();
+                    }
                 }
                 break;
             }

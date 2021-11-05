@@ -19,9 +19,14 @@ namespace Project1.LinkComponents
         void AddItem(String name);
         void UseItem1();
         void UseItem2();
-        bool UseKey(); 
-        void SetItem1(String name);
-        void SetItem2(String name);
+        bool UseKey();
+        void SelectItem();
+        void SelectItem1();
+        void SelectItem2();
+        void ItemUp();
+        void ItemDown();
+        void ItemLeft();
+        void ItemRight();
         bool CanHighlightTreasureMap();
         bool CanFreezeEnemies();
         void UnfreezeEnemies();

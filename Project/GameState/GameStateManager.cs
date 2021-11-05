@@ -104,9 +104,9 @@ namespace Project1.GameState
         public bool CanDrawHUD()
         {
             // True if not drawing item select screen 
-            return !CanDrawItemSelect();
+            return !CanItemSelect();
         }
-        public bool CanDrawItemSelect()
+        public bool CanItemSelect()
         {
             // True if <CurrentGame> is of type GameItemSelect
             // TODO: test type of object not ID

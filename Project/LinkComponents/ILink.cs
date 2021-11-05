@@ -23,26 +23,29 @@ namespace Project1.LinkComponents
         void MoveRight();
         void MoveLeft();
         void StopMotion();
-
         void Attack();
-
         void UseItem1();
         void UseItem2();
         bool UseKey();
         void PickUpItem(string name);
-
         void TakeDamage(string direction, int knockback);
         void IncreaseHealth();
         void RestoreHealth();
         void IncreaseHealthHeartCount();
         void HalfDamageRecieved();
         void HitBlock(string direction);
-
         void UseMagicalRod();
         void UseMagicalSheild();
         void UseMagicalSword();
         void UseWhiteSword();
         void UseWoodenSword();
+        void SelectItem();
+        void SelectItem1();
+        void SelectItem2();
+        void ItemUp();
+        void ItemDown();
+        void ItemLeft();
+        void ItemRight();
         void Win(); 
         void Reset();
         void Update();
