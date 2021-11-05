@@ -154,7 +154,7 @@ namespace Project1.LinkComponents
         private void CollectRupee(string name)
         {
             RupeeCount += RupeeValues[name];
-            GameSoundManager.Instance.PlaySound("GetRupee");
+            GameSoundManager.Instance.PlayGetRupee();
         }
         private void UseItem(string name)
         {

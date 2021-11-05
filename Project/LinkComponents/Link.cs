@@ -194,7 +194,7 @@ namespace Project1.LinkComponents
                 //attack animation should be fast
                 LinkSprite.MaxDelay = 0;
                 GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
-                GameSoundManager.Instance.PlaySound("SwordSlash");
+                GameSoundManager.Instance.PlaySwordSlash();
             }
         }
 
@@ -239,7 +239,7 @@ namespace Project1.LinkComponents
              */
             UpdateSprite();
             Inventory.AddItem(name);
-            GameSoundManager.Instance.PlaySound("GetItem");
+            GameSoundManager.Instance.PlayGetItem();
         }
 
         public void TakeDamage(string direction, int knockback = 0)
@@ -247,7 +247,7 @@ namespace Project1.LinkComponents
             /* Link's health decrease by <DamageRecieved>, his color is set to red, a hurt sound is 
              * played, his position is knocked back, and we chack if he has died. 
              */ 
-            GameSoundManager.Instance.PlaySound("LinkHurt");
+            GameSoundManager.Instance.PlayLinkHurt();
             Health.Decrease(DamageRecieved);
             SetColor(Color.Red);
             //LinkSprite.Color = Color.Red;
@@ -263,7 +263,7 @@ namespace Project1.LinkComponents
             if (TotalNumHearts == 0)
             {
                 IsDead = true;
-                GameSoundManager.Instance.PlaySound("LinkDie");
+                GameSoundManager.Instance.PlayLinkDie();
                 GameStateManager.Instance.GameOverLose();
             }
         }
