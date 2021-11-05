@@ -11,7 +11,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using System.Xml;
 using System.IO;
-using Project1.GameState; 
+using Project1.GameState;
+using System.Reflection;
 
 namespace Project1.LevelComponents
 {
@@ -152,6 +153,18 @@ namespace Project1.LevelComponents
                     float column = float.Parse(itemNode.SelectSingleNode("column").InnerText);
 
                     //TODO: replace with reflection 
+                    Assembly assem = typeof(IBlockState).Assembly;
+                    XmlDocument XML = new XmlDocument();
+                    var Path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLItem.xml";
+                    XML.Load(Path);
+                    XmlNodeList Items = XML.DocumentElement.SelectNodes("/Items/Item");
+                    foreach (XmlNode Node in Items)
+                    {
+                        string Name = Node.SelectSingleNode("Name").InnerText;
+                        string Type = Node.SelectSingleNode("Type").InnerText;
+                        string Interface = Node.SelectSingleNode("Interfaace").InnerText;
+                        string Add = Node.SelectSingleNode("Add").InnerText;               
+                    }
                     switch (type)
                     {
                         case "MovingItem":

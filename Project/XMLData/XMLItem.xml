@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+	<Item>
+		<Name>MovingItem</Name>
+		<Interface>IItem</Interface>
+		<Type>Moving Item</Type>
+		<Add>AddItem</Add>
+	</Item>
+</Items>
