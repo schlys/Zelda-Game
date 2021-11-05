@@ -162,7 +162,7 @@ namespace Project1.LevelComponents
                     {
                         string Name = Node.SelectSingleNode("Name").InnerText;
                         string Type = Node.SelectSingleNode("Type").InnerText;
-                        string Interface = Node.SelectSingleNode("Interfaace").InnerText;
+                        string Interface = Node.SelectSingleNode("Interface").InnerText;
                         string Add = Node.SelectSingleNode("Add").InnerText;               
                     }
                     switch (type)

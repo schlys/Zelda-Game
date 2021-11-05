@@ -4,4 +4,28 @@
 		<name>directions</name>
 		<sheet>LinkSprites/BasicMovement</sheet>
 	</Sheet>
+	<Sheet>
+		<name>blocks</name>
+		<sheet>Blocks</sheet>
+	</Sheet>
+	<Sheet>
+		<name>doors</name>
+		<sheet>Doors</sheet>
+	</Sheet>
+	<Sheet>
+		<name>items</name>
+		<sheet>ItemsAndWeapons</sheet>
+	</Sheet>
+	<Sheet>
+		<name>linkItems</name>
+		<sheet>LinkSprites/Items</sheet>
+	</Sheet>
+	<Sheet>
+		<name>pickUpItem</name>
+		<sheet>LinkSprites/pickUpItem</sheet>
+	</Sheet>
+	<Sheet>
+		<name>useItem</name>
+		<sheet>LinkSprites/useItem</sheet>
+	</Sheet>
 </Sheets>
