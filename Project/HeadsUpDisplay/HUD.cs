@@ -22,7 +22,8 @@ namespace Project1.HeadsUpDisplay
         private Vector2 Position;
         private Vector2 MapPosition;
         private Vector2 HeartPosition;
-        private Vector2 RupeeCountPosition; 
+        private Vector2 RupeeCountPosition;
+        private Vector2 InventoryItemPosition;
         public HUD(ILink link, Game1 game)
         {
             Game = game;
@@ -33,6 +34,7 @@ namespace Project1.HeadsUpDisplay
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
             RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
+            InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor) + Position;
 
             HUDMain = LevelFactory.Instance.HUDTextures["HUDMain"];
             HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
@@ -53,7 +55,7 @@ namespace Project1.HeadsUpDisplay
             }
             else
             {
-                DrawItemSelect(spriteBatch);
+                DrawItemSelect(spriteBatch, Position);
             }
         }
 
@@ -81,12 +83,12 @@ namespace Project1.HeadsUpDisplay
 
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
             Vector2 newMapPosition = MapPosition;
-            newMapPosition.Y += position.Y;
+            newMapPosition += position;
             LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
 
             // Draw Link's Health Hearts 
             Vector2 newHeartPosition = HeartPosition;
-            newHeartPosition.Y += position.Y;
+            newHeartPosition += position;
             DrawLinkHealth(spriteBatch, newHeartPosition);
 
             // Draw Rupee Count
@@ -121,16 +123,14 @@ namespace Project1.HeadsUpDisplay
             }
         }
 
-        private void DrawItemSelect(SpriteBatch spriteBatch)
-        {
-            Vector2 position = Position; 
-            
+        private void DrawItemSelect(SpriteBatch spriteBatch, Vector2 position)
+        {            
             // Draw Inventory 
             DrawInventory(spriteBatch, position);
             position.Y += HUDInventory.Height * GameObjectManager.Instance.ScalingFactor;
 
             // Draw Large Map
-            DrawMap(spriteBatch, position);
+            //DrawMap(spriteBatch, position);
             position.Y += HUDMap.Height * GameObjectManager.Instance.ScalingFactor;
             
             // Draw HUD
@@ -144,16 +144,21 @@ namespace Project1.HeadsUpDisplay
                 HUDInventory.Width * GameObjectManager.Instance.ScalingFactor,
                 HUDInventory.Height * GameObjectManager.Instance.ScalingFactor);
             spriteBatch.Draw(HUDInventory, destinationRectangle, Color.White);
-            //TODO: draw all items
+            
+            //TODO: Draw all the Inventory items
+            Vector2 newInventoryItemPosition = InventoryItemPosition;
+            newInventoryItemPosition += position;
+            Link.Inventory.Draw(spriteBatch, newInventoryItemPosition);
         }
         private void DrawMap(SpriteBatch spriteBatch, Vector2 position)
         {
-            // Draw the <HUDInventory> background
+            // Draw the <HUDMap>
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
                 HUDMap.Width * GameObjectManager.Instance.ScalingFactor,
                 HUDMap.Height * GameObjectManager.Instance.ScalingFactor);
             spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
-            //TODO: draw all items
+
+            // TODO: draw the map
         }
         public void Reset()
         {

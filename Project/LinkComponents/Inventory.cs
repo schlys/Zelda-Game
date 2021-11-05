@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using System.Linq;  // used for .ElementAt()
 using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +8,7 @@ using Project1.DirectionState;
 using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
 using Project1.ProjectileComponents;
+using Project1.CollisionComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -24,6 +26,8 @@ namespace Project1.LinkComponents
         private List<string> ItemKeys;
         private List<string> ItemHighlightMap;
         private List<string> ItemEnemyFreeze;
+
+        private int TWO = 2; // TODO: is 2 hard coding? 
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
@@ -71,15 +75,15 @@ namespace Project1.LinkComponents
 
             // TODO: decide on default items and load them 
             DefaultItems = new Dictionary<string, int>();
-            DefaultItems.TryAdd("ItemArrow", 5);
-            DefaultItems.TryAdd("ItemBomb", 5);
-            DefaultItems.TryAdd("ItemSilverArrow", 5);
+            DefaultItems.TryAdd("ItemArrowUp", 5);
+            DefaultItems.TryAdd("ItemBombSolid", 5);
+            DefaultItems.TryAdd("ItemSilverArrowUp", 5);
             DefaultItems.TryAdd("ItemFire", 5);
-            DefaultItems.TryAdd("ItemBoomerang", 5);
-            DefaultItems.TryAdd("ItemSilverBoomerang", 5);
+            DefaultItems.TryAdd("ItemBoomerangSolid", 5);
+            DefaultItems.TryAdd("ItemMagicalBoomerangSolid", 5);
 
-            DefaultItem1 = "ItemBomb";
-            DefaultItem2 = "ItemArrow";
+            DefaultItem1 = "ItemBombSolid";
+            DefaultItem2 = "ItemMagicalBoomerangSolid";
 
             Items = new Dictionary<string, int>(DefaultItems); 
 
@@ -225,6 +229,38 @@ namespace Project1.LinkComponents
             {
                 Items.Remove(i);
             }
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            // Draw maximum of 8 items
+            Vector2 initialPosition = position; 
+            int numItems = 8;
+            for (int i = 0; i < Items.Count && i < numItems; i++)
+            {
+                string ItemName = Items.ElementAt(i).Key.Substring(4); // Remove "Item" keyword from start
+                Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(ItemName);
+                Vector2 SpritePosition = GetItemPosition(ItemSprite, position); 
+                ItemSprite.Draw(spriteBatch, SpritePosition);
+                position.X += SpriteFactory.Instance.UniversalSize;
+                
+                if ((i+1)  % (numItems / 2) == 0) // move to next row
+                {
+                    position.Y += SpriteFactory.Instance.UniversalSize;
+                    position.X = initialPosition.X; 
+                }
+            }
+        }
+
+        private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
+        {
+            /* Get accurate dimensions for the hitbox, but position is off */
+            Rectangle Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
+            /* Correct the position to account for empty space around the hitbox */
+            int BlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            position -= new Vector2((BlockSize - Hitbox.Width) / TWO, (BlockSize - Hitbox.Height) / TWO);
+            /* Get correct hibox for updated position */
+            //Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
+            return position; 
         }
         public void Reset()
         {

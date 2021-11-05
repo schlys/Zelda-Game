@@ -25,6 +25,7 @@ namespace Project1.LinkComponents
         bool CanHighlightTreasureMap();
         bool CanFreezeEnemies();
         void UnfreezeEnemies();
+        void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Reset();
     }
 }

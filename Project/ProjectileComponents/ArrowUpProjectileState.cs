@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents
 {
-    class SilverArrowProjectileState : IProjectileState
+    class ArrowUpProjectileState : IProjectileState
     {
         // Properties from IProjectileState
         public IProjectile Projectile { get; set; }
@@ -18,26 +17,28 @@ namespace Project1.ProjectileComponents
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
 
-        // Other Properties
-        public Sprite Poof { get; set; }
+        // Other Properties 
+        public Sprite PoofSprite { get; set; }
+        public bool IsUsing { get; set; }
         private int Speed = 4;
-        int Counter;
+        private int Counter = 0;
         private int CounterPoof = 50;   // when stop displaying arrow, show poof, and stop motion
         private int CounterMax = 60;    // time when arrow now done
-        public SilverArrowProjectileState(IProjectile projectile, IDirectionState direction)
+
+        public ArrowUpProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction;
-            TypeID = "SilverArrow"; 
+            TypeID = "Arrow";
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
-            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
-            Counter = 0;
-            Projectile.OffsetOriginalPosition(Direction);
+            PoofSprite = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
+            IsUsing = true;
+            Projectile.OffsetOriginalPosition(Direction); 
         }
 
         public void StopMotion()
         {
-            if (Counter < CounterPoof)
+            if(Counter < CounterPoof)
             {
                 Counter = CounterPoof;  // start poof animation
             }
@@ -53,7 +54,7 @@ namespace Project1.ProjectileComponents
             Counter++;
             if (Counter < CounterPoof)
             {
-                switch (Direction.ID)
+                switch (Direction.ID)   
                 {
                     case "Up":
                         Projectile.Position += new Vector2(0, -Speed);
@@ -68,12 +69,9 @@ namespace Project1.ProjectileComponents
                         Projectile.Position += new Vector2(-Speed, 0);
                         break;
                 }
-            }
-            else if (Counter < CounterMax)      // Poof animation 
-            {   
-                Sprite = Poof;
-            }
-            else
+            } else if(Counter < CounterMax) {   // Poof animation 
+                Sprite = PoofSprite;                 
+            } else
             {
                 Projectile.InMotion = false;    // Indicate projectile is done 
             }

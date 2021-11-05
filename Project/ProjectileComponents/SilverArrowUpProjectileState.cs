@@ -1,16 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
-using Project1.LevelComponents;
 
 namespace Project1.ProjectileComponents
 {
-    class BombProjectileState : IProjectileState
+    class SilverArrowUpProjectileState : IProjectileState
     {
         // Properties from IProjectileState
         public IProjectile Projectile { get; set; }
@@ -19,28 +19,30 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
+        public Sprite Poof { get; set; }
         private int Speed = 4;
-        private int Counter = 0;
-        private int CounterExplode = 15;
-        private int CounterMax;
-        public BombProjectileState(IProjectile projectile, IDirectionState direction)
+        int Counter;
+        private int CounterPoof = 50;   // when stop displaying arrow, show poof, and stop motion
+        private int CounterMax = 60;    // time when arrow now done
+        public SilverArrowUpProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
-            Direction = direction; 
-            TypeID = "Bomb";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            Projectile.InMotion = false;
-            CounterMax = CounterExplode + (int)((Sprite.TotalFrames)*(Sprite.MaxDelay * Sprite.DelayRate));
+            Direction = direction;
+            TypeID = "SilverArrow"; 
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
+            Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
+            Counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
         }
+
         public void StopMotion()
         {
-            // trigger explosion
-            if (Counter < CounterExplode)
+            if (Counter < CounterPoof)
             {
-                Counter = CounterExplode;  
+                Counter = CounterPoof;  // start poof animation
             }
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Sprite.Draw(spriteBatch, Projectile.Position);
@@ -48,9 +50,8 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
-
             Counter++;
-            if (Counter < CounterExplode)
+            if (Counter < CounterPoof)
             {
                 switch (Direction.ID)
                 {
@@ -68,15 +69,14 @@ namespace Project1.ProjectileComponents
                         break;
                 }
             }
-            else if (Counter < CounterMax) // Explosion animation 
+            else if (Counter < CounterMax)      // Poof animation 
             {   
-                Sprite.Update();
+                Sprite = Poof;
             }
             else
             {
                 Projectile.InMotion = false;    // Indicate projectile is done 
             }
-
         }
     }
 }
