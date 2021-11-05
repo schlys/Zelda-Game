@@ -101,5 +101,16 @@ namespace Project1.GameState
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("GamePlay")); 
         }
+        public bool CanDrawHUD()
+        {
+            // True if not drawing item select screen 
+            return !CanDrawItemSelect();
+        }
+        public bool CanDrawItemSelect()
+        {
+            // True if <CurrentGame> is of type GameItemSelect
+            // TODO: test type of object not ID
+            return (CurrentState.ID.Equals("ItemSelect"));
+        }
     }
 }

@@ -208,10 +208,7 @@ namespace Project1
             {
                 link.Draw(spriteBatch);
             }
-            foreach (IHUD HUD in HUDs)
-            {
-                HUD.Draw(spriteBatch);
-            }
+            
             foreach (IBlock block in Blocks)
             {
                 block.Draw(spriteBatch);
@@ -224,7 +221,6 @@ namespace Project1
             {
                 enemy.Draw(spriteBatch);
             }
-            
             foreach (IDoor door in Doors)
             {
                 door.Draw(spriteBatch);
@@ -232,6 +228,11 @@ namespace Project1
             foreach (IProjectile Projectile in Projectiles)
             {
                 Projectile.Draw(spriteBatch);
+            }
+            // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
+            foreach (IHUD HUD in HUDs)
+            {
+                HUD.Draw(spriteBatch);
             }
         }
 

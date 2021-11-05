@@ -5,7 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.LevelComponents;
-using Project1.SpriteComponents; 
+using Project1.SpriteComponents;
+using Project1.GameState;
 
 namespace Project1.HeadsUpDisplay
 {
@@ -34,9 +35,9 @@ namespace Project1.HeadsUpDisplay
             RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
 
             HUDMain = LevelFactory.Instance.HUDTextures["HUDMain"];
-            //HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
+            HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
             HUDLevelMap = LevelFactory.Instance.HUDTextures["HUDLevelMap"];
-            //HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
+            HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
         }
        
         public void Update()
@@ -46,12 +47,31 @@ namespace Project1.HeadsUpDisplay
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (GameStateManager.Instance.CanDrawHUD())
+            {
+                DrawHUD(spriteBatch, Position);
+            }
+            else
+            {
+                DrawItemSelect(spriteBatch);
+            }
+        }
+
+        private void DrawHUD(SpriteBatch spriteBatch, Vector2 position)
+        {
+            // Draw a black background 
+            Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { Color.White });
+
             // Draw the <HUDMain> background
-            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, 
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 
                 HUDMain.Width * GameObjectManager.Instance.ScalingFactor, 
                 HUDMain.Height * GameObjectManager.Instance.ScalingFactor);
-            spriteBatch.Draw(HUDMain, destinationRectangle, Color.White); 
-           
+
+            spriteBatch.Draw(dummyTexture, destinationRectangle, Color.Black);
+
+            spriteBatch.Draw(HUDMain, destinationRectangle, Color.White);
+
             // Display <Item1> and <Item2> of Link's <Inventory>
             /*SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             string item1 = "Item1: " + Link.Inventory.Item1;
@@ -60,15 +80,21 @@ namespace Project1.HeadsUpDisplay
             spriteBatch.DrawString(font, item2, new Vector2(400, 45), Color.Black);*/
 
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
-            LevelFactory.Instance.LevelMap.Draw(spriteBatch, MapPosition, Link.Inventory.CanHighlightTreasureMap());
-            
+            Vector2 newMapPosition = MapPosition;
+            newMapPosition.Y += position.Y;
+            LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
+
             // Draw Link's Health Hearts 
-            DrawLinkHealth(spriteBatch, HeartPosition);
+            Vector2 newHeartPosition = HeartPosition;
+            newHeartPosition.Y += position.Y;
+            DrawLinkHealth(spriteBatch, newHeartPosition);
 
             // Draw Rupee Count
             SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             string RupeeCount = Link.Inventory.RupeeCount.ToString();
-            spriteBatch.DrawString(font, RupeeCount, RupeeCountPosition, Color.White);
+            Vector2 newRupeeCountPosition = RupeeCountPosition;
+            newRupeeCountPosition.Y += position.Y;
+            spriteBatch.DrawString(font, RupeeCount, newRupeeCountPosition, Color.White);
         }
 
         private void DrawLinkHealth(SpriteBatch spriteBatch, Vector2 position)
@@ -93,6 +119,41 @@ namespace Project1.HeadsUpDisplay
                 }
                 position.X += spaceX;
             }
+        }
+
+        private void DrawItemSelect(SpriteBatch spriteBatch)
+        {
+            Vector2 position = Position; 
+            
+            // Draw Inventory 
+            DrawInventory(spriteBatch, position);
+            position.Y += HUDInventory.Height * GameObjectManager.Instance.ScalingFactor;
+
+            // Draw Large Map
+            DrawMap(spriteBatch, position);
+            position.Y += HUDMap.Height * GameObjectManager.Instance.ScalingFactor;
+            
+            // Draw HUD
+            DrawHUD(spriteBatch, position);
+        }
+
+        private void DrawInventory(SpriteBatch spriteBatch, Vector2 position)
+        {
+            // Draw the <HUDInventory> background
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
+                HUDInventory.Width * GameObjectManager.Instance.ScalingFactor,
+                HUDInventory.Height * GameObjectManager.Instance.ScalingFactor);
+            spriteBatch.Draw(HUDInventory, destinationRectangle, Color.White);
+            //TODO: draw all items
+        }
+        private void DrawMap(SpriteBatch spriteBatch, Vector2 position)
+        {
+            // Draw the <HUDInventory> background
+            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
+                HUDMap.Width * GameObjectManager.Instance.ScalingFactor,
+                HUDMap.Height * GameObjectManager.Instance.ScalingFactor);
+            spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
+            //TODO: draw all items
         }
         public void Reset()
         {

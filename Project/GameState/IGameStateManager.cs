@@ -17,7 +17,8 @@ namespace Project1.GameState
         void ItemSelection();
         void GameOverLose();
         void GameOverWin();
-        bool CanPlayGame(); 
-
+        bool CanPlayGame();
+        bool CanDrawHUD();
+        bool CanDrawItemSelect();
     }
 }
