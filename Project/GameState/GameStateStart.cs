@@ -28,8 +28,10 @@ namespace Project1.GameState
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
-            spriteBatch.DrawString(font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            String text = "Game Start!";
+            String text2 = "\n\nPress 'x' to start";
+            spriteBatch.DrawString(font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {

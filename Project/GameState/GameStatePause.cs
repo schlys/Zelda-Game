@@ -29,7 +29,7 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             spriteBatch.DrawString(font, "PAUSED", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(font, "\n\nStart again, press space bar again", new Vector2(RoomSize.X / 2 - sizeCorrector*3, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "\n\nPress space bar to restart\n\n    Press 'q' to quit", new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {
