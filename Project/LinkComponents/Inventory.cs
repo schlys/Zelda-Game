@@ -20,7 +20,7 @@ namespace Project1.LinkComponents
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public int RupeeCount { get; set; }
-        private string SelectedItem;    // used when set item1 or item2 
+        private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
         private Dictionary<string, int> DefaultItems;
         private Dictionary<string, int> RupeeValues;
         private string DefaultItem1;
@@ -86,13 +86,12 @@ namespace Project1.LinkComponents
 
             DefaultItem1 = "ItemBombSolid";
             DefaultItem2 = "ItemMagicalBoomerangSolid";
-            
-            SelectedItem = "ItemBombSolid"; 
-
-            Items = new Dictionary<string, int>(DefaultItems); 
-
+               
+            Items = new Dictionary<string, int>(DefaultItems);
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
+
+            SelectedItem = new Tuple<string, int>(Item1, 1);
 
             RupeeValues = new Dictionary<string, int>();
             RupeeValues.TryAdd("ItemBlueRupee", 5);
@@ -202,33 +201,44 @@ namespace Project1.LinkComponents
         }
         public void SelectItem()
         {
+            /* Update <Item1> or <Item2> to be the first entry of <SelectedItem> depending on whether it 
+             * is for the first or second item. 
+             */
+            
             if (CanItemSelect())
             {
-                if (!Items.ContainsKey(SelectedItem))
+                // Check legality 
+                if (!Items.ContainsKey(SelectedItem.Item1))
                 {
                     throw new IndexOutOfRangeException();
                 }
-                Item2 = SelectedItem;
-                if (!Items.ContainsKey(SelectedItem))
+
+                if (SelectedItem.Item2 == 1)
                 {
-                    throw new IndexOutOfRangeException();
+                    Item1 = SelectedItem.Item1; 
+                } else
+                {
+                    Item2 = SelectedItem.Item1;
                 }
-                Item1 = SelectedItem;
             }
-            
         }
+
         public void SelectItem1()
         {
+            /* Indicate that will be selecting for <Item1> 
+             */
             if (CanItemSelect())
             {
-                int i = 0; 
+                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 1); 
             }
         }
         public void SelectItem2()
         {
+            /* Indicate that will be selecting for <Item2> 
+             */ 
             if (CanItemSelect())
             {
-                int i = 0;
+                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 2);
             }
         }
 
@@ -295,12 +305,27 @@ namespace Project1.LinkComponents
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            // Draw maximum of 8 items
+            /* Draws a maximum of 8 items that represent the first 8 items in the inventory. 
+             * Highlights the currently selected item. 
+             */
+            
             Vector2 initialPosition = position; 
             int numItems = 8;
             for (int i = 0; i < Items.Count && i < numItems; i++)
             {
-                string ItemName = Items.ElementAt(i).Key.Substring(4); // Remove "Item" keyword from start
+                string ItemName = Items.ElementAt(i).Key;
+                if (ItemName.Equals(SelectedItem.Item1))    // Highlight the selected item 
+                {
+                    Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
+                    dummyTexture.SetData(new Color[] { Color.White });
+
+                    Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
+                        SpriteFactory.Instance.UniversalSize,
+                        SpriteFactory.Instance.UniversalSize);
+                    spriteBatch.Draw(dummyTexture, destinationRectangle, Color.Yellow);
+                }
+
+                ItemName = ItemName.Substring(4); // Remove "Item" keyword from start
                 Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(ItemName);
                 Vector2 SpritePosition = GetItemPosition(ItemSprite, position); 
                 ItemSprite.Draw(spriteBatch, SpritePosition);
@@ -312,6 +337,7 @@ namespace Project1.LinkComponents
                     position.X = initialPosition.X; 
                 }
             }
+            // TODO: update number dispaly if 1 or 2 for selection 
         }
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
         {
