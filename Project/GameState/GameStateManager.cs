@@ -68,11 +68,11 @@ namespace Project1.GameState
         }
         public void Pause() 
         {
+            // Pause the game - stop all motion
             CurrentState = CurrentState.Pause();
         }
         public void Start() 
         {
-            // TODO: is this neccesary? how it is different from PlayGame() ??
             CurrentState = CurrentState.StartGame(); 
         }
         public void PlayGame() 

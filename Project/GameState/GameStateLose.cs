@@ -30,6 +30,7 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             spriteBatch.DrawString(font, "GAME OVER", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {
@@ -37,7 +38,6 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            // TODO: Cannot go from lose to pause? 
             return this;
         }
         public IGameState StartGame()
@@ -46,17 +46,14 @@ namespace Project1.GameState
         }
         public IGameState WinGame()
         {
-            // TODO: Cannot go from lose to win? 
             return this;
         }
         public IGameState LoseGame()
         {
-            // TODO: Cannot go from lose to lose? 
             return this;
         }
         public IGameState ItemSelectMenu()
         {
-            // TODO: Cannot go from lose to item select? 
             return this;
         }
     }

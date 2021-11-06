@@ -9,11 +9,11 @@ using Project1.HeadsUpDisplay;
 
 namespace Project1.LinkComponents
 {
-    public interface IInventory 
+    public interface IInventory
     {
         ILink Link { get; set; }
-        Dictionary<string, int> Items { get; set; } 
-        String Item1 { get; set; } 
+        Dictionary<string, int> Items { get; set; }
+        String Item1 { get; set; }
         String Item2 { get; set; }
         int RupeeCount { get; set; }
         void AddItem(String name);
@@ -31,6 +31,7 @@ namespace Project1.LinkComponents
         bool CanFreezeEnemies();
         void UnfreezeEnemies();
         void Draw(SpriteBatch spriteBatch, Vector2 position);
+        void DrawItem(SpriteBatch spriteBatch, string name, Vector2 position);
         void Reset();
     }
 }

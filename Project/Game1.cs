@@ -89,6 +89,9 @@ namespace Project1
 
         public void StartGame()
         {
+            // Must reset before starting for cases when won / lost 
+            GameObjectManager.Instance.Reset();
+
             GameStateManager.Instance.Start();
         }
 

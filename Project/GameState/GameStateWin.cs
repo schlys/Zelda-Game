@@ -39,6 +39,8 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             spriteBatch.DrawString(font, "YOU WIN!", new Vector2(RoomSize.X / 2- sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2 + sizeCorrector * 2), Color.White);
+
             TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector/2));
             Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector));
         }
@@ -48,7 +50,6 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            // TODO: cannot go win to pause ??
             return this; 
         }
         public IGameState StartGame()
@@ -61,12 +62,10 @@ namespace Project1.GameState
         }
         public IGameState LoseGame()
         {
-            // TODO: cannot go win to pause ??
             return this;
         }
         public IGameState ItemSelectMenu()
         {
-            // TODO: cannot go win to pause ??
             return this;
         }
     }

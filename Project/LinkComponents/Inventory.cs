@@ -9,11 +9,11 @@ using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
-using Project1.GameState; 
+using Project1.GameState;
 
 namespace Project1.LinkComponents
 {
-    public class Inventory : IInventory 
+    public class Inventory : IInventory
     {
         public ILink Link { get; set; }
         public Dictionary<string, int> Items { get; set; }
@@ -31,6 +31,13 @@ namespace Project1.LinkComponents
 
         private int TWO = 2; // TODO: is 2 hard coding? 
         private Vector2 ItemDimentions;
+
+        private Vector2 SelectedItemPosition;
+        private Vector2 SelectedItemKeyPosition;
+        private Vector2 InventoryItemPosition;
+
+        private Sprite TextNum1;
+        private Sprite TextNum2;
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
@@ -87,16 +94,23 @@ namespace Project1.LinkComponents
 
             DefaultItem1 = "ItemBombSolid";
             DefaultItem2 = "ItemMagicalBoomerangSolid";
-               
+
             Items = new Dictionary<string, int>(DefaultItems);
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
 
             SelectedItem = new Tuple<string, int>(Item1, 1);
 
+            SelectedItemPosition = new Vector2(61, 45) * GameObjectManager.Instance.ScalingFactor;
+            SelectedItemKeyPosition = new Vector2(48, 72) * GameObjectManager.Instance.ScalingFactor;
+            InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor);
+
+            TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
+            TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+
             RupeeValues = new Dictionary<string, int>();
             RupeeValues.TryAdd("ItemBlueRupee", 5);
-            RupeeValues.TryAdd("ItemOrangeRupee", 1); 
+            RupeeValues.TryAdd("ItemOrangeRupee", 1);
 
             ItemKeys = new List<string>();
             ItemKeys.Add("ItemSmallKey");
@@ -111,7 +125,7 @@ namespace Project1.LinkComponents
 
             RupeeCount = 0;
 
-            ItemDimentions = new Vector2(4, 2); 
+            ItemDimentions = new Vector2(4, 2);
         }
         public void AddItem(String name)
         {
@@ -131,11 +145,11 @@ namespace Project1.LinkComponents
         }
         private bool CanPlayGame()
         {
-            return GameStateManager.Instance.CanPlayGame(); 
+            return GameStateManager.Instance.CanPlayGame();
         }
         private bool CanItemSelect()
         {
-            return GameStateManager.Instance.CanItemSelect(); 
+            return GameStateManager.Instance.CanItemSelect();
         }
         public void UseItem1()
         {
@@ -147,7 +161,7 @@ namespace Project1.LinkComponents
                 }
                 UseItem(Item1);
             }
-            
+
         }
         public void UseItem2()
         {
@@ -186,16 +200,16 @@ namespace Project1.LinkComponents
             // TODO: distinguish between magical and small key? 
             /* Return true if there is a key and remove it from the inventory. false otherwise
              */
-            foreach(string key in ItemKeys)
+            foreach (string key in ItemKeys)
             {
                 if (Items.ContainsKey(key))
                 {
                     Items.Remove(key);
-                    return true; 
+                    return true;
                 }
             }
             return false;   // no key found
-            
+
         }
         private void CollectRupee(string name)
         {
@@ -207,7 +221,7 @@ namespace Project1.LinkComponents
             /* Update <Item1> or <Item2> to be the first entry of <SelectedItem> depending on whether it 
              * is for the first or second item. 
              */
-            
+
             if (CanItemSelect())
             {
                 // Check legality 
@@ -218,8 +232,9 @@ namespace Project1.LinkComponents
 
                 if (SelectedItem.Item2 == 1)
                 {
-                    Item1 = SelectedItem.Item1; 
-                } else
+                    Item1 = SelectedItem.Item1;
+                }
+                else
                 {
                     Item2 = SelectedItem.Item1;
                 }
@@ -232,13 +247,13 @@ namespace Project1.LinkComponents
              */
             if (CanItemSelect())
             {
-                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 1); 
+                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 1);
             }
         }
         public void SelectItem2()
         {
             /* Indicate that will be selecting for <Item2> 
-             */ 
+             */
             if (CanItemSelect())
             {
                 SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 2);
@@ -255,14 +270,13 @@ namespace Project1.LinkComponents
                     return i;
                 }
             }
-            return -1; 
+            return -1;
         }
-
         public void ItemUp()
         {
             if (CanItemSelect())
             {
-                int newIndex = (int)(FindItemIndex(SelectedItem.Item1) - ItemDimentions.X); 
+                int newIndex = (int)(FindItemIndex(SelectedItem.Item1) - ItemDimentions.X);
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
                     SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
@@ -304,14 +318,14 @@ namespace Project1.LinkComponents
         }
         public bool CanHighlightTreasureMap()
         {
-            foreach(string i in ItemHighlightMap)
+            foreach (string i in ItemHighlightMap)
             {
                 if (!Items.ContainsKey(i))
                 {
                     return false;   // Missing an item needed to display the map
                 }
             }
-            return true; 
+            return true;
         }
         public bool CanFreezeEnemies()
         {
@@ -327,7 +341,7 @@ namespace Project1.LinkComponents
         public void UnfreezeEnemies()
         {
             /* Precondition: CanFreezeEnemies is true so <Items> contains all entries of <ItemEnemyFreeze>
-             * Remoe all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
+             * Remove all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
              */
 
             foreach (string i in ItemEnemyFreeze)
@@ -340,36 +354,60 @@ namespace Project1.LinkComponents
             /* Draws a maximum of 8 items that represent the first 8 items in the inventory. 
              * Highlights the currently selected item. 
              */
-            
-            Vector2 initialPosition = position; 
+
+            Vector2 newItemPosition = InventoryItemPosition + position;
+
             int numItems = (int)(ItemDimentions.X * ItemDimentions.Y);
             for (int i = 0; i < Items.Count && i < numItems; i++)
             {
                 string ItemName = Items.ElementAt(i).Key;
-                if (ItemName.Equals(SelectedItem.Item1))    // Highlight the selected item 
+                if (ItemName.Equals(SelectedItem.Item1))
                 {
                     Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
                     dummyTexture.SetData(new Color[] { Color.White });
 
-                    Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
+                    Rectangle destinationRectangle = new Rectangle((int)newItemPosition.X, (int)newItemPosition.Y,
                         SpriteFactory.Instance.UniversalSize,
                         SpriteFactory.Instance.UniversalSize);
                     spriteBatch.Draw(dummyTexture, destinationRectangle, Color.Yellow);
                 }
 
-                ItemName = ItemName.Substring(4); // Remove "Item" keyword from start
-                Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(ItemName);
-                Vector2 SpritePosition = GetItemPosition(ItemSprite, position); 
-                ItemSprite.Draw(spriteBatch, SpritePosition);
-                position.X += SpriteFactory.Instance.UniversalSize;
-                
-                if ((i+1)  % (numItems / 2) == 0) // move to next row
+                DrawItem(spriteBatch, ItemName, newItemPosition);
+
+                newItemPosition.X += SpriteFactory.Instance.UniversalSize;
+                if ((i + 1) % (numItems / 2) == 0) // move to next row
                 {
-                    position.Y += SpriteFactory.Instance.UniversalSize;
-                    position.X = initialPosition.X; 
+                    newItemPosition.Y += SpriteFactory.Instance.UniversalSize;
+                    newItemPosition.X = position.X + InventoryItemPosition.X;
                 }
             }
-            // TODO: update number dispaly if 1 or 2 for selection 
+
+            // Draw the selected item in the selection box
+            Vector2 newSelectedItemPosition = SelectedItemPosition + position;
+            DrawItem(spriteBatch, SelectedItem.Item1, newSelectedItemPosition);
+
+            // Draw "1" or "2" denoting currently selected item for selection
+            Vector2 newSelectedItemKeyPosition = SelectedItemKeyPosition + position;
+            if (SelectedItem.Item2 == 1)
+            {
+                newSelectedItemKeyPosition = GetItemPosition(TextNum1, newSelectedItemKeyPosition);
+                TextNum1.Draw(spriteBatch, newSelectedItemKeyPosition);
+            }
+            else
+            {
+                newSelectedItemKeyPosition = GetItemPosition(TextNum2, newSelectedItemKeyPosition);
+                TextNum2.Draw(spriteBatch, newSelectedItemKeyPosition);
+            }
+        }
+        public void DrawItem(SpriteBatch spriteBatch, string name, Vector2 position)
+        {
+            /* Precondition: <name> begines with "Item"
+             * Given the <name> of an item in <Inventory>, draw the item centered at <position> 
+             */
+            name = name.Substring(4); // Remove "Item" keyword from start
+            Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(name);
+            Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
+            ItemSprite.Draw(spriteBatch, SpritePosition);
         }
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
         {
@@ -379,15 +417,14 @@ namespace Project1.LinkComponents
             int BlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
             position -= new Vector2((BlockSize - Hitbox.Width) / TWO, (BlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
-            //Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
-            return position; 
+            return position;
         }
         public void Reset()
         {
-            Items = DefaultItems;
+            Items = new Dictionary<string, int>(DefaultItems);
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
-            RupeeCount = 0; 
+            RupeeCount = 0;
         }
     }
 }
