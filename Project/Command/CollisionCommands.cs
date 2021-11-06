@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework;
 
 namespace Project1.Command
 {
-    public class ProjectileHitCmd : ICommand 
+    public class ProjectileHitCmd : ICommand
     {
         IProjectile Projectile;
         public ProjectileHitCmd(ICollidable projectile, ICollidable holder, string direction)
@@ -25,7 +25,7 @@ namespace Project1.Command
             Projectile.StopMotion();
         }
     }
-    
+
     public class LinkMagicalSword : ICommand
     {
         private ILink Link;
@@ -64,7 +64,7 @@ namespace Project1.Command
         public void Execute()
         {
             Link.HalfDamageRecieved();
-            Link.SetColor(Color.CornflowerBlue); 
+            Link.SetColor(Color.CornflowerBlue);
         }
     }
 
@@ -124,7 +124,7 @@ namespace Project1.Command
     {
         public ILink Link { get; set; }
         string Item;
-        
+
         public LinkAddItemToInventoryCmd(ICollidable link, ICollidable item, string direction)
         {
             Link = (ILink)link;
@@ -138,13 +138,17 @@ namespace Project1.Command
 
     public class LinkUseKeyCmd : ICommand
     {
+
+       
+
         public ILink Link { get; set; }
         public IDoor Door { get; set; }
-        
+        private List<Delegate> rooms = new List<Delegate>();
         
         
         public LinkUseKeyCmd(ICollidable link, ICollidable door, string direction)
         {
+            
             Link = (ILink)link;
             Door = (IDoor)door;
            
@@ -156,6 +160,22 @@ namespace Project1.Command
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
                 Door.Unlock();
+                switch (Door.Direction)
+                {
+                    case "Up":
+                        LevelFactory.Instance.MoveUp();
+                        break;
+                    case "Down":
+                        LevelFactory.Instance.MoveDown();
+                        break;
+                    case "Right":
+                        LevelFactory.Instance.MoveRight();
+                        break;
+                    case "Left":
+                        LevelFactory.Instance.MoveLeft();
+                        break;
+                }
+                        
                 /*
                 if (Door.IsLocked())
                 {
