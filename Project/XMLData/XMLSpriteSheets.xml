@@ -64,4 +64,8 @@
 		<name>oldMan</name>
 		<sheet>NPCs/OldManWoman</sheet>
 	</Sheet>
+	<Sheet>
+		<name>inventoryItems</name>
+		<sheet>HUD/HUDItems</sheet>
+	</Sheet>
 </Sheets>

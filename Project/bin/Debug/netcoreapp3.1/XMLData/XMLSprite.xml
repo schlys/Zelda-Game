@@ -1081,6 +1081,27 @@
 		<hitX>17</hitX>
 		<hitY>16</hitY>
 	</Sprite>
-	
-	
+
+	<Sprite>
+		<name>Num1</name>
+		<sheet>inventoryItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>2</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>8</hitX>
+		<hitY>8</hitY>
+	</Sprite>
+
+	<Sprite>
+		<name>Num2</name>
+		<sheet>inventoryItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>3</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>8</hitX>
+		<hitY>8</hitY>
+	</Sprite>	
+
 </Sprites>
