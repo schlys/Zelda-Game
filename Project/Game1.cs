@@ -21,6 +21,8 @@ namespace Project1
         private SpriteBatch _spriteBatch;
         private Camera _camera;
 
+        Viewport defaultVeiew;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -36,13 +38,16 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _camera = new Camera();
+
             SpriteFactory.Instance.LoadAllTextures(Content);
             LevelFactory.Instance.LoadAllTextures(Content); 
 
             GameObjectManager.Instance.Initialize(this);
             GameStateManager.Instance.Initialize(this);
             //GameSoundManager.Instance.Initialize(this);
+
+            defaultVeiew = GraphicsDevice.Viewport;
+            _camera = new Camera(defaultVeiew);
         }
 
         protected override void Update(GameTime gameTime)
@@ -52,16 +57,18 @@ namespace Project1
                 Exit();
 
             GameObjectManager.Instance.Update();
-            _camera.Follow(GameObjectManager.Instance.Links);
+
+            _camera.GetPosition(GameObjectManager.Instance.Links); // NOTE: this is for Link
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Viewport = defaultVeiew;
             // NOTE: First one is for camera version. 
-            //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: _camera.Transform);
-            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: _camera.Transform);
+            //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             GameObjectManager.Instance.Draw(_spriteBatch);
             GameStateManager.Instance.Draw(_spriteBatch);
 
