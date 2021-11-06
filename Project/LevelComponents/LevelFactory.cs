@@ -275,6 +275,7 @@ namespace Project1.LevelComponents
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
+                //Camera.Instance.CheckCollision(true);
                 Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
                 CurrentRoom.Left(previousRoom);

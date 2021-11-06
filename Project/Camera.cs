@@ -38,12 +38,21 @@ namespace Project1
             set { zoom = value; if (zoom < 0.1f) zoom = 0.1f; }
         }
 
-        private bool IsCollision = true;
-        
+        public bool IsCollision = true;
+
+        private static Camera instance = new Camera();
+        public static Camera Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        /*
         public Camera(Viewport viewport)
         {
             Viewport = viewport;
-        }
+        }*/
         
         public void Update(Vector2 position)
         {
@@ -53,7 +62,7 @@ namespace Project1
                 transform = Matrix.CreateTranslation(new Vector3(-center.X - 300, -center.Y + 40, 0)) *
                 Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
                 Matrix.CreateTranslation(new Vector3(Viewport.Width / 2, Viewport.Height / 2, 0));
-                IsCollision = false; // You can check camermovement when remove it.
+                IsCollision = false; // You can check camera movement when remove it.
             }
             else
             {
@@ -65,10 +74,16 @@ namespace Project1
                 Matrix.CreateTranslation(new Vector3(-center.X, -center.Y, 0)) *
                 Matrix.CreateTranslation(new Vector3(Viewport.Width / 2, Viewport.Height / 2, 0));
             */
-            }
+        }
 
-        public void GetPosition(List<ILink> Links)
+        public void CheckCollision(bool isCollision)
         {
+            IsCollision = isCollision;
+        }
+
+        public void GetPosition(List<ILink> Links, Viewport viewport)
+        {
+            Viewport = viewport;
             Vector2 pos = new Vector2(0, 0);
 
             foreach (ILink link in Links)

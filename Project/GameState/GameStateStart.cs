@@ -29,7 +29,7 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             String text = "Game Start!";
-            String text2 = "\n\nPress 'x' to start";
+            String text2 = "\n\n    Press 'x' to start";
             spriteBatch.DrawString(font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
             spriteBatch.DrawString(font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
         }

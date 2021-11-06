@@ -47,7 +47,7 @@ namespace Project1
             //GameSoundManager.Instance.Initialize(this);
 
             defaultVeiew = GraphicsDevice.Viewport;
-            _camera = new Camera(defaultVeiew);
+            _camera = new Camera();
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,7 +58,7 @@ namespace Project1
 
             GameObjectManager.Instance.Update();
 
-            _camera.GetPosition(GameObjectManager.Instance.Links); // NOTE: this is for Link
+            _camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
             base.Update(gameTime);
         }
 
