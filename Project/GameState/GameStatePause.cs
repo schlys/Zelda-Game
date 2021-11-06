@@ -29,7 +29,10 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             spriteBatch.DrawString(font, "PAUSED", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(font, "\n\n         Press space bar to restart\n\n                Press 'q' to quit", new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(font, "\n\n         Press the space bar to continue\n\n                " +
+                "Press 'q' to quit\n\n    " +
+                "Press 'i' for the item selection screen\n\n                " +
+                "Press 'r' to restart", new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {
@@ -37,22 +40,18 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            // TODO: will you unpause here? 
             return new GameStateGamePlay();
         }
         public IGameState StartGame()
         {
-            // TODO: cannot go pause to start? 
             return this;
         }
         public IGameState WinGame()
         {
-            // TODO: cannot go pause to win? 
             return this;
         }
         public IGameState LoseGame()
         {
-            // TODO: cannot go pause to win? 
             return this;
         }
         public IGameState ItemSelectMenu()

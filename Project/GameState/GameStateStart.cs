@@ -39,7 +39,6 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            // TODO: cannot go start to pause 
             return this;
         }
         public IGameState StartGame()
@@ -48,17 +47,14 @@ namespace Project1.GameState
         }
         public IGameState WinGame()
         {
-            // TODO: cannot go start to pause 
             return this;
         }
         public IGameState LoseGame()
         {
-            // TODO: cannot go start to pause 
             return this;
         }
         public IGameState ItemSelectMenu()
         {
-            // TODO: cannot go start to pause 
             return this;
         }
     }

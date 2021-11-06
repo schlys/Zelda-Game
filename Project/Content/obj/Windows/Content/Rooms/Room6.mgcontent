@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/elise/source/repos/3902-dream-team/project/project/Content/Rooms/Room6.png</SourceFile>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Rooms/Room6.png</SourceFile>
   <SourceTime>2021-11-06T14:19:41.2240963-04:00</SourceTime>
-  <DestFile>c:/users/elise/source/repos/3902-dream-team/project/project/Content/bin/Windows/Content/Rooms/Room6.xnb</DestFile>
-  <DestTime>2021-11-06T15:30:17.3125994-04:00</DestTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Rooms/Room6.xnb</DestFile>
+  <DestTime>2021-11-06T15:33:48.0864289-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
