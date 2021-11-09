@@ -20,16 +20,23 @@ namespace Project1.LinkComponents
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public int RupeeCount { get; set; }
+        public int BombCount { get; set; }
+        public int KeyCount { get; set; }
+        
         private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
+        
         private Dictionary<string, int> DefaultItems;
-        private Dictionary<string, int> RupeeValues;
         private string DefaultItem1;
         private string DefaultItem2;
+
+        private Dictionary<string, int> RupeeValues;
+        private List<string> ItemBombs;        
         private List<string> ItemKeys;
         private List<string> ItemHighlightMap;
         private List<string> ItemEnemyFreeze;
 
         private int TWO = 2; // TODO: is 2 hard coding? 
+
         private Vector2 ItemDimentions;
 
         private Vector2 SelectedItemPosition;
@@ -112,6 +119,9 @@ namespace Project1.LinkComponents
             RupeeValues.TryAdd("ItemBlueRupee", 5);
             RupeeValues.TryAdd("ItemOrangeRupee", 1);
 
+            ItemBombs = new List<string>();
+            ItemBombs.Add("ItemBombSolid");
+
             ItemKeys = new List<string>();
             ItemKeys.Add("ItemSmallKey");
             ItemKeys.Add("ItemMagicalKey");
@@ -124,6 +134,8 @@ namespace Project1.LinkComponents
             ItemEnemyFreeze.Add("ItemClock");
 
             RupeeCount = 0;
+            BombCount = 5;
+            KeyCount = 0;
 
             ItemDimentions = new Vector2(4, 2);
         }
@@ -138,9 +150,22 @@ namespace Project1.LinkComponents
                 Items.TryAdd(name, 1);
             }
 
+            /* Increment <RupeeCount> if add a rupee */
             if (RupeeValues.ContainsKey(name))
             {
                 CollectRupee(name);
+            }
+
+            /* Increment <BombCount> if add a bomb */
+            if (ItemBombs.Contains(name))
+            {
+                BombCount++;
+            }
+
+            /* Increment <KeyCount> if add a key */
+            if (ItemKeys.Contains(name))
+            {
+                KeyCount++;
             }
         }
         private bool CanPlayGame()
@@ -205,11 +230,11 @@ namespace Project1.LinkComponents
                 if (Items.ContainsKey(key))
                 {
                     Items.Remove(key);
+                    KeyCount--;
                     return true;
                 }
             }
             return false;   // no key found
-
         }
         private void CollectRupee(string name)
         {
@@ -240,7 +265,6 @@ namespace Project1.LinkComponents
                 }
             }
         }
-
         public void SelectItem1()
         {
             /* Indicate that will be selecting for <Item1> 
@@ -425,6 +449,8 @@ namespace Project1.LinkComponents
             Item1 = DefaultItem1;
             Item2 = DefaultItem2;
             RupeeCount = 0;
+            BombCount = 5;
+            KeyCount = 0;
         }
     }
 }

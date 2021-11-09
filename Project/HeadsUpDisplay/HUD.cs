@@ -19,10 +19,13 @@ namespace Project1.HeadsUpDisplay
         public Texture2D HUDLevelMap { get; set; }
 
         private Game1 Game;
+        private SpriteFont Font; 
         private Vector2 Position;
         private Vector2 MapPosition;
         private Vector2 HeartPosition;
         private Vector2 RupeeCountPosition;
+        private Vector2 BombCountPosition;
+        private Vector2 KeyCountPosition;
         private Vector2 InventoryItemPosition;
         private Vector2 InventoryItem1Position;
         private Vector2 InventoryItem2Position;
@@ -32,10 +35,14 @@ namespace Project1.HeadsUpDisplay
             Link = link;
 
             // TODO: data drive 
+            Font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+
             Position = new Vector2(0, 0);
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
             RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
+            BombCountPosition = (new Vector2(104, 40) * GameObjectManager.Instance.ScalingFactor) + Position;
+            KeyCountPosition = (new Vector2(104, 30) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItem1Position = (new Vector2(128, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItem2Position = (new Vector2(152, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
@@ -98,11 +105,22 @@ namespace Project1.HeadsUpDisplay
             DrawLinkHealth(spriteBatch, newHeartPosition);
 
             // Draw Rupee Count
-            SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             string RupeeCount = Link.Inventory.RupeeCount.ToString();
             Vector2 newRupeeCountPosition = RupeeCountPosition;
-            newRupeeCountPosition.Y += position.Y;
-            spriteBatch.DrawString(font, RupeeCount, newRupeeCountPosition, Color.White);
+            newRupeeCountPosition += position;
+            spriteBatch.DrawString(Font, RupeeCount, newRupeeCountPosition, Color.White);
+
+            // Draw Bomb Count
+            string BombCount = Link.Inventory.BombCount.ToString();
+            Vector2 newBombCountPosition = BombCountPosition;
+            newBombCountPosition += position;
+            spriteBatch.DrawString(Font, BombCount, newBombCountPosition, Color.White);
+
+            // Draw Key Count
+            string KeyCount = Link.Inventory.KeyCount.ToString();
+            Vector2 newKeyCountPosition = KeyCountPosition;
+            newKeyCountPosition += position;
+            spriteBatch.DrawString(Font, KeyCount, newKeyCountPosition, Color.White);
         }
 
         private void DrawLinkHealth(SpriteBatch spriteBatch, Vector2 position)

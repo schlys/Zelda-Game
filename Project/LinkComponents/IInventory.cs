@@ -16,6 +16,8 @@ namespace Project1.LinkComponents
         String Item1 { get; set; }
         String Item2 { get; set; }
         int RupeeCount { get; set; }
+        int BombCount { get; set; }
+        int KeyCount { get; set; }
         void AddItem(String name);
         void UseItem1();
         void UseItem2();
