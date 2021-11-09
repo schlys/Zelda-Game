@@ -3,21 +3,28 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.SpriteComponents;
+using Project1.LevelComponents;
 
 namespace Project1.GameState
 {
-    public class GameStateItemSelect: IGameState
+    public class GameStateScrollScreen: IGameState
     {
         public Vector2 RoomPosition { get; set; }
         public string ID { get; set; }
-        public GameStateItemSelect()
+        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
+        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
+        public GameStateScrollScreen()
         {
-            ID = "ItemSelect";
+            ID = "ScrollScreen";
         }
-        public void Update() { }
-        public void Draw(SpriteBatch spriteBatch) 
+        public void Update()
         {
-            // Display the Inventory, map, and HUD 
+            
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            
         }
         public IGameState Reset()
         {
@@ -25,7 +32,7 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            return new GameStatePause();
+            return this; 
         }
         public IGameState StartGame()
         {
@@ -41,11 +48,11 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateGamePlay();
+            return this;
         }
         public IGameState ScrollScreen()
         {
-            return this;
+            return new GameStateGamePlay();
         }
     }
 }

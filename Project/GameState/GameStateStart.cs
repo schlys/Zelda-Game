@@ -57,5 +57,9 @@ namespace Project1.GameState
         {
             return this;
         }
+        public IGameState ScrollScreen()
+        {
+            return this;
+        }
     }
 }

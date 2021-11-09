@@ -204,6 +204,8 @@ namespace Project1.HeadsUpDisplay
                 HUDMap.Height * GameObjectManager.Instance.ScalingFactor);
             spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
 
+            // Draw the compass and map items 
+
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
             Vector2 newMapPosition = MapItemSelectPosition;
             newMapPosition += position;

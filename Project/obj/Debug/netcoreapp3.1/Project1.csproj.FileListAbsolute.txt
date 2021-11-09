@@ -357,3 +357,5 @@ C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyCompl
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLPositions.xml
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLProjectile.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLPositions.xml
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLProjectile.xml

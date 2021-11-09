@@ -9,7 +9,7 @@ namespace Project1.GameState
 {
     /* GameStateManager is a singleton that manages the current state  for the game
      * using <CurrentState>. The states include the start, game play, item selection screen, 
-     * game over win, game over lose, pause, game over, and restart state. 
+     * game over win, game over lose, pause, game over, restart, and scrollscreen state. 
      */ 
     public class GameStateManager: IGameStateManager
     {
@@ -94,6 +94,11 @@ namespace Project1.GameState
         {
             // Game is won, can restart the game or exit 
             CurrentState = CurrentState.WinGame();
+        }
+        public void ScrollScreen()
+        {
+            // In GamePlay, trigger scroll animation
+            CurrentState = CurrentState.ScrollScreen();
         }
         public bool CanPlayGame()
         {

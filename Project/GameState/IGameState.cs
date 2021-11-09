@@ -19,5 +19,6 @@ namespace Project1.GameState
         IGameState WinGame();
         IGameState LoseGame();
         IGameState ItemSelectMenu();
+        IGameState ScrollScreen();
     }
 }
