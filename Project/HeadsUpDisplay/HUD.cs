@@ -22,6 +22,7 @@ namespace Project1.HeadsUpDisplay
         private SpriteFont Font; 
         private Vector2 Position;
         private Vector2 MapPosition;
+        private Vector2 MapItemSelectPosition;
         private Vector2 HeartPosition;
         private Vector2 RupeeCountPosition;
         private Vector2 BombCountPosition;
@@ -39,6 +40,7 @@ namespace Project1.HeadsUpDisplay
 
             Position = new Vector2(0, 0);
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
+            MapItemSelectPosition = (new Vector2(128, 8) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
             RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             BombCountPosition = (new Vector2(104, 40) * GameObjectManager.Instance.ScalingFactor) + Position;
@@ -182,7 +184,10 @@ namespace Project1.HeadsUpDisplay
                 HUDMap.Height * GameObjectManager.Instance.ScalingFactor);
             spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
 
-            // TODO: draw the map
+            // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
+            Vector2 newMapPosition = MapItemSelectPosition;
+            newMapPosition += position;
+            LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
         }
         public void Reset()
         {
