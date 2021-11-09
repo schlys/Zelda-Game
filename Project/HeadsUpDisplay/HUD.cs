@@ -26,6 +26,8 @@ namespace Project1.HeadsUpDisplay
         private Vector2 Position;
         private Vector2 MapPosition;
         private Vector2 MapItemSelectPosition;
+        private Vector2 MapItemPosition;
+        private Vector2 CompassItemPosition;
         private Vector2 HeartPosition;
         private Vector2 RupeeCountPosition;
         private Vector2 BombCountPosition;
@@ -59,8 +61,12 @@ namespace Project1.HeadsUpDisplay
             }
 
             //add these elements to XMLPositiions and change code so it uses the dict and not the vectors
+            // **TO MULAN - i agree a dict would be more efficent, but im concerned about the dict since it will need keys which are
+            // then hard coded strings. could we load each variable in the XML instead? 
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             MapItemSelectPosition = (new Vector2(128, 8) * GameObjectManager.Instance.ScalingFactor) + Position;
+            MapItemPosition = (new Vector2(47, 22) * GameObjectManager.Instance.ScalingFactor) + Position;
+            CompassItemPosition = (new Vector2(47, 64) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
             RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             BombCountPosition = (new Vector2(104, 40) * GameObjectManager.Instance.ScalingFactor) + Position;
@@ -205,6 +211,13 @@ namespace Project1.HeadsUpDisplay
             spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
 
             // Draw the compass and map items 
+            Vector2 newMapItemPosition = MapItemPosition;
+            newMapItemPosition += position;
+            Link.Inventory.DrawItemMap(spriteBatch, newMapItemPosition);
+
+            Vector2 newCompassItemPosition = CompassItemPosition;
+            newCompassItemPosition += position;
+            Link.Inventory.DrawItemCompass(spriteBatch, newCompassItemPosition);
 
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
             Vector2 newMapPosition = MapItemSelectPosition;

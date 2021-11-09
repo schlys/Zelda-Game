@@ -34,6 +34,8 @@ namespace Project1.LinkComponents
         void UnfreezeEnemies();
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void DrawItem(SpriteBatch spriteBatch, string name, Vector2 position);
+        void DrawItemMap(SpriteBatch spriteBatch, Vector2 position);
+        void DrawItemCompass(SpriteBatch spriteBatch, Vector2 position);
         void Reset();
     }
 }

@@ -33,6 +33,8 @@ namespace Project1.LinkComponents
         private List<string> ItemBombs;        
         private List<string> ItemKeys;
         private List<string> ItemHighlightMap;
+        private string MapItemKey;
+        private string CompassItemKey; 
         private List<string> ItemEnemyFreeze;
 
         private int TWO = 2; // TODO: is 2 hard coding? 
@@ -90,6 +92,8 @@ namespace Project1.LinkComponents
         {
             Link = link;
 
+            // TODO: need a more efficent way of handling items!!!! need to remake item states 
+
             // TODO: decide on default items and load them 
             DefaultItems = new Dictionary<string, int>();
             DefaultItems.TryAdd("ItemArrowUp", 5);
@@ -126,9 +130,12 @@ namespace Project1.LinkComponents
             ItemKeys.Add("ItemSmallKey");
             ItemKeys.Add("ItemMagicalKey");
 
+            MapItemKey = "ItemDungeonMap";
+            CompassItemKey = "ItemCompass";
+
             ItemHighlightMap = new List<string>();
-            ItemHighlightMap.Add("ItemCompass");
-            ItemHighlightMap.Add("ItemDungeonMap");
+            ItemHighlightMap.Add(MapItemKey);
+            ItemHighlightMap.Add(CompassItemKey);
 
             ItemEnemyFreeze = new List<string>();
             ItemEnemyFreeze.Add("ItemClock");
@@ -433,6 +440,27 @@ namespace Project1.LinkComponents
             Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
             ItemSprite.Draw(spriteBatch, SpritePosition);
         }
+
+        public void DrawItemMap(SpriteBatch spriteBatch, Vector2 position)
+        {
+            /* Draw the DungeonMap at the given <position> if it is contained in <Items>
+             */
+            if (Items.ContainsKey(MapItemKey))
+            {
+                DrawItem(spriteBatch, MapItemKey, position);
+            }
+        }
+
+        public void DrawItemCompass(SpriteBatch spriteBatch, Vector2 position)
+        {
+            /* Draw the Compass at the given <position> if it is contained in <Items> 
+             */
+            if (Items.ContainsKey(CompassItemKey))
+            {
+                DrawItem(spriteBatch, CompassItemKey, position);
+            }
+        }
+
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
         {
             /* Get accurate dimensions for the hitbox, but position is off */
