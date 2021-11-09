@@ -27,10 +27,10 @@ namespace Project1
         public Game1 Game; 
 
         public void Initialize(Game1 game)
-        {/*
+        {
             Game = game;
             CreateDict(game);
-            PlaySong(game);*/
+            PlaySong(game);
         }
 
         private void CreateDict(Game1 game)
@@ -63,111 +63,111 @@ namespace Project1
         // Methods for specific sound effects
         public void PlayArrowBoomerang()
         {
-            //SoundDict["ArrowBoomerang"].Play();
+            SoundDict["ArrowBoomerang"].Play();
         }
         public void PlayBombBlow()
         {
-            //SoundDict["BombBlow"].Play();
+            SoundDict["BombBlow"].Play();
         }
         public void PlayBombDrop()
         {
-            //SoundDict["BombDrop"].Play();
+            SoundDict["BombDrop"].Play();
         }
         public void PlayBossScream1()
         {
-            //SoundDict["BossScream1"].Play();
+            SoundDict["BossScream1"].Play();
         }
         public void PlayCandle()
         {
-            //SoundDict["Candle"].Play();
+            SoundDict["Candle"].Play();
         }
         public void PlayDoorUnlock()
         {
-            //SoundDict["DoorUnlock"].Play();
+            SoundDict["DoorUnlock"].Play();
         }
         public void PlayEnemyDie()
         {
-            //SoundDict["EnemyDie"].Play();
+            SoundDict["EnemyDie"].Play();
         }
         public void PlayEnemyHit()
         {
-            //SoundDict["EnemyHit"].Play();
+            SoundDict["EnemyHit"].Play();
         }
         public void PlayFanfare()
         {
-            //SoundDict["Fanfare"].Play();
+            SoundDict["Fanfare"].Play();
         }
         public void PlayGetHeart()
         {
-            //SoundDict["GetHeart"].Play();
+            SoundDict["GetHeart"].Play();
         }
         public void PlayGetItem()
         {
-            //SoundDict["GetItem"].Play();
+            SoundDict["GetItem"].Play();
         }
         public void PlayGetRupee()
         {
-            //SoundDict["GetRupee"].Play();
+            SoundDict["GetRupee"].Play();
         }
         public void PlayKeyAppear()
         {
-            //SoundDict["KeyAppear"].Play();
+            SoundDict["KeyAppear"].Play();
         }
         public void PlayLinkDie()
         {
-            //SoundDict["LinkDie"].Play();
+            SoundDict["LinkDie"].Play();
         }
         public void PlayLinkHurt()
         {
-            //SoundDict["LinkHurt"].Play();
+            SoundDict["LinkHurt"].Play();
         }
         public void PlayLowHealth()
         {
-            //SoundDict["LowHealth"].Play();
+            SoundDict["LowHealth"].Play();
         }
         public void PlayMagicalRod()
         {
-            //SoundDict["MagicalRod"].Play();
+            SoundDict["MagicalRod"].Play();
         }
         public void PlayRecorder()
         {
-            //SoundDict["Recorder"].Play();
+            SoundDict["Recorder"].Play();
         }
         public void PlayRefillLoop()
         {
-            //SoundDict["RefillLoop"].Play();
+            SoundDict["RefillLoop"].Play();
         }
         public void PlaySecret()
         {
-            //SoundDict["Secret"].Play();
+            SoundDict["Secret"].Play();
         }
         public void PlayShield()
         {
-            //SoundDict["Shield"].Play();
+            SoundDict["Shield"].Play();
         }
         public void PlayStairs()
         {
-            //SoundDict["Stairs"].Play();
+            SoundDict["Stairs"].Play();
         }
         public void PlaySwordCombined()
         {
-            //SoundDict["Sword"].Play();
+            SoundDict["Sword"].Play();
         }
         public void PlaySwordShoot()
         {
-            //SoundDict["SwordShoot"].Play();
+            SoundDict["SwordShoot"].Play();
         }
         public void PlaySwordSlash()
         {
-            //SoundDict["SwordSlash"].Play();
+            SoundDict["SwordSlash"].Play();
         }
         public void PlayText()
         {
-            //SoundDict["Text"].Play();
+            SoundDict["Text"].Play();
         }
         public void PlayTextSlow()
         {
-            //SoundDict["TextSlow"].Play();
+            SoundDict["TextSlow"].Play();
         }
     }
 }

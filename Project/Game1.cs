@@ -44,7 +44,7 @@ namespace Project1
 
             GameObjectManager.Instance.Initialize(this);
             GameStateManager.Instance.Initialize(this);
-            //GameSoundManager.Instance.Initialize(this);
+            GameSoundManager.Instance.Initialize(this);
 
             defaultVeiew = GraphicsDevice.Viewport;
             _camera = new Camera();
