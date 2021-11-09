@@ -355,3 +355,4 @@ C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\
 C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
 C:\Users\blum1\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\blum1\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLPositions.xml

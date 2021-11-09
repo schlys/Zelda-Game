@@ -7,6 +7,8 @@ using System.Text;
 using Project1.LevelComponents;
 using Project1.SpriteComponents;
 using Project1.GameState;
+using System.Reflection;
+using System.Xml;
 
 namespace Project1.HeadsUpDisplay
 {
@@ -19,7 +21,8 @@ namespace Project1.HeadsUpDisplay
         public Texture2D HUDLevelMap { get; set; }
 
         private Game1 Game;
-        private SpriteFont Font; 
+        private SpriteFont Font;
+        private Dictionary<String, Vector2> Positions;
         private Vector2 Position;
         private Vector2 MapPosition;
         private Vector2 MapItemSelectPosition;
@@ -37,8 +40,25 @@ namespace Project1.HeadsUpDisplay
 
             // TODO: data drive 
             Font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
-
+            Positions = new Dictionary<string, Vector2>();
             Position = new Vector2(0, 0);
+
+           
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLPositions.xml";
+            XMLData.Load(path);
+            XmlNodeList Pos = XMLData.DocumentElement.SelectNodes("/Positions/Position");
+            foreach (XmlNode node in Pos)
+            {
+                string name = node.SelectSingleNode("Name").InnerText;
+                int x = Int16.Parse(node.SelectSingleNode("x").InnerText);
+                int y = Int16.Parse(node.SelectSingleNode("y").InnerText);
+
+                Positions.Add(name, (new Vector2(x, y) * GameObjectManager.Instance.ScalingFactor) + Position);
+
+            }
+
+            //add these elements to XMLPositiions and change code so it uses the dict and not the vectors
             MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
             MapItemSelectPosition = (new Vector2(128, 8) * GameObjectManager.Instance.ScalingFactor) + Position;
             HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
