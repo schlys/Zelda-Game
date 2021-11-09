@@ -1,0 +1,10 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 11/09/2021
+Sprint Number: 4
+Name of file: HUD.cs
+Author(s) of file:  Elise Kosmides, Sam Chlystek, Mulan Blum
+Number of minutes taken: 10 minutes
+Readability Review:
+Clearing out the unneeded methods/code would help a tad.
+The comments are pretty good and useful.
+Variable names are very descriptive, they could be shortened a little by condesing words like "position" to "pos", etc, but that's nitpicking.
