@@ -30,7 +30,7 @@ namespace Project1
         {
             Game = game;
             CreateDict(game);
-            PlaySong(game);
+            song = game.Content.Load<Song>("Sounds/Song");
         }
 
         private void CreateDict(Game1 game)
@@ -52,9 +52,8 @@ namespace Project1
             }
         }
 
-        private void PlaySong(Game1 game)
+        public void PlaySong()
         {
-            song = game.Content.Load<Song>("Sounds/Song");
             MediaPlayer.Play(song);             // Play background song
             MediaPlayer.IsRepeating = true;     // Loop the song
             MediaPlayer.Volume = 0.5f;          // 0.0f is silent, 1.0f is full volume

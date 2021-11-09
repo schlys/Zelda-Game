@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/a/project/Content/LinkSprites/Items.png</SourceFile>
+  <SourceFile>C:/Users/Andy/Desktop/a/Project/Content/LinkSprites/Items.png</SourceFile>
   <SourceTime>2021-11-09T14:03:49.1441648-05:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/a/project/Content/bin/Windows/Content/LinkSprites/Items.xnb</DestFile>
-  <DestTime>2021-11-09T14:05:54.7275192-05:00</DestTime>
+  <DestFile>C:/Users/Andy/Desktop/a/Project/Content/bin/Windows/Content/LinkSprites/Items.xnb</DestFile>
+  <DestTime>2021-11-09T14:08:33.0502497-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

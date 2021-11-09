@@ -21,7 +21,7 @@ namespace Project1.ProjectileComponents
         // Other Properties
         private int Speed = 4;
         private int Counter = 0;
-        private int CounterExplode = 15;
+        private int CounterExplode = 20;
         private int CounterMax;
         public BombSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
@@ -49,6 +49,15 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
 
+            if (Counter == 0)
+            {
+                GameSoundManager.Instance.PlayBombDrop();
+            }
+            if (Counter == CounterExplode)
+            {
+                GameSoundManager.Instance.PlayBombBlow();
+            }
+
             Counter++;
             if (Counter < CounterExplode)
             {
@@ -69,7 +78,7 @@ namespace Project1.ProjectileComponents
                 }
             }
             else if (Counter < CounterMax) // Explosion animation 
-            {   
+            {
                 Sprite.Update();
             }
             else

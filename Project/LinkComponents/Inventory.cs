@@ -238,6 +238,7 @@ namespace Project1.LinkComponents
                 {
                     Items.Remove(key);
                     KeyCount--;
+                    GameSoundManager.Instance.PlayDoorUnlock();
                     return true;
                 }
             }

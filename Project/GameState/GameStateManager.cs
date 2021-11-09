@@ -73,12 +73,8 @@ namespace Project1.GameState
         }
         public void Start() 
         {
+            GameSoundManager.Instance.PlaySong();
             CurrentState = CurrentState.StartGame(); 
-        }
-        public void PlayGame() 
-        {
-            // Begin game play
-            CurrentState = CurrentState.StartGame();
         }
         public void ItemSelection() 
         {
