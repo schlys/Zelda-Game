@@ -50,6 +50,10 @@ namespace Project1.ProjectileComponents
 
         public void Update()
         {
+            if (Counter == 0)
+            {
+                GameSoundManager.Instance.PlayArrowBoomerang();
+            }
             Counter++;
             if (Counter < CounterPoof)
             {

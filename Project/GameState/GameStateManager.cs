@@ -84,6 +84,8 @@ namespace Project1.GameState
         public void GameOverLose() 
         {
             // Game is lost, can restart the game or exit 
+            GameSoundManager.Instance.PlayLinkDie();
+            GameSoundManager.Instance.StopSong();
             CurrentState = CurrentState.LoseGame();
         }
         public void GameOverWin() 

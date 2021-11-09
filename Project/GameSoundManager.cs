@@ -59,6 +59,11 @@ namespace Project1
             MediaPlayer.Volume = 0.5f;          // 0.0f is silent, 1.0f is full volume
         }
 
+        public void StopSong()
+        {
+            MediaPlayer.Stop();
+        }
+
         // Methods for specific sound effects
         public void PlayArrowBoomerang()
         {
