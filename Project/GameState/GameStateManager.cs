@@ -11,7 +11,7 @@ namespace Project1.GameState
      * using <CurrentState>. The states include the start, game play, item selection screen, 
      * game over win, game over lose, pause, game over, restart, and scrollscreen state. 
      */ 
-    public class GameStateManager: IGameStateManager
+    public sealed class GameStateManager: IGameStateManager
     {
         private static GameStateManager instance = new GameStateManager();
         public static GameStateManager Instance

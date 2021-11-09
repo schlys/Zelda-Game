@@ -10,7 +10,7 @@ using Project1.LevelComponents;
 
 namespace Project1
 {
-    public class GameSoundManager
+    public sealed class GameSoundManager
     {
         private static GameSoundManager instance = new GameSoundManager();
         public static GameSoundManager Instance
