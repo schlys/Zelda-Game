@@ -8,6 +8,7 @@ using Project1.CollisionComponents;
 using Project1.DirectionState;
 using System.Reflection;
 using Project1.LevelComponents;
+using System.Xml;
 
 namespace Project1.ProjectileComponents
 {
@@ -70,24 +71,21 @@ namespace Project1.ProjectileComponents
         {
             // Adjust start location to be beside the sprite based on the direction
             // TODO: not hardcode offset values 
-            
-           
-                switch (direction.ID)
-                {
-                    case "Up":
-                        Position += new Vector2(5, -8);
-                        break;
-                    case "Down":
-                        Position += new Vector2(5, 15);
-                        break;
-                    case "Right":
-                        Position += new Vector2(13, 8);
-                        break;
-                    default: // Left
-                        Position += new Vector2(-8, 8);
-                        break;
-                }
-            
+
+            XmlDocument XMLData = new XmlDocument();
+            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLProjectile.xml";
+            XMLData.Load(path);
+            XmlNodeList Offset = XMLData.DocumentElement.SelectNodes("/Position/Offset");
+             Dictionary<String, Vector2> Offsets = new Dictionary<string, Vector2>();
+            foreach (XmlNode node in Offset)
+            {
+                string name = node.SelectSingleNode("Name").InnerText;
+                int x = Int16.Parse(node.SelectSingleNode("x").InnerText);
+                int y = Int16.Parse(node.SelectSingleNode("y").InnerText);
+
+                Offsets.Add(name, new Vector2(x, y));
+            }
+            Position += Offsets[direction.ID];         
             OriginalPosition = Position; 
         }
 

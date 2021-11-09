@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Position>
+	<Offset>
+		<Name>Up</Name>
+		<x>5</x>
+		<y>-8</y>
+	</Offset>
+	<Offset>
+		<Name>Down</Name>
+		<x>5</x>
+		<y>15</y>
+	</Offset>
+	<Offset>
+		<Name>Right</Name>
+		<x>13</x>
+		<y>8</y>
+	</Offset>
+	<Offset>
+		<Name>Left</Name>
+		<x>-8</x>
+		<y>8</y>
+	</Offset>
+</Position>
