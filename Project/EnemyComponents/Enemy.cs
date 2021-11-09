@@ -29,7 +29,6 @@ namespace Project1.EnemyComponents
         private int colorDelay = 10;
         private bool IsDead = false;
         private int health = 3;
-        private int TWO = 2;
         
         public Enemy(Vector2 position, string type)
         {           
@@ -47,7 +46,7 @@ namespace Project1.EnemyComponents
             UpdateHitBox();
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / TWO, (RoomBlockSize - Hitbox.Height) / TWO);
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
             UpdateHitBox();
 

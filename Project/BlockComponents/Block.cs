@@ -27,7 +27,6 @@ namespace Project1.BlockComponents
 
         private double Counter = 0.0;
         private double Step = 0.2;
-        private int TWO = 2;
         private Dictionary<String, String> BlockConstructors = new Dictionary<string, string>();
         private string[] BlockTypeKeys = {  };
 
@@ -62,7 +61,7 @@ namespace Project1.BlockComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            Position -= new Vector2((RoomBlockSize-Hitbox.Width)/TWO, (RoomBlockSize -Hitbox.Height) / TWO);
+            Position -= new Vector2((RoomBlockSize-Hitbox.Width)/2, (RoomBlockSize -Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
 
@@ -102,11 +101,11 @@ namespace Project1.BlockComponents
         private void IncrementCounter(double i)
         {
             Counter += i;
-            if (Counter > (BlockTypeKeys.Length - Step / TWO))
+            if (Counter > (BlockTypeKeys.Length - Step / 2))
             {
                 Counter = 0;
             }
-            else if (Counter < -Step / TWO)
+            else if (Counter < -Step / 2)
             {
                 int length = BlockTypeKeys.Length;
                 Counter = length--;
