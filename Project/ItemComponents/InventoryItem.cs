@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
+using Project1.LinkComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace Project1.ItemComponents
 {
-    class MovingItem : IItem, ICollidable
+    class InventoryItem : IItem, ICollidable
     {
         // Properties from IItem 
         public Vector2 Position { get; set; }
@@ -25,10 +26,8 @@ namespace Project1.ItemComponents
         private bool IsPicked = false;
 
 
-        public MovingItem(Vector2 position, string type)
+        public InventoryItem(Vector2 position, string type)
         {
-            IsMoving = true;
-            TypeID = "Item" + type;
 
             /* Get the item state via reflection */
             Assembly assem = typeof(IItemState).Assembly;
@@ -36,7 +35,9 @@ namespace Project1.ItemComponents
             ConstructorInfo itemConstructor = itemType.GetConstructor(new[] { typeof(IItem) });
             object itemState = itemConstructor.Invoke(new object[] { this });
             ItemState = (IItemState)itemState;
-            
+            IsMoving = ItemState.IsMoving;
+            TypeID = "InventoryItem" + ItemState.ID;
+
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox);
@@ -56,6 +57,14 @@ namespace Project1.ItemComponents
         public void RemoveItem()
         {
             IsPicked = true;
+        }
+        public void AddToInventory(ILink link)
+        {
+            ItemState.AddToInventory(link);
+        }
+        public void UseItem()
+        {
+
         }
 
         public void Reset()

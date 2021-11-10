@@ -235,13 +235,14 @@ namespace Project1.LinkComponents
             return Inventory.UseKey();
         }
 
-        public void PickUpItem(string name)
+        public void PickUpItem(IItem item)
         {
             /* Link picks up an item, adds it to his <Inventory>, does a specific pick up animation, 
              * and plays a sound.
              */
             UpdateSprite();
-            Inventory.AddItem(name);
+            item.AddToInventory(this);
+            //Inventory.AddItem(item);
             GameSoundManager.Instance.PlayGetItem();
         }
 

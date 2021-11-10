@@ -250,21 +250,6 @@ namespace Project1.Command
         }
     }
 
-    public class LinkPickUpArrowCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkPickUpArrowCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.PickUpItem("Arrow");
-        }
-    }
 
     public class LinkItemSelectUpCmd : ICommand
     {

@@ -82,53 +82,17 @@ namespace Project1.Command
             Link.HitBlock(Direction);
         }
     }
-    /*
-    public class AddKeyCmd : ICommand
-    {
-        public ILink Link { get; set; }
-        public AddKeyCmd(ICollidable link, ICollidable item, string direction)
-        {
-            Link = (ILink)link;
-        }
-        public void Execute()
-        {
-            Link.HUD.AddKey();
-        }
-    }
-    public class AddRupeeCmd : ICommand
-    {
-        public ILink Link { get; set; }
-        public AddRupeeCmd(ICollidable link, ICollidable item, string direction)
-        {
-            Link = (ILink)link;
-        }
-        public void Execute()
-        {
-            Link.HUD.AddRupee();
-        }
-    }
-    public class AddBombCmd : ICommand
-    {
-        public ILink Link { get; set; }
-        public AddBombCmd(ICollidable link, ICollidable item, string direction)
-        {
-            Link = (ILink)link;
-        }
-        public void Execute()
-        {
-            Link.HUD.AddBomb();
-        }
-    }
-    */
+   
     public class LinkAddItemToInventoryCmd : ICommand
     {
         public ILink Link { get; set; }
-        string Item;
+        public IItem Item { get; set; }
+       
 
         public LinkAddItemToInventoryCmd(ICollidable link, ICollidable item, string direction)
         {
             Link = (ILink)link;
-            Item = item.TypeID;
+            Item = (IItem)item;
         }
         public void Execute()
         {

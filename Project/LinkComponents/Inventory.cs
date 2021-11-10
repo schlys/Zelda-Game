@@ -22,10 +22,12 @@ namespace Project1.LinkComponents
         public int RupeeCount { get; set; }
         public int BombCount { get; set; }
         public int KeyCount { get; set; }
+        public bool CanFreeze { get; set; }
         
         private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
         
         private Dictionary<string, int> DefaultItems;
+        private List<IItem> RealItems = new List<IItem>();
         private string DefaultItem1;
         private string DefaultItem2;
 
@@ -33,9 +35,10 @@ namespace Project1.LinkComponents
         private List<string> ItemBombs;        
         private List<string> ItemKeys;
         private List<string> ItemHighlightMap;
+        public List<string> Highlight { get; set; }
         private string MapItemKey;
-        private string CompassItemKey; 
-        private List<string> ItemEnemyFreeze;
+        private string CompassItemKey;
+        //private List<string> ItemEnemyFreeze;
 
         private int TWO = 2; // TODO: is 2 hard coding? 
 
@@ -90,7 +93,9 @@ namespace Project1.LinkComponents
 
         public Inventory(ILink link)
         {
+            Highlight = new List<string>();
             Link = link;
+            CanFreeze = false;
 
             // TODO: need a more efficent way of handling items!!!! need to remake item states 
 
@@ -137,8 +142,8 @@ namespace Project1.LinkComponents
             ItemHighlightMap.Add(MapItemKey);
             ItemHighlightMap.Add(CompassItemKey);
 
-            ItemEnemyFreeze = new List<string>();
-            ItemEnemyFreeze.Add("ItemClock");
+            //ItemEnemyFreeze = new List<string>();
+            //ItemEnemyFreeze.Add("ItemClock");
 
             RupeeCount = 0;
             BombCount = 5;
@@ -146,34 +151,34 @@ namespace Project1.LinkComponents
 
             ItemDimentions = new Vector2(4, 2);
         }
-        public void AddItem(String name)
+        public void AddItem(IItem item)
         {
-            if (Items.ContainsKey(name))
+            if (!RealItems.Contains(item))
             {
-                Items[name] = Items[name] + 1;
+                RealItems.Add(item);
             }
-            else
-            {
-                Items.TryAdd(name, 1);
-            }
+            //else
+            //{
+            //    Items.TryAdd(name, 1);
+            //}
 
             /* Increment <RupeeCount> if add a rupee */
-            if (RupeeValues.ContainsKey(name))
-            {
-                CollectRupee(name);
-            }
+            //if (RupeeValues.ContainsKey(name))
+            //{
+            //    CollectRupee(name);
+            //}
 
-            /* Increment <BombCount> if add a bomb */
-            if (ItemBombs.Contains(name))
-            {
-                BombCount++;
-            }
+            ///* Increment <BombCount> if add a bomb */
+            //if (ItemBombs.Contains(name))
+            //{
+            //    BombCount++;
+            //}
 
-            /* Increment <KeyCount> if add a key */
-            if (ItemKeys.Contains(name))
-            {
-                KeyCount++;
-            }
+            ///* Increment <KeyCount> if add a key */
+            //if (ItemKeys.Contains(name))
+            //{
+            //    KeyCount++;
+            //}
         }
         private bool CanPlayGame()
         {
@@ -352,35 +357,36 @@ namespace Project1.LinkComponents
         {
             foreach (string i in ItemHighlightMap)
             {
-                if (!Items.ContainsKey(i))
+                if (!Highlight.Contains(i))
                 {
                     return false;   // Missing an item needed to display the map
                 }
             }
             return true;
         }
-        public bool CanFreezeEnemies()
-        {
-            foreach (string i in ItemEnemyFreeze)
-            {
-                if (!Items.ContainsKey(i))
-                {
-                    return false;   // Missing an item needed to freeze enemies
-                }
-            }
-            return true;
-        }
-        public void UnfreezeEnemies()
-        {
-            /* Precondition: CanFreezeEnemies is true so <Items> contains all entries of <ItemEnemyFreeze>
-             * Remove all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
-             */
+        //public bool CanFreezeEnemies()
+        //{
+        //    foreach (string i in ItemEnemyFreeze)
+        //    {
+        //        if (!Items.ContainsKey(i))
+        //        {
+        //            return false;   // Missing an item needed to freeze enemies
+        //        }
+        //    }
+        //    return true;
+        //}
+        //public void UnfreezeEnemies()
+        //{
+        //    /* Precondition: CanFreezeEnemies is true so <Items> contains all entries of <ItemEnemyFreeze>
+        //     * Remove all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
+        //     */
 
-            foreach (string i in ItemEnemyFreeze)
-            {
-                Items.Remove(i);
-            }
-        }
+        //    //foreach (string i in ItemEnemyFreeze)
+        //    //{
+        //    //    Items.Remove(i);
+        //    //}
+        //    CanFreeze = false;
+        //}
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draws a maximum of 8 items that represent the first 8 items in the inventory. 

@@ -27,7 +27,7 @@ namespace Project1.LinkComponents
         void UseItem1();
         void UseItem2();
         bool UseKey();
-        void PickUpItem(string name);
+        void PickUpItem(IItem item);
         void TakeDamage(string direction, int knockback);
         void IncreaseHealth();
         void RestoreHealth();

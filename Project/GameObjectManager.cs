@@ -98,7 +98,7 @@ namespace Project1
                 foreach (ILink link in Links)
                 {
                     link.Update();
-                    if (link.Inventory.CanFreezeEnemies()) // check if Link freeze enemies from moving
+                    if (link.Inventory.CanFreeze) // check if Link freeze enemies from moving
                     {
                         FreezeEnemies = new Tuple<bool, ILink>(true, link);
                     }
@@ -181,7 +181,7 @@ namespace Project1
             
             if (FreezeEnemies.Item1)
             {
-                FreezeEnemies.Item2.Inventory.UnfreezeEnemies();
+                FreezeEnemies.Item2.Inventory.CanFreeze = false;
                 FreezeEnemies = new Tuple<bool, ILink>(false, null);
             }
         }

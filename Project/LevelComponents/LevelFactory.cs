@@ -137,13 +137,13 @@ namespace Project1.LevelComponents
  
                     switch (type)
                     {
-                        case "MovingItem":
-                            IItem movingItem = new MovingItem(GetItemPosition(row, column), type2);
-                            Room.AddItem(movingItem);
-                            break;
                         case "Item":
-                            IItem item = new NonMovingItem(GetItemPosition(row, column), type2);
+                            IItem item = new Item(GetItemPosition(row, column), type2);
                             Room.AddItem(item);
+                            break;
+                        case "InventoryItem":
+                            IItem inventoryItem = new InventoryItem(GetItemPosition(row, column), type2);
+                            Room.AddItem(inventoryItem);
                             break;
                         case "Block":
                             IBlock block = new Block(GetItemPosition(row, column), type2);

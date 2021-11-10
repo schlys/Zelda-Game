@@ -5,14 +5,17 @@ using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Project1.LinkComponents;
 
 namespace Project1.ItemComponents
 {
     public class ItemAngelState : IItemState
     {
         public IItem Item { get; set; }
+        public bool IsMoving { get; set; }
         public Sprite Sprite { get; set; }
+        public string ID { get; set; }
         private Random R = new Random();
         private int Timer = 0;
         private int Rand;
@@ -20,9 +23,11 @@ namespace Project1.ItemComponents
         private int PositionBounds = 50; 
         public ItemAngelState(IItem item)
         {
+            ID = "Angel";
+            IsMoving = true;
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData("Angel");
-            ((ICollidable)Item).IsMoving = true; 
+            //((ICollidable)Item).IsMoving = true; 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -105,6 +110,16 @@ namespace Project1.ItemComponents
                     Item.Position = new Vector2(Item.Position.X + Step, Item.Position.Y);
                 }
             }
+        }
+
+        public void AddToInventory(ILink link)
+        {
+            
+        }
+
+        public void UseItem()
+        {
+            
         }
     }
 }
