@@ -1,0 +1,22 @@
+
+Author of the code review: Mulan
+
+
+Date of the code review: 11/10
+
+
+Sprint number: 4
+
+
+Name of the .cs file being reviewed: GameStateManager.cs
+
+
+Author of the .cs file being reviewed: Elise
+
+
+Number of minutes taken to complete the review: 10
+
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+variable names are clear, not sure why there is an update method, draw method is good, all state methods look good. 
+:)
