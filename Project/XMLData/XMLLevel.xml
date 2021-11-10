@@ -510,6 +510,12 @@
 				<row>1</row>
 				<column>3</column>
 			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
 		</Room>
 
 		<Room>
@@ -521,6 +527,18 @@
 			<down>room2</down>
 			<left></left>
 			<right></right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -586,6 +604,18 @@
 			<down></down>
 			<left></left>
 			<right>room6</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -660,6 +690,7 @@
 			</object>
 		</Room>
 
+		<!--##############################################################################-->
 		<Room>
 			<name>Room6</name>
 			<sheet>room</sheet>
@@ -669,6 +700,30 @@
 			<down>room4</down>
 			<left>room5</left>
 			<right>room7</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -740,6 +795,20 @@
 			<down></down>
 			<left>room6</left>
 			<right></right>
+		
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -829,6 +898,13 @@
 			<down></down>
 			<left></left>
 			<right>room9</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			
 		</Room>
 
 		<Room>
@@ -840,6 +916,25 @@
 			<down>room5</down>
 			<left>room8</left>
 			<right>room10</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -875,6 +970,30 @@
 			<down>room6</down>
 			<left>room9</left>
 			<right>room11</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -982,6 +1101,25 @@
 			<down>room7</down>
 			<left>room10</left>
 			<right>room12</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1041,6 +1179,20 @@
 			<down></down>
 			<left>room11</left>
 			<right></right>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1166,6 +1318,20 @@
 			<down>room10</down>
 			<left></left>
 			<right></right>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Enemy</type>
 				<type2>Stalfos</type2>
@@ -1477,6 +1643,20 @@
 			<down>room13</down>
 			<left></left>
 			<right>room15</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1614,6 +1794,14 @@
 			<down></down>
 			<left>room14</left>
 			<right></right>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1799,7 +1987,14 @@
 			<down></down>
 			<left></left>
 			<right></right>
-
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Up</type2>
+				<row>-1</row>
+				<column>5.5</column>
+			</object>
+			
 		</Room>
 
 		<Room>
@@ -1811,6 +2006,19 @@
 			<down>room16</down>
 			<left></left>
 			<right>room18</right>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Right</type2>
+				<row>3</row>
+				<column>12</column>
+			</object>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1871,6 +2079,19 @@
 			<down>room13</down>
 			<left>room17</left>
 			<right></right>
+			
+			<object locked="true">
+				<type>Door</type>
+				<type2>Left</type2>
+				<row>3</row>
+				<column>-1</column>
+			</object>
+			<object locked="true">
+				<type>Door</type>
+				<type2>Down</type2>
+				<row>7</row>
+				<column>5.5</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Blue</type2>
