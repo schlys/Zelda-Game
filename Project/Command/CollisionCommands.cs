@@ -26,18 +26,6 @@ namespace Project1.Command
         }
     }
 
-    //public class LinkMagicalSword : ICommand
-    //{
-    //    private ILink Link;
-    //    public LinkMagicalSword(ICollidable link, ICollidable holder, string direction = "")
-    //    {
-    //        Link = (ILink)link;
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.Weapon = "MagicalSword";
-    //    }
-    //}
 
     public class LinkTakeDamageCmd : ICommand
     {
@@ -53,20 +41,6 @@ namespace Project1.Command
             Link.TakeDamage(Direction, 20);
         }
     }
-
-    //public class LinkWearBlueRingCmd : ICommand
-    //{
-    //    public ILink Link { get; set; }
-    //    public LinkWearBlueRingCmd(ICollidable link, ICollidable holder, string direction)
-    //    {
-    //        Link = (ILink)link;
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.HalfDamageRecieved();
-    //        Link.SetColor(Color.CornflowerBlue);
-    //    }
-    //}
 
     public class LinkHitBlockCmd : ICommand
     {
@@ -157,59 +131,6 @@ namespace Project1.Command
         }
     }
 
-    //public class LinkIncreaseHealthCmd : ICommand
-    //{
-    //    public ILink Link { get; set; }
-    //    public LinkIncreaseHealthCmd(ICollidable link, ICollidable item, string direction)
-    //    {
-    //        Link = (ILink)link;
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.IncreaseHealth();
-    //    }
-    //}
-
-    //public class LinkRestoreHealthCmd : ICommand
-    //{
-    //    public ILink Link { get; set; }
-    //    public LinkRestoreHealthCmd(ICollidable link, ICollidable item, string direction)
-    //    {
-    //        Link = (ILink)link;
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.RestoreHealth();
-    //    }
-    //}
-
-    //public class LinkRestoreHealthIncreaseAndHeartCountCmd : ICommand
-    //{
-    //    public ILink Link { get; set; }
-    //    public LinkRestoreHealthIncreaseAndHeartCountCmd(ICollidable link, ICollidable item, string direction)
-    //    {
-    //        Link = (ILink)link;
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.IncreaseHealthHeartCount(); 
-    //        Link.RestoreHealth();
-    //    }
-    //}
-
-    //public class LinkWinCmd : ICommand
-    //{
-    //    public ILink Link { get; set; }
-    //    public LinkWinCmd(ICollidable link, ICollidable item, string direction)
-    //    {
-    //        Link = (ILink)link;
-           
-    //    }
-    //    public void Execute()
-    //    {
-    //        Link.Win();
-    //    }
-    //}
 
     public class EnemyTakeDamageCmd : ICommand
     {

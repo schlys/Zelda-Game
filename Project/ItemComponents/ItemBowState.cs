@@ -23,7 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            
+            link.PickUpItem(Item);
         }
 
         public void Draw(SpriteBatch spriteBatch)

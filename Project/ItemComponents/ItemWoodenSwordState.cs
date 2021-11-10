@@ -18,7 +18,7 @@ namespace Project1.ItemComponents
         {
             Item = item;
             IsMoving = false;
-            Sprite = SpriteFactory.Instance.GetSpriteData("WoodenSword");
+            Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
         }
 
         public void AddToInventory(ILink link)

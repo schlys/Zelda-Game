@@ -72,21 +72,9 @@
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<!--<Collision>
-		<name>LinkInventoryItemAngel</name>
-		<command1>LinkRestoreHealthCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
+	
 	<Collision>
 		<name>LinkItemArrowUp</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	
-	
-	<Collision>
-		<name>LinkItemBow</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
@@ -101,29 +89,6 @@
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<!--<Collision>
-		<name>LinkItemHeartContainer</name>
-		<command1>LinkRestoreHealthIncreaseAndHeartCountCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
-	
-	<!--<Collision>
-		<name>LinkItemLifePotion</name>
-		<command1>LinkRestoreHealthCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
-
-	<!--<Collision>
-		<name>LinkItemMagicalSword</name>
-		<command1>LinkMagicalSword</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
-	
-	<!--<Collision>
-		<name>LinkItemRecoveryHeart</name>
-		<command1>LinkIncreaseHealthCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
 	
 	<Collision>
 		<name>LinkItemSilverArrow</name>
@@ -131,21 +96,7 @@
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	
-	<!--<Collision>
-		<name>LinkItemTriforceFragment</name>
-		<command1>LinkWinCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
-	<!--<Collision>
-		<name>LinkItemWhiteSword</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
-	<!--<Collision>
-		<name>LinkItemWoodenSword</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
+	
 	
 	
 	

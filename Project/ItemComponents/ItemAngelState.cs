@@ -25,7 +25,7 @@ namespace Project1.ItemComponents
         { 
             IsMoving = true;
             Item = item;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Angel");
+            Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
             //((ICollidable)Item).IsMoving = true; 
         }
         public void Draw(SpriteBatch spriteBatch)
