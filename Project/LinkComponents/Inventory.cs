@@ -16,26 +16,29 @@ namespace Project1.LinkComponents
     public class Inventory : IInventory
     {
         public ILink Link { get; set; }
-        public Dictionary<string, int> Items { get; set; }
+        //public Dictionary<string, int> Items { get; set; }
+        public Dictionary<string, IItem> Items { get; set; }
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public int RupeeCount { get; set; }
         public int BombCount { get; set; }
         public int KeyCount { get; set; }
         public bool CanFreeze { get; set; }
+        public bool HasMap { get; set; }
+        public bool HasCompass { get; set; }
         
         private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
-        
-        private Dictionary<string, int> DefaultItems;
-        private List<IItem> RealItems = new List<IItem>();
-        private string DefaultItem1;
-        private string DefaultItem2;
 
-        private Dictionary<string, int> RupeeValues;
-        private List<string> ItemBombs;        
-        private List<string> ItemKeys;
-        private List<string> ItemHighlightMap;
-        public List<string> Highlight { get; set; }
+        //private Dictionary<string, int> DefaultItems;
+        
+        //private string DefaultItem1;
+        //private string DefaultItem2;
+
+        //private Dictionary<string, int> RupeeValues;
+        //private List<string> ItemBombs;        
+        //private List<string> ItemKeys;
+        //private List<string> ItemHighlightMap;
+        
         private string MapItemKey;
         private string CompassItemKey;
         //private List<string> ItemEnemyFreeze;
@@ -93,54 +96,61 @@ namespace Project1.LinkComponents
 
         public Inventory(ILink link)
         {
-            Highlight = new List<string>();
+          
             Link = link;
             CanFreeze = false;
+            HasCompass = false;
+            HasMap = false;
+
+            Item1 = "";
+            Item2 = "";
+
+            Items = new Dictionary<string, IItem>();
 
             // TODO: need a more efficent way of handling items!!!! need to remake item states 
 
             // TODO: decide on default items and load them 
-            DefaultItems = new Dictionary<string, int>();
-            DefaultItems.TryAdd("ItemArrowUp", 5);
-            DefaultItems.TryAdd("ItemBombSolid", 5);
-            DefaultItems.TryAdd("ItemSilverArrowUp", 5);
-            DefaultItems.TryAdd("ItemFire", 5);
-            DefaultItems.TryAdd("ItemBoomerangSolid", 5);
-            DefaultItems.TryAdd("ItemMagicalBoomerangSolid", 5);
+            //DefaultItems = new Dictionary<string, int>();
+            //DefaultItems.TryAdd("ItemArrowUp", 5);
+            //DefaultItems.TryAdd("ItemBombSolid", 5);
+            //DefaultItems.TryAdd("ItemSilverArrowUp", 5);
+            //DefaultItems.TryAdd("ItemFire", 5);
+            //DefaultItems.TryAdd("ItemBoomerangSolid", 5);
+            //DefaultItems.TryAdd("ItemMagicalBoomerangSolid", 5);
 
-            DefaultItem1 = "ItemBombSolid";
-            DefaultItem2 = "ItemMagicalBoomerangSolid";
+            //DefaultItem1 = "ItemBombSolid";
+            //DefaultItem2 = "ItemMagicalBoomerangSolid";
 
-            Items = new Dictionary<string, int>(DefaultItems);
-            Item1 = DefaultItem1;
-            Item2 = DefaultItem2;
+            //Items = new Dictionary<string, int>(DefaultItems);
+            //Item1 = DefaultItem1;
+            //Item2 = DefaultItem2;
 
             SelectedItem = new Tuple<string, int>(Item1, 1);
 
             SelectedItemPosition = new Vector2(61, 45) * GameObjectManager.Instance.ScalingFactor;
             SelectedItemKeyPosition = new Vector2(48, 72) * GameObjectManager.Instance.ScalingFactor;
-            InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor);
+            InventoryItemPosition = new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor;
 
             TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
             TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
 
-            RupeeValues = new Dictionary<string, int>();
-            RupeeValues.TryAdd("ItemBlueRupee", 5);
-            RupeeValues.TryAdd("ItemOrangeRupee", 1);
+            //RupeeValues = new Dictionary<string, int>();
+            //RupeeValues.TryAdd("ItemBlueRupee", 5);
+            //RupeeValues.TryAdd("ItemOrangeRupee", 1);
 
-            ItemBombs = new List<string>();
-            ItemBombs.Add("ItemBombSolid");
+            //ItemBombs = new List<string>();
+            //ItemBombs.Add("ItemBombSolid");
 
-            ItemKeys = new List<string>();
-            ItemKeys.Add("ItemSmallKey");
-            ItemKeys.Add("ItemMagicalKey");
+            //ItemKeys = new List<string>();
+            //ItemKeys.Add("ItemSmallKey");
+            //ItemKeys.Add("ItemMagicalKey");
 
-            MapItemKey = "ItemDungeonMap";
-            CompassItemKey = "ItemCompass";
+            MapItemKey = "DungeonMap";
+            CompassItemKey = "Compass";
 
-            ItemHighlightMap = new List<string>();
-            ItemHighlightMap.Add(MapItemKey);
-            ItemHighlightMap.Add(CompassItemKey);
+            //ItemHighlightMap = new List<string>();
+            //ItemHighlightMap.Add(MapItemKey);
+            //ItemHighlightMap.Add(CompassItemKey);
 
             //ItemEnemyFreeze = new List<string>();
             //ItemEnemyFreeze.Add("ItemClock");
@@ -153,10 +163,10 @@ namespace Project1.LinkComponents
         }
         public void AddItem(IItem item)
         {
-            if (!RealItems.Contains(item))
-            {
-                RealItems.Add(item);
-            }
+            if (!Items.ContainsKey(item.Kind)) Items.Add(item.Kind, item);
+            if (Items.Count == 1) Item1 = item.Kind;
+            if (Items.Count == 2) Item2 = item.Kind;
+
             //else
             //{
             //    Items.TryAdd(name, 1);
@@ -188,29 +198,33 @@ namespace Project1.LinkComponents
         {
             return GameStateManager.Instance.CanItemSelect();
         }
-        public void UseItem1()
+        public void UseItem(int ItemNumber)
         {
+            string item = Item1;
+            if (ItemNumber == 2) item = Item2;
+
             if (CanPlayGame())
             {
-                if (!Items.ContainsKey(Item1))
+                if (!Items.ContainsKey(item))
                 {
+                    return;
                     throw new InvalidOperationException();
                 }
-                UseItem(Item1);
+                UseItem(item);
             }
 
         }
-        public void UseItem2()
-        {
-            if (CanPlayGame())
-            {
-                if (!Items.ContainsKey(Item2))
-                {
-                    throw new InvalidOperationException();
-                }
-                UseItem(Item2);
-            }
-        }
+        //public void UseItem2()
+        //{
+        //    if (CanPlayGame())
+        //    {
+        //        if (!Items.ContainsKey(Item2))
+        //        {
+        //            throw new InvalidOperationException();
+        //        }
+        //        UseItem(Item2);
+        //    }
+        //}
         private void UseItem(string name)
         {
             /* Precondition: <name> is guarenteed to be in <Items>
@@ -218,42 +232,46 @@ namespace Project1.LinkComponents
              * Create a projectile of the specific item. 
              */
 
-            if (Items[name] == 1)
-            {
-                Items.Remove(name);
-            }
-            else
-            {
-                Items[name] = Items[name] - 1;
-            }
+            //if (Items[name] == 1)
+            //{
+            //    Items.Remove(name);
+            //}
+            //else
+            //{
+            //    Items[name] = Items[name] - 1;
+            //}
+            if (name.Equals("BombSolid"))
+                if (BombCount > 0) BombCount--;
+                else return;
 
             // Add Projectile 
-            string itemName = name.Substring(4); // Remove "Item" keyword from start
-            IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, itemName);
+            //string itemName = name.Substring(4); // Remove "Item" keyword from start
+            IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, name);
             GameObjectManager.Instance.AddProjectile(Item);
         }
-        public bool UseKey()
+        public bool CanUseKey()
         {
             // TODO: distinguish between magical and small key? 
             /* Return true if there is a key and remove it from the inventory. false otherwise
              */
-            foreach (string key in ItemKeys)
-            {
-                if (Items.ContainsKey(key))
-                {
-                    Items.Remove(key);
-                    KeyCount--;
-                    GameSoundManager.Instance.PlayDoorUnlock();
-                    return true;
-                }
-            }
-            return false;   // no key found
+            //foreach (string key in ItemKeys)
+            //{
+            //    if (Items.ContainsKey(key))
+            //    {
+            //        Items.Remove(key);
+            //        KeyCount--;
+            //        GameSoundManager.Instance.PlayDoorUnlock();
+            //        return true;
+            //    }
+            //}
+            //return false;   // no key found
+            return KeyCount > 0;
         }
-        private void CollectRupee(string name)
-        {
-            RupeeCount += RupeeValues[name];
-            GameSoundManager.Instance.PlayGetRupee();
-        }
+        //private void CollectRupee(string name)
+        //{
+        //    RupeeCount += RupeeValues[name];
+        //    GameSoundManager.Instance.PlayGetRupee();
+        //}
         public void SelectItem()
         {
             /* Update <Item1> or <Item2> to be the first entry of <SelectedItem> depending on whether it 
@@ -355,38 +373,17 @@ namespace Project1.LinkComponents
         }
         public bool CanHighlightTreasureMap()
         {
-            foreach (string i in ItemHighlightMap)
-            {
-                if (!Highlight.Contains(i))
-                {
-                    return false;   // Missing an item needed to display the map
-                }
-            }
-            return true;
+            //foreach (string i in ItemHighlightMap)
+            //{
+            //    if (!Highlight.Contains(i))
+            //    {
+            //        return false;   // Missing an item needed to display the map
+            //    }
+            //}
+            //return true;
+            return HasMap && HasCompass;
         }
-        //public bool CanFreezeEnemies()
-        //{
-        //    foreach (string i in ItemEnemyFreeze)
-        //    {
-        //        if (!Items.ContainsKey(i))
-        //        {
-        //            return false;   // Missing an item needed to freeze enemies
-        //        }
-        //    }
-        //    return true;
-        //}
-        //public void UnfreezeEnemies()
-        //{
-        //    /* Precondition: CanFreezeEnemies is true so <Items> contains all entries of <ItemEnemyFreeze>
-        //     * Remove all items of <ItemEnemyFreeze> from <Items> so as to stop freezing the enemies. 
-        //     */
-
-        //    //foreach (string i in ItemEnemyFreeze)
-        //    //{
-        //    //    Items.Remove(i);
-        //    //}
-        //    CanFreeze = false;
-        //}
+        
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draws a maximum of 8 items that represent the first 8 items in the inventory. 
@@ -442,30 +439,27 @@ namespace Project1.LinkComponents
             /* Precondition: <name> begines with "Item"
              * Given the <name> of an item in <Inventory>, draw the item centered at <position> 
              */
-            name = name.Substring(4); // Remove "Item" keyword from start
-            Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(name);
-            Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
-            ItemSprite.Draw(spriteBatch, SpritePosition);
+            if (name.Length > 0)
+            {
+                //name = name.Substring(4); // Remove "Item" keyword from start
+                Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(name);
+                Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
+                ItemSprite.Draw(spriteBatch, SpritePosition);
+            }
         }
 
         public void DrawItemMap(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draw the DungeonMap at the given <position> if it is contained in <Items>
              */
-            if (Items.ContainsKey(MapItemKey))
-            {
-                DrawItem(spriteBatch, MapItemKey, position);
-            }
+            if (HasMap) DrawItem(spriteBatch, MapItemKey, position);      
         }
 
         public void DrawItemCompass(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draw the Compass at the given <position> if it is contained in <Items> 
              */
-            if (Items.ContainsKey(CompassItemKey))
-            {
-                DrawItem(spriteBatch, CompassItemKey, position);
-            }
+            if (HasCompass) DrawItem(spriteBatch, CompassItemKey, position);
         }
 
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
@@ -480,12 +474,14 @@ namespace Project1.LinkComponents
         }
         public void Reset()
         {
-            Items = new Dictionary<string, int>(DefaultItems);
-            Item1 = DefaultItem1;
-            Item2 = DefaultItem2;
+            Items = new Dictionary<string, IItem>();
+            //Item1 = DefaultItem1;
+            //Item2 = DefaultItem2;
             RupeeCount = 0;
             BombCount = 5;
             KeyCount = 0;
+            HasCompass = false;
+            HasMap = false;
         }
     }
 }

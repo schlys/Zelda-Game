@@ -24,8 +24,8 @@ namespace Project1.LinkComponents
         void MoveLeft();
         void StopMotion();
         void Attack();
-        void UseItem1();
-        void UseItem2();
+        void UseItem(int itemNumber);
+        
         bool UseKey();
         void PickUpItem(IItem item);
         void TakeDamage(string direction, int knockback);

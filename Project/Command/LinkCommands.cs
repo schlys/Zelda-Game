@@ -215,7 +215,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseItem1();
+            Link.UseItem(1);
         }
     }
     public class LinkUseItem2Cmd : ICommand
@@ -230,7 +230,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.UseItem2();
+            Link.UseItem(2);
         }
     }
 

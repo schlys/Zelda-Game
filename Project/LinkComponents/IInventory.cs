@@ -12,18 +12,19 @@ namespace Project1.LinkComponents
     public interface IInventory
     {
         ILink Link { get; set; }
-        Dictionary<string, int> Items { get; set; }
-        List<string> Highlight { get; set; }
+        //Dictionary<string, int> Items { get; set; }
+        Dictionary<string, IItem> Items { get; set; }
         String Item1 { get; set; }
         String Item2 { get; set; }
         int RupeeCount { get; set; }
         int BombCount { get; set; }
         int KeyCount { get; set; }
         bool CanFreeze { get; set; }
+        bool HasMap { get; set; }
+        bool HasCompass { get; set; }
         void AddItem(IItem Item);
-        void UseItem1();
-        void UseItem2();
-        bool UseKey();
+        void UseItem(int itemNumber);
+        bool CanUseKey();
         void SelectItem();
         void SelectItem1();
         void SelectItem2();
@@ -32,8 +33,7 @@ namespace Project1.LinkComponents
         void ItemLeft();
         void ItemRight();
         bool CanHighlightTreasureMap();
-        //bool CanFreezeEnemies();
-        //void UnfreezeEnemies();
+        
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void DrawItem(SpriteBatch spriteBatch, string name, Vector2 position);
         void DrawItemMap(SpriteBatch spriteBatch, Vector2 position);

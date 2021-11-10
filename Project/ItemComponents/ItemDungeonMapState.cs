@@ -23,7 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.Inventory.Highlight.Add("ItemDungeonMap");
+            link.Inventory.HasMap = true;
         }
 
         public void Draw(SpriteBatch spriteBatch)

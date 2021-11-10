@@ -20,6 +20,7 @@ namespace Project1.ItemComponents
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+        public string Kind { get; set; }
         
         // Other Properies 
         private IItemState ItemState { get; set; }
@@ -37,6 +38,7 @@ namespace Project1.ItemComponents
             ItemState = (IItemState)itemState;
             IsMoving = ItemState.IsMoving;
             TypeID = "InventoryItem" + ItemState.ID;
+            Kind = type;
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;

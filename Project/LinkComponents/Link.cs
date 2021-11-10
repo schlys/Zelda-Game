@@ -201,7 +201,7 @@ namespace Project1.LinkComponents
             }
         }
 
-        public void UseItem1()
+        public void UseItem(int itemNumber)
         {
             // Remove from inventory to use 
             if (CanPlay() && !LockFrame)
@@ -211,20 +211,7 @@ namespace Project1.LinkComponents
                 UpdateSprite();     // trigger item pick use animation 
                 LinkSprite.MaxDelay = delay;
 
-                Inventory.UseItem1(); 
-            }
-        }
-
-        public void UseItem2()
-        {
-            // Remove from inventory to use 
-            if (CanPlay() && !LockFrame)
-            {
-                LockFrame = true;
-                UseItemName = "UseItem";
-                UpdateSprite();     // trigger item pick use animation 
-                LinkSprite.MaxDelay = delay;
-                Inventory.UseItem2();
+                Inventory.UseItem(itemNumber); 
             }
         }
 
@@ -232,7 +219,7 @@ namespace Project1.LinkComponents
         {
             /* Returns true of Link has any key in his <Inventory>
              */ 
-            return Inventory.UseKey();
+            return Inventory.CanUseKey();
         }
 
         public void PickUpItem(IItem item)

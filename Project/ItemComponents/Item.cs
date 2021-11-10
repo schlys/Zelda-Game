@@ -16,6 +16,7 @@ namespace Project1.ItemComponents
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+        public string Kind { get; set; }
 
         private Sprite Sprite { get; set; }
 
@@ -26,6 +27,7 @@ namespace Project1.ItemComponents
             TypeID = "Item" + type;
             Position = position;
             IsMoving = false;
+            Kind = type;
 
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
 
