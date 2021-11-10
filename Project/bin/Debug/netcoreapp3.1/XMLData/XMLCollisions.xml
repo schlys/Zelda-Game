@@ -72,21 +72,9 @@
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<!--<Collision>
-		<name>LinkInventoryItemAngel</name>
-		<command1>LinkRestoreHealthCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>-->
+	
 	<Collision>
 		<name>LinkItemArrowUp</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	
-	
-	<Collision>
-		<name>LinkItemBow</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>

@@ -64,9 +64,9 @@ namespace Project1.ItemComponents
         {
             ItemState.AddToInventory(link);
         }
-        public void UseItem()
+        public void UseItem(ILink link)
         {
-            ItemState.UseItem();
+            ItemState.UseItem(link);
         }
 
         public void Reset()

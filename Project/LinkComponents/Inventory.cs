@@ -236,18 +236,20 @@ namespace Project1.LinkComponents
             //{
             //    Items[name] = Items[name] - 1;
             //}
-            if (name.Equals("BombSolid"))
-                if (BombCount > 0) BombCount--;
-                else
-                {
-                    Items.Remove("BombSolid");
-                    return;
-                }
+            //if (name.Equals("BombSolid"))
+            //    if (BombCount > 0) BombCount--;
+            //    else
+            //    {
+            //        Items.Remove("BombSolid");
+            //        return;
+            //    }
+
+            Items[name].UseItem(Link);
 
             // Add Projectile 
             //string itemName = name.Substring(4); // Remove "Item" keyword from start
-            IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, name);
-            GameObjectManager.Instance.AddProjectile(Item);
+            //IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, name);
+            //GameObjectManager.Instance.AddProjectile(Item);
         }
         public bool CanUseKey()
         {
@@ -265,7 +267,13 @@ namespace Project1.LinkComponents
             //    }
             //}
             //return false;   // no key found
-            return KeyCount > 0;
+            if (KeyCount > 0)
+            {
+                KeyCount--;
+                return true;
+            }
+
+            return false;
         }
         //private void CollectRupee(string name)
         //{

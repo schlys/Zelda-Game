@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
+using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Project1.ItemComponents
         {
             Item = item;
             IsMoving = false;
-            Sprite = SpriteFactory.Instance.GetSpriteData("BoomerangSolid");
+            Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
         }
 
         public void AddToInventory(ILink link)
@@ -36,9 +37,10 @@ namespace Project1.ItemComponents
             Sprite.Update();
         }
 
-        public void UseItem()
+        public void UseItem(ILink link)
         {
-
+            IProjectile proj = new Projectile(link.Position, link.DirectionState.ID, Item.Kind);
+            GameObjectManager.Instance.AddProjectile(proj);
         }
     }
 }

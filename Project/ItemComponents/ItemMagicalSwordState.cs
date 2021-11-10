@@ -37,7 +37,7 @@ namespace Project1.ItemComponents
             Sprite.Update();
         }
 
-        public void UseItem()
+        public void UseItem(ILink link)
         {
 
         }

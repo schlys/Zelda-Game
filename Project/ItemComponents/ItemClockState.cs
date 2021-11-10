@@ -17,7 +17,7 @@ namespace Project1.ItemComponents
         {
             Item = item;
             IsMoving = false;
-            Sprite = SpriteFactory.Instance.GetSpriteData("Clock");
+            Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
         }
 
         public void AddToInventory(ILink link)
@@ -35,7 +35,7 @@ namespace Project1.ItemComponents
             Sprite.Update();
         }
 
-        public void UseItem()
+        public void UseItem(ILink link)
         {
         
         }

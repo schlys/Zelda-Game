@@ -15,7 +15,7 @@ namespace Project1.ItemComponents
         string ID { get; set; }
         bool IsMoving { get; set; }
         void AddToInventory(ILink link);
-        void UseItem();
+        void UseItem(ILink link);
         void Draw(SpriteBatch spriteBatch);
         void Update();
        

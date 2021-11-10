@@ -19,6 +19,6 @@ namespace Project1.ItemComponents
         void Reset();
         void RemoveItem();
         void AddToInventory(ILink link);
-        void UseItem();
+        void UseItem(ILink link);
     }
 }

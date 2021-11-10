@@ -116,7 +116,7 @@ namespace Project1.ItemComponents
             link.RestoreHealth();
         }
 
-        public void UseItem()
+        public void UseItem(ILink link)
         {
             
         }
