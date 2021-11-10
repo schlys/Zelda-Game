@@ -124,7 +124,7 @@
 				<column>10</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>Angel</type2>
 				<row>0</row>
 				<column>0</column>
@@ -174,13 +174,13 @@
 			</object>
 			-->
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>Compass</type2>
 				<row>0</row>
 				<column>1</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>DungeonMap</type2>
 				<row>2</row>
 				<column>1</column>
@@ -211,12 +211,12 @@
 				<row>6</row>
 				<column>1</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>WhiteSword</type2>
 				<row>0</row>
 				<column>2</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Item</type>
 				<type2>MagicalSword</type2>
@@ -242,31 +242,31 @@
 				<column>2</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>BoomerangSolid</type2>
 				<row>5</row>
 				<column>2</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>MagicalBoomerangSolid</type2>
 				<row>6</row>
 				<column>2</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>BombSolid</type2>
 				<row>0</row>
 				<column>3</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>OrangeRupee</type2>
 				<row>1</row>
 				<column>3</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>BlueRupee</type2>
 				<row>2</row>
 				<column>3</column>
@@ -277,26 +277,26 @@
 				<row>3</row>
 				<column>3</column>
 			</object>-->
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>BlueCandle</type2>
 				<row>4</row>
 				<column>3</column>
-			</object>
+			</object>-->
 			<!--<object>
 				<type>Item</type>
 				<type2>RedRing</type2>
 				<row>5</row>
 				<column>3</column>
 			</object>-->
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>BlueRing</type2>
 				<row>6</row>
 				<column>3</column>
-			</object>
+			</object>-->
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>0</row>
 				<column>4</column>
@@ -320,7 +320,7 @@
 				<column>4</column>
 			</object>
 			<object>
-				<type>InventoryItem</type>
+				<type>Item</type>
 				<type2>Clock</type2>
 				<row>4</row>
 				<column>4</column>

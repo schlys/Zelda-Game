@@ -152,10 +152,6 @@ namespace Project1.LevelComponents
                             IItem item = new Item(GetItemPosition(row, column), type2);
                             Room.AddItem(item);
                             break;
-                        case "InventoryItem":
-                            IItem inventoryItem = new InventoryItem(GetItemPosition(row, column), type2);
-                            Room.AddItem(inventoryItem);
-                            break;
                         case "Block":
                             IBlock block = new Block(GetItemPosition(row, column), type2);
                             Room.AddBlock(block);

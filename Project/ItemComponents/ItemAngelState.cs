@@ -22,8 +22,7 @@ namespace Project1.ItemComponents
         private int Step = 1;
         private int PositionBounds = 50; 
         public ItemAngelState(IItem item)
-        {
-            ID = "Angel";
+        { 
             IsMoving = true;
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData("Angel");
@@ -114,7 +113,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            
+            link.RestoreHealth();
         }
 
         public void UseItem()

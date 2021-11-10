@@ -68,30 +68,21 @@
 	<!-- LINK -->
 
 	<Collision>
-		<name>LinkInventoryItem</name>
+		<name>LinkItem</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<Collision>
+	<!--<Collision>
 		<name>LinkInventoryItemAngel</name>
 		<command1>LinkRestoreHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	</Collision>-->
 	<Collision>
 		<name>LinkItemArrowUp</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<Collision>
-		<name>LinkItemBlueCandle</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemBlueRing</name>
-		<command1>LinkWearBlueRingCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	
 	
 	
 	<Collision>
@@ -110,29 +101,29 @@
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
-	<Collision>
+	<!--<Collision>
 		<name>LinkItemHeartContainer</name>
 		<command1>LinkRestoreHealthIncreaseAndHeartCountCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	</Collision>-->
 	
-	<Collision>
+	<!--<Collision>
 		<name>LinkItemLifePotion</name>
 		<command1>LinkRestoreHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	<Collision>
+	</Collision>-->
+
+	<!--<Collision>
 		<name>LinkItemMagicalSword</name>
 		<command1>LinkMagicalSword</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	</Collision>-->
 	
-	<Collision>
+	<!--<Collision>
 		<name>LinkItemRecoveryHeart</name>
 		<command1>LinkIncreaseHealthCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	</Collision>-->
 	
 	<Collision>
 		<name>LinkItemSilverArrow</name>
@@ -140,21 +131,21 @@
 		<command2>ItemPickedUpCmd</command2>
 	</Collision>
 	
-	<Collision>
+	<!--<Collision>
 		<name>LinkItemTriforceFragment</name>
 		<command1>LinkWinCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
+	</Collision>-->
+	<!--<Collision>
 		<name>LinkItemWhiteSword</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
+	</Collision>-->
+	<!--<Collision>
 		<name>LinkItemWoodenSword</name>
 		<command1>LinkAddItemToInventoryCmd</command1>
 		<command2>ItemPickedUpCmd</command2>
-	</Collision>
+	</Collision>-->
 	
 	
 	
