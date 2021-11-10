@@ -54,7 +54,7 @@ namespace Project1.LevelComponents
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
-        
+        private static Vector2 PositionChanger = new Vector2(0, 0);
 
         private static string StartRoom = "room2";
 
@@ -257,9 +257,11 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 //Camera.Instance.CheckCollision(true);
+                
                 Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
-                CurrentRoom.Left(previousRoom);
+                //CurrentRoom.Left(previousRoom);
+                // TODO: Modify this part UpdateRoomItems make switching.
                 GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveLeft();
             }

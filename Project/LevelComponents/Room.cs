@@ -97,6 +97,7 @@ namespace Project1.LevelComponents
             PreviousRoom.Position = new Vector2((int)Position.X - (int)Size.X, (int)Position.Y);
             sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
             destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
+            
         }
         public void Right(Room previousRoom)
         {
