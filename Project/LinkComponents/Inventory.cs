@@ -102,10 +102,12 @@ namespace Project1.LinkComponents
             HasCompass = false;
             HasMap = false;
 
-            Item1 = "";
-            Item2 = "";
-
             Items = new Dictionary<string, IItem>();
+            
+            Items.Add("BombSolid", new Item(new Vector2(0,0), "BombSolid", true));
+
+            Item1 = Items.ElementAt(0).Value.Kind;
+            Item2 = "";
 
             // TODO: need a more efficent way of handling items!!!! need to remake item states 
 
@@ -164,7 +166,6 @@ namespace Project1.LinkComponents
         public void AddItem(IItem item)
         {
             if (!Items.ContainsKey(item.Kind)) Items.Add(item.Kind, item);
-            if (Items.Count == 1) Item1 = item.Kind;
             if (Items.Count == 2) Item2 = item.Kind;
 
             //else

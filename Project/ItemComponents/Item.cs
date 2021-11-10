@@ -27,9 +27,10 @@ namespace Project1.ItemComponents
         private bool IsPicked = false;
 
 
-        public Item(Vector2 position, string type)
+        public Item(Vector2 position, string type, bool picked = false)
         {
             Kind = type;
+            IsPicked = picked;
 
             /* Get the item state via reflection */
             Assembly assem = typeof(IItemState).Assembly;
