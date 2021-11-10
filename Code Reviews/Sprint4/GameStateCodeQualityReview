@@ -1,0 +1,24 @@
+
+Author of the code review: Mulan Blum
+
+
+Date of the code review: 11/10
+
+
+Sprint number: 4
+
+
+Name of the .cs file being reviewed: GameStateManager.cs
+
+
+Author of the .cs file being reviewed:Elise
+
+
+Number of minutes taken to complete the review:
+
+
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+remove magic numbers in draw method using data driving and reflection. what is 176 and 256 in height and width? 
+
