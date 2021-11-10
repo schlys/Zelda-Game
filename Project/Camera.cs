@@ -59,9 +59,11 @@ namespace Project1
             center = new Vector2(position.X, position.Y);
             if (IsCollision) // TODO: Make camera move when it occurs collision (Connect to collision)
             {
+                /*
                 transform = Matrix.CreateTranslation(new Vector3(-center.X - 300, -center.Y + 40, 0)) *
                 Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
                 Matrix.CreateTranslation(new Vector3(Viewport.Width / 2, Viewport.Height / 2, 0));
+                */
                 IsCollision = false; // You can check camera movement when remove it.
             }
             else
@@ -69,11 +71,11 @@ namespace Project1
                 
             }
             
-             /*
+             
             transform = Matrix.CreateScale(new Vector3(1, 1, 0))*
-                Matrix.CreateTranslation(new Vector3(-center.X, -center.Y, 0)) *
+                Matrix.CreateTranslation(new Vector3(-center.X, -center.Y+100, 0)) *
                 Matrix.CreateTranslation(new Vector3(Viewport.Width / 2, Viewport.Height / 2, 0));
-            */
+            
         }
 
         public void CheckCollision(bool isCollision)

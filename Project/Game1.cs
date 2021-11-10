@@ -58,7 +58,8 @@ namespace Project1
 
             GameObjectManager.Instance.Update();
 
-            camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
+            //camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
+            camera.Update(LevelFactory.Instance.CurrentRoomPosition);
             base.Update(gameTime);
         }
 

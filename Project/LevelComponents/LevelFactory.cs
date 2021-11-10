@@ -28,6 +28,17 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
+        public Vector2 CurrentRoomPosition
+        {
+            get
+            {
+                return CurrentRoom.Position;
+            }
+            set
+            {
+
+            }
+        }
         public ILevelMap LevelMap { get; set; }
         public Dictionary<String, Texture2D> HUDTextures { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
