@@ -11,7 +11,7 @@ namespace Project1.GameState
      * using <CurrentState>. The states include the start, game play, item selection screen, 
      * game over win, game over lose, pause, game over, restart, and scrollscreen state. 
      */ 
-    public class GameStateManager: IGameStateManager
+    public sealed class GameStateManager: IGameStateManager
     {
         private static GameStateManager instance = new GameStateManager();
         public static GameStateManager Instance
@@ -73,12 +73,8 @@ namespace Project1.GameState
         }
         public void Start() 
         {
+            GameSoundManager.Instance.PlaySong();
             CurrentState = CurrentState.StartGame(); 
-        }
-        public void PlayGame() 
-        {
-            // Begin game play
-            CurrentState = CurrentState.StartGame();
         }
         public void ItemSelection() 
         {
@@ -88,6 +84,8 @@ namespace Project1.GameState
         public void GameOverLose() 
         {
             // Game is lost, can restart the game or exit 
+            GameSoundManager.Instance.PlayLinkDie();
+            GameSoundManager.Instance.StopSong();
             CurrentState = CurrentState.LoseGame();
         }
         public void GameOverWin() 

@@ -1,0 +1,8 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 11/09/2021
+Sprint Number: 4
+Name of file: HUD.cs
+Author(s) of file: Elise Kosmides, Sam Chlystek, Mulan Blum
+Number of minutes taken: 10  minutes
+Quality Review:
+Data driving would be useful as is already commented in the file. The way we are reaching into GameObjectManager every time the ScalingFactor needs to be read feels kind of bad. Could maybe be refactored in the future.

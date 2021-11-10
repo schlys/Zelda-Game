@@ -15,7 +15,7 @@ using Project1.HeadsUpDisplay;
 
 namespace Project1
 {
-    public class GameObjectManager
+    public sealed class GameObjectManager
     {
         private static GameObjectManager instance = new GameObjectManager();
         public static GameObjectManager Instance

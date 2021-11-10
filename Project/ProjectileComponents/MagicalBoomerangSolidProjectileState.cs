@@ -44,6 +44,11 @@ namespace Project1.ProjectileComponents
         {
             Sprite.Update();
 
+            if (Counter == 0)
+            {
+                GameSoundManager.Instance.PlayArrowBoomerang();
+            }
+
             switch (Direction.ID)
             {
                 case "Up":

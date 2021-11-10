@@ -16,7 +16,7 @@ using System.Reflection;
 
 namespace Project1.LevelComponents
 {
-    public class LevelFactory : ILevelFactory
+    public sealed class LevelFactory : ILevelFactory
     {
         private static LevelFactory instance = new LevelFactory();
         public static LevelFactory Instance

@@ -266,13 +266,13 @@ namespace Project1.LinkComponents
             if (TotalNumHearts == 0)
             {
                 IsDead = true;
-                GameSoundManager.Instance.PlayLinkDie();
                 GameStateManager.Instance.GameOverLose();
             }
         }
 
         public void IncreaseHealth()
         {
+            GameSoundManager.Instance.PlayGetHeart();
             Health.Increase(1); 
         }
         public void RestoreHealth()

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Project1.SpriteComponents
 {
-    class SpriteFactory : ISpriteFactory
+    public sealed class SpriteFactory : ISpriteFactory
     {
         private static SpriteFactory instance = new SpriteFactory();
         public static SpriteFactory Instance

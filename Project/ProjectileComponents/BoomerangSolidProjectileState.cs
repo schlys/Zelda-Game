@@ -45,8 +45,13 @@ namespace Project1.ProjectileComponents
         }
 
         public void Update()
-        { 
+        {
             Sprite.Update();
+
+            if (Counter == 0)
+            {
+                GameSoundManager.Instance.PlayArrowBoomerang();
+            }
 
             switch (Direction.ID)
             {

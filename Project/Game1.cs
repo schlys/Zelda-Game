@@ -17,15 +17,15 @@ namespace Project1
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private Camera _camera;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        private Camera camera;
 
         Viewport defaultVeiew;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -37,7 +37,7 @@ namespace Project1
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             SpriteFactory.Instance.LoadAllTextures(Content);
             LevelFactory.Instance.LoadAllTextures(Content); 
@@ -47,7 +47,7 @@ namespace Project1
             GameSoundManager.Instance.Initialize(this);
 
             defaultVeiew = GraphicsDevice.Viewport;
-            _camera = new Camera();
+            camera = new Camera();
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,7 +58,7 @@ namespace Project1
 
             GameObjectManager.Instance.Update();
 
-            _camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
+            camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
             base.Update(gameTime);
         }
 
@@ -67,12 +67,12 @@ namespace Project1
             GraphicsDevice.Clear(Color.Black);
             GraphicsDevice.Viewport = defaultVeiew;
             // NOTE: First one is for camera version. 
-            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: _camera.Transform);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: camera.Transform);
             //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-            GameObjectManager.Instance.Draw(_spriteBatch);
-            GameStateManager.Instance.Draw(_spriteBatch);
+            GameObjectManager.Instance.Draw(spriteBatch);
+            GameStateManager.Instance.Draw(spriteBatch);
 
-            _spriteBatch.End();
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

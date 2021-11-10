@@ -13,7 +13,6 @@ namespace Project1.GameState
         void Reset(); 
         void Pause();
         void Start();
-        void PlayGame();
         void ItemSelection();
         void GameOverLose();
         void GameOverWin();

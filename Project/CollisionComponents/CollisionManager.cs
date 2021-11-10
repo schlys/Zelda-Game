@@ -9,7 +9,7 @@ using Project1.SpriteComponents;
 
 namespace Project1.CollisionComponents
 {
-    class CollisionManager : ICollisionManager
+    public sealed class CollisionManager : ICollisionManager
     {
         private static CollisionManager instance = new CollisionManager();
         public static CollisionManager Instance

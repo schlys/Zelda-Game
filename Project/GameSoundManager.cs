@@ -10,7 +10,7 @@ using Project1.LevelComponents;
 
 namespace Project1
 {
-    public class GameSoundManager
+    public sealed class GameSoundManager
     {
         private static GameSoundManager instance = new GameSoundManager();
         public static GameSoundManager Instance
@@ -30,7 +30,7 @@ namespace Project1
         {
             Game = game;
             CreateDict(game);
-            PlaySong(game);
+            song = game.Content.Load<Song>("Sounds/Song");
         }
 
         private void CreateDict(Game1 game)
@@ -52,12 +52,16 @@ namespace Project1
             }
         }
 
-        private void PlaySong(Game1 game)
+        public void PlaySong()
         {
-            song = game.Content.Load<Song>("Sounds/Song");
             MediaPlayer.Play(song);             // Play background song
             MediaPlayer.IsRepeating = true;     // Loop the song
             MediaPlayer.Volume = 0.5f;          // 0.0f is silent, 1.0f is full volume
+        }
+
+        public void StopSong()
+        {
+            MediaPlayer.Stop();
         }
 
         // Methods for specific sound effects
