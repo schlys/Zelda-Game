@@ -205,11 +205,7 @@ namespace Project1.LinkComponents
 
             if (CanPlayGame())
             {
-                if (!Items.ContainsKey(item))
-                {
-                    return;
-                    throw new InvalidOperationException();
-                }
+                if (!Items.ContainsKey(item)) return;
                 UseItem(item);
             }
 
@@ -242,7 +238,11 @@ namespace Project1.LinkComponents
             //}
             if (name.Equals("BombSolid"))
                 if (BombCount > 0) BombCount--;
-                else return;
+                else
+                {
+                    Items.Remove("BombSolid");
+                    return;
+                }
 
             // Add Projectile 
             //string itemName = name.Substring(4); // Remove "Item" keyword from start
