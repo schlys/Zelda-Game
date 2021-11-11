@@ -483,7 +483,7 @@ namespace Project1.LinkComponents
         }
         public void Reset()
         {
-            Items = new Dictionary<string, IItem>();
+            //Items = new Dictionary<string, IItem>();
             //Item1 = DefaultItem1;
             //Item2 = DefaultItem2;
             RupeeCount = 0;

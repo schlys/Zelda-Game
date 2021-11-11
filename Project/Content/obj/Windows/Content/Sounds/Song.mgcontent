@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/Song.mp3</SourceFile>
-  <SourceTime>2021-11-09T15:40:31.6641959-05:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Song.xnb</DestFile>
-  <DestTime>2021-11-10T19:40:18.0572513-05:00</DestTime>
+  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/Song.mp3</SourceFile>
+  <SourceTime>2021-11-03T23:06:24.7351354-04:00</SourceTime>
+  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/Song.xnb</DestFile>
+  <DestTime>2021-11-11T00:51:20.1219815-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Song.wma</string>
+    <string>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/Song.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>
