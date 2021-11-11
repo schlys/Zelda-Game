@@ -23,6 +23,7 @@ namespace Project1.GameState
         }
         public IGameState CurrentState { get; set; }
         public Game1 Game { get; set; }
+
         private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
         private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
@@ -93,10 +94,14 @@ namespace Project1.GameState
             // Game is won, can restart the game or exit 
             CurrentState = CurrentState.WinGame();
         }
-        public void ScrollScreen()
+        public void StartScroll()
         {
             // In GamePlay, trigger scroll animation
-            CurrentState = CurrentState.ScrollScreen();
+            CurrentState = CurrentState.StartScroll();
+        }
+        public void StopScroll()
+        {
+            CurrentState = CurrentState.StopScroll();
         }
         public bool CanPlayGame()
         {
@@ -107,13 +112,19 @@ namespace Project1.GameState
         public bool CanDrawHUD()
         {
             // True if not drawing item select screen 
-            return !CanItemSelect();
+            return !CanItemSelect() && !CanItemScroll();
         }
         public bool CanItemSelect()
         {
             // True if <CurrentGame> is of type GameItemSelect
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("ItemSelect"));
+        }
+        public bool CanItemScroll()
+        {
+            // True if <CurrentGame> is of type GameItemSelect
+            // TODO: test type of object not ID
+            return (CurrentState.ID.Equals("ItemScroll"));
         }
     }
 }

@@ -92,6 +92,10 @@ namespace Project1
             {
                 controller.Update();
             }
+            foreach (IHUD HUD in HUDs)
+            {
+                HUD.Update();
+            }
 
             if (GameState.GameStateManager.Instance.CanPlayGame())
             {
@@ -103,11 +107,7 @@ namespace Project1
                         FreezeEnemies = new Tuple<bool, ILink>(true, link);
                     }
                 }
-                foreach (IHUD HUD in HUDs)
-                {
-                    HUD.Update();
-                }
-
+                
                 // NOTE: Blocks do not update 
 
                 foreach (IItem item in Items)
@@ -123,6 +123,7 @@ namespace Project1
                     }
                 }
 
+                // TODO: move to collision manager 
                 for (int i = 0; i < Projectiles.Count; i++)
                 {
                     IProjectile Projectile = Projectiles[i];
@@ -268,6 +269,7 @@ namespace Project1
         public void AddProjectile(IProjectile projectile)
         {
             Projectiles.Add(projectile);
+            // TODO: move to collision manager 
             CollisionManager.Instance.AddObject((ICollidable)projectile);
         }
     }

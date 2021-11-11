@@ -8,15 +8,16 @@ using Project1.LevelComponents;
 
 namespace Project1.GameState
 {
-    public class GameStateScrollScreen: IGameState
+    public class GameStateRoomScroll: IGameState
     {
+        /* Used for the room selection screen on room changes
+         */
         public Vector2 RoomPosition { get; set; }
         public string ID { get; set; }
-        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
-        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
-        public GameStateScrollScreen()
+        
+        public GameStateRoomScroll()
         {
-            ID = "ScrollScreen";
+            ID = "RoomScroll";
         }
         public void Update()
         {
@@ -50,7 +51,11 @@ namespace Project1.GameState
         {
             return this;
         }
-        public IGameState ScrollScreen()
+        public IGameState StartScroll()
+        {
+            return this;
+        }
+        public IGameState StopScroll()
         {
             return new GameStateGamePlay();
         }

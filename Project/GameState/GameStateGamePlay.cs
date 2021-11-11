@@ -41,11 +41,16 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemSelect(); 
+            //return new GameStateItemSelect(); 
+            return new GameStateItemScroll(GameStateVar.DirectionIn);   // item selection screen scrolls in
         }
-        public IGameState ScrollScreen()
+        public IGameState StartScroll()
         {
-            return new GameStateScrollScreen();
+            return new GameStateRoomScroll();
+        }
+        public IGameState StopScroll()
+        {
+            return this;
         }
     }
 }

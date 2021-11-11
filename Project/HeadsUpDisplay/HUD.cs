@@ -21,9 +21,12 @@ namespace Project1.HeadsUpDisplay
         public Texture2D HUDLevelMap { get; set; }
 
         private Game1 Game;
+        private int Step;
+        private int ScrollDeltaY;
         private SpriteFont Font;
         private Dictionary<String, Vector2> Positions;
         private Vector2 Position;
+        private Vector2 InitialPosition;
         private Vector2 MapPosition;
         private Vector2 MapItemSelectPosition;
         private Vector2 MapItemPosition;
@@ -44,8 +47,8 @@ namespace Project1.HeadsUpDisplay
             Font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             Positions = new Dictionary<string, Vector2>();
             Position = new Vector2(0, 0);
+            InitialPosition = Position; 
 
-           
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLPositions.xml";
             XMLData.Load(path);
@@ -79,11 +82,19 @@ namespace Project1.HeadsUpDisplay
             HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
             HUDLevelMap = LevelFactory.Instance.HUDTextures["HUDLevelMap"];
             HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
+
+            Step = 2;
+            ScrollDeltaY = (HUDMap.Height * GameObjectManager.Instance.ScalingFactor) + (HUDInventory.Height * GameObjectManager.Instance.ScalingFactor); 
         }
 
         public void Update()
         {
             // TODO: needed? 
+            // Check if scroll 
+            if (GameStateManager.Instance.CanItemScroll())
+            {
+                Scroll(Step);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -91,6 +102,10 @@ namespace Project1.HeadsUpDisplay
             if (GameStateManager.Instance.CanDrawHUD())
             {
                 DrawHUD(spriteBatch, Position);
+            }else if (GameStateManager.Instance.CanItemScroll())
+            {
+                //Scroll(Step);
+                DrawItemSelect(spriteBatch, Position);
             }
             else
             {
@@ -179,16 +194,16 @@ namespace Project1.HeadsUpDisplay
 
         private void DrawItemSelect(SpriteBatch spriteBatch, Vector2 position)
         {
-            // Draw Inventory 
-            DrawInventory(spriteBatch, position);
-            position.Y += HUDInventory.Height * GameObjectManager.Instance.ScalingFactor;
-
-            // Draw Large Map
-            DrawMap(spriteBatch, position);
-            position.Y += HUDMap.Height * GameObjectManager.Instance.ScalingFactor;
-
             // Draw HUD
             DrawHUD(spriteBatch, position);
+
+            // Draw Large Map
+            position.Y -= HUDMap.Height * GameObjectManager.Instance.ScalingFactor;
+            DrawMap(spriteBatch, position);
+
+            // Draw Inventory 
+            position.Y -= HUDInventory.Height * GameObjectManager.Instance.ScalingFactor;
+            DrawInventory(spriteBatch, position);
         }
 
         private void DrawInventory(SpriteBatch spriteBatch, Vector2 position)
@@ -223,6 +238,29 @@ namespace Project1.HeadsUpDisplay
             Vector2 newMapPosition = MapItemSelectPosition;
             newMapPosition += position;
             LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
+        }
+        private void Scroll(int step)
+        {
+           /* Increases Position.Y by Step to create the animation of the item selection screen scrolling in. 
+            * Once the screen is finished scrolling, it stops the animation by triggering a state change in 
+            * GameStateManager and reverses step so it will scroll out in the opposite direction. 
+            */ 
+            if((Step > 0) && (Position.Y > InitialPosition.Y + ScrollDeltaY))   // Scroll down into item selection screen
+            {
+                GameStateManager.Instance.StopScroll();
+                Step = -Step; 
+            }
+            else if((Step < 0) && (Position.Y <= InitialPosition.Y))  // Scrol up and out of item selection screen 
+            {
+                GameStateManager.Instance.StopScroll();
+                Step = -Step;
+            } 
+            else
+            {
+                Position.Y += step;
+            }
+            
+            // TODO: test bounds 
         }
         public void Reset()
         {

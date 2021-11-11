@@ -14,8 +14,7 @@ namespace Project1.GameState
         public string ID { get; set; }
         private Sprite Link;
         private Sprite TriForceFragment;
-        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
-        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
+
         public GameStateWin()
         {
             ID = "Win";
@@ -68,7 +67,11 @@ namespace Project1.GameState
         {
             return this;
         }
-        public IGameState ScrollScreen()
+        public IGameState StartScroll()
+        {
+            return this;
+        }
+        public IGameState StopScroll()
         {
             return this;
         }

@@ -10,7 +10,6 @@ namespace Project1.GameState
     {
         Vector2 RoomPosition { get; set; }
         string ID { get; set; }
-
         void Update();
         void Draw(SpriteBatch spriteBatch);
         IGameState Reset();
@@ -19,6 +18,7 @@ namespace Project1.GameState
         IGameState WinGame();
         IGameState LoseGame();
         IGameState ItemSelectMenu();
-        IGameState ScrollScreen();
+        IGameState StartScroll();
+        IGameState StopScroll();
     }
 }

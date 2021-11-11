@@ -3,21 +3,33 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.SpriteComponents;
+using Project1.LevelComponents;
 
 namespace Project1.GameState
 {
-    public class GameStateItemSelect: IGameState
+    public class GameStateItemScroll: IGameState
     {
+        /* Used for the item selection screen on/off screen
+         */ 
         public Vector2 RoomPosition { get; set; }
         public string ID { get; set; }
-        public GameStateItemSelect()
+
+        private int Direction;
+        
+
+        public GameStateItemScroll(int direction)
         {
-            ID = "ItemSelect";
+            ID = "ItemScroll";
+            Direction = direction;
         }
-        public void Update() { }
-        public void Draw(SpriteBatch spriteBatch) 
+        public void Update()
         {
-            // Drawing of ItemSelect is handled in HUD.cs since it has access to needed data like Link's Inventory
+            
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            
         }
         public IGameState Reset()
         {
@@ -25,7 +37,7 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            return new GameStatePause();
+            return this; 
         }
         public IGameState StartGame()
         {
@@ -41,7 +53,7 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionOut);
+            return this;
         }
         public IGameState StartScroll()
         {
@@ -49,7 +61,14 @@ namespace Project1.GameState
         }
         public IGameState StopScroll()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionOut);
+            if(Direction == GameStateVar.DirectionIn)    // Scroll in GamePlay > ItemScroll > ItemSelection
+            {
+                return new GameStateItemSelect();
+            }
+            else      // Scroll out ItemSelection > ItemScroll > GamePlay 
+            {
+                return new GameStateGamePlay();
+            }
         }
     }
 }

@@ -58,7 +58,11 @@ namespace Project1.GameState
         {
             return new GameStateItemSelect();
         }
-        public IGameState ScrollScreen()
+        public IGameState StartScroll()
+        {
+            return this;
+        }
+        public IGameState StopScroll()
         {
             return this;
         }
