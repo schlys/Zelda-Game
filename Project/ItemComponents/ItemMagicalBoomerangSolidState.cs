@@ -39,8 +39,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            IProjectile proj = new Projectile(link.Position, link.DirectionState.ID, Item.Kind);
-            GameObjectManager.Instance.AddProjectile(proj);
+            link.Attack(Item.Kind);
         }
     }
 }

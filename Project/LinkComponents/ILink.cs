@@ -12,20 +12,17 @@ namespace Project1.LinkComponents
     public interface ILink 
     {
         IDirectionState DirectionState { get; set; }
-        ILinkWeaponState LinkWeaponState { get; set; } 
         Sprite LinkSprite { get; set; }
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
-        string Weapon { get; set; }
         IInventory Inventory { get; set; }
         void MoveUp();
         void MoveDown();
         void MoveRight();
         void MoveLeft();
         void StopMotion();
-        void Attack(string weapon);
+        void Attack(string weapon, bool sword=false);
         void UseItem(int itemNumber);
-        
         bool UseKey();
         void PickUpItem(IItem item);
         void TakeDamage(string direction, int knockback);

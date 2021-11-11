@@ -43,8 +43,7 @@ namespace Project1.ItemComponents
             if (link.Inventory.BombCount > 0)
             {
                 link.Inventory.BombCount--;
-                IProjectile proj = new Projectile(link.Position, link.DirectionState.ID, Item.Kind);
-                GameObjectManager.Instance.AddProjectile(proj);
+                link.Attack(Item.Kind);
             }
             if (link.Inventory.BombCount == 0) link.Inventory.Items.Remove(Item.Kind);
         }

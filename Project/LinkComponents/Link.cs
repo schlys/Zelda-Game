@@ -18,11 +18,9 @@ namespace Project1.LinkComponents
     {
         // Properties from ILink
         public IDirectionState DirectionState { get; set; }
-        public ILinkWeaponState LinkWeaponState { get; set; }
         public LinkHealth Health { get; set; }
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
-        public string Weapon { get; set; }                      // represents Link's current weapon being used
         public IInventory Inventory { get; set; }
 
         // Properties from ICollidable 
@@ -44,9 +42,9 @@ namespace Project1.LinkComponents
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
              */ 
-            Weapon = "WoodenSword";
+            
             DirectionState = new DirectionStateUp();            
-            LinkWeaponState = new LinkStateWoodenSword(this);   
+            
             TotalNumHearts = 3;
             Health = new LinkHealth(TotalNumHearts);              
             UseItemName = "";
@@ -179,18 +177,21 @@ namespace Project1.LinkComponents
             return position;
         }
 
-        public void Attack(string weapon)
+        public void Attack(string weapon, bool sword=false)
         {
-            if (CanPlay() && !LockFrame)
+            if (sword)
             {
-                Weapon = weapon;
-                LockFrame = true;
-                //LinkWeaponState = new LinkStateWoodenSword(this);
-                UpdateSprite();
-                //attack animation should be fast
+                UpdateSprite(weapon);
+                // sword attack is fast
                 LinkSprite.MaxDelay = 0;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID, LinkSprite.MaxDelay, Hitbox));
                 GameSoundManager.Instance.PlaySwordSlash();
+            }
+            else
+            {
+                UpdateSprite("", true);
+                LinkSprite.MaxDelay = delay;
+                GameObjectManager.Instance.AddProjectile(new Projectile(Position, DirectionState.ID, weapon));
             }
         }
 
@@ -200,10 +201,6 @@ namespace Project1.LinkComponents
             if (CanPlay() && !LockFrame)
             {
                 LockFrame = true;
-                UseItemName = "UseItem";
-                UpdateSprite();     // trigger item pick use animation 
-                LinkSprite.MaxDelay = delay;
-
                 Inventory.UseItem(itemNumber); 
             }
         }
@@ -270,11 +267,12 @@ namespace Project1.LinkComponents
             Position = Knockback(Position, direction, Step);
         }
 
-        private void UpdateSprite()
+        private void UpdateSprite(string weapon="", bool item=false)
         {
             // NOTE: Generate appropriate LinkSprite depending on weapon, item, and direction 
-            string Weapon = "";
-            if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
+            string Weapon = weapon;
+            if (item) UseItemName = "UseItem";
+            //if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
         }
         public void Win()
@@ -295,7 +293,6 @@ namespace Project1.LinkComponents
 
             Position = InitialPosition;
             DirectionState = new DirectionStateUp();             // default state is up
-            LinkWeaponState = new LinkStateWoodenSword(this);       // default weapon state is wooden sword
             Health.Reset();
             UseItemName = "";
             LockFrame = false;
