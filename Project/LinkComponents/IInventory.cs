@@ -26,8 +26,7 @@ namespace Project1.LinkComponents
         void UseItem(int itemNumber);
         bool CanUseKey();
         void SelectItem();
-        void SelectItem1();
-        void SelectItem2();
+        void SelectItem(int item);
         void ItemUp();
         void ItemDown();
         void ItemLeft();

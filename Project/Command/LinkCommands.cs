@@ -340,7 +340,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.Inventory.SelectItem1();
+            Link.Inventory.SelectItem(1);
         }
     }
 
@@ -356,40 +356,10 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.Inventory.SelectItem2();
+            Link.Inventory.SelectItem(2);
         }
     }
-    /*
-    public class LinkNextItemCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkNextItemCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.HUD.NextItem();
-        }
-    }
-    public class LinkPreviousItemCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-        public LinkPreviousItemCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            Link.HUD.PreviousItem();
-        }
-    }*/
+    
 }
 
 

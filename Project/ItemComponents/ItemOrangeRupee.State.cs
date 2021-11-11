@@ -24,6 +24,7 @@ namespace Project1.ItemComponents
         public void AddToInventory(ILink link)
         {
             link.Inventory.RupeeCount ++;
+            GameSoundManager.Instance.PlayGetRupee();
         }
 
         public void Draw(SpriteBatch spriteBatch)

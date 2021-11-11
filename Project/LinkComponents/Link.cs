@@ -349,11 +349,10 @@ namespace Project1.LinkComponents
             Health.Reset();
             UseItemName = "";
             LockFrame = false;
-            //IsPicked = false;
-            //IsDead = false;
+            Inventory = new Inventory(this);
+            
             UpdateSprite();
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-            Inventory.Reset(); 
         }
 
         public void Update()

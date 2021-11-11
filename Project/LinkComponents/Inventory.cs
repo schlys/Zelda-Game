@@ -16,7 +16,6 @@ namespace Project1.LinkComponents
     public class Inventory : IInventory
     {
         public ILink Link { get; set; }
-        //public Dictionary<string, int> Items { get; set; }
         public Dictionary<string, IItem> Items { get; set; }
         public string Item1 { get; set; }
         public string Item2 { get; set; }
@@ -28,20 +27,9 @@ namespace Project1.LinkComponents
         public bool HasCompass { get; set; }
         
         private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
-
-        //private Dictionary<string, int> DefaultItems;
-        
-        //private string DefaultItem1;
-        //private string DefaultItem2;
-
-        //private Dictionary<string, int> RupeeValues;
-        //private List<string> ItemBombs;        
-        //private List<string> ItemKeys;
-        //private List<string> ItemHighlightMap;
         
         private string MapItemKey;
         private string CompassItemKey;
-        //private List<string> ItemEnemyFreeze;
 
         private int TWO = 2; // TODO: is 2 hard coding? 
 
@@ -95,8 +83,7 @@ namespace Project1.LinkComponents
          */
 
         public Inventory(ILink link)
-        {
-          
+        {        
             Link = link;
             CanFreeze = false;
             HasCompass = false;
@@ -109,24 +96,6 @@ namespace Project1.LinkComponents
             Item1 = Items.ElementAt(0).Value.Kind;
             Item2 = "";
 
-            // TODO: need a more efficent way of handling items!!!! need to remake item states 
-
-            // TODO: decide on default items and load them 
-            //DefaultItems = new Dictionary<string, int>();
-            //DefaultItems.TryAdd("ItemArrowUp", 5);
-            //DefaultItems.TryAdd("ItemBombSolid", 5);
-            //DefaultItems.TryAdd("ItemSilverArrowUp", 5);
-            //DefaultItems.TryAdd("ItemFire", 5);
-            //DefaultItems.TryAdd("ItemBoomerangSolid", 5);
-            //DefaultItems.TryAdd("ItemMagicalBoomerangSolid", 5);
-
-            //DefaultItem1 = "ItemBombSolid";
-            //DefaultItem2 = "ItemMagicalBoomerangSolid";
-
-            //Items = new Dictionary<string, int>(DefaultItems);
-            //Item1 = DefaultItem1;
-            //Item2 = DefaultItem2;
-
             SelectedItem = new Tuple<string, int>(Item1, 1);
 
             SelectedItemPosition = new Vector2(61, 45) * GameObjectManager.Instance.ScalingFactor;
@@ -136,26 +105,8 @@ namespace Project1.LinkComponents
             TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
             TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
 
-            //RupeeValues = new Dictionary<string, int>();
-            //RupeeValues.TryAdd("ItemBlueRupee", 5);
-            //RupeeValues.TryAdd("ItemOrangeRupee", 1);
-
-            //ItemBombs = new List<string>();
-            //ItemBombs.Add("ItemBombSolid");
-
-            //ItemKeys = new List<string>();
-            //ItemKeys.Add("ItemSmallKey");
-            //ItemKeys.Add("ItemMagicalKey");
-
             MapItemKey = "DungeonMap";
             CompassItemKey = "Compass";
-
-            //ItemHighlightMap = new List<string>();
-            //ItemHighlightMap.Add(MapItemKey);
-            //ItemHighlightMap.Add(CompassItemKey);
-
-            //ItemEnemyFreeze = new List<string>();
-            //ItemEnemyFreeze.Add("ItemClock");
 
             RupeeCount = 0;
             BombCount = 5;
@@ -167,29 +118,6 @@ namespace Project1.LinkComponents
         {
             if (!Items.ContainsKey(item.Kind)) Items.Add(item.Kind, item);
             if (Items.Count == 2) Item2 = item.Kind;
-
-            //else
-            //{
-            //    Items.TryAdd(name, 1);
-            //}
-
-            /* Increment <RupeeCount> if add a rupee */
-            //if (RupeeValues.ContainsKey(name))
-            //{
-            //    CollectRupee(name);
-            //}
-
-            ///* Increment <BombCount> if add a bomb */
-            //if (ItemBombs.Contains(name))
-            //{
-            //    BombCount++;
-            //}
-
-            ///* Increment <KeyCount> if add a key */
-            //if (ItemKeys.Contains(name))
-            //{
-            //    KeyCount++;
-            //}
         }
         private bool CanPlayGame()
         {
@@ -211,63 +139,15 @@ namespace Project1.LinkComponents
             }
 
         }
-        //public void UseItem2()
-        //{
-        //    if (CanPlayGame())
-        //    {
-        //        if (!Items.ContainsKey(Item2))
-        //        {
-        //            throw new InvalidOperationException();
-        //        }
-        //        UseItem(Item2);
-        //    }
-        //}
         private void UseItem(string name)
         {
-            /* Precondition: <name> is guarenteed to be in <Items>
-             * Decrement the occurance of <name> in <Items>. If <name> occurs once, remove it from <Items>.
-             * Create a projectile of the specific item. 
-             */
-
-            //if (Items[name] == 1)
-            //{
-            //    Items.Remove(name);
-            //}
-            //else
-            //{
-            //    Items[name] = Items[name] - 1;
-            //}
-            //if (name.Equals("BombSolid"))
-            //    if (BombCount > 0) BombCount--;
-            //    else
-            //    {
-            //        Items.Remove("BombSolid");
-            //        return;
-            //    }
-
+            // item usage is handled in the item state
             Items[name].UseItem(Link);
-
-            // Add Projectile 
-            //string itemName = name.Substring(4); // Remove "Item" keyword from start
-            //IProjectile Item = new Projectile(Link.Position, Link.DirectionState.ID, name);
-            //GameObjectManager.Instance.AddProjectile(Item);
         }
         public bool CanUseKey()
         {
-            // TODO: distinguish between magical and small key? 
             /* Return true if there is a key and remove it from the inventory. false otherwise
              */
-            //foreach (string key in ItemKeys)
-            //{
-            //    if (Items.ContainsKey(key))
-            //    {
-            //        Items.Remove(key);
-            //        KeyCount--;
-            //        GameSoundManager.Instance.PlayDoorUnlock();
-            //        return true;
-            //    }
-            //}
-            //return false;   // no key found
             if (KeyCount > 0)
             {
                 KeyCount--;
@@ -276,11 +156,7 @@ namespace Project1.LinkComponents
 
             return false;
         }
-        //private void CollectRupee(string name)
-        //{
-        //    RupeeCount += RupeeValues[name];
-        //    GameSoundManager.Instance.PlayGetRupee();
-        //}
+       
         public void SelectItem()
         {
             /* Update <Item1> or <Item2> to be the first entry of <SelectedItem> depending on whether it 
@@ -305,22 +181,13 @@ namespace Project1.LinkComponents
                 }
             }
         }
-        public void SelectItem1()
+        public void SelectItem(int item)
         {
             /* Indicate that will be selecting for <Item1> 
              */
             if (CanItemSelect())
             {
-                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 1);
-            }
-        }
-        public void SelectItem2()
-        {
-            /* Indicate that will be selecting for <Item2> 
-             */
-            if (CanItemSelect())
-            {
-                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, 2);
+                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, item);
             }
         }
         private int FindItemIndex(string key)
@@ -382,14 +249,6 @@ namespace Project1.LinkComponents
         }
         public bool CanHighlightTreasureMap()
         {
-            //foreach (string i in ItemHighlightMap)
-            //{
-            //    if (!Highlight.Contains(i))
-            //    {
-            //        return false;   // Missing an item needed to display the map
-            //    }
-            //}
-            //return true;
             return HasMap && HasCompass;
         }
         
