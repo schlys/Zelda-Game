@@ -105,22 +105,22 @@
 		<key>N</key>
 	</Control>
 
-	<Control press="true">
+	<Control>
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 	
-	<Control press="true">
+	<Control>
 		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</Control>
 	
-	<Control press="true">
+	<Control>
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
 	
-	<Control press="true">
+	<Control>
 		<name>LinkUseItem2Cmd</name>
 		<key>D2</key>
 	</Control>

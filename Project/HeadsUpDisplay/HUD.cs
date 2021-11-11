@@ -83,7 +83,7 @@ namespace Project1.HeadsUpDisplay
             HUDLevelMap = LevelFactory.Instance.HUDTextures["HUDLevelMap"];
             HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
 
-            Step = 2;
+            Step = 6;
             ScrollDeltaY = (HUDMap.Height * GameObjectManager.Instance.ScalingFactor) + (HUDInventory.Height * GameObjectManager.Instance.ScalingFactor); 
         }
 

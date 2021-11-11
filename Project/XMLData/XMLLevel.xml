@@ -141,38 +141,14 @@
 				<row>2</row>
 				<column>0</column>
 			</object>
-			<!--<object>
-				<type>Item</type>
-				<type2>PowerBracelet</type2>
-				<row>3</row>
-				<column>0</column>
-			</object>-->
+			
 			<object>
 				<type>Item</type>
 				<type2>LifePotion</type2>
 				<row>4</row>
 				<column>0</column>
 			</object>
-			<!--<object>
-				<type>Item</type>
-				<type2>SecondLifePotion</type2>
-				<row>5</row>
-				<column>0</column>
-			</object>-->
-			<!--
-			<object>
-				<type>Item</type>
-				<type2>BookOfMagic</type2>
-				<row>6</row>
-				<column>0</column>
-			</object>
-			<object>
-				<type>Item</type>
-				<type2>Food</type2>
-				<row>0</row>
-				<column>1</column>
-			</object>
-			-->
+			
 			<object>
 				<type>Item</type>
 				<type2>Compass</type2>
@@ -185,56 +161,21 @@
 				<row>2</row>
 				<column>1</column>
 			</object>
-			<!--
-			<object>
-				<type>Item</type>
-				<type2>Stepladder</type2>
-				<row>3</row>
-				<column>1</column>
-			</object>
-			<object>
-				<type>Item</type>
-				<type2>Raft</type2>
-				<row>4</row>
-				<column>1</column>
-			</object>
-			<object>
-				<type>Item</type>
-				<type2>Recorder</type2>
-				<row>5</row>
-				<column>1</column>
-			</object>
-			-->
+		
 			<object>
 				<type>Item</type>
 				<type2>WoodenSword</type2>
 				<row>6</row>
 				<column>1</column>
 			</object>
-			<!--<object>
-				<type>Item</type>
-				<type2>WhiteSword</type2>
-				<row>0</row>
-				<column>2</column>
-			</object>-->
+		
 			<object>
 				<type>Item</type>
 				<type2>MagicalSword</type2>
 				<row>1</row>
 				<column>2</column>
 			</object>
-			<!--<object>
-				<type>Item</type>
-				<type2>MagicalRod</type2>
-				<row>2</row>
-				<column>2</column>
-			</object>-->
-			<!--<object>
-				<type>Item</type>
-				<type2>MagicalShield</type2>
-				<row>3</row>
-				<column>2</column>
-			</object>-->
+			
 			<object>
 				<type>Item</type>
 				<type2>Bow</type2>
@@ -271,35 +212,18 @@
 				<row>2</row>
 				<column>3</column>
 			</object>
-			<!--<object>
-				<type>Item</type>
-				<type2>RedCandle</type2>
-				<row>3</row>
-				<column>3</column>
-			</object>-->
-			<!--<object>
-				<type>Item</type>
-				<type2>BlueCandle</type2>
-				<row>4</row>
-				<column>3</column>
-			</object>-->
-			<!--<object>
-				<type>Item</type>
-				<type2>RedRing</type2>
-				<row>5</row>
-				<column>3</column>
-			</object>-->
-			<!--<object>
-				<type>Item</type>
-				<type2>BlueRing</type2>
-				<row>6</row>
-				<column>3</column>
-			</object>-->
+			
 			<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>0</row>
 				<column>4</column>
+			</object>
+			<object>
+				<type>Item</type>
+				<type2>SilverArrowUp</type2>
+				<row>2</row>
+				<column>7</column>
 			</object>
 			<!--<object>
 				<type>Item</type>
@@ -325,7 +249,7 @@
 				<row>4</row>
 				<column>4</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Enemy</type>
 				<type2>Moblin</type2>
 				<row>5</row>
@@ -360,7 +284,7 @@
 				<type2>Aquamentus</type2>
 				<row>3</row>
 				<column>5</column>
-			</object>
+			</object>-->
 			<object locked="true">
 				<type>Door</type>
 				<type2>Right</type2>

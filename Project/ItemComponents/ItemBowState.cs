@@ -23,7 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.PickUpItem(Item);
+            link.Inventory.AddItem(Item);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -38,7 +38,8 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-
+            if (link.Inventory.HasSilverArrow) link.Attack("SilverArrowUp");
+            else link.Attack("ArrowUp");
         }
     }
 }

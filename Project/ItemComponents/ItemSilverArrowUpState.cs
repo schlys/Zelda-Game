@@ -7,14 +7,14 @@ using System.Text;
 
 namespace Project1.ItemComponents
 {
-    class ItemMagicalSwordState : IItemState
+    class ItemSilverArrowUpState : IItemState
     {
         public IItem Item { get; set; }
         public Sprite Sprite { get; set; }
         public bool IsMoving { get; set; }
         public string ID { get; set; }
 
-        public ItemMagicalSwordState(IItem item)
+        public ItemSilverArrowUpState(IItem item)
         {
             Item = item;
             IsMoving = false;
@@ -23,7 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.Inventory.AddItem(Item);
+            link.Inventory.HasSilverArrow = true;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -38,7 +38,8 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            link.Attack(Item.Kind, true);
+           
         }
     }
 }
+

@@ -25,6 +25,7 @@ namespace Project1.LinkComponents
         public bool CanFreeze { get; set; }
         public bool HasMap { get; set; }
         public bool HasCompass { get; set; }
+        public bool HasSilverArrow { get; set; }
         
         private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
         
@@ -41,6 +42,7 @@ namespace Project1.LinkComponents
 
         private Sprite TextNum1;
         private Sprite TextNum2;
+
         /* FUNCTIONS OF EACH RECCOMENDED ITEM 
          * 
          * ITEMS 
@@ -160,19 +162,20 @@ namespace Project1.LinkComponents
 
             if (CanItemSelect())
             {
-                // Check legality 
+                //Check legality
                 if (!Items.ContainsKey(SelectedItem.Item1))
                 {
                     throw new IndexOutOfRangeException();
                 }
 
+                string selected = SelectedItem.Item1;
                 if (SelectedItem.Item2 == 1)
                 {
-                    Item1 = SelectedItem.Item1;
+                    if (!Item2.Equals(selected)) Item1 = SelectedItem.Item1;
                 }
                 else
                 {
-                    Item2 = SelectedItem.Item1;
+                    if (!Item1.Equals(selected)) Item2 = SelectedItem.Item1;
                 }
             }
         }
@@ -337,9 +340,6 @@ namespace Project1.LinkComponents
         }
         public void Reset()
         {
-            //Items = new Dictionary<string, IItem>();
-            //Item1 = DefaultItem1;
-            //Item2 = DefaultItem2;
             RupeeCount = 0;
             BombCount = 5;
             KeyCount = 0;

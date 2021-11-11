@@ -22,6 +22,7 @@ namespace Project1.LinkComponents
         bool CanFreeze { get; set; }
         bool HasMap { get; set; }
         bool HasCompass { get; set; }
+        bool HasSilverArrow { get; set; }
         void AddItem(IItem Item);
         void UseItem(int itemNumber);
         bool CanUseKey();
