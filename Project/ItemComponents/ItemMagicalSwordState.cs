@@ -39,7 +39,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-
+            link.Attack(Item.Kind);
         }
     }
 }

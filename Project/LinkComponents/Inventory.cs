@@ -135,14 +135,9 @@ namespace Project1.LinkComponents
             if (CanPlayGame())
             {
                 if (!Items.ContainsKey(item)) return;
-                UseItem(item);
+                Items[item].UseItem(Link);
             }
 
-        }
-        private void UseItem(string name)
-        {
-            // item usage is handled in the item state
-            Items[name].UseItem(Link);
         }
         public bool CanUseKey()
         {

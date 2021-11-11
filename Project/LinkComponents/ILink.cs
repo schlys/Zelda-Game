@@ -23,7 +23,7 @@ namespace Project1.LinkComponents
         void MoveRight();
         void MoveLeft();
         void StopMotion();
-        void Attack();
+        void Attack(string weapon);
         void UseItem(int itemNumber);
         
         bool UseKey();
@@ -32,13 +32,7 @@ namespace Project1.LinkComponents
         void IncreaseHealth();
         void RestoreHealth();
         void IncreaseHealthHeartCount();
-        void HalfDamageRecieved();
         void HitBlock(string direction);
-        void UseMagicalRod();
-        void UseMagicalSheild();
-        void UseMagicalSword();
-        void UseWhiteSword();
-        void UseWoodenSword();
         void Win(); 
         void Reset();
         void Update();

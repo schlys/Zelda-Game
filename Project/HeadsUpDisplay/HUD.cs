@@ -264,7 +264,7 @@ namespace Project1.HeadsUpDisplay
         }
         public void Reset()
         {
-            // TODO: needed? 
+            Position = InitialPosition;
         }
     }
 }

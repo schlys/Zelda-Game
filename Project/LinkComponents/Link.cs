@@ -36,7 +36,6 @@ namespace Project1.LinkComponents
         private int Step;
         private double DamageRecieved; 
         private bool LockFrame; 
-        private bool HasWon = false;       // Check whether Link picked up the TriforceFragment
         private bool IsDead = false;
         private int TotalNumHearts;
         private int delay;
@@ -129,10 +128,6 @@ namespace Project1.LinkComponents
                 {
                     Position -= new Vector2(Step, 0);
                 }
-                else
-                {
-                    //LevelFactory.Instance.MoveLeft();
-                }
             }
         }
 
@@ -157,10 +152,7 @@ namespace Project1.LinkComponents
         public void StopMotion()
         {
             // NOTE: Stops the moving animation of Link, not actual movement
-            if (!LockFrame)
-            {
-                LinkSprite.TotalFrames = 1;
-            } 
+            if (!LockFrame) LinkSprite.TotalFrames = 1;
         }
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback)
@@ -187,16 +179,17 @@ namespace Project1.LinkComponents
             return position;
         }
 
-        public void Attack()
+        public void Attack(string weapon)
         {
             if (CanPlay() && !LockFrame)
             {
+                Weapon = weapon;
                 LockFrame = true;
-                LinkWeaponState = new LinkStateWoodenSword(this);
+                //LinkWeaponState = new LinkStateWoodenSword(this);
                 UpdateSprite();
                 //attack animation should be fast
                 LinkSprite.MaxDelay = 0;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, Weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID,LinkSprite.MaxDelay, Hitbox));
                 GameSoundManager.Instance.PlaySwordSlash();
             }
         }
@@ -271,46 +264,11 @@ namespace Project1.LinkComponents
         {
             Health.IncreaseHeartCount(1);
         }
-        public void HalfDamageRecieved()
-        {
-            DamageRecieved /= 2;
-        }
-
         public void HitBlock(string direction)
         {
             StopMotion();
             Position = Knockback(Position, direction, Step);
         }
-
-        public void UseMagicalRod()
-        {
-            if(CanPlay())
-                LinkWeaponState.UseMagicalRod(); 
-        }
-
-        public void UseMagicalSheild()
-        {
-            if (CanPlay())
-                LinkWeaponState.UseMagicalSheild();
-        }
-
-        public void UseMagicalSword()
-        {
-            if (CanPlay())
-                LinkWeaponState.UseMagicalSword();
-        }
-
-        public void UseWhiteSword()
-        {
-            if (CanPlay())
-                LinkWeaponState.UseWhiteSword();
-        }
-
-        public void UseWoodenSword()
-        {
-            if (CanPlay())
-                LinkWeaponState.UseWoodenSword();
-        } 
 
         private void UpdateSprite()
         {
@@ -318,14 +276,6 @@ namespace Project1.LinkComponents
             string Weapon = "";
             if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
-
-            /*if (IsPicked)
-            {
-                LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
-                GameStateManager.Instance.GameOverWin();
-            }*/
-                
-            //IsPicked = false;
         }
         public void Win()
         {
@@ -360,7 +310,7 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
-                LinkSprite.Color = Color.White;
+                SetColor(Color.White);
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
                     LinkSprite.CurrentFrame++;
