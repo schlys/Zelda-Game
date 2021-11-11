@@ -38,6 +38,7 @@ namespace Project1
         private List<IController> Controllers;
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
+        private bool IsClear=false;
 
         public Game1 Game; 
 
@@ -187,6 +188,58 @@ namespace Project1
             }
         }
 
+        public void ClearRoomItems()
+        {
+            /* Called when room switch
+             * Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
+             * <Enemies> to be the items in <Room>. Remove all past <Projectiles>. Removes all objects 
+             * from the CollisionManager and adds the newly added <Room> objects. 
+             * Unfreeze the enemies 
+             */
+
+            IsClear = true;
+
+            Room = LevelFactory.Instance.CurrentRoom;
+            Items = Room.Items;
+            Blocks = Room.Blocks;
+            Enemies = Room.Enemies;
+            Doors = Room.Doors;
+            //Projectiles = new List<IProjectile>();
+
+            CollisionManager.Instance.Reset();
+
+            foreach (ILink link in Links)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)link);
+            }
+            foreach (IBlock block in Blocks)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)block);
+            }
+            foreach (IItem item in Items)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)item);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)enemy);
+            }
+            foreach (IDoor door in Doors)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)door);
+            }/*
+            foreach(IProjectile projectile in Projectiles)
+            {
+                CollisionManager.Instance.RemoveObject((ICollidable)projectile);
+            }*/
+
+            if (FreezeEnemies.Item1)
+            {
+                FreezeEnemies.Item2.Inventory.CanFreeze = false;
+                FreezeEnemies = new Tuple<bool, ILink>(false, null);
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             LevelFactory.Instance.Draw(spriteBatch); 
@@ -204,32 +257,35 @@ namespace Project1
             {
                 spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
             }
-
-            foreach (ILink link in Links)
+            if (!IsClear)
             {
-                link.Draw(spriteBatch);
+                foreach (ILink link in Links)
+                {
+                    link.Draw(spriteBatch);
+                }
+
+                foreach (IBlock block in Blocks)
+                {
+                    block.Draw(spriteBatch);
+                }
+                foreach (IItem item in Items)
+                {
+                    item.Draw(spriteBatch);
+                }
+                foreach (IEnemy enemy in Enemies)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+                foreach (IDoor door in Doors)
+                {
+                    door.Draw(spriteBatch);
+                }
+                foreach (IProjectile Projectile in Projectiles)
+                {
+                    Projectile.Draw(spriteBatch);
+                }
             }
             
-            foreach (IBlock block in Blocks)
-            {
-                block.Draw(spriteBatch);
-            }
-            foreach (IItem item in Items)
-            {
-                item.Draw(spriteBatch);
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                enemy.Draw(spriteBatch);
-            }
-            foreach (IDoor door in Doors)
-            {
-                door.Draw(spriteBatch);
-            }
-            foreach (IProjectile Projectile in Projectiles)
-            {
-                Projectile.Draw(spriteBatch);
-            }
             // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
             foreach (IHUD HUD in HUDs)
             {

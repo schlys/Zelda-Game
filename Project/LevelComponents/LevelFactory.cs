@@ -28,6 +28,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
+        private IRoom PreviousRoom;
         public Vector2 CurrentRoomPosition
         {
             get
@@ -202,7 +203,7 @@ namespace Project1.LevelComponents
             Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
             Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
             Rectangle roomTile = new Rectangle((int)GetItemPosition(4,1).X, (int)GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
-
+            //PreviousRoom.Draw(spriteBatch);
             CurrentRoom.Draw(spriteBatch);
 
             //spriteBatch.Draw(dummyTexture, roomTile, Color.Red); 
@@ -225,6 +226,10 @@ namespace Project1.LevelComponents
             CurrentRoom.Reset();
             LevelMap.Reset();
         }
+
+        /*
+         clear - move - show up all items
+         */
 
         public void MoveUp()
         {
@@ -253,12 +258,15 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 //Camera.Instance.CheckCollision(true);
-                
-                Room previousRoom = (Room)CurrentRoom;
-                CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+                GameObjectManager.Instance.ClearRoomItems();
+                //CurrentRoom.Position.X--;
+                //Room previousRoom = (Room)CurrentRoom;
+                PreviousRoom = CurrentRoom;
+                //CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+
                 //CurrentRoom.Left(previousRoom);
                 // TODO: Modify this part UpdateRoomItems make switching.
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveLeft();
             }
         }
