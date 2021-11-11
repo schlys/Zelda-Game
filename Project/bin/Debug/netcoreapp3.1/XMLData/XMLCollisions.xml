@@ -188,6 +188,12 @@
 	</Collision>
 
 	<Collision>
+		<name>EnemyMagicalRodAttack</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+
+	<Collision>
 		<name>EnemyEnemy</name>
 		<command1>EnemyAvoidOtherCmd</command1>
 		<command2>EnemyAvoidOtherCmd</command2>

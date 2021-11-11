@@ -122,6 +122,47 @@
 		<hitX>14</hitX>
 		<hitY>14</hitY>
 	</Sprite>
+	<!--Magical Rod######################################################################-->
+	<Sprite>
+		<name>MagicalRodUp</name>
+		<sheet>magicalRod</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodLeft</name>
+		<sheet>magicalRod</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodRight</name>
+		<sheet>magicalRod</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodDown</name>
+		<sheet>magicalRod</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
 
 	<Sprite>
 		<name>PickUpItem</name>
@@ -767,6 +808,7 @@
 		<hitX>8</hitX>
 		<hitY>16</hitY>
 	</Sprite>
+	<!--####################################################################################################-->
 	<Sprite>
 		<name>MagicalRod</name>
 		<sheet>items</sheet>
@@ -777,6 +819,7 @@
 		<hitX>4</hitX>
 		<hitY>16</hitY>
 	</Sprite>
+	
 	<Sprite>
 		<name>MagicalShield</name>
 		<sheet>items</sheet>
@@ -1102,6 +1145,7 @@
 		<originalSize>40</originalSize>
 		<hitX>8</hitX>
 		<hitY>8</hitY>
-	</Sprite>	
+	</Sprite>
+
 
 </Sprites>

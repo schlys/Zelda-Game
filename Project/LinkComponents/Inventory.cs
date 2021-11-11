@@ -50,6 +50,7 @@ namespace Project1.LinkComponents
          *      Map 
          *      Small Key - unlock locked doors or blocks (not doors to boss rooms)
          * (NOT ON LIST) Magical Key 
+         *      Book of Magic - lets Link shoot fire
          *      Triforce piece - heart healed (needs 8 in real game, but here can win?)
          *      Recovery Heart - health by one heart
          *      Heart container - increase max num hearts by one, and refill health compeltely 

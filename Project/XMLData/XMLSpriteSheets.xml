@@ -33,6 +33,10 @@
 		<sheet>LinkSprites/WoodenSword</sheet>
 	</Sheet>
 	<Sheet>
+		<name>magicalRod</name>
+		<sheet>LinkSprites/MagicalRod</sheet>
+	</Sheet>
+	<Sheet>
 		<name>magicalSword</name>
 		<sheet>LinkSprites/MagicalSword</sheet>
 	</Sheet>

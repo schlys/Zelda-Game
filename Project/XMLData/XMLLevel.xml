@@ -225,6 +225,18 @@
 				<row>2</row>
 				<column>7</column>
 			</object>
+			<object>
+				<type>Item</type>
+				<type2>BookOfMagic</type2>
+				<row>2</row>
+				<column>8</column>
+			</object>
+			<object>
+				<type>Item</type>
+				<type2>MagicalRod</type2>
+				<row>2</row>
+				<column>9</column>
+			</object>
 			<!--<object>
 				<type>Item</type>
 				<type2>MagicalKey</type2>
