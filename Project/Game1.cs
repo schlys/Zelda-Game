@@ -69,7 +69,7 @@ namespace Project1
             GraphicsDevice.Viewport = defaultVeiew;
             // NOTE: First one is for camera version. 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: camera.Transform);
-            //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+            //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             GameObjectManager.Instance.Draw(spriteBatch);
             GameStateManager.Instance.Draw(spriteBatch);
 

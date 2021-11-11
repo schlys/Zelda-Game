@@ -33,6 +33,7 @@ namespace Project1.LevelComponents
         Rectangle sourceRectangle2;
         Rectangle destinationRectangle2;
         Boolean scroll = false;
+        private int timer = 0;
         //private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
         //private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
@@ -90,6 +91,7 @@ namespace Project1.LevelComponents
             sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
             destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
         }
+
         public void Left(Room previousRoom)
         {
             PreviousRoom = previousRoom;
@@ -109,6 +111,7 @@ namespace Project1.LevelComponents
         }
         public void Update()
         {
+            timer++;
             if (scroll)
             { 
                 
@@ -123,11 +126,13 @@ namespace Project1.LevelComponents
         {
             Rectangle sourceRectangle = new Rectangle(XPos, YPos, 256, 176);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
+           
+                
             if (scroll)
             {
                 spriteBatch.Draw(PreviousRoom.Texture, destinationRectangle2, sourceRectangle2, Color);
             }
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
     }
 }

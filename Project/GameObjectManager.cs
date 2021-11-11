@@ -38,7 +38,7 @@ namespace Project1
         private List<IController> Controllers;
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
-        private bool IsClear=false;
+        private bool IsClear;
 
         public Game1 Game; 
 
@@ -54,7 +54,7 @@ namespace Project1
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
-
+            IsClear = false;
             Game = game;
 
             IController KeyboardController = new KeyboardController(Game);
@@ -150,7 +150,7 @@ namespace Project1
              * from the CollisionManager and adds the newly added <Room> objects. 
              * Unfreeze the enemies 
              */
-
+            //IsClear = false;
             Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
             Blocks = Room.Blocks;
@@ -210,7 +210,7 @@ namespace Project1
 
             foreach (ILink link in Links)
             {
-                CollisionManager.Instance.RemoveObject((ICollidable)link);
+                //CollisionManager.Instance.RemoveObject((ICollidable)link);
             }
             foreach (IBlock block in Blocks)
             {
@@ -257,7 +257,9 @@ namespace Project1
             {
                 spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
             }
-            if (!IsClear)
+
+            
+            if (true)
             {
                 foreach (ILink link in Links)
                 {

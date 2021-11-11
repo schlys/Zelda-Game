@@ -12,7 +12,7 @@ namespace Project1.LevelComponents
     {
         static ILevelFactory Instance { get; }
         IRoom CurrentRoom { get; set; }
-        Vector2 CurrentRoomPosition { get; set; }
+        //Vector2 CurrentRoomPosition { get; set; }
         ILevelMap LevelMap { get; set; }
         Dictionary<String, Texture2D> HUDTextures { get; set; }
         Vector2 LinkStartingPosition { get; set; }
