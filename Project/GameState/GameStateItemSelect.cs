@@ -25,7 +25,7 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            return new GameStatePause();
+            return this;
         }
         public IGameState StartGame()
         {

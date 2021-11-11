@@ -81,28 +81,15 @@ namespace Project1.SpriteComponents
              * Item Key = Item Name 
              * Enemy Key = Enemy Name + Direction 
              */
-            
+
             // TODO: check if sprite not found 
+            if (!SpriteDict.ContainsKey(key))
+            {
+                throw new IndexOutOfRangeException();
+            } 
             Sprite data = SpriteDict[key];
             return new Sprite(data.Texture, data.TotalFrames, data.CurrentFrame, data.Row, data.OriginalSize, (int)data.HitBox.X, (int)data.HitBox.Y);
         }
-
-        /*
-        public ILinkItemState GetCurrentItem(string name, string direction, Vector2 position)
-        {
-            ILinkItemState item;
-            switch (name)
-            {
-                case "Arrow":
-                    item = new LinkStateArrow(direction, position);
-                    break;
-                default:
-                    item = new LinkStateNoItem();
-                    break;
-            }
-            return item;
-        }*/
-
     }
 }
 

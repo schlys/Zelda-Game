@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Project1.GameState
 {
-    public class GameStateVar
+    public static class GameStateVar
     {
         // Variables used to denote direction throughout classes in GameState 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
