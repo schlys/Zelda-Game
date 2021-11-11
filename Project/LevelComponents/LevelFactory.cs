@@ -28,18 +28,9 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
-        private IRoom PreviousRoom;
-        public Vector2 CurrentRoomPosition
-        {
-            get
-            {
-                return CurrentRoom.Position;
-            }
-            set
-            {
+        private IRoom NextRoom;
+        public Vector2 CurrentRoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
 
-            }
-        }
         public ILevelMap LevelMap { get; set; }
         public Dictionary<String, Texture2D> HUDTextures { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
@@ -51,6 +42,7 @@ namespace Project1.LevelComponents
         // TODO: Load in XML
         private static int adjust = 2 * GameObjectManager.Instance.ScalingFactor;
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
+        //private static Vector2 RoomPosition = new Vector2(514, 885);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
@@ -203,9 +195,9 @@ namespace Project1.LevelComponents
             Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
             Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
             Rectangle roomTile = new Rectangle((int)GetItemPosition(4,1).X, (int)GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
-            //PreviousRoom.Draw(spriteBatch);
+            
             CurrentRoom.Draw(spriteBatch);
-
+            //NextRoom.Draw(spriteBatch);
             //spriteBatch.Draw(dummyTexture, roomTile, Color.Red); 
             //spriteBatch.Draw(dummyTexture, roomFloor, Color.White);
 
@@ -215,6 +207,7 @@ namespace Project1.LevelComponents
         {
             /* Update <CurrentRoom> to be the <StartRoom> and reset the room.
              */
+            CurrentRoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
             if (LevelDict.ContainsKey(StartRoom))
             {
                 CurrentRoom = LevelDict[StartRoom];
@@ -258,27 +251,52 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 //Camera.Instance.CheckCollision(true);
-                GameObjectManager.Instance.ClearRoomItems();
-                //CurrentRoom.Position.X--;
-                //Room previousRoom = (Room)CurrentRoom;
-                PreviousRoom = CurrentRoom;
-                //CurrentRoom = LevelDict[CurrentRoom.LeftRoom];
+                //GameObjectManager.Instance.ClearRoomItems();
 
-                //CurrentRoom.Left(previousRoom);
-                // TODO: Modify this part UpdateRoomItems make switching.
-                //GameObjectManager.Instance.UpdateRoomItems();
-                LevelMap.MoveLeft();
+                //Room previousRoom = (Room)CurrentRoom;
+                float distance = CurrentRoom.XPos;
+                NextRoom = LevelDict[CurrentRoom.LeftRoom];
+
+                while (distance!=NextRoom.XPos)
+                {
+                    CurrentRoomPosition.X-=(float)0.25;
+                    distance -= (float)0.25;
+                    if (distance == NextRoom.XPos)
+                    {
+                        CurrentRoom.Left((Room)NextRoom);
+                        //CurrentRoom = NextRoom;
+                        GameObjectManager.Instance.UpdateRoomItems();
+                        LevelMap.MoveLeft();
+                    }
+                }
+
             }
         }
         public void MoveRight()
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
+                /*
                 Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
                 CurrentRoom.Right(previousRoom);
                 GameObjectManager.Instance.UpdateRoomItems();
-                LevelMap.MoveRight();
+                LevelMap.MoveRight();*/
+                // TODO: be slow down and update room items
+                float distance = CurrentRoom.XPos;
+                NextRoom = LevelDict[CurrentRoom.RightRoom];
+                while (distance != (NextRoom.XPos+NextRoom.Size.X/2))
+                {
+                    CurrentRoomPosition.X += (float)0.25;
+                    distance += (float)0.25;
+                    if (distance == (NextRoom.XPos + NextRoom.Size.X/2))
+                    {
+                        CurrentRoom.Right((Room)NextRoom);
+                        CurrentRoom = NextRoom;
+                        GameObjectManager.Instance.UpdateRoomItems();
+                        LevelMap.MoveRight();
+                    }
+                }
             }
         }
         public Rectangle GetPlayableRoomBounds()
