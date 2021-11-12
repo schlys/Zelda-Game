@@ -294,7 +294,7 @@ namespace Project1.LevelComponents
 
                 //Room previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
-                NextRoom.Position += new Vector2(-NextRoom.Size.Y, 0);
+                NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
                 /*float distance = CurrentRoom.XPos;
 
 
@@ -331,7 +331,7 @@ namespace Project1.LevelComponents
                 // TODO: be slow down and update room items
                 //float distance = CurrentRoom.XPos;
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
-                NextRoom.Position += new Vector2(NextRoom.Size.Y, 0);
+                NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
 
                 /*
                 while (distance != (NextRoom.XPos+NextRoom.Size.X/2))
