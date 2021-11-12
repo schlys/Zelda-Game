@@ -18,6 +18,7 @@ namespace Project1.LevelComponents
         Vector2 LinkStartingPosition { get; set; }
         void LoadAllTextures(ContentManager content);
         void Draw(SpriteBatch spriteBatch);
+        void Update(); 
         void Reset(); 
         void MoveUp();
         void MoveDown();

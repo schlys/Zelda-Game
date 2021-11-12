@@ -74,7 +74,7 @@ namespace Project1.GameState
         }
         public void Start() 
         {
-            GameSoundManager.Instance.PlaySong();
+            //GameSoundManager.Instance.PlaySong();
             CurrentState = CurrentState.StartGame(); 
         }
         public void ItemSelection() 
@@ -85,8 +85,8 @@ namespace Project1.GameState
         public void GameOverLose() 
         {
             // Game is lost, can restart the game or exit 
-            GameSoundManager.Instance.PlayLinkDie();
-            GameSoundManager.Instance.StopSong();
+            //GameSoundManager.Instance.PlayLinkDie();
+            //GameSoundManager.Instance.StopSong();
             CurrentState = CurrentState.LoseGame();
         }
         public void GameOverWin() 
@@ -105,7 +105,7 @@ namespace Project1.GameState
         }
         public bool CanPlayGame()
         {
-            // True if <CurrentGame> is of type GameStateGamePlay 
+            // True if <CurrentState> is of type GameStateGamePlay 
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("GamePlay")); 
         }
@@ -116,15 +116,21 @@ namespace Project1.GameState
         }
         public bool CanItemSelect()
         {
-            // True if <CurrentGame> is of type GameItemSelect
+            // True if <CurrentState> is of type GameItemSelect
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("ItemSelect"));
         }
         public bool CanItemScroll()
         {
-            // True if <CurrentGame> is of type GameItemSelect
+            // True if <CurrentState> is of type GameItemScroll 
             // TODO: test type of object not ID
             return (CurrentState.ID.Equals("ItemScroll"));
+        }
+        public bool CanRoomScroll()
+        {
+            // True if <CurrentState> is of type GameRoomScroll
+            // TODO: test type of object not ID
+            return (CurrentState.ID.Equals("RoomScroll"));
         }
     }
 }

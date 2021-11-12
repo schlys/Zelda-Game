@@ -41,7 +41,7 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionIn);
+            return new GameStateItemScroll(GameStateVar.DirectionIn); 
         }
         public IGameState StartScroll()
         {

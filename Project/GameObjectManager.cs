@@ -98,6 +98,9 @@ namespace Project1
                 HUD.Update();
             }
 
+            // TODO: change to Level Object not the factory when separate class 
+            LevelFactory.Instance.Update();
+
             if (GameState.GameStateManager.Instance.CanPlayGame())
             {
                 foreach (ILink link in Links)
@@ -197,13 +200,13 @@ namespace Project1
              * Unfreeze the enemies 
              */
 
-            IsClear = true;
+            //IsClear = true;
 
-            Room = LevelFactory.Instance.CurrentRoom;
+            /*Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
-            Doors = Room.Doors;
+            Doors = Room.Doors;*/
             //Projectiles = new List<IProjectile>();
 
             CollisionManager.Instance.Reset();
@@ -227,17 +230,24 @@ namespace Project1
             foreach (IDoor door in Doors)
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)door);
-            }/*
+            }
+            
             foreach(IProjectile projectile in Projectiles)
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)projectile);
-            }*/
+            }
 
             if (FreezeEnemies.Item1)
             {
                 FreezeEnemies.Item2.Inventory.CanFreeze = false;
                 FreezeEnemies = new Tuple<bool, ILink>(false, null);
             }
+
+            Blocks = new List<IBlock>();
+            Items = new List<IItem>();
+            Enemies = new List<IEnemy>();
+            Doors = new List<IDoor>();
+            Projectiles = new List<IProjectile>();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -259,8 +269,8 @@ namespace Project1
             }
 
             
-            if (true)
-            {
+            //if (true)
+            //{
                 foreach (ILink link in Links)
                 {
                     link.Draw(spriteBatch);
@@ -286,7 +296,7 @@ namespace Project1
                 {
                     Projectile.Draw(spriteBatch);
                 }
-            }
+            //}
             
             // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
             foreach (IHUD HUD in HUDs)

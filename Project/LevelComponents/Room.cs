@@ -15,9 +15,9 @@ namespace Project1.LevelComponents
     {
         public string ID { get; set; }
         public Vector2 Position { get; set; }
+        public Vector2 Size { get; set; }
         public int XPos { get; set; }
         public int YPos { get; set; }
-        public Vector2 Size { get; set; }
         public string UpRoom { get; set; }
         public string DownRoom { get; set; }
         public string LeftRoom { get; set; }
@@ -29,11 +29,15 @@ namespace Project1.LevelComponents
         public Texture2D Texture { get; set; }
 
         public Color Color = Color.White;
+
         Room PreviousRoom;
+
         Rectangle sourceRectangle2;
         Rectangle destinationRectangle2;
         Boolean scroll = false;
         private int timer = 0;
+
+        private Vector2 TextureRoomSize; 
         //private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
         //private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
@@ -56,7 +60,7 @@ namespace Project1.LevelComponents
 
             // TODO: data drive 
             Size = new Vector2(256, 176) * GameObjectManager.Instance.ScalingFactor;
-            
+            TextureRoomSize = new Vector2(256, 176); 
         }
 
         public void AddBlock(IBlock block)
@@ -75,6 +79,7 @@ namespace Project1.LevelComponents
         {
             Doors.Add(door);
         }
+        /*
         public void Up(Room previousRoom)
         {
             PreviousRoom = previousRoom;
@@ -108,14 +113,16 @@ namespace Project1.LevelComponents
             PreviousRoom.Position = new Vector2((int)Position.X + (int)Size.X, (int)Position.Y);
             sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
             destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
-        }
+        }*/
         public void Update()
         {
+            /*
             timer++;
             if (scroll)
             { 
                 
             }
+            */
         }
         public void Reset()
         {
@@ -124,14 +131,15 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = new Rectangle(XPos, YPos, 256, 176);
+            // TODO: remove hardcode 
+            Rectangle sourceRectangle = new Rectangle(XPos, YPos, (int)TextureRoomSize.X, (int)TextureRoomSize.Y);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
            
-                
+            /*    
             if (scroll)
             {
                 spriteBatch.Draw(PreviousRoom.Texture, destinationRectangle2, sourceRectangle2, Color);
-            }
+            }*/
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
     }
