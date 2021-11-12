@@ -1,0 +1,21 @@
+Author of the code review: Elise Kosmides 
+
+Date of the code review: 11/12/21
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: IItemState.cs and indivisual ItemStates
+
+Author of the .cs file being reviewed: Sam
+
+Number of minutes taken to complete the review: 10
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+The variable and method names are easy to understand in IItemState. There are comments that help in 
+some places, you could add more or an overall comment at the header to explain the file. 
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+There are some methods like MoveUp/MoveDown/MoveRight/MoveLeft in ItemAngelState could be made into 
+a method since some of the code is repeated. I think using these for UseItem in the inventory is 
+well organized. Great job! 
