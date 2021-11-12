@@ -19,9 +19,6 @@ namespace Project1
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Camera camera;
-
-        Viewport defaultVeiew;
 
         public Game1()
         {
@@ -50,8 +47,6 @@ namespace Project1
             GameStateManager.Instance.Initialize(this);
             GameSoundManager.Instance.Initialize(this);
 
-            defaultVeiew = GraphicsDevice.Viewport;
-            camera = new Camera();
         }
 
 
@@ -69,7 +64,6 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            GraphicsDevice.Viewport = defaultVeiew;
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             GameObjectManager.Instance.Draw(spriteBatch);
             GameStateManager.Instance.Draw(spriteBatch);
