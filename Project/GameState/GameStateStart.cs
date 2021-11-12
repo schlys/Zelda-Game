@@ -15,10 +15,8 @@ namespace Project1.GameState
         {
             ID = "Start";
         }
-        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
             int sizeCorrector = 40;
 
@@ -30,8 +28,8 @@ namespace Project1.GameState
 
             String text = "Game Start!";
             String text2 = "\n\n    Press 'x' to start";
-            spriteBatch.DrawString(font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {

@@ -21,13 +21,8 @@ namespace Project1.GameState
             TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
             Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }
-        public void Update()
-        {
-            
-        }
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
             int sizeCorrector = 40;
 
@@ -37,8 +32,8 @@ namespace Project1.GameState
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(font, "YOU WIN!", new Vector2(RoomSize.X / 2- sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2 + sizeCorrector * 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, "YOU WIN!", new Vector2(RoomSize.X / 2- sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2 + sizeCorrector * 2), Color.White);
 
             TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector/2));
             Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector));

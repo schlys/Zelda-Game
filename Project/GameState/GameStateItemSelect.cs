@@ -14,10 +14,9 @@ namespace Project1.GameState
         {
             ID = "ItemSelect";
         }
-        public void Update() { }
         public void Draw(SpriteBatch spriteBatch) 
         {
-            // Drawing of ItemSelect is handled in HUD.cs since it has access to needed data like Link's Inventory
+            // Drawing handled in HUD.cs since it has access to needed data like Link's Inventory
         }
         public IGameState Reset()
         {

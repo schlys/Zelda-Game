@@ -15,22 +15,19 @@ namespace Project1.GameState
         {
             ID = "Lose";
         }
-        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw();
-            SpriteFont font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
-            int sizeCorrector=40;
+            int sizeCorrector = 40;
 
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
 
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
+            
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
-
-            spriteBatch.DrawString(font, "GAME OVER", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, "GAME OVER", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ", new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {

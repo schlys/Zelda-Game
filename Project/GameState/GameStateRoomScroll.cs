@@ -19,10 +19,6 @@ namespace Project1.GameState
         {
             ID = "RoomScroll";
         }
-        public void Update()
-        {
-            
-        }
         public void Draw(SpriteBatch spriteBatch)
         {
             

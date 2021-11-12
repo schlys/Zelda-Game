@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteComponents;
+using System.Reflection;
 
 namespace Project1.GameState
 {
@@ -23,6 +24,7 @@ namespace Project1.GameState
         }
         public IGameState CurrentState { get; set; }
         public Game1 Game { get; set; }
+        public SpriteFont Font { get; set; }
 
         private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
@@ -30,37 +32,17 @@ namespace Project1.GameState
         private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
         private GameStateManager() 
         {
-            // TODO: set default room 
+            // Set default room 
             CurrentState = new GameStateStart();
         }
         public void Initialize(Game1 game)
         {
             Game = game;
-        }
-        public void Update()
-        {
-            /*if (IsWin)
-            {
-                TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriForceFragment");
-                Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
-            }*/
+            Font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
         }
         public void Draw(SpriteBatch spriteBatch) 
         {
-            SpriteFont font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
-            String text = "Game state: " + CurrentState.ID; 
-            spriteBatch.DrawString(font, text, new Vector2(600, 10), Color.Black);
-
-            String text2 = "Commands: \nX - start\nSpace - pause \nI - Item select\nR - Restart\nQ - Quit\nZ/N - Attack";
-            spriteBatch.DrawString(font, text2, new Vector2(600, 30), Color.White);
-
-            // TODO: Make black screen for lose/win
-            // TODO: Remove magic numbers
-            Texture2D blackRectangle = new Texture2D(Game.GraphicsDevice, 1, 1);
-            blackRectangle.SetData(new[] { Color.Black });
-
-            CurrentState.Draw(spriteBatch);
-            
+            CurrentState.Draw(spriteBatch);   
         }
         public void Reset() 
         {
@@ -85,8 +67,8 @@ namespace Project1.GameState
         public void GameOverLose() 
         {
             // Game is lost, can restart the game or exit 
-            //GameSoundManager.Instance.PlayLinkDie();
-            //GameSoundManager.Instance.StopSong();
+            GameSoundManager.Instance.PlayLinkDie();
+            GameSoundManager.Instance.StopSong();
             CurrentState = CurrentState.LoseGame();
         }
         public void GameOverWin() 
@@ -106,8 +88,7 @@ namespace Project1.GameState
         public bool CanPlayGame()
         {
             // True if <CurrentState> is of type GameStateGamePlay 
-            // TODO: test type of object not ID
-            return (CurrentState.ID.Equals("GamePlay")); 
+            return (CurrentState is GameStateGamePlay); 
         }
         public bool CanDrawHUD()
         {
@@ -117,20 +98,17 @@ namespace Project1.GameState
         public bool CanItemSelect()
         {
             // True if <CurrentState> is of type GameItemSelect
-            // TODO: test type of object not ID
-            return (CurrentState.ID.Equals("ItemSelect"));
+            return (CurrentState is GameStateItemSelect);
         }
         public bool CanItemScroll()
         {
             // True if <CurrentState> is of type GameItemScroll 
-            // TODO: test type of object not ID
-            return (CurrentState.ID.Equals("ItemScroll"));
+            return (CurrentState is GameStateItemScroll); 
         }
         public bool CanRoomScroll()
         {
             // True if <CurrentState> is of type GameRoomScroll
-            // TODO: test type of object not ID
-            return (CurrentState.ID.Equals("RoomScroll"));
+            return (CurrentState is GameStateRoomScroll);
         }
     }
 }

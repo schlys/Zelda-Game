@@ -14,10 +14,9 @@ namespace Project1.GameState
         {
             ID = "GamePlay"; 
         }
-        public void Update() { }
         public void Draw(SpriteBatch spriteBatch) 
         {
-
+            // Drawing handled in GameObjectManager.cs
         }
         public IGameState Reset()
         {

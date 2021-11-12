@@ -23,13 +23,9 @@ namespace Project1.GameState
             ID = "ItemScroll";
             Direction = direction;
         }
-        public void Update()
-        {
-            
-        }
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+            // Drawing handled in GameObjectManager.cs
         }
         public IGameState Reset()
         {
@@ -61,11 +57,11 @@ namespace Project1.GameState
         }
         public IGameState StopScroll()
         {
-            if(Direction == GameStateVar.DirectionIn)    // Scroll in GamePlay > ItemScroll > ItemSelection
+            if(Direction == GameStateVar.DirectionIn)    // Scroll in GamePlay -> ItemScroll -> ItemSelection
             {
                 return new GameStateItemSelect();
             }
-            else      // Scroll out ItemSelection > ItemScroll > GamePlay 
+            else      // Scroll out ItemSelection -> ItemScroll -> GamePlay 
             {
                 return new GameStateGamePlay();
             }
