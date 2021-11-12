@@ -1,0 +1,20 @@
+Author of the code review: Elise Kosmides
+
+Date of the code review: 11/12/21
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: Sound
+
+Author of the .cs file being reviewed: Andy 
+
+Number of minutes taken to complete the review: 10
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+The file is very readable and well organized. The method names are logical. 
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+You could make the keys used in the sound methods a variable so you have the hard coded strings in 
+one place. You could also use the TryAdd method when accessing the dictionary to safeguard in case 
+the key is not found. Overall, great job! 
