@@ -28,6 +28,10 @@ namespace Project1
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            graphics.PreferredBackBufferWidth = 256*2;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = 500;   // set this value to the desired height of your window
+            graphics.ApplyChanges();
         }
 
         protected override void Initialize()
@@ -59,8 +63,6 @@ namespace Project1
 
             GameObjectManager.Instance.Update();
 
-            //camera.GetPosition(GameObjectManager.Instance.Links, defaultVeiew); // NOTE: this is for Link
-            camera.Update(LevelFactory.Instance.CurrentRoomPosition);
             base.Update(gameTime);
         }
 
@@ -68,9 +70,7 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.Black);
             GraphicsDevice.Viewport = defaultVeiew;
-            // NOTE: First one is for camera version. 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, transformMatrix: camera.Transform);
-            //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             GameObjectManager.Instance.Draw(spriteBatch);
             GameStateManager.Instance.Draw(spriteBatch);
 
