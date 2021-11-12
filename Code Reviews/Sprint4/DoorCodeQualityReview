@@ -20,3 +20,5 @@ Number of minutes taken to complete the review:
 Code Quality Review
 - Code is overall high cohesion and low coupling
 - Door drawing and collision part look low coupling especially
+- There are not magic numbers
+- width and height have the same value, so we can use only one of them to simplify
