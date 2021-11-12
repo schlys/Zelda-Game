@@ -36,6 +36,12 @@ namespace Project1.LevelComponents
         public Dictionary<String, Texture2D> HUDTextures { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
 
+        private Vector2 LinkLeftRoomPosition; 
+        private Vector2 LinkRightRoomPosition;
+        private Vector2 LinkUpRoomPosition;
+        private Vector2 LinkDownRoomPosition;
+        private Vector2 LinkNewScrollPosition; 
+
         private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
         //public static int[,] textureMatrix;
@@ -45,7 +51,7 @@ namespace Project1.LevelComponents
         private static int adjust = 2 * GameObjectManager.Instance.ScalingFactor;
 
         private static Vector2 ScrollAdjust = new Vector2(0, 0);
-        private static float ScrollStep = (float)(0.5 * GameObjectManager.Instance.ScalingFactor);
+        private static float ScrollStep = (float)(1 * GameObjectManager.Instance.ScalingFactor);
 
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
         //private static Vector2 RoomPosition = new Vector2(514, 885);
@@ -80,7 +86,12 @@ namespace Project1.LevelComponents
             }
 
             LinkStartingPosition = GetItemPosition(4, 1);
-
+            
+            LinkLeftRoomPosition = GetItemPosition(3, 11);
+            LinkRightRoomPosition = GetItemPosition(3, 0);
+            LinkUpRoomPosition = GetItemPosition(0, 6);
+            LinkDownRoomPosition = GetItemPosition(6, 6);
+            
             // Load Textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();
 
@@ -253,6 +264,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
 
+                LinkNewScrollPosition = LinkUpRoomPosition; 
+
                 // previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
@@ -269,7 +282,9 @@ namespace Project1.LevelComponents
                 GameStateManager.Instance.StartScroll();        // trigger room scroll
                 GameObjectManager.Instance.ClearRoomItems();    // remove objects from room 
                 
-                ScrollAdjust = new Vector2(0, ScrollStep);
+                ScrollAdjust = new Vector2(0, -ScrollStep);
+
+                LinkNewScrollPosition = LinkDownRoomPosition;
 
                 //Room previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
@@ -288,6 +303,8 @@ namespace Project1.LevelComponents
                 GameObjectManager.Instance.ClearRoomItems();    // remove objects from room 
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
+
+                LinkNewScrollPosition = LinkLeftRoomPosition;
 
                 //Camera.Instance.CheckCollision(true);
                 //GameObjectManager.Instance.ClearRoomItems();
@@ -322,6 +339,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
+                LinkNewScrollPosition = LinkRightRoomPosition;
                 /*
                 Room previousRoom = (Room)CurrentRoom;
                 CurrentRoom = LevelDict[CurrentRoom.RightRoom];
@@ -364,6 +382,8 @@ namespace Project1.LevelComponents
                 GameStateManager.Instance.StopScroll();    // trigger stop room scroll
                 CurrentRoom = NextRoom; 
                 GameObjectManager.Instance.UpdateRoomItems();   // readd room items 
+
+                GameObjectManager.Instance.SetLinkPosition(LinkNewScrollPosition);  // update link position
             } else
             {
                 CurrentRoom.Position += ScrollAdjust;

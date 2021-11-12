@@ -343,5 +343,13 @@ namespace Project1
             
             CollisionManager.Instance.RemoveObject((ICollidable)projectile);
         }
+
+        public void SetLinkPosition(Vector2 position)
+        {
+            foreach (ILink link in Links)
+            {
+                link.SetPosition(position); 
+            }
+        }
     }
 }
