@@ -33,6 +33,7 @@ namespace Project1
 
         public int ScalingFactor = 2; 
         public List<ILink> Links;
+        public List<ILink> Links_copy;
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -65,11 +66,13 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
-            // Add Link and their HUD
-            // TODO: Data drive Link Position 
+            /* Add Link and their HUD
+             * Parallel Contruction: between Link and HUD 
+             */
             Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition;
             ILink Link = new Link(LinkPosition, Game); 
             Links.Add(Link);
+            Links_copy = new List<ILink>(Links); 
             IHUD HUD = new HUD(Link, game);
             HUDs.Add(HUD); 
 
@@ -108,6 +111,7 @@ namespace Project1
                 foreach (ILink link in Links)
                 {
                     link.Update();
+                    Links_copy = new List<ILink>(Links);
                     if (link.Inventory.CanFreeze) // check if Link freeze enemies from moving
                     {
                         FreezeEnemies = new Tuple<bool, ILink>(true, link);
@@ -149,6 +153,7 @@ namespace Project1
              */
 
             Room = LevelFactory.Instance.CurrentRoom;
+            Links = new List<ILink>(Links_copy);
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
@@ -207,7 +212,7 @@ namespace Project1
 
             foreach (ILink link in Links)
             {
-                //CollisionManager.Instance.RemoveObject((ICollidable)link);
+                CollisionManager.Instance.RemoveObject((ICollidable)link);
             }
             foreach (IBlock block in Blocks)
             {
@@ -237,6 +242,7 @@ namespace Project1
                 FreezeEnemies = new Tuple<bool, ILink>(false, null);
             }
 
+            Links = new List<ILink>(); 
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();

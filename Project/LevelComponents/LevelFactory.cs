@@ -89,8 +89,8 @@ namespace Project1.LevelComponents
             
             LinkLeftRoomPosition = GetItemPosition(3, 11);
             LinkRightRoomPosition = GetItemPosition(3, 0);
-            LinkUpRoomPosition = GetItemPosition(0, 6);
-            LinkDownRoomPosition = GetItemPosition(6, 6);
+            LinkUpRoomPosition = GetItemPosition(6, 6);
+            LinkDownRoomPosition = GetItemPosition(0, 6);
             
             // Load Textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();
