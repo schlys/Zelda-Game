@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
+using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace Project1.ItemComponents
         public void UseItem(ILink link)
         {
             link.Attack(Item.Kind, true);
+            GameObjectManager.Instance.AddProjectile(new Projectile(link.Position, link.DirectionState.ID, Item.Kind));
         }
     }
 }

@@ -156,6 +156,12 @@
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
+
+	<Collision>
+		<name>EnemyProjectileMagicalRod</name>
+		<command1>EnemyTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
 	<Collision>
 		<name>EnemyProjectileFire</name>

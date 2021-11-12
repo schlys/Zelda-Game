@@ -165,6 +165,47 @@
 	</Sprite>
 
 	<Sprite>
+		<name>MagicalRodProjectileDown</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>5</row>
+		<originalSize>40</originalSize>
+		<hitX>10</hitX>
+		<hitY>10</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileUp</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>7</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileRight</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>6</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileLeft</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+
+	<Sprite>
 		<name>PickUpItem</name>
 		<sheet>pickUpItem</sheet>
 		<totalFrames>2</totalFrames>
@@ -344,6 +385,16 @@
 		<sheet>linkItems</sheet>
 		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
+		<row>10</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>Spawn</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
 		<row>10</row>
 		<originalSize>40</originalSize>
 		<hitX>16</hitX>

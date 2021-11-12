@@ -29,6 +29,9 @@ namespace Project1.EnemyComponents
         private int colorDelay = 10;
         private bool IsDead = false;
         private int health = 3;
+        private bool spawn = true;
+        private Sprite SpawnIn;
+        private int spawnTimer = 12;
         
         public Enemy(Vector2 position, string type)
         {           
@@ -53,6 +56,7 @@ namespace Project1.EnemyComponents
             InitialPosition = Position;            
             IsMoving = true;
             TypeID = GetType().Name.ToString();
+            SpawnIn = SpriteFactory.Instance.GetSpriteData("Spawn");
         }
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback)
@@ -117,28 +121,33 @@ namespace Project1.EnemyComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!IsDead)
-                EnemyState.Draw(spriteBatch, Position);
+            if (spawn) SpawnIn.Draw(spriteBatch, Position);
+            else if (!IsDead) EnemyState.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
             counter++;
-            if (counter > colorDelay)
+            if (counter > spawnTimer) spawn = false;
+            else SpawnIn.Update();
+            if (!spawn)
             {
-                EnemyState.Sprite.Color = Color.White;
-                counter = 0;
-            }
-            if (!IsDead)
-            {
-                IsMoving = true;
-                EnemyState.Update();
-                // Update Hitbox for collisions 
-                UpdateHitBox();
-            }
-            else
-            {
-                CollisionManager.Instance.RemoveObject(this);
+                if (counter > colorDelay)
+                {
+                    EnemyState.Sprite.Color = Color.White;
+                    counter = 0;
+                }
+                if (!IsDead)
+                {
+                    IsMoving = true;
+                    EnemyState.Update();
+                    // Update Hitbox for collisions 
+                    UpdateHitBox();
+                }
+                else
+                {
+                    CollisionManager.Instance.RemoveObject(this);
+                }
             }
             
         }

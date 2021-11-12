@@ -18,14 +18,16 @@ namespace Project1.ProjectileComponents
         // Other Properties
         private int Speed = 4;
         private int Counter = 0;
+        private int CounterMax = 100;
         private int CounterExplode = 20;
         
         public MagicalRodProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
             Direction = direction;
-            TypeID = "MagicalRodProj";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);            
+            TypeID = "MagicalRodProjectile";
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + direction.ID);
+            TypeID = "MagicalRod";
             Projectile.OffsetOriginalPosition(Direction);
         }
         public void StopMotion() { }
@@ -34,6 +36,26 @@ namespace Project1.ProjectileComponents
             Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
-        public void Update() { }
+        public void Update() 
+        {
+            Counter++;
+            Sprite.Update();
+            switch (Direction.ID)
+            {
+                case "Up":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - Speed);
+                    break;
+                case "Down":
+                    Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + Speed);
+                    break;
+                case "Right":
+                    Projectile.Position = new Vector2(Projectile.Position.X + Speed, Projectile.Position.Y);
+                    break;
+                default:
+                    Projectile.Position = new Vector2(Projectile.Position.X - Speed, Projectile.Position.Y);
+                    break;
+            }
+            if (Counter > CounterMax) Projectile.RemoveProjectile();
+        }
     }
 }
