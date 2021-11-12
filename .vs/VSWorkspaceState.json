@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Project",
+    "\\Project\\HeadsUpDisplay",
+    "\\Project\\LevelComponents"
   ],
-  "SelectedNode": "\\Project1.sln",
+  "SelectedNode": "\\Project\\Project1.sln",
   "PreviewInSolutionExplorer": false
 }
