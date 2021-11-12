@@ -21,17 +21,17 @@ namespace Project1.ProjectileComponents
         public bool isUsing { get; set; }
         private int Speed = 6;
         int Counter;
-        int CounterMax = 50; 
-
+        int CounterMax = 50;
+        private Vector2 InitialPosition; 
         public BoomerangSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
-            Projectile.InMotion = true;
             Direction = direction; 
             TypeID = "Boomerang"; 
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
             Counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
+            InitialPosition = Projectile.Position; 
         }
 
         public void StopMotion()
@@ -75,10 +75,19 @@ namespace Project1.ProjectileComponents
             {
                 Speed *= -1;
             }
-            else if (Counter > CounterMax)
+            else if (Counter > CounterMax || (Speed < 0 && IsCollide(InitialPosition, Projectile.Position, Speed)))    // returned to sender 
             {
-                Projectile.InMotion = false;    // indicate stop projectile 
+                Projectile.RemoveProjectile();
             }
+
+        }
+
+        private bool IsCollide(Vector2 pos1, Vector2 pos2, int buffer)
+        {
+            /* Return true if <pos1> and <pos2> are within <buffer> of eachother in both the x and y
+             * Parallel Construction: in MagicalBoomerangSolidProjectileState.cs and GoriyaProjectileState.cs 
+             */
+            return Math.Abs(pos1.X - pos2.X) < Math.Abs(buffer) && Math.Abs(pos1.Y - pos2.Y) < Math.Abs(buffer);
         }
     }
 }

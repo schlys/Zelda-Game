@@ -77,7 +77,7 @@ namespace Project1.ProjectileComponents
                 Sprite = PoofSprite;                 
             } else
             {
-                Projectile.InMotion = false;    // Indicate projectile is done 
+                Projectile.RemoveProjectile(); 
             }
         }
     }

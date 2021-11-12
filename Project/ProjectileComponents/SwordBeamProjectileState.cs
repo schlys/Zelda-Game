@@ -27,19 +27,12 @@ namespace Project1.ProjectileComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!isBlocked)
-            {
-                Sprite.Draw(spriteBatch, Projectile.Position);  
-            }
-            else
-            {
-                Projectile.InMotion = false;
-            }
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
         public void StopMotion()
         {
-            isBlocked = true;
+            Projectile.RemoveProjectile();
         }
 
         public void Update()

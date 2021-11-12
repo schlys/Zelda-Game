@@ -23,7 +23,6 @@ namespace Project1.ProjectileComponents
         public bool IsMoving { get; set; }
 
         // Other Properties 
-        public bool InMotion { get; set; }
         public Sprite Sprite { get; set; }
         public IDirectionState Direction { get; set; }
         public string TypeID { get; set; }
@@ -40,7 +39,6 @@ namespace Project1.ProjectileComponents
             this.delay = delay;
             TypeID = ID + "Attack";
             IsMoving = true;
-            InMotion = true;
 
             // make sword hitbox slightly longer and wider than sword sprite
             // weapon length is 75% of links length
@@ -64,15 +62,22 @@ namespace Project1.ProjectileComponents
                     Hitbox = new Rectangle(parent.X - length - 3, parent.Y + parent.Height/2, length, width);
                     break;
             }
-            //if (health.IsFull()) GameObjectManager.Instance.AddProjectile(new Projectile(new Vector2(Hitbox.X, Hitbox.Y), direction, "SwordBeam", ID));
         }
         public void OffsetOriginalPosition(IDirectionState direction) { }
 
         public void StopMotion() { }
+        public void RemoveProjectile()
+        {
+            // Removes this from GameObjectManager 
+            GameObjectManager.Instance.RemoveProjectile(this);
+        }
         public void Update()
         {
             counter++;
-            if (counter > 4 * delay) InMotion = false;
+            if (counter > 4 * delay)
+            {
+                RemoveProjectile(); 
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch) { }

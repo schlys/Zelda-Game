@@ -33,12 +33,11 @@ namespace Project1.ProjectileComponents
         }
         public void StopMotion()
         {
-            Projectile.InMotion = false;
+            Projectile.RemoveProjectile(); 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Projectile.InMotion)
-                Sprite.Draw(spriteBatch, Projectile.Position);
+            Sprite.Draw(spriteBatch, Projectile.Position);
         }
         public void Update()
         {
@@ -55,7 +54,7 @@ namespace Project1.ProjectileComponents
             }
             else
             {
-                Projectile.InMotion = false;
+                Projectile.RemoveProjectile(); 
             }
         }
     }
