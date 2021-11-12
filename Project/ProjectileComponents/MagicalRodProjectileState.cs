@@ -25,26 +25,15 @@ namespace Project1.ProjectileComponents
             Projectile = projectile;
             Direction = direction;
             TypeID = "MagicalRodProj";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            Projectile.InMotion = false;
-            
+            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);            
             Projectile.OffsetOriginalPosition(Direction);
         }
-        public void StopMotion()
-        {
-            
-        }
+        public void StopMotion() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             Sprite.Draw(spriteBatch, Projectile.Position);
         }
 
-        public void Update()
-        {
-
-
-            
-
-        }
+        public void Update() { }
     }
 }

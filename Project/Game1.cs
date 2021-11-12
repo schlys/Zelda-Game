@@ -50,6 +50,7 @@ namespace Project1
             camera = new Camera();
         }
 
+
         protected override void Update(GameTime gameTime)
         {
             // NOTE: should we remove this? it's here by default 

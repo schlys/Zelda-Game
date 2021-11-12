@@ -17,6 +17,10 @@ namespace Project1
 {
     public sealed class GameObjectManager
     {
+        /* GameObjectManager is a singleton that manages the objects used for the game. It also makes calls to
+         * CollisionManager. 
+         */ 
+
         private static GameObjectManager instance = new GameObjectManager();
         public static GameObjectManager Instance
         {
@@ -38,7 +42,6 @@ namespace Project1
         private List<IController> Controllers;
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
-        private bool IsClear;
 
         public Game1 Game; 
 
@@ -54,7 +57,6 @@ namespace Project1
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
-            IsClear = false;
             Game = game;
 
             IController KeyboardController = new KeyboardController(Game);
@@ -98,6 +100,9 @@ namespace Project1
                 HUD.Update();
             }
 
+            // TODO: change to Level Object not the factory when separate class 
+            LevelFactory.Instance.Update();
+
             if (GameState.GameStateManager.Instance.CanPlayGame())
             {
                 foreach (ILink link in Links)
@@ -124,20 +129,12 @@ namespace Project1
                     }
                 }
 
-                // TODO: move to collision manager 
-                for (int i = 0; i < Projectiles.Count; i++)
+               for (int i = 0; i < Projectiles.Count; i++)
                 {
                     IProjectile Projectile = Projectiles[i];
-                    if (Projectile.InMotion)
-                    {
-                        Projectile.Update();
-                    }
-                    else
-                    {
-                        CollisionManager.Instance.RemoveObject((ICollidable)Projectile);
-                        Projectiles.Remove(Projectile);
-                    }
+                    Projectile.Update();
                 }
+
                 CollisionManager.Instance.Update();
             }
         }
@@ -150,7 +147,7 @@ namespace Project1
              * from the CollisionManager and adds the newly added <Room> objects. 
              * Unfreeze the enemies 
              */
-            //IsClear = false;
+
             Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
             Blocks = Room.Blocks;
@@ -197,13 +194,13 @@ namespace Project1
              * Unfreeze the enemies 
              */
 
-            IsClear = true;
+            //IsClear = true;
 
-            Room = LevelFactory.Instance.CurrentRoom;
+            /*Room = LevelFactory.Instance.CurrentRoom;
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
-            Doors = Room.Doors;
+            Doors = Room.Doors;*/
             //Projectiles = new List<IProjectile>();
 
             CollisionManager.Instance.Reset();
@@ -227,17 +224,24 @@ namespace Project1
             foreach (IDoor door in Doors)
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)door);
-            }/*
+            }
+            
             foreach(IProjectile projectile in Projectiles)
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)projectile);
-            }*/
+            }
 
             if (FreezeEnemies.Item1)
             {
                 FreezeEnemies.Item2.Inventory.CanFreeze = false;
                 FreezeEnemies = new Tuple<bool, ILink>(false, null);
             }
+
+            Blocks = new List<IBlock>();
+            Items = new List<IItem>();
+            Enemies = new List<IEnemy>();
+            Doors = new List<IDoor>();
+            Projectiles = new List<IProjectile>();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -259,34 +263,33 @@ namespace Project1
             }
 
             
-            if (true)
-            {
-                foreach (ILink link in Links)
-                {
-                    link.Draw(spriteBatch);
-                }
 
-                foreach (IBlock block in Blocks)
-                {
-                    block.Draw(spriteBatch);
-                }
-                foreach (IItem item in Items)
-                {
-                    item.Draw(spriteBatch);
-                }
-                foreach (IEnemy enemy in Enemies)
-                {
-                    enemy.Draw(spriteBatch);
-                }
-                foreach (IDoor door in Doors)
-                {
-                    door.Draw(spriteBatch);
-                }
-                foreach (IProjectile Projectile in Projectiles)
-                {
-                    Projectile.Draw(spriteBatch);
-                }
+            foreach (ILink link in Links)
+            {
+                link.Draw(spriteBatch);
             }
+
+            foreach (IBlock block in Blocks)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (IItem item in Items)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IDoor door in Doors)
+            {
+                door.Draw(spriteBatch);
+            }
+            foreach (IProjectile Projectile in Projectiles)
+            {
+                Projectile.Draw(spriteBatch);
+            }
+
             
             // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
             foreach (IHUD HUD in HUDs)
@@ -327,8 +330,18 @@ namespace Project1
         public void AddProjectile(IProjectile projectile)
         {
             Projectiles.Add(projectile);
-            // TODO: move to collision manager 
+
             CollisionManager.Instance.AddObject((ICollidable)projectile);
+        }
+
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            if (Projectiles.Contains(projectile))
+            {
+                Projectiles.Remove(projectile);
+            }
+            
+            CollisionManager.Instance.RemoveObject((ICollidable)projectile);
         }
     }
 }

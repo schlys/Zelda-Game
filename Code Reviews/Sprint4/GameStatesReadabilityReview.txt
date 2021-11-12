@@ -1,0 +1,22 @@
+Author of the code review: Sam Chlystek
+
+
+Date of the code review: 11/11
+
+
+Sprint number: 4
+
+
+Name of the .cs file being reviewed: All GameState.cs files
+
+
+Author of the .cs file being reviewed:Elise
+
+
+Number of minutes taken to complete the review: 10
+
+
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+- useful comments and easy readability with state switching
+- maybe use more comments in draw methods

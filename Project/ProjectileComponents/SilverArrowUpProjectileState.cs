@@ -79,7 +79,7 @@ namespace Project1.ProjectileComponents
             }
             else
             {
-                Projectile.InMotion = false;    // Indicate projectile is done 
+                Projectile.RemoveProjectile(); 
             }
         }
     }

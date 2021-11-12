@@ -89,7 +89,6 @@ namespace Project1.HeadsUpDisplay
 
         public void Update()
         {
-            // TODO: needed? 
             // Check if scroll 
             if (GameStateManager.Instance.CanItemScroll())
             {

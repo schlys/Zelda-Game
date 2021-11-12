@@ -16,9 +16,9 @@ namespace Project1.LevelComponents
     {
         String ID { get; set; } // OR name? 
         Vector2 Position { get; set; }
+        Vector2 Size { get; set; }
         int XPos { get; set; }
         int YPos { get; set; }
-        Vector2 Size { get; set; }
         String UpRoom { get; set; }
         String DownRoom { get; set; }
         String LeftRoom { get; set; }
@@ -33,10 +33,12 @@ namespace Project1.LevelComponents
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);
         void AddDoor(IDoor door);
+        /*
         void Left(Room previousRoom);
         void Right(Room previousRoom);
         void Up(Room previousRoom);
         void Down(Room previousRoom);
+        */
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void Reset();

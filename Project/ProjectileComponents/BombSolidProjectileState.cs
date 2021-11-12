@@ -29,7 +29,6 @@ namespace Project1.ProjectileComponents
             Direction = direction; 
             TypeID = "Bomb";
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            Projectile.InMotion = false;
             CounterMax = CounterExplode + (int)((Sprite.TotalFrames)*(Sprite.MaxDelay * Sprite.DelayRate));
             Projectile.OffsetOriginalPosition(Direction);
         }
@@ -83,7 +82,7 @@ namespace Project1.ProjectileComponents
             }
             else
             {
-                Projectile.InMotion = false;    // Indicate projectile is done 
+                Projectile.RemoveProjectile(); 
             }
 
         }

@@ -39,18 +39,6 @@ namespace Project1.ProjectileComponents
         public void Draw(SpriteBatch spriteBatch)
         {
             Sprite.Draw(spriteBatch, Projectile.Position);
-
-            /*if (Projectile.InMotion)
-            {
-                if (Counter < 45)
-                {
-                    Counter++;
-                }
-                else
-                {
-                    Projectile.InMotion = false;
-                }
-            }*/
         }
 
         public void Update()
@@ -80,7 +68,7 @@ namespace Project1.ProjectileComponents
 
             if (Counter > CounterMax)
             {
-                Projectile.InMotion = false;    // indicate stop projectile 
+                Projectile.RemoveProjectile(); 
             }
         
         }

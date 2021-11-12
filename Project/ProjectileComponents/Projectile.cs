@@ -16,9 +16,7 @@ namespace Project1.ProjectileComponents
     {
         // Properties from IProjectile 
         public Vector2 Position { get; set; }
-        public Vector2 OriginalPosition { get; set; }
         public IProjectileState State { get; set; }
-        public bool InMotion { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -31,9 +29,7 @@ namespace Project1.ProjectileComponents
         public Projectile(Vector2 position, string direction, string state, string beam = "")
         {
             Position = position;
-            OriginalPosition = Position;
             State = GetProjectileState(state, direction, beam);
-            InMotion = true;
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox); 
             IsMoving = true;
@@ -86,12 +82,17 @@ namespace Project1.ProjectileComponents
                 Offsets.Add(name, new Vector2(x, y));
             }
             Position += Offsets[direction.ID];         
-            OriginalPosition = Position; 
         }
 
         public void StopMotion()
         {
             State.StopMotion(); 
+        }
+
+        public void RemoveProjectile()
+        {
+            // Removes this from GameObjectManager 
+            GameObjectManager.Instance.RemoveProjectile(this); 
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -102,11 +103,10 @@ namespace Project1.ProjectileComponents
         {
             State.Update();
 
-            if (Position.Equals(OriginalPosition)) InMotion = false;
+            //if (Position.Equals(OriginalPosition)) InMotion = false;
 
             // Update Hitbox for collisions 
-            if (InMotion)
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox);
 
             // stop projectile from going out of bounds
             Vector2 TopLeft = new Vector2(Hitbox.X, Hitbox.Y);
