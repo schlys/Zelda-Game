@@ -1,0 +1,16 @@
+Author of the code review: Jake Haskins
+
+Date of the code review: 11/12/21
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: GameSoundManager
+
+Author of the .cs file being reviewed: Andy 
+
+Number of minutes taken to complete the review: 15
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation 
+could or could not easily support that change: Honestly, nothing major needs to be changed. If anything, making it more similar to 
+the keyboard controller, where we simply do a for each loop for all sounds that need to be played could shorten the code even more. 
+Otherwise, everything else is fantastic

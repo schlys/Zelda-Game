@@ -58,9 +58,6 @@ namespace Project1.Controller
              * Use 'e' to cause Link to become damaged
             */
 
-            // Register link movement commands in <ControllerMappingsHoldKey>
-
-            //RegisterCommand(new LinkMoveUpCmd(Game, Link), Keys.W);
             Assembly assem = typeof(ICommand).Assembly;
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
             XmlDocument XMLData = new XmlDocument();
