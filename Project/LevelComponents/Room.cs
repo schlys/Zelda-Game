@@ -79,51 +79,7 @@ namespace Project1.LevelComponents
         {
             Doors.Add(door);
         }
-        /*
-        public void Up(Room previousRoom)
-        {
-            PreviousRoom = previousRoom;
-            scroll = true;
-            PreviousRoom.Position = new Vector2((int)Position.X, (int)Position.Y + (int)Size.Y);
-            sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
-            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
-        }
-        public void Down(Room previousRoom)
-        {
-            PreviousRoom = previousRoom;
-            scroll = true;
-            PreviousRoom.Position = new Vector2((int)Position.X, (int)Position.Y - (int)Size.Y);
-            sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
-            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
-        }
-
-        public void Left(Room previousRoom)
-        {
-            PreviousRoom = previousRoom;
-            scroll = true;
-            PreviousRoom.Position = new Vector2((int)Position.X - (int)Size.X, (int)Position.Y);
-            sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
-            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
-            
-        }
-        public void Right(Room previousRoom)
-        {
-            PreviousRoom = previousRoom;
-            scroll = true;
-            PreviousRoom.Position = new Vector2((int)Position.X + (int)Size.X, (int)Position.Y);
-            sourceRectangle2 = new Rectangle(PreviousRoom.XPos, PreviousRoom.YPos, 256, 176);
-            destinationRectangle2 = new Rectangle((int)PreviousRoom.Position.X, (int)PreviousRoom.Position.Y, (int)Size.X, (int)Size.Y);
-        }*/
-        public void Update()
-        {
-            /*
-            timer++;
-            if (scroll)
-            { 
-                
-            }
-            */
-        }
+        
         public void Reset()
         {
             // TODO: should we handle object reset here and not in gameobject manager? 
@@ -134,12 +90,6 @@ namespace Project1.LevelComponents
             // TODO: remove hardcode 
             Rectangle sourceRectangle = new Rectangle(XPos, YPos, (int)TextureRoomSize.X, (int)TextureRoomSize.Y);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
-           
-            /*    
-            if (scroll)
-            {
-                spriteBatch.Draw(PreviousRoom.Texture, destinationRectangle2, sourceRectangle2, Color);
-            }*/
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }
     }

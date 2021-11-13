@@ -88,7 +88,6 @@ namespace Project1.EnemyComponents
             GameSoundManager.Instance.PlayEnemyHit();
             // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
-            //EnemyState.TakeDamage(damage);
             AvoidEnemy(direction);
             Health.DecreaseHealth(0.5);
             IsDead = Health.Dead();
@@ -104,7 +103,6 @@ namespace Project1.EnemyComponents
         public void Reset()
         {
             ResetPosition();
-            //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
             Health = new EnemyHealth(health, 30);                  // default health is 3 of 3 hearts 
             IsMoving = true;
             IsDead = false;

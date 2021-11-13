@@ -199,15 +199,6 @@ namespace Project1
              * Unfreeze the enemies 
              */
 
-            //IsClear = true;
-
-            /*Room = LevelFactory.Instance.CurrentRoom;
-            Items = Room.Items;
-            Blocks = Room.Blocks;
-            Enemies = Room.Enemies;
-            Doors = Room.Doors;*/
-            //Projectiles = new List<IProjectile>();
-
             CollisionManager.Instance.Reset();
 
             foreach (ILink link in Links)
@@ -253,21 +244,6 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             LevelFactory.Instance.Draw(spriteBatch); 
-
-            // TODO: Remove before submission 
-            // For testing collision hitbox 
-            //Texture2D dummyTexture = new Texture2D(Game.GraphicsDevice, 1, 1);
-            //dummyTexture.SetData(new Color[] { Color.White });
-            
-            //foreach (ICollidable c in CollisionManager.Instance.MovingObjects)
-            //{
-            //    spriteBatch.Draw(dummyTexture, c.Hitbox, Color.Black);
-            //}
-            //foreach (ICollidable c in CollisionManager.Instance.NonMovingObjects)
-            //{
-            //    spriteBatch.Draw(dummyTexture, c.Hitbox, Color.White);
-            //}
-
             
 
             foreach (ILink link in Links)
