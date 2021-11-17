@@ -102,12 +102,11 @@ namespace Project1.EnemyComponents
 
         public void Reset()
         {
-<<<<<<< HEAD
+
             Spawn();
             //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
-=======
-            ResetPosition();
->>>>>>> 52eff15f823994b73072095d1337e5904ed01fa2
+
+            
             Health = new EnemyHealth(health, 30);                  // default health is 3 of 3 hearts 
             IsMoving = true;
             IsDead = false;
