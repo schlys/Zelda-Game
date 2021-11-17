@@ -50,7 +50,7 @@ namespace Project1.LevelComponents
         private static int adjust = 2 * GameObjectManager.Instance.ScalingFactor;
 
         private static Vector2 ScrollAdjust = new Vector2(0, 0);
-        private static float ScrollStep = (float)(1 * GameObjectManager.Instance.ScalingFactor);
+        private static float ScrollStep = (float)(3 * GameObjectManager.Instance.ScalingFactor);
 
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
@@ -222,7 +222,7 @@ namespace Project1.LevelComponents
                 //spriteBatch.Draw(dummyTexture, roomTile, Color.Red); 
                 //spriteBatch.Draw(dummyTexture, roomFloor, Color.White);
 
-            }
+        }
 
         public void Update()
         {

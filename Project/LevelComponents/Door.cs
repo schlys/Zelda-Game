@@ -30,7 +30,7 @@ namespace Project1.LevelComponents
         {
 			Direction = direction;
 			this.locked = locked;
-			if (this.locked) Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
+			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
 			Position = position;
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 			/* Correct the position to account for empty space around the hitbox */
