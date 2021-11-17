@@ -44,7 +44,6 @@ namespace Project1.LevelComponents
 
         private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
-        //public static int[,] textureMatrix;
 
         // TODO: Load in XML
         // ****** What is the purpose of adjust? 
@@ -54,12 +53,10 @@ namespace Project1.LevelComponents
         private static float ScrollStep = (float)(1 * GameObjectManager.Instance.ScalingFactor);
 
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
-        //private static Vector2 RoomPosition = new Vector2(514, 885);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
-        private static Vector2 PositionChanger = new Vector2(0, 0);
 
         private static string StartRoom = "room2";
 
@@ -252,10 +249,6 @@ namespace Project1.LevelComponents
             LevelMap.Reset();
         }
 
-        /*
-         clear - move - show up all items
-         */
-
         public void MoveUp()
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
@@ -267,12 +260,9 @@ namespace Project1.LevelComponents
 
                 LinkNewScrollPosition = LinkUpRoomPosition; 
 
-                // previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
-                //CurrentRoom.Up(previousRoom);
 
-                //GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveUp();
             }
         }
@@ -287,12 +277,9 @@ namespace Project1.LevelComponents
 
                 LinkNewScrollPosition = LinkDownRoomPosition;
 
-                //Room previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
-                //CurrentRoom.Down(previousRoom);
 
-                //GameObjectManager.Instance.UpdateRoomItems();
                 LevelMap.MoveDown();
             }
         }
@@ -307,27 +294,9 @@ namespace Project1.LevelComponents
 
                 LinkNewScrollPosition = LinkLeftRoomPosition;
 
-                //Camera.Instance.CheckCollision(true);
-                //GameObjectManager.Instance.ClearRoomItems();
-
-                //Room previousRoom = (Room)CurrentRoom;
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
-                /*float distance = CurrentRoom.XPos;
 
-
-                while (distance!=NextRoom.XPos)
-                {
-                    CurrentRoomPosition.X-=(float)0.25;
-                    distance -= (float)0.25;
-                    if (distance == NextRoom.XPos)
-                    {
-                        //CurrentRoom.Left((Room)NextRoom);
-                        //CurrentRoom = NextRoom;
-                        GameObjectManager.Instance.UpdateRoomItems();
-                        LevelMap.MoveLeft();
-                    }
-                }*/
                 LevelMap.MoveLeft();
             }
         }
@@ -341,30 +310,10 @@ namespace Project1.LevelComponents
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
                 LinkNewScrollPosition = LinkRightRoomPosition;
-                /*
-                Room previousRoom = (Room)CurrentRoom;
-                CurrentRoom = LevelDict[CurrentRoom.RightRoom];
-                CurrentRoom.Right(previousRoom);
-                GameObjectManager.Instance.UpdateRoomItems();
-                LevelMap.MoveRight();*/
-                // TODO: be slow down and update room items
-                //float distance = CurrentRoom.XPos;
+
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
 
-                /*
-                while (distance != (NextRoom.XPos+NextRoom.Size.X/2))
-                {
-                    CurrentRoomPosition.X += (float)0.25;
-                    distance += (float)0.25;
-                    if (distance == (NextRoom.XPos + NextRoom.Size.X/2))
-                    {
-                        //CurrentRoom.Right((Room)NextRoom);
-                        CurrentRoom = NextRoom;
-                        GameObjectManager.Instance.UpdateRoomItems();
-                        LevelMap.MoveRight();
-                    }
-                }*/
                 LevelMap.MoveRight();
             }
         }
@@ -390,21 +339,6 @@ namespace Project1.LevelComponents
                 CurrentRoom.Position += ScrollAdjust;
                 NextRoom.Position += ScrollAdjust;
             }
-            /*float distance = CurrentRoom.XPos;
-            NextRoom = LevelDict[CurrentRoom.RightRoom];
-
-            while (distance != NextRoom.XPos)
-            {
-                CurrentRoomPosition.X -= (float)0.25;
-                distance -= (float)0.25;
-                if (distance == NextRoom.XPos)
-                {
-                    //CurrentRoom.Left((Room)NextRoom);
-                    //CurrentRoom = NextRoom;
-                    GameObjectManager.Instance.UpdateRoomItems();
-                    LevelMap.MoveLeft();
-                }
-            }*/
         }
 
         public Rectangle GetPlayableRoomBounds()

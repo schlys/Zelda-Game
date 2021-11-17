@@ -27,7 +27,6 @@ namespace Project1
             IsMouseVisible = true;
 
             graphics.PreferredBackBufferWidth = 256*2;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 500;   // set this value to the desired height of your window
             graphics.ApplyChanges();
         }
 
@@ -52,10 +51,6 @@ namespace Project1
 
         protected override void Update(GameTime gameTime)
         {
-            // NOTE: should we remove this? it's here by default 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
             GameObjectManager.Instance.Update();
 
             base.Update(gameTime);
