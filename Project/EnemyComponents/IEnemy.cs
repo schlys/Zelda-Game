@@ -20,5 +20,6 @@ namespace Project1.EnemyComponents
         void Draw(SpriteBatch spriteBatch);
         void Update();
         void Reset();
+        void Spawn();
     }
 }

@@ -177,6 +177,7 @@ namespace Project1
             foreach (IEnemy enemy in Enemies)
             {
                 CollisionManager.Instance.AddObject((ICollidable)enemy);
+                enemy.Spawn();
             }
             foreach (IDoor door in Doors)
             {

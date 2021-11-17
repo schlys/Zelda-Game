@@ -31,7 +31,7 @@ namespace Project1.EnemyComponents
         private int health = 3;
         private bool spawn = true;
         private Sprite SpawnIn;
-        private int spawnTimer = 12;
+        private int spawnTimer = 20;
         
         public Enemy(Vector2 position, string type)
         {           
@@ -103,7 +103,7 @@ namespace Project1.EnemyComponents
 
         public void Reset()
         {
-            ResetPosition();
+            Spawn();
             //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
             Health = new EnemyHealth(health, 30);                  // default health is 3 of 3 hearts 
             IsMoving = true;
@@ -114,22 +114,25 @@ namespace Project1.EnemyComponents
             CollisionManager.Instance.AddObject(this);
         }
 
-        public void ResetPosition()
+        public void Spawn()
         {
             Position = InitialPosition;
+            spawn = true;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (spawn) SpawnIn.Draw(spriteBatch, Position);
+            if (spawn && !IsDead) SpawnIn.Draw(spriteBatch, Position);
             else if (!IsDead) EnemyState.Draw(spriteBatch, Position);
+            else CollisionManager.Instance.RemoveObject(this);
         }
 
         public void Update()
         {
             counter++;
-            if (counter > spawnTimer) spawn = false;
+            if (spawn && counter > spawnTimer) { spawn = false; counter = 0; }
             else SpawnIn.Update();
+
             if (!spawn)
             {
                 if (counter > colorDelay)
@@ -143,10 +146,6 @@ namespace Project1.EnemyComponents
                     EnemyState.Update();
                     // Update Hitbox for collisions 
                     UpdateHitBox();
-                }
-                else
-                {
-                    CollisionManager.Instance.RemoveObject(this);
                 }
             }
             
