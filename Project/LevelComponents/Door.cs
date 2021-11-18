@@ -13,6 +13,7 @@ namespace Project1.LevelComponents
 	{
 		// from IDoor
 		public Vector2 Position { get; set; }
+		public Vector2 PositionDelta { get; set; }
 		public Sprite Sprite { get; set; }
 		// from ICollidable
         public Rectangle Hitbox { get; set; }
@@ -24,10 +25,13 @@ namespace Project1.LevelComponents
 		private int Height = 16 * GameObjectManager.Instance.ScalingFactor;
 		private int Width = 16 * GameObjectManager.Instance.ScalingFactor;
 		private bool locked;
-		
 
-		public Door(Vector2 position, string direction, bool locked)
+
+		public Door(Vector2 position, string direction, bool locked, Vector2 positionDelta)
         {
+			PositionDelta = new Vector2(LevelFactory.Instance.RoomBlockSize*positionDelta.X, 
+								LevelFactory.Instance.RoomBlockSize * positionDelta.Y);
+
 			Direction = direction;
 			this.locked = locked;
 			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);

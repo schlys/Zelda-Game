@@ -12,11 +12,10 @@ namespace Project1.LevelComponents
 	public interface IDoor
 	{
 		Vector2 Position { get; set; }
+		Vector2 PositionDelta { get; set; }
 		Sprite Sprite { get; set; }
 		string Direction { get; set; }
-		/* I don't think the door object should handle the room scroll, rather a collision between Link and a door object
-		 * will call a command to LevelFactory. Therefore, we only need to draw the door
-		 */
+		
 		void Draw(SpriteBatch spriteBatch);
 		bool IsLocked();
 		void Unlock();

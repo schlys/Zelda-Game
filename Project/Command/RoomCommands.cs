@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Project1.LevelComponents; 
 
 namespace Project1.Command
@@ -16,7 +17,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveUp(); 
+            LevelFactory.Instance.MoveUp(Vector2.Zero); 
         }
     }
 
@@ -31,7 +32,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveDown();
+            LevelFactory.Instance.MoveDown(Vector2.Zero);
         }
     }
 
@@ -46,7 +47,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveLeft();
+            LevelFactory.Instance.MoveLeft(Vector2.Zero);
         }
     }
 
@@ -61,7 +62,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveRight();
+            LevelFactory.Instance.MoveRight(Vector2.Zero);
         }
     }
 }

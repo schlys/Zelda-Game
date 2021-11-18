@@ -185,7 +185,13 @@ namespace Project1.LevelComponents
                             break;
                         case "Door":
                             bool locked = XmlConvert.ToBoolean(itemNode.Attributes["locked"].Value);
-                            IDoor door = new Door(GetItemPosition(row, column), type2, locked);
+                            Vector2 positionDelta = Vector2.Zero;
+
+                            if (itemNode.Attributes["deltaX"] != null && itemNode.Attributes["deltaY"] != null) 
+                                positionDelta = new Vector2((float)XmlConvert.ToDouble(itemNode.Attributes["deltaX"].Value), 
+                                                    (float)XmlConvert.ToDouble(itemNode.Attributes["deltaY"].Value));
+
+                            IDoor door = new Door(GetItemPosition(row, column), type2, locked, positionDelta);
                             Room.AddDoor(door);
                             break;
                         default:
@@ -265,7 +271,7 @@ namespace Project1.LevelComponents
             LevelMap.Reset();
         }
 
-        public void MoveUp(Vector2? position = null)
+        public void MoveUp(Vector2 position)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
@@ -274,7 +280,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
 
-                LinkNewScrollPosition = position ?? LinkUpRoomPosition; 
+                if (!position.Equals(Vector2.Zero)) LinkNewScrollPosition = position;
+                else LinkNewScrollPosition = LinkUpRoomPosition; 
 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
@@ -283,7 +290,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveUp();
             }
         }
-        public void MoveDown(Vector2? position = null)
+        public void MoveDown(Vector2 position)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
@@ -292,7 +299,8 @@ namespace Project1.LevelComponents
                 
                 ScrollAdjust = new Vector2(0, -ScrollStep);
 
-                LinkNewScrollPosition = position ?? LinkDownRoomPosition;
+                if (!position.Equals(Vector2.Zero)) LinkNewScrollPosition = position;
+                else LinkNewScrollPosition = LinkDownRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
@@ -301,7 +309,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveDown();
             }
         }
-        public void MoveLeft(Vector2? position = null)
+        public void MoveLeft(Vector2 position)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
@@ -310,7 +318,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
 
-                LinkNewScrollPosition = position ?? LinkLeftRoomPosition;
+                if (!position.Equals(Vector2.Zero)) LinkNewScrollPosition = position;
+                else LinkNewScrollPosition = LinkLeftRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
@@ -319,7 +328,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveLeft();
             }
         }
-        public void MoveRight(Vector2? position = null)
+        public void MoveRight(Vector2 position)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
@@ -328,7 +337,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
-                LinkNewScrollPosition = position ?? LinkRightRoomPosition;
+                if (!position.Equals(Vector2.Zero)) LinkNewScrollPosition = position;
+                else LinkNewScrollPosition = LinkRightRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);

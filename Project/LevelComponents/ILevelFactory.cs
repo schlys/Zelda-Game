@@ -21,10 +21,10 @@ namespace Project1.LevelComponents
         void Draw(SpriteBatch spriteBatch);
         void Update(); 
         void Reset();
-        void MoveUp(Vector2? position = null);
-        void MoveDown(Vector2? position = null);
-        void MoveLeft(Vector2? position = null);
-        void MoveRight(Vector2? position = null);
+        void MoveUp(Vector2 position);
+        void MoveDown(Vector2 position);
+        void MoveLeft(Vector2 position);
+        void MoveRight(Vector2 position);
         Rectangle GetPlayableRoomBounds();
         bool IsWithinRoomBounds(Vector2 location);
 

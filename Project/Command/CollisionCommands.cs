@@ -99,6 +99,9 @@ namespace Project1.Command
            
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
+                Vector2 positionChange = Vector2.Zero;
+                if (!Door.PositionDelta.Equals(Vector2.Zero)) positionChange = Door.PositionDelta;
+
                 //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
 
                 //if (!Door.IsLocked())
@@ -106,16 +109,16 @@ namespace Project1.Command
                 //    switch (Door.Direction)
                 //    {
                 //        case "Up":
-                //            LevelFactory.Instance.MoveUp();
+                //            LevelFactory.Instance.MoveUp((Vector2)positionChange);
                 //            break;
                 //        case "Down":
-                //            LevelFactory.Instance.MoveDown();
+                //            LevelFactory.Instance.MoveDown((Vector2)positionChange);
                 //            break;
                 //        case "Right":
-                //            LevelFactory.Instance.MoveRight();
+                //            LevelFactory.Instance.MoveRight((Vector2)positionChange);
                 //            break;
                 //        case "Left":
-                //            LevelFactory.Instance.MoveLeft();
+                //            LevelFactory.Instance.MoveLeft((Vector2)positionChange);
                 //            break;
                 //    }
                 //}
@@ -123,16 +126,16 @@ namespace Project1.Command
                 switch (Door.Direction)
                 {
                     case "Up":
-                        LevelFactory.Instance.MoveUp();
+                        LevelFactory.Instance.MoveUp((Vector2)positionChange);
                         break;
                     case "Down":
-                        LevelFactory.Instance.MoveDown();
+                        LevelFactory.Instance.MoveDown((Vector2)positionChange);
                         break;
                     case "Right":
-                        LevelFactory.Instance.MoveRight();
+                        LevelFactory.Instance.MoveRight((Vector2)positionChange);
                         break;
                     case "Left":
-                        LevelFactory.Instance.MoveLeft();
+                        LevelFactory.Instance.MoveLeft((Vector2)positionChange);
                         break;
                 }
 
