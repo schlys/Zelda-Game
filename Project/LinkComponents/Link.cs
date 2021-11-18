@@ -73,21 +73,23 @@ namespace Project1.LinkComponents
            delay = 25; 
        }
 
-       public void SetPosition(Vector2 position)
+       public void SetPosition(Vector2 position, bool resetPosition)
        {
-           /* Given <position> update <Position> property to
-            * center Link's hitbox at the position and update <Hitbox> 
-
-
-           /* Get accurate dimensions for the hitbox, but position is off */
-           Position += position;
-
-            //Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-            ///* Correct the position to account for empty space around the hitbox */
-            //int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            //Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
-            ///* Get correct hibox for updated position */
-            //Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+           
+            if (resetPosition)
+            {
+                Position = position;
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+                /* Correct the position to account for empty space around the hitbox */
+                int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+                Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+                /* Get correct hibox for updated position */
+                Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+            }
+            else
+            {
+                Position += position;
+            }
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play
