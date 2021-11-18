@@ -99,5 +99,10 @@ namespace Project1
         {
             GameStateManager.Instance.GameOverLose();
         }
+        public void SetLinkCount(int n)
+        {
+            GameStateManager.Instance.SetLinkCount(n);
+        }
     }
+
 }

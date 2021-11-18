@@ -63,5 +63,12 @@ namespace Project1.GameState
         {
             return this;
         }
+
+        private void SetLinkCount(int n)
+        {
+            /* Sets the Link count in <GameObjectManager> to n
+             */
+            GameObjectManager.Instance.SetLinkCount(n);
+        }
     }
 }

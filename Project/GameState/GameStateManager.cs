@@ -76,6 +76,13 @@ namespace Project1.GameState
             // Game is won, can restart the game or exit 
             CurrentState = CurrentState.WinGame();
         }
+
+        public void SetLinkCount(int n)
+        {
+            /* Sets the Link Count in <GameObjectManager> to n if the <CurrentState> is of type StartGame. 
+             * Checks that the input n is between 1 and 2, otherwise throws an error. 
+             */
+        }
         public void StartScroll()
         {
             // In GamePlay, trigger scroll animation

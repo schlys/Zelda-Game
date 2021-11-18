@@ -1,89 +1,162 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Controllers>
-	<!-- PLAYER 2 -->
+	<!-- GAME COMMANDS -->
+	<Control>
+		<type>Game</type>
+		<name>GameEndCmd</name>
+		<key>Q</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameRestartCmd</name>
+		<key>R</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GamePauseCmd</name>
+		<key>Space</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameItemSelectCmd</name>
+		<key>I</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameStartCmd</name>
+		<key>X</key>
+	</Control>
+
+	<!-- SET LINK COUNT -->
+	<Control>
+		<type>Game</type>
+		<name>GameSetLinkCount1Cmd</name>
+		<key>NumPad1</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameSetLinkCount1Cmd</name>
+		<key>D1</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameSetLinkCount2Cmd</name>
+		<key>NumPad2</key>
+	</Control>
+
+	<Control>
+		<type>Game</type>
+		<name>GameSetLinkCount2Cmd</name>
+		<key>D2</key>
+	</Control>
+	
+	<!-- PLAYER 2 MOVEMENT -->
 	<Control player="2">
+		<type>Link</type>
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>	
 	</Control>
 	
 	<Control player="2">
+		<type>Link</type>
 		<name>LinkMoveDownCmd</name>
 		<key>S</key>	
 	</Control>
 	
 	<Control player="2">
+		<type>Link</type>
 		<name>LinkMoveRightCmd</name>
 		<key>D</key>	
 	</Control>
 	
 	<Control player="2">
+		<type>Link</type>
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
 	</Control>
 	
-	<!-- PLAYER 1 -->
+	<!-- PLAYER 2 MOVEMENT -->
 	<Control player="1">
+		<type>Link</type>
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
 	</Control>
 	
 	<Control player="1">
+		<type>Link</type>
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
 	</Control>
 	
 	<Control player="1">
+		<type>Link</type>
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
 	</Control>
 
 	<Control player="1">
+		<type>Link</type>
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
 	</Control>
 
-	<!-- ITEM SELECTION -->
+	<!-- PLAYER 1 ITEM SELECTION -->
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkItemSelectRightCmd</name>
 		<key>Right</key>
 	</Control>
 	
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkItemSelectLeftCmd</name>
 		<key>Left</key>
 	</Control>
 
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkItemSelectUpCmd</name>
 		<key>Up</key>
 	</Control>
 
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkItemSelectDownCmd</name>
 		<key>Down</key>
 	</Control>
 
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkSelectItem1Cmd</name>
 		<key>D1</key>
 	</Control>
 	
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkSelectItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkSelectItem2Cmd</name>
 		<key>D2</key>
 	</Control>
 	
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkSelectItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
 
 	<Control player="1" press="true">
+		<type>Link</type>
 		<name>LinkSelectItemCmd</name>
 		<key>Enter</key>
 	</Control>
@@ -96,31 +169,37 @@
 	-->
 
 	<Control>
+		<type>Link</type>
 		<name>LinkSwordAttackCmd</name>
 		<key>Z</key>
 	</Control>
 	
 	<Control>
+		<type>Link</type>
 		<name>LinkSwordAttackCmd</name>
 		<key>N</key>
 	</Control>
 
 	<Control>
+		<type>Link</type>
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</Control>
 	
 	<Control>
+		<type>Link</type>
 		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</Control>
 	
 	<Control>
+		<type>Link</type>
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad2</key>
 	</Control>
 	
 	<Control>
+		<type>Link</type>
 		<name>LinkUseItem2Cmd</name>
 		<key>D2</key>
 	</Control>

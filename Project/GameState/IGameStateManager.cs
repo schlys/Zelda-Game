@@ -18,6 +18,7 @@ namespace Project1.GameState
         void ItemSelection();
         void GameOverLose();
         void GameOverWin();
+        void SetLinkCount(int n);
         void StartScroll();
         void StopScroll();
         bool CanPlayGame();
