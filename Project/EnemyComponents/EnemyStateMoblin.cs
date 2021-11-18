@@ -20,7 +20,6 @@ namespace Project1.EnemyComponents
 
         private bool IsAttacking;
         private int MovementTimer=0;
-        private int PoofTimer = 0;
         private Random R = new Random();
         private int RandomInt;
 

@@ -14,7 +14,6 @@ namespace Project1.ProjectileComponents
         public Sprite Sprite { get; set; }
         public string TypeID { get; set; }
         public IDirectionState Direction { get; set; }
-        private bool isBlocked = false;
         private int speed = 5;
 
         public SwordBeamProjectileState(IProjectile projectile, IDirectionState direction, string type)

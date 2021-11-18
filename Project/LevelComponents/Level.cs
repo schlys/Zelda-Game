@@ -35,8 +35,6 @@ namespace Project1.LevelComponents
         private Vector2 LinkNewScrollPosition;
 
         private static Dictionary<string, IRoom> LevelDict;
-        private static Dictionary<string, Texture2D> TextureDict;
-        //public static int[,] textureMatrix;
 
         // TODO: Load in XML
         // ****** What is the purpose of adjust? 

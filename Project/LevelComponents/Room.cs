@@ -30,16 +30,7 @@ namespace Project1.LevelComponents
 
         public Color Color = Color.White;
 
-        Room PreviousRoom;
-
-        Rectangle sourceRectangle2;
-        Rectangle destinationRectangle2;
-        Boolean scroll = false;
-        private int timer = 0;
-
         private Vector2 TextureRoomSize; 
-        //private int Height = 176 * GameObjectManager.Instance.ScalingFactor; 
-        //private int Width = 256 * GameObjectManager.Instance.ScalingFactor; 
 
         public Room(string id, Vector2 position, int xPos, int yPos, string up, string down, string left, string right, Texture2D texture)
         {

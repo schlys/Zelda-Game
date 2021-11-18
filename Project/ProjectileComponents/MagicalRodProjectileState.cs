@@ -19,7 +19,6 @@ namespace Project1.ProjectileComponents
         private int Speed = 4;
         private int Counter = 0;
         private int CounterMax = 100;
-        private int CounterExplode = 20;
         
         public MagicalRodProjectileState(IProjectile projectile, IDirectionState direction)
         {

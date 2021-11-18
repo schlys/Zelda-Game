@@ -79,9 +79,12 @@ namespace Project1.GameState
 
         public void SetLinkCount(int n)
         {
-            /* Sets the Link Count in <GameObjectManager> to n if the <CurrentState> is of type StartGame. 
-             * Checks that the input n is between 1 and 2, otherwise throws an error. 
+            /* Sets the Link Count in <GameObjectManager> to n iff the <CurrentState> is of type GameStartState. 
              */
+            if(CurrentState is GameStateStart)
+            {
+                GameObjectManager.Instance.SetLinkCount(n);
+            }
         }
         public void StartScroll()
         {

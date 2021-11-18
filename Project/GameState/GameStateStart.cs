@@ -28,8 +28,39 @@ namespace Project1.GameState
 
             String text = "Game Start!";
             String text2 = "\n\n    Press 'x' to start";
+            String text3 = "\n\n    Press '1' or '2' to select \n   the number of players";
             spriteBatch.DrawString(GameStateManager.Instance.Font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.Font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, text3, new Vector2(RoomSize.X / 2 - sizeCorrector * 3, RoomSize.Y / 2 + sizeCorrector), Color.White);
+
+            // Draw the 1 and 2 denoting the number of players and highlight the currently selected 
+            String text_num1 = "1";
+            String text_num2 = "2";
+
+            Vector2 num1_position = new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2 + 5 * sizeCorrector);
+            Vector2 num2_position = new Vector2(RoomSize.X / 2 + sizeCorrector, RoomSize.Y / 2 + 5 * sizeCorrector);
+
+            Texture2D numSelect = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
+            numSelect.SetData(new[] { Color.Blue });
+
+            // Highlight selection  
+            if (GameObjectManager.Instance.LinkCount == 1)
+            {
+                destinationRectangle = new Rectangle((int)num1_position.X - 5, (int)num1_position.Y - 2, 20, 25);
+            }
+            else
+            {
+                destinationRectangle = new Rectangle((int)num2_position.X - 5, (int)num2_position.Y - 2, 20, 25);
+            }
+            spriteBatch.Draw(numSelect, destinationRectangle, Color.White);
+
+            spriteBatch.DrawString(GameStateManager.Instance.Font, text_num1, num1_position, Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, text_num2, num2_position, Color.White);
+
+            
+
+            
+
         }
         public IGameState Reset()
         {
@@ -62,13 +93,6 @@ namespace Project1.GameState
         public IGameState StopScroll()
         {
             return this;
-        }
-
-        private void SetLinkCount(int n)
-        {
-            /* Sets the Link count in <GameObjectManager> to n
-             */
-            GameObjectManager.Instance.SetLinkCount(n);
         }
     }
 }

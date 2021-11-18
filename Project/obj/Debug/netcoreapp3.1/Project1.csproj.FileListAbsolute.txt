@@ -147,7 +147,6 @@ C:\Users\chaew\source\repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp
 C:\Users\chaew\source\repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\chaew\source\repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\chaew\source\repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
-C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\RoomMap.xnb
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Arrow_Boomerang.xnb
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Bomb_Blow.xnb
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Bomb_Drop.xnb
@@ -648,6 +647,7 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room7.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room8.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room9.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\RoomMap.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\ArrowBoomerang.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\Arrow_Boomerang.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Sounds\BombBlow.xnb
@@ -743,3 +743,4 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\obj\Debug\netcoreapp3.1\Project1.csproj.AssemblyReference.cache

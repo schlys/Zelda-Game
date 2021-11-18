@@ -34,7 +34,7 @@ namespace Project1
         public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<ILink> Links_copy;
-        private int LinkCount;
+        public int LinkCount;       // Accesed in GameStateStart.cs
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
