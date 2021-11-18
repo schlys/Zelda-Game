@@ -223,6 +223,8 @@ namespace Project1.CollisionComponents
 
         public void Reset()
         {
+            /* Removes all items from the two lists 
+             */  
             MovingObjects = new List<ICollidable>();
             NonMovingObjects = new List<ICollidable>();
         }

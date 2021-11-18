@@ -33,8 +33,8 @@ namespace Project1
 
         public int ScalingFactor = 2; 
         public List<ILink> Links;
-        public List<ILink> Links_copy;
-        public int LinkCount;       // Accesed in GameStateStart.cs
+        public List<ILink> Links_copy;  // ??? when is this used? 
+        public int LinkCount = 1;          // Accesed in GameStateManager.cs 
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -49,6 +49,8 @@ namespace Project1
 
         public void Initialize(Game1 game)
         {
+            Game = game;
+
             Links = new List<ILink>();
             HUDs = new List<IHUD>();
             Blocks = new List<IBlock>();
@@ -59,7 +61,6 @@ namespace Project1
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
-            Game = game;
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -70,13 +71,16 @@ namespace Project1
             /* Add Link and their HUD
              * Parallel Contruction: between Link and HUD 
              */
-            Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition;
-            ILink Link = new Link(LinkPosition, Game); 
-            Links.Add(Link);
-            Links_copy = new List<ILink>(Links); 
-            IHUD HUD = new HUD(Link, game);
-            HUDs.Add(HUD); 
-
+            for(int i = 0; i < LinkCount; i++)  // LinkCount is between 1 and 2 
+            {
+                Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition[i];
+                ILink Link = new Link(LinkPosition, Game);
+                Links.Add(Link);
+                Links_copy = new List<ILink>(Links);
+                IHUD HUD = new HUD(Link, Game);
+                HUDs.Add(HUD);
+            }
+            
             UpdateRoomItems();
 
             // Register Keyboard commands 
@@ -104,7 +108,6 @@ namespace Project1
                 HUD.Update();
             }
 
-            // TODO: change to Level Object not the factory when separate class 
             LevelFactory.Instance.Update();
 
             if (GameState.GameStateManager.Instance.CanPlayGame())
@@ -195,9 +198,8 @@ namespace Project1
         public void ClearRoomItems()
         {
             /* Called when room switch
-             * Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
-             * <Enemies> to be the items in <Room>. Remove all past <Projectiles>. Removes all objects 
-             * from the CollisionManager and adds the newly added <Room> objects. 
+             * Updates <Room> to be the <CurrentRoom> in LevelFactory. Remove all past <Projectiles>. 
+             * Removes all objects from the CollisionManager and adds the newly added <Room> objects. 
              * Unfreeze the enemies 
              */
 
@@ -309,14 +311,12 @@ namespace Project1
             }
             Projectiles = new List<IProjectile>();
         }
-
         public void AddProjectile(IProjectile projectile)
         {
             Projectiles.Add(projectile);
 
             CollisionManager.Instance.AddObject((ICollidable)projectile);
         }
-
         public void RemoveProjectile(IProjectile projectile)
         {
             if (Projectiles.Contains(projectile))
@@ -328,9 +328,7 @@ namespace Project1
         }
         public void SetLinkCount(int n)
         {
-            /* Sets <LinkCount> to n 
-             */
-            LinkCount = n;
+            LinkCount = n; 
         }
         public void SetLinkPosition(Vector2 position)
         {

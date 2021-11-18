@@ -24,7 +24,7 @@ namespace Project1.Controller
         private Dictionary<Keys, List<ICommand>> ControllerMappingsHoldKey;   // Keys can be held and continue to execute
         private Dictionary<Keys, List<ICommand>> ControllerMappingsPressKey;  // Keys are executed once per press 
 
-        private Keys LinkStopKey = Keys.B;          // a key not used in the game 
+        private Keys LinkStopKey = Keys.B;          // any key not used in the game 
         private KeyboardState PreviousState; 
         
         public KeyboardController(Game1 game)
@@ -110,8 +110,6 @@ namespace Project1.Controller
                 }
             }
 
-
-
             // Command so link does not animate in place 
             RegisterPressCommand(new LinkStopMotionCmd((ICollidable)Link), LinkStopKey);
         }
@@ -148,7 +146,7 @@ namespace Project1.Controller
             KeyboardState state = Keyboard.GetState(); 
             Keys[] pressedKeys = state.GetPressedKeys();
 
-            // ????????? What is this for? 
+            // Stops Link from animating in place 
             List<ICommand> stop = ControllerMappingsPressKey[LinkStopKey];
 
             if (!(pressedKeys.Length > 0))
@@ -162,7 +160,6 @@ namespace Project1.Controller
             // Execute commands for held keys
             foreach (Keys key in pressedKeys)
             {
-                // not previously pressed 
                 if (ControllerMappingsHoldKey.ContainsKey(key))
                 {
                     foreach(ICommand command in ControllerMappingsHoldKey[key])
