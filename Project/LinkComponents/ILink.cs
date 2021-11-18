@@ -24,7 +24,7 @@ namespace Project1.LinkComponents
         void StopMotion();
         void Attack(string weapon, int meleeDelay=0, bool sword=false);
         void UseItem(int itemNumber);
-        bool UseKey();
+        bool CanUseKey();
         void PickUpItem(IItem item);
         void TakeDamage(string direction, int knockback);
         void IncreaseHealth();

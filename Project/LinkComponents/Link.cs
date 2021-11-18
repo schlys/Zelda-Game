@@ -223,7 +223,7 @@ namespace Project1.LinkComponents
             }
         }
 
-        public bool UseKey()
+        public bool CanUseKey()
         {
             /* Returns true of Link has any key in his <Inventory>
              */ 

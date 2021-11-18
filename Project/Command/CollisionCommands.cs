@@ -98,21 +98,25 @@ namespace Project1.Command
             //Door.Unlock();
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
-                Door.Unlock();
-                switch (Door.Direction)
+                if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
+
+                if (!Door.IsLocked())
                 {
-                    case "Up":
-                        LevelFactory.Instance.MoveUp();
-                        break;
-                    case "Down":
-                        LevelFactory.Instance.MoveDown();
-                        break;
-                    case "Right":
-                        LevelFactory.Instance.MoveRight();
-                        break;
-                    case "Left":
-                        LevelFactory.Instance.MoveLeft();
-                        break;
+                    switch (Door.Direction)
+                    {
+                        case "Up":
+                            LevelFactory.Instance.MoveUp();
+                            break;
+                        case "Down":
+                            LevelFactory.Instance.MoveDown();
+                            break;
+                        case "Right":
+                            LevelFactory.Instance.MoveRight();
+                            break;
+                        case "Left":
+                            LevelFactory.Instance.MoveLeft();
+                            break;
+                    }
                 }
                         
                 /*
