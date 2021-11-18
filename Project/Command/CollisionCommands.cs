@@ -239,14 +239,7 @@ namespace Project1.Command
             Block.Change("Base");
         }
     }
-    public class DownStairsCmd : ICommand
-    {
-        public DownStairsCmd(ICollidable block, ICollidable holder, string direction = "") { }
-        public void Execute()
-        {
-            LevelFactory.Instance.MoveDown(new Vector2((float)-4.5 * LevelFactory.Instance.RoomBlockSize, -LevelFactory.Instance.PlayableHeight/2));
-        }
-    }
+    
 
     class NoCmd : ICommand
     {

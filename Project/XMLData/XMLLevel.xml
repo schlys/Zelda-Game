@@ -1924,7 +1924,7 @@
 			<left></left>
 			<right></right>
 			
-			<object locked="false" deltaX="5" deltaY="5">
+			<object locked="false" deltaX="4" deltaY="3">
 				<type>Door</type>
 				<type2>Up</type2>
 				<row>-.5</row>
@@ -1949,12 +1949,12 @@
 				<column>12</column>
 			</object>
 			
-			<!--<object locked="false">
+			<object locked="false" deltaX="-5" deltaY="-2.5">
 				<type>Door</type>
 				<type2>Down</type2>
-				<row>7</row>
-				<column>5.5</column>
-			</object>-->
+				<row>3</row>
+				<column>6</column>
+			</object>
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
@@ -1979,12 +1979,7 @@
 				<row>3</row>
 				<column>4</column>
 			</object>
-			<object special="true">
-				<type>Block</type>
-				<type2>Stair</type2>
-				<row>3</row>
-				<column>6</column>
-			</object>
+			
 			<object>
 				<type>Block</type>
 				<type2>Last</type2>
