@@ -195,14 +195,14 @@ namespace Project1.LinkComponents
             return position;
         }
 
-        public void Attack(string weapon, bool sword=false)
+        public void Attack(string weapon, int meleeDelay=0, bool sword=false)
         {
             if (sword)
             {
                 UpdateSprite(weapon);
                 // sword attack is fast
-                LinkSprite.MaxDelay = 0;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID, LinkSprite.MaxDelay, Hitbox));
+                LinkSprite.MaxDelay = meleeDelay;
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID, LinkSprite.startDelay, Hitbox));
                 GameSoundManager.Instance.PlaySwordSlash();
             }
             else
@@ -339,9 +339,10 @@ namespace Project1.LinkComponents
                         UpdateSprite();
                     }
                     LinkSprite.CurrentFrame = LinkSprite.StartFrame;
+                    LinkSprite.MaxDelay = LinkSprite.startDelay;
                 }
                 LinkSprite.delay = 0;
-                LinkSprite.MaxDelay = LinkSprite.startDelay;
+                
             }
 
             // Update Hitbox for collisions  

@@ -65,7 +65,9 @@ namespace Project1.SpriteComponents
                     CurrentFrame=StartFrame;
                 }
                 delay = 0;
-                MaxDelay = startDelay;
+
+                // why is this here
+                //MaxDelay = startDelay;
             }
         }
 

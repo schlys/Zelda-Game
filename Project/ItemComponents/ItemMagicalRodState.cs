@@ -14,6 +14,7 @@ namespace Project1.ItemComponents
         public Sprite Sprite { get; set; }
         public bool IsMoving { get; set; }
         public string ID { get; set; }
+        private int meleeDelay = 6;
 
         public ItemMagicalRodState(IItem item)
         {
@@ -39,7 +40,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            link.Attack(Item.Kind, true);
+            link.Attack(Item.Kind, meleeDelay, true);
             GameObjectManager.Instance.AddProjectile(new Projectile(link.Position, link.DirectionState.ID, Item.Kind));
         }
     }

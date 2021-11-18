@@ -22,7 +22,7 @@ namespace Project1.LinkComponents
         void MoveRight();
         void MoveLeft();
         void StopMotion();
-        void Attack(string weapon, bool sword=false);
+        void Attack(string weapon, int meleeDelay=0, bool sword=false);
         void UseItem(int itemNumber);
         bool UseKey();
         void PickUpItem(IItem item);

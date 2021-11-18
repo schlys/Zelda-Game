@@ -35,5 +35,6 @@ namespace Project1.LevelComponents
         void AddDoor(IDoor door);
         void Draw(SpriteBatch spriteBatch);
         void Reset();
+        void OpenDoor(string direction);
     }
 }

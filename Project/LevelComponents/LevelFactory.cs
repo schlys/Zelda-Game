@@ -87,8 +87,8 @@ namespace Project1.LevelComponents
             
             LinkLeftRoomPosition = GetItemPosition(3, 11);
             LinkRightRoomPosition = GetItemPosition(3, 0);
-            LinkUpRoomPosition = GetItemPosition(6, 6);
-            LinkDownRoomPosition = GetItemPosition(0, 6);
+            LinkUpRoomPosition = GetItemPosition(6, (float)5.5);
+            LinkDownRoomPosition = GetItemPosition(0, (float)5.5);
             
             // Load Textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();
@@ -182,7 +182,7 @@ namespace Project1.LevelComponents
             }
         }
 
-        public static Vector2 GetItemPosition(int row, float column)
+        public static Vector2 GetItemPosition(float row, float column)
         {
             /* NOTE: return the location of the item in the room given the row and column. 
              * Throw an exception if the row or column is out of the room range. 
@@ -262,6 +262,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
+                NextRoom.OpenDoor("Down");
 
                 LevelMap.MoveUp();
             }
@@ -279,6 +280,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
+                NextRoom.OpenDoor("Up");
 
                 LevelMap.MoveDown();
             }
@@ -296,6 +298,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
+                NextRoom.OpenDoor("Right");
 
                 LevelMap.MoveLeft();
             }
@@ -313,6 +316,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
+                NextRoom.OpenDoor("Left");
 
                 LevelMap.MoveRight();
             }

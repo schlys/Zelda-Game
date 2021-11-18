@@ -95,6 +95,7 @@ namespace Project1.Command
         public void Execute()
         {
             // Unlock the door if link has a key
+            //Door.Unlock();
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
                 Door.Unlock();

@@ -74,7 +74,7 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
             counter++;
-            if (counter > 4 * delay)
+            if (counter > delay)
             {
                 RemoveProjectile(); 
             }

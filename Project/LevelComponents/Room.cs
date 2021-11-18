@@ -79,6 +79,13 @@ namespace Project1.LevelComponents
         {
             Doors.Add(door);
         }
+        public void OpenDoor(string direction)
+        {
+            foreach (IDoor door in Doors)
+            {
+                if (direction.Equals(door.Direction)) door.Unlock();
+            }
+        }
         
         public void Reset()
         {
