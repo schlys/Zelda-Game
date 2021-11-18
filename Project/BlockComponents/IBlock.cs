@@ -4,16 +4,16 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.CollisionComponents;
+using Project1.SpriteComponents;
 
 namespace Project1.BlockComponents
 {
     public interface IBlock
     {
-        IBlockState BlockState { get; set; }
         Vector2 Position { get; set; }
-        void PreviousBlock();
-        void NextBlock();
+        Sprite Sprite { get; set; }
         void Draw(SpriteBatch spriteBatch);
         void Reset();
+        void Change(string type);
     }
 }

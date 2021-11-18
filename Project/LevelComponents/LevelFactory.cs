@@ -161,7 +161,9 @@ namespace Project1.LevelComponents
                             Room.AddItem(item);
                             break;
                         case "Block":
-                            IBlock block = new Block(GetItemPosition(row, column), type2);
+                            bool breakable = false;
+                            if (itemNode.Attributes["special"] != null) breakable = XmlConvert.ToBoolean(itemNode.Attributes["special"].Value);
+                            IBlock block = new Block(GetItemPosition(row, column), type2, breakable);
                             Room.AddBlock(block);
                             break;
                         case "Enemy":

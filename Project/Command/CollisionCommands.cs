@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.LevelComponents;
 using Microsoft.Xna.Framework;
+using Project1.BlockComponents;
 
 namespace Project1.Command
 {
@@ -95,43 +96,46 @@ namespace Project1.Command
         public void Execute()
         {
             // Unlock the door if link has a key
-            //Door.Unlock();
+           
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
-                if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
+                //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
 
-                if (!Door.IsLocked())
+                //if (!Door.IsLocked())
+                //{
+                //    switch (Door.Direction)
+                //    {
+                //        case "Up":
+                //            LevelFactory.Instance.MoveUp();
+                //            break;
+                //        case "Down":
+                //            LevelFactory.Instance.MoveDown();
+                //            break;
+                //        case "Right":
+                //            LevelFactory.Instance.MoveRight();
+                //            break;
+                //        case "Left":
+                //            LevelFactory.Instance.MoveLeft();
+                //            break;
+                //    }
+                //}
+
+                switch (Door.Direction)
                 {
-                    switch (Door.Direction)
-                    {
-                        case "Up":
-                            LevelFactory.Instance.MoveUp();
-                            break;
-                        case "Down":
-                            LevelFactory.Instance.MoveDown();
-                            break;
-                        case "Right":
-                            LevelFactory.Instance.MoveRight();
-                            break;
-                        case "Left":
-                            LevelFactory.Instance.MoveLeft();
-                            break;
-                    }
+                    case "Up":
+                        LevelFactory.Instance.MoveUp();
+                        break;
+                    case "Down":
+                        LevelFactory.Instance.MoveDown();
+                        break;
+                    case "Right":
+                        LevelFactory.Instance.MoveRight();
+                        break;
+                    case "Left":
+                        LevelFactory.Instance.MoveLeft();
+                        break;
                 }
-                        
-                /*
-                if (Door.IsLocked())
-                {
-                    if (Link.UseKey())
-                    {
-                        Door.Unlock();
-                        //room transition
-                    }                 
-                }
-                else
-                {
-                    //room transition
-                }*/
+
             }
         }
     }
@@ -217,6 +221,27 @@ namespace Project1.Command
         {
             //Projectile.End(); 
             Projectile.StopMotion();
+        }
+    }
+
+    public class BreakBlockCmd : ICommand
+    {
+        IBlock Block { get; set; }
+        public BreakBlockCmd(ICollidable block, ICollidable holder, string direction = "")
+        {
+            Block = (IBlock)block;
+        }
+        public void Execute()
+        {
+            Block.Change("Base");
+        }
+    }
+    public class DownStairsCmd : ICommand
+    {
+        public DownStairsCmd(ICollidable block, ICollidable holder, string direction = "") { }
+        public void Execute()
+        {
+            LevelFactory.Instance.MoveDown();
         }
     }
 

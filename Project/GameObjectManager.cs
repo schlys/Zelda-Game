@@ -247,14 +247,13 @@ namespace Project1
             LevelFactory.Instance.Draw(spriteBatch); 
             
 
-            foreach (ILink link in Links)
-            {
-                link.Draw(spriteBatch);
-            }
-
             foreach (IBlock block in Blocks)
             {
                 block.Draw(spriteBatch);
+            }
+            foreach (ILink link in Links)
+            {
+                link.Draw(spriteBatch);
             }
             foreach (IItem item in Items)
             {

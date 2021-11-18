@@ -15,112 +15,55 @@ namespace Project1.BlockComponents
     class Block : IBlock, ICollidable
     {
         // Properties from IBlock 
-        public IBlockState BlockState { get; set; }
         public Vector2 Position { get; set; }
+        public Sprite Sprite { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
-        public String TypeID { get; set; }
+        public string TypeID { get; set; }
 
-        // Other Properies 
 
-        private double Counter = 0.0;
-        private double Step = 0.2;
-        private Dictionary<String, String> BlockConstructors = new Dictionary<string, string>();
-        private string[] BlockTypeKeys = {  };
-
-        public Block(Vector2 position, String type)
+        public Block(Vector2 position, string type, bool special)
         {
-
-            Assembly assem = typeof(IBlockState).Assembly;
-            XmlDocument XMLData = new XmlDocument();
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLBlock.xml";
-            XMLData.Load(path);
-            XmlNodeList Blocks = XMLData.DocumentElement.SelectNodes("/Blocks/Block");
-            foreach (XmlNode node in Blocks)
-            {
-                string name = node.SelectSingleNode("Name").InnerText;
-                string Type = node.SelectSingleNode("Type").InnerText;
-                BlockConstructors.Add(name, Type);
-                BlockTypeKeys.Append(name);
-
-            }
-            if (BlockConstructors.ContainsKey(type)) {
-                Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[type]);
-                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(IBlock) });
-                object command1 = constructor1.Invoke(new object[] { this });
-                BlockState = (IBlockState)command1;
-            }
-
- 
+            UpdateSprite(type);
 
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
             Position -= new Vector2((RoomBlockSize-Hitbox.Width)/2, (RoomBlockSize -Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
             IsMoving = false;
-            TypeID = this.GetType().Name.ToString();
 
-        }
-        
+            TypeID = GetType().Name.ToString();
+            if (special) TypeID += type;
 
-        private void SetBlockState(int i)
-        {
-            Assembly assem = typeof(IBlockState).Assembly;
-
-            if (BlockConstructors.ContainsKey(BlockTypeKeys[i]))
-            {
-                Type command1Type = assem.GetType("Project1.BlockComponents." + BlockConstructors[BlockTypeKeys[i]]);
-                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(IBlock) });
-                object command1 = constructor1.Invoke(new object[] { this });
-                BlockState = (IBlockState)command1;
-            }
-        }
-
-        public void PreviousBlock()
-        {
-            SetBlockState((int)Counter);
-            IncrementCounter(-Step); 
-        }
-
-        public void NextBlock()
-        {
-            SetBlockState((int)Counter);
-            IncrementCounter(Step); 
-        }
-
-        // Increment the field Counter by i and ensure counter stays within the bounds [0, ItemTypeKeys.Length] 
-        private void IncrementCounter(double i)
-        {
-            Counter += i;
-            if (Counter > (BlockTypeKeys.Length - Step / 2))
-            {
-                Counter = 0;
-            }
-            else if (Counter < -Step / 2)
-            {
-                int length = BlockTypeKeys.Length;
-                Counter = length--;
-            }
         }
 
         public void Reset()
         {
-            BlockState = new BlockBaseState(this);
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, BlockState.BlockSprite.HitBox);
+            //BlockState = new BlockBaseState(this);
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            BlockState.Draw(spriteBatch);
+            Sprite.Draw(spriteBatch, Position);
+        }
+
+        public void Change(string type)
+        {
+            UpdateSprite(type);
+            TypeID = GetType().Name.ToString() + type;
+        }
+        private void UpdateSprite(string type)
+        {
+            Sprite = SpriteFactory.Instance.GetSpriteData(type);
         }
     }
 }

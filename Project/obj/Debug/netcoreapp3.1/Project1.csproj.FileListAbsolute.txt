@@ -319,7 +319,6 @@ C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Room
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room2.png
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\Content\Rooms\Room3.png
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\HUD.xml
-C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLBlock.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLCollisions.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLKeyboard.xml
 C:\Users\samch\source\repos\Project\Project\bin\Debug\netcoreapp3.1\XMLData\XMLLevel.xml

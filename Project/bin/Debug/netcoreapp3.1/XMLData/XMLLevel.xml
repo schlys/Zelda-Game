@@ -1973,11 +1973,17 @@
 				<row>2</row>
 				<column>7</column>
 			</object>
-			<object>
+			<object special="true">
 				<type>Block</type>
 				<type2>Last</type2>
 				<row>3</row>
 				<column>4</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Stair</type2>
+				<row>3</row>
+				<column>6</column>
 			</object>
 			<object>
 				<type>Block</type>

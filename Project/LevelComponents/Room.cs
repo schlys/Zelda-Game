@@ -83,7 +83,11 @@ namespace Project1.LevelComponents
         {
             foreach (IDoor door in Doors)
             {
-                if (direction.Equals(door.Direction)) door.Unlock();
+                if (direction.Equals(door.Direction)) 
+                { 
+                    door.Unlock();
+                    break;
+                }
             }
         }
         
