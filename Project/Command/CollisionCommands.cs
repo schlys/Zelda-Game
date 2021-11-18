@@ -241,7 +241,7 @@ namespace Project1.Command
         public DownStairsCmd(ICollidable block, ICollidable holder, string direction = "") { }
         public void Execute()
         {
-            LevelFactory.Instance.MoveDown();
+            LevelFactory.Instance.MoveDown(new Vector2((float)-4.5 * LevelFactory.Instance.RoomBlockSize, -LevelFactory.Instance.PlayableHeight/2));
         }
     }
 

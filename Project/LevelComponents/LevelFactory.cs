@@ -28,6 +28,7 @@ namespace Project1.LevelComponents
         }
 
         public IRoom CurrentRoom { get; set; }
+        public int RoomBlockSize { get; set; }
         private IRoom NextRoom;
         public Vector2 CurrentRoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
         private Vector2 CurrentRoomInitialPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
@@ -54,9 +55,11 @@ namespace Project1.LevelComponents
 
         private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
         private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
-        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
+       
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
+        public int PlayableWidth;
+        public int PlayableHeight;
 
         private static string StartRoom = "room2";
 
@@ -66,7 +69,8 @@ namespace Project1.LevelComponents
         {
             /* NOTE: Load the textures used for rooms, call CreateDict to create the level dictionary, set the
              * CurrentRoom to the starting room, and set the LinkStartingPosition. 
-             */ 
+             */
+            RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
 
             TextureDict = new Dictionary<string, Texture2D>();
 
@@ -82,14 +86,23 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found"); 
             }
 
-            // TODO: data drive 
+            // TODO: data drive
+            
             LinkStartingPosition = GetItemPosition(4, 1);
             
-            LinkLeftRoomPosition = GetItemPosition(3, 11);
-            LinkRightRoomPosition = GetItemPosition(3, 0);
-            LinkUpRoomPosition = GetItemPosition(6, (float)5.5);
-            LinkDownRoomPosition = GetItemPosition(0, (float)5.5);
-            
+            //LinkLeftRoomPosition = GetItemPosition(3, 11);
+            //LinkRightRoomPosition = GetItemPosition(3, 0);
+            //LinkUpRoomPosition = GetItemPosition(6, (float)5.5);
+            //LinkDownRoomPosition = GetItemPosition(0, (float)5.5);
+
+            PlayableHeight = (RoomBlockSize * RoomRows) + adjust;
+            PlayableWidth = (RoomBlockSize * RoomColumns) + adjust;
+
+            LinkLeftRoomPosition = new Vector2(PlayableWidth, 0);
+            LinkRightRoomPosition = new Vector2(-PlayableWidth, 0);
+            LinkUpRoomPosition = new Vector2(0, PlayableHeight);
+            LinkDownRoomPosition = new Vector2(0, -PlayableHeight);
+
             // Load Textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();
 
@@ -116,7 +129,7 @@ namespace Project1.LevelComponents
             }
             return null;
         }
-        private static void CreateDict()
+        private void CreateDict()
         {
             // NOTE: Load the room data from XMLLevel.XML to the level dictionary 
 
@@ -149,7 +162,7 @@ namespace Project1.LevelComponents
                 {
                     string type = itemNode.SelectSingleNode("type").InnerText;
                     string type2 = itemNode.SelectSingleNode("type2").InnerText;
-                    int row = Int16.Parse(itemNode.SelectSingleNode("row").InnerText);
+                    float row = float.Parse(itemNode.SelectSingleNode("row").InnerText);
                     float column = float.Parse(itemNode.SelectSingleNode("column").InnerText);
 
                     //TODO: replace with reflection 
@@ -184,7 +197,7 @@ namespace Project1.LevelComponents
             }
         }
 
-        public static Vector2 GetItemPosition(float row, float column)
+        public Vector2 GetItemPosition(float row, float column)
         {
             /* NOTE: return the location of the item in the room given the row and column. 
              * Throw an exception if the row or column is out of the room range. 
@@ -198,8 +211,8 @@ namespace Project1.LevelComponents
                 throw new ArgumentException("Index is out of range");
             }
 
-            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);// - adjust;
-            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row); //+ adjust;
+            float x = RoomPosition.X + RoomBorderSize + (Instance.RoomBlockSize * column);// - adjust;
+            float y = RoomPosition.Y + RoomBorderSize + (Instance.RoomBlockSize * row); //+ adjust;
             return new Vector2(x, y);
         }
 
@@ -208,13 +221,14 @@ namespace Project1.LevelComponents
             // TODO: Remove before submission 
             // For testing collision hitbox 
             Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
-            dummyTexture.SetData(new Color[] { Color.White });
+            dummyTexture.SetData(new Color[] { Color.Black });
             Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
             Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
             Rectangle roomTile = new Rectangle((int)GetItemPosition(4,1).X, (int)GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
             
-            CurrentRoom.Draw(spriteBatch);
 
+            CurrentRoom.Draw(spriteBatch);
+            
             if (GameStateManager.Instance.CanRoomScroll())
             {
                 NextRoom.Draw(spriteBatch); 
@@ -251,7 +265,7 @@ namespace Project1.LevelComponents
             LevelMap.Reset();
         }
 
-        public void MoveUp()
+        public void MoveUp(Vector2? position = null)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
@@ -260,7 +274,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
 
-                LinkNewScrollPosition = LinkUpRoomPosition; 
+                LinkNewScrollPosition = position ?? LinkUpRoomPosition; 
 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
@@ -269,7 +283,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveUp();
             }
         }
-        public void MoveDown()
+        public void MoveDown(Vector2? position = null)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
@@ -278,7 +292,7 @@ namespace Project1.LevelComponents
                 
                 ScrollAdjust = new Vector2(0, -ScrollStep);
 
-                LinkNewScrollPosition = LinkDownRoomPosition;
+                LinkNewScrollPosition = position ?? LinkDownRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
@@ -287,7 +301,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveDown();
             }
         }
-        public void MoveLeft()
+        public void MoveLeft(Vector2? position = null)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
@@ -296,7 +310,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
 
-                LinkNewScrollPosition = LinkLeftRoomPosition;
+                LinkNewScrollPosition = position ?? LinkLeftRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
@@ -305,7 +319,7 @@ namespace Project1.LevelComponents
                 LevelMap.MoveLeft();
             }
         }
-        public void MoveRight()
+        public void MoveRight(Vector2? position = null)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
@@ -314,7 +328,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
-                LinkNewScrollPosition = LinkRightRoomPosition;
+                LinkNewScrollPosition = position ?? LinkRightRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
@@ -350,8 +364,8 @@ namespace Project1.LevelComponents
         public Rectangle GetPlayableRoomBounds()
         {
             // NOTE: Return the playable space within the room 
-            return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, 
-                (RoomBlockSize * RoomColumns) + adjust, (RoomBlockSize * RoomRows) + adjust);
+            return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize,
+                PlayableWidth, PlayableHeight);
 
         }
 

@@ -1927,7 +1927,7 @@
 			<object locked="false">
 				<type>Door</type>
 				<type2>Up</type2>
-				<row>-1</row>
+				<row>-.5</row>
 				<column>1</column>
 			</object>
 			

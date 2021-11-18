@@ -63,7 +63,7 @@ namespace Project1.LevelComponents
             dummyTexture.SetData(new Color[] { Color.White });
             Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
             Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
-            Rectangle roomTile = new Rectangle((int)LevelFactory.GetItemPosition(4, 1).X, (int)LevelFactory.GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
+            Rectangle roomTile = new Rectangle((int)LevelFactory.Instance.GetItemPosition(4, 1).X, (int)LevelFactory.Instance.GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
 
             CurrentRoom.Draw(spriteBatch);
 
