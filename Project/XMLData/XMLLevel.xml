@@ -1930,7 +1930,317 @@
 				<row>-.5</row>
 				<column>1</column>
 			</object>
-			
+
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>2</row>
+				<column>4</column>
+			</object>
+
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>0</row>
+				<column>0</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>1</row>
+				<column>0</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>2</row>
+				<column>0</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>0</column>
+			</object>
+
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>0</row>
+				<column>2</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>1</row>
+				<column>2</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>2</row>
+				<column>2</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>2</column>
+			</object>
+
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>0</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>1</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>2</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>3</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>4</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>5</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>6</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>7</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>8</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>9</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>10</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>6</row>
+				<column>11</column>
+			</object>
+
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>4</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>5</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>6</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>7</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>8</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>10</column>
+			</object>
+			<object>
+				<type>Block</type>
+				<type2>Brick</type2>
+				<row>3</row>
+				<column>11</column>
+			</object>
+
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>5</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>6</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>7</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>8</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>9</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>10</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>1</row>
+				<column>11</column>
+			</object>
+
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>0</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>2</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>3</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>4</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>5</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>6</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>7</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>8</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>10</column>
+			</object>
+			<object special="true">
+				<type>Block</type>
+				<type2>Black</type2>
+				<row>4</row>
+				<column>11</column>
+			</object>
+
+			<object>
+				<type>Enemy</type>
+				<type2>Keese</type2>
+				<row>3</row>
+				<column>1</column>
+			</object>
+			<object>
+				<type>Enemy</type>
+				<type2>Keese</type2>
+				<row>4</row>
+				<column>5</column>
+			</object>
+			<object>
+				<type>Enemy</type>
+				<type2>Keese</type2>
+				<row>4</row>
+				<column>9</column>
+			</object>
+			<object>
+				<type>Enemy</type>
+				<type2>Keese</type2>
+				<row>1</row>
+				<column>8</column>
+			</object>
+
+			<object>
+				<type>Item</type>
+				<type2>Bow</type2>
+				<row>2</row>
+				<column>6</column>
+			</object>
+
+
 		</Room>
 
 		<Room>

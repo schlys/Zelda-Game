@@ -18,6 +18,11 @@
 		<command1>LinkHitBlockCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
+	<Collision>
+		<name>LinkBlockBlack</name>
+		<command1>LinkHitBlockCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 
 	<Collision>
 		<name>EnemyBlock</name>
