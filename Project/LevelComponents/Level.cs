@@ -235,7 +235,7 @@ namespace Project1.LevelComponents
                 CurrentRoom = NextRoom;
                 GameObjectManager.Instance.UpdateRoomItems();   // readd room items 
 
-                GameObjectManager.Instance.SetLinkPosition(LinkNewScrollPosition, false);  // update link position
+                GameObjectManager.Instance.SetLinkPosition(LinkNewScrollPosition);  // update link position
             }
             else
             {

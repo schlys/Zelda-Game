@@ -41,7 +41,7 @@ namespace Project1.LevelComponents
         private Vector2 LinkRightRoomPosition;
         private Vector2 LinkUpRoomPosition;
         private Vector2 LinkDownRoomPosition;
-        private Tuple<Vector2, bool> LinkPositionUpdate;
+        private Vector2 LinkPositionUpdate;
 
         private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<string, Texture2D> TextureDict;
@@ -182,9 +182,9 @@ namespace Project1.LevelComponents
                             bool locked = XmlConvert.ToBoolean(itemNode.Attributes["locked"].Value);
                             Vector2 positionDelta = Vector2.Zero;
 
-                            if (itemNode.Attributes["deltaX"] != null && itemNode.Attributes["deltaY"] != null) 
-                                positionDelta = new Vector2((float)XmlConvert.ToDouble(itemNode.Attributes["deltaX"].Value), 
-                                                    (float)XmlConvert.ToDouble(itemNode.Attributes["deltaY"].Value));
+                            if (itemNode.Attributes["col"] != null && itemNode.Attributes["row"] != null) 
+                                positionDelta = new Vector2((float)XmlConvert.ToDouble(itemNode.Attributes["row"].Value), 
+                                                    (float)XmlConvert.ToDouble(itemNode.Attributes["col"].Value));
 
                             IDoor door = new Door(GetItemPosition(row, column), type2, locked, positionDelta);
                             Room.AddDoor(door);
@@ -275,8 +275,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
 
-                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = Tuple.Create(position, false);
-                else LinkPositionUpdate = Tuple.Create(LinkUpRoomPosition, true);
+                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
+                else LinkPositionUpdate = LinkUpRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
@@ -294,8 +294,8 @@ namespace Project1.LevelComponents
                 
                 ScrollAdjust = new Vector2(0, -ScrollStep);
 
-                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = Tuple.Create(position, false);
-                else LinkPositionUpdate = Tuple.Create(LinkDownRoomPosition, true);
+                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
+                else LinkPositionUpdate = LinkDownRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
@@ -313,8 +313,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
 
-                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = Tuple.Create(position, false);
-                else LinkPositionUpdate = Tuple.Create(LinkLeftRoomPosition, true);
+                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
+                else LinkPositionUpdate = LinkLeftRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
@@ -332,8 +332,8 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
-                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = Tuple.Create(position, false);
-                else LinkPositionUpdate = Tuple.Create(LinkRightRoomPosition, true);
+                if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
+                else LinkPositionUpdate = LinkRightRoomPosition;
 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
@@ -358,7 +358,7 @@ namespace Project1.LevelComponents
                 CurrentRoom = NextRoom; 
                 GameObjectManager.Instance.UpdateRoomItems();   // readd room items 
 
-                GameObjectManager.Instance.SetLinkPosition(LinkPositionUpdate.Item1, LinkPositionUpdate.Item2);  // update link position
+                GameObjectManager.Instance.SetLinkPosition(LinkPositionUpdate);  // update link position
             } else
             {
                 CurrentRoom.Position += ScrollAdjust;

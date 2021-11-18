@@ -21,16 +21,14 @@ namespace Project1.LevelComponents
         public string TypeID { get; set; }
 		public string Direction { get; set; }
 
-        private Color Color = Color.White;
-		private int Height = 16 * GameObjectManager.Instance.ScalingFactor;
-		private int Width = 16 * GameObjectManager.Instance.ScalingFactor;
 		private bool locked;
 
 
 		public Door(Vector2 position, string direction, bool locked, Vector2 positionDelta)
         {
-			PositionDelta = new Vector2(LevelFactory.Instance.RoomBlockSize*positionDelta.X, 
-								LevelFactory.Instance.RoomBlockSize * positionDelta.Y);
+			//PositionDelta = new Vector2(LevelFactory.Instance.RoomBlockSize*positionDelta.X, 
+			//					LevelFactory.Instance.RoomBlockSize * positionDelta.Y);
+			PositionDelta = positionDelta;
 
 			Direction = direction;
 			this.locked = locked;

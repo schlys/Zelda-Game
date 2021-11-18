@@ -1924,7 +1924,7 @@
 			<left></left>
 			<right></right>
 			
-			<object locked="false" deltaX="4" deltaY="3">
+			<object locked="false" col="5.5" row="3">
 				<type>Door</type>
 				<type2>Up</type2>
 				<row>-.5</row>
@@ -1949,7 +1949,7 @@
 				<column>12</column>
 			</object>
 			
-			<object locked="false" deltaX="-5" deltaY="-2.5">
+			<object locked="false" col="1" row="-.5">
 				<type>Door</type>
 				<type2>Down</type2>
 				<row>3</row>
