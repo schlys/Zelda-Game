@@ -13,10 +13,19 @@
 		<command1>LinkHitBlockCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
-	
+	<Collision>
+		<name>LinkBlockBlue</name>
+		<command1>LinkHitBlockCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 
 	<Collision>
 		<name>EnemyBlock</name>
+		<command1>EnemyAvoidOtherCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
+	<Collision>
+		<name>EnemyBlockBlue</name>
 		<command1>EnemyAvoidOtherCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
