@@ -16,7 +16,6 @@ namespace Project1.LevelComponents
         ILevelMap LevelMap { get; set; }
         int RoomBlockSize { get; set; }
         Dictionary<String, Texture2D> HUDTextures { get; set; }
-        List<Vector2> LinkStartingPosition { get; set; }
         void LoadAllTextures(ContentManager content);
         void Draw(SpriteBatch spriteBatch);
         void Update(); 

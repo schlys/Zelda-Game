@@ -35,8 +35,7 @@ namespace Project1.LevelComponents
 
         public ILevelMap LevelMap { get; set; }
         public Dictionary<String, Texture2D> HUDTextures { get; set; }
-        public List<Vector2> LinkStartingPosition { get; set; }
-
+        
         private Vector2 LinkLeftRoomPosition; 
         private Vector2 LinkRightRoomPosition;
         private Vector2 LinkUpRoomPosition;
@@ -87,9 +86,6 @@ namespace Project1.LevelComponents
             }
 
             // TODO: data drive
-            LinkStartingPosition = new List<Vector2>(); 
-            LinkStartingPosition.Add(GetItemPosition(4, 1));    // Link 1
-            LinkStartingPosition.Add(GetItemPosition(5, 1));    // Link 2
 
             LinkLeftRoomPosition = GetItemPosition(3, (float)11.5);
             LinkRightRoomPosition = GetItemPosition(3, (float)-.5);

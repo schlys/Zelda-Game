@@ -37,7 +37,6 @@ namespace Project1.SpriteComponents
             MaxDelay = 6;           // default value 
             DelayRate = 1;          // default value 
             startDelay = MaxDelay;
-            Color = Color.White;
             HitBox = new Vector2(hitx, hity); 
         }
 

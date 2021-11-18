@@ -37,12 +37,14 @@ namespace Project1.LinkComponents
         private bool IsDead = false;
         private int TotalNumHearts;
         private int delay;
-        public Link(Vector2 position, Game1 game)
+        private Color Color;
+        public Link(Vector2 position, Color color)
         {
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
-             */ 
-            
+             */
+            Color = color;
+
             DirectionState = new DirectionStateUp();            
             
             TotalNumHearts = 3;
@@ -55,10 +57,7 @@ namespace Project1.LinkComponents
             IsMoving = true;
             TypeID = GetType().Name.ToString();
 
-           
-           
-
-           SetPosition(position);  // Sets <Hitbox> 
+            SetPosition(position);  // Sets <Hitbox> 
 
            InitialPosition = Position;
 
@@ -288,6 +287,7 @@ namespace Project1.LinkComponents
             if (item) UseItemName = "UseItem";
             //if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
+            SetColor(Color);
         }
         public void Win()
         {
@@ -321,7 +321,7 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
-                SetColor(Color.White);
+                SetColor(Color);
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
                     LinkSprite.CurrentFrame++;

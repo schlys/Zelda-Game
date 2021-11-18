@@ -73,8 +73,8 @@ namespace Project1
              */
             for(int i = 0; i < LinkCount; i++)  // LinkCount is between 1 and 2 
             {
-                Vector2 LinkPosition = LevelFactory.Instance.LinkStartingPosition[i];
-                ILink Link = new Link(LinkPosition, Game);
+                Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
+                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
                 Links.Add(Link);
                 Links_copy = new List<ILink>(Links);
                 IHUD HUD = new HUD(Link, Game);
