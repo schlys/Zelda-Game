@@ -222,6 +222,10 @@ namespace Project1.LinkComponents
              */ 
             return Inventory.CanUseKey();
         }
+        public bool HasItem(string name)
+        {
+            return Inventory.HasItem(name);
+        }
 
         public void PickUpItem(IItem item)
         {
@@ -230,7 +234,6 @@ namespace Project1.LinkComponents
              */
             UpdateSprite();
             item.AddToInventory(this);
-            //Inventory.AddItem(item);
             GameSoundManager.Instance.PlayGetItem();
         }
 

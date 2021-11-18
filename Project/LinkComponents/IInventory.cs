@@ -25,6 +25,7 @@ namespace Project1.LinkComponents
         bool HasSilverArrow { get; set; }
         void AddItem(IItem Item);
         void UseItem(int itemNumber);
+        bool HasItem(string name);
         bool CanUseKey();
         void SelectItem();
         void SelectItem(int item);

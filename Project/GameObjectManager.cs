@@ -251,13 +251,13 @@ namespace Project1
             {
                 block.Draw(spriteBatch);
             }
-            foreach (ILink link in Links)
-            {
-                link.Draw(spriteBatch);
-            }
             foreach (IItem item in Items)
             {
                 item.Draw(spriteBatch);
+            }
+            foreach (ILink link in Links)
+            {
+                link.Draw(spriteBatch);
             }
             foreach (IEnemy enemy in Enemies)
             {

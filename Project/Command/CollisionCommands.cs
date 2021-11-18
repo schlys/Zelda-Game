@@ -64,7 +64,7 @@ namespace Project1.Command
         public IItem Item { get; set; }
        
 
-        public LinkAddItemToInventoryCmd(ICollidable link, ICollidable item, string direction)
+        public LinkAddItemToInventoryCmd(ICollidable item, ICollidable link, string direction)
         {
             Link = (ILink)link;
             Item = (IItem)item;
@@ -202,13 +202,15 @@ namespace Project1.Command
     public class ItemPickedUpCmd : ICommand
     {
         public IItem Item { get; set; }
-        public ItemPickedUpCmd(ICollidable item, ICollidable holder, string direction)
+        public ILink Link { get; set; }
+        public ItemPickedUpCmd(ICollidable link, ICollidable item, string direction)
         {
             Item = (IItem)item;
+            Link = (ILink)link;
         }
         public void Execute()
         {
-            Item.RemoveItem();
+            if (!Link.HasItem(Item.Kind)) Item.RemoveItem();
         }
     }
 

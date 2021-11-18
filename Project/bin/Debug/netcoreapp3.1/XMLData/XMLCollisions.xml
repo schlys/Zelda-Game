@@ -94,35 +94,9 @@
 
 	<Collision>
 		<name>LinkItem</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
+		<command1>ItemPickedUpCmd</command1>
+		<command2>LinkAddItemToInventoryCmd</command2>
 	</Collision>
-	
-	<Collision>
-		<name>LinkItemArrowUp</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	<Collision>
-		<name>LinkItemFire</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	<Collision>
-		<name>LinkItemFood</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	<Collision>
-		<name>LinkItemSilverArrow</name>
-		<command1>LinkAddItemToInventoryCmd</command1>
-		<command2>ItemPickedUpCmd</command2>
-	</Collision>
-	
-	
-	
 	
 	
 	<Collision>

@@ -119,8 +119,9 @@ namespace Project1.LinkComponents
         }
         public void AddItem(IItem item)
         {
-            if (!Items.ContainsKey(item.Kind)) Items.Add(item.Kind, item);
-            if (Items.Count == 2) Item2 = item.Kind;
+            bool has = Items.ContainsKey(item.Kind);
+            if (!has) Items.Add(item.Kind, item);
+            if (Items.Count == 2 && !has) Item2 = item.Kind;
         }
         private bool CanPlayGame()
         {
@@ -153,6 +154,10 @@ namespace Project1.LinkComponents
             }
 
             return false;
+        }
+        public bool HasItem(string name)
+        {
+            return Items.ContainsKey(name);
         }
        
         public void SelectItem()

@@ -26,6 +26,7 @@ namespace Project1.ItemComponents
         {
             link.Inventory.BombCount += 5;
             link.Inventory.AddItem(Item);
+            Item.RemoveItem();
         }
 
         public void Draw(SpriteBatch spriteBatch)
