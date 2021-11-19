@@ -2,22 +2,22 @@
 <Position>
 	<Offset>
 		<Name>Up</Name>
-		<x>5</x>
-		<y>-8</y>
+		<x>2</x>
+		<y>-14</y>
 	</Offset>
 	<Offset>
 		<Name>Down</Name>
-		<x>5</x>
-		<y>15</y>
+		<x>2</x>
+		<y>12</y>
 	</Offset>
 	<Offset>
 		<Name>Right</Name>
 		<x>13</x>
-		<y>8</y>
+		<y>0</y>
 	</Offset>
 	<Offset>
 		<Name>Left</Name>
-		<x>-8</x>
-		<y>8</y>
+		<x>-13</x>
+		<y>0</y>
 	</Offset>
 </Position>
