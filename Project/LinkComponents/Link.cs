@@ -68,17 +68,13 @@ namespace Project1.LinkComponents
 
        public void SetPosition(Vector2 position)
        {
-           
-            
-                Position = position;
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-                /* Correct the position to account for empty space around the hitbox */
-                int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-                Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
-                /* Get correct hibox for updated position */
-                Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-            
-            
+            Position = position;
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
+            /* Correct the position to account for empty space around the hitbox */
+            int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
+            /* Get correct hibox for updated position */
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
         }
 
         // NOTE: commands will be called even when the game is paused, so must check if can play
@@ -95,7 +91,7 @@ namespace Project1.LinkComponents
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
                 }
-                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y)- new Vector2(0, Step);
+                Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) - new Vector2(0, Step);
                 if (LevelFactory.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(0, Step);
@@ -169,20 +165,21 @@ namespace Project1.LinkComponents
              * the opposite of <direction> if it is legal. if it is not legal, return <position> unchanged. 
              */ 
 
+            // item1 is the furthest corner for bounds checking and item2 is the increment to <position> 
             Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
-                { "Top", Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
-                { "Bottom", Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
-                { "Right", Tuple.Create(new Vector2(-knockback, 0), new Vector2(-knockback, 0)) },
-                { "Left", Tuple.Create(new Vector2(knockback + Hitbox.Width, 0), new Vector2(knockback, 0))}
+                { "Top",    Tuple.Create(new Vector2(0, knockback + Hitbox.Height),     new Vector2(0, knockback)) },
+                { "Bottom", Tuple.Create(new Vector2(0, -knockback),                    new Vector2(0, -knockback)) },
+                { "Right",  Tuple.Create(new Vector2(-knockback, 0),                    new Vector2(-knockback, 0)) },
+                { "Left",   Tuple.Create(new Vector2(knockback + Hitbox.Width, 0),      new Vector2(knockback, 0))}
             };
 
             if (knockback > 0)
             {
+                // Check if furthest corner is in bounds, if so, update <position> 
                 Tuple<Vector2, Vector2> pair = directions[direction];
                 if (LevelFactory.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
                     return position += pair.Item2;
-
             }
             return position;
         }
@@ -236,7 +233,7 @@ namespace Project1.LinkComponents
             GameSoundManager.Instance.PlayGetItem();
         }
 
-        public void TakeDamage(string direction, int knockback = 0)
+        public void TakeDamage(string direction, int knockback)
         {
             /* Link's health decrease by <DamageRecieved>, his color is set to red, a hurt sound is 
              * played, his position is knocked back, and we check if he has died. 
