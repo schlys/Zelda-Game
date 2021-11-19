@@ -19,6 +19,9 @@ namespace Project1
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        public int ScreenWidth = 512;
+        public int ScreenHeight = 480;
+        public bool started = false;
 
         public Game1()
         {
@@ -26,7 +29,8 @@ namespace Project1
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            graphics.PreferredBackBufferWidth = 256*2;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferWidth = ScreenWidth;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = ScreenHeight;
             graphics.ApplyChanges();
         }
 
@@ -60,10 +64,13 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-            GameObjectManager.Instance.Draw(spriteBatch);
+            if (started) GameObjectManager.Instance.Draw(spriteBatch);
             GameStateManager.Instance.Draw(spriteBatch);
 
             spriteBatch.End();
+
+            GraphicsDevice.SetRenderTarget(null);
+            //GraphicsDevice.Clear(Color.Black);
             base.Draw(gameTime);
         }
 
@@ -81,8 +88,9 @@ namespace Project1
         public void StartGame()
         {
             // Must reset before starting for cases when won / lost 
+            started = true;
             GameObjectManager.Instance.Reset();
-
+            GameObjectManager.Instance.CreatePlayers();
             GameStateManager.Instance.Start();
         }
 

@@ -241,7 +241,6 @@ namespace Project1.LinkComponents
             GameSoundManager.Instance.PlayLinkHurt();
             Health.Decrease(DamageRecieved);
             SetColor(Color.Red);
-            //LinkSprite.Color = Color.Red;
             Position = Knockback(Position, direction, knockback);
             IsDead = Health.Dead();
             

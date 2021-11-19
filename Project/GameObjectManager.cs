@@ -12,6 +12,7 @@ using Project1.CollisionComponents;
 using Microsoft.Xna.Framework;
 using Project1.LevelComponents;
 using Project1.HeadsUpDisplay;
+using System.Windows.Forms;
 
 namespace Project1
 {
@@ -31,10 +32,12 @@ namespace Project1
         }
         private GameObjectManager() { }
 
+        private List<SwapChainRenderTarget> swapChain;
+
         public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
-        public int LinkCount = 1;          // Accesed in GameStateManager.cs 
+        public int LinkCount = 0;          // Accesed in GameStateManager.cs 
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -42,6 +45,7 @@ namespace Project1
         public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
+        private List<IController> ControllersAdd;
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
 
@@ -50,6 +54,7 @@ namespace Project1
         public void Initialize(Game1 game)
         {
             Game = game;
+            swapChain = new List<SwapChainRenderTarget>();
 
             Links = new List<ILink>();
             HUDs = new List<IHUD>();
@@ -58,9 +63,22 @@ namespace Project1
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
             Controllers = new List<IController>();
+            ControllersAdd = new List<IController>();
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
+
+            GameWindow currentWindow = Game.Window;
+            swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
+                                             currentWindow.Handle,
+                                             currentWindow.ClientBounds.Width,
+                                             currentWindow.ClientBounds.Height,
+                                             false,
+                                             SurfaceFormat.Color,
+                                             DepthFormat.Depth24Stencil8,
+                                             1,
+                                             RenderTargetUsage.PlatformContents,
+                                             PresentInterval.Default));
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -71,26 +89,26 @@ namespace Project1
             /* Add Link and their HUD
              * Parallel Contruction: between Link and HUD 
              */
-            for(int i = 0; i < LinkCount; i++)  // LinkCount is between 1 and 2 
-            {
-                Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
-                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
-                Links.Add(Link);
-                Links_copy = new List<ILink>(Links);
-                IHUD HUD = new HUD(Link, Game);
-                HUDs.Add(HUD);
-            }
-            
-            UpdateRoomItems();
+            //for(int i = 0; i < LinkCount; i++)  // LinkCount is between 1 and 2 
+            //{
+            //    Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
+            //    ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
+            //    Links.Add(Link);
+            //    Links_copy = new List<ILink>(Links);
+            //    IHUD HUD = new HUD(Link, Game);
+            //    HUDs.Add(HUD);
+            //}
+
+            //UpdateRoomItems();
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
-            int player = 1;
-            foreach(ILink link in Links) 
-            {
-                KeyboardController.InitializeLinkCommands(link, player);
-                player++;
-            }
+            //int player = 1;
+            //foreach(ILink link in Links) 
+            //{
+            //    KeyboardController.InitializeLinkCommands(link, player);
+            //    player++;
+            //}
 
             // Register Mouse commands 
             MouseController.InitializeGameCommands();
@@ -99,10 +117,15 @@ namespace Project1
 
         public void Update()
         {
+            
             foreach (IController controller in Controllers)
             {
                 controller.Update();
             }
+            Controllers.AddRange(ControllersAdd);
+            ControllersAdd = new List<IController>();
+            
+
             foreach (IHUD HUD in HUDs)
             {
                 HUD.Update();
@@ -157,7 +180,7 @@ namespace Project1
              */
 
             Room = LevelFactory.Instance.CurrentRoom;
-            Links = new List<ILink>(Links_copy);
+            //Links = new List<ILink>(Links_copy);
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
@@ -247,40 +270,45 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            LevelFactory.Instance.Draw(spriteBatch); 
             
 
-            foreach (IBlock block in Blocks)
+            for (int i = 0; i < LinkCount; i++)
             {
-                block.Draw(spriteBatch);
-            }
-            foreach (IItem item in Items)
-            {
-                item.Draw(spriteBatch);
-            }
-            foreach (ILink link in Links)
-            {
-                link.Draw(spriteBatch);
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                enemy.Draw(spriteBatch);
-            }
-            foreach (IDoor door in Doors)
-            {
-                door.Draw(spriteBatch);
-            }
-            foreach (IProjectile Projectile in Projectiles)
-            {
-                Projectile.Draw(spriteBatch);
-            }
+                Game.GraphicsDevice.SetRenderTarget(swapChain[i]);
+                //Game.GraphicsDevice.Clear(Color.Black);
 
-            
-            // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-            foreach (IHUD HUD in HUDs)
-            {
-                HUD.Draw(spriteBatch);
+                LevelFactory.Instance.Draw(spriteBatch);
+
+                foreach (IBlock block in Blocks)
+                {
+                    block.Draw(spriteBatch);
+                }
+                foreach (IItem item in Items)
+                {
+                    item.Draw(spriteBatch);
+                }
+                foreach (ILink link in Links)
+                {
+                    link.Draw(spriteBatch);
+                }
+                foreach (IEnemy enemy in Enemies)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+                foreach (IDoor door in Doors)
+                {
+                    door.Draw(spriteBatch);
+                }
+                foreach (IProjectile Projectile in Projectiles)
+                {
+                    Projectile.Draw(spriteBatch);
+                }
+                swapChain[i].Present();
+
+                // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
+                if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
             }
+           
         }
 
         public void Reset()
@@ -335,6 +363,48 @@ namespace Project1
             foreach (ILink link in Links)
             {
                 link.SetPosition(position); 
+            }
+        }
+
+        public void CreatePlayers()
+        {
+            GameWindow newWindow;
+            for (int i = 1; i < LinkCount; i++)
+            {
+                // create a viewport for each player
+                newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
+                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
+
+                newForm.Visible = true;
+              
+
+                swapChain.Add(new SwapChainRenderTarget(Game.GraphicsDevice,
+                                             newWindow.Handle,
+                                             newWindow.ClientBounds.Width,
+                                             newWindow.ClientBounds.Height,
+                                             false,
+                                             SurfaceFormat.Color,
+                                             DepthFormat.Depth24Stencil8,
+                                             1,
+                                             RenderTargetUsage.PlatformContents,
+                                             PresentInterval.Default));
+            }
+
+            for (int i = 0; i < LinkCount; i++)
+            {
+                // Create a link and HUD for each player
+                Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
+                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
+                Links.Add(Link);
+                Links_copy = new List<ILink>(Links);
+                IHUD HUD = new HUD(Link, Game);
+                HUDs.Add(HUD);
+
+                UpdateRoomItems();
+
+                IController KeyboardController = new KeyboardController(Game);
+                ControllersAdd.Add(KeyboardController);
+                KeyboardController.InitializeLinkCommands(Link, i + 1);
             }
         }
     }

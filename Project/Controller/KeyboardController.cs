@@ -147,16 +147,18 @@ namespace Project1.Controller
             Keys[] pressedKeys = state.GetPressedKeys();
 
             // Stops Link from animating in place 
-            List<ICommand> stop = ControllerMappingsPressKey[LinkStopKey];
-
-            if (!(pressedKeys.Length > 0))
+            if (ControllerMappingsPressKey.ContainsKey(LinkStopKey))
             {
-                foreach(ICommand command in stop)
+                List<ICommand> stop = ControllerMappingsPressKey[LinkStopKey];
+
+                if (!(pressedKeys.Length > 0))
                 {
-                    command.Execute();
+                    foreach (ICommand command in stop)
+                    {
+                        command.Execute();
+                    }
                 }
             }
-
             // Execute commands for held keys
             foreach (Keys key in pressedKeys)
             {
