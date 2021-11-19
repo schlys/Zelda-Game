@@ -19,5 +19,6 @@ namespace Project1.LevelComponents
 		void Draw(SpriteBatch spriteBatch);
 		bool IsLocked();
 		void Unlock();
+		void ChangeRoom();
 	}
 }

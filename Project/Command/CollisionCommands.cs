@@ -99,45 +99,16 @@ namespace Project1.Command
            
             if (Link.DirectionState.ID.Equals(Door.Direction))
             {
-                Vector2 positionChange = Vector2.Zero;
-                if (!Door.PositionDelta.Equals(Vector2.Zero)) positionChange = Door.PositionDelta;
 
                 //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
 
                 //if (!Door.IsLocked())
                 //{
-                //    switch (Door.Direction)
-                //    {
-                //        case "Up":
-                //            LevelFactory.Instance.MoveUp((Vector2)positionChange);
-                //            break;
-                //        case "Down":
-                //            LevelFactory.Instance.MoveDown((Vector2)positionChange);
-                //            break;
-                //        case "Right":
-                //            LevelFactory.Instance.MoveRight((Vector2)positionChange);
-                //            break;
-                //        case "Left":
-                //            LevelFactory.Instance.MoveLeft((Vector2)positionChange);
-                //            break;
-                //    }
+                //    Door.ChangeRoom();
                 //}
 
-                switch (Door.Direction)
-                {
-                    case "Up":
-                        LevelFactory.Instance.MoveUp((Vector2)positionChange);
-                        break;
-                    case "Down":
-                        LevelFactory.Instance.MoveDown((Vector2)positionChange);
-                        break;
-                    case "Right":
-                        LevelFactory.Instance.MoveRight((Vector2)positionChange);
-                        break;
-                    case "Left":
-                        LevelFactory.Instance.MoveLeft((Vector2)positionChange);
-                        break;
-                }
+               
+                Door.ChangeRoom();
 
             }
         }

@@ -56,5 +56,23 @@ namespace Project1.LevelComponents
         {
 			locked = false;
         }
+		public void ChangeRoom()
+        {
+			switch (Direction)
+			{
+				case "Up":
+					LevelFactory.Instance.MoveUp(PositionDelta);
+					break;
+				case "Down":
+					LevelFactory.Instance.MoveDown(PositionDelta);
+					break;
+				case "Right":
+					LevelFactory.Instance.MoveRight(PositionDelta);
+					break;
+				case "Left":
+					LevelFactory.Instance.MoveLeft(PositionDelta);
+					break;
+			}
+		}
 	}
 }
