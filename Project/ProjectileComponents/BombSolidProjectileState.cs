@@ -19,16 +19,17 @@ namespace Project1.ProjectileComponents
         public IDirectionState Direction { get; set; }
 
         // Other Properties
-        private int Speed = 4;
+        private int Speed = 0;
         private int Counter = 0;
         private int CounterExplode = 20;
         private int CounterMax;
+        private ICollidable proj;
         public BombSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
             Projectile = projectile;
+            proj = (ICollidable)projectile;
             Direction = direction; 
-            TypeID = "Bomb";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Bomb");
             CounterMax = CounterExplode + (int)((Sprite.TotalFrames)*(Sprite.MaxDelay * Sprite.DelayRate));
             Projectile.OffsetOriginalPosition(Direction);
         }
@@ -79,6 +80,8 @@ namespace Project1.ProjectileComponents
             else if (Counter < CounterMax) // Explosion animation 
             {
                 Sprite.Update();
+                TypeID = "Explosion";
+                proj.TypeID = proj.TypeID + TypeID;
             }
             else
             {

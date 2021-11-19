@@ -102,10 +102,7 @@ namespace Project1.Command
 
                 //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
 
-                //if (!Door.IsLocked())
-                //{
-                //    Door.ChangeRoom();
-                //}
+                //if (!Door.IsLocked()) Door.ChangeRoom();
 
                
                 Door.ChangeRoom();
