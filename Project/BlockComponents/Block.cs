@@ -23,11 +23,9 @@ namespace Project1.BlockComponents
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
 
-
         public Block(Vector2 position, string type, bool special)
         {
             UpdateSprite(type);
-
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 

@@ -9,7 +9,6 @@ namespace Project1.CollisionComponents
         static CollisionManager Instance { get; } 
         void DetectCollisions(); 
         void Update();
-
         void Reset(); 
     }
 }

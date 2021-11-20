@@ -4,17 +4,22 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Project1.LevelComponents; 
 
-namespace Project1.GameState
+namespace Project1
 {
     public static class GameVar
     {
         /* This class holds all constant variables and data used throughout the project
-         */ 
-
-
-
-        /* GAME STATE
          */
+
+        // COLLISION 
+        public const string DirectionTop = "Top";
+        public const string DirectionBottom = "Bottom";
+        public const string DirectionRight= "Right";
+        public const string DirectionLeft = "Left";
+
+
+        // GAME STATE
+
         // Variables used to denote direction throughout classes in GameState 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 

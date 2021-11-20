@@ -11,17 +11,12 @@ namespace Project1.CollisionComponents
         public string First { get; set; }
         public string Second { get; set; }
         public String Key { get; set; }
-        public string SpecificKey { get; set; }
-
+        public string DirectionKey { get; set; }
         public string Direction 
         { 
             get { return string.Empty; }
             set { }
         }   
-        public NullCollision()
-        {
-            Key = "Null"; 
-        }
-      
+        public NullCollision() { }
     }
 }

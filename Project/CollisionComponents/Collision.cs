@@ -12,9 +12,7 @@ namespace Project1.CollisionComponents
     {
         public ICollidable Item1 { get; set; }
         public ICollidable Item2 { get; set; }
-        //public string Item1ID { get; set; }
-        //public string Item2ID { get; set; }
-        public string SpecificKey { get; set; }
+        public string DirectionKey { get; set; }
         public string Key { get; set; }
         public string Direction { get; set; }   // direction item1 collides with item 2
 
@@ -23,11 +21,9 @@ namespace Project1.CollisionComponents
             Item1 = i1;
             Item2 = i2;
             Direction = d;
-        
-            SpecificKey = Item1.TypeID + Item2.TypeID + Direction;
+
+            DirectionKey = Item1.TypeID + Item2.TypeID + Direction;
             Key = Item1.TypeID + Item2.TypeID;
         }
-
-
     }
 }

@@ -64,7 +64,7 @@ namespace Project1.CollisionComponents
         }
         public Tuple<ConstructorInfo, ConstructorInfo> GetCommands(ICollision collision)
         {
-            string key = collision.SpecificKey;
+            string key = collision.DirectionKey;
             if (CollisionMappings.ContainsKey(key)) return CollisionMappings[key];
             else if (CollisionMappings.ContainsKey(collision.Key)) return CollisionMappings[collision.Key];
             //TODO: create Null object instead of returning null 
@@ -116,14 +116,6 @@ namespace Project1.CollisionComponents
             }
         }
 
-        // NOTE: Returns the proper hitbox given the position, hitbox dimensions, and the size of the original rectangle
-        /*public Rectangle GetHitBox(Vector2 position, Vector2 dimensions, int size)
-        {
-            int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
-            int yPos = (int)(position.Y + (size / 2) - (dimensions.Y / 2));
-            return new Rectangle(xPos, yPos, (int)dimensions.X, (int)dimensions.Y); 
-        }*/
-
         // NOTE: Returns the proper hitbox given the position and hitbox dimensions
         public Rectangle GetHitBox(Vector2 position, Vector2 dimensions)
         {
@@ -138,7 +130,6 @@ namespace Project1.CollisionComponents
         public void DetectCollisions()
         {
             // NOTE: Compare all moving objects to all other non-moving and moving objects 
-
             for (int i = 0; i < MovingObjects.Count; i++)
             {
                 ICollidable item1 = MovingObjects[i];
@@ -162,7 +153,7 @@ namespace Project1.CollisionComponents
              */
 
             ICollision collision = DetectCollision(item1, item2);
-            if (!collision.GetType().Name.ToString().Equals("NullCollision"))
+            if (!(collision is NullCollision))
             {
                 Tuple<ConstructorInfo, ConstructorInfo> commands = GetCommands(collision);
                 if (commands != null)
@@ -188,12 +179,12 @@ namespace Project1.CollisionComponents
                     if (Intersection.Top == item1.Hitbox.Top)
                     {
                         // collide on item1's top and item2's bottom 
-                        direction = "Top";
+                        direction = GameVar.DirectionTop;
                     }
                     else
                     {
                         // collide on item1's bottom and item2's top
-                        direction = "Bottom";
+                        direction = GameVar.DirectionBottom;
                     }
     
                 } else // Collision in horizontal direction 
@@ -201,12 +192,12 @@ namespace Project1.CollisionComponents
                     if (Intersection.Right == item1.Hitbox.Right)
                     {
                         // collide on item1's right and item2's left 
-                        direction = "Right";
+                        direction = GameVar.DirectionRight;
                     }
                     else
                     {
                         // collide on item1's left and item2's right 
-                        direction = "Left";
+                        direction = GameVar.DirectionLeft;
                     }
                 }
                 return new Collision(item1, item2, direction);  
