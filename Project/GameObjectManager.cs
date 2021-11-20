@@ -57,6 +57,7 @@ namespace Project1
             swapChain = new List<SwapChainRenderTarget>();
 
             Links = new List<ILink>();
+            Links_copy = new List<ILink>();
             HUDs = new List<IHUD>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
@@ -69,6 +70,9 @@ namespace Project1
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
 
             GameWindow currentWindow = Game.Window;
+            Form newForm = (Form)Form.FromHandle(currentWindow.Handle);
+
+            newForm.Visible = true;
             swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
                                              currentWindow.Handle,
                                              currentWindow.ClientBounds.Width,
@@ -180,7 +184,7 @@ namespace Project1
              */
 
             Room = LevelFactory.Instance.CurrentRoom;
-            //Links = new List<ILink>(Links_copy);
+            Links = new List<ILink>(Links_copy);
             Items = Room.Items;
             Blocks = Room.Blocks;
             Enemies = Room.Enemies;
@@ -308,7 +312,8 @@ namespace Project1
                 // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
                 if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
             }
-           
+            Game.GraphicsDevice.SetRenderTarget(null);
+
         }
 
         public void Reset()
@@ -400,12 +405,11 @@ namespace Project1
                 IHUD HUD = new HUD(Link, Game);
                 HUDs.Add(HUD);
 
-                UpdateRoomItems();
-
                 IController KeyboardController = new KeyboardController(Game);
                 ControllersAdd.Add(KeyboardController);
                 KeyboardController.InitializeLinkCommands(Link, i + 1);
             }
+            UpdateRoomItems();
         }
     }
 }

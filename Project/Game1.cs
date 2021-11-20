@@ -69,8 +69,8 @@ namespace Project1
 
             spriteBatch.End();
 
-            GraphicsDevice.SetRenderTarget(null);
-            //GraphicsDevice.Clear(Color.Black);
+           
+            
             base.Draw(gameTime);
         }
 
