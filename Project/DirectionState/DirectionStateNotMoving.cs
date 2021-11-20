@@ -10,7 +10,7 @@ namespace Project1.DirectionState
 
         public DirectionStateNotMoving()
         {
-            ID = "NotMoving";
+            ID = GameVar.DirectionNotMocing;
         }
         public IDirectionState MoveDown()
         {

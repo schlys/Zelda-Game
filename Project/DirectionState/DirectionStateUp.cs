@@ -10,8 +10,7 @@ namespace Project1.DirectionState
 
         public DirectionStateUp()
         {
-            ID = "Up";
-
+            ID = GameVar.DirectionUp; 
         }
         public IDirectionState MoveDown()
         {

@@ -37,11 +37,9 @@ namespace Project1.Controller
 
         public void InitializeRoomCommands()
         {
-            // TODO: Get actual location of doors 
-            Rectangle LeftDoor = LevelFactory.Instance.GetPlayableRoomBounds(); 
-            RegisterCommandLeftClick(new RoomLeftCmd(Game), LeftDoor); 
-            Rectangle RightDoor = LevelFactory.Instance.GetPlayableRoomBounds();
-            RegisterCommandRightClick(new RoomRightCmd(Game), RightDoor);
+            Rectangle RoomArea = LevelFactory.Instance.GetPlayableRoomBounds(); 
+            RegisterCommandLeftClick(new RoomLeftCmd(Game), RoomArea); 
+            RegisterCommandRightClick(new RoomRightCmd(Game), RoomArea);
         }
 
         private void RegisterCommandLeftClick(ICommand command, Rectangle rect)

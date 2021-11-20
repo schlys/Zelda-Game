@@ -13,17 +13,21 @@ namespace Project1
         // BLOCK    
         public const string BlockBase = "Base"; 
 
-        // COLLISION 
+        // DIRECTIONS 
         public const string DirectionTop = "Top";
+        public const string DirectionUp = "Up";
         public const string DirectionBottom = "Bottom";
+        public const string DirectionDown = "Down";
         public const string DirectionRight= "Right";
         public const string DirectionLeft = "Left";
-
+        public const string DirectionNotMocing = "NotMoving";
 
         // COMMAND
         public const int LinkDamage = 20;
         public const double EnemyDamage = 0.5; 
 
+
+        // CONTROLLER
        
         // GAME STATE
 
