@@ -12,15 +12,11 @@ namespace Project1.GameState
     {
         /* Used for the item selection screen on/off screen
          */ 
-        public Vector2 RoomPosition { get; set; }
-        public string ID { get; set; }
 
         private int Direction;
         
-
         public GameStateItemScroll(int direction)
         {
-            ID = "ItemScroll";
             Direction = direction;
         }
         public void Draw(SpriteBatch spriteBatch)

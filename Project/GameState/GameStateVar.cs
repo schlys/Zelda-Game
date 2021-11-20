@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Project1.LevelComponents; 
 
 namespace Project1.GameState
 {

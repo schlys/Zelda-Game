@@ -9,11 +9,8 @@ namespace Project1.GameState
 {
     public class GameStateStart: IGameState
     {
-        public Vector2 RoomPosition { get; set; }
-        public string ID { get; set; }
         public GameStateStart()
         {
-            ID = "Start";
         }
         public void Draw(SpriteBatch spriteBatch)
         {

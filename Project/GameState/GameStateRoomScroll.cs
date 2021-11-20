@@ -11,13 +11,9 @@ namespace Project1.GameState
     public class GameStateRoomScroll: IGameState
     {
         /* Used for the room selection screen on room changes
-         */
-        public Vector2 RoomPosition { get; set; }
-        public string ID { get; set; }
-        
+         */        
         public GameStateRoomScroll()
         {
-            ID = "RoomScroll";
         }
         public void Draw(SpriteBatch spriteBatch)
         {

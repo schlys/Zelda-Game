@@ -10,14 +10,11 @@ namespace Project1.GameState
 {
     public class GameStateWin: IGameState
     {
-        public Vector2 RoomPosition { get; set; }
-        public string ID { get; set; }
         private Sprite Link;
         private Sprite TriForceFragment;
 
         public GameStateWin()
         {
-            ID = "Win";
             TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
             Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }

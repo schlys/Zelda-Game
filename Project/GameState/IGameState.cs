@@ -8,8 +8,6 @@ namespace Project1.GameState
 {
     public interface IGameState
     {
-        Vector2 RoomPosition { get; set; }
-        string ID { get; set; }
         void Draw(SpriteBatch spriteBatch);
         IGameState Reset();
         IGameState Pause();
