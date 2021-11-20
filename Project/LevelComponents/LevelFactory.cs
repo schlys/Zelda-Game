@@ -272,6 +272,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
 
+                // ???? what is this position here doing? 
                 if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
                 else LinkPositionUpdate = LinkUpRoomPosition;
 
@@ -291,6 +292,7 @@ namespace Project1.LevelComponents
                 
                 ScrollAdjust = new Vector2(0, -ScrollStep);
 
+                // ???? what is this position here doing? 
                 if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
                 else LinkPositionUpdate = LinkDownRoomPosition;
 
@@ -310,6 +312,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
 
+                // ???? what is this position here doing? 
                 if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
                 else LinkPositionUpdate = LinkLeftRoomPosition;
 
@@ -329,6 +332,7 @@ namespace Project1.LevelComponents
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
+                // ???? what is this position here doing? 
                 if (!position.Equals(Vector2.Zero)) LinkPositionUpdate = GetItemPosition(position.X, position.Y);
                 else LinkPositionUpdate = LinkRightRoomPosition;
 

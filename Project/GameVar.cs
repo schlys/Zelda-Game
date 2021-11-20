@@ -10,6 +10,8 @@ namespace Project1
     {
         /* This class holds all constant variables and data used throughout the project
          */
+        // BLOCK    
+        public const string BlockBase = "Base"; 
 
         // COLLISION 
         public const string DirectionTop = "Top";
@@ -18,6 +20,11 @@ namespace Project1
         public const string DirectionLeft = "Left";
 
 
+        // COMMAND
+        public const int LinkDamage = 20;
+        public const double EnemyDamage = 0.5; 
+
+       
         // GAME STATE
 
         // Variables used to denote direction throughout classes in GameState 

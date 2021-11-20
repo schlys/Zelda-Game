@@ -22,7 +22,6 @@ namespace Project1.Command
 
         public void Execute()
         {
-            //Projectile.InMotion = false;
             Projectile.StopMotion();
         }
     }
@@ -39,7 +38,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.TakeDamage(Direction, 20);
+            Link.TakeDamage(Direction, GameVar.LinkDamage);
         }
     }
 
@@ -62,8 +61,6 @@ namespace Project1.Command
     {
         public ILink Link { get; set; }
         public IItem Item { get; set; }
-       
-
         public LinkAddItemToInventoryCmd(ICollidable item, ICollidable link, string direction)
         {
             Link = (ILink)link;
@@ -77,24 +74,18 @@ namespace Project1.Command
 
     public class LinkUseKeyCmd : ICommand
     {
-
-       
-
         public ILink Link { get; set; }
         public IDoor Door { get; set; }
         private List<Delegate> rooms = new List<Delegate>();
         
-        
         public LinkUseKeyCmd(ICollidable link, ICollidable door, string direction)
         {
-            
             Link = (ILink)link;
             Door = (IDoor)door;
-           
-            
         }
         public void Execute()
         {
+            // TODO: handle in link or Door class 
             // Unlock the door if link has a key
            
             if (Link.DirectionState.ID.Equals(Door.Direction))
@@ -111,7 +102,6 @@ namespace Project1.Command
         }
     }
 
-
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }
@@ -124,7 +114,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            Enemy.TakeDamage(0.5, direction);
+            Enemy.TakeDamage(GameVar.EnemyDamage, direction);
         }
     }
 
@@ -150,10 +140,10 @@ namespace Project1.Command
         string Direction;
         // Change Direction to opposite
         Dictionary<string,string> dir = new Dictionary<string, string> {
-            { "Top", "Bottom"},
-            { "Bottom", "Top"},
-            {"Right","Left" },
-            {"Left","Right" }
+            { GameVar.DirectionTop, GameVar.DirectionBottom},
+            { GameVar.DirectionBottom, GameVar.DirectionTop},
+            { GameVar.DirectionRight, GameVar.DirectionLeft},
+            { GameVar.DirectionLeft, GameVar.DirectionRight}
         };
 
         public EnemyHitPlayerCmd(ICollidable enemy, ICollidable holder, string direction)
@@ -184,7 +174,6 @@ namespace Project1.Command
 
     public class WeaponsBlockedCmd : ICommand
     {
-
         public IProjectile Projectile { get; set; }
         public WeaponsBlockedCmd(ICollidable projectile, ICollidable holder, string direction = "")
         {
@@ -192,7 +181,6 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            //Projectile.End(); 
             Projectile.StopMotion();
         }
     }
@@ -206,10 +194,9 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Block.Change("Base");
+            Block.Change(GameVar.BlockBase);
         }
     }
-    
 
     class NoCmd : ICommand
     {

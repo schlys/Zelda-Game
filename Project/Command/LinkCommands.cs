@@ -73,7 +73,6 @@ namespace Project1.Command
         }
     }
 
-    // TODO - is this used, delete ? 
     public class LinkStopMotionCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -90,6 +89,7 @@ namespace Project1.Command
         }
     }
 
+    // TODO: remove no longer use? 
     public class LinkSwordAttackCmd : ICommand
     {
         public Game1 Game { get; set; }
