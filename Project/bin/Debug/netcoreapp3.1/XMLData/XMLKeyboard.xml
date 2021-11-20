@@ -204,4 +204,17 @@
 		<key>D2</key>
 	</Control>
 
+
+	<Control>
+		<type>Link</type>
+		<name>LinkUseItem1Cmd</name>
+		<key>NumPad9</key>
+	</Control>
+
+	<Control>
+		<type>Link</type>
+		<name>LinkUseItem2Cmd</name>
+		<key>NumPad0</key>
+	</Control>
+
 </Controllers>

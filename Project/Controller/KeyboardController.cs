@@ -169,7 +169,8 @@ namespace Project1.Controller
                         command.Execute();
                     }
                 }
-                break;
+                //temporary fix so both links can move at the same time
+                //break;
             }
 
             // Execute commands for pressed keys that weren't previously pressed
@@ -183,7 +184,8 @@ namespace Project1.Controller
                         command.Execute();
                     }
                 }
-                break;
+                //temporary fix so both links can move at the same time
+                //break;
             }
 
             PreviousState = state; 
