@@ -23,11 +23,8 @@ namespace Project1.GameState
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(GameStateManager.Instance.Font, "PAUSED", new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, "\n\n         Press the space bar to continue\n\n                " +
-                "Press 'q' to quit\n\n    " +
-                "Press 'i' for the item selection screen\n\n                " +
-                "Press 'r' to restart", new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText1, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText2, new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
         }
         public IGameState Reset()
         {
@@ -51,7 +48,7 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionIn);
+            return new GameStateItemScroll(GameVar.DirectionIn);
         }
         public IGameState StartScroll()
         {

@@ -53,7 +53,7 @@ namespace Project1.GameState
         }
         public IGameState StopScroll()
         {
-            if(Direction == GameStateVar.DirectionIn)    // Scroll in GamePlay -> ItemScroll -> ItemSelection
+            if(Direction == GameVar.DirectionIn)    // Scroll in GamePlay -> ItemScroll -> ItemSelection
             {
                 return new GameStateItemSelect();
             }

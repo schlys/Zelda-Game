@@ -22,18 +22,12 @@ namespace Project1.GameState
 
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
-
-            String text = "Game Start!";
-            String text2 = "\n\n    Press 'x' to start";
-            String text3 = "\n\n    Press '1' or '2' to select \n   the number of players";
-            spriteBatch.DrawString(GameStateManager.Instance.Font, text, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, text2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, text3, new Vector2(RoomSize.X / 2 - sizeCorrector * 3, RoomSize.Y / 2 + sizeCorrector), Color.White);
+            
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.StartText1, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.StartText2, new Vector2(RoomSize.X / 2 - sizeCorrector*2, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.StartText3, new Vector2(RoomSize.X / 2 - sizeCorrector * 3, RoomSize.Y / 2 + sizeCorrector), Color.White);
 
             // Draw the 1 and 2 denoting the number of players and highlight the currently selected 
-            String text_num1 = "1";
-            String text_num2 = "2";
-
             Vector2 num1_position = new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2 + 5 * sizeCorrector);
             Vector2 num2_position = new Vector2(RoomSize.X / 2 + sizeCorrector, RoomSize.Y / 2 + 5 * sizeCorrector);
 
@@ -51,8 +45,8 @@ namespace Project1.GameState
             }
             spriteBatch.Draw(numSelect, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(GameStateManager.Instance.Font, text_num1, num1_position, Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, text_num2, num2_position, Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.TextNum1, num1_position, Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.TextNum2, num2_position, Color.White);
         }
         public IGameState Reset()
         {

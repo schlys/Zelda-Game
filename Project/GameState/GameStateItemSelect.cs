@@ -37,7 +37,7 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionOut);
+            return new GameStateItemScroll(GameVar.DirectionOut);
         }
         public IGameState StartScroll()
         {
@@ -45,7 +45,7 @@ namespace Project1.GameState
         }
         public IGameState StopScroll()
         {
-            return new GameStateItemScroll(GameStateVar.DirectionOut);
+            return new GameStateItemScroll(GameVar.DirectionOut);
         }
     }
 }
