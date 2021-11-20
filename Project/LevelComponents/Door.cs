@@ -6,6 +6,7 @@ using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
 using Project1.CollisionComponents;
+using Project1.DirectionState; 
 
 namespace Project1.LevelComponents
 {
@@ -15,14 +16,14 @@ namespace Project1.LevelComponents
 		public Vector2 Position { get; set; }
 		public Vector2 PositionDelta { get; set; }
 		public Sprite Sprite { get; set; }
+		public IDirectionState DirectionState { get; set; }
+
 		// from ICollidable
-        public Rectangle Hitbox { get; set; }
+		public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
-		public string Direction { get; set; }
 
 		private bool locked;
-
 
 		public Door(Vector2 position, string direction, bool locked, Vector2 positionDelta)
         {
@@ -30,7 +31,8 @@ namespace Project1.LevelComponents
 			//					LevelFactory.Instance.RoomBlockSize * positionDelta.Y);
 			PositionDelta = positionDelta;
 
-			Direction = direction;
+			DirectionState = DirectionManager.Instance.GetDirectionState(direction);
+
 			this.locked = locked;
 			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
 			Position = position;
@@ -58,9 +60,26 @@ namespace Project1.LevelComponents
         }
 		public void ChangeRoom()
         {
-			switch (Direction)
+			if(DirectionState is DirectionStateUp)
+            {
+				LevelFactory.Instance.MoveUp(PositionDelta);
+			}
+			else if (DirectionState is DirectionStateDown)
 			{
-				case "Up":
+				LevelFactory.Instance.MoveDown(PositionDelta);
+			}
+			else if (DirectionState is DirectionStateLeft)
+			{
+				LevelFactory.Instance.MoveLeft(PositionDelta);
+			}
+			else if (DirectionState is DirectionStateRight)
+			{
+				LevelFactory.Instance.MoveRight(PositionDelta);
+			}
+			/*
+			switch (DirectionState)
+			{
+				case DirectionStateUp:
 					LevelFactory.Instance.MoveUp(PositionDelta);
 					break;
 				case "Down":
@@ -73,6 +92,7 @@ namespace Project1.LevelComponents
 					LevelFactory.Instance.MoveLeft(PositionDelta);
 					break;
 			}
+			*/
 		}
 	}
 }

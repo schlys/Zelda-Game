@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework;
 using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
-using Project1.EnemyComponents; 
-
+using Project1.EnemyComponents;
+using Project1.DirectionState; 
 
 namespace Project1.LevelComponents
 {
@@ -35,6 +35,6 @@ namespace Project1.LevelComponents
         void AddDoor(IDoor door);
         void Draw(SpriteBatch spriteBatch);
         void Reset();
-        void OpenDoor(string direction);
+        void OpenDoor(IDirectionState direction);
     }
 }

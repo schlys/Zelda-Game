@@ -8,6 +8,7 @@ using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
+using Project1.DirectionState; 
 
 namespace Project1.LevelComponents
 {
@@ -70,11 +71,11 @@ namespace Project1.LevelComponents
         {
             Doors.Add(door);
         }
-        public void OpenDoor(string direction)
+        public void OpenDoor(IDirectionState direction)
         {
             foreach (IDoor door in Doors)
             {
-                if (direction.Equals(door.Direction)) 
+                if (direction.GetType().Name.Equals(door.DirectionState.GetType().Name)) 
                 { 
                     door.Unlock();
                     break;

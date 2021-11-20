@@ -13,6 +13,7 @@ using System.Xml;
 using System.IO;
 using Project1.GameState;
 using System.Reflection;
+using Project1.DirectionState; 
 
 namespace Project1.LevelComponents
 {
@@ -278,7 +279,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
-                NextRoom.OpenDoor("Down");
+                NextRoom.OpenDoor(new DirectionStateDown());
 
                 LevelMap.MoveUp();
             }
@@ -298,7 +299,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
-                NextRoom.OpenDoor("Up");
+                NextRoom.OpenDoor(new DirectionStateUp());
 
                 LevelMap.MoveDown();
             }
@@ -318,7 +319,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
-                NextRoom.OpenDoor("Right");
+                NextRoom.OpenDoor(new DirectionStateRight());
 
                 LevelMap.MoveLeft();
             }
@@ -338,7 +339,7 @@ namespace Project1.LevelComponents
 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
-                NextRoom.OpenDoor("Left");
+                NextRoom.OpenDoor(new DirectionStateLeft());
 
                 LevelMap.MoveRight();
             }

@@ -9,6 +9,7 @@ using System.Text;
 using Project1.LevelComponents;
 using Microsoft.Xna.Framework;
 using Project1.BlockComponents;
+using Project1.DirectionState; 
 
 namespace Project1.Command
 {
@@ -87,8 +88,8 @@ namespace Project1.Command
         {
             // TODO: handle in link or Door class 
             // Unlock the door if link has a key
-           
-            if (Link.DirectionState.ID.Equals(Door.Direction))
+            IDirectionState DoorDirection = Door.DirectionState; 
+            if (Link.DirectionState.GetType().Name.Equals(Door.DirectionState.GetType().Name))
             {
 
                 //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
