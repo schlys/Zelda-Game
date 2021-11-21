@@ -49,6 +49,7 @@ namespace Project1
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
         private GameWindow newWindow;
+        private Form newForm;
         private bool IsNewWindow = false;
 
         public Game1 Game; 
@@ -72,9 +73,9 @@ namespace Project1
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
 
             GameWindow currentWindow = Game.Window;
-            Form newForm = (Form)Form.FromHandle(currentWindow.Handle);
+            Form currForm = (Form)Form.FromHandle(currentWindow.Handle);
 
-            newForm.Visible = true;
+            currForm.Visible = true;
             swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
                                              currentWindow.Handle,
                                              currentWindow.ClientBounds.Width,
@@ -85,6 +86,12 @@ namespace Project1
                                              1,
                                              RenderTargetUsage.PlatformContents,
                                              PresentInterval.Default));
+
+            newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
+            newWindow.Title = "Project1 - 2nd Link";
+            newForm = (Form)Form.FromHandle(newWindow.Handle);
+
+            newForm.Visible = true;
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -326,14 +333,6 @@ namespace Project1
         {
             LevelFactory.Instance.Reset();
             UpdateRoomItems();
-            if (IsNewWindow) // remove 2nd window
-            {
-                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
-
-                newForm.Visible = false;
-            }
-            IsNewWindow = false;
-
             foreach (ILink link in Links)
             {
                 link.Reset();
@@ -357,6 +356,15 @@ namespace Project1
             }
             Projectiles = new List<IProjectile>();
         }
+
+        public void ResetPlayer() // reset for players, windows
+        {
+            if (IsNewWindow) // remove 2nd window
+            {
+                newForm.Visible = false;
+            }
+        }
+
         public void AddProjectile(IProjectile projectile)
         {
             Projectiles.Add(projectile);
@@ -389,12 +397,10 @@ namespace Project1
             for (int i = 1; i < LinkCount; i++)
             {
                 // create a viewport for each player
-                newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
-                newWindow.Title = "Project1 - 2nd Link";
-                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
+
 
                 newForm.Visible = true;
-              
+
 
                 swapChain.Add(new SwapChainRenderTarget(Game.GraphicsDevice,
                                              newWindow.Handle,

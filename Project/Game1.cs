@@ -78,6 +78,7 @@ namespace Project1
         {
 
             GameStateManager.Instance.Reset();
+            GameObjectManager.Instance.ResetPlayer();
             GameObjectManager.Instance.Reset();
         }
 
@@ -90,8 +91,8 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            //GameObjectManager.Instance.Reset();
             GameObjectManager.Instance.CreatePlayers();
+            GameObjectManager.Instance.Reset();
             GameStateManager.Instance.Start();
         }
 
