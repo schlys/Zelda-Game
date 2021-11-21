@@ -355,12 +355,12 @@ namespace Project1
             Projectiles = new List<IProjectile>();
         }
 
-        public void ShowNewWindow()
+        public void ShowNewWindow() // show new window for player 2
         {
             if (IsNewWindow) newForm.Visible = true;
         }
 
-        public void ResetPlayer() // reset for players, windows
+        public void ResetPlayer() // reset for player 2
         {
             if (IsNewWindow) // remove 2nd window
             {
@@ -369,6 +369,9 @@ namespace Project1
 
             if(swapChain.Count>1) swapChain.RemoveAt(1);
             IsStart = false;
+
+            Links.Clear();
+            Links_copy.Clear();
         }
 
         public void AddProjectile(IProjectile projectile)
