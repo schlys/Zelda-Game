@@ -37,7 +37,7 @@ namespace Project1
         public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
-        public int LinkCount = 2;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
+        public int LinkCount = 0;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -50,7 +50,11 @@ namespace Project1
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
         private GameWindow newWindow;
         private Form newForm;
-        private bool IsNewWindow = false;
+        private GameWindow currentWindow;
+        private Form currForm;
+
+        public bool IsNewWindow = false;
+        public bool IsStart = true;
 
         public Game1 Game; 
 
@@ -72,8 +76,8 @@ namespace Project1
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
 
-            GameWindow currentWindow = Game.Window;
-            Form currForm = (Form)Form.FromHandle(currentWindow.Handle);
+            currentWindow = Game.Window;
+            currForm = (Form)Form.FromHandle(currentWindow.Handle);
 
             currForm.Visible = true;
             swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
@@ -86,12 +90,6 @@ namespace Project1
                                              1,
                                              RenderTargetUsage.PlatformContents,
                                              PresentInterval.Default));
-
-            newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
-            newWindow.Title = "Project1 - 2nd Link";
-            newForm = (Form)Form.FromHandle(newWindow.Handle);
-
-            newForm.Visible = true;
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -283,50 +281,50 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-
-            for (int i = 0; i < LinkCount; i++)
+            if (IsStart) // after reset, Draw also works, so using this boolean, Draw works only "game starts"
             {
-                Game.GraphicsDevice.SetRenderTarget(swapChain[i]); // show out of bound error when "play game with 1 player -> reset -> play game with 2 players"
-                //Game.GraphicsDevice.Clear(Color.Black);
+                for (int i = 0; i < LinkCount; i++)
+                {
+                    Game.GraphicsDevice.SetRenderTarget(swapChain[i]); 
+                                                                       //Game.GraphicsDevice.Clear(Color.Black);
 
-                LevelFactory.Instance.Draw(spriteBatch);
+                    LevelFactory.Instance.Draw(spriteBatch);
 
-                foreach (IBlock block in Blocks)
-                {
-                    block.Draw(spriteBatch);
-                }
-                foreach (IItem item in Items)
-                {
-                    item.Draw(spriteBatch);
-                }
-                foreach (ILink link in Links)
-                {
-                    link.Draw(spriteBatch);
-                }
-                foreach (IEnemy enemy in Enemies)
-                {
-                    enemy.Draw(spriteBatch);
-                }
-                foreach (IDoor door in Doors)
-                {
-                    door.Draw(spriteBatch);
-                }
-                foreach (IProjectile Projectile in Projectiles)
-                {
-                    Projectile.Draw(spriteBatch);
-                }
-                swapChain[i].Present();
+                    foreach (IBlock block in Blocks)
+                    {
+                        block.Draw(spriteBatch);
+                    }
+                    foreach (IItem item in Items)
+                    {
+                        item.Draw(spriteBatch);
+                    }
+                    foreach (ILink link in Links)
+                    {
+                        link.Draw(spriteBatch);
+                    }
+                    foreach (IEnemy enemy in Enemies)
+                    {
+                        enemy.Draw(spriteBatch);
+                    }
+                    foreach (IDoor door in Doors)
+                    {
+                        door.Draw(spriteBatch);
+                    }
+                    foreach (IProjectile Projectile in Projectiles)
+                    {
+                        Projectile.Draw(spriteBatch);
+                    }
+                    swapChain[i].Present();
 
-                // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-                if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
-            }
-            Game.GraphicsDevice.SetRenderTarget(null);
-            for(int i=0; i < LinkCount; i++)
-            {
-                // if HUD is drawn here, it appears on the window, but only for one Link - main window
-            }
-
+                    // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
+                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
+                }
+                Game.GraphicsDevice.SetRenderTarget(null);
+                for (int i = 0; i < LinkCount; i++)
+                {
+                    // if HUD is drawn here, it appears on the window, but only for one Link - main window
+                }
+            }           
         }
 
         public void Reset()
@@ -357,12 +355,20 @@ namespace Project1
             Projectiles = new List<IProjectile>();
         }
 
+        public void ShowNewWindow()
+        {
+            if (IsNewWindow) newForm.Visible = true;
+        }
+
         public void ResetPlayer() // reset for players, windows
         {
             if (IsNewWindow) // remove 2nd window
             {
                 newForm.Visible = false;
             }
+
+            if(swapChain.Count>1) swapChain.RemoveAt(1);
+            IsStart = false;
         }
 
         public void AddProjectile(IProjectile projectile)
@@ -397,9 +403,11 @@ namespace Project1
             for (int i = 1; i < LinkCount; i++)
             {
                 // create a viewport for each player
+                newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
+                newWindow.Title = "Project1 - 2nd Link";
+                newForm = (Form)Form.FromHandle(newWindow.Handle);
 
-
-                newForm.Visible = true;
+                newForm.Visible = false;
 
 
                 swapChain.Add(new SwapChainRenderTarget(Game.GraphicsDevice,

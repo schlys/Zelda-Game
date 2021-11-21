@@ -91,7 +91,8 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            GameObjectManager.Instance.CreatePlayers();
+            GameObjectManager.Instance.IsStart = true;
+            GameObjectManager.Instance.ShowNewWindow();
             GameObjectManager.Instance.Reset();
             GameStateManager.Instance.Start();
         }
@@ -112,6 +113,8 @@ namespace Project1
         public void SetLinkCount(int n)
         {
             GameStateManager.Instance.SetLinkCount(n);
+            GameObjectManager.Instance.CreatePlayers();
+            if(n==2) GameObjectManager.Instance.IsNewWindow = true;
         }
     }
 
