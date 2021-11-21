@@ -37,7 +37,7 @@ namespace Project1
         public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
-        public int LinkCount = 0;          // Accesed in GameStateManager.cs 
+        public int LinkCount = 2;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -48,6 +48,8 @@ namespace Project1
         private List<IController> ControllersAdd;
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
+        private GameWindow newWindow;
+        private bool IsNewWindow = false;
 
         public Game1 Game; 
 
@@ -278,7 +280,7 @@ namespace Project1
 
             for (int i = 0; i < LinkCount; i++)
             {
-                Game.GraphicsDevice.SetRenderTarget(swapChain[i]);
+                Game.GraphicsDevice.SetRenderTarget(swapChain[i]); // show out of bound error when "play game with 1 player -> reset -> play game with 2 players"
                 //Game.GraphicsDevice.Clear(Color.Black);
 
                 LevelFactory.Instance.Draw(spriteBatch);
@@ -313,13 +315,24 @@ namespace Project1
                 if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
             }
             Game.GraphicsDevice.SetRenderTarget(null);
+            for(int i=0; i < LinkCount; i++)
+            {
+                // if HUD is drawn here, it appears on the window, but only for one Link - main window
+            }
 
         }
 
         public void Reset()
         {
             LevelFactory.Instance.Reset();
-            UpdateRoomItems(); 
+            UpdateRoomItems();
+            if (IsNewWindow) // remove 2nd window
+            {
+                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
+
+                newForm.Visible = false;
+            }
+            IsNewWindow = false;
 
             foreach (ILink link in Links)
             {
@@ -373,11 +386,11 @@ namespace Project1
 
         public void CreatePlayers()
         {
-            GameWindow newWindow;
             for (int i = 1; i < LinkCount; i++)
             {
                 // create a viewport for each player
                 newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
+                newWindow.Title = "Project1 - 2nd Link";
                 Form newForm = (Form)Form.FromHandle(newWindow.Handle);
 
                 newForm.Visible = true;
@@ -393,6 +406,8 @@ namespace Project1
                                              1,
                                              RenderTargetUsage.PlatformContents,
                                              PresentInterval.Default));
+
+                if(LinkCount==2) IsNewWindow = true;
             }
 
             for (int i = 0; i < LinkCount; i++)

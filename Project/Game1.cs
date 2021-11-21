@@ -76,6 +76,7 @@ namespace Project1
 
         public void Restart()
         {
+
             GameStateManager.Instance.Reset();
             GameObjectManager.Instance.Reset();
         }
@@ -89,7 +90,7 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            GameObjectManager.Instance.Reset();
+            //GameObjectManager.Instance.Reset();
             GameObjectManager.Instance.CreatePlayers();
             GameStateManager.Instance.Start();
         }
