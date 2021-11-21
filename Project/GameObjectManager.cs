@@ -371,7 +371,7 @@ namespace Project1
             IsStart = false;
 
             Links.Clear();
-            Links_copy.Clear();
+            Links_copy.Clear(); // show only 1 Link (2 player -> reset -> 1 player)
         }
 
         public void AddProjectile(IProjectile projectile)
@@ -424,7 +424,6 @@ namespace Project1
                                              RenderTargetUsage.PlatformContents,
                                              PresentInterval.Default));
 
-                if(LinkCount==2) IsNewWindow = true;
             }
 
             for (int i = 0; i < LinkCount; i++)

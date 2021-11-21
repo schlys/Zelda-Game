@@ -91,8 +91,8 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            GameObjectManager.Instance.IsStart = true;
-            GameObjectManager.Instance.ShowNewWindow();
+            GameObjectManager.Instance.IsStart = true; // to prevent draw right after reset
+            if(GameObjectManager.Instance.LinkCount==2) GameObjectManager.Instance.ShowNewWindow(); // 2nd window comes out only for using 2 players
             GameObjectManager.Instance.Reset();
             GameStateManager.Instance.Start();
         }
@@ -114,7 +114,7 @@ namespace Project1
         {
             GameStateManager.Instance.SetLinkCount(n);
             GameObjectManager.Instance.CreatePlayers();
-            if(n==2) GameObjectManager.Instance.IsNewWindow = true;
+            if(n==2) GameObjectManager.Instance.IsNewWindow = true; // 2nd window comes out only for using 2 players
         }
     }
 
