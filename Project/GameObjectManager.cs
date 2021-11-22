@@ -429,7 +429,7 @@ namespace Project1
             // Parallel Construction between Link and HUDs
             for (int i = 0; i < LinkCount; i++)
             {
-                Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
+                Tuple<Vector2, Color> linkInfo = GameVar.GetLinkInfo(i);
                 ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
                 Links.Add(Link);
                 
