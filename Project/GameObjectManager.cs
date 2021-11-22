@@ -390,7 +390,7 @@ namespace Project1
 
         public void ShowNewWindow() // show new window for player 2 (pop up new window for 2nd player)
         {
-            if (IsNewWindow) newForm.Visible = true;
+            if (IsNewWindow && LinkCount==2) newForm.Visible = true;
         }
 
         public void ResetPlayer() // reset for player 2 (after using 2 players)

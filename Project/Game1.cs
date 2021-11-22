@@ -92,7 +92,7 @@ namespace Project1
             // Must reset before starting for cases when won / lost 
             started = true;
             GameObjectManager.Instance.IsStart = true; // to prevent draw right after reset
-            if(GameObjectManager.Instance.LinkCount==2) GameObjectManager.Instance.ShowNewWindow(); // 2nd window comes out only for using 2 players
+            GameObjectManager.Instance.ShowNewWindow(); // 2nd window comes out only for using 2 players
             GameObjectManager.Instance.Reset();
             GameStateManager.Instance.Start();
         }
