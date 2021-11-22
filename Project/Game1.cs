@@ -68,7 +68,7 @@ namespace Project1
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
            
             GameStateManager.Instance.Draw(spriteBatch);
-            if (started) GameObjectManager.Instance.Draw(spriteBatch);
+            //if (started) GameObjectManager.Instance.Draw(spriteBatch);
 
             spriteBatch.End();
 
@@ -81,7 +81,7 @@ namespace Project1
         {
             started = false; //
             GameStateManager.Instance.Reset();
-            GameObjectManager.Instance.Reset();
+            //GameObjectManager.Instance.Reset();
         }
 
         public void Pause()
@@ -93,7 +93,7 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            GameObjectManager.Instance.CreatePlayers(); // 
+            //GameObjectManager.Instance.CreatePlayers(); // 
             GameStateManager.Instance.Start();
         }
 

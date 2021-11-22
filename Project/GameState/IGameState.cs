@@ -8,7 +8,7 @@ namespace Project1.GameState
 {
     public interface IGameState
     {
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, int i);
         IGameState Reset();
         IGameState Pause();
         IGameState StartGame();

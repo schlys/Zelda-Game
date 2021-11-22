@@ -19,9 +19,10 @@ namespace Project1.GameState
         {
             Direction = direction;
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int i)
         {
             // Drawing handled in GameObjectManager.cs
+            GameObjectManager.Instance.Draw(spriteBatch, i);
         }
         public IGameState Reset()
         {

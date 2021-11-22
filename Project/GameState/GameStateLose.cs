@@ -12,7 +12,7 @@ namespace Project1.GameState
         public GameStateLose()
         {
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int i)
         {
             int sizeCorrector = 40;
 

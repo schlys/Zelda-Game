@@ -18,7 +18,7 @@ namespace Project1.GameState
             TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
             Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int i)
         {
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
             int sizeCorrector = 40;

@@ -12,7 +12,7 @@ namespace Project1.GameState
         public GameStatePause()
         {
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int i)
         {
             Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
             int sizeCorrector = 40;

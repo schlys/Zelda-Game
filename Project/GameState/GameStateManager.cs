@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.SpriteComponents;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace Project1.GameState
 {
@@ -26,6 +27,7 @@ namespace Project1.GameState
         public Game1 Game { get; set; }
         public SpriteFont Font { get; set; }
 
+        private List<Tuple<SwapChainRenderTarget, Form>> swapChain;
         private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
         private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
@@ -39,15 +41,57 @@ namespace Project1.GameState
         {
             Game = game;
             Font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+
+            swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
+
+            Game.Window.Title = "Project1 - 1st player";
+
+            Form currForm = (Form)Form.FromHandle(Game.Window.Handle);
+
+            //currForm.Visible = true;
+            swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
+                Game.Window.Handle,
+                 Game.Window.ClientBounds.Width,
+                 Game.Window.ClientBounds.Height,
+                 false,
+                 SurfaceFormat.Color,
+                 DepthFormat.Depth24Stencil8,
+                 1,
+                 RenderTargetUsage.PlatformContents,
+                 PresentInterval.Default), currForm)
+            );
         }
+
+        
         public void Draw(SpriteBatch spriteBatch) 
         {
-            CurrentState.Draw(spriteBatch);   
+            for (int i = 1; i < swapChain.Count; i++)
+            {
+                Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
+                Game.GraphicsDevice.Clear(Color.Black);
+                CurrentState.Draw(spriteBatch, i);
+                swapChain[i].Item1.Present();
+            }
+
+            Game.GraphicsDevice.SetRenderTarget(null);
+            Game.GraphicsDevice.Clear(Color.Black);
+            CurrentState.Draw(spriteBatch, 0);
+           
         }
         public void Reset() 
         {
             // Restart the game from the beginning 
             CurrentState = CurrentState.Reset();
+            GameObjectManager.Instance.Reset();
+
+            if (swapChain.Count > 1)
+            {
+                for (int i = 1; i < swapChain.Count; i++)
+                {
+                    swapChain[i].Item2.Visible = false;
+                }
+                swapChain.RemoveRange(1, swapChain.Count - 1);
+            }
         }
         public void Pause() 
         {
@@ -56,6 +100,31 @@ namespace Project1.GameState
         }
         public void Start() 
         {
+            for (int i = 1; i < GameObjectManager.Instance.LinkCount; i++)
+            {
+                GameWindow newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
+                newWindow.Title = "Project1 - 2nd Link";
+
+
+                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
+
+                newForm.Location = new System.Drawing.Point(0, Game.ScreenWidth / 8);
+                newForm.Visible = true;
+
+                swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
+                    newWindow.Handle,
+                    newWindow.ClientBounds.Width,
+                    newWindow.ClientBounds.Height,
+                    false,
+                    SurfaceFormat.Color,
+                    DepthFormat.Depth24Stencil8,
+                    1,
+                    RenderTargetUsage.PlatformContents,
+                    PresentInterval.Default), newForm)
+               );
+            }
+            GameObjectManager.Instance.CreatePlayers();
+
             GameSoundManager.Instance.PlaySong();
             CurrentState = CurrentState.StartGame(); 
         }

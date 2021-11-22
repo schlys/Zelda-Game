@@ -11,9 +11,10 @@ namespace Project1.GameState
         public GameStateGamePlay()
         {
         }
-        public void Draw(SpriteBatch spriteBatch) 
+        public void Draw(SpriteBatch spriteBatch, int i) 
         {
             // Drawing handled in GameObjectManager.cs
+            GameObjectManager.Instance.Draw(spriteBatch, i);
         }
         public IGameState Reset()
         {

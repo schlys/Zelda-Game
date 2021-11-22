@@ -15,9 +15,9 @@ namespace Project1.GameState
         public GameStateRoomScroll()
         {
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int i)
         {
-            
+            GameObjectManager.Instance.Draw(spriteBatch, i);
         }
         public IGameState Reset()
         {
