@@ -290,7 +290,7 @@ namespace Project1
                 for (int i = 0; i < LinkCount; i++)
                 {
                     Game.GraphicsDevice.SetRenderTarget(swapChain[i]);
-                    Game.GraphicsDevice.Clear(Color.Black);
+                    //Game.GraphicsDevice.Clear(Color.Black);
                     LevelFactory.Instance.Draw(spriteBatch);
 
                     foreach (IBlock block in Blocks)
@@ -317,19 +317,15 @@ namespace Project1
                     {
                         Projectile.Draw(spriteBatch);
                     }
-                    foreach (IHUD HUD in HUDs)
-                    {
-                        HUD.Draw(spriteBatch);
-                    }
                     swapChain[i].Present();
 
                     // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-                    //if (i < HUDs.Count) HUDs[1].Draw(spriteBatch);
+                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
                    
                 }
                 Game.GraphicsDevice.SetRenderTarget(null);
                 Game.GraphicsDevice.Clear(Color.Black);
-                
+
                 // to prevent flickering, draw one more time.
                 LevelFactory.Instance.Draw(spriteBatch);
 
@@ -359,7 +355,7 @@ namespace Project1
                 }
                 foreach (IHUD HUD in HUDs)
                 {
-                    HUD.Draw(spriteBatch);
+                    //HUDs[0].Draw(spriteBatch);
                 }
 
             }           
