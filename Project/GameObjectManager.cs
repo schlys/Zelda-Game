@@ -281,7 +281,7 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (IsStart) // after reset, Draw also works, so using this boolean, Draw works only "game starts"
+            if (IsStart) // after reset, Draw also works => using this boolean, Draw works only "game starts"
             {
                 for (int i = 0; i < LinkCount; i++)
                 {
@@ -355,12 +355,12 @@ namespace Project1
             Projectiles = new List<IProjectile>();
         }
 
-        public void ShowNewWindow() // show new window for player 2
+        public void ShowNewWindow() // show new window for player 2 (pop up new window for 2nd player)
         {
             if (IsNewWindow) newForm.Visible = true;
         }
 
-        public void ResetPlayer() // reset for player 2
+        public void ResetPlayer() // reset for player 2 (after using 2 players)
         {
             if (IsNewWindow) // remove 2nd window
             {
