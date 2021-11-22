@@ -77,6 +77,7 @@ namespace Project1
 
             // Add the current window to <swapChain> 
             currentWindow = Game.Window;
+            currentWindow.Title = "Project1 - 1st player";
             currForm = (Form)Form.FromHandle(currentWindow.Handle);
 
             currForm.Visible = true;
@@ -91,6 +92,8 @@ namespace Project1
                  RenderTargetUsage.PlatformContents,
                  PresentInterval.Default)
             );
+
+            
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -283,11 +286,11 @@ namespace Project1
         {
             if (IsStart) // after reset, Draw also works => using this boolean, Draw works only "game starts"
             {
+                
                 for (int i = 0; i < LinkCount; i++)
                 {
-                    Game.GraphicsDevice.SetRenderTarget(swapChain[i]); 
-                                                                       //Game.GraphicsDevice.Clear(Color.Black);
-
+                    Game.GraphicsDevice.SetRenderTarget(swapChain[i]);
+                    Game.GraphicsDevice.Clear(Color.Black);
                     LevelFactory.Instance.Draw(spriteBatch);
 
                     foreach (IBlock block in Blocks)
@@ -320,10 +323,40 @@ namespace Project1
                     if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
                 }
                 Game.GraphicsDevice.SetRenderTarget(null);
+                Game.GraphicsDevice.Clear(Color.Black);
+                
+                // to prevent flickering, draw one more time.
+                LevelFactory.Instance.Draw(spriteBatch);
+
+                foreach (IBlock block in Blocks)
+                {
+                    block.Draw(spriteBatch);
+                }
+                foreach (IItem item in Items)
+                {
+                    item.Draw(spriteBatch);
+                }
+                foreach (ILink link in Links)
+                {
+                    link.Draw(spriteBatch);
+                }
+                foreach (IEnemy enemy in Enemies)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+                foreach (IDoor door in Doors)
+                {
+                    door.Draw(spriteBatch);
+                }
+                foreach (IProjectile Projectile in Projectiles)
+                {
+                    Projectile.Draw(spriteBatch);
+                }
                 for (int i = 0; i < LinkCount; i++)
                 {
-                    // if HUD is drawn here, it appears on the window, but only for one Link - main window
+                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);  // if HUD is drawn here, it appears on the window, but only for one Link - main window
                 }
+
             }           
         }
 
