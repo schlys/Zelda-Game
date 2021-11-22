@@ -317,10 +317,15 @@ namespace Project1
                     {
                         Projectile.Draw(spriteBatch);
                     }
+                    foreach (IHUD HUD in HUDs)
+                    {
+                        HUD.Draw(spriteBatch);
+                    }
                     swapChain[i].Present();
 
                     // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
+                    //if (i < HUDs.Count) HUDs[1].Draw(spriteBatch);
+                   
                 }
                 Game.GraphicsDevice.SetRenderTarget(null);
                 Game.GraphicsDevice.Clear(Color.Black);
@@ -352,10 +357,7 @@ namespace Project1
                 {
                     Projectile.Draw(spriteBatch);
                 }
-                for (int i = 0; i < LinkCount; i++)
-                {
-                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);  // if HUD is drawn here, it appears on the window, but only for one Link - main window
-                }
+                
 
             }           
         }
