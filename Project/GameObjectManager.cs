@@ -357,7 +357,10 @@ namespace Project1
                 {
                     Projectile.Draw(spriteBatch);
                 }
-                
+                foreach (IHUD HUD in HUDs)
+                {
+                    HUD.Draw(spriteBatch);
+                }
 
             }           
         }
