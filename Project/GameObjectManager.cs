@@ -300,38 +300,33 @@ namespace Project1
             }
             Game.GraphicsDevice.SetRenderTarget(null);
             Game.GraphicsDevice.Clear(Color.Black);
+            LevelFactory.Instance.Draw(spriteBatch);
 
             // to prevent flickering, draw one more time.
-            //LevelFactory.Instance.Draw(spriteBatch);
-
-            //foreach (IBlock block in Blocks)
-            //{
-            //    block.Draw(spriteBatch);
-            //}
-            //foreach (IItem item in Items)
-            //{
-            //    item.Draw(spriteBatch);
-            //}
-            //foreach (ILink link in Links)
-            //{
-            //    link.Draw(spriteBatch);
-            //}
-            //foreach (IEnemy enemy in Enemies)
-            //{
-            //    enemy.Draw(spriteBatch);
-            //}
-            //foreach (IDoor door in Doors)
-            //{
-            //    door.Draw(spriteBatch);
-            //}
-            //foreach (IProjectile Projectile in Projectiles)
-            //{
-            //    Projectile.Draw(spriteBatch);
-            //}
-            //foreach (IHUD HUD in HUDs)
-            //{
-            //    //HUDs[0].Draw(spriteBatch);
-            //}
+            foreach (IBlock block in Blocks)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (IItem item in Items)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (ILink link in Links)
+            {
+                link.Draw(spriteBatch);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IDoor door in Doors)
+            {
+                door.Draw(spriteBatch);
+            }
+            foreach (IProjectile Projectile in Projectiles)
+            {
+                Projectile.Draw(spriteBatch);
+            }
 
 
         }
