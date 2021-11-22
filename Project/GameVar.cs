@@ -53,5 +53,18 @@ namespace Project1
 
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
+
+
+        // LINK 
+        public static Tuple<Vector2, Color> GetLinkInfo(int i)
+        {
+            List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>
+            {
+                {Tuple.Create(LevelFactory.Instance.GetItemPosition(6,4), Color.White)},
+                {Tuple.Create(LevelFactory.Instance.GetItemPosition(6,7), Color.CornflowerBlue)}
+            };
+
+            return LinkInfo[i];
+        }
     }
 }
