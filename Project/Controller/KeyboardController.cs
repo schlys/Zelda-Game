@@ -179,7 +179,7 @@ namespace Project1.Controller
                 // not previously pressed 
                 if (ControllerMappingsPressKey.ContainsKey(key) && !PreviousState.IsKeyDown(key))
                 {
-                    foreach (ICommand command in ControllerMappingsPressKey[key])
+                    foreach (ICommand command in ControllerMappingsPressKey[key].ToArray())
                     {
                         command.Execute();
                     }

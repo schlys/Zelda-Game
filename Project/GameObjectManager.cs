@@ -37,7 +37,7 @@ namespace Project1
         public int ScalingFactor = 2; 
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
-        public int LinkCount = 0;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
+        public int LinkCount;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
         public List<IHUD> HUDs;
         public List<IBlock> Blocks;
         public List<IItem> Items;
@@ -45,7 +45,7 @@ namespace Project1
         public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
-        private List<IController> ControllersAdd;
+        
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
         private GameWindow newWindow;
@@ -71,31 +71,34 @@ namespace Project1
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
             Controllers = new List<IController>();
-            ControllersAdd = new List<IController>();
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
 
+            // Add the current window to <swapChain> 
             currentWindow = Game.Window;
             currForm = (Form)Form.FromHandle(currentWindow.Handle);
 
             currForm.Visible = true;
             swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
-                                             currentWindow.Handle,
-                                             currentWindow.ClientBounds.Width,
-                                             currentWindow.ClientBounds.Height,
-                                             false,
-                                             SurfaceFormat.Color,
-                                             DepthFormat.Depth24Stencil8,
-                                             1,
-                                             RenderTargetUsage.PlatformContents,
-                                             PresentInterval.Default));
+                currentWindow.Handle,
+                 currentWindow.ClientBounds.Width,
+                 currentWindow.ClientBounds.Height,
+                 false,
+                 SurfaceFormat.Color,
+                 DepthFormat.Depth24Stencil8,
+                 1,
+                 RenderTargetUsage.PlatformContents,
+                 PresentInterval.Default)
+            );
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
 
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
+
+            LinkCount = 1; 
 
             /* Add Link and their HUD
              * Parallel Contruction: between Link and HUD 
@@ -133,9 +136,6 @@ namespace Project1
             {
                 controller.Update();
             }
-            Controllers.AddRange(ControllersAdd);
-            ControllersAdd = new List<IController>();
-            
 
             foreach (IHUD HUD in HUDs)
             {
@@ -403,43 +403,52 @@ namespace Project1
 
         public void CreatePlayers()
         {
+            // create a viewport for <LinkCount> -1 players since a single viewport already exists
             for (int i = 1; i < LinkCount; i++)
             {
-                // create a viewport for each player
                 newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
                 newWindow.Title = "Project1 - 2nd Link";
                 newForm = (Form)Form.FromHandle(newWindow.Handle);
 
                 newForm.Visible = false;
 
-
                 swapChain.Add(new SwapChainRenderTarget(Game.GraphicsDevice,
-                                             newWindow.Handle,
-                                             newWindow.ClientBounds.Width,
-                                             newWindow.ClientBounds.Height,
-                                             false,
-                                             SurfaceFormat.Color,
-                                             DepthFormat.Depth24Stencil8,
-                                             1,
-                                             RenderTargetUsage.PlatformContents,
-                                             PresentInterval.Default));
-
+                    newWindow.Handle,
+                    newWindow.ClientBounds.Width,
+                    newWindow.ClientBounds.Height,
+                    false,
+                    SurfaceFormat.Color,
+                    DepthFormat.Depth24Stencil8,
+                    1,
+                    RenderTargetUsage.PlatformContents,
+                    PresentInterval.Default)
+               );
             }
 
+            // Create <LinkCount> Links and a HUD for each Link. 
+            // Parallel Construction between Link and HUDs
             for (int i = 0; i < LinkCount; i++)
             {
-                // Create a link and HUD for each player
                 Tuple<Vector2, Color> linkInfo = LinkInfo.Instance.GetInfo(i);
                 ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
                 Links.Add(Link);
+                
                 Links_copy = new List<ILink>(Links);
+                
                 IHUD HUD = new HUD(Link, Game);
                 HUDs.Add(HUD);
 
-                IController KeyboardController = new KeyboardController(Game);
-                ControllersAdd.Add(KeyboardController);
-                KeyboardController.InitializeLinkCommands(Link, i + 1);
+                foreach (IController controller in Controllers)
+                {
+                    if (controller is KeyboardController)
+                    {
+                        controller.InitializeLinkCommands(Link, i + 1);
+                    }
+                }
             }
+
+
+
             UpdateRoomItems();
         }
     }
