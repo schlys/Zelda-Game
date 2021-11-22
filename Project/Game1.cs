@@ -33,6 +33,8 @@ namespace Project1
             graphics.PreferredBackBufferHeight = ScreenHeight;
             graphics.ApplyChanges();
         }
+    
+            
 
         protected override void Initialize()
         {
@@ -62,10 +64,11 @@ namespace Project1
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.Black);
+            
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
-            if (started) GameObjectManager.Instance.Draw(spriteBatch);
+           
             GameStateManager.Instance.Draw(spriteBatch);
+            if (started) GameObjectManager.Instance.Draw(spriteBatch);
 
             spriteBatch.End();
 
@@ -76,9 +79,8 @@ namespace Project1
 
         public void Restart()
         {
-
+            started = false; //
             GameStateManager.Instance.Reset();
-            GameObjectManager.Instance.ResetPlayer();
             GameObjectManager.Instance.Reset();
         }
 
@@ -91,9 +93,7 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             started = true;
-            GameObjectManager.Instance.IsStart = true; // to prevent draw right after reset
-            GameObjectManager.Instance.ShowNewWindow(); // 2nd window comes out only for using 2 players
-            GameObjectManager.Instance.Reset();
+            GameObjectManager.Instance.CreatePlayers(); // 
             GameStateManager.Instance.Start();
         }
 
@@ -113,8 +113,6 @@ namespace Project1
         public void SetLinkCount(int n)
         {
             GameStateManager.Instance.SetLinkCount(n);
-            GameObjectManager.Instance.CreatePlayers();
-            if(n==2) GameObjectManager.Instance.IsNewWindow = true; // 2nd window comes out only for using 2 players
         }
     }
 

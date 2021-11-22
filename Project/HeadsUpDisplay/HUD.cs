@@ -22,6 +22,7 @@ namespace Project1.HeadsUpDisplay
 
         private Game1 Game;
         private int Step;
+        private int InitialStep;
         private int ScrollDeltaY;
         private SpriteFont Font;
         private Dictionary<String, Vector2> Positions;
@@ -84,6 +85,7 @@ namespace Project1.HeadsUpDisplay
             HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
 
             Step = 6;
+            InitialStep = Step;
             ScrollDeltaY = (HUDMap.Height * GameObjectManager.Instance.ScalingFactor) + (HUDInventory.Height * GameObjectManager.Instance.ScalingFactor); 
         }
 
@@ -244,6 +246,7 @@ namespace Project1.HeadsUpDisplay
             * Once the screen is finished scrolling, it stops the animation by triggering a state change in 
             * GameStateManager and reverses step so it will scroll out in the opposite direction. 
             */ 
+           
             if((Step > 0) && (Position.Y > InitialPosition.Y + ScrollDeltaY))   // Scroll down into item selection screen
             {
                 GameStateManager.Instance.StopScroll();
