@@ -101,8 +101,6 @@ namespace Project1
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
 
-            LinkCount = 1; 
-
             /* Add Link and their HUD
              * Parallel Contruction: between Link and HUD 
              */
@@ -130,6 +128,10 @@ namespace Project1
             // Register Mouse commands 
             MouseController.InitializeGameCommands();
 
+            /* Create Links */
+            LinkCount = 1;
+            SetLinkCount(LinkCount);
+            CreatePlayers();
         }
 
         public void Update()
