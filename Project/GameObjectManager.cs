@@ -319,46 +319,47 @@ namespace Project1
                     {
                         Projectile.Draw(spriteBatch);
                     }
-                    swapChain[i].Present();
+                    //swapChain[i].Present();
 
                     // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
                     if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
+                    swapChain[i].Present();
 
                 }
                 Game.GraphicsDevice.SetRenderTarget(null);
                 Game.GraphicsDevice.Clear(Color.Black);
 
                 // to prevent flickering, draw one more time.
-                LevelFactory.Instance.Draw(spriteBatch);
+                //LevelFactory.Instance.Draw(spriteBatch);
 
-                foreach (IBlock block in Blocks)
-                {
-                    block.Draw(spriteBatch);
-                }
-                foreach (IItem item in Items)
-                {
-                    item.Draw(spriteBatch);
-                }
-                foreach (ILink link in Links)
-                {
-                    link.Draw(spriteBatch);
-                }
-                foreach (IEnemy enemy in Enemies)
-                {
-                    enemy.Draw(spriteBatch);
-                }
-                foreach (IDoor door in Doors)
-                {
-                    door.Draw(spriteBatch);
-                }
-                foreach (IProjectile Projectile in Projectiles)
-                {
-                    Projectile.Draw(spriteBatch);
-                }
-                foreach (IHUD HUD in HUDs)
-                {
-                    //HUDs[0].Draw(spriteBatch);
-                }
+                //foreach (IBlock block in Blocks)
+                //{
+                //    block.Draw(spriteBatch);
+                //}
+                //foreach (IItem item in Items)
+                //{
+                //    item.Draw(spriteBatch);
+                //}
+                //foreach (ILink link in Links)
+                //{
+                //    link.Draw(spriteBatch);
+                //}
+                //foreach (IEnemy enemy in Enemies)
+                //{
+                //    enemy.Draw(spriteBatch);
+                //}
+                //foreach (IDoor door in Doors)
+                //{
+                //    door.Draw(spriteBatch);
+                //}
+                //foreach (IProjectile Projectile in Projectiles)
+                //{
+                //    Projectile.Draw(spriteBatch);
+                //}
+                //foreach (IHUD HUD in HUDs)
+                //{
+                //    //HUDs[0].Draw(spriteBatch);
+                //}
 
             }
         }
