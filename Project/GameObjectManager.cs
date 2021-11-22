@@ -20,7 +20,7 @@ namespace Project1
     {
         /* GameObjectManager is a singleton that manages the objects used for the game. It also makes calls to
          * CollisionManager. 
-         */ 
+         */
 
         private static GameObjectManager instance = new GameObjectManager();
         public static GameObjectManager Instance
@@ -34,7 +34,7 @@ namespace Project1
 
         private List<SwapChainRenderTarget> swapChain;
 
-        public int ScalingFactor = 2; 
+        public int ScalingFactor = 2;
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
         public int LinkCount;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
@@ -45,7 +45,7 @@ namespace Project1
         public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
-        
+
         private IRoom Room;
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
         private GameWindow newWindow;
@@ -56,7 +56,7 @@ namespace Project1
         public bool IsNewWindow = false;
         public bool IsStart = true;
 
-        public Game1 Game; 
+        public Game1 Game;
 
         public void Initialize(Game1 game)
         {
@@ -81,7 +81,7 @@ namespace Project1
             currForm = (Form)Form.FromHandle(currentWindow.Handle);
 
             currForm.Visible = true;
-            swapChain.Add(new SwapChainRenderTarget( Game.GraphicsDevice,
+            swapChain.Add(new SwapChainRenderTarget(Game.GraphicsDevice,
                 currentWindow.Handle,
                  currentWindow.ClientBounds.Width,
                  currentWindow.ClientBounds.Height,
@@ -93,13 +93,17 @@ namespace Project1
                  PresentInterval.Default)
             );
 
-            
+
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
 
             IController MouseController = new MouseController(Game);
             Controllers.Add(MouseController);
+
+            LinkCount = 1;
+            SetLinkCount(LinkCount);
+            //CreatePlayers();
 
             /* Add Link and their HUD
              * Parallel Contruction: between Link and HUD 
@@ -128,15 +132,11 @@ namespace Project1
             // Register Mouse commands 
             MouseController.InitializeGameCommands();
 
-            /* Create Links */
-            LinkCount = 1;
-            SetLinkCount(LinkCount);
-            CreatePlayers();
         }
 
         public void Update()
         {
-            
+
             foreach (IController controller in Controllers)
             {
                 controller.Update();
@@ -160,7 +160,7 @@ namespace Project1
                         FreezeEnemies = new Tuple<bool, ILink>(true, link);
                     }
                 }
-                
+
                 // NOTE: Blocks do not update 
 
                 foreach (IItem item in Items)
@@ -176,7 +176,7 @@ namespace Project1
                     }
                 }
 
-               for (int i = 0; i < Projectiles.Count; i++)
+                for (int i = 0; i < Projectiles.Count; i++)
                 {
                     IProjectile Projectile = Projectiles[i];
                     Projectile.Update();
@@ -226,7 +226,7 @@ namespace Project1
             {
                 CollisionManager.Instance.AddObject((ICollidable)door);
             }
-            
+
             if (FreezeEnemies.Item1)
             {
                 FreezeEnemies.Item2.Inventory.CanFreeze = false;
@@ -264,8 +264,8 @@ namespace Project1
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)door);
             }
-            
-            foreach(IProjectile projectile in Projectiles)
+
+            foreach (IProjectile projectile in Projectiles)
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)projectile);
             }
@@ -276,7 +276,7 @@ namespace Project1
                 FreezeEnemies = new Tuple<bool, ILink>(false, null);
             }
 
-            Links = new List<ILink>(); 
+            Links = new List<ILink>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
@@ -288,7 +288,7 @@ namespace Project1
         {
             if (IsStart) // after reset, Draw also works => using this boolean, Draw works only "game starts"
             {
-                
+
                 for (int i = 0; i < LinkCount; i++)
                 {
                     Game.GraphicsDevice.SetRenderTarget(swapChain[i]);
@@ -323,7 +323,7 @@ namespace Project1
 
                     // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
                     if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
-                   
+
                 }
                 Game.GraphicsDevice.SetRenderTarget(null);
                 Game.GraphicsDevice.Clear(Color.Black);
@@ -360,7 +360,7 @@ namespace Project1
                     //HUDs[0].Draw(spriteBatch);
                 }
 
-            }           
+            }
         }
 
         public void Reset()
@@ -384,16 +384,16 @@ namespace Project1
                 enemy.Reset();
             }
 
-            foreach(IProjectile projectile in Projectiles)
+            foreach (IProjectile projectile in Projectiles)
             {
-                CollisionManager.Instance.RemoveObject((ICollidable)projectile); 
+                CollisionManager.Instance.RemoveObject((ICollidable)projectile);
             }
             Projectiles = new List<IProjectile>();
         }
 
         public void ShowNewWindow() // show new window for player 2 (pop up new window for 2nd player)
         {
-            if (IsNewWindow && LinkCount==2) newForm.Visible = true;
+            if (IsNewWindow && LinkCount == 2) newForm.Visible = true;
         }
 
         public void ResetPlayer() // reset for player 2 (after using 2 players)
@@ -403,7 +403,7 @@ namespace Project1
                 newForm.Visible = false;
             }
 
-            if(swapChain.Count>1) swapChain.RemoveAt(1);
+            if (swapChain.Count > 1) swapChain.RemoveAt(1);
             IsStart = false;
 
             Links.Clear();
@@ -422,18 +422,18 @@ namespace Project1
             {
                 Projectiles.Remove(projectile);
             }
-            
+
             CollisionManager.Instance.RemoveObject((ICollidable)projectile);
         }
         public void SetLinkCount(int n)
         {
-            LinkCount = n; 
+            LinkCount = n;
         }
         public void SetLinkPosition(Vector2 position)
         {
             foreach (ILink link in Links)
             {
-                link.SetPosition(position); 
+                link.SetPosition(position);
             }
         }
 
@@ -468,9 +468,9 @@ namespace Project1
                 Tuple<Vector2, Color> linkInfo = GameVar.GetLinkInfo(i);
                 ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
                 Links.Add(Link);
-                
+
                 Links_copy = new List<ILink>(Links);
-                
+
                 IHUD HUD = new HUD(Link, Game);
                 HUDs.Add(HUD);
 
