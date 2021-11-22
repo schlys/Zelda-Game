@@ -416,6 +416,7 @@ namespace Project1
 
                 Form newForm = (Form)Form.FromHandle(newWindow.Handle);
 
+                newForm.Location = new System.Drawing.Point(0, Game.ScreenWidth/8);
                 newForm.Visible = true;
 
                 swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
