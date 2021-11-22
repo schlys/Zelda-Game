@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework;
 using Project1.LevelComponents;
 using Project1.HeadsUpDisplay;
 using System.Windows.Forms;
+using Project1.DirectionState;
 
 namespace Project1
 {
@@ -258,80 +259,81 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-                for (int i = 0; i < LinkCount; i++)
+
+            for (int i = 0; i < LinkCount; i++)
+            {
+                Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
+                Game.GraphicsDevice.Clear(Color.Black);
+
+                LevelFactory.Instance.Draw(spriteBatch);
+
+                foreach (IBlock block in Blocks)
                 {
-                    Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
-                    //Game.GraphicsDevice.Clear(Color.Black);
-                    LevelFactory.Instance.Draw(spriteBatch);
-
-                    foreach (IBlock block in Blocks)
-                    {
-                        block.Draw(spriteBatch);
-                    }
-                    foreach (IItem item in Items)
-                    {
-                        item.Draw(spriteBatch);
-                    }
-                    foreach (ILink link in Links)
-                    {
-                        link.Draw(spriteBatch);
-                    }
-                    foreach (IEnemy enemy in Enemies)
-                    {
-                        enemy.Draw(spriteBatch);
-                    }
-                    foreach (IDoor door in Doors)
-                    {
-                        door.Draw(spriteBatch);
-                    }
-                    foreach (IProjectile Projectile in Projectiles)
-                    {
-                        Projectile.Draw(spriteBatch);
-                    }
-
-                    // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-                    if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
-
-                    swapChain[i].Item1.Present();
-
+                    block.Draw(spriteBatch);
                 }
-                Game.GraphicsDevice.SetRenderTarget(null);
-                //Game.GraphicsDevice.Clear(Color.Black);
+                foreach (IItem item in Items)
+                {
+                    item.Draw(spriteBatch);
+                }
+                foreach (ILink link in Links)
+                {
+                    link.Draw(spriteBatch);
+                }
+                foreach (IEnemy enemy in Enemies)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+                foreach (IDoor door in Doors)
+                {
+                    door.Draw(spriteBatch);
+                }
+                foreach (IProjectile Projectile in Projectiles)
+                {
+                    Projectile.Draw(spriteBatch);
+                }
 
-                // to prevent flickering, draw one more time.
-                //LevelFactory.Instance.Draw(spriteBatch);
+                // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
+                if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
 
-                //foreach (IBlock block in Blocks)
-                //{
-                //    block.Draw(spriteBatch);
-                //}
-                //foreach (IItem item in Items)
-                //{
-                //    item.Draw(spriteBatch);
-                //}
-                //foreach (ILink link in Links)
-                //{
-                //    link.Draw(spriteBatch);
-                //}
-                //foreach (IEnemy enemy in Enemies)
-                //{
-                //    enemy.Draw(spriteBatch);
-                //}
-                //foreach (IDoor door in Doors)
-                //{
-                //    door.Draw(spriteBatch);
-                //}
-                //foreach (IProjectile Projectile in Projectiles)
-                //{
-                //    Projectile.Draw(spriteBatch);
-                //}
-                //foreach (IHUD HUD in HUDs)
-                //{
-                //    //HUDs[0].Draw(spriteBatch);
-                //}
+                swapChain[i].Item1.Present();
 
-       
+            }
+            Game.GraphicsDevice.SetRenderTarget(null);
+            Game.GraphicsDevice.Clear(Color.Black);
+
+            // to prevent flickering, draw one more time.
+            //LevelFactory.Instance.Draw(spriteBatch);
+
+            //foreach (IBlock block in Blocks)
+            //{
+            //    block.Draw(spriteBatch);
+            //}
+            //foreach (IItem item in Items)
+            //{
+            //    item.Draw(spriteBatch);
+            //}
+            //foreach (ILink link in Links)
+            //{
+            //    link.Draw(spriteBatch);
+            //}
+            //foreach (IEnemy enemy in Enemies)
+            //{
+            //    enemy.Draw(spriteBatch);
+            //}
+            //foreach (IDoor door in Doors)
+            //{
+            //    door.Draw(spriteBatch);
+            //}
+            //foreach (IProjectile Projectile in Projectiles)
+            //{
+            //    Projectile.Draw(spriteBatch);
+            //}
+            //foreach (IHUD HUD in HUDs)
+            //{
+            //    //HUDs[0].Draw(spriteBatch);
+            //}
+
+
         }
 
         public void Reset()
@@ -397,11 +399,11 @@ namespace Project1
         {
             LinkCount = n;
         }
-        public void SetLinkPosition(Vector2 position)
+        public void SetLinkPosition(Vector2 position, IDirectionState direction)
         {
             foreach (ILink link in Links)
             {
-                link.SetPosition(position);
+                link.SetPosition(position, direction);
             }
         }
 

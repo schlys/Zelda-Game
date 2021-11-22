@@ -66,8 +66,9 @@ namespace Project1.LinkComponents
            delay = 25; 
        }
 
-       public void SetPosition(Vector2 position)
+       public void SetPosition(Vector2 position, IDirectionState direction=null)
        {
+            if (direction != null) DirectionState = direction;
             Position = position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
