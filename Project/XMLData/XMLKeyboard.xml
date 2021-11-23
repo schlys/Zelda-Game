@@ -19,10 +19,16 @@
 		<key>Space</key>
 	</Control>
 
-	<Control>
+	<Control player="1">
 		<type>Game</type>
 		<name>GameItemSelectCmd</name>
 		<key>I</key>
+	</Control>
+
+	<Control player="2">
+		<type>Game</type>
+		<name>GameItemSelectCmd</name>
+		<key>Q</key>
 	</Control>
 
 	<Control>

@@ -91,7 +91,7 @@ namespace Project1
             {
                 controller.Update();
             }
-
+            
             foreach (IHUD HUD in HUDs)
             {
                 HUD.Update();
