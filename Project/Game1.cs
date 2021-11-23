@@ -21,7 +21,6 @@ namespace Project1
         private SpriteBatch spriteBatch;
         public int ScreenWidth = 512;
         public int ScreenHeight = 480;
-        public bool started = false;
 
         public Game1()
         {
@@ -64,24 +63,16 @@ namespace Project1
 
         protected override void Draw(GameTime gameTime)
         {
-            
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
-           
             GameStateManager.Instance.Draw(spriteBatch);
-            //if (started) GameObjectManager.Instance.Draw(spriteBatch);
-
             spriteBatch.End();
 
-           
-            
             base.Draw(gameTime);
         }
 
         public void Restart()
         {
-            started = false; //
             GameStateManager.Instance.Reset();
-            //GameObjectManager.Instance.Reset();
         }
 
         public void Pause()
@@ -92,8 +83,6 @@ namespace Project1
         public void StartGame()
         {
             // Must reset before starting for cases when won / lost 
-            started = true;
-            //GameObjectManager.Instance.CreatePlayers(); // 
             GameStateManager.Instance.Start();
         }
 

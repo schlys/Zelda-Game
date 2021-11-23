@@ -44,37 +44,24 @@ namespace Project1.GameState
 
             swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
 
-            Game.Window.Title = "Project1 - 1st player";
-
-            Form currForm = (Form)Form.FromHandle(Game.Window.Handle);
-
-            //currForm.Visible = true;
-            swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
-                Game.Window.Handle,
-                 Game.Window.ClientBounds.Width,
-                 Game.Window.ClientBounds.Height,
-                 false,
-                 SurfaceFormat.Color,
-                 DepthFormat.Depth24Stencil8,
-                 1,
-                 RenderTargetUsage.PlatformContents,
-                 PresentInterval.Default), currForm)
-            );
+            Game.Window.Title = "Project1 - player 1";
         }
 
         
         public void Draw(SpriteBatch spriteBatch) 
         {
-            for (int i = 1; i < swapChain.Count; i++)
+            for (int i = 0; i < swapChain.Count; i++)
             {
                 Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
                 Game.GraphicsDevice.Clear(Color.Black);
-                CurrentState.Draw(spriteBatch, i);
+                CurrentState.Draw(spriteBatch, i+1);
                 swapChain[i].Item1.Present();
             }
 
             Game.GraphicsDevice.SetRenderTarget(null);
             Game.GraphicsDevice.Clear(Color.Black);
+
+            // Draw first player window separately to prevent flickering
             CurrentState.Draw(spriteBatch, 0);
            
         }
@@ -84,13 +71,13 @@ namespace Project1.GameState
             CurrentState = CurrentState.Reset();
             GameObjectManager.Instance.Reset();
 
-            if (swapChain.Count > 1)
+            if (swapChain.Count > 0)
             {
-                for (int i = 1; i < swapChain.Count; i++)
+                for (int i = 0; i < swapChain.Count; i++)
                 {
                     swapChain[i].Item2.Visible = false;
                 }
-                swapChain.RemoveRange(1, swapChain.Count - 1);
+                swapChain.RemoveRange(0, swapChain.Count);
             }
         }
         public void Pause() 
@@ -100,10 +87,11 @@ namespace Project1.GameState
         }
         public void Start() 
         {
+            // create a new window for each new player - 1 since one window already exists
             for (int i = 1; i < GameObjectManager.Instance.LinkCount; i++)
             {
                 GameWindow newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
-                newWindow.Title = "Project1 - 2nd Link";
+                newWindow.Title = "Project1 - player " + (i + 1);
 
 
                 Form newForm = (Form)Form.FromHandle(newWindow.Handle);

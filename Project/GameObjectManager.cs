@@ -33,8 +33,6 @@ namespace Project1
         }
         private GameObjectManager() { }
 
-        //private List<Tuple<SwapChainRenderTarget, Form>> swapChain;
-
         public int ScalingFactor = 2;
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
@@ -55,7 +53,6 @@ namespace Project1
         public void Initialize(Game1 game)
         {
             Game = game;
-            //swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
 
             Links = new List<ILink>();
             Links_copy = new List<ILink>();
@@ -68,26 +65,6 @@ namespace Project1
             Projectiles = new List<IProjectile>();
 
             FreezeEnemies = new Tuple<bool, ILink>(false, null);
-
-            // Add the current window to <swapChain> 
-            //Game.Window.Title = "Project1 - 1st player";
-            
-            //Form currForm = (Form)Form.FromHandle(Game.Window.Handle);
-
-            ////currForm.Visible = true;
-            //swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
-            //    Game.Window.Handle,
-            //     Game.Window.ClientBounds.Width,
-            //     Game.Window.ClientBounds.Height,
-            //     false,
-            //     SurfaceFormat.Color,
-            //     DepthFormat.Depth24Stencil8,
-            //     1,
-            //     RenderTargetUsage.PlatformContents,
-            //     PresentInterval.Default), currForm)
-            //);
-
-
 
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
@@ -259,76 +236,35 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, int i)
         {
+            LevelFactory.Instance.Draw(spriteBatch);
 
-            //for (int i = 0; i < LinkCount; i++)
-            //{
-            //    Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
-            //    Game.GraphicsDevice.Clear(Color.Black);
+            foreach (IBlock block in Blocks)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (IItem item in Items)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (ILink link in Links)
+            {
+                link.Draw(spriteBatch);
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IDoor door in Doors)
+            {
+                door.Draw(spriteBatch);
+            }
+            foreach (IProjectile Projectile in Projectiles)
+            {
+                Projectile.Draw(spriteBatch);
+            }
 
-                LevelFactory.Instance.Draw(spriteBatch);
-
-                foreach (IBlock block in Blocks)
-                {
-                    block.Draw(spriteBatch);
-                }
-                foreach (IItem item in Items)
-                {
-                    item.Draw(spriteBatch);
-                }
-                foreach (ILink link in Links)
-                {
-                    link.Draw(spriteBatch);
-                }
-                foreach (IEnemy enemy in Enemies)
-                {
-                    enemy.Draw(spriteBatch);
-                }
-                foreach (IDoor door in Doors)
-                {
-                    door.Draw(spriteBatch);
-                }
-                foreach (IProjectile Projectile in Projectiles)
-                {
-                    Projectile.Draw(spriteBatch);
-                }
-
-                // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
-                if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
-
-                //swapChain[i].Item1.Present();
-
-            //}
-            //Game.GraphicsDevice.SetRenderTarget(null);
-            //Game.GraphicsDevice.Clear(Color.Black);
-            //LevelFactory.Instance.Draw(spriteBatch);
-
-            //// to prevent flickering, draw one more time.
-            //foreach (IBlock block in Blocks)
-            //{
-            //    block.Draw(spriteBatch);
-            //}
-            //foreach (IItem item in Items)
-            //{
-            //    item.Draw(spriteBatch);
-            //}
-            //foreach (ILink link in Links)
-            //{
-            //    link.Draw(spriteBatch);
-            //}
-            //foreach (IEnemy enemy in Enemies)
-            //{
-            //    enemy.Draw(spriteBatch);
-            //}
-            //foreach (IDoor door in Doors)
-            //{
-            //    door.Draw(spriteBatch);
-            //}
-            //foreach (IProjectile Projectile in Projectiles)
-            //{
-            //    Projectile.Draw(spriteBatch);
-            //}
-
-
+            // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
+            if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
         }
 
         public void Reset()
@@ -357,15 +293,6 @@ namespace Project1
                 CollisionManager.Instance.RemoveObject((ICollidable)projectile);
             }
             Projectiles = new List<IProjectile>();
-
-            //if (swapChain.Count > 1)
-            //{
-            //    for (int i = 1; i < swapChain.Count; i++)
-            //    {
-            //        swapChain[i].Item2.Visible = false;
-            //    }
-            //    swapChain.RemoveRange(1, swapChain.Count-1);
-            //}
 
             LinkCount = 1;
             Links.Clear();
@@ -404,31 +331,6 @@ namespace Project1
 
         public void CreatePlayers()
         {
-            // create a viewport for <LinkCount> -1 players since a single viewport already exists
-            //for (int i = 1; i < LinkCount; i++)
-            //{
-            //    GameWindow newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
-            //    newWindow.Title = "Project1 - 2nd Link";
-                
-
-            //    Form newForm = (Form)Form.FromHandle(newWindow.Handle);
-
-            //    newForm.Location = new System.Drawing.Point(0, Game.ScreenWidth/8);
-            //    newForm.Visible = true;
-
-            //    swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
-            //        newWindow.Handle,
-            //        newWindow.ClientBounds.Width,
-            //        newWindow.ClientBounds.Height,
-            //        false,
-            //        SurfaceFormat.Color,
-            //        DepthFormat.Depth24Stencil8,
-            //        1,
-            //        RenderTargetUsage.PlatformContents,
-            //        PresentInterval.Default), newForm)
-            //   );
-            //}
-
             // Create <LinkCount> Links and a HUD for each Link. 
             // Parallel Construction between Link and HUDs
             for (int i = 0; i < LinkCount; i++)
@@ -450,8 +352,6 @@ namespace Project1
                     }
                 }
             }
-
-
 
             UpdateRoomItems();
         }
