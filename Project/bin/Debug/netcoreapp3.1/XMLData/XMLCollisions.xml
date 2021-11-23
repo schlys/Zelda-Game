@@ -97,6 +97,12 @@
 		<command1>ItemPickedUpCmd</command1>
 		<command2>LinkAddItemToInventoryCmd</command2>
 	</Collision>
+
+	<Collision>
+		<name>LinkItemFire</name>
+		<command1>LinkTakeDamageCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
 	
 	<Collision>

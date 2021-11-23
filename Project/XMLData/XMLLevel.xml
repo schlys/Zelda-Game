@@ -846,7 +846,19 @@
 				<type>Enemy</type>
 				<type2>OldMan</type2>
 				<row>2</row>
-				<column>6</column>
+				<column>5.5</column>
+			</object>
+			<object>
+				<type>Item</type>
+				<type2>Fire</type2>
+				<row>2</row>
+				<column>3</column>
+			</object>
+			<object>
+				<type>Item</type>
+				<type2>Fire</type2>
+				<row>2</row>
+				<column>8</column>
 			</object>
 			
 		</Room>
