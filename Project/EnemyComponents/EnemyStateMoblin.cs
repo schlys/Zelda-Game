@@ -22,11 +22,12 @@ namespace Project1.EnemyComponents
         private int MovementTimer=0;
         private Random R = new Random();
         private int RandomInt;
+        private string moblin;
 
-        public EnemyStateMoblin(IEnemy enemy)
+        public EnemyStateMoblin(IEnemy enemy, string type)
         {
             Enemy = enemy;
-            ID = "";
+            moblin = type;
             DirectionState = new DirectionStateRight();
             UpdateSprite();
             RandomInt = R.Next(0, 5);
@@ -126,7 +127,7 @@ namespace Project1.EnemyComponents
         }
         private void UpdateSprite()
         {
-            Sprite = SpriteFactory.Instance.GetSpriteData("Moblin" + DirectionState.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData(moblin + DirectionState.ID);
         }
 
         public void Attack(string direction)
@@ -135,7 +136,7 @@ namespace Project1.EnemyComponents
             {
                 IsAttacking = true;
                 Sprite.MaxDelay = 30;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, "Moblin"));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, moblin));
             }
         }
         public void TakeDamage(double damage)

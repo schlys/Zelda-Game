@@ -17,13 +17,13 @@ namespace Project1.EnemyComponents
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
-        public EnemyStateOldMan(IEnemy enemy)
+        public EnemyStateOldMan(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateNotMoving();
             ((ICollidable)Enemy).IsMoving = false;
-            ID = "";
-            Sprite = SpriteFactory.Instance.GetSpriteData("OldMan");
+            ID = type;
+            Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = 0;
         }
 

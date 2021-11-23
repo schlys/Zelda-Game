@@ -37,9 +37,9 @@ namespace Project1.EnemyComponents
         {           
             Assembly assem = typeof(IEnemyState).Assembly;
             Type enemyType = assem.GetType("Project1.EnemyComponents.EnemyState" + type);
-            ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy) });    
+            ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy), typeof(string) });    
 
-            object enemyState = enemyConstructor.Invoke(new object[] { this});
+            object enemyState = enemyConstructor.Invoke(new object[] { this, type});
             EnemyState = (IEnemyState)enemyState;
            
             Health = new EnemyHealth(health, health);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
@@ -55,7 +55,7 @@ namespace Project1.EnemyComponents
 
             InitialPosition = Position;            
             IsMoving = true;
-            TypeID = GetType().Name.ToString();
+            TypeID = GetType().Name.ToString() + EnemyState.ID;
             SpawnIn = SpriteFactory.Instance.GetSpriteData("Spawn");
         }
 

@@ -24,12 +24,13 @@ namespace Project1.EnemyComponents
         private int RandomInt;
         private const int RandomRange = 4;
         private int Delay=2;
+        private string goriya;
 
-        public EnemyStateGoriya(IEnemy enemy)
+        public EnemyStateGoriya(IEnemy enemy, string type)
         {
             Enemy = enemy;
+            goriya = type;
             DirectionState = new DirectionStateUp();
-            ID = "";
             UpdateSprite();
             IsAttacking = false;
             RandomInt = R.Next(RandomRange);
@@ -133,12 +134,12 @@ namespace Project1.EnemyComponents
             {
                 IsAttacking = true; 
                 Sprite.MaxDelay = 10;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, "Goriya"));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, goriya));
             }
         }
         private void UpdateSprite()
         {
-            Sprite = SpriteFactory.Instance.GetSpriteData("Goriya" + DirectionState.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData(goriya + DirectionState.ID);
         }
         public void TakeDamage(double damage)
         {

@@ -21,12 +21,11 @@ namespace Project1.EnemyComponents
         private int MovementTimer;
         private Random R = new Random();
         private int RandomInt;
-        public EnemyStateGel(IEnemy enemy)
+        public EnemyStateGel(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
-            ID = "";
-            Sprite = SpriteFactory.Instance.GetSpriteData("Gel");
+            Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = 1;
             RandomInt = R.Next(0, 9);
         }

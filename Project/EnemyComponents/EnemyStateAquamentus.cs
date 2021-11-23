@@ -27,12 +27,11 @@ namespace Project1.EnemyComponents
 
         private int attack = 200;
 
-        public EnemyStateAquamentus(IEnemy enemy)
+        public EnemyStateAquamentus(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft(); 
-            Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
-            ID = "";
+            Sprite = SpriteFactory.Instance.GetSpriteData(type);
             IsAttacking = false;
             Step = 1;
         }
