@@ -19,8 +19,6 @@ namespace Project1
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        public int ScreenWidth = 512;
-        public int ScreenHeight = 480;
 
         public Game1()
         {
@@ -28,8 +26,8 @@ namespace Project1
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            graphics.PreferredBackBufferWidth = ScreenWidth;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = ScreenHeight;
+            graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
             graphics.ApplyChanges();
         }
     

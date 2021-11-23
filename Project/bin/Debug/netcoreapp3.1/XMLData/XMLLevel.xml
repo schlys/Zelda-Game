@@ -834,11 +834,19 @@
 			<down></down>
 			<left></left>
 			<right>room9</right>
+			
 			<object locked="false">
 				<type>Door</type>
 				<type2>Right</type2>
 				<row>3</row>
 				<column>12</column>
+			</object>
+
+			<object>
+				<type>Enemy</type>
+				<type2>OldMan</type2>
+				<row>2</row>
+				<column>6</column>
 			</object>
 			
 		</Room>

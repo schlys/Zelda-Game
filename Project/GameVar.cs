@@ -20,23 +20,25 @@ namespace Project1
         public const string DirectionDown = "Down";
         public const string DirectionRight= "Right";
         public const string DirectionLeft = "Left";
-        public const string DirectionNotMocing = "NotMoving";
+        public const string DirectionNotMoving = "NotMoving";
 
         // COMMAND
         public const int LinkDamage = 20;
-        public const double EnemyDamage = 0.5; 
+        public const double EnemyDamage = 0.5;
 
 
         // CONTROLLER
-       
+
         // GAME STATE
+        public const int ScreenWidth = 512;
+        public const int ScreenHeight = 480;
 
         // Variables used to denote direction throughout classes in GameState 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
 
         public const string LoseText1 = "GAME OVER";
-        public const string LoseText2 = "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ";
+        public const string LoseText2 = "\n\n         Press 'r' to restart\n\n                Press 'q' to quit\n\n                ";
 
         public const string PauseText1 = "PAUSED";
         public const string PauseText2 = "\n\n         Press the space bar to continue\n\n                " +
@@ -49,7 +51,7 @@ namespace Project1
         public const string StartText3 = "\n\n    Press '1' or '2' to select \n   the number of players";
 
         public const string WinText1 = "YOU WIN!";
-        public const string WinText2 = "\n\n         Press 'x' or 'r' to restart\n\n                Press 'q' to quit\n\n                ";
+        public const string WinText2 = "\n\n         Press 'r' to restart\n\n                Press 'q' to quit\n\n                ";
 
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";

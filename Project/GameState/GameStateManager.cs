@@ -28,10 +28,7 @@ namespace Project1.GameState
         public SpriteFont Font { get; set; }
 
         private List<Tuple<SwapChainRenderTarget, Form>> swapChain;
-        private Sprite Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
-        private Sprite TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
-        private int Height = 176 * GameObjectManager.Instance.ScalingFactor;
-        private int Width = 256 * GameObjectManager.Instance.ScalingFactor;
+        
         private GameStateManager() 
         {
             // Set default room 
@@ -87,34 +84,37 @@ namespace Project1.GameState
         }
         public void Start() 
         {
-            // create a new window for each new player - 1 since one window already exists
-            for (int i = 1; i < GameObjectManager.Instance.LinkCount; i++)
+            if (CurrentState is GameStateStart)
             {
-                GameWindow newWindow = GameWindow.Create(Game, Game.ScreenWidth, Game.ScreenHeight);
-                newWindow.Title = "Project1 - player " + (i + 1);
+                // create a new window for each new player - 1 since one window already exists
+                for (int i = 1; i < GameObjectManager.Instance.LinkCount; i++)
+                {
+                    GameWindow newWindow = GameWindow.Create(Game, GameVar.ScreenWidth, GameVar.ScreenHeight);
+                    newWindow.Title = "Project1 - player " + (i + 1);
 
 
-                Form newForm = (Form)Form.FromHandle(newWindow.Handle);
+                    Form newForm = (Form)Form.FromHandle(newWindow.Handle);
 
-                newForm.Location = new System.Drawing.Point(0, Game.ScreenWidth / 8);
-                newForm.Visible = true;
+                    newForm.Location = new System.Drawing.Point(0, GameVar.ScreenWidth / 8);
+                    newForm.Visible = true;
 
-                swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
-                    newWindow.Handle,
-                    newWindow.ClientBounds.Width,
-                    newWindow.ClientBounds.Height,
-                    false,
-                    SurfaceFormat.Color,
-                    DepthFormat.Depth24Stencil8,
-                    1,
-                    RenderTargetUsage.PlatformContents,
-                    PresentInterval.Default), newForm)
-               );
+                    swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
+                        newWindow.Handle,
+                        newWindow.ClientBounds.Width,
+                        newWindow.ClientBounds.Height,
+                        false,
+                        SurfaceFormat.Color,
+                        DepthFormat.Depth24Stencil8,
+                        1,
+                        RenderTargetUsage.PlatformContents,
+                        PresentInterval.Default), newForm)
+                   );
+                }
+                GameObjectManager.Instance.CreatePlayers();
+
+                GameSoundManager.Instance.PlaySong();
+                CurrentState = CurrentState.StartGame();
             }
-            GameObjectManager.Instance.CreatePlayers();
-
-            GameSoundManager.Instance.PlaySong();
-            CurrentState = CurrentState.StartGame(); 
         }
         public void ItemSelection() 
         {
