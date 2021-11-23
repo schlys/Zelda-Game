@@ -13,6 +13,7 @@ namespace Project1.ProjectileComponents
         public IProjectile Projectile { get; set; }
         public Sprite Sprite { get; set; }
         public string TypeID { get; set; }
+        public double Damage { get; set; }
         public IDirectionState Direction { get; set; }
         private int speed = 5;
 

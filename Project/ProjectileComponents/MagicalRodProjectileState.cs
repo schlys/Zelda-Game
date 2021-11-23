@@ -14,6 +14,7 @@ namespace Project1.ProjectileComponents
         public Sprite Sprite { get; set; }
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
+        public double Damage { get; set; }
 
         // Other Properties
         private int Speed = 4;
@@ -22,12 +23,12 @@ namespace Project1.ProjectileComponents
         
         public MagicalRodProjectileState(IProjectile projectile, IDirectionState direction)
         {
+            Damage = .5;
             Projectile = projectile;
             Direction = direction;
-            TypeID = "MagicalRodProjectile";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + direction.ID);
-            TypeID = "MagicalRod";
+            Sprite = SpriteFactory.Instance.GetSpriteData("MagicalRodProjectile" + direction.ID);
             Projectile.OffsetOriginalPosition(Direction);
+            TypeID = "MagicalRod";
         }
         public void StopMotion() { }
         public void Draw(SpriteBatch spriteBatch)

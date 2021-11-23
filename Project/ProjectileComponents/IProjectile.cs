@@ -12,6 +12,7 @@ namespace Project1.ProjectileComponents
     {
         Vector2 Position { get; set; }
         IProjectileState State { get; set; }
+        double Damage { get; set; }
         void OffsetOriginalPosition(IDirectionState direction);
         void StopMotion();
         void RemoveProjectile();

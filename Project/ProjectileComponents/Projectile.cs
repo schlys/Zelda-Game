@@ -17,6 +17,7 @@ namespace Project1.ProjectileComponents
         // Properties from IProjectile 
         public Vector2 Position { get; set; }
         public IProjectileState State { get; set; }
+        public double Damage { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -30,6 +31,7 @@ namespace Project1.ProjectileComponents
         {
             Position = position;
             State = GetProjectileState(state, direction, beam);
+            Damage = State.Damage;
 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox); 
             IsMoving = true;

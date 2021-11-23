@@ -106,16 +106,18 @@ namespace Project1.Command
     public class EnemyTakeDamageCmd : ICommand
     {
         public IEnemy Enemy { get; set; }
+        public IProjectile Projectile { get; set; }
         private string direction;
-        public EnemyTakeDamageCmd(ICollidable enemy, ICollidable holder, string direction)
+        public EnemyTakeDamageCmd(ICollidable enemy, ICollidable projectile, string direction)
         {
+            Projectile = (IProjectile)projectile;
             Enemy = (IEnemy)enemy;
             this.direction = direction;
         }
 
         public void Execute()
         {
-            Enemy.TakeDamage(GameVar.EnemyDamage, direction);
+            Enemy.TakeDamage(Projectile.Damage, direction);
         }
     }
 

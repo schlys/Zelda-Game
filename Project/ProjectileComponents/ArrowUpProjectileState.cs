@@ -16,6 +16,7 @@ namespace Project1.ProjectileComponents
         public Sprite Sprite { get; set; }
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
+        public double Damage { get; set; }
 
         // Other Properties 
         public Sprite PoofSprite { get; set; }
@@ -27,10 +28,10 @@ namespace Project1.ProjectileComponents
 
         public ArrowUpProjectileState(IProjectile projectile, IDirectionState direction)
         {
+            Damage = 1;
             Projectile = projectile;
             Direction = direction;
-            TypeID = "Arrow";
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Arrow" + Direction.ID);
             PoofSprite = SpriteFactory.Instance.GetSpriteData("ArrowPoof");
             IsUsing = true;
             Projectile.OffsetOriginalPosition(Direction); 

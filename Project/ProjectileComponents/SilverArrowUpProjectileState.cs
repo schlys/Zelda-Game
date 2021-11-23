@@ -17,6 +17,7 @@ namespace Project1.ProjectileComponents
         public Sprite Sprite { get; set; }
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
+        public double Damage { get; set; }
 
         // Other Properties
         public Sprite Poof { get; set; }
@@ -26,10 +27,10 @@ namespace Project1.ProjectileComponents
         private int CounterMax = 60;    // time when arrow now done
         public SilverArrowUpProjectileState(IProjectile projectile, IDirectionState direction)
         {
+            Damage = 1.5;
             Projectile = projectile;
             Direction = direction;
-            TypeID = "SilverArrow"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID + Direction.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("SilverArrow" + Direction.ID);
             Poof = SpriteFactory.Instance.GetSpriteData("SilverArrowPoof");
             Counter = 0;
             Projectile.OffsetOriginalPosition(Direction);

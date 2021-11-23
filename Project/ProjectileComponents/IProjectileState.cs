@@ -14,6 +14,7 @@ namespace Project1.ProjectileComponents
         Sprite Sprite { get; set; }
         String TypeID { get; set; }
         IDirectionState Direction { get; set; }
+        double Damage { get; set; }
         void StopMotion(); 
         void Update();
         void Draw(SpriteBatch spriteBatch);

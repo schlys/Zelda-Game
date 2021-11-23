@@ -16,6 +16,7 @@ namespace Project1.ProjectileComponents
         public Sprite Sprite { get; set; }
         public String TypeID { get; set; }
         public IDirectionState Direction { get; set; }
+        public double Damage { get; set; }
 
         // Other Properties 
         public bool isUsing { get; set; }
@@ -25,10 +26,10 @@ namespace Project1.ProjectileComponents
         private Vector2 InitialPosition; 
         public BoomerangSolidProjectileState(IProjectile projectile, IDirectionState direction)
         {
+            Damage = .5;
             Projectile = projectile;
             Direction = direction; 
-            TypeID = "Boomerang"; 
-            Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
+            Sprite = SpriteFactory.Instance.GetSpriteData("Boomerang");
             Counter = 0;
             Projectile.OffsetOriginalPosition(Direction);
             InitialPosition = Projectile.Position; 

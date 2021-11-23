@@ -37,43 +37,19 @@
 	
 	<!-- PROJECTILE -->
 	<Collision>
-		<name>ProjectileExplosionBlockLast</name>
+		<name>ProjectileBombExplosionBlockLast</name>
 		<command1>NoCmd</command1>
 		<command2>BreakBlockCmd</command2>
 	</Collision>
 	
 	<Collision>
-		<name>ProjectileArrowBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>ProjectileBoomerangBlock</name>
+		<name>ProjectileBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>ProjectileFireBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>ProjectileMagicalBoomerangBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>ProjectileSilverArrowBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
-		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>ProjectileAquamentusBlock</name>
 		<command1>WeaponsBlockedCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
@@ -139,21 +115,15 @@
 	
 	<!-- ENEMY -->
 	<Collision>
-		<name>EnemyProjectileArrow</name>
+		<name>EnemyProjectile</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	
 	<Collision>
-		<name>EnemyProjectileExplosion</name>
+		<name>EnemyProjectileBombExplosion</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
-	</Collision>
-	
-	<Collision>
-		<name>EnemyProjectileBoomerang</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
 	</Collision>
 
 	<Collision>
@@ -166,18 +136,6 @@
 		<name>EnemyProjectileFire</name>
 		<command1>EnemyTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyProjectileMagicalBoomerang</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
-	</Collision>
-
-	<Collision>
-		<name>EnemyProjectileSilverArrow</name>
-		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
 	</Collision>
 	
 	<Collision>

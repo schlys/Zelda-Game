@@ -17,6 +17,7 @@ namespace Project1.ProjectileComponents
         public Vector2 OriginalPosition { get; set; }
         public IProjectileState State { get; set; }     // NOTE: unused 
         public int Size { get; set; }
+        public double Damage { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
