@@ -19,16 +19,10 @@
 		<key>Space</key>
 	</Control>
 
-	<Control player="1">
+	<Control>
 		<type>Game</type>
 		<name>GameItemSelectCmd</name>
 		<key>I</key>
-	</Control>
-
-	<Control player="2">
-		<type>Game</type>
-		<name>GameItemSelectCmd</name>
-		<key>Q</key>
 	</Control>
 
 	<Control>
@@ -256,25 +250,25 @@
 	<Control player="2" press="true">
 		<type>Link</type>
 		<name>LinkItemSelectRightCmd</name>
-		<key>Right</key>
+		<key>D</key>
 	</Control>
 
 	<Control player="2" press="true">
 		<type>Link</type>
 		<name>LinkItemSelectLeftCmd</name>
-		<key>Left</key>
+		<key>A</key>
 	</Control>
 
 	<Control player="2" press="true">
 		<type>Link</type>
 		<name>LinkItemSelectUpCmd</name>
-		<key>Up</key>
+		<key>W</key>
 	</Control>
 
 	<Control player="2" press="true">
 		<type>Link</type>
 		<name>LinkItemSelectDownCmd</name>
-		<key>Down</key>
+		<key>S</key>
 	</Control>
 
 	<Control player="2" press="true">
@@ -304,7 +298,7 @@
 	<Control player="2" press="true">
 		<type>Link</type>
 		<name>LinkSelectItemCmd</name>
-		<key>Enter</key>
+		<key>CapsLock</key>
 	</Control>
 
 </Controllers>

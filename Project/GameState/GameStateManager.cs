@@ -27,7 +27,7 @@ namespace Project1.GameState
         public Game1 Game { get; set; }
         public SpriteFont Font { get; set; }
 
-        private List<Tuple<SwapChainRenderTarget, Form>> swapChain;
+        public List<Tuple<SwapChainRenderTarget, Form>> swapChain;
         
         private GameStateManager() 
         {
