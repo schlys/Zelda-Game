@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/KeyAppear.wav</SourceFile>
-  <SourceTime>2021-11-03T13:14:09.7166797-04:00</SourceTime>
-  <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/KeyAppear.xnb</DestFile>
-  <DestTime>2021-11-23T17:38:12.3046767-05:00</DestTime>
+  <SourceFile>c:/users/chaew/source/repos/3902-dream-team/project/project/Content/Sounds/KeyAppear.wav</SourceFile>
+  <SourceTime>2021-11-23T19:08:03.4607293-05:00</SourceTime>
+  <DestFile>c:/users/chaew/source/repos/3902-dream-team/project/project/Content/bin/Windows/Content/Sounds/KeyAppear.xnb</DestFile>
+  <DestTime>2021-11-23T19:11:09.2835844-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

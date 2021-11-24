@@ -91,7 +91,7 @@ namespace Project1.GameState
                 {
                     GameWindow newWindow = GameWindow.Create(Game, GameVar.ScreenWidth, GameVar.ScreenHeight);
                     newWindow.Title = "Project1 - player " + (i + 1);
-
+                    newWindow.AllowUserResizing = true; // user can resize the window freely.
 
                     Form newForm = (Form)Form.FromHandle(newWindow.Handle);
 
