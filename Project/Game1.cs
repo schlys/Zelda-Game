@@ -48,9 +48,7 @@ namespace Project1
             GameObjectManager.Instance.Initialize(this);
             GameStateManager.Instance.Initialize(this);
             GameSoundManager.Instance.Initialize(this);
-
         }
-
 
         protected override void Update(GameTime gameTime)
         {

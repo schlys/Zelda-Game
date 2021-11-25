@@ -62,37 +62,20 @@ namespace Project1.LevelComponents
         {
 			if(DirectionState is DirectionStateUp)
             {
-				LevelFactory.Instance.MoveUp(PositionDelta);
+				GameObjectManager.Instance.MoveUp(PositionDelta);
 			}
 			else if (DirectionState is DirectionStateDown)
 			{
-				LevelFactory.Instance.MoveDown(PositionDelta);
+				GameObjectManager.Instance.MoveDown(PositionDelta);
 			}
 			else if (DirectionState is DirectionStateLeft)
 			{
-				LevelFactory.Instance.MoveLeft(PositionDelta);
+				GameObjectManager.Instance.MoveLeft(PositionDelta);
 			}
 			else if (DirectionState is DirectionStateRight)
 			{
-				LevelFactory.Instance.MoveRight(PositionDelta);
+				GameObjectManager.Instance.MoveRight(PositionDelta);
 			}
-			/*
-			switch (DirectionState)
-			{
-				case DirectionStateUp:
-					LevelFactory.Instance.MoveUp(PositionDelta);
-					break;
-				case "Down":
-					LevelFactory.Instance.MoveDown(PositionDelta);
-					break;
-				case "Right":
-					LevelFactory.Instance.MoveRight(PositionDelta);
-					break;
-				case "Left":
-					LevelFactory.Instance.MoveLeft(PositionDelta);
-					break;
-			}
-			*/
 		}
 	}
 }

@@ -79,10 +79,10 @@ namespace Project1.HeadsUpDisplay
             InventoryItem1Position = (new Vector2(128, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItem2Position = (new Vector2(152, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
 
-            HUDMain = LevelFactory.Instance.HUDTextures["HUDMain"];
-            HUDMap = LevelFactory.Instance.HUDTextures["HUDMap"];
-            HUDLevelMap = LevelFactory.Instance.HUDTextures["HUDLevelMap"];
-            HUDInventory = LevelFactory.Instance.HUDTextures["Inventory"];
+            HUDMain = LevelFactory.Instance.GetHUDTexture("HUDMain");
+            HUDMap = LevelFactory.Instance.GetHUDTexture("HUDMap");
+            HUDLevelMap = LevelFactory.Instance.GetHUDTexture("HUDLevelMap");
+            HUDInventory = LevelFactory.Instance.GetHUDTexture("Inventory");
 
             Step = 6;
             InitialStep = Step;
@@ -132,7 +132,7 @@ namespace Project1.HeadsUpDisplay
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
             Vector2 newMapPosition = MapPosition;
             newMapPosition += position;
-            LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
+            GameObjectManager.Instance.Level.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
 
             // Draw <Item1> and <Item2> of Link's <Inventory>
             Vector2 newItem1Position = InventoryItem1Position;
@@ -238,7 +238,9 @@ namespace Project1.HeadsUpDisplay
             // Draw the <LevelMap> found in <LevelFactory> and draw the TriforceFragment location if able to
             Vector2 newMapPosition = MapItemSelectPosition;
             newMapPosition += position;
-            LevelFactory.Instance.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
+
+            // TODO: bad coupling!! 
+            GameObjectManager.Instance.Level.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
         }
         private void Scroll(int step)
         {

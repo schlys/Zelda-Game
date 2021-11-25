@@ -64,20 +64,20 @@ namespace Project1
              */
 
             List<Vector2> PositionLeft = new List<Vector2>();
-            PositionLeft.Add(LevelFactory.Instance.GetItemPosition((float)2.5, (float)11.5));
-            PositionLeft.Add(LevelFactory.Instance.GetItemPosition((float)3.5, (float)11.5));
+            PositionLeft.Add(GameObjectManager.Instance.GetItemPosition((float)2.5, (float)11.5));
+            PositionLeft.Add(GameObjectManager.Instance.GetItemPosition((float)3.5, (float)11.5));
 
             List<Vector2> PositionRight = new List<Vector2>();
-            PositionRight.Add(LevelFactory.Instance.GetItemPosition((float)2.5, (float)-.5));
-            PositionRight.Add(LevelFactory.Instance.GetItemPosition((float)3.5, (float)-.5));
+            PositionRight.Add(GameObjectManager.Instance.GetItemPosition((float)2.5, (float)-.5));
+            PositionRight.Add(GameObjectManager.Instance.GetItemPosition((float)3.5, (float)-.5));
 
             List<Vector2> PositionUp = new List<Vector2>();
-            PositionUp.Add(LevelFactory.Instance.GetItemPosition((float)6.5, (float)5));
-            PositionUp.Add(LevelFactory.Instance.GetItemPosition((float)6.5, (float)6));
+            PositionUp.Add(GameObjectManager.Instance.GetItemPosition((float)6.5, (float)5));
+            PositionUp.Add(GameObjectManager.Instance.GetItemPosition((float)6.5, (float)6));
 
             List<Vector2> PositionDown = new List<Vector2>();
-            PositionDown.Add(LevelFactory.Instance.GetItemPosition((float)-.5, (float)5));
-            PositionDown.Add(LevelFactory.Instance.GetItemPosition((float)-.5, (float)6));
+            PositionDown.Add(GameObjectManager.Instance.GetItemPosition((float)-.5, (float)5));
+            PositionDown.Add(GameObjectManager.Instance.GetItemPosition((float)-.5, (float)6));
             
             if (direction is DirectionStateLeft)
             {
@@ -107,8 +107,8 @@ namespace Project1
         {
             List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>
             {
-                {Tuple.Create(LevelFactory.Instance.GetItemPosition(6,4), Color.White)},
-                {Tuple.Create(LevelFactory.Instance.GetItemPosition(6,7), Color.CornflowerBlue)}
+                {Tuple.Create(GameObjectManager.Instance.GetItemPosition(6,4), Color.White)},
+                {Tuple.Create(GameObjectManager.Instance.GetItemPosition(6,7), Color.CornflowerBlue)}
             };
 
             return LinkInfo[i];

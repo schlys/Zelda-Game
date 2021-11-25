@@ -19,7 +19,7 @@ namespace Project1.GameState
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
 
-            Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
+            Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);

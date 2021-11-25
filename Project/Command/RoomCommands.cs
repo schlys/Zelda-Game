@@ -17,7 +17,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveUp(Vector2.Zero); 
+            GameObjectManager.Instance.MoveUp(Vector2.Zero); 
         }
     }
 
@@ -32,7 +32,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveDown(Vector2.Zero);
+            GameObjectManager.Instance.MoveDown(Vector2.Zero);
         }
     }
 
@@ -47,7 +47,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveLeft(Vector2.Zero);
+            GameObjectManager.Instance.MoveLeft(Vector2.Zero);
         }
     }
 
@@ -62,7 +62,7 @@ namespace Project1.Command
 
         public void Execute()
         {
-            LevelFactory.Instance.MoveRight(Vector2.Zero);
+            GameObjectManager.Instance.MoveRight(Vector2.Zero);
         }
     }
 }

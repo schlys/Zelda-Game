@@ -51,7 +51,7 @@ namespace Project1.EnemyComponents
 
                 Rectangle Hitbox = GetEnemyHitBox(); 
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, 0);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(-Step, 0);
                 }
@@ -75,7 +75,7 @@ namespace Project1.EnemyComponents
                 // NOTE: Account for sprite size 
                 Rectangle Hitbox = GetEnemyHitBox();
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step + Hitbox.Width, 0);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(Step, 0);
                 }

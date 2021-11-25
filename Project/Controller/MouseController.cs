@@ -37,7 +37,7 @@ namespace Project1.Controller
 
         public void InitializeRoomCommands()
         {
-            Rectangle RoomArea = LevelFactory.Instance.GetPlayableRoomBounds(); 
+            Rectangle RoomArea = GameObjectManager.Instance.GetPlayableRoomBounds(); 
             RegisterCommandLeftClick(new RoomLeftCmd(Game), RoomArea); 
             RegisterCommandRightClick(new RoomRightCmd(Game), RoomArea);
         }

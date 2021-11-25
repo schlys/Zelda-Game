@@ -96,7 +96,7 @@ namespace Project1.LinkComponents
                     UpdateSprite();
                 }
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) - new Vector2(0, Step);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(0, Step);
                 }
@@ -114,7 +114,7 @@ namespace Project1.LinkComponents
                 }
                 // NOTE: Account for sprite size 
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(0, Step/2 + Hitbox.Height);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(0, Step);
                 }
@@ -132,7 +132,7 @@ namespace Project1.LinkComponents
 
                 }
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) - new Vector2(Step, 0);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Position -= new Vector2(Step, 0);
                 }
@@ -150,7 +150,7 @@ namespace Project1.LinkComponents
                 }
                 // NOTE: Account for sprite size 
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(Step/2 + Hitbox.Width, 0);
-                if (LevelFactory.Instance.IsWithinRoomBounds(location))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Position += new Vector2(Step, 0);
                 }
@@ -182,7 +182,7 @@ namespace Project1.LinkComponents
             {
                 // Check if furthest corner is in bounds, if so, update <position> 
                 Tuple<Vector2, Vector2> pair = directions[direction];
-                if (LevelFactory.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
                     return position += pair.Item2;
             }
             return position;

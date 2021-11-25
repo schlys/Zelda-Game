@@ -20,7 +20,7 @@ namespace Project1.GameState
         }
         public void Draw(SpriteBatch spriteBatch, int i)
         {
-            Vector2 RoomSize = LevelFactory.Instance.CurrentRoom.Size;
+            Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
             int sizeCorrector = 40;
 
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);

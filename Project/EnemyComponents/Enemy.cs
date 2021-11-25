@@ -76,7 +76,7 @@ namespace Project1.EnemyComponents
             if (knockback > 0)
             {
                 Tuple<Vector2, Vector2> pair = directions[direction];
-                if (LevelFactory.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
+                if (GameObjectManager.Instance.IsWithinRoomBounds(new Vector2(Hitbox.X, Hitbox.Y) + pair.Item1))
                     return position += pair.Item2;
 
             }

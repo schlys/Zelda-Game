@@ -45,7 +45,9 @@ namespace Project1
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
 
-        private IRoom Room;
+        //private IRoom Room;
+        public ILevel Level { get; set; }
+         
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
 
         public Game1 Game;
@@ -74,7 +76,8 @@ namespace Project1
 
             LinkCount = 1;
             SetLinkCount(LinkCount);
-           
+
+            Level = new Level();
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
@@ -97,7 +100,8 @@ namespace Project1
                 HUD.Update();
             }
 
-            LevelFactory.Instance.Update();
+            //LevelFactory.Instance.Update();
+            Level.Update(); 
 
             if (GameState.GameStateManager.Instance.CanPlayGame())
             {
@@ -145,7 +149,7 @@ namespace Project1
              * Unfreeze the enemies 
              */
 
-            Room = LevelFactory.Instance.CurrentRoom;
+            IRoom Room = Level.CurrentRoom;
             Links = new List<ILink>(Links_copy);
             Items = Room.Items;
             Blocks = Room.Blocks;
@@ -236,7 +240,8 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, int i)
         {
-            LevelFactory.Instance.Draw(spriteBatch);
+            //LevelFactory.Instance.Draw(spriteBatch);
+            Level.Draw(spriteBatch); 
 
             foreach (IBlock block in Blocks)
             {
@@ -269,7 +274,9 @@ namespace Project1
 
         public void Reset()
         {
-            LevelFactory.Instance.Reset();
+            //LevelFactory.Instance.Reset();
+            Level.Reset(); 
+
             UpdateRoomItems();
             foreach (ILink link in Links)
             {
@@ -356,6 +363,44 @@ namespace Project1
             }
 
             UpdateRoomItems();
+        }
+
+        /* Methods that connect to <Level>, better to have them go through here since other 
+         * places do not know about <Level> 
+         */ 
+        public bool IsWithinRoomBounds(Vector2 location)
+        {
+            return Level.IsWithinRoomBounds(location); 
+        }
+
+        public Vector2 GetItemPosition(float row, float column)
+        {
+            return Level.GetItemPosition(row, column); 
+        }
+
+        public void MoveUp(Vector2 position)
+        {
+            Level.MoveUp(position); 
+        }
+        public void MoveDown(Vector2 position)
+        {
+            Level.MoveDown(position);
+        }
+        public void MoveLeft(Vector2 position)
+        {
+            Level.MoveLeft(position);
+        }
+        public void MoveRight(Vector2 position)
+        {
+            Level.MoveRight(position);
+        }
+        public Vector2 GetRoomSize()
+        {
+            return Level.CurrentRoom.Size; 
+        }
+        public Rectangle GetPlayableRoomBounds()
+        {
+            return Level.GetPlayableRoomBounds(); 
         }
     }
 }
