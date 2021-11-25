@@ -46,37 +46,31 @@ namespace Project1.Controller
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLKeyboard.xml";
             XMLData.Load(path);
-            XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Control");
+            XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/GameControl");
 
             foreach (XmlNode node in Controllers)
             {
                 //Strings read from xml
-                string itemType = node.SelectSingleNode("type").InnerText;
                 string cmdName = node.SelectSingleNode("name").InnerText;
                 string key = node.SelectSingleNode("key").InnerText;
 
-
                 Type command1Type = assem.GetType("Project1.Command." + cmdName);
 
-                if (itemType.Equals("Game"))    // Game Commands 
-                {
-                    Keys keyObj = (Keys)converter.ConvertFromString(key);
-                    ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1) });
-                    object command1 = constructor1.Invoke(new object[] { Game });
-                    ICommand cmd1 = (ICommand)command1;
+                Keys keyObj = (Keys)converter.ConvertFromString(key);
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1) });
+                object command1 = constructor1.Invoke(new object[] { Game });
+                ICommand cmd1 = (ICommand)command1;
 
-                    RegisterPressCommand(cmd1, keyObj); // All Game Commands are press commands 
-                    // Using below one, item window works well (but after using item window, game seems to be stopped.)
-                    /*
-                    if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == 1)
-                    {
-                        if (node.Attributes["press"] != null)
-                            RegisterPressCommand(cmd1, keyObj);
-                        else
-                            RegisterHoldCommand(cmd1, keyObj);
-                    }*/
-                        
-                }
+                RegisterPressCommand(cmd1, keyObj); // All Game Commands are press commands 
+                // Using below one, item window works well (but after using item window, game seems to be stopped.)
+                /*
+                if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == 1)
+                {
+                    if (node.Attributes["press"] != null)
+                        RegisterPressCommand(cmd1, keyObj);
+                    else
+                        RegisterHoldCommand(cmd1, keyObj);
+                }*/  
             }
         }
 
@@ -93,31 +87,26 @@ namespace Project1.Controller
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLKeyboard.xml";
             XMLData.Load(path);
-            XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/Control");
+            XmlNodeList Controllers = XMLData.DocumentElement.SelectNodes("/Controllers/LinkControl");
 
             foreach (XmlNode node in Controllers)
             {
                 //Strings read from xml
-                string itemType = node.SelectSingleNode("type").InnerText;
                 string cmdName = node.SelectSingleNode("name").InnerText;
-                string key = node.SelectSingleNode("key").InnerText;
+                string key = node.SelectSingleNode("key").InnerText; 
+                
+                Type command1Type = assem.GetType("Project1.Command." + cmdName);
 
-                if (itemType.Equals("Link"))
-                {
-                    Type command1Type = assem.GetType("Project1.Command." + cmdName);
+                Keys keyObj = (Keys)converter.ConvertFromString(key);
+                ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
+                object command1 = constructor1.Invoke(new object[] { Game, Link });
+                ICommand cmd1 = (ICommand)command1;
 
-                    Keys keyObj = (Keys)converter.ConvertFromString(key);
-                    ConstructorInfo constructor1 = command1Type.GetConstructor(new[] { typeof(Game1), typeof(ILink) });
-                    object command1 = constructor1.Invoke(new object[] { Game, Link });
-                    ICommand cmd1 = (ICommand)command1;
-
-                    if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == player)
-                        if (node.Attributes["press"] != null)
-                            RegisterPressCommand(cmd1, keyObj);
-                        else
-                            RegisterHoldCommand(cmd1, keyObj);
-
-                }
+                if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == player)
+                    if (node.Attributes["press"] != null)
+                        RegisterPressCommand(cmd1, keyObj);
+                    else
+                        RegisterHoldCommand(cmd1, keyObj);
             }
 
             // Command so link does not animate in place 
@@ -179,8 +168,6 @@ namespace Project1.Controller
                         command.Execute();
                     }
                 }
-                //temporary fix so both links can move at the same time
-                //break;
             }
 
             // Execute commands for pressed keys that weren't previously pressed
@@ -194,13 +181,9 @@ namespace Project1.Controller
                         command.Execute();
                     }
                 }
-                //temporary fix so both links can move at the same time
-                //break;
             }
 
             PreviousState = state; 
         }
-
-
     }
 }
