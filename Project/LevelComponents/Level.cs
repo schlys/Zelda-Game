@@ -54,26 +54,13 @@ namespace Project1.LevelComponents
         private static string StartRoom = "room2";
 
         public void Draw(SpriteBatch spriteBatch)
-        {
-            // TODO: Remove before submission 
-            // For testing collision hitbox 
-            Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
-            dummyTexture.SetData(new Color[] { Color.White });
-            Rectangle roomBorder = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (RoomBorderSize * 2) + (RoomBlockSize * RoomColumns), (RoomBorderSize * 2) + (RoomBlockSize * RoomRows));
-            Rectangle roomFloor = GetPlayableRoomBounds(); //new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize, (RoomBlockSize * RoomColumns), (RoomBlockSize * RoomRows));
-            Rectangle roomTile = new Rectangle((int)LevelFactory.Instance.GetItemPosition(4, 1).X, (int)LevelFactory.Instance.GetItemPosition(4, 1).Y, RoomBlockSize, RoomBlockSize);
-
+        {            
             CurrentRoom.Draw(spriteBatch);
 
             if (GameStateManager.Instance.CanRoomScroll())
             {
                 NextRoom.Draw(spriteBatch);
             }
-            
-            //NextRoom.Draw(spriteBatch);
-            //spriteBatch.Draw(dummyTexture, roomTile, Color.Red); 
-            //spriteBatch.Draw(dummyTexture, roomFloor, Color.White);
-
         }
 
         public void Update()

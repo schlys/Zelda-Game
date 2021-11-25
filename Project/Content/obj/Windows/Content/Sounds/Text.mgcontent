@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/chaew/source/repos/3902-dream-team/project/project/Content/Sounds/Text.wav</SourceFile>
-  <SourceTime>2021-11-23T19:08:03.514587-05:00</SourceTime>
-  <DestFile>c:/users/chaew/source/repos/3902-dream-team/project/project/Content/bin/Windows/Content/Sounds/Text.xnb</DestFile>
-  <DestTime>2021-11-23T19:11:15.6563233-05:00</DestTime>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/Text.wav</SourceFile>
+  <SourceTime>2021-11-24T19:47:31.6692425-05:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Text.xnb</DestFile>
+  <DestTime>2021-11-24T19:55:01.5508598-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

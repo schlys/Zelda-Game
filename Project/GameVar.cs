@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Project1.DirectionState; 
 
 namespace Project1
 {
@@ -56,6 +57,52 @@ namespace Project1
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
 
+
+        // LEVEL
+        public static List<Vector2> GetLinkNewRoomPosition(IDirectionState direction)
+        {
+            /* Return the starting positions of both players in the order player1, player2
+             * for a new room given the <direction> of the room transition. 
+             */
+
+            List<Vector2> PositionLeft = new List<Vector2>();
+            PositionLeft.Add(LevelFactory.Instance.GetItemPosition((float)2.5, (float)11.5));
+            PositionLeft.Add(LevelFactory.Instance.GetItemPosition((float)3.5, (float)11.5));
+
+            List<Vector2> PositionRight = new List<Vector2>();
+            PositionRight.Add(LevelFactory.Instance.GetItemPosition((float)2.5, (float)-.5));
+            PositionRight.Add(LevelFactory.Instance.GetItemPosition((float)3.5, (float)-.5));
+
+            List<Vector2> PositionUp = new List<Vector2>();
+            PositionUp.Add(LevelFactory.Instance.GetItemPosition((float)6.5, (float)5));
+            PositionUp.Add(LevelFactory.Instance.GetItemPosition((float)6.5, (float)6));
+
+            List<Vector2> PositionDown = new List<Vector2>();
+            PositionDown.Add(LevelFactory.Instance.GetItemPosition((float)-.5, (float)5));
+            PositionDown.Add(LevelFactory.Instance.GetItemPosition((float)-.5, (float)6));
+            
+            if (direction is DirectionStateLeft)
+            {
+                return PositionLeft;
+            } 
+            else if (direction is DirectionStateRight)
+            {
+                return PositionRight;
+            }
+            else if(direction is DirectionStateUp)
+            {
+                return PositionUp;
+            }
+            else if (direction is DirectionStateDown)
+            {
+                return PositionDown;
+            }  
+            else
+            {
+                throw new InvalidOperationException(); 
+
+            }   
+        }
 
         // LINK 
         public static Tuple<Vector2, Color> GetLinkInfo(int i)

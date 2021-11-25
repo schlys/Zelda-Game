@@ -321,11 +321,13 @@ namespace Project1
         {
             LinkCount = n;
         }
-        public void SetLinkPosition(Vector2 position, IDirectionState direction)
+
+        // Precondition: len(positions) >= len(Links)
+        public void SetLinkPosition(List<Vector2> positions, IDirectionState direction)
         {
-            foreach (ILink link in Links)
+            for(int i = 0; i < Links.Count; i++)
             {
-                link.SetPosition(position, direction);
+                Links[i].SetPosition(positions[i], direction);
             }
         }
 

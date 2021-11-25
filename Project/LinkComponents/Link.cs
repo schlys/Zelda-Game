@@ -68,8 +68,11 @@ namespace Project1.LinkComponents
 
        public void SetPosition(Vector2 position, IDirectionState direction=null)
        {
+            /* Sets <Position> and <DirectionState> and updates <Hitbox> appropriately. 
+             */ 
             if (direction != null) DirectionState = direction;
             Position = position;
+
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
