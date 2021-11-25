@@ -5,33 +5,33 @@
 	
 	<Collision>
 		<name>LinkBlock</name>
-		<command1>LinkHitBlockCmd</command1>
+		<command1>LinkKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockLast</name>
-		<command1>LinkHitBlockCmd</command1>
+		<command1>LinkKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockBlue</name>
-		<command1>LinkHitBlockCmd</command1>
+		<command1>LinkKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>LinkBlockBlack</name>
-		<command1>LinkHitBlockCmd</command1>
+		<command1>LinkKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>EnemyBlock</name>
-		<command1>EnemyAvoidOtherCmd</command1>
+		<command1>EnemyKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	<Collision>
 		<name>EnemyBlockBlue</name>
-		<command1>EnemyAvoidOtherCmd</command1>
+		<command1>EnemyKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 	
@@ -45,25 +45,25 @@
 	
 	<Collision>
 		<name>ProjectileBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
+		<command1>ProjectileStopCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>ProjectileFireBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
+		<command1>ProjectileStopCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>ProjectileGoriyaBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
+		<command1>ProjectileStopCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>ProjectileMoblinBlock</name>
-		<command1>WeaponsBlockedCmd</command1>
+		<command1>ProjectileStopCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
 
@@ -71,8 +71,8 @@
 
 	<Collision>
 		<name>LinkLink</name>
-		<command1>LinkHitBlockCmd</command1>
-		<command2>LinkHitBlockReverseCmd</command2>
+		<command1>LinkKnockbackCmd</command1>
+		<command2>LinkKnockbackReverseCmd</command2>
 	</Collision>
 		
 	<Collision>
@@ -90,25 +90,25 @@
 	<Collision>
 		<name>LinkEnemy</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>EnemyHitPlayerCmd</command2>
+		<command2>EnemyKnockbackReverseCmd</command2>
 	</Collision>
 	
 	<Collision>
 		<name>LinkProjectileMoblin</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
+		<command2>ProjectileStopCmd</command2>
 	</Collision>
 	
 	<Collision>
 		<name>LinkProjectileAquamentus</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
+		<command2>ProjectileStopCmd</command2>
 	</Collision>
 
 	<Collision>
 		<name>LinkProjectileGoriya</name>
 		<command1>LinkTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
+		<command2>ProjectileStopCmd</command2>
 	</Collision>
 
 	<Collision>
@@ -122,7 +122,7 @@
 	<Collision>
 		<name>EnemyProjectile</name>
 		<command1>EnemyTakeDamageCmd</command1>
-		<command2>ProjectileHitCmd</command2>
+		<command2>ProjectileStopCmd</command2>
 	</Collision>
 	
 	<Collision>
@@ -163,8 +163,8 @@
 
 	<Collision>
 		<name>EnemyEnemy</name>
-		<command1>EnemyAvoidOtherCmd</command1>
-		<command2>EnemyAvoidOtherCmd</command2>
+		<command1>EnemyKnockbackCmd</command1>
+		<command2>EnemyKnockbackReverseCmd</command2>
 	</Collision>
 	
 </Collisions>

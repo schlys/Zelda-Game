@@ -8,8 +8,6 @@ namespace Project1.CollisionComponents
     {
         public ICollidable Item1 { get; set; }
         public ICollidable Item2 { get; set; }
-        public string First { get; set; }
-        public string Second { get; set; }
         public String Key { get; set; }
         public string DirectionKey { get; set; }
         public string Direction 

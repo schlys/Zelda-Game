@@ -13,20 +13,18 @@ using Project1.DirectionState;
 
 namespace Project1.Command
 {
-    public class ProjectileHitCmd : ICommand
+    public class ProjectileStopCmd : ICommand
     {
-        IProjectile Projectile;
-        public ProjectileHitCmd(ICollidable projectile, ICollidable holder, string direction)
+        public IProjectile Projectile { get; set; }
+        public ProjectileStopCmd(ICollidable projectile, ICollidable holder, string direction = "")
         {
             Projectile = (IProjectile)projectile;
         }
-
         public void Execute()
         {
             Projectile.StopMotion();
         }
     }
-
 
     public class LinkTakeDamageCmd : ICommand
     {
@@ -43,11 +41,11 @@ namespace Project1.Command
         }
     }
 
-    public class LinkHitBlockCmd : ICommand
+    public class LinkKnockbackCmd : ICommand
     {
         public ILink Link { get; set; }
         string Direction;
-        public LinkHitBlockCmd(ICollidable link, ICollidable holder, string direction)
+        public LinkKnockbackCmd(ICollidable link, ICollidable holder, string direction)
         {
             Direction = direction;
             Link = (ILink)link;
@@ -58,11 +56,11 @@ namespace Project1.Command
         }
     }
 
-    public class LinkHitBlockReverseCmd : ICommand
+    public class LinkKnockbackReverseCmd : ICommand
     {
         public ILink Link { get; set; }
         string Direction;
-        public LinkHitBlockReverseCmd(ICollidable link, ICollidable holder, string direction)
+        public LinkKnockbackReverseCmd(ICollidable link, ICollidable holder, string direction)
         {
             Direction = direction;
             Link = (ILink)link;
@@ -101,8 +99,13 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            // TODO: handle in link or Door class 
-            // Unlock the door if link has a key
+            /* If link collides with the door in the proper direction, enter the new room if 
+             * the door is unlocked. If the door is locked, try to unlock the door by using 
+             * one of Link's keys and then enter the new room. 
+             */ 
+            
+            // TODO: uncomment key code before submission 
+
             IDirectionState DoorDirection = Door.DirectionState; 
             if (Link.DirectionState.GetType().Name.Equals(Door.DirectionState.GetType().Name))
             {
@@ -136,12 +139,12 @@ namespace Project1.Command
         }
     }
 
-    public class EnemyAvoidOtherCmd : ICommand
+    public class EnemyKnockbackCmd : ICommand
     {
 
         public IEnemy Enemy { get; set; }
         string Direction;
-        public EnemyAvoidOtherCmd(ICollidable enemy, ICollidable holder, string direction)
+        public EnemyKnockbackCmd(ICollidable enemy, ICollidable holder, string direction)
         {
             Direction = direction;
             Enemy = (IEnemy)enemy;
@@ -152,26 +155,20 @@ namespace Project1.Command
         }
     }
 
-    public class EnemyHitPlayerCmd: ICommand
+    public class EnemyKnockbackReverseCmd: ICommand
     {
         public IEnemy Enemy { get; set; }
         string Direction;
-        // Change Direction to opposite
-        Dictionary<string,string> dir = new Dictionary<string, string> {
-            { GameVar.DirectionUp, GameVar.DirectionDown},
-            { GameVar.DirectionDown, GameVar.DirectionUp},
-            { GameVar.DirectionRight, GameVar.DirectionLeft},
-            { GameVar.DirectionLeft, GameVar.DirectionRight}
-        };
 
-        public EnemyHitPlayerCmd(ICollidable enemy, ICollidable holder, string direction)
+        public EnemyKnockbackReverseCmd(ICollidable enemy, ICollidable holder, string direction)
         {
             Direction = direction;
             Enemy = (IEnemy)enemy;
         }
         public void Execute()
         {
-            Enemy.AvoidEnemy(dir[Direction]);
+            // Avoid in the opposite direction of the collision 
+            Enemy.AvoidEnemy(DirectionManager.Instance.GetReverseDirectionState(Direction).ID);
         }
     }
 
@@ -187,19 +184,6 @@ namespace Project1.Command
         public void Execute()
         {
             if (!Link.HasItem(Item.Kind)) Item.RemoveItem();
-        }
-    }
-
-    public class WeaponsBlockedCmd : ICommand
-    {
-        public IProjectile Projectile { get; set; }
-        public WeaponsBlockedCmd(ICollidable projectile, ICollidable holder, string direction = "")
-        {
-            Projectile = (IProjectile)projectile;
-        }
-        public void Execute()
-        {
-            Projectile.StopMotion();
         }
     }
 

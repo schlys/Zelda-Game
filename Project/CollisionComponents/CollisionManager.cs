@@ -67,7 +67,7 @@ namespace Project1.CollisionComponents
             string key = collision.DirectionKey;
             if (CollisionMappings.ContainsKey(key)) return CollisionMappings[key];
             else if (CollisionMappings.ContainsKey(collision.Key)) return CollisionMappings[collision.Key];
-            //TODO: create Null object instead of returning null 
+
             return null; 
         }
 
@@ -80,7 +80,6 @@ namespace Project1.CollisionComponents
             ConstructorInfo constructor1 = commands.Item1;
             ConstructorInfo constructor2 = commands.Item2;
 
-            // NOTE: All of the parameters in the commands will have to be changed to ICollidable types
             // Create the commands
             object command1 = constructor1.Invoke(new object[] { item1, item2, collision.Direction });
             object command2 = constructor2.Invoke(new object[] { item2, item1, collision.Direction });
@@ -89,8 +88,8 @@ namespace Project1.CollisionComponents
             ICommand cmd1 = (ICommand)command1;
             ICommand cmd2 = (ICommand)command2;
 
-            if (!cmd1.GetType().Name.Equals("NoCmd"))cmd1.Execute();          
-            if (!cmd2.GetType().Name.Equals("NoCmd"))cmd2.Execute();
+            if (!(cmd1 is NullCollision))cmd1.Execute();          
+            if (!(cmd2 is NullCollision)) cmd2.Execute();
         }
 
         public void AddObject(ICollidable item)
