@@ -22,6 +22,7 @@ namespace Project1.LinkComponents
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
         public IInventory Inventory { get; set; }
+        public int PlayerNum { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -38,12 +39,14 @@ namespace Project1.LinkComponents
         private int TotalNumHearts;
         private int delay;
         private Color Color;
-        public Link(Vector2 position, Color color)
+        public Link(Vector2 position, Color color, int player)
         {
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
              */
             Color = color;
+            
+            PlayerNum = player;     // 0 or 1 denoting player 1 or player 2
 
             DirectionState = new DirectionStateUp();            
             

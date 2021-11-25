@@ -345,7 +345,7 @@ namespace Project1
             for (int i = 0; i < LinkCount; i++)
             {
                 Tuple<Vector2, Color> linkInfo = GameVar.GetLinkInfo(i);
-                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2);
+                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2, i);
                 Links.Add(Link);
 
                 Links_copy = new List<ILink>(Links);

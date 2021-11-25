@@ -105,8 +105,18 @@ namespace Project1.LinkComponents
             SelectedItemKeyPosition = new Vector2(48, 72) * GameObjectManager.Instance.ScalingFactor;
             InventoryItemPosition = new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor;
 
-            TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
-            TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+            if(Link.PlayerNum == GameVar.Player1)
+            {
+                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
+                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+            } else if (Link.PlayerNum == GameVar.Player2)
+            {
+                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num9");
+                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num0");
+            } else
+            {
+                throw new IndexOutOfRangeException(); 
+            }
 
             MapItemKey = "DungeonMap";
             CompassItemKey = "Compass";

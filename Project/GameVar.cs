@@ -103,6 +103,8 @@ namespace Project1
         }
 
         // LINK 
+        public static int Player1 = 0;
+        public static int Player2 = 1;
         public static Tuple<Vector2, Color> GetLinkInfo(int i)
         {
             List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>

@@ -9,6 +9,7 @@ using Project1.SpriteComponents;
 using Project1.GameState;
 using System.Reflection;
 using System.Xml;
+using Project1.CollisionComponents; 
 
 namespace Project1.HeadsUpDisplay
 {
@@ -24,8 +25,14 @@ namespace Project1.HeadsUpDisplay
         private int Step;
         private int InitialStep;
         private int ScrollDeltaY;
+
+        private Sprite TextNum1;
+        private Sprite TextNum2;
+
         private SpriteFont Font;
+
         private Dictionary<String, Vector2> Positions;
+
         private Vector2 Position;
         private Vector2 InitialPosition;
         private Vector2 MapPosition;
@@ -39,6 +46,9 @@ namespace Project1.HeadsUpDisplay
         private Vector2 InventoryItemPosition;
         private Vector2 InventoryItem1Position;
         private Vector2 InventoryItem2Position;
+        private Vector2 InventoryItem1TextPosition;
+        private Vector2 InventoryItem2TextPosition;
+
         public HUD(ILink link, Game1 game)
         {
             Game = game;
@@ -78,11 +88,28 @@ namespace Project1.HeadsUpDisplay
             InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItem1Position = (new Vector2(128, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
             InventoryItem2Position = (new Vector2(152, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
+            InventoryItem1TextPosition = (new Vector2(129, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
+            InventoryItem2TextPosition = (new Vector2(152, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
 
             HUDMain = LevelFactory.Instance.GetHUDTexture("HUDMain");
             HUDMap = LevelFactory.Instance.GetHUDTexture("HUDMap");
             HUDLevelMap = LevelFactory.Instance.GetHUDTexture("HUDLevelMap");
             HUDInventory = LevelFactory.Instance.GetHUDTexture("Inventory");
+
+            if (Link.PlayerNum == GameVar.Player1)
+            {
+                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
+                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+            }
+            else if (Link.PlayerNum == GameVar.Player2)
+            {
+                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num9");
+                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num0");
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
 
             Step = 6;
             InitialStep = Step;
@@ -142,6 +169,17 @@ namespace Project1.HeadsUpDisplay
             Vector2 newItem2Position = InventoryItem2Position;
             newItem2Position += position;
             Link.Inventory.DrawItem(spriteBatch, Link.Inventory.Item2, newItem2Position);
+
+            // Draw <NumText1> and <NumText1> to denote the keys for items
+            Vector2 newItem1TextPosition = InventoryItem1TextPosition;
+            newItem1TextPosition += position;
+            newItem1TextPosition = GetItemPosition(TextNum1, newItem1TextPosition);
+            TextNum1.Draw(spriteBatch, newItem1TextPosition);
+
+            Vector2 newItem2TextPosition = InventoryItem2TextPosition;
+            newItem2TextPosition += position;
+            newItem2TextPosition = GetItemPosition(TextNum2, newItem2TextPosition);
+            TextNum2.Draw(spriteBatch, newItem2TextPosition);
 
             // Draw Link's Health Hearts 
             Vector2 newHeartPosition = HeartPosition;
@@ -269,6 +307,17 @@ namespace Project1.HeadsUpDisplay
         public void Reset()
         {
             Position = InitialPosition;
+        }
+
+        private Vector2 GetItemPosition(Sprite sprite, Vector2 position)
+        {
+            /* Get accurate dimensions for the hitbox, but position is off */
+            Rectangle Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
+            /* Correct the position to account for empty space around the hitbox */
+            int BlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            position -= new Vector2((BlockSize - Hitbox.Width) / 2, (BlockSize - Hitbox.Height) / 2);
+            /* Get correct hibox for updated position */
+            return position;
         }
     }
 }

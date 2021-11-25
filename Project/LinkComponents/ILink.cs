@@ -16,6 +16,7 @@ namespace Project1.LinkComponents
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
         IInventory Inventory { get; set; }
+        int PlayerNum { get; set; }
         void SetPosition(Vector2 position, IDirectionState direction=null); 
         void MoveUp();
         void MoveDown();
