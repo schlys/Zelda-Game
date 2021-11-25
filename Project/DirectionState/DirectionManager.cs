@@ -41,5 +41,27 @@ namespace Project1.DirectionState
             }
             return state; 
         }
+        public IDirectionState GetReverseDirectionState(string direction)
+        {
+            IDirectionState state;
+            switch (direction)
+            {
+                case GameVar.DirectionDown:
+                    state = new DirectionStateUp();
+                    break;
+                case GameVar.DirectionUp:
+                    state = new DirectionStateDown();
+                    break;
+                case GameVar.DirectionRight:
+                    state = new DirectionStateLeft();
+                    break;
+                case GameVar.DirectionLeft:
+                    state = new DirectionStateRight();
+                    break;
+                default:
+                    throw new IndexOutOfRangeException();   // invalid entry
+            }
+            return state;
+        }
     }
 }

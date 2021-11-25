@@ -179,12 +179,12 @@ namespace Project1.CollisionComponents
                     if (Intersection.Top == item1.Hitbox.Top)
                     {
                         // collide on item1's top and item2's bottom 
-                        direction = GameVar.DirectionTop;
+                        direction = GameVar.DirectionUp;
                     }
                     else
                     {
                         // collide on item1's bottom and item2's top
-                        direction = GameVar.DirectionBottom;
+                        direction = GameVar.DirectionDown;
                     }
     
                 } else // Collision in horizontal direction 

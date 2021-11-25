@@ -36,6 +36,7 @@
 	</Collision>
 	
 	<!-- PROJECTILE -->
+	
 	<Collision>
 		<name>ProjectileBombExplosionBlockLast</name>
 		<command1>NoCmd</command1>
@@ -69,6 +70,12 @@
 	<!-- LINK -->
 
 	<Collision>
+		<name>LinkLink</name>
+		<command1>LinkHitBlockCmd</command1>
+		<command2>LinkHitBlockReverseCmd</command2>
+	</Collision>
+		
+	<Collision>
 		<name>LinkItem</name>
 		<command1>ItemPickedUpCmd</command1>
 		<command2>LinkAddItemToInventoryCmd</command2>
@@ -79,7 +86,6 @@
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
-	
 	
 	<Collision>
 		<name>LinkEnemy</name>
@@ -104,8 +110,6 @@
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>ProjectileHitCmd</command2>
 	</Collision>
-	
-	
 
 	<Collision>
 		<name>LinkDoor</name>
@@ -114,6 +118,7 @@
 	</Collision>
 	
 	<!-- ENEMY -->
+	
 	<Collision>
 		<name>EnemyProjectile</name>
 		<command1>EnemyTakeDamageCmd</command1>

@@ -31,7 +31,7 @@ namespace Project1.LinkComponents
         void IncreaseHealth();
         void RestoreHealth();
         void IncreaseHealthHeartCount();
-        void HitBlock(string direction);
+        void HitBlock(IDirectionState direction);
         void Win(); 
         void Reset();
         void Update();

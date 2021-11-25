@@ -172,10 +172,10 @@ namespace Project1.LinkComponents
             // item1 is the furthest corner for bounds checking and item2 is the increment to <position> 
             Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
-                { "Top",    Tuple.Create(new Vector2(0, knockback + Hitbox.Height),     new Vector2(0, knockback)) },
-                { "Bottom", Tuple.Create(new Vector2(0, -knockback),                    new Vector2(0, -knockback)) },
-                { "Right",  Tuple.Create(new Vector2(-knockback, 0),                    new Vector2(-knockback, 0)) },
-                { "Left",   Tuple.Create(new Vector2(knockback + Hitbox.Width, 0),      new Vector2(knockback, 0))}
+                { GameVar.DirectionUp,    Tuple.Create(new Vector2(0, knockback + Hitbox.Height),     new Vector2(0, knockback)) },
+                { GameVar.DirectionDown, Tuple.Create(new Vector2(0, -knockback),                    new Vector2(0, -knockback)) },
+                { GameVar.DirectionRight,  Tuple.Create(new Vector2(-knockback, 0),                    new Vector2(-knockback, 0)) },
+                { GameVar.DirectionLeft,   Tuple.Create(new Vector2(knockback + Hitbox.Width, 0),      new Vector2(knockback, 0))}
             };
 
             if (knockback > 0)
@@ -282,10 +282,10 @@ namespace Project1.LinkComponents
         {
             Health.IncreaseHeartCount(1);
         }
-        public void HitBlock(string direction)
+        public void HitBlock(IDirectionState direction)
         {
             StopMotion();
-            Position = Knockback(Position, direction, Step);
+            Position = Knockback(Position, direction.ID, Step);
         }
 
         private void UpdateSprite(string weapon="", bool item=false)

@@ -54,10 +54,25 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.HitBlock(Direction);
+            Link.HitBlock(DirectionManager.Instance.GetDirectionState(Direction));
         }
     }
-   
+
+    public class LinkHitBlockReverseCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        string Direction;
+        public LinkHitBlockReverseCmd(ICollidable link, ICollidable holder, string direction)
+        {
+            Direction = direction;
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            Link.HitBlock(DirectionManager.Instance.GetReverseDirectionState(Direction));
+        }
+    }
+
     public class LinkAddItemToInventoryCmd : ICommand
     {
         public ILink Link { get; set; }
@@ -143,8 +158,8 @@ namespace Project1.Command
         string Direction;
         // Change Direction to opposite
         Dictionary<string,string> dir = new Dictionary<string, string> {
-            { GameVar.DirectionTop, GameVar.DirectionBottom},
-            { GameVar.DirectionBottom, GameVar.DirectionTop},
+            { GameVar.DirectionUp, GameVar.DirectionDown},
+            { GameVar.DirectionDown, GameVar.DirectionUp},
             { GameVar.DirectionRight, GameVar.DirectionLeft},
             { GameVar.DirectionLeft, GameVar.DirectionRight}
         };

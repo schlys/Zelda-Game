@@ -67,8 +67,8 @@ namespace Project1.EnemyComponents
 
             Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
-                { GameVar.DirectionTop, Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
-                { GameVar.DirectionBottom, Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
+                { GameVar.DirectionUp, Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
+                { GameVar.DirectionDown, Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
                 { GameVar.DirectionRight, Tuple.Create(new Vector2(-knockback, 0), new Vector2(-knockback, 0)) },
                 { GameVar.DirectionLeft, Tuple.Create(new Vector2(knockback + Hitbox.Width, 0), new Vector2(knockback, 0))}
             };

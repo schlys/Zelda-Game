@@ -15,9 +15,7 @@ namespace Project1
         public const string BlockBase = "Base"; 
 
         // DIRECTIONS 
-        public const string DirectionTop = "Top";
         public const string DirectionUp = "Up";
-        public const string DirectionBottom = "Bottom";
         public const string DirectionDown = "Down";
         public const string DirectionRight= "Right";
         public const string DirectionLeft = "Left";
