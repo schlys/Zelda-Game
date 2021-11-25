@@ -192,6 +192,7 @@ namespace Project1.LevelComponents
 
                 if (!position.Equals(Vector2.Zero)) // door not located in typical location
                 {
+                    // TODO: need 2 different locations for player 1 and 2
                     NewLinkPosition = new List<Vector2>();
                     NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
                     NewLinkPosition.Add(GetItemPosition(position.X, position.Y));

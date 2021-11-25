@@ -28,21 +28,21 @@ namespace Project1.EnemyComponents
         private int counter = 0;
         private int colorDelay = 10;
         private bool IsDead = false;
-        private int health = 3;
+        private int defaultHealth = 3;
         private bool spawn = true;
         private Sprite SpawnIn;
         private int spawnTimer = 20;
         
         public Enemy(Vector2 position, string type)
-        {           
+        {       
+            // Get <EnemyState> via reflection
             Assembly assem = typeof(IEnemyState).Assembly;
             Type enemyType = assem.GetType("Project1.EnemyComponents.EnemyState" + type);
             ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy), typeof(string) });    
-
             object enemyState = enemyConstructor.Invoke(new object[] { this, type});
             EnemyState = (IEnemyState)enemyState;
            
-            Health = new EnemyHealth(health, health);                     // default health is 3 of 3 hearts (change to 30 b.c. for testing death)
+            Health = new EnemyHealth(defaultHealth, defaultHealth);  
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
@@ -68,7 +68,7 @@ namespace Project1.EnemyComponents
             Dictionary<string, Tuple<Vector2, Vector2>> directions = new Dictionary<string, Tuple<Vector2, Vector2>>
             {
                 { GameVar.DirectionUp, Tuple.Create(new Vector2(0, knockback + Hitbox.Height), new Vector2(0, knockback)) },
-                { GameVar.DirectionDown, Tuple.Create(new Vector2(0, knockback), new Vector2(0, -knockback)) },
+                { GameVar.DirectionDown, Tuple.Create(new Vector2(0, -knockback), new Vector2(0, -knockback)) },
                 { GameVar.DirectionRight, Tuple.Create(new Vector2(-knockback, 0), new Vector2(-knockback, 0)) },
                 { GameVar.DirectionLeft, Tuple.Create(new Vector2(knockback + Hitbox.Width, 0), new Vector2(knockback, 0))}
             };
@@ -86,7 +86,6 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage, string direction)
         {
             GameSoundManager.Instance.PlayEnemyHit();
-            // TODO: need determine value to decrease by  
             EnemyState.Sprite.Color = Color.Red;
             AvoidEnemy(direction);
             Health.DecreaseHealth(damage);
@@ -102,17 +101,16 @@ namespace Project1.EnemyComponents
 
         public void Reset()
         {
-
             Spawn();
-            //EnemyState = new EnemyStateMoblin(this);            // default type state is Moblin -Removed
-
             
-            Health = new EnemyHealth(health, 30);                  // default health is 3 of 3 hearts 
+            Health = new EnemyHealth(defaultHealth, defaultHealth);
             IsMoving = true;
             IsDead = false;
             EnemyState.Sprite.Color = Color.White;
+
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
+
             CollisionManager.Instance.AddObject(this);
         }
 
