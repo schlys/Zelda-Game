@@ -17,8 +17,7 @@ namespace Project1.LevelComponents
         public string ID { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Size { get; set; }
-        public int XPos { get; set; }
-        public int YPos { get; set; }
+        public Vector2 SheetPosition { get; set; }
         public string UpRoom { get; set; }
         public string DownRoom { get; set; }
         public string LeftRoom { get; set; }
@@ -33,21 +32,22 @@ namespace Project1.LevelComponents
 
         private Vector2 TextureRoomSize; 
 
-        public Room(string id, Vector2 position, int xPos, int yPos, string up, string down, string left, string right, Texture2D texture)
+        public Room(string id, Vector2 position, Vector2 sheetPosition, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
             Position = position;
-            // TODO: how is xpos, ypos different than position? 
-            XPos = xPos;
-            YPos = yPos;
+            SheetPosition = sheetPosition;
+
             UpRoom = up;
             DownRoom = down;
             LeftRoom = left;
             RightRoom = right;
+
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
+
             Texture = texture;
 
             // TODO: data drive 
@@ -75,7 +75,7 @@ namespace Project1.LevelComponents
         {
             foreach (IDoor door in Doors)
             {
-                if (direction.GetType().Name.Equals(door.DirectionState.GetType().Name)) 
+                if (direction.GetType().Name.Equals(door.DirectionState.GetType().Name))    // at most one door of each direction
                 { 
                     door.Unlock();
                     break;
@@ -90,8 +90,7 @@ namespace Project1.LevelComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            // TODO: remove hardcode 
-            Rectangle sourceRectangle = new Rectangle(XPos, YPos, (int)TextureRoomSize.X, (int)TextureRoomSize.Y);
+            Rectangle sourceRectangle = new Rectangle((int)SheetPosition.X, (int)SheetPosition.Y, (int)TextureRoomSize.X, (int)TextureRoomSize.Y);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color);
         }

@@ -14,7 +14,7 @@ namespace Project1.LevelComponents
 	{
 		// from IDoor
 		public Vector2 Position { get; set; }
-		public Vector2 PositionDelta { get; set; }
+		public Vector2 PositionDelta { get; set; }		// if nonzero, the location of the door relative to the room
 		public Sprite Sprite { get; set; }
 		public IDirectionState DirectionState { get; set; }
 

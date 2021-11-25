@@ -43,12 +43,12 @@ namespace Project1.LevelComponents
         private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
-        private static Vector2 PositionChanger = new Vector2(0, 0);
 
         public int PlayableWidth;
         public int PlayableHeight;
 
-        private static IDirectionState ScrollDirection;
+        private static List<Vector2> NewLinkPosition;
+        private static IDirectionState NewLinkDirection;
 
         private static string StartRoom = "room2";
         
@@ -95,7 +95,7 @@ namespace Project1.LevelComponents
                 string right = node.SelectSingleNode("right").InnerText.ToLower();
 
                 Texture2D texture = LevelFactory.Instance.GetTexture(sheet);
-                IRoom Room = new Room(name, RoomPosition, xPos, yPos, up, down, left, right, texture);
+                IRoom Room = new Room(name, RoomPosition, new Vector2(xPos, yPos), up, down, left, right, texture);
 
                 // Load the objects within each room 
                 XmlNodeList objectsData = node.SelectNodes("object");
@@ -155,7 +155,6 @@ namespace Project1.LevelComponents
                 NextRoom.Draw(spriteBatch);
             }
         }
-
         public void Update()
         {
             if (GameStateManager.Instance.CanRoomScroll())
@@ -163,7 +162,6 @@ namespace Project1.LevelComponents
                 Scroll();
             }
         }
-
         public void Reset()
         {
             /* Update <CurrentRoom> to be the <StartRoom> and reset the room.
@@ -180,33 +178,30 @@ namespace Project1.LevelComponents
             CurrentRoom.Reset();
             LevelMap.Reset();
         }
-
         public void MoveUp(Vector2 position)
         {
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.UpRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.UpRoom))
             {
                 GameStateManager.Instance.StartScroll();        // trigger room scroll
-                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room 
+                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room - including Link(s)
 
                 ScrollAdjust = new Vector2(0, ScrollStep);
+                
+                // Update Link Position
+                NewLinkDirection = new DirectionStateUp();
 
-                // ???? what is this position here doing? 
-
-                // This is for special doors like the secret room door that set link to a different position specified in xml
-                Vector2 newPos;
-                IDirectionState up = new DirectionStateUp();
-                ScrollDirection = up;
-
-                if (!position.Equals(Vector2.Zero))
+                if (!position.Equals(Vector2.Zero)) // door not located in typical location
                 {
-                    newPos = GetItemPosition(position.X, position.Y);
+                    NewLinkPosition = new List<Vector2>();
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
                 }
-                else
+                else // door located in typial location
                 {
-                    //newPos = LinkUpRoomPosition;
+                    NewLinkPosition = GameVar.GetLinkNewRoomPosition(NewLinkDirection); 
                 }
 
-                //LinkPositionUpdate = Tuple.Create(newPos, up);
+                // Update <NextRoom> 
                 NextRoom = LevelDict[CurrentRoom.UpRoom];
                 NextRoom.Position += new Vector2(0, -NextRoom.Size.Y);
                 NextRoom.OpenDoor(new DirectionStateDown());
@@ -219,23 +214,25 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.DownRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.DownRoom))
             {
                 GameStateManager.Instance.StartScroll();        // trigger room scroll
-                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room 
+                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room - including Link(s)
 
                 ScrollAdjust = new Vector2(0, -ScrollStep);
+                
+                // Update Link Position
+                NewLinkDirection = new DirectionStateDown();
 
-                Vector2 newPos;
-                IDirectionState down = new DirectionStateDown();
-                ScrollDirection = down;
-                if (!position.Equals(Vector2.Zero))
+                if (!position.Equals(Vector2.Zero)) // door not located in typical location
                 {
-                    newPos = GetItemPosition(position.X, position.Y);
+                    NewLinkPosition = new List<Vector2>();
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
                 }
-                else
+                else // door located in typial location
                 {
-                    //newPos = LinkDownRoomPosition;
+                    NewLinkPosition = GameVar.GetLinkNewRoomPosition(NewLinkDirection);
                 }
-                //LinkPositionUpdate = Tuple.Create(newPos, down);
 
+                // Update <NextRoom> 
                 NextRoom = LevelDict[CurrentRoom.DownRoom];
                 NextRoom.Position += new Vector2(0, NextRoom.Size.Y);
                 NextRoom.OpenDoor(new DirectionStateUp());
@@ -248,24 +245,25 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.LeftRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.LeftRoom))
             {
                 GameStateManager.Instance.StartScroll();    // trigger room scroll
-                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room 
+                GameObjectManager.Instance.ClearRoomItems();    // remove objects from room - including Link(s) 
 
                 ScrollAdjust = new Vector2(ScrollStep, 0);
 
-                Vector2 newPos;
-                IDirectionState left = new DirectionStateLeft();
-                ScrollDirection = left;
-                if (!position.Equals(Vector2.Zero))
-                {
-                    newPos = GetItemPosition(position.X, position.Y);
-                    // TODO: 
-                }
-                else
-                {
-                    //newPos = LinkLeftRoomPosition;
-                }
-                //LinkPositionUpdate = Tuple.Create(newPos, left);
+                // Update Link Position
+                NewLinkDirection = new DirectionStateLeft();
 
+                if (!position.Equals(Vector2.Zero)) // door not located in typical location
+                {
+                    NewLinkPosition = new List<Vector2>();
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                }
+                else // door located in typial location
+                {
+                    NewLinkPosition = GameVar.GetLinkNewRoomPosition(NewLinkDirection);
+                }
+
+                // Update <NextRoom> 
                 NextRoom = LevelDict[CurrentRoom.LeftRoom];
                 NextRoom.Position += new Vector2(-NextRoom.Size.X, 0);
                 NextRoom.OpenDoor(new DirectionStateRight());
@@ -278,25 +276,28 @@ namespace Project1.LevelComponents
             if (GameStateManager.Instance.CanPlayGame() && !CurrentRoom.RightRoom.Equals("") && LevelDict.ContainsKey(CurrentRoom.RightRoom))
             {
                 GameStateManager.Instance.StartScroll();    // trigger room scroll
-                GameObjectManager.Instance.ClearRoomItems();
+                GameObjectManager.Instance.ClearRoomItems();   // remove objects from room - including Link(s) 
 
                 ScrollAdjust = new Vector2(-ScrollStep, 0);
 
-                Vector2 newPos;
-                IDirectionState right = new DirectionStateRight();
-                ScrollDirection = right;
-                if (!position.Equals(Vector2.Zero))
-                {
-                    newPos = GetItemPosition(position.X, position.Y);
-                }
-                else
-                {
-                    //newPos = LinkRightRoomPosition;
-                }
-                //LinkPositionUpdate = Tuple.Create(newPos, right);
+                // Update Link Position
+                NewLinkDirection = new DirectionStateRight();
 
+                if (!position.Equals(Vector2.Zero)) // door not located in typical location
+                {
+                    NewLinkPosition = new List<Vector2>();
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                    NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
+                }
+                else // door located in typial location
+                {
+                    NewLinkPosition = GameVar.GetLinkNewRoomPosition(NewLinkDirection);
+                }
+
+                // Update <NextRoom> 
                 NextRoom = LevelDict[CurrentRoom.RightRoom];
                 NextRoom.Position += new Vector2(NextRoom.Size.X, 0);
+                
                 NextRoom.OpenDoor(new DirectionStateLeft());
 
                 LevelMap.MoveRight();
@@ -305,6 +306,7 @@ namespace Project1.LevelComponents
 
         /*
          * OLD MOVE METHODS 
+         * need to confirm i can delete these
          clear - move - show up all items
          */
         /*
@@ -426,6 +428,8 @@ namespace Project1.LevelComponents
             /* Scroll the room in the direction <step>
              */
 
+            // TODO: need to make sure BOTH LINK's inventory's are done scrolling, otherwise have loop! 
+
             if (Math.Abs(NextRoom.Position.X - CurrentRoomInitialPosition.X) <= ScrollStep &&
                 Math.Abs(NextRoom.Position.Y - CurrentRoomInitialPosition.Y) <= ScrollStep)
             {
@@ -436,7 +440,7 @@ namespace Project1.LevelComponents
                 CurrentRoom = NextRoom;
                 GameObjectManager.Instance.UpdateRoomItems();   // readd room items 
 
-                GameObjectManager.Instance.SetLinkPosition(GameVar.GetLinkNewRoomPosition(ScrollDirection), ScrollDirection);
+                GameObjectManager.Instance.SetLinkPosition(NewLinkPosition, NewLinkDirection);
             }
             else
             {
