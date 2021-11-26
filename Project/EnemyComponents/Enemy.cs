@@ -25,13 +25,10 @@ namespace Project1.EnemyComponents
 
         // Other Properties 
         
-        private int counter = 0;
-        private int colorDelay = 10;
+        private int Counter = 0;
         private bool IsDead = false;
-        private int defaultHealth = 3;
-        private bool spawn = true;
-        private Sprite SpawnIn;
-        private int spawnTimer = 20;
+        private bool IsSpawning = true;
+        private Sprite SpawnSprite;
         
         public Enemy(Vector2 position, string type)
         {       
@@ -41,8 +38,10 @@ namespace Project1.EnemyComponents
             ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy), typeof(string) });    
             object enemyState = enemyConstructor.Invoke(new object[] { this, type});
             EnemyState = (IEnemyState)enemyState;
-           
-            Health = new EnemyHealth(defaultHealth, defaultHealth);  
+
+            TypeID = GetType().Name.ToString() + EnemyState.ID;
+
+            Health = new EnemyHealth(GameVar.EnemyDefaultHealth, GameVar.EnemyDefaultHealth);  
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
@@ -54,9 +53,10 @@ namespace Project1.EnemyComponents
             UpdateHitBox();
 
             InitialPosition = Position;            
+            
             IsMoving = true;
-            TypeID = GetType().Name.ToString() + EnemyState.ID;
-            SpawnIn = SpriteFactory.Instance.GetSpriteData("Spawn");
+
+            SpawnSprite = SpriteFactory.Instance.GetSpriteData(GameVar.SpawnSpriteKey);
         }
 
         private Vector2 Knockback(Vector2 position, string direction, int knockback)
@@ -86,7 +86,7 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage, string direction)
         {
             GameSoundManager.Instance.PlayEnemyHit();
-            EnemyState.Sprite.Color = Color.Red;
+            EnemyState.Sprite.Color = GameVar.GetDamageColor();
             AvoidEnemy(direction);
             Health.DecreaseHealth(damage);
             IsDead = Health.Dead();
@@ -103,10 +103,12 @@ namespace Project1.EnemyComponents
         {
             Spawn();
             
-            Health = new EnemyHealth(defaultHealth, defaultHealth);
+            Health.Reset();
+
             IsMoving = true;
             IsDead = false;
-            EnemyState.Sprite.Color = Color.White;
+
+            EnemyState.Sprite.Color = GameVar.GetEnemyColor(); 
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
@@ -117,36 +119,53 @@ namespace Project1.EnemyComponents
         public void Spawn()
         {
             Position = InitialPosition;
-            spawn = true;
+            IsSpawning = true;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (spawn && !IsDead) SpawnIn.Draw(spriteBatch, Position);
-            else if (!IsDead) EnemyState.Draw(spriteBatch, Position);
-            else CollisionManager.Instance.RemoveObject(this);
+            if (IsSpawning && !IsDead)
+            {
+                SpawnSprite.Draw(spriteBatch, Position);
+            }
+            else if (!IsDead)
+            {
+                EnemyState.Draw(spriteBatch, Position);
+            }
         }
 
         public void Update()
         {
-            counter++;
-            if (spawn && counter > spawnTimer) { spawn = false; counter = 0; }
-            else SpawnIn.Update();
-
-            if (!spawn)
+            Counter++;
+            if (IsSpawning && Counter > GameVar.SpawnTimer) // stop spawning animation
             {
-                if (counter > colorDelay)
+                IsSpawning = false;
+                Counter = 0;
+            }
+            else
+            {
+                SpawnSprite.Update();
+            }
+
+            if (!IsSpawning)
+            {
+                if (Counter > GameVar.EnemyColorDelay)  // no longer show damange
                 {
-                    EnemyState.Sprite.Color = Color.White;
-                    counter = 0;
+                    EnemyState.Sprite.Color = GameVar.GetEnemyColor();
+                    Counter = 0;
                 }
+
                 if (!IsDead)
                 {
                     IsMoving = true;
                     EnemyState.Update();
-                    // Update Hitbox for collisions 
-                    UpdateHitBox();
+                    UpdateHitBox(); 
                 }
+            }
+
+            if (IsDead) // remove when dead 
+            {
+                CollisionManager.Instance.RemoveObject(this);   
             }
             
         }

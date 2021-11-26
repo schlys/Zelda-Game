@@ -11,8 +11,11 @@ namespace Project1
     {
         /* This class holds all constant variables and data used throughout the project
          */
+
+
         // BLOCK    
         public const string BlockBase = "Base"; 
+
 
         // DIRECTIONS 
         public const string DirectionUp = "Up";
@@ -21,12 +24,43 @@ namespace Project1
         public const string DirectionLeft = "Left";
         public const string DirectionNotMoving = "NotMoving";
 
+
         // COMMAND
         public const int LinkDamage = 20;
         public const double EnemyDamage = 0.5;
 
 
         // CONTROLLER
+
+        // ENEMY 
+        public const int EnemyColorDelay = 10;
+        public const int EnemyDefaultHealth = 3;
+        public const int SpawnTimer = 20;
+        public const int EnemyStep = 1;
+
+        public const string SpawnSpriteKey = "Spawn"; 
+
+        public static Color GetEnemyColor()
+        {
+            return Color.White; 
+        }
+
+        public static Color GetDamageColor()
+        {
+            return Color.Red;
+        }
+
+        public const string AquamentusSpriteKey = "Aquamentus";
+        public const string AquamentusAttackSpriteKey = "AttackAquamentus";
+        public const int AquamentusDelta = 50;
+        public const int AquamentusDelay = 30;
+        public const int AquamentusAttackCount = 200;
+        public const int AquamentusFrames = 4;
+
+        public const int GelCount = 20;
+
+        public const int GoriyaDelay = 2;
+
 
         // GAME STATE
         public const int ScreenWidth = 512;
@@ -102,9 +136,10 @@ namespace Project1
             }   
         }
 
+
         // LINK 
-        public static int Player1 = 0;
-        public static int Player2 = 1;
+        public const int Player1 = 0;
+        public const int Player2 = 1;
         public static Tuple<Vector2, Color> GetLinkInfo(int i)
         {
             List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>

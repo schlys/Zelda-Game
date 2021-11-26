@@ -23,18 +23,19 @@ namespace Project1.EnemyComponents
         private Random R = new Random();
         private int RandomInt;
         private const int RandomRange = 4;
-        private int Delay=2;
-        private string goriya;
+        private int Delay;
+        private string SpriteKey;
 
         public EnemyStateGoriya(IEnemy enemy, string type)
         {
             Enemy = enemy;
-            goriya = type;
+            SpriteKey = type;
             DirectionState = new DirectionStateUp();
             UpdateSprite();
             IsAttacking = false;
             RandomInt = R.Next(RandomRange);
-            Step = 1;
+            Step = GameVar.EnemyStep;
+            Delay = GameVar.GoriyaDelay; 
         }
 
         private Rectangle GetEnemyHitBox()
@@ -42,13 +43,12 @@ namespace Project1.EnemyComponents
             return ((ICollidable)Enemy).Hitbox;
         }
 
-
         private void MoveUp()
         {
             if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
-                if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateUp) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
@@ -68,7 +68,7 @@ namespace Project1.EnemyComponents
             if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
-                if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateDown) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
@@ -88,7 +88,7 @@ namespace Project1.EnemyComponents
             if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
-                if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateRight) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();
@@ -108,7 +108,7 @@ namespace Project1.EnemyComponents
             if (!IsAttacking)
             {
                 ((ICollidable)Enemy).IsMoving = true;
-                if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateLeft) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
                     UpdateSprite();
@@ -124,7 +124,6 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            //((ICollidable)Enemy).IsMoving = false;
             Sprite.TotalFrames = 1;
         }
         private void Attack(string direction)
@@ -134,12 +133,12 @@ namespace Project1.EnemyComponents
             {
                 IsAttacking = true; 
                 Sprite.MaxDelay = 10;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, goriya));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, SpriteKey));
             }
         }
         private void UpdateSprite()
         {
-            Sprite = SpriteFactory.Instance.GetSpriteData(goriya + DirectionState.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData(SpriteKey + DirectionState.ID);
         }
         public void TakeDamage(double damage)
         {
@@ -156,10 +155,10 @@ namespace Project1.EnemyComponents
             
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             { 
-                if (IsAttacking && Delay==0)
+                if (IsAttacking && Delay == 0)
                 {
                     IsAttacking = false;
-                    Delay = 2;
+                    Delay = GameVar.GoriyaDelay;
                 }
             }
             

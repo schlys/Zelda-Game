@@ -18,14 +18,11 @@ namespace Project1.EnemyComponents
         public Sprite Sprite { get; set; }
         public int Step { get; set; }
         public string ID { get; set; }
+        
         private bool IsAttacking;
         private Random R = new Random();
-        private int Timer = 0;
         private int Rand;
-        private int move = 50;
-        private int frames = 4;
-
-        private int attack = 200;
+        private int Timer = 0;
 
         public EnemyStateAquamentus(IEnemy enemy, string type)
         {
@@ -33,7 +30,7 @@ namespace Project1.EnemyComponents
             DirectionState = new DirectionStateLeft(); 
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             IsAttacking = false;
-            Step = 1;
+            Step = GameVar.EnemyStep;
         }
 
         private Rectangle GetEnemyHitBox()
@@ -43,9 +40,9 @@ namespace Project1.EnemyComponents
 
         public void MoveLeft()
         {
-            if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - move)
+            if (!IsAttacking && Enemy.Position.X >= Enemy.InitialPosition.X - GameVar.AquamentusDelta)
             {
-                Sprite.TotalFrames = frames;
+                Sprite.TotalFrames = GameVar.AquamentusFrames;
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveLeft();
 
@@ -65,10 +62,10 @@ namespace Project1.EnemyComponents
 
         public void MoveRight()
         {
-            if (!IsAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + move)
+            if (!IsAttacking && Enemy.Position.X <= Enemy.InitialPosition.X + GameVar.AquamentusDelta)
             {
 
-                Sprite.TotalFrames = frames;
+                Sprite.TotalFrames = GameVar.AquamentusFrames;
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveRight();
 
@@ -87,7 +84,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            Sprite.TotalFrames = frames - 1;
+            Sprite.TotalFrames = GameVar.AquamentusFrames - 1;
             //((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()
@@ -95,18 +92,19 @@ namespace Project1.EnemyComponents
             if (!IsAttacking)
             {
                 IsAttacking = true;
-                Sprite = SpriteFactory.Instance.GetSpriteData("AttackAquamentus");
-                Sprite.MaxDelay = 30;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Up", "Aquamentus"));
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Left", "Aquamentus"));
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, "Down", "Aquamentus"));
+                Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.AquamentusAttackSpriteKey);
+                Sprite.MaxDelay = GameVar.AquamentusDelay;
+
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, GameVar.DirectionUp, GameVar.AquamentusSpriteKey));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, GameVar.DirectionLeft, GameVar.AquamentusSpriteKey));
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, GameVar.DirectionDown, GameVar.AquamentusSpriteKey));
                 GameSoundManager.Instance.PlayBossScream1();
             }
         }
 
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
+            Enemy.Health.DecreaseHealth(damage);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -120,7 +118,7 @@ namespace Project1.EnemyComponents
 
             Timer++;
 
-            if (Timer >= attack)
+            if (Timer >= GameVar.AquamentusAttackCount)
             {
                 Attack();
                 Timer = 0;
@@ -132,7 +130,7 @@ namespace Project1.EnemyComponents
                 if (IsAttacking)
                 {
                     IsAttacking = false;
-                    Sprite = SpriteFactory.Instance.GetSpriteData("Aquamentus");
+                    Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.AquamentusSpriteKey);
                     Sprite.MaxDelay = Sprite.startDelay;
                 }
             }

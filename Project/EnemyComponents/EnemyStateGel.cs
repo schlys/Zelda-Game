@@ -26,7 +26,7 @@ namespace Project1.EnemyComponents
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Step = 1;
+            Step = GameVar.EnemyStep;
             RandomInt = R.Next(0, 9);
         }
 
@@ -34,7 +34,6 @@ namespace Project1.EnemyComponents
         {
             return ((ICollidable)Enemy).Hitbox;
         }
-
 
         private void MoveUp()
         {
@@ -86,7 +85,6 @@ namespace Project1.EnemyComponents
                 Enemy.Position += new Vector2(-Step, 0);
             }
         }
-        // TODO: how manage combinations of directions? 
         private void MoveUpRight()
         {
             ((ICollidable)Enemy).IsMoving = true;
@@ -136,8 +134,8 @@ namespace Project1.EnemyComponents
                 Enemy.Position += new Vector2(-Step, Step);
             }
         }
-        private void StopMoving() {
-            //((ICollidable)Enemy).IsMoving = false;
+        private void StopMoving() 
+        {
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -151,12 +149,13 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
             MovementTimer++;
-            int time = 20;
-            if (MovementTimer > time)
+
+            if (MovementTimer > GameVar.GelCount)
             {
                 RandomInt = R.Next(0, 9);
                 MovementTimer = 0;
             }
+
             switch (RandomInt)
             {
                 case 0:

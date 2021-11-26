@@ -9,17 +9,13 @@ namespace Project1.EnemyComponents
     public class EnemyHealth
     {
 
-        int TotalNumHearts { get; set; } 
+        int TotalNumHearts { get; } 
         double CurrNumHearts { get; set; }
 
         public EnemyHealth(int total, double curr)
         {
             TotalNumHearts = total;
             CurrNumHearts = curr; 
-        }
-        public void IncreaseHealth(double x)
-        {
-            CurrNumHearts += x; 
         }
         public void DecreaseHealth(double x)
         {
@@ -34,9 +30,9 @@ namespace Project1.EnemyComponents
             }
             return false;
         }
-        public void Update()
+        public void Reset()
         {
-            throw new NotImplementedException();
+            CurrNumHearts = TotalNumHearts;
         }
     }
 }
