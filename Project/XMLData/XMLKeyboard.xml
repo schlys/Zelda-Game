@@ -79,7 +79,7 @@
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
 	</LinkControl>
-
+w
 	<LinkControl player="1">
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>

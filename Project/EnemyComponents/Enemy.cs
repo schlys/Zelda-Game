@@ -165,7 +165,7 @@ namespace Project1.EnemyComponents
 
             if (IsDead) // remove when dead 
             {
-                CollisionManager.Instance.RemoveObject(this);   
+                CollisionManager.Instance.RemoveObject(this);
             }
             
         }
