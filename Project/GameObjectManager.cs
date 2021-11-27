@@ -14,6 +14,7 @@ using Project1.LevelComponents;
 using Project1.HeadsUpDisplay;
 using System.Windows.Forms;
 using Project1.DirectionState;
+using Project1.GameState; 
 
 namespace Project1
 {
@@ -365,9 +366,36 @@ namespace Project1
             UpdateRoomItems();
         }
 
+        public void SetLinksHasMap()
+        {
+            foreach (ILink link in Links)
+            {
+                link.Inventory.HasMap = true;
+            }
+        }
+        public void SetLinksHasCompass()
+        {
+            foreach (ILink link in Links)
+            {
+                link.Inventory.HasCompass = true;
+            }
+        }
+
+        public void StopScroll()
+        {
+            /* Trigger stop scroll in GameStateManager, and stop scrolling in all Link <HUDs>
+             */
+            GameStateManager.Instance.StopScroll(); 
+
+            foreach(IHUD hud in HUDs)
+            {
+                hud.StopScroll(); 
+            }
+        }
+
         /* Methods that connect to <Level>, better to have them go through here since other 
          * places do not know about <Level> 
-         */ 
+         */
         public bool IsWithinRoomBounds(Vector2 location)
         {
             return Level.IsWithinRoomBounds(location); 
@@ -401,20 +429,6 @@ namespace Project1
         public Rectangle GetPlayableRoomBounds()
         {
             return Level.GetPlayableRoomBounds(); 
-        }
-        public void SetLinksHasMap()
-        {
-            foreach(ILink link in Links)
-            {
-                link.Inventory.HasMap = true; 
-            }
-        }
-        public void SetLinksHasCompass()
-        {
-            foreach (ILink link in Links)
-            {
-                link.Inventory.HasCompass = true;
-            }
         }
     }
 }

@@ -17,5 +17,6 @@ namespace Project1.HeadsUpDisplay
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void Reset();
+        void StopScroll(); 
     }
 }

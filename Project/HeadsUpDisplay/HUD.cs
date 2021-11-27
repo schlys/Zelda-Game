@@ -289,21 +289,26 @@ namespace Project1.HeadsUpDisplay
            
             if((Step > 0) && (Position.Y > InitialPosition.Y + ScrollDeltaY))   // Scroll down into item selection screen
             {
-                GameStateManager.Instance.StopScroll();
-                Step = -Step; 
+                GameObjectManager.Instance.StopScroll(); 
             }
             else if((Step < 0) && (Position.Y <= InitialPosition.Y))  // Scrol up and out of item selection screen 
             {
-                GameStateManager.Instance.StopScroll();
-                Step = -Step;
+                GameObjectManager.Instance.StopScroll();
             } 
             else
             {
                 Position.Y += step;
             }
-            
-            // TODO: test bounds 
         }
+
+        public void StopScroll()
+        {
+            /* Called in GameObjectManager 
+             * reverse <Step> direction
+             */ 
+            Step = -Step;
+        }
+
         public void Reset()
         {
             Position = InitialPosition;
