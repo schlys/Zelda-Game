@@ -19,19 +19,19 @@ namespace Project1.EnemyComponents
         public int Step { get; set; }
 
         private bool IsAttacking;
-        private int MovementTimer=0;
+        private int MovementTimer = 0;
         private Random R = new Random();
         private int RandomInt;
-        private string moblin;
+        private string SpriteKey;
 
         public EnemyStateMoblin(IEnemy enemy, string type)
         {
             Enemy = enemy;
-            moblin = type;
+            SpriteKey = type;
             DirectionState = new DirectionStateRight();
             UpdateSprite();
-            RandomInt = R.Next(0, 5);
-            Step = 1;
+            RandomInt = R.Next(0, GameVar.MoblinRandomRange);
+            Step = GameVar.EnemyStep;
             IsAttacking = false;
         }
 
@@ -40,12 +40,11 @@ namespace Project1.EnemyComponents
             return ((ICollidable)Enemy).Hitbox;
         }
 
-
         private void MoveUp()
         {
             if (!IsAttacking)
             {
-                if (!DirectionState.ID.Equals("Up") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateUp) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
                     
@@ -64,7 +63,7 @@ namespace Project1.EnemyComponents
         {
             if (!IsAttacking)
             {
-                if (!DirectionState.ID.Equals("Down") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateDown) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
                     
@@ -84,7 +83,7 @@ namespace Project1.EnemyComponents
         {
             if (!IsAttacking)
             {
-                if (!DirectionState.ID.Equals("Right") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateRight) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
                     
@@ -104,7 +103,7 @@ namespace Project1.EnemyComponents
         {
             if (!IsAttacking)
             {
-                if (!DirectionState.ID.Equals("Left") || Sprite.TotalFrames == 1)
+                if (!(DirectionState is DirectionStateLeft) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
                     
@@ -123,11 +122,11 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = 1;
-            
         }
+
         private void UpdateSprite()
         {
-            Sprite = SpriteFactory.Instance.GetSpriteData(moblin + DirectionState.ID);
+            Sprite = SpriteFactory.Instance.GetSpriteData(SpriteKey + DirectionState.ID);
         }
 
         public void Attack(string direction)
@@ -135,13 +134,14 @@ namespace Project1.EnemyComponents
             if (!IsAttacking)
             {
                 IsAttacking = true;
-                Sprite.MaxDelay = 30;
-                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, moblin));
+                Sprite.MaxDelay = GameVar.MoblinDelay;
+                GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, SpriteKey));
             }
         }
+
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
+            Enemy.Health.DecreaseHealth(damage);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -157,18 +157,18 @@ namespace Project1.EnemyComponents
 
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
-                Sprite.Color = Color.White;
+                Sprite.Color = GameVar.GetEnemyColor();
                 if (IsAttacking)
                 {
                     IsAttacking = false;
                 }
             }
 
-            if (MovementTimer > 90)
+            if (MovementTimer > GameVar.MoblinCount)
             {
-                if(Sprite.CurrentFrame==1) //Moblin shoot the arrow when it stops
+                if(Sprite.CurrentFrame==1)  //Moblin shoot the arrow when it stops
                     Attack(DirectionState.ID);
-                RandomInt = R.Next(0, 5);
+                RandomInt = R.Next(0, GameVar.MoblinRandomRange);
                 MovementTimer = 0;
             }
             switch (RandomInt)

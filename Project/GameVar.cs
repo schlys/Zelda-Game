@@ -38,7 +38,7 @@ namespace Project1
         public const int SpawnTimer = 20;
         public const int EnemyStep = 1;
 
-        public const string SpawnSpriteKey = "Spawn"; 
+        public const string SpawnSpriteKey = "Spawn";
 
         public static Color GetEnemyColor()
         {
@@ -61,6 +61,9 @@ namespace Project1
 
         public const int GoriyaDelay = 2;
 
+        public const int MoblinDelay = 30;
+        public const int MoblinCount = 90;
+        public const int MoblinRandomRange = 5;
 
         // GAME STATE
         public const int ScreenWidth = 512;
