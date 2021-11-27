@@ -43,48 +43,6 @@ namespace Project1.LinkComponents
         private Sprite TextNum1;
         private Sprite TextNum2;
 
-        /* FUNCTIONS OF EACH RECCOMENDED ITEM 
-         * 
-         * ITEMS 
-         *      Compass - when both compass and map, highlight location of triforce fragment
-         *      Map 
-         *      Small Key - unlock locked doors or blocks (not doors to boss rooms)
-         * (NOT ON LIST) Magical Key 
-         *      Book of Magic - lets Link shoot fire
-         *      Triforce piece - heart healed (needs 8 in real game, but here can win?)
-         *      Recovery Heart - health by one heart
-         *      Heart container - increase max num hearts by one, and refill health compeltely 
-         *      Rupee - Blue (worth 5) Orange (worth 1) used to buy things?
-         *      Fairy/Angel -  restore all hearts
-         *      Clock - freeze all enemies on screen until change room
-         * Blue Candle - light dark rooms, burn bushes, shoot flame 2 spaces in front. use once per screen.
-         * Red Candle - light dark rooms, burn bush, shoot 2 flames at time. use infinitely one screen.  
-         *      (Blue) Life Potion - restore health compeltely 
-         * (NOT ON LIST) (Red) Second Life Potion - restores health completely, use once change to life potion, can be used again. (2x total)
-         * Blue ring - change outfit to blue color. cuts all damage recieved in half.
-         * (NOT ON LIST) Red ring - change outfit brown red. cut damage recieved in quarter 
-         * (NOT ON LIST) Power Braclet - strength, lift/pull items 
-         * (NOT ON LIST) Letter
-         * 
-         * Wooden boomerang
-         * Bow
-         * Arrow
-         * Bomb
-         * Wooden Sword 
-         * Sword Beam
-         * Boomerang 
-         * Fire
-         * (NOT ON LIST) Magical Rod 
-         * 
-         * ENVIORNMENT 
-         * Statues
-         * Bombed opening
-         * Gap tile
-         * Stairs
-         * Ladder tile
-         * Brick tile
-         */
-
         public Inventory(ILink link)
         {        
             Link = link;
@@ -94,6 +52,7 @@ namespace Project1.LinkComponents
 
             Items = new Dictionary<string, IItem>();
             
+            // Default Items 
             Items.Add("BombSolid", new Item(new Vector2(0,0), "BombSolid", true));
 
             Item1 = Items.ElementAt(0).Value.Kind;
@@ -334,14 +293,20 @@ namespace Project1.LinkComponents
         {
             /* Draw the DungeonMap at the given <position> if it is contained in <Items>
              */
-            if (HasMap) DrawItem(spriteBatch, MapItemKey, position);      
+            if (HasMap)
+            {
+                DrawItem(spriteBatch, MapItemKey, position);
+            }
         }
 
         public void DrawItemCompass(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draw the Compass at the given <position> if it is contained in <Items> 
              */
-            if (HasCompass) DrawItem(spriteBatch, CompassItemKey, position);
+            if (HasCompass)
+            {
+                DrawItem(spriteBatch, CompassItemKey, position);
+            }
         }
 
         private Vector2 GetItemPosition(Sprite sprite, Vector2 position)

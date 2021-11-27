@@ -402,5 +402,19 @@ namespace Project1
         {
             return Level.GetPlayableRoomBounds(); 
         }
+        public void SetLinksHasMap()
+        {
+            foreach(ILink link in Links)
+            {
+                link.Inventory.HasMap = true; 
+            }
+        }
+        public void SetLinksHasCompass()
+        {
+            foreach (ILink link in Links)
+            {
+                link.Inventory.HasCompass = true;
+            }
+        }
     }
 }

@@ -24,6 +24,8 @@ namespace Project1.ItemComponents
         public void AddToInventory(ILink link)
         {
             link.Inventory.HasCompass = true;
+            // Set <HasCompass> true for all <Links> in GameObjectManager
+            GameObjectManager.Instance.SetLinksHasCompass();
         }
 
         public void Draw(SpriteBatch spriteBatch)

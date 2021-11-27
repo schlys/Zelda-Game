@@ -24,6 +24,8 @@ namespace Project1.ItemComponents
         public void AddToInventory(ILink link)
         {
             link.Inventory.HasMap = true;
+            // Set <HasMap> true for all <Links> in GameObjectManager
+            GameObjectManager.Instance.SetLinksHasMap();
         }
 
         public void Draw(SpriteBatch spriteBatch)
