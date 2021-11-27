@@ -20,14 +20,15 @@ namespace Project1.EnemyComponents
 
         private int MovementTimer;
         private Random R = new Random();
-        private int RandomInt;
+        private int Rand;
+
         public EnemyStateGel(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = GameVar.EnemyStep;
-            RandomInt = R.Next(0, 9);
+            Rand = R.Next(0, GameVar.GelRandomRange);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -152,11 +153,11 @@ namespace Project1.EnemyComponents
 
             if (MovementTimer > GameVar.GelCount)
             {
-                RandomInt = R.Next(0, 9);
+                Rand = R.Next(0, GameVar.GelRandomRange);
                 MovementTimer = 0;
             }
 
-            switch (RandomInt)
+            switch (Rand)
             {
                 case 0:
                     MoveUp();

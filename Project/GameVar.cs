@@ -56,14 +56,24 @@ namespace Project1
         public const int AquamentusDelay = 30;
         public const int AquamentusAttackCount = 200;
         public const int AquamentusFrames = 4;
+        public const int AquamentusRandomRange = 3; 
 
         public const int GelCount = 20;
+        public const int GelRandomRange = 9; 
 
         public const int GoriyaDelay = 2;
+        public const int GoriyaRandomRange = 5; 
 
         public const int MoblinDelay = 30;
         public const int MoblinCount = 90;
         public const int MoblinRandomRange = 5;
+
+        public const int KeeseRandomRange = 9;
+        public const int KeeseCount = 20;
+
+        public const int StalfosRandomRange = 5;
+        public const int StalfosCount = 90;
+        public const int StalfosFrames = 2;
 
         // GAME STATE
         public const int ScreenWidth = 512;

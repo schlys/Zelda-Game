@@ -21,7 +21,7 @@ namespace Project1.EnemyComponents
         private bool IsAttacking;
         private int MovementTimer = 0;
         private Random R = new Random();
-        private int RandomInt;
+        private int Rand;
         private string SpriteKey;
 
         public EnemyStateMoblin(IEnemy enemy, string type)
@@ -30,7 +30,7 @@ namespace Project1.EnemyComponents
             SpriteKey = type;
             DirectionState = new DirectionStateRight();
             UpdateSprite();
-            RandomInt = R.Next(0, GameVar.MoblinRandomRange);
+            Rand = R.Next(0, GameVar.MoblinRandomRange);
             Step = GameVar.EnemyStep;
             IsAttacking = false;
         }
@@ -121,7 +121,7 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            Sprite.TotalFrames = 1;
+            Sprite.TotalFrames = 1; // stop animation
         }
 
         private void UpdateSprite()
@@ -168,10 +168,10 @@ namespace Project1.EnemyComponents
             {
                 if(Sprite.CurrentFrame==1)  //Moblin shoot the arrow when it stops
                     Attack(DirectionState.ID);
-                RandomInt = R.Next(0, GameVar.MoblinRandomRange);
+                Rand = R.Next(0, GameVar.MoblinRandomRange);
                 MovementTimer = 0;
             }
-            switch (RandomInt)
+            switch (Rand)
             {
                 case 0:
                     MoveUp();

@@ -20,21 +20,20 @@ namespace Project1.EnemyComponents
 
         private int MovementTimer;
         private Random R = new Random();
-        private int RandomInt;
+        private int Rand;
         public EnemyStateKeese(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Step = 1;
-            RandomInt = R.Next(0, 9);
+            Step = GameVar.EnemyStep;
+            Rand = R.Next(0, GameVar.KeeseRandomRange);
         }
 
         private Rectangle GetEnemyHitBox()
         {
             return ((ICollidable)Enemy).Hitbox;
         }
-
 
         private void MoveUp()
         {
@@ -138,11 +137,10 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving() 
         {
-            //((ICollidable)Enemy).IsMoving = false;
         }
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
+            Enemy.Health.DecreaseHealth(damage);
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -153,13 +151,14 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
             MovementTimer++;
-            int time = 20;
-            if (MovementTimer > time)
+            
+            if (MovementTimer > GameVar.KeeseCount)
             {
-                RandomInt = R.Next(0, 9);
+                Rand = R.Next(0, GameVar.KeeseRandomRange);
                 MovementTimer = 0;
             }
-            switch (RandomInt)
+
+            switch (Rand)
             {
                 case 0:
                     MoveUp();

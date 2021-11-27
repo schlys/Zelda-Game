@@ -21,8 +21,7 @@ namespace Project1.EnemyComponents
         private bool IsAttacking;
         private int MovementTimer;
         private Random R = new Random();
-        private int RandomInt;
-        private const int RandomRange = 4;
+        private int Rand;
         private int Delay;
         private string SpriteKey;
 
@@ -33,7 +32,7 @@ namespace Project1.EnemyComponents
             DirectionState = new DirectionStateUp();
             UpdateSprite();
             IsAttacking = false;
-            RandomInt = R.Next(RandomRange);
+            Rand = R.Next(GameVar.GoriyaRandomRange);
             Step = GameVar.EnemyStep;
             Delay = GameVar.GoriyaDelay; 
         }
@@ -170,11 +169,11 @@ namespace Project1.EnemyComponents
                     Attack(DirectionState.ID);
                     Delay--; 
                 }
-                RandomInt = R.Next(0, 5);
+                Rand = R.Next(0, GameVar.GoriyaRandomRange);
                 MovementTimer = 0;
             }
 
-            switch (RandomInt)
+            switch (Rand)
             {
                 case 0:
                     MoveUp();

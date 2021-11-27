@@ -24,12 +24,12 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = false;
             ID = type;
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Step = 0;
+            Step = 0;   // no movement
         }
 
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
+            Enemy.Health.DecreaseHealth(damage);
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

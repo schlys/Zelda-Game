@@ -20,13 +20,13 @@ namespace Project1.EnemyComponents
 
         private int MovementTimer;
         private Random R = new Random();
-        private int RandomInt;
+        private int Rand;
         public EnemyStateStalfos(IEnemy enemy, string type)
         {
             Enemy = enemy;
             DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
-            Step = 1;
+            Step = GameVar.EnemyStep;
         }
 
         private Rectangle GetEnemyHitBox()
@@ -87,12 +87,11 @@ namespace Project1.EnemyComponents
         }
         private void StopMoving()
         {
-            //((ICollidable)Enemy).IsMoving = false;
-            Sprite.TotalFrames = 1;
+            Sprite.TotalFrames = 1; // stop animation
         }
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
+            Enemy.Health.DecreaseHealth(damage);
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -103,15 +102,17 @@ namespace Project1.EnemyComponents
         {
             Sprite.Update();
             MovementTimer++;
-            int time = 90;
-            if (MovementTimer > time)
+
+            if (MovementTimer > GameVar.StalfosCount)
             {
-                RandomInt = R.Next(0, 5);
+                Rand = R.Next(0, GameVar.StalfosRandomRange);
                 MovementTimer = 0;
             }
+
             if (Sprite.TotalFrames == 1)
-                Sprite.TotalFrames = 2;
-            switch (RandomInt)
+                Sprite.TotalFrames = GameVar.StalfosFrames;
+
+            switch (Rand)
             {
                 case 0:
                     MoveUp();

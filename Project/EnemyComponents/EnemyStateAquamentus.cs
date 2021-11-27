@@ -136,7 +136,7 @@ namespace Project1.EnemyComponents
             }
             if (Timer % 100 == 0)
             {
-                Rand = R.Next(3);
+                Rand = R.Next(GameVar.AquamentusRandomRange);
             }
             switch (Rand)
             {
