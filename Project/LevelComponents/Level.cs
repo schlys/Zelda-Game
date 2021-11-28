@@ -20,12 +20,17 @@ namespace Project1.LevelComponents
 {
 	public class Level: ILevel
 	{
+        // Properties from ILevel 
         public IRoom CurrentRoom { get; set; }
-        private IRoom NextRoom;
-        public Vector2 CurrentRoomPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
-        private Vector2 CurrentRoomInitialPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
-
         public ILevelMap LevelMap { get; set; }
+
+        // Other Properties 
+        private IRoom NextRoom;
+
+        private static Vector2 RoomPosition;
+        public Vector2 CurrentRoomPosition;
+        private Vector2 CurrentRoomInitialPosition; 
+
         public Vector2 LinkStartingPosition { get; set; }
 
         private static Dictionary<string, IRoom> LevelDict;
@@ -33,16 +38,15 @@ namespace Project1.LevelComponents
         // TODO: Load in XML
         // ****** What is the purpose of adjust? 
         
-        private static int adjust = 2 * GameVar.ScalingFactor;
+        private static int Adjust = 2 * GameVar.ScalingFactor;
 
-        private static Vector2 ScrollAdjust = new Vector2(0, 0);
-        private static float ScrollStep = (3 * GameVar.ScalingFactor);
+        private static Vector2 ScrollAdjust;
+        private static float ScrollStep;
 
-        private static Vector2 RoomPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
-        private static int RoomBorderSize = 32 * GameVar.ScalingFactor;// + adjust;
-        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameVar.ScalingFactor;
-        private static int RoomRows = 7;
-        private static int RoomColumns = 12;
+        private static int RoomBorderSize;
+        private static int RoomBlockSize;
+        private static int RoomRows;
+        private static int RoomColumns;
 
         public int PlayableWidth;
         public int PlayableHeight;
@@ -50,14 +54,28 @@ namespace Project1.LevelComponents
         private static List<Vector2> NewLinkPosition;
         private static IDirectionState NewLinkDirection;
 
-        private static string StartRoom = "room2";
+        private static string StartRoom;
         
         public Level()
         {
-            RoomBlockSize = SpriteFactory.Instance.BlockSize * GameVar.ScalingFactor;
-            PlayableHeight = (RoomBlockSize * RoomRows) + adjust;
-            PlayableWidth = (RoomBlockSize * RoomColumns) + adjust;
+            Adjust = GameVar.Adjust * GameVar.ScalingFactor;
+            ScrollStep = GameVar.ScrollStep;
+            ScrollAdjust = new Vector2(0, 0);
 
+            RoomBorderSize = GameVar.RoomBorderSize * GameVar.ScalingFactor;
+            RoomRows = GameVar.RoomRows;
+            RoomColumns = GameVar.RoomColumns; 
+            RoomBlockSize = SpriteFactory.Instance.BlockSize * GameVar.ScalingFactor;
+            
+            PlayableHeight = (RoomBlockSize * RoomRows) + Adjust;
+            PlayableWidth = (RoomBlockSize * RoomColumns) + Adjust;
+
+            RoomPosition = GameVar.GetRoomPosition() * GameVar.ScalingFactor;
+            CurrentRoomPosition = RoomPosition; 
+            CurrentRoomInitialPosition = RoomPosition;
+
+            StartRoom = GameVar.StartRoomKey;
+            
             CreateDict();   // Initializes and loads <LevelDict> 
 
             if (LevelDict.ContainsKey(StartRoom))
@@ -66,10 +84,10 @@ namespace Project1.LevelComponents
             }
             else
             {
-                throw new IndexOutOfRangeException("Given room key for LevelDict is not found");
+                throw new IndexOutOfRangeException();
             }
 
-            LevelMap = new LevelMap(LevelFactory.Instance.GetHUDTexture("HUDLevelMap"));
+            LevelMap = new LevelMap(LevelFactory.Instance.GetHUDTexture(GameVar.HUDLevelMapSpriteKey));
         }
 
         private void CreateDict()
@@ -167,14 +185,16 @@ namespace Project1.LevelComponents
             /* Update <CurrentRoom> to be the <StartRoom> and reset the room.
              */
             CurrentRoomPosition = CurrentRoomInitialPosition;
+
             if (LevelDict.ContainsKey(StartRoom))
             {
                 CurrentRoom = LevelDict[StartRoom];
             }
             else
             {
-                throw new IndexOutOfRangeException("Index StartRoom given to LevelDict is not found");
+                throw new IndexOutOfRangeException();
             }
+
             CurrentRoom.Reset();
             LevelMap.Reset();
         }
@@ -473,15 +493,15 @@ namespace Project1.LevelComponents
              */
             if (row > RoomRows)
             {
-                throw new ArgumentException("Index is out of range");
+                throw new ArgumentException();
             }
             if (column > RoomColumns)
             {
-                throw new ArgumentException("Index is out of range");
+                throw new ArgumentException();
             }
 
-            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);// - adjust;
-            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row); //+ adjust;
+            float x = RoomPosition.X + RoomBorderSize + (RoomBlockSize * column);
+            float y = RoomPosition.Y + RoomBorderSize + (RoomBlockSize * row);
             return new Vector2(x, y);
         }
 

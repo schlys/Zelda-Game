@@ -180,6 +180,16 @@ namespace Project1
 
 
         // LEVEL
+        public const int Adjust = 2;
+        public const int RoomBorderSize = 32;
+        public const int RoomRows = 7;
+        public const int RoomColumns = 12;
+        public const string StartRoomKey = "room2"; 
+
+        public static Vector2 GetRoomPosition()
+        {
+            return new Vector2(0, 55); 
+        }
         public static List<Vector2> GetLinkNewRoomPosition(IDirectionState direction)
         {
             /* Return the starting positions of both players in the order player1, player2

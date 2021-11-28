@@ -103,9 +103,9 @@ namespace Project1.HeadsUpDisplay
             HUDLevelMap = LevelFactory.Instance.GetHUDTexture(GameVar.HUDLevelMapSpriteKey);
             HUDInventory = LevelFactory.Instance.GetHUDTexture(GameVar.HUDInventorySpriteKey);
 
-            Sprite HeartFull = SpriteFactory.Instance.GetSpriteData(GameVar.HeartFullSpriteKey);
-            Sprite HeartHalf = SpriteFactory.Instance.GetSpriteData(GameVar.HeartHalfSpriteKey);
-            Sprite HeartEmpty = SpriteFactory.Instance.GetSpriteData(GameVar.HeartEmptySpriteKey);
+            HeartFull = SpriteFactory.Instance.GetSpriteData(GameVar.HeartFullSpriteKey);
+            HeartHalf = SpriteFactory.Instance.GetSpriteData(GameVar.HeartHalfSpriteKey);
+            HeartEmpty = SpriteFactory.Instance.GetSpriteData(GameVar.HeartEmptySpriteKey);
 
             if (Link.PlayerNum == GameVar.Player1)
             {
