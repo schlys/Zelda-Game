@@ -217,6 +217,22 @@ namespace Project1.Command
             Link.Inventory.ItemRight();
         } 
     }
+    public class LinkDropItem1Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkDropItem1Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.Inventory.DropItem1();
+        }
+    }
+
     public class LinkSelectItemCmd : ICommand
     {
         public Game1 Game { get; set; }

@@ -106,6 +106,6 @@
 	</Sound>
 	<Sound>
 		<Name>TextSlow</Name>
-		<Loop>1</Loop>
+		<Loop>0</Loop>
 	</Sound>
 </Sounds>

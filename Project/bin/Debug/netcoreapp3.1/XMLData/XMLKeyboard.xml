@@ -135,7 +135,16 @@ w
 		<name>LinkSelectItemCmd</name>
 		<key>Enter</key>
 	</LinkControl>
-
+	<!--Player 1 Drop Item 1-->
+	<LinkControl player="1" press="true">
+		<name>LinkDropItem1Cmd</name>
+		<key>H</key>
+	</LinkControl>
+	<!--Player 2 Drop Item 1-->
+	<LinkControl player="2" press="true">
+		<name>LinkDropItem1Cmd</name>
+		<key>G</key>
+	</LinkControl>
 	<!--Player 1 Use Item-->
 	
 	<LinkControl player="1" press="true">

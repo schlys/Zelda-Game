@@ -100,6 +100,13 @@ namespace Project1.LinkComponents
         {
             return GameStateManager.Instance.CanItemSelect();
         }
+
+        public void DropItem1()
+        {
+            Item1 = "";
+            GameSoundManager.Instance.PlayTextSlow();
+        }
+
         public void UseItem(int ItemNumber)
         {
             string item = Item1;

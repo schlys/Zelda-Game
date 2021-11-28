@@ -24,6 +24,7 @@ namespace Project1.LinkComponents
         bool HasCompass { get; set; }
         bool HasSilverArrow { get; set; }
         void AddItem(IItem Item);
+        void DropItem1();
         void UseItem(int itemNumber);
         bool HasItem(string name);
         bool CanUseKey();

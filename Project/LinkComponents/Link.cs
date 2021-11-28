@@ -240,14 +240,6 @@ namespace Project1.LinkComponents
             GameSoundManager.Instance.PlayGetItem();
         }
 
-        public void DropItem(IItem item)
-        {
-            /* Link drops an item from his <Inventory> and plays a sound. */
-            UpdateSprite();
-            item.RemoveItem();
-            GameSoundManager.Instance.PlayText();
-        }
-
         public void TakeDamage(string direction, int knockback)
         {
             /* Link's health decrease by <DamageRecieved>, his color is set to red, a hurt sound is 
