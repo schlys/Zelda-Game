@@ -42,7 +42,7 @@ namespace Project1.SpriteComponents
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            int scalingFactor = GameObjectManager.Instance.ScalingFactor;
+            int scalingFactor = GameVar.ScalingFactor;
             int universalSize = SpriteFactory.Instance.UniversalSize; 
             Rectangle sourceRectangle = new Rectangle((CurrentFrame - 1) * universalSize, Row * universalSize, universalSize, universalSize);
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, universalSize * scalingFactor, universalSize * scalingFactor);

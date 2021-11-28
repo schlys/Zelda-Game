@@ -12,6 +12,8 @@ namespace Project1
         /* This class holds all constant variables and data used throughout the project
          */
 
+        public const int ScalingFactor = 2; 
+
 
         // BLOCK    
         public const string BlockBase = "Base"; 
@@ -101,6 +103,80 @@ namespace Project1
 
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
+
+
+        // HUD 
+        public const string Font = "Fonts/TitleFont";
+        public const int ScrollStep = 6;
+        public const double HeartSpaceX = 1.5;
+        public const string HUDMainSpriteKey = "HUDMain";
+        public const string HUDMapSpriteKey = "HUDMap";
+        public const string HUDLevelMapSpriteKey = "HUDLevelMap";
+        public const string HUDInventorySpriteKey = "Inventory";
+        public const string Player1Num1SpriteKey = "Num1";
+        public const string Player1Num2SpriteKey = "Num2";
+        public const string Player2Num1SpriteKey = "Num9";
+        public const string Player2Num2SpriteKey = "Num0";
+        public const string HeartFullSpriteKey = "HeartFull";
+        public const string HeartHalfSpriteKey = "HeartHalf";
+        public const string HeartEmptySpriteKey = "HeartEmpty";
+
+        public static Vector2 GetHUDPosition()
+        {
+            return new Vector2(0, 0); 
+        }
+        public static Vector2 GetMapPosition()
+        {
+            return new Vector2(16, 16);
+        }
+        public static Vector2 GetItemSelectPosition()
+        {
+            return new Vector2(128, 8);
+        }
+        public static Vector2 GetMapItemPosition()
+        {
+            return new Vector2(47, 22);
+        }
+        public static Vector2 GetCompassItemPosition()
+        {
+            return new Vector2(47, 64);
+        }
+        public static Vector2 GetHeartPosition()
+        {
+            return new Vector2(162, 20);
+        }
+        public static Vector2 GetRupeeCountPosition()
+        {
+            return new Vector2(104, 16);
+        }
+        public static Vector2 GetBombCountPosition()
+        {
+            return new Vector2(104, 40);
+        }
+        public static Vector2 GetKeyCountPosition()
+        {
+            return new Vector2(104, 30);
+        }
+        public static Vector2 GetInventoryItemPosition()
+        {
+            return new Vector2(125, 45);
+        }
+        public static Vector2 GetInventoryItem1Position()
+        {
+            return new Vector2(128, 24);
+        }
+        public static Vector2 GetInventoryItem2Position()
+        {
+            return new Vector2(152, 24);
+        }
+        public static Vector2 GetInventoryItem1TextPosition()
+        {
+            return new Vector2(129, 16);
+        }
+        public static Vector2 GetInventoryItem2TextPosition()
+        {
+            return new Vector2(152, 16);
+        }
 
 
         // LEVEL

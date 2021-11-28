@@ -118,9 +118,9 @@ namespace Project1.CollisionComponents
         // NOTE: Returns the proper hitbox given the position and hitbox dimensions
         public Rectangle GetHitBox(Vector2 position, Vector2 dimensions)
         {
-            int size = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
-            dimensions.X *= GameObjectManager.Instance.ScalingFactor;
-            dimensions.Y *= GameObjectManager.Instance.ScalingFactor;
+            int size = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
+            dimensions.X *= GameVar.ScalingFactor;
+            dimensions.Y *= GameVar.ScalingFactor;
             int xPos = (int)(position.X + (size / 2) - (dimensions.X / 2));
             int yPos = (int)(position.Y + (size / 2) - (dimensions.Y / 2));
             return new Rectangle(xPos, yPos, (int)dimensions.X, (int)dimensions.Y);

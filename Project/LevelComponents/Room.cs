@@ -51,7 +51,7 @@ namespace Project1.LevelComponents
             Texture = texture;
 
             // TODO: data drive 
-            Size = new Vector2(256, 176) * GameObjectManager.Instance.ScalingFactor;
+            Size = new Vector2(256, 176) * GameVar.ScalingFactor;
             TextureRoomSize = new Vector2(256, 176); 
         }
 

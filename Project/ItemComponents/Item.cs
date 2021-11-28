@@ -45,7 +45,7 @@ namespace Project1.ItemComponents
             Position = position;
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
-            int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
             Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
             Hitbox = CollisionManager.Instance.GetHitBox(Position, ItemState.Sprite.HitBox);

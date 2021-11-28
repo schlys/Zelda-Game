@@ -60,9 +60,9 @@ namespace Project1.LinkComponents
 
             SelectedItem = new Tuple<string, int>(Item1, 1);
 
-            SelectedItemPosition = new Vector2(61, 45) * GameObjectManager.Instance.ScalingFactor;
-            SelectedItemKeyPosition = new Vector2(48, 72) * GameObjectManager.Instance.ScalingFactor;
-            InventoryItemPosition = new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor;
+            SelectedItemPosition = new Vector2(61, 45) * GameVar.ScalingFactor;
+            SelectedItemKeyPosition = new Vector2(48, 72) * GameVar.ScalingFactor;
+            InventoryItemPosition = new Vector2(125, 45) * GameVar.ScalingFactor;
 
             if(Link.PlayerNum == GameVar.Player1)
             {
@@ -314,7 +314,7 @@ namespace Project1.LinkComponents
             /* Get accurate dimensions for the hitbox, but position is off */
             Rectangle Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
-            int BlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            int BlockSize = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
             position -= new Vector2((BlockSize - Hitbox.Width) / TWO, (BlockSize - Hitbox.Height) / TWO);
             /* Get correct hibox for updated position */
             return position;

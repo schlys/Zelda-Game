@@ -20,7 +20,7 @@ namespace Project1.GameState
             blackRectangle.SetData(new[] { Color.Black });
 
             Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
-            Rectangle destinationRectangle = new Rectangle(0, 55 * GameObjectManager.Instance.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
+            Rectangle destinationRectangle = new Rectangle(0, 55 * GameVar.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.LoseText1, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);

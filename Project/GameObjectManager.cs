@@ -34,7 +34,6 @@ namespace Project1
         }
         private GameObjectManager() { }
 
-        public int ScalingFactor = 2;
         public List<ILink> Links;
         public List<ILink> Links_copy;  // ??? when is this used? 
         public int LinkCount;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)

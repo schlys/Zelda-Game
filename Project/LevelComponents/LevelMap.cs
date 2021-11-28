@@ -22,19 +22,19 @@ namespace Project1.LevelComponents
 			Texture = texture;
 
 			// TODO: load from XML
-			BlockSize = new Vector2(7 * GameObjectManager.Instance.ScalingFactor, 3 * GameObjectManager.Instance.ScalingFactor);
-			CurrentBlock = new Vector2(24 * GameObjectManager.Instance.ScalingFactor, 28 * GameObjectManager.Instance.ScalingFactor);
-			TriforceFragmentBlock = new Vector2(48 * GameObjectManager.Instance.ScalingFactor, 12 * GameObjectManager.Instance.ScalingFactor);
+			BlockSize = new Vector2(7 * GameVar.ScalingFactor, 3 * GameVar.ScalingFactor);
+			CurrentBlock = new Vector2(24 * GameVar.ScalingFactor, 28 * GameVar.ScalingFactor);
+			TriforceFragmentBlock = new Vector2(48 * GameVar.ScalingFactor, 12 * GameVar.ScalingFactor);
 			StartBlock = CurrentBlock;
-			BufferSize = 1 * GameObjectManager.Instance.ScalingFactor;
+			BufferSize = 1 * GameVar.ScalingFactor;
 		}
 
 		public void Draw(SpriteBatch spriteBatch, Vector2 position, bool CanDrawTriforceFragment)
         {
 			// draw map
 			Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 
-				(int)Texture.Width * GameObjectManager.Instance.ScalingFactor, 
-				(int)Texture.Height * GameObjectManager.Instance.ScalingFactor);
+				(int)Texture.Width * GameVar.ScalingFactor, 
+				(int)Texture.Height * GameVar.ScalingFactor);
 			spriteBatch.Draw(Texture, destinationRectangle, Color.White);
 
 			// draw block highlighting current room

@@ -28,10 +28,13 @@ namespace Project1.HeadsUpDisplay
 
         private Sprite TextNum1;
         private Sprite TextNum2;
+        private Sprite HeartFull;
+        private Sprite HeartHalf;
+        private Sprite HeartEmpty; 
 
         private SpriteFont Font;
 
-        private Dictionary<String, Vector2> Positions;
+        //private Dictionary<String, Vector2> Positions;
 
         private Vector2 Position;
         private Vector2 InitialPosition;
@@ -55,11 +58,13 @@ namespace Project1.HeadsUpDisplay
             Link = link;
 
             // TODO: data drive 
-            Font = Game.Content.Load<SpriteFont>("Fonts/TitleFont");
-            Positions = new Dictionary<string, Vector2>();
-            Position = new Vector2(0, 0);
+            Font = Game.Content.Load<SpriteFont>(GameVar.Font);
+            //Positions = new Dictionary<string, Vector2>();
+
+            Position = GameVar.GetHUDPosition(); 
             InitialPosition = Position; 
 
+            /*
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLPositions.xml";
             XMLData.Load(path);
@@ -73,47 +78,53 @@ namespace Project1.HeadsUpDisplay
                 Positions.Add(name, (new Vector2(x, y) * GameObjectManager.Instance.ScalingFactor) + Position);
 
             }
+            */
 
             //add these elements to XMLPositiions and change code so it uses the dict and not the vectors
             // **TO MULAN - i agree a dict would be more efficent, but im concerned about the dict since it will need keys which are
             // then hard coded strings. could we load each variable in the XML instead? 
-            MapPosition = (new Vector2(16, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
-            MapItemSelectPosition = (new Vector2(128, 8) * GameObjectManager.Instance.ScalingFactor) + Position;
-            MapItemPosition = (new Vector2(47, 22) * GameObjectManager.Instance.ScalingFactor) + Position;
-            CompassItemPosition = (new Vector2(47, 64) * GameObjectManager.Instance.ScalingFactor) + Position;
-            HeartPosition = (new Vector2(162, 20) * GameObjectManager.Instance.ScalingFactor) + Position;
-            RupeeCountPosition = (new Vector2(104, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
-            BombCountPosition = (new Vector2(104, 40) * GameObjectManager.Instance.ScalingFactor) + Position;
-            KeyCountPosition = (new Vector2(104, 30) * GameObjectManager.Instance.ScalingFactor) + Position;
-            InventoryItemPosition = (new Vector2(125, 45) * GameObjectManager.Instance.ScalingFactor) + Position;
-            InventoryItem1Position = (new Vector2(128, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
-            InventoryItem2Position = (new Vector2(152, 24) * GameObjectManager.Instance.ScalingFactor) + Position;
-            InventoryItem1TextPosition = (new Vector2(129, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
-            InventoryItem2TextPosition = (new Vector2(152, 16) * GameObjectManager.Instance.ScalingFactor) + Position;
+            
+            MapPosition = (GameVar.GetMapPosition() * GameVar.ScalingFactor) + Position;
+            MapItemSelectPosition = (GameVar.GetItemSelectPosition() * GameVar.ScalingFactor) + Position;
+            MapItemPosition = (GameVar.GetMapItemPosition() * GameVar.ScalingFactor) + Position;
+            CompassItemPosition = (GameVar.GetCompassItemPosition() * GameVar.ScalingFactor) + Position;
+            HeartPosition = (GameVar.GetHeartPosition() * GameVar.ScalingFactor) + Position;
+            RupeeCountPosition = (GameVar.GetRupeeCountPosition() * GameVar.ScalingFactor) + Position;
+            BombCountPosition = (GameVar.GetBombCountPosition() * GameVar.ScalingFactor) + Position;
+            KeyCountPosition = (GameVar.GetKeyCountPosition() * GameVar.ScalingFactor) + Position;
+            InventoryItemPosition = (GameVar.GetInventoryItemPosition() * GameVar.ScalingFactor) + Position;
+            InventoryItem1Position = (GameVar.GetInventoryItem1Position() * GameVar.ScalingFactor) + Position;
+            InventoryItem2Position = (GameVar.GetInventoryItem2Position() * GameVar.ScalingFactor) + Position;
+            InventoryItem1TextPosition = (GameVar.GetInventoryItem1TextPosition() * GameVar.ScalingFactor) + Position;
+            InventoryItem2TextPosition = (GameVar.GetInventoryItem2TextPosition() * GameVar.ScalingFactor) + Position;
 
-            HUDMain = LevelFactory.Instance.GetHUDTexture("HUDMain");
-            HUDMap = LevelFactory.Instance.GetHUDTexture("HUDMap");
-            HUDLevelMap = LevelFactory.Instance.GetHUDTexture("HUDLevelMap");
-            HUDInventory = LevelFactory.Instance.GetHUDTexture("Inventory");
+            HUDMain = LevelFactory.Instance.GetHUDTexture(GameVar.HUDMainSpriteKey);
+            HUDMap = LevelFactory.Instance.GetHUDTexture(GameVar.HUDMapSpriteKey);
+            HUDLevelMap = LevelFactory.Instance.GetHUDTexture(GameVar.HUDLevelMapSpriteKey);
+            HUDInventory = LevelFactory.Instance.GetHUDTexture(GameVar.HUDInventorySpriteKey);
+
+            Sprite HeartFull = SpriteFactory.Instance.GetSpriteData(GameVar.HeartFullSpriteKey);
+            Sprite HeartHalf = SpriteFactory.Instance.GetSpriteData(GameVar.HeartHalfSpriteKey);
+            Sprite HeartEmpty = SpriteFactory.Instance.GetSpriteData(GameVar.HeartEmptySpriteKey);
 
             if (Link.PlayerNum == GameVar.Player1)
             {
-                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
-                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+                TextNum1 = SpriteFactory.Instance.GetSpriteData(GameVar.Player1Num1SpriteKey);
+                TextNum2 = SpriteFactory.Instance.GetSpriteData(GameVar.Player1Num2SpriteKey);
             }
             else if (Link.PlayerNum == GameVar.Player2)
             {
-                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num9");
-                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num0");
+                TextNum1 = SpriteFactory.Instance.GetSpriteData(GameVar.Player2Num1SpriteKey);
+                TextNum2 = SpriteFactory.Instance.GetSpriteData(GameVar.Player2Num2SpriteKey);
             }
             else
             {
                 throw new IndexOutOfRangeException();
             }
 
-            Step = 6;
+            Step = GameVar.ScrollStep;
             InitialStep = Step;
-            ScrollDeltaY = (HUDMap.Height * GameObjectManager.Instance.ScalingFactor) + (HUDInventory.Height * GameObjectManager.Instance.ScalingFactor); 
+            ScrollDeltaY = (HUDMap.Height * GameVar.ScalingFactor) + (HUDInventory.Height * GameVar.ScalingFactor); 
         }
 
         public void Update()
@@ -132,7 +143,6 @@ namespace Project1.HeadsUpDisplay
                 DrawHUD(spriteBatch, Position);
             }else if (GameStateManager.Instance.CanItemScroll())
             {
-                //Scroll(Step);
                 DrawItemSelect(spriteBatch, Position);
             }
             else
@@ -148,8 +158,8 @@ namespace Project1.HeadsUpDisplay
             dummyTexture.SetData(new Color[] { Color.White });
 
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
-                HUDMain.Width * GameObjectManager.Instance.ScalingFactor,
-                HUDMain.Height * GameObjectManager.Instance.ScalingFactor);
+                HUDMain.Width * GameVar.ScalingFactor,
+                HUDMain.Height * GameVar.ScalingFactor);
 
             spriteBatch.Draw(dummyTexture, destinationRectangle, Color.Black);
 
@@ -207,11 +217,8 @@ namespace Project1.HeadsUpDisplay
 
         private void DrawLinkHealth(SpriteBatch spriteBatch, Vector2 position)
         {
-            Sprite HeartFull = SpriteFactory.Instance.GetSpriteData("HeartFull");
-            Sprite HeartHalf = SpriteFactory.Instance.GetSpriteData("HeartHalf");
-            Sprite HeartEmpty = SpriteFactory.Instance.GetSpriteData("HeartEmpty");
 
-            int spaceX = (int)(HeartFull.HitBox.X * GameObjectManager.Instance.ScalingFactor * 1.5);
+            int spaceX = (int)(HeartFull.HitBox.X * GameVar.ScalingFactor * GameVar.HeartSpaceX);
             LinkHealth Health = Link.Health;
             for (int i = 1; i <= Health.TotalNumHearts; i++)
             {
@@ -237,11 +244,11 @@ namespace Project1.HeadsUpDisplay
             DrawHUD(spriteBatch, position);
 
             // Draw Large Map
-            position.Y -= HUDMap.Height * GameObjectManager.Instance.ScalingFactor;
+            position.Y -= HUDMap.Height * GameVar.ScalingFactor;
             DrawMap(spriteBatch, position);
 
             // Draw Inventory 
-            position.Y -= HUDInventory.Height * GameObjectManager.Instance.ScalingFactor;
+            position.Y -= HUDInventory.Height * GameVar.ScalingFactor;
             DrawInventory(spriteBatch, position);
         }
 
@@ -249,8 +256,8 @@ namespace Project1.HeadsUpDisplay
         {
             // Draw the <HUDInventory> background
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
-                HUDInventory.Width * GameObjectManager.Instance.ScalingFactor,
-                HUDInventory.Height * GameObjectManager.Instance.ScalingFactor);
+                HUDInventory.Width * GameVar.ScalingFactor,
+                HUDInventory.Height * GameVar.ScalingFactor);
             spriteBatch.Draw(HUDInventory, destinationRectangle, Color.White);
 
             // Draw all the items in <Link>'s <Inventory>
@@ -260,8 +267,8 @@ namespace Project1.HeadsUpDisplay
         {
             // Draw the <HUDMap>
             Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y,
-                HUDMap.Width * GameObjectManager.Instance.ScalingFactor,
-                HUDMap.Height * GameObjectManager.Instance.ScalingFactor);
+                HUDMap.Width * GameVar.ScalingFactor,
+                HUDMap.Height * GameVar.ScalingFactor);
             spriteBatch.Draw(HUDMap, destinationRectangle, Color.White);
 
             // Draw the compass and map items 
@@ -319,7 +326,7 @@ namespace Project1.HeadsUpDisplay
             /* Get accurate dimensions for the hitbox, but position is off */
             Rectangle Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
-            int BlockSize = SpriteFactory.Instance.UniversalSize * GameObjectManager.Instance.ScalingFactor;
+            int BlockSize = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
             position -= new Vector2((BlockSize - Hitbox.Width) / 2, (BlockSize - Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
             return position;

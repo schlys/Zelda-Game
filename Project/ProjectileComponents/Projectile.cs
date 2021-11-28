@@ -78,8 +78,8 @@ namespace Project1.ProjectileComponents
             foreach (XmlNode node in Offset)
             {
                 string name = node.SelectSingleNode("Name").InnerText;
-                int x = Int16.Parse(node.SelectSingleNode("x").InnerText) * GameObjectManager.Instance.ScalingFactor;
-                int y = Int16.Parse(node.SelectSingleNode("y").InnerText) * GameObjectManager.Instance.ScalingFactor;
+                int x = Int16.Parse(node.SelectSingleNode("x").InnerText) * GameVar.ScalingFactor;
+                int y = Int16.Parse(node.SelectSingleNode("y").InnerText) * GameVar.ScalingFactor;
 
                 Offsets.Add(name, new Vector2(x, y));
             }

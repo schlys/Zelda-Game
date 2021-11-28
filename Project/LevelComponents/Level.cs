@@ -22,8 +22,8 @@ namespace Project1.LevelComponents
 	{
         public IRoom CurrentRoom { get; set; }
         private IRoom NextRoom;
-        public Vector2 CurrentRoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
-        private Vector2 CurrentRoomInitialPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
+        public Vector2 CurrentRoomPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
+        private Vector2 CurrentRoomInitialPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
 
         public ILevelMap LevelMap { get; set; }
         public Vector2 LinkStartingPosition { get; set; }
@@ -33,14 +33,14 @@ namespace Project1.LevelComponents
         // TODO: Load in XML
         // ****** What is the purpose of adjust? 
         
-        private static int adjust = 2 * GameObjectManager.Instance.ScalingFactor;
+        private static int adjust = 2 * GameVar.ScalingFactor;
 
         private static Vector2 ScrollAdjust = new Vector2(0, 0);
-        private static float ScrollStep = (3 * GameObjectManager.Instance.ScalingFactor);
+        private static float ScrollStep = (3 * GameVar.ScalingFactor);
 
-        private static Vector2 RoomPosition = new Vector2(0, 55 * GameObjectManager.Instance.ScalingFactor);
-        private static int RoomBorderSize = 32 * GameObjectManager.Instance.ScalingFactor;// + adjust;
-        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
+        private static Vector2 RoomPosition = new Vector2(0, 55 * GameVar.ScalingFactor);
+        private static int RoomBorderSize = 32 * GameVar.ScalingFactor;// + adjust;
+        private static int RoomBlockSize = SpriteFactory.Instance.BlockSize * GameVar.ScalingFactor;
         private static int RoomRows = 7;
         private static int RoomColumns = 12;
 
@@ -54,7 +54,7 @@ namespace Project1.LevelComponents
         
         public Level()
         {
-            RoomBlockSize = SpriteFactory.Instance.BlockSize * GameObjectManager.Instance.ScalingFactor;
+            RoomBlockSize = SpriteFactory.Instance.BlockSize * GameVar.ScalingFactor;
             PlayableHeight = (RoomBlockSize * RoomRows) + adjust;
             PlayableWidth = (RoomBlockSize * RoomColumns) + adjust;
 
