@@ -86,9 +86,13 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage, string direction)
         {
             GameSoundManager.Instance.PlayEnemyHit();
+            
+            EnemyState.TakeDamage(damage);
+
             EnemyState.Sprite.Color = GameVar.GetDamageColor();
+            
             AvoidEnemy(direction);
-            Health.DecreaseHealth(damage);
+                        
             IsDead = Health.Dead();
         }       
 
