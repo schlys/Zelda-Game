@@ -45,7 +45,7 @@ namespace Project1.SpriteComponents
                 string sheet = node.SelectSingleNode("sheet").InnerText;
                 TextureDict.Add(name, content.Load<Texture2D>(sheet));
             }
-            //to do: add these elements to XMLSpriteSheets.xml
+            
 
 
             CreateDict();

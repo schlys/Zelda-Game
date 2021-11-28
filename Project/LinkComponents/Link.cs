@@ -50,7 +50,7 @@ namespace Project1.LinkComponents
 
             DirectionState = new DirectionStateUp();            
             
-            TotalNumHearts = 3;
+            TotalNumHearts = GameVar.lives;
             Health = new LinkHealth(TotalNumHearts);              
             UseItemName = "";
 
@@ -93,7 +93,7 @@ namespace Project1.LinkComponents
         {
             if (CanPlay() && !LockFrame)
             {
-                if (!DirectionState.ID.Equals("Up") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals(GameVar.DirectionUp) || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
                     UpdateSprite();
@@ -110,7 +110,7 @@ namespace Project1.LinkComponents
         {
             if (CanPlay() && !LockFrame)
             {
-                if (!DirectionState.ID.Equals("Down") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals(GameVar.DirectionDown) || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
                     UpdateSprite();
@@ -128,7 +128,7 @@ namespace Project1.LinkComponents
         {
             if (CanPlay() && !LockFrame )
             {
-                if (!DirectionState.ID.Equals("Left") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals(GameVar.DirectionLeft) || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
                     UpdateSprite();
@@ -146,7 +146,7 @@ namespace Project1.LinkComponents
         {
             if (CanPlay() && !LockFrame )
             {
-                if (!DirectionState.ID.Equals("Right") || LinkSprite.TotalFrames == 1)
+                if (!DirectionState.ID.Equals(GameVar.DirectionRight) || LinkSprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
                     UpdateSprite();

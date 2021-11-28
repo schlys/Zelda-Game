@@ -239,6 +239,9 @@ namespace Project1
         // LINK 
         public const int Player1 = 0;
         public const int Player2 = 1;
+        public const int lives = 3;
+
+
         public static Tuple<Vector2, Color> GetLinkInfo(int i)
         {
             List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>

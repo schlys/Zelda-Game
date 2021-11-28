@@ -32,7 +32,7 @@ namespace Project1.LinkComponents
         private string MapItemKey;
         private string CompassItemKey;
 
-        private int TWO = 2; // TODO: is 2 hard coding? 
+      
 
         private Vector2 ItemDimentions;
 
@@ -346,7 +346,7 @@ namespace Project1.LinkComponents
             Rectangle Hitbox = CollisionManager.Instance.GetHitBox(position, sprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int BlockSize = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
-            position -= new Vector2((BlockSize - Hitbox.Width) / TWO, (BlockSize - Hitbox.Height) / TWO);
+            position -= new Vector2((BlockSize - Hitbox.Width) / 2, (BlockSize - Hitbox.Height) / 2);
             /* Get correct hibox for updated position */
             return position;
         }
