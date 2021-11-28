@@ -105,15 +105,28 @@ namespace Project1.LinkComponents
         {
             if (!Item1.Equals(""))
             {
+                Item droppedItem = new Item(Link.Position, Item1);
+                droppedItem.InitialPosition = Link.Position;
                 if (Item1.Equals("BombSolid"))
                 {
-                    BombCount--;
+                    if (BombCount > 0) 
+                    { 
+                        BombCount--; 
+                    }
+                    if (BombCount == 0)
+                    {
+                        Items.Remove(Item1);
+                        Item1 = "";
+                    }
                 }
                 else
                 {
                     Items.Remove(Item1);
                     Item1 = "";
                 }
+                
+                GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
+                GameObjectManager.Instance.UpdateRoomItems();
                 GameSoundManager.Instance.PlayTextSlow();
             }
         }

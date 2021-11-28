@@ -24,7 +24,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.Inventory.BombCount += 5;
+            link.Inventory.BombCount += 1;
             link.Inventory.AddItem(Item);
             Item.RemoveItem();
         }
