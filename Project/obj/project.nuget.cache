@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oGDjBEXOA7Vwd57MpYZk2s4pyH4uldkJmJz4t0O7YsjFecFoDOc9bwOKonNeFif9C6/iBgmjfxST9PqfQcuG0g==",
+  "dgSpecHash": "g6rsH/x4+xX0x/DowD9sYtr2MjmhH8FHPOP5e5CTjT7b79O0WjWndT7xiYLOj9rnf243hlopNBwWQgegJOsCBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andy\\Desktop\\aa\\Project\\Project1.csproj",
+  "projectFilePath": "C:\\Users\\Andy\\Desktop\\bb\\Project\\Project1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andy\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\Andy\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

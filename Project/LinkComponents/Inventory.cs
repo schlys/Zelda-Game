@@ -103,8 +103,19 @@ namespace Project1.LinkComponents
 
         public void DropItem1()
         {
-            Item1 = "";
-            GameSoundManager.Instance.PlayTextSlow();
+            if (!Item1.Equals(""))
+            {
+                if (Item1.Equals("BombSolid"))
+                {
+                    BombCount--;
+                }
+                else
+                {
+                    Items.Remove(Item1);
+                    Item1 = "";
+                }
+                GameSoundManager.Instance.PlayTextSlow();
+            }
         }
 
         public void UseItem(int ItemNumber)
