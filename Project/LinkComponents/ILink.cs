@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
 using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
+using Project1.StoreComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -16,6 +17,7 @@ namespace Project1.LinkComponents
         LinkHealth Health { get; set; }
         Vector2 Position { get; set; }
         IInventory Inventory { get; set; }
+        IStore Store { get; set; }
         int PlayerNum { get; set; }
         void SetPosition(Vector2 position, IDirectionState direction=null); 
         void MoveUp();

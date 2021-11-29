@@ -182,5 +182,10 @@ namespace Project1.GameState
             // True if <CurrentState> is of type GameRoomScroll
             return (CurrentState is GameStateRoomScroll);
         }
+        public bool CanStoreMenu()
+        {
+            // True if <CurrentState> is of type GameRoomScroll
+            return (CurrentState is GameStateStore);
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace Project1.LinkComponents
         void DropItem1();
         void UseItem(int itemNumber);
         bool HasItem(string name);
+        bool SpendRupee(int n); 
         bool CanUseKey();
         void SelectItem();
         void SelectItem(int item);

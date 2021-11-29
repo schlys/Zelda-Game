@@ -280,7 +280,51 @@ namespace Project1.Command
             Link.Inventory.SelectItem(2);
         }
     }
-    
+
+    public class LinkPurchaseItem1Cmd : ICommand
+    {
+        public Game1 Game { get; set; }
+        public ILink Link { get; set; }
+
+        public LinkPurchaseItem1Cmd(Game1 game, ILink link)
+        {
+            Game = game;
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.Store.PurchaseItem1();
+        }
+    }
+
+    public class LinkPurchaseItem2Cmd : ICommand
+    {
+        public ILink Link { get; set; }
+
+        public LinkPurchaseItem2Cmd(Game1 game, ILink link)
+        {
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.Store.PurchaseItem2();
+        }
+    }
+
+    public class LinkPurchaseItem3Cmd : ICommand
+    {
+        public ILink Link { get; set; }
+
+        public LinkPurchaseItem3Cmd(Game1 game, ILink link)
+        {
+            Link = link;
+        }
+        public void Execute()
+        {
+            Link.Store.PurchaseItem3();
+        }
+    }
+
 }
 
 

@@ -26,7 +26,7 @@ namespace Project1.GameState
         bool CanDrawHUD();
         bool CanItemSelect();
         bool CanItemScroll();
-        bool CanRoomScroll(); 
-
+        bool CanRoomScroll();
+        bool CanStoreMenu(); 
     }
 }

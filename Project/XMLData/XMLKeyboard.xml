@@ -237,6 +237,68 @@ w
 		<key>NumPad0</key>
 	</LinkControl>
 
+	<!-- PLAYER 1 STORE -->
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem1Cmd</name>
+		<key>NumPad1</key>
+	</LinkControl>
+
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem1Cmd</name>
+		<key>D1</key>
+	</LinkControl>
+	
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem2Cmd</name>
+		<key>NumPad2</key>
+	</LinkControl>
+
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem2Cmd</name>
+		<key>D2</key>
+	</LinkControl>
+	
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem3Cmd</name>
+		<key>NumPad3</key>
+	</LinkControl>
+
+	<LinkControl player="1" press="true">
+		<name>LinkPurchaseItem3Cmd</name>
+		<key>D3</key>
+	</LinkControl>
+
+	<!-- PLAYER 2 STORE -->
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem1Cmd</name>
+		<key>NumPad8</key>
+	</LinkControl>
+
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem1Cmd</name>
+		<key>D8</key>
+	</LinkControl>
+
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem2Cmd</name>
+		<key>NumPad9</key>
+	</LinkControl>
+
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem2Cmd</name>
+		<key>D9</key>
+	</LinkControl>
+
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem3Cmd</name>
+		<key>NumPad0</key>
+	</LinkControl>
+
+	<LinkControl player="2" press="true">
+		<name>LinkPurchaseItem3Cmd</name>
+		<key>D0</key>
+	</LinkControl>
+
 
 	<LinkControl>
 		<name>LinkSwordAttackCmd</name>

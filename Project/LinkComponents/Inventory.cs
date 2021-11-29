@@ -159,7 +159,19 @@ namespace Project1.LinkComponents
         {
             return Items.ContainsKey(name);
         }
-       
+
+        public bool SpendRupee(int n)
+        {
+            /* Spends <n> rupees if able to. returns whether or not the rupees were spent. 
+             */ 
+            if(RupeeCount >= n)
+            {
+                RupeeCount -= n;
+                return true; 
+            }
+            return false; 
+        }
+
         public void SelectItem()
         {
             /* Update <Item1> or <Item2> to be the first entry of <SelectedItem> depending on whether it 

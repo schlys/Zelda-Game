@@ -39,7 +39,7 @@ namespace Project1
         public List<ILink> Links_copy;  // ??? when is this used? 
         public int LinkCount;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
         public List<IHUD> HUDs;
-        public List<IStore> Stores;
+        //public List<IStore> Stores;
         public List<IBlock> Blocks;
         public List<IItem> Items;
         public List<IEnemy> Enemies;
@@ -61,7 +61,7 @@ namespace Project1
             Links = new List<ILink>();
             Links_copy = new List<ILink>();
             HUDs = new List<IHUD>();
-            Stores = new List<IStore>();
+            //Stores = new List<IStore>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             Enemies = new List<IEnemy>();
@@ -274,7 +274,7 @@ namespace Project1
             // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
             if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
 
-            if (i < Stores.Count) Stores[i].Draw(spriteBatch);
+            //if (i < Stores.Count) Stores[i].Draw(spriteBatch);
         }
 
         public void Reset()
@@ -310,7 +310,7 @@ namespace Project1
             Links.Clear();
             Links_copy.Clear();
             HUDs.Clear();
-            Stores.Clear(); 
+            //Stores.Clear(); 
 
             SetLinkCount(LinkCount);
         }
@@ -351,7 +351,7 @@ namespace Project1
             for (int i = 0; i < LinkCount; i++)
             {
                 Tuple<Vector2, Color> linkInfo = GameVar.GetLinkInfo(i);
-                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2, i);
+                ILink Link = new Link(linkInfo.Item1, linkInfo.Item2, i, Game);
                 Links.Add(Link);
 
                 Links_copy = new List<ILink>(Links);
@@ -359,8 +359,8 @@ namespace Project1
                 IHUD HUD = new HUD(Link, Game);
                 HUDs.Add(HUD);
 
-                IStore Store = new Store(Link, Game);
-                Stores.Add(Store);
+                //IStore Store = new Store(Link, Game);
+                //Stores.Add(Store);
 
                 foreach (IController controller in Controllers)
                 {

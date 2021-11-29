@@ -27,8 +27,8 @@ namespace Project1.LevelComponents
         // Other Properties 
         private IRoom NextRoom;
 
-        private static Vector2 RoomPosition;
         public Vector2 CurrentRoomPosition;
+        private static Vector2 RoomPosition;
         private Vector2 CurrentRoomInitialPosition; 
 
         public Vector2 LinkStartingPosition { get; set; }

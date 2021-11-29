@@ -11,6 +11,7 @@ using Project1.LevelComponents;
 using Project1.ItemComponents;
 using Project1.HeadsUpDisplay;
 using Project1.GameState;
+using Project1.StoreComponents; 
 
 namespace Project1.LinkComponents
 {
@@ -22,6 +23,7 @@ namespace Project1.LinkComponents
         public Sprite LinkSprite { get; set; }
         public Vector2 Position { get; set; }
         public IInventory Inventory { get; set; }
+        public IStore Store { get; set; }
         public int PlayerNum { get; set; }
 
         // Properties from ICollidable 
@@ -39,7 +41,7 @@ namespace Project1.LinkComponents
         private int TotalNumHearts;
         private int delay;
         private Color Color;
-        public Link(Vector2 position, Color color, int player)
+        public Link(Vector2 position, Color color, int player, Game1 game)
         {
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
@@ -55,6 +57,8 @@ namespace Project1.LinkComponents
             UseItemName = "";
 
             Inventory = new Inventory(this);
+
+            Store = new Store(this, game); 
 
             UpdateSprite(); // Generate LinkSprite 
             IsMoving = true;
