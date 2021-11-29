@@ -22,13 +22,6 @@ namespace Project1
         private SpriteBatch spriteBatch;
         private Matrix matrix;
 
-        void Window_ClientSizeChanged(object sender, EventArgs e)
-        {
-            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
-            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
-            graphics.ApplyChanges();
-        }
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -37,11 +30,8 @@ namespace Project1
 
             //graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
             //graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
-
-            //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
             this.Window.AllowUserResizing = true;
-            this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
         }
         protected override void Initialize()
         {
@@ -63,7 +53,7 @@ namespace Project1
         protected override void Update(GameTime gameTime)
         {
             GameObjectManager.Instance.Update();
-            var mouseState = Mouse.GetState();
+            var mouseState = Mouse.GetState(); // you're probably already doing this
             var mousePosition = new Vector2(mouseState.X, mouseState.Y);
             var scaledMousePosition = Vector2.Transform(mousePosition, Matrix.Invert(matrix));
             base.Update(gameTime);
