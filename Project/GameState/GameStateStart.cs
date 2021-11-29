@@ -38,21 +38,21 @@ namespace Project1.GameState
             Vector2 num2_position = new Vector2(RoomSize.X / 2 + buffer, RoomSize.Y / 2 + 5 * buffer);
 
             Texture2D numSelect = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
-            numSelect.SetData(new[] { Color.Pink });
+            numSelect.SetData(new[] { Color.OrangeRed });
 
             // Highlight selection  
             if (GameObjectManager.Instance.LinkCount == 1)
             {
-                destinationRectangle = new Rectangle((int)num1_position.X - 5, (int)num1_position.Y + 2, 40, 50);
+                destinationRectangle = new Rectangle((int)num1_position.X - 5, (int)num1_position.Y + 2, 40, 55);
             }
             else
             {
-                destinationRectangle = new Rectangle((int)num2_position.X - 5, (int)num2_position.Y + 2, 40, 50);
+                destinationRectangle = new Rectangle((int)num2_position.X - 5, (int)num2_position.Y + 2, 40, 55);
             }
             spriteBatch.Draw(numSelect, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum1, num1_position, Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum2, num2_position, Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum1, num1_position, Color.Black);
+            spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum2, num2_position, Color.Black);
         }
 
         public IGameState Reset()
