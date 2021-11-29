@@ -900,3 +900,11 @@ C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.csproj
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.pdb
 C:\Users\Andy\Desktop\New folder\Project\obj\Debug\netcoreapp3.1\Project1.genruntimeconfig.cache
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\BasicMovement2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalRod2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalShield2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\MagicalSword2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\PickUpItem2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword2.xnb

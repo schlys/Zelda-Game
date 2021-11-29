@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/users/andy/desktop/new folder/project/Content/Sounds/LowHealth.wav</SourceFile>
-  <SourceTime>2021-11-28T20:16:56.1060394-05:00</SourceTime>
-  <DestFile>c:/users/andy/desktop/new folder/project/Content/bin/Windows/Content/Sounds/LowHealth.xnb</DestFile>
-  <DestTime>2021-11-28T20:20:16.2892255-05:00</DestTime>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/LowHealth.wav</SourceFile>
+  <SourceTime>2021-11-28T20:25:57.7609927-05:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/LowHealth.xnb</DestFile>
+  <DestTime>2021-11-28T20:28:23.6579695-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
