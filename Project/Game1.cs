@@ -12,6 +12,7 @@ using Project1.EnemyComponents;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.GameState;
+using System;
 
 namespace Project1
 {
@@ -19,6 +20,14 @@ namespace Project1
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        private Matrix matrix;
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+            graphics.ApplyChanges();
+        }
 
         public Game1()
         {
@@ -26,13 +35,14 @@ namespace Project1
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
-            graphics.ApplyChanges();
-        }
-    
-            
+            //graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
+            //graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
 
+            //graphics.IsFullScreen = true;
+            //graphics.ApplyChanges();
+            this.Window.AllowUserResizing = true;
+            this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
+        }
         protected override void Initialize()
         {
             base.Initialize();
@@ -53,13 +63,19 @@ namespace Project1
         protected override void Update(GameTime gameTime)
         {
             GameObjectManager.Instance.Update();
-
+            var mouseState = Mouse.GetState();
+            var mousePosition = new Vector2(mouseState.X, mouseState.Y);
+            var scaledMousePosition = Vector2.Transform(mousePosition, Matrix.Invert(matrix));
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
+            var scaleX = (float)Window.ClientBounds.Width/ GameVar.ScreenWidth;
+            var scaleY = (float)Window.ClientBounds.Height/GameVar.ScreenHeight;
+            matrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
+
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix: matrix);
             GameStateManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
 

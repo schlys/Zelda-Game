@@ -24,7 +24,6 @@ namespace Project1.StoreComponents
         private int PriceItem2;
         private int PriceItem3;
 
-
         public Store(ILink link, Game1 game)
         {
             Link = link;
@@ -71,11 +70,11 @@ namespace Project1.StoreComponents
         }
         public void Update()
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
             if (GameStateManager.Instance.CanStoreMenu())
             {
                 int buffer = 20;
@@ -101,5 +100,7 @@ namespace Project1.StoreComponents
         {
 
         }
+
+            
     }
 }

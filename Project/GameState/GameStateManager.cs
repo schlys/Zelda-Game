@@ -45,6 +45,7 @@ namespace Project1.GameState
             swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
 
             Game.Window.Title = "Project1 - player 1";
+
         }
 
         

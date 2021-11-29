@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,5 @@ namespace Project1.StoreComponents
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void Reset();
-        
     }
 }
