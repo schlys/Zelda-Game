@@ -21,10 +21,12 @@ namespace Project1.GameState
         void SetLinkCount(int n);
         void StartScroll();
         void StopScroll();
+        void StoreMenu(); 
         bool CanPlayGame();
         bool CanDrawHUD();
         bool CanItemSelect();
         bool CanItemScroll();
         bool CanRoomScroll(); 
+
     }
 }

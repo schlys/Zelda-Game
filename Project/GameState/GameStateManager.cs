@@ -152,6 +152,11 @@ namespace Project1.GameState
         {
             CurrentState = CurrentState.StopScroll();
         }
+
+        public void StoreMenu()
+        {
+            CurrentState = CurrentState.StoreMenu(); 
+        }
         public bool CanPlayGame()
         {
             // True if <CurrentState> is of type GameStateGamePlay 

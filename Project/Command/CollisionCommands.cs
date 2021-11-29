@@ -9,7 +9,8 @@ using System.Text;
 using Project1.LevelComponents;
 using Microsoft.Xna.Framework;
 using Project1.BlockComponents;
-using Project1.DirectionState; 
+using Project1.DirectionState;
+using Project1.GameState; 
 
 namespace Project1.Command
 {
@@ -197,6 +198,21 @@ namespace Project1.Command
         public void Execute()
         {
             Block.Change(GameVar.BlockBase);
+        }
+    }
+
+    public class EnterStoreMenuCmd : ICommand
+    {
+        public ILink Link { get; set; }
+        string Direction;
+
+        public EnterStoreMenuCmd(ICollidable link, ICollidable oldman, string direction)
+        {
+            Link = (ILink)link;
+        }
+        public void Execute()
+        {
+            GameStateManager.Instance.StoreMenu();
         }
     }
 

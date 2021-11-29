@@ -58,5 +58,9 @@ namespace Project1.GameState
         {
             return this;
         }
+        public IGameState StoreMenu()
+        {
+            return this;
+        }
     }
 }

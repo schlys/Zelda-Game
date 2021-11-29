@@ -48,5 +48,9 @@ namespace Project1.GameState
         {
             return new GameStateItemScroll(GameVar.DirectionOut);
         }
+        public IGameState StoreMenu()
+        {
+            return this;
+        }
     }
 }

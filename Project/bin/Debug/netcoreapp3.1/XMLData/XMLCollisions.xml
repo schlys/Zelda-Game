@@ -92,6 +92,12 @@
 		<command1>LinkTakeDamageCmd</command1>
 		<command2>EnemyKnockbackReverseCmd</command2>
 	</Collision>
+
+	<Collision>
+		<name>LinkEnemyOldMan</name>
+		<command1>EnterStoreMenuCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
 	<Collision>
 		<name>LinkProjectileMoblin</name>

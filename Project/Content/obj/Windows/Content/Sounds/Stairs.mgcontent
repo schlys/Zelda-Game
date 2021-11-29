@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/blum1/Project/Project/Content/Sounds/Stairs.wav</SourceFile>
-  <SourceTime>2021-11-19T21:06:43.0030383-05:00</SourceTime>
-  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/Stairs.xnb</DestFile>
-  <DestTime>2021-11-28T20:24:36.459726-05:00</DestTime>
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/Stairs.wav</SourceFile>
+  <SourceTime>2021-11-24T19:47:31.6534588-05:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/Stairs.xnb</DestFile>
+  <DestTime>2021-11-28T19:55:35.8325009-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

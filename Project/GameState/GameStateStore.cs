@@ -1,19 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LevelComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Project1.SpriteComponents;
+using Project1.LevelComponents;
 
 namespace Project1.GameState
 {
-    public class GameStatePause: IGameState
+    public class GameStateStore: IGameState
     {
-        public GameStatePause()
+        private Sprite Link;
+        private Sprite TriForceFragment;
+
+        public GameStateStore()
         {
+            TriForceFragment = SpriteFactory.Instance.GetSpriteData("TriforceFragment");
+            Link = SpriteFactory.Instance.GetSpriteData("PickUpItem");
         }
         public void Draw(SpriteBatch spriteBatch, int i)
         {
+            /*
             Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
             int sizeCorrector = 40;
 
@@ -23,8 +30,12 @@ namespace Project1.GameState
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameVar.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText1, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText2, new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.WinText1, new Vector2(RoomSize.X / 2- sizeCorrector, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.WinText2, new Vector2(RoomSize.X / 2 - sizeCorrector * 4, RoomSize.Y / 2 + sizeCorrector * 2), Color.White);
+
+            TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector/2));
+            Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- sizeCorrector, RoomSize.Y / 2+ sizeCorrector));
+            */
         }
         public IGameState Reset()
         {
@@ -32,7 +43,7 @@ namespace Project1.GameState
         }
         public IGameState Pause()
         {
-            return new GameStateGamePlay();
+            return new GameStatePause(); 
         }
         public IGameState StartGame()
         {
@@ -48,7 +59,7 @@ namespace Project1.GameState
         }
         public IGameState ItemSelectMenu()
         {
-            return new GameStateItemScroll(GameVar.DirectionIn);
+            return this;
         }
         public IGameState StartScroll()
         {
@@ -58,9 +69,10 @@ namespace Project1.GameState
         {
             return this;
         }
+
         public IGameState StoreMenu()
         {
-            return this;
+            return new GameStateGamePlay();
         }
     }
 }

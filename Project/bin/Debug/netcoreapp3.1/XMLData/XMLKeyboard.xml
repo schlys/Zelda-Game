@@ -47,7 +47,8 @@
 		<key>D2</key>
 	</GameControl>
 	
-	<!-- PLAYER 2 MOVEMENT -->
+	<!-- PLAYER 1 MOVEMENT -->
+	
 	<LinkControl player="1">
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>	
@@ -68,7 +69,7 @@
 		<key>A</key>
 	</LinkControl>
 	
-	<!--Player 1 Movement-->
+	<!--Player 2 Movement-->
 	
 	<LinkControl player="2">
 		<name>LinkMoveUpCmd</name>
