@@ -48,44 +48,44 @@
 	</GameControl>
 	
 	<!-- PLAYER 2 MOVEMENT -->
-	<LinkControl player="2">
+	<LinkControl player="1">
 		<name>LinkMoveUpCmd</name>
 		<key>W</key>	
 	</LinkControl>
 
-	<LinkControl player="2">
+	<LinkControl player="1">
 		<name>LinkMoveDownCmd</name>
 		<key>S</key>	
 	</LinkControl>
 
-	<LinkControl player="2">
+	<LinkControl player="1">
 		<name>LinkMoveRightCmd</name>
 		<key>D</key>	
 	</LinkControl>
 
-	<LinkControl player="2">
+	<LinkControl player="1">
 		<name>LinkMoveLeftCmd</name>
 		<key>A</key>
 	</LinkControl>
 	
 	<!--Player 1 Movement-->
 	
-	<LinkControl player="1">
+	<LinkControl player="2">
 		<name>LinkMoveUpCmd</name>
 		<key>Up</key>
 	</LinkControl>
 
-	<LinkControl player="1">
+	<LinkControl player="2">
 		<name>LinkMoveDownCmd</name>
 		<key>Down</key>
 	</LinkControl>
 w
-	<LinkControl player="1">
+	<LinkControl player="2">
 		<name>LinkMoveRightCmd</name>
 		<key>Right</key>
 	</LinkControl>
 
-	<LinkControl player="1">
+	<LinkControl player="2">
 		<name>LinkMoveLeftCmd</name>
 		<key>Left</key>
 	</LinkControl>

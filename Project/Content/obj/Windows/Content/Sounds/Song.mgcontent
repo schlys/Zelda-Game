@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Andy/Desktop/bb/Project/Content/Sounds/Song.mp3</SourceFile>
-  <SourceTime>2021-11-27T19:49:31.683002-06:00</SourceTime>
-  <DestFile>C:/Users/Andy/Desktop/bb/Project/Content/bin/Windows/Content/Sounds/Song.xnb</DestFile>
-  <DestTime>2021-11-27T20:22:17.8701706-06:00</DestTime>
+  <SourceFile>C:/Users/blum1/Project/Project/Content/Sounds/Song.mp3</SourceFile>
+  <SourceTime>2021-11-19T21:06:43.0030383-05:00</SourceTime>
+  <DestFile>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/Song.xnb</DestFile>
+  <DestTime>2021-11-28T20:24:35.3018082-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
-  <ImporterTime>2020-08-10T11:17:54-05:00</ImporterTime>
+  <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SongProcessor</Processor>
-  <ProcessorTime>2020-08-10T11:17:54-05:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T12:17:54-04:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
     <Value>Best</Value>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Andy/Desktop/bb/Project/Content/bin/Windows/Content/Sounds/Song.wma</string>
+    <string>C:/Users/blum1/Project/Project/Content/bin/Windows/Content/Sounds/Song.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>
