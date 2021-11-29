@@ -9,6 +9,7 @@ namespace Project1.GameState
 {
     public class GameStateStart: IGameState
     {
+
         public GameStateStart()
         {
         }
@@ -27,12 +28,17 @@ namespace Project1.GameState
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.StartText2, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 ), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.StartText3, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 + buffer), Color.White);
 
+            // title image
+            Rectangle sourceRectangle = new Rectangle(0, 10, GameVar.titleWidth, GameVar.titleHeight);
+            destinationRectangle = new Rectangle(0, 0, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
+
             // Draw the 1 and 2 denoting the number of players and highlight the currently selected 
             Vector2 num1_position = new Vector2(RoomSize.X / 2 - buffer, RoomSize.Y / 2 + 5 * buffer);
             Vector2 num2_position = new Vector2(RoomSize.X / 2 + buffer, RoomSize.Y / 2 + 5 * buffer);
 
             Texture2D numSelect = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
-            numSelect.SetData(new[] { Color.Blue });
+            numSelect.SetData(new[] { Color.Pink });
 
             // Highlight selection  
             if (GameObjectManager.Instance.LinkCount == 1)
@@ -48,6 +54,7 @@ namespace Project1.GameState
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum1, num1_position, Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum2, num2_position, Color.White);
         }
+
         public IGameState Reset()
         {
             return this;

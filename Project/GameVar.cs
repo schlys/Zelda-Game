@@ -83,6 +83,9 @@ namespace Project1
         public const int ScreenWidth = 512;
         public const int ScreenHeight = 480;
 
+        public const int titleWidth = 257;
+        public const int titleHeight = 225;
+
         // Variables used to denote direction throughout classes in GameState 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 

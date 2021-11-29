@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Sheets>
 	<Sheet>
+		<name>titleScreens</name>
+		<sheet>Title</sheet>
+	</Sheet>
+	<Sheet>
 		<name>directions</name>
 		<sheet>LinkSprites/BasicMovement</sheet>
 	</Sheet>

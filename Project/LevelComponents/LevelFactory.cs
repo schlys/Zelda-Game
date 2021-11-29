@@ -45,6 +45,7 @@ namespace Project1.LevelComponents
             // Load textures for room 
             TextureDict = new Dictionary<string, Texture2D>();
             TextureDict.Add("room", content.Load<Texture2D>("Rooms/RoomMap")); // All rooms are in one png file.
+            TextureDict.Add("titleScreens", content.Load<Texture2D>("Title")); // title image
 
             // Load textures for HUD
             HUDTextures = new Dictionary<String, Texture2D>();

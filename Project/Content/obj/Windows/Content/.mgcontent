@@ -94,6 +94,7 @@
     <File>C:/Users/chaew/source/repos/3902-dream-team/Project/Project/Content/Sounds/SwordSlash.wav</File>
     <File>C:/Users/chaew/source/repos/3902-dream-team/Project/Project/Content/Sounds/Text.wav</File>
     <File>C:/Users/chaew/source/repos/3902-dream-team/Project/Project/Content/Sounds/TextSlow.wav</File>
+    <File>C:/Users/chaew/source/repos/3902-dream-team/Project/Project/Content/Title.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -105,6 +106,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/TitleFont.spritefont</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
