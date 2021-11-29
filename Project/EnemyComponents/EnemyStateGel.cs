@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
 using Project1.LevelComponents;
+using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
 {
@@ -145,6 +146,14 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(0 + damage);
+            if (Enemy.Health.Dead())
+            {
+                // drop item small key 
+                Item blueRupee = new Item(Enemy.Position, "BlueRupee");
+                blueRupee.InitialPosition = Enemy.Position;
+                GameObjectManager.Instance.Level.CurrentRoom.AddItem(blueRupee);
+                GameObjectManager.Instance.UpdateRoomItems();
+            }
         }
         public void Update()
         {

@@ -6,7 +6,8 @@ using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;
 using Project1.CollisionComponents;
-using Project1.LevelComponents; 
+using Project1.LevelComponents;
+using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents 
 {
@@ -142,6 +143,14 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(damage);
+            if (Enemy.Health.Dead())
+            {
+                // drop item small key 
+                Item orangeRupee = new Item(Enemy.Position, "OrangeRupee");
+                orangeRupee.InitialPosition = Enemy.Position;
+                GameObjectManager.Instance.Level.CurrentRoom.AddItem(orangeRupee);
+                GameObjectManager.Instance.UpdateRoomItems();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
