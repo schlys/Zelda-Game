@@ -188,6 +188,18 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites/BasicMovement.png
 
+#begin LinkSprites/BasicMovement2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/BasicMovement2.png
+
 #begin LinkSprites/Items.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -212,7 +224,7 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites/MagicalRod.png
 
-#begin LinkSprites/MagicalRod.png
+#begin LinkSprites/MagicalRod2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -222,19 +234,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:LinkSprites/MagicalRod.png
-
-#begin LinkSprites/MagicalRod.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:LinkSprites/MagicalRod.png
+/build:LinkSprites/MagicalRod2.png
 
 #begin LinkSprites/MagicalShield.png
 /importer:TextureImporter
@@ -248,6 +248,18 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites/MagicalShield.png
 
+#begin LinkSprites/MagicalShield2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/MagicalShield2.png
+
 #begin LinkSprites/MagicalSword.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -259,6 +271,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:LinkSprites/MagicalSword.png
+
+#begin LinkSprites/MagicalSword2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/MagicalSword2.png
 
 #begin LinkSprites/PickUpItem.png
 /importer:TextureImporter
@@ -272,6 +296,18 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites/PickUpItem.png
 
+#begin LinkSprites/PickUpItem2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/PickUpItem2.png
+
 #begin LinkSprites/UseItem.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -283,6 +319,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:LinkSprites/UseItem.png
+
+#begin LinkSprites/UseItem2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/UseItem2.png
 
 #begin LinkSprites/WhiteSword.png
 /importer:TextureImporter
@@ -296,6 +344,18 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites/WhiteSword.png
 
+#begin LinkSprites/WhiteSword2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/WhiteSword2.png
+
 #begin LinkSprites/WoodenSword.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -307,6 +367,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:LinkSprites/WoodenSword.png
+
+#begin LinkSprites/WoodenSword2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkSprites/WoodenSword2.png
 
 #begin NPCs/OldManWoman.png
 /importer:TextureImporter
