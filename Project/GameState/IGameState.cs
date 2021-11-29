@@ -17,6 +17,7 @@ namespace Project1.GameState
         IGameState ItemSelectMenu();
         IGameState StartScroll();
         IGameState StopScroll();
-        IGameState StoreMenu(); 
+        IGameState EnterStoreMenu();
+        IGameState ExitStoreMenu();
     }
 }

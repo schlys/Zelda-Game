@@ -26,6 +26,11 @@
 		<key>X</key>
 	</GameControl>
 
+	<GameControl>
+		<name>GameExitStoreCmd</name>
+		<key>X</key>
+	</GameControl>
+
 	<!-- SET LINK COUNT -->
 	<GameControl>
 		<name>GameSetLinkCount1Cmd</name>

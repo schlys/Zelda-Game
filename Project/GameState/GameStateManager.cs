@@ -153,9 +153,13 @@ namespace Project1.GameState
             CurrentState = CurrentState.StopScroll();
         }
 
-        public void StoreMenu()
+        public void EnterStoreMenu()
         {
-            CurrentState = CurrentState.StoreMenu(); 
+            CurrentState = CurrentState.EnterStoreMenu(); 
+        }
+        public void ExitStoreMenu()
+        {
+            CurrentState = CurrentState.ExitStoreMenu();
         }
         public bool CanPlayGame()
         {

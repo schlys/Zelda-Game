@@ -21,7 +21,8 @@ namespace Project1.GameState
         void SetLinkCount(int n);
         void StartScroll();
         void StopScroll();
-        void StoreMenu(); 
+        void EnterStoreMenu();
+        void ExitStoreMenu();
         bool CanPlayGame();
         bool CanDrawHUD();
         bool CanItemSelect();

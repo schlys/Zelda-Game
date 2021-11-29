@@ -209,10 +209,12 @@ namespace Project1.Command
         public EnterStoreMenuCmd(ICollidable link, ICollidable oldman, string direction)
         {
             Link = (ILink)link;
+            Direction = direction; 
         }
         public void Execute()
         {
-            GameStateManager.Instance.StoreMenu();
+            Link.HitBlock(DirectionManager.Instance.GetDirectionState(Direction)); // so no longer collide
+            GameStateManager.Instance.EnterStoreMenu();
         }
     }
 

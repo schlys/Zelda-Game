@@ -48,9 +48,13 @@ namespace Project1.GameState
         {
             return this;
         }
-        public IGameState StoreMenu()
+        public IGameState EnterStoreMenu()
         {
             return new GameStateStore(); 
+        }
+        public IGameState ExitStoreMenu()
+        {
+            return this;
         }
     }
 }

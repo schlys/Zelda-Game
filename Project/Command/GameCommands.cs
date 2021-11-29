@@ -176,4 +176,23 @@ namespace Project1.Command
             game.SetLinkCount(2);
         }
     }
+
+    class GameExitStoreCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameExitStoreCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.ExitStore();
+        }
+    }
 }
