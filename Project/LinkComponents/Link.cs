@@ -354,7 +354,10 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!IsDead) LinkSprite.Draw(spriteBatch, Position);
+            //if(!IsDead) 
+                LinkSprite.Draw(spriteBatch, Position);
+            
+            Store.Draw(spriteBatch); 
         }
 
         public void SetColor(Color color)
