@@ -20,7 +20,6 @@ namespace Project1
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Matrix matrix;
 
         public Game1()
         {
@@ -53,19 +52,18 @@ namespace Project1
         protected override void Update(GameTime gameTime)
         {
             GameObjectManager.Instance.Update();
-            var mouseState = Mouse.GetState(); // you're probably already doing this
-            var mousePosition = new Vector2(mouseState.X, mouseState.Y);
-            var scaledMousePosition = Vector2.Transform(mousePosition, Matrix.Invert(matrix));
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            // below variables are for resizing the main window freely.
             var scaleX = (float)Window.ClientBounds.Width/ GameVar.ScreenWidth;
             var scaleY = (float)Window.ClientBounds.Height/GameVar.ScreenHeight;
-            matrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
+            var matrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix: matrix);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, transformMatrix: matrix);
             GameStateManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
 
