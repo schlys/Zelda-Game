@@ -908,3 +908,4 @@ C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\UseItem2.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WhiteSword2.xnb
 C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\LinkSprites\WoodenSword2.xnb
+C:\Users\Elise\Source\Repos\3902-dream-team\Project\Project\bin\Debug\netcoreapp3.1\Content\Fonts\BodyFont.xnb

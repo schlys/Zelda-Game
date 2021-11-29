@@ -11,6 +11,7 @@
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Goriya.png</File>
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Keese.png</File>
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/DungeonEnemies/Stalfos.png</File>
+    <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Fonts/BodyFont.spritefont</File>
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Fonts/File.spritefont</File>
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/HUD/HUD.png</File>
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/HUD/HUD2.png</File>
@@ -95,6 +96,7 @@
     <File>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/TextSlow.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

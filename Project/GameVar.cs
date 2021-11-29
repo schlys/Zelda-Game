@@ -12,7 +12,9 @@ namespace Project1
         /* This class holds all constant variables and data used throughout the project
          */
 
-        public const int ScalingFactor = 2; 
+        public const int ScalingFactor = 2;
+        public const string TitleFont = "Fonts/TitleFont";
+        public const string BodyFont = "Fonts/BodyFont";
 
 
         // BLOCK    
@@ -86,27 +88,26 @@ namespace Project1
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
 
         public const string LoseText1 = "GAME OVER";
-        public const string LoseText2 = "\n\n         Press 'r' to restart\n\n                Press 'q' to quit\n\n                ";
+        public const string LoseText2 = "Press 'r' to restart\n\nPress 'q' to quit";
 
         public const string PauseText1 = "PAUSED";
-        public const string PauseText2 = "\n\n         Press the space bar to continue\n\n                " +
-                "Press 'q' to quit\n\n    " +
-                "Press 'i' for the item selection screen\n\n                " +
+        public const string PauseText2 = "Press the space bar to continue\n\n" +
+                "Press 'q' to quit\n\n" +
+                "Press 'i' for the item selection screen\n\n" +
                 "Press 'r' to restart";
 
         public const string StartText1 = "Game Start!";
-        public const string StartText2 = "\n\n    Press 'x' to start";
-        public const string StartText3 = "\n\n    Press '1' or '2' to select \n   the number of players";
+        public const string StartText2 = "\n\nPress 'x' to start";
+        public const string StartText3 = "\n\nPress '1' or '2' to select \nthe number of players";
 
         public const string WinText1 = "YOU WIN!";
-        public const string WinText2 = "\n\n         Press 'r' to restart\n\n                Press 'q' to quit\n\n                ";
+        public const string WinText2 = "\n\nPress 'r' to restart\n\nPress 'q' to quit";
 
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
 
 
         // HUD 
-        public const string Font = "Fonts/TitleFont";
         public const int ScrollStep = 6;
         public const double HeartSpaceX = 1.5;
         public const string HUDMainSpriteKey = "HUDMain";

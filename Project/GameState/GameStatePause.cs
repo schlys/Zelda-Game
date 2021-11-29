@@ -15,7 +15,7 @@ namespace Project1.GameState
         public void Draw(SpriteBatch spriteBatch, int i)
         {
             Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
-            int sizeCorrector = 40;
+            int buffer = 40;
 
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
@@ -23,8 +23,8 @@ namespace Project1.GameState
             Rectangle destinationRectangle = new Rectangle(0, 55 * GameVar.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
-            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText1, new Vector2(RoomSize.X / 2 - sizeCorrector, RoomSize.Y / 2), Color.White);
-            spriteBatch.DrawString(GameStateManager.Instance.Font, GameVar.PauseText2, new Vector2(RoomSize.X / 2 - sizeCorrector*4, RoomSize.Y / 2), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.PauseText1, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 - buffer), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.PauseText2, new Vector2(RoomSize.X / 2 - (buffer * 4), RoomSize.Y / 2 + buffer), Color.White);
         }
         public IGameState Reset()
         {

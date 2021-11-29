@@ -97,6 +97,13 @@
 /processorParam:TextureFormat=Color
 /build:DungeonEnemies/Stalfos.png
 
+#begin Fonts/BodyFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/BodyFont.spritefont
+
 #begin Fonts/File.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

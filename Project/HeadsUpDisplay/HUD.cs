@@ -32,7 +32,7 @@ namespace Project1.HeadsUpDisplay
         private Sprite HeartHalf;
         private Sprite HeartEmpty; 
 
-        private SpriteFont Font;
+        private SpriteFont BodyFont;
 
         //private Dictionary<String, Vector2> Positions;
 
@@ -58,7 +58,8 @@ namespace Project1.HeadsUpDisplay
             Link = link;
 
             // TODO: data drive 
-            Font = Game.Content.Load<SpriteFont>(GameVar.Font);
+            BodyFont = Game.Content.Load<SpriteFont>(GameVar.BodyFont);
+
             //Positions = new Dictionary<string, Vector2>();
 
             Position = GameVar.GetHUDPosition(); 
@@ -200,19 +201,19 @@ namespace Project1.HeadsUpDisplay
             string RupeeCount = Link.Inventory.RupeeCount.ToString();
             Vector2 newRupeeCountPosition = RupeeCountPosition;
             newRupeeCountPosition += position;
-            spriteBatch.DrawString(Font, RupeeCount, newRupeeCountPosition, Color.White);
+            spriteBatch.DrawString(BodyFont, RupeeCount, newRupeeCountPosition, Color.White);
 
             // Draw Bomb Count
             string BombCount = Link.Inventory.BombCount.ToString();
             Vector2 newBombCountPosition = BombCountPosition;
             newBombCountPosition += position;
-            spriteBatch.DrawString(Font, BombCount, newBombCountPosition, Color.White);
+            spriteBatch.DrawString(BodyFont, BombCount, newBombCountPosition, Color.White);
 
             // Draw Key Count
             string KeyCount = Link.Inventory.KeyCount.ToString();
             Vector2 newKeyCountPosition = KeyCountPosition;
             newKeyCountPosition += position;
-            spriteBatch.DrawString(Font, KeyCount, newKeyCountPosition, Color.White);
+            spriteBatch.DrawString(BodyFont, KeyCount, newKeyCountPosition, Color.White);
         }
 
         private void DrawLinkHealth(SpriteBatch spriteBatch, Vector2 position)

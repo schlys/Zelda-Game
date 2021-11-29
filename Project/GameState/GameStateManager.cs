@@ -25,7 +25,8 @@ namespace Project1.GameState
         }
         public IGameState CurrentState { get; set; }
         public Game1 Game { get; set; }
-        public SpriteFont Font { get; set; }
+        public SpriteFont TitleFont { get; set; }
+        public SpriteFont BodyFont { get; set; }
 
         public List<Tuple<SwapChainRenderTarget, Form>> swapChain;
         
@@ -37,7 +38,9 @@ namespace Project1.GameState
         public void Initialize(Game1 game)
         {
             Game = game;
-            Font = GameStateManager.Instance.Game.Content.Load<SpriteFont>("Fonts/TitleFont");
+            
+            TitleFont = GameStateManager.Instance.Game.Content.Load<SpriteFont>(GameVar.TitleFont);
+            BodyFont = GameStateManager.Instance.Game.Content.Load<SpriteFont>(GameVar.BodyFont);
 
             swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
 

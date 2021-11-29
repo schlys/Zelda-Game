@@ -14,7 +14,8 @@ namespace Project1.StoreComponents
         public ILink Link { get; set; }
 
         private Game1 Game;
-        private SpriteFont Font;
+        private SpriteFont TitleFont;
+        private SpriteFont BodyFont;
 
         private IItem Item1;
         private IItem Item2;
@@ -29,8 +30,9 @@ namespace Project1.StoreComponents
             Link = link;
             Game = game;
 
-            Font = Game.Content.Load<SpriteFont>(GameVar.Font);
-            
+            TitleFont = Game.Content.Load<SpriteFont>(GameVar.TitleFont);
+            BodyFont = Game.Content.Load<SpriteFont>(GameVar.BodyFont);
+
             // TODO: finalize items and price
             Vector2 position = new Vector2(0, 0); 
             Item1 = new Item(position, "LifePotion", false);
@@ -84,18 +86,14 @@ namespace Project1.StoreComponents
                 Rectangle room = GameObjectManager.Instance.GetPlayableRoomBounds();
 
                 string StoreText1 = "STORE";
-                string StoreText2 = "Press 1 - to purchase a LIFE POTION \nfor 1 Rupee";
-                string StoreText3 = "Press 2 - to purchase a BOMB \nfor 1 Rupee";
-                string StoreText4 = "Press 3 - to purchase a SILVER ARROW \nfor 1 Rupee";
-                string StoreText5 = "Press X - to EXIT";
+                string StoreText2 = "Press 1 - to purchase a LIFE POTION \nfor 1 Rupee"+ 
+                    "\nPress 2 - to purchase a BOMB \nfor 1 Rupee" + 
+                    "\nPress 3 - to purchase a SILVER ARROW \nfor 1 Rupee" + 
+                    "\nPress X - to EXIT";
 
                 spriteBatch.Draw(blackRectangle, room, Color.White);
-                spriteBatch.DrawString(Font, StoreText1, new Vector2(room.X + buffer, room.Y + buffer), Color.White);
-                spriteBatch.DrawString(Font, StoreText2, new Vector2(room.X + buffer, room.Y + (2* buffer)), Color.White);
-                spriteBatch.DrawString(Font, StoreText3, new Vector2(room.X + buffer, room.Y + (3 * buffer)), Color.White);
-                spriteBatch.DrawString(Font, StoreText4, new Vector2(room.X + buffer, room.Y + (4 * buffer)), Color.White);
-                spriteBatch.DrawString(Font, StoreText5, new Vector2(room.X + buffer, room.Y + (5 * buffer)), Color.White);
-
+                spriteBatch.DrawString(TitleFont, StoreText1, new Vector2(room.X + (buffer*3), room.Y), Color.White);
+                spriteBatch.DrawString(BodyFont, StoreText2, new Vector2(room.X + (buffer), room.Y + (buffer * 3)), Color.White);
             }
         }
 
