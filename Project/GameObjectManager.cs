@@ -279,30 +279,9 @@ namespace Project1
 
         public void Reset()
         {
-            //LevelFactory.Instance.Reset();
             Level.Reset(); 
 
             UpdateRoomItems();
-            /*(foreach (ILink link in Links)
-            {
-                link.Reset();
-            }
-            foreach (IHUD HUD in HUDs)
-            {
-                HUD.Reset();
-            }*/
-            foreach (IBlock block in Blocks)
-            {
-                block.Reset();
-            }
-            foreach (IItem item in Items)
-            {
-                item.Reset();
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                enemy.Reset();
-            }
 
             foreach (IProjectile projectile in Projectiles)
             {
@@ -313,8 +292,7 @@ namespace Project1
             LinkCount = 1;
             Links.Clear();
             Links_copy.Clear();
-            HUDs.Clear();
-            //Stores.Clear(); 
+            HUDs.Clear(); 
 
             SetLinkCount(LinkCount);
         }

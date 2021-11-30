@@ -38,7 +38,7 @@ namespace Project1.LevelComponents
         // TODO: Load in XML
         // ****** What is the purpose of adjust? 
         
-        private static int Adjust = 2 * GameVar.ScalingFactor;
+        private static int Adjust;
 
         private static Vector2 ScrollAdjust;
         private static float ScrollStep;
@@ -195,7 +195,12 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException();
             }
 
-            CurrentRoom.Reset();
+            foreach (IRoom room in LevelDict.Values)
+            {
+                room.Reset();
+            }
+
+            //CurrentRoom.Reset();
             LevelMap.Reset();
         }
         public void MoveUp(Vector2 position)

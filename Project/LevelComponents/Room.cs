@@ -86,6 +86,18 @@ namespace Project1.LevelComponents
         public void Reset()
         {
             // TODO: should we handle object reset here and not in gameobject manager? 
+            foreach (IBlock block in Blocks)
+            {
+                block.Reset();
+            }
+            foreach (IItem item in Items)
+            {
+                item.Reset();
+            }
+            foreach (IEnemy enemy in Enemies)
+            {
+                enemy.Reset();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
