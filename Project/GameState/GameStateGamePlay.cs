@@ -13,6 +13,13 @@ namespace Project1.GameState
         }
         public void Draw(SpriteBatch spriteBatch, int i) 
         {
+            // Draw border of Link's accent color around game             
+            Texture2D dummyTexture = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new[] { GameVar.GetLinkColor(i) });
+            Rectangle destinationRectangle = GameStateManager.Instance.Game.GraphicsDevice.Viewport.Bounds;
+            spriteBatch.Draw(dummyTexture, destinationRectangle, Color.White);
+
+            // Draw game objects 
             GameObjectManager.Instance.Draw(spriteBatch, i);
         }
         public IGameState Reset()

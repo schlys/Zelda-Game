@@ -25,6 +25,7 @@ namespace Project1.LinkComponents
         public IInventory Inventory { get; set; }
         public IStore Store { get; set; }
         public int PlayerNum { get; set; }
+        public Color AccentColor { get; set; }
 
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
@@ -40,15 +41,17 @@ namespace Project1.LinkComponents
         private bool IsDead = false;
         private int TotalNumHearts;
         private int delay;
-        private Color Color;
+        private Color DefaultColor;
         public Link(Vector2 position, Color color, int player, Game1 game)
         {
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
              */
-            Color = color;
             
             PlayerNum = player;     // 0 or 1 denoting player 1 or player 2
+
+            AccentColor = GameVar.GetLinkColor(PlayerNum);
+            DefaultColor = Color.White; 
 
             DirectionState = new DirectionStateUp();            
             
@@ -294,7 +297,7 @@ namespace Project1.LinkComponents
             if (item) UseItemName = "UseItem";
             //if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
-            SetColor(Color);
+            SetColor(DefaultColor);
         }
         public void Win()
         {
@@ -328,7 +331,7 @@ namespace Project1.LinkComponents
             LinkSprite.delay++;
             if (LinkSprite.delay > LinkSprite.MaxDelay)
             {
-                SetColor(Color);
+                SetColor(DefaultColor);
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
                 {
                     LinkSprite.CurrentFrame++;

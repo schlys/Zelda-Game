@@ -19,6 +19,7 @@ namespace Project1.LinkComponents
         IInventory Inventory { get; set; }
         IStore Store { get; set; }
         int PlayerNum { get; set; }
+        Color AccentColor { get; set; }
         void SetPosition(Vector2 position, IDirectionState direction=null); 
         void MoveUp();
         void MoveDown();

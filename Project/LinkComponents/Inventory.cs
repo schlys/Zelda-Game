@@ -288,7 +288,7 @@ namespace Project1.LinkComponents
                     Rectangle destinationRectangle = new Rectangle((int)newItemPosition.X, (int)newItemPosition.Y,
                         SpriteFactory.Instance.UniversalSize,
                         SpriteFactory.Instance.UniversalSize);
-                    spriteBatch.Draw(dummyTexture, destinationRectangle, Color.Yellow);
+                    spriteBatch.Draw(dummyTexture, destinationRectangle, Link.AccentColor);
                 }
 
                 DrawItem(spriteBatch, ItemName, newItemPosition);

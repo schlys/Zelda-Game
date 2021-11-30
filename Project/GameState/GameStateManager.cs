@@ -53,16 +53,16 @@ namespace Project1.GameState
             for (int i = 0; i < swapChain.Count; i++)
             {
                 Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
-                Game.GraphicsDevice.Clear(Color.Black);
+                Game.GraphicsDevice.Clear(GameVar.GetLinkColor(i+1));
                 CurrentState.Draw(spriteBatch, i+1);
                 swapChain[i].Item1.Present();
             }
 
             Game.GraphicsDevice.SetRenderTarget(null);
-            Game.GraphicsDevice.Clear(Color.Black);
+            Game.GraphicsDevice.Clear(GameVar.GetLinkColor(GameVar.Player1));
 
             // Draw first player window separately to prevent flickering
-            CurrentState.Draw(spriteBatch, 0);
+            CurrentState.Draw(spriteBatch, GameVar.Player1);
            
         }
         public void Reset() 

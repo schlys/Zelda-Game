@@ -125,7 +125,8 @@ namespace Project1.HeadsUpDisplay
 
             Step = GameVar.ScrollStep;
             InitialStep = Step;
-            ScrollDeltaY = (HUDMap.Height * GameVar.ScalingFactor) + (HUDInventory.Height * GameVar.ScalingFactor); 
+            ScrollDeltaY = (HUDMap.Height * GameVar.ScalingFactor) + (HUDInventory.Height * GameVar.ScalingFactor) +
+                (GameVar.buffer * GameVar.ScalingFactor); 
         }
 
         public void Update()

@@ -15,7 +15,7 @@ namespace Project1
         public const int ScalingFactor = 2;
         public const string TitleFont = "Fonts/TitleFont";
         public const string BodyFont = "Fonts/BodyFont";
-
+        public const int buffer = 10;
 
         // BLOCK    
         public const string BlockBase = "Base"; 
@@ -81,7 +81,7 @@ namespace Project1
 
         // GAME STATE
         public const int ScreenWidth = 512;
-        public const int ScreenHeight = 480;
+        public const int ScreenHeight = 500;
 
         public const int titleWidth = 257;
         public const int titleHeight = 225;
@@ -192,7 +192,7 @@ namespace Project1
 
         public static Vector2 GetRoomPosition()
         {
-            return new Vector2(0, 55); 
+            return new Vector2(0, 55 + (buffer)); 
         }
         public static List<Vector2> GetLinkNewRoomPosition(IDirectionState direction)
         {
@@ -248,6 +248,8 @@ namespace Project1
 
         public static Tuple<Vector2, Color> GetLinkInfo(int i)
         {
+            // Precondition: <i> is contained within the bounds of <LinkColor> 
+
             List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>
             {
                 {Tuple.Create(GameObjectManager.Instance.GetItemPosition(6,4), Color.White)},
@@ -255,6 +257,19 @@ namespace Project1
             };
 
             return LinkInfo[i];
+        }
+
+        public static Color GetLinkColor(int i)
+        {
+            // Precondition: <i> is contained within the bounds of <LinkColor> 
+
+            List<Color> LinkColor = new List<Color>
+            {
+                Color.GreenYellow,
+                Color.HotPink
+            };
+
+            return LinkColor[i]; 
         }
     }
 }
