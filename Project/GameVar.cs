@@ -12,16 +12,20 @@ namespace Project1
         /* This class holds all constant variables and data used throughout the project
          */
 
+
+        public const int ScreenWidth = 512;
+        public const int ScreenHeight = 500;
         public const int ScalingFactor = 2;
         public const string TitleFont = "Fonts/TitleFont";
         public const string BodyFont = "Fonts/BodyFont";
-        public const int buffer = 10;
-
-        // BLOCK    
-        public const string BlockBase = "Base"; 
+        public const int buffer = ScreenHeight / 50;
 
 
-        // DIRECTIONS 
+        // BLOCK    *****************************************************************
+        public const string BlockBase = "Base";
+
+
+        // DIRECTIONS ***************************************************************
         public const string DirectionUp = "Up";
         public const string DirectionDown = "Down";
         public const string DirectionRight= "Right";
@@ -29,14 +33,15 @@ namespace Project1
         public const string DirectionNotMoving = "NotMoving";
 
 
-        // COMMAND
+        // COMMAND ******************************************************************
         public const int LinkDamage = 20;
         public const double EnemyDamage = 0.5;
 
 
-        // CONTROLLER
+        // CONTROLLER ****************************************************************
 
-        // ENEMY 
+
+        // ENEMY *********************************************************************
         public const int EnemyColorDelay = 10;
         public const int EnemyDefaultHealth = 3;
         public const int SpawnTimer = 20;
@@ -79,14 +84,13 @@ namespace Project1
         public const int StalfosCount = 90;
         public const int StalfosFrames = 2;
 
-        // GAME STATE
-        public const int ScreenWidth = 512;
-        public const int ScreenHeight = 500;
+
+        // GAME STATE ****************************************************************
+        
 
         public const int titleWidth = 257;
         public const int titleHeight = 225;
 
-        // Variables used to denote direction throughout classes in GameState 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
 
@@ -110,7 +114,7 @@ namespace Project1
         public const string TextNum2 = "2";
 
 
-        // HUD 
+        // HUD ***********************************************************************
         public const int ScrollStep = 6;
         public const double HeartSpaceX = 1.5;
         public const string HUDMainSpriteKey = "HUDMain";
@@ -182,7 +186,7 @@ namespace Project1
             return new Vector2(152, 16);
         }
 
-        //ITEM 
+        //ITEM **********************************************************************
         public const string ItemKey = "Item";
         
         public const int AngelPositionDelta = 50; 
@@ -202,17 +206,39 @@ namespace Project1
         public const int MagicalSwordDelay = 3;
 
 
-        // LEVEL
+        // LEVEL *********************************************************************
         public const int Adjust = 2;
         public const int RoomBorderSize = 32;
         public const int RoomRows = 7;
         public const int RoomColumns = 12;
-        public const string StartRoomKey = "room2"; 
+        
+        public const string StartRoomKey = "room2";
+        public const string DoorKey = "Door"; 
 
         public static Vector2 GetRoomPosition()
         {
             return new Vector2(0, 55 + (buffer)); 
         }
+
+        public static Vector2 GetRoomSize()
+        {
+            return new Vector2(256, 176); 
+        }
+
+        public static Vector2 GetLevelMapBlockSize()
+        {
+            return new Vector2(7, 3);
+        }
+
+        public static Vector2 GetLevelMapStartPosition()
+        {
+            return new Vector2(24, 28);
+        }
+        public static Vector2 GetLevelMapTriforceFragmentPosition()
+        {
+            return new Vector2(48, 12);
+        }
+
         public static List<Vector2> GetLinkNewRoomPosition(IDirectionState direction)
         {
             /* Return the starting positions of both players in the order player1, player2
@@ -258,8 +284,8 @@ namespace Project1
             }   
         }
 
-
-        // LINK 
+        
+        // LINK **********************************************************************
         public const int Player1 = 0;
         public const int Player2 = 1;
         public const int lives = 3;

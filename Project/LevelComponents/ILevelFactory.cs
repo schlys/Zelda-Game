@@ -14,7 +14,5 @@ namespace Project1.LevelComponents
         void LoadAllTextures(ContentManager content);        
         Texture2D GetTexture(String key); 
         Texture2D GetHUDTexture(String key);
-
-
     }
 }

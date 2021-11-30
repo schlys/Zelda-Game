@@ -34,7 +34,7 @@ namespace Project1.LevelComponents
 			DirectionState = DirectionManager.Instance.GetDirectionState(direction);
 
 			this.locked = locked;
-			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData("Door" + direction);
+			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.DoorKey + direction);
 			Position = position;
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 			/* Correct the position to account for empty space around the hitbox */
@@ -43,7 +43,7 @@ namespace Project1.LevelComponents
 			/* Get correct hibox for updated position */
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 			IsMoving = false;
-			TypeID = "Door";
+			TypeID = GameVar.DoorKey;
         }
 
 		public void Draw(SpriteBatch spriteBatch)

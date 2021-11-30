@@ -22,9 +22,9 @@ namespace Project1.LevelComponents
 			Texture = texture;
 
 			// TODO: load from XML
-			BlockSize = new Vector2(7 * GameVar.ScalingFactor, 3 * GameVar.ScalingFactor);
-			CurrentBlock = new Vector2(24 * GameVar.ScalingFactor, 28 * GameVar.ScalingFactor);
-			TriforceFragmentBlock = new Vector2(48 * GameVar.ScalingFactor, 12 * GameVar.ScalingFactor);
+			TriforceFragmentBlock = GameVar.GetLevelMapTriforceFragmentPosition() * GameVar.ScalingFactor;
+			BlockSize = GameVar.GetLevelMapBlockSize() * GameVar.ScalingFactor;
+			CurrentBlock = GameVar.GetLevelMapStartPosition() * GameVar.ScalingFactor;
 			StartBlock = CurrentBlock;
 			BufferSize = 1 * GameVar.ScalingFactor;
 		}

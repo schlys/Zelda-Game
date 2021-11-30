@@ -27,7 +27,6 @@ namespace Project1.LevelComponents
         List<IEnemy> Enemies { get; set; }
         List<IDoor> Doors { get; set; }
         Texture2D Texture { get; set; }
-
         void AddBlock(IBlock block);
         void AddItem(IItem item);
         void AddEnemy(IEnemy enemy);

@@ -51,8 +51,8 @@ namespace Project1.LevelComponents
             Texture = texture;
 
             // TODO: data drive 
-            Size = new Vector2(256, 176) * GameVar.ScalingFactor;
-            TextureRoomSize = new Vector2(256, 176); 
+            Size = GameVar.GetRoomSize() * GameVar.ScalingFactor;
+            TextureRoomSize = GameVar.GetRoomSize(); 
         }
 
         public void AddBlock(IBlock block)

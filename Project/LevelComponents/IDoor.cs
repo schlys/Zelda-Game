@@ -16,7 +16,6 @@ namespace Project1.LevelComponents
 		Vector2 PositionDelta { get; set; }
 		Sprite Sprite { get; set; }
 		IDirectionState DirectionState { get; set; }
-		
 		void Draw(SpriteBatch spriteBatch);
 		bool IsLocked();
 		void Unlock();
