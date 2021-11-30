@@ -20,13 +20,13 @@ namespace Project1.ItemComponents
         private int Timer = 0;
         private int Rand;
         private int Step = 1;
-        private int PositionBounds = 50; 
+        private int DeltaPosition; 
         public ItemAngelState(IItem item)
         { 
             IsMoving = true;
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
-            //((ICollidable)Item).IsMoving = true; 
+            DeltaPosition = GameVar.AngelPositionDelta; 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -39,9 +39,9 @@ namespace Project1.ItemComponents
 
             // Switch fairy direction every 15 calls 
             Timer++; 
-            if (Timer % 15 == 0)
+            if (Timer % GameVar.AngelDelay == 0)
             {
-                Rand = R.Next(4);
+                Rand = R.Next(GameVar.AngelRandomRange);
             }
 
             switch (Rand)
@@ -66,7 +66,7 @@ namespace Project1.ItemComponents
         }
         public void MoveUp()
         {
-            if (Item.Position.Y - Step > Item.InitialPosition.Y - PositionBounds)
+            if (Item.Position.Y - Step > Item.InitialPosition.Y - DeltaPosition)
             {
                 Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) - new Vector2(0, Step);
                 if (GameObjectManager.Instance.IsWithinRoomBounds(location))
@@ -77,7 +77,7 @@ namespace Project1.ItemComponents
         }
         public void MoveDown()
         {
-            if (Item.Position.Y + Step < Item.InitialPosition.Y + PositionBounds)
+            if (Item.Position.Y + Step < Item.InitialPosition.Y + DeltaPosition)
             {
                 // NOTE: Account for sprite size 
                 Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) + new Vector2(0, Step + ((ICollidable)Item).Hitbox.Height);
@@ -89,7 +89,7 @@ namespace Project1.ItemComponents
         }
         public void MoveLeft()
         {
-            if (Item.Position.X - Step > Item.InitialPosition.X - PositionBounds)
+            if (Item.Position.X - Step > Item.InitialPosition.X - DeltaPosition)
             {
                 Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) - new Vector2(Step, 0);
                 if (GameObjectManager.Instance.IsWithinRoomBounds(location))
@@ -100,7 +100,7 @@ namespace Project1.ItemComponents
         }
         public void MoveRight()
         {
-            if (Item.Position.X + Step < Item.InitialPosition.X + PositionBounds)
+            if (Item.Position.X + Step < Item.InitialPosition.X + DeltaPosition)
             {
                 // NOTE: Account for sprite size 
                 Vector2 location = new Vector2(((ICollidable)Item).Hitbox.X, ((ICollidable)Item).Hitbox.Y) + new Vector2(Step + ((ICollidable)Item).Hitbox.Width, 0);

@@ -23,6 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
+            // Immediately increase the number of hearts and restore the health upon collection
             link.IncreaseHealthHeartCount();
             link.RestoreHealth();
         }

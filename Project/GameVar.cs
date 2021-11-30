@@ -182,6 +182,25 @@ namespace Project1
             return new Vector2(152, 16);
         }
 
+        //ITEM 
+        public const string ItemKey = "Item";
+        
+        public const int AngelPositionDelta = 50; 
+        public const int AngelRandomRange = 4;
+        public const int AngelDelay = 15; 
+        
+        public const int BlueRupeeValue = 5;
+        public const int OrangeRupeeValue = 1; 
+
+        public const string BookOfMagicWeaponKey = "Fire";
+
+        public const string SilverArrowWeaponKey = "SilverArrowUp";
+        public const string ArrowWeaponKey = "ArrowUp";
+
+        public const int MagicalRodDelay = 6;
+        public const int WoodenSwordDelay = 3;
+        public const int MagicalSwordDelay = 3;
+
 
         // LEVEL
         public const int Adjust = 2;

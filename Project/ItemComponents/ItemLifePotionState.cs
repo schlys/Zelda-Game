@@ -23,6 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
+            // Immediately restore health upon collection 
             link.RestoreHealth();
         }
 

@@ -38,7 +38,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            link.Attack("Fire");
+            link.Attack(GameVar.BookOfMagicWeaponKey);
         }
     }
 }

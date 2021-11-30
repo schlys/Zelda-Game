@@ -23,7 +23,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.Inventory.RupeeCount += 5;
+            link.Inventory.RupeeCount += GameVar.BlueRupeeValue;
             GameSoundManager.Instance.PlayGetRupee();
         }
 

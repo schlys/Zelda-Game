@@ -13,7 +13,6 @@ namespace Project1.ItemComponents
         public Sprite Sprite { get; set; }
         public bool IsMoving { get; set; }
         public string ID { get; set; }
-        private int meleeDelay = 3;
 
         public ItemWoodenSwordState(IItem item)
         {
@@ -39,7 +38,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            link.Attack(Item.Kind, meleeDelay, true);
+            link.Attack(Item.Kind, GameVar.WoodenSwordDelay, true);
         }
     }
 }

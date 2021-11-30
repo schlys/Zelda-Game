@@ -39,7 +39,7 @@ namespace Project1.ItemComponents
             object itemState = itemConstructor.Invoke(new object[] { this });
             ItemState = (IItemState)itemState;
             IsMoving = ItemState.IsMoving;
-            TypeID = "Item" + ItemState.ID;
+            TypeID = GameVar.ItemKey + ItemState.ID;
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;

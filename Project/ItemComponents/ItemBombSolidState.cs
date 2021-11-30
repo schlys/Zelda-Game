@@ -41,6 +41,7 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
+            // If possible, use bomb and decrement Link's <BombCount> 
             if (link.Inventory.BombCount > 0)
             {
                 link.Inventory.BombCount--;
