@@ -27,10 +27,10 @@ namespace Project1
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            //graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
-            //graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
-            //graphics.ApplyChanges();
-            this.Window.AllowUserResizing = true;
+            graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
+            graphics.ApplyChanges();
+            Window.AllowUserResizing = true;
         }
         protected override void Initialize()
         {

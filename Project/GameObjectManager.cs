@@ -291,6 +291,10 @@ namespace Project1
             {
                 HUD.Reset();
             }*/
+            foreach (IBlock block in Blocks)
+            {
+                block.Reset();
+            }
             foreach (IItem item in Items)
             {
                 item.Reset();

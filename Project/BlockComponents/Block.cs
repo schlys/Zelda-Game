@@ -22,10 +22,12 @@ namespace Project1.BlockComponents
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
+        private string initialType;
 
         public Block(Vector2 position, string type, bool special)
         {
             UpdateSprite(type);
+            initialType = type;
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
@@ -45,7 +47,8 @@ namespace Project1.BlockComponents
 
         public void Reset()
         {
-            //BlockState = new BlockBaseState(this);
+            TypeID = GetType().Name.ToString();
+            UpdateSprite(initialType);
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
         }
 
