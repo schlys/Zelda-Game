@@ -201,32 +201,6 @@ namespace Project1
 
             CollisionManager.Instance.Reset();
 
-            foreach (ILink link in Links)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)link);
-            }
-            foreach (IBlock block in Blocks)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)block);
-            }
-            foreach (IItem item in Items)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)item);
-            }
-            foreach (IEnemy enemy in Enemies)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)enemy);
-            }
-            foreach (IDoor door in Doors)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)door);
-            }
-
-            foreach (IProjectile projectile in Projectiles)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)projectile);
-            }
-
             if (FreezeEnemies.Item1)
             {
                 FreezeEnemies.Item2.Inventory.CanFreeze = false;
