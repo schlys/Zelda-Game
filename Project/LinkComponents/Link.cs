@@ -38,8 +38,6 @@ namespace Project1.LinkComponents
         private int Step;
         private double DamageRecieved; 
         private bool LockFrame; 
-        private bool IsDead = false;
-        private int TotalNumHearts;
         private int delay;
         private Color DefaultColor;
         public Link(Vector2 position, Color color, int player, Game1 game)
@@ -55,8 +53,7 @@ namespace Project1.LinkComponents
 
             DirectionState = new DirectionStateUp();            
             
-            TotalNumHearts = GameVar.lives;
-            Health = new LinkHealth(TotalNumHearts);              
+            Health = new LinkHealth(GameVar.LinkLives);              
             UseItemName = "";
 
             Inventory = new Inventory(this);
@@ -71,9 +68,9 @@ namespace Project1.LinkComponents
 
            InitialPosition = Position;
 
-           DamageRecieved = 0.1;
-           Step = 4;
-           delay = 25; 
+           DamageRecieved = GameVar.LinkDamageRecieved;
+           Step = GameVar.LinkStep;
+           delay = GameVar.LinkDelay; 
        }
 
        public void SetPosition(Vector2 position, IDirectionState direction=null)
@@ -256,17 +253,9 @@ namespace Project1.LinkComponents
             Health.Decrease(DamageRecieved);
             SetColor(Color.Red);
             Position = Knockback(Position, direction, knockback);
-            IsDead = Health.Dead();
             
-            // TODO: not map by totalNumHearts, should use health.dead function here 
-            if (Health.IsLoseHeart())
+            if (Health.Dead())
             {
-                //Reset(); // TODO: Reset all states?
-                TotalNumHearts--;
-            }
-            if (TotalNumHearts == 0)
-            {
-                IsDead = true;
                 GameStateManager.Instance.GameOverLose();
             }
         }
@@ -308,13 +297,6 @@ namespace Project1.LinkComponents
 
         public void Reset()
         {
-            if (IsDead) //This is for reset after game over
-            {
-                TotalNumHearts = 3;
-                //Health.Reset();
-                IsDead = false;
-            }
-
             Position = InitialPosition;
             DirectionState = new DirectionStateUp();             // default state is up
             Health.Reset();
@@ -357,8 +339,7 @@ namespace Project1.LinkComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //if(!IsDead) 
-                LinkSprite.Draw(spriteBatch, Position);
+            LinkSprite.Draw(spriteBatch, Position);
             
             Store.Draw(spriteBatch); 
         }

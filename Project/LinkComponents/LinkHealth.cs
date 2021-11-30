@@ -64,7 +64,7 @@ namespace Project1.LinkComponents
         }
         public bool Dead()
         {
-            if (TotalNumHearts == 0)
+            if (CurrNumHearts == 0)
             {
                 return true;
             }

@@ -288,8 +288,10 @@ namespace Project1
         // LINK **********************************************************************
         public const int Player1 = 0;
         public const int Player2 = 1;
-        public const int lives = 3;
-
+        public const int LinkLives = 3;
+        public const double LinkDamageRecieved = 0.1;
+        public const int LinkStep = 4;
+        public const int LinkDelay = 25; 
 
         public static Tuple<Vector2, Color> GetLinkInfo(int i)
         {
