@@ -23,13 +23,13 @@ namespace Project1.BlockComponents
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
 
-        private string type;
-        private string initialTypeID;
+        private string InitialSpriteKey;
+        private string InitialTypeID;
 
         public Block(Vector2 position, string type, bool special)
         {
-            UpdateSprite(type);
-            this.type = type;
+            InitialSpriteKey = type; 
+            UpdateSprite(InitialSpriteKey);
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position; 
@@ -43,14 +43,19 @@ namespace Project1.BlockComponents
             IsMoving = false;
 
             TypeID = GetType().Name.ToString();
-            if (special) TypeID += type;
-            initialTypeID = TypeID;
+            if (special)
+            {
+                TypeID += type;
+            }
+            InitialTypeID = TypeID;
         }
 
         public void Reset()
         {
-            TypeID = initialTypeID;
-            UpdateSprite(type);
+            /* Reset <TypeID> and <Sprite> to their initial state 
+             */ 
+            TypeID = InitialTypeID;
+            UpdateSprite(InitialSpriteKey);
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
         }
 
