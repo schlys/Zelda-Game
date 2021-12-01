@@ -81,9 +81,6 @@ namespace Project1.HeadsUpDisplay
             }
             */
 
-            //add these elements to XMLPositiions and change code so it uses the dict and not the vectors
-            // **TO MULAN - i agree a dict would be more efficent, but im concerned about the dict since it will need keys which are
-            // then hard coded strings. could we load each variable in the XML instead? 
             
             MapPosition = (GameVar.GetMapPosition() * GameVar.ScalingFactor) + Position;
             MapItemSelectPosition = (GameVar.GetItemSelectPosition() * GameVar.ScalingFactor) + Position;

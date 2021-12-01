@@ -129,21 +129,21 @@ namespace Project1.LevelComponents
 
                     switch (type)
                     {
-                        case "Item":
+                        case GameVar.item:
                             IItem item = new Item(GetItemPosition(row, column), type2);
                             Room.AddItem(item);
                             break;
-                        case "Block":
+                        case GameVar.block:
                             bool breakable = false;
                             if (itemNode.Attributes["special"] != null) breakable = XmlConvert.ToBoolean(itemNode.Attributes["special"].Value);
                             IBlock block = new Block(GetItemPosition(row, column), type2, breakable);
                             Room.AddBlock(block);
                             break;
-                        case "Enemy":
+                        case GameVar.enemy:
                             IEnemy enemy = new Enemy(GetItemPosition(row, column), type2);
                             Room.AddEnemy(enemy);
                             break;
-                        case "Door":
+                        case GameVar.door:
                             bool locked = XmlConvert.ToBoolean(itemNode.Attributes["locked"].Value);
                             Vector2 positionDelta = Vector2.Zero;
 

@@ -113,6 +113,9 @@ namespace Project1
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
 
+        public const string TriForceFragment = "TriForceFragment";
+        public const string PickUpItem = "PickUpItem";
+
 
         // HUD ***********************************************************************
         public const int ScrollStep = 6;
@@ -213,8 +216,11 @@ namespace Project1
         public const int RoomColumns = 12;
         
         public const string StartRoomKey = "room2";
-        public const string DoorKey = "Door"; 
-
+        public const string DoorKey = "Door";
+        public const string item = "Item";
+        public const string block = "Block";
+        public const string enemy = "Enemy";
+        public const string door = "Door";
         public static Vector2 GetRoomPosition()
         {
             return new Vector2(0, 55 + (buffer)); 
