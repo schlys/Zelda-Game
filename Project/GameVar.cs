@@ -307,17 +307,17 @@ namespace Project1
         public const int LinkStep = 4;
         public const int LinkDelay = 25; 
 
-        public static Tuple<Vector2, Color> GetLinkInfo(int i)
+        public static Vector2 GetLinkStartPosition(int i)
         {
             // Precondition: <i> is contained within the bounds of <LinkColor> 
 
-            List<Tuple<Vector2, Color>> LinkInfo = new List<Tuple<Vector2, Color>>
+            List<Vector2> LinkPosition = new List<Vector2>
             {
-                {Tuple.Create(GameObjectManager.Instance.GetItemPosition(6,4), Color.White)},
-                {Tuple.Create(GameObjectManager.Instance.GetItemPosition(6,7), Color.CornflowerBlue)}
+                GameObjectManager.Instance.GetItemPosition(6,4),
+                GameObjectManager.Instance.GetItemPosition(6,7)
             };
 
-            return LinkInfo[i];
+            return LinkPosition[i];
         }
 
         public static Color GetLinkColor(int i)
@@ -331,6 +331,19 @@ namespace Project1
             };
 
             return LinkColor[i]; 
+        }
+
+        public static String GetLinkSpriteKey(int i)
+        {
+            // Precondition: <i> is contained within the bounds of <LinkColor> 
+
+            List<String> LinkKey = new List<String>
+            {
+                "",
+                "Pink"
+            };
+
+            return LinkKey[i];
         }
     }
 }

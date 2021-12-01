@@ -33,31 +33,28 @@ namespace Project1.LinkComponents
         public string TypeID { get; set; }
 
         // Other Link Properties 
-        private string UseItemName;       // NOTE: should change useitem string to something less hard coded? 
+        private string UseItemName;
+        private string SpriteKey; 
         private Vector2 InitialPosition; 
         private int Step;
         private double DamageRecieved; 
         private bool LockFrame; 
         private int delay;
         private Color DefaultColor;
-        public Link(Vector2 position, Color color, int player, Game1 game)
+        public Link(Vector2 position, int player, Game1 game)
         {
             /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
              * 3 hearts. 
              */
             
             PlayerNum = player;     // 0 or 1 denoting player 1 or player 2
-
             AccentColor = GameVar.GetLinkColor(PlayerNum);
+            SpriteKey = GameVar.GetLinkSpriteKey(PlayerNum); 
             DefaultColor = Color.White; 
-
             DirectionState = new DirectionStateUp();            
-            
             Health = new LinkHealth(GameVar.LinkLives);              
             UseItemName = "";
-
             Inventory = new Inventory(this);
-
             Store = new Store(this, game); 
 
             UpdateSprite(); // Generate LinkSprite 
@@ -285,7 +282,7 @@ namespace Project1.LinkComponents
             string Weapon = weapon;
             if (item) UseItemName = "UseItem";
             //if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
-            LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID);
+            LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID + SpriteKey);
             SetColor(DefaultColor);
         }
         public void Win()

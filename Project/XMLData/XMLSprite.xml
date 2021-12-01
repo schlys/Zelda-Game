@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Sprites>
+	<!-- LINK GREEN -->
 	<Sprite>
 		<name>Up</name>
 		<sheet>directions</sheet>
@@ -41,6 +42,61 @@
 		<hitY>14</hitY>
 	</Sprite>
 	
+	<!-- LINK GREEN PICK UP ITEM -->
+	<Sprite>
+		<name>PickUpItem</name>
+		<sheet>pickUpItem</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	
+	<!-- LINK GREEN USE ITEM -->
+	<Sprite>
+		<name>UseItemUp</name>
+		<sheet>useItem</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>UseItemDown</name>
+		<sheet>useItem</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>UseItemLeft</name>
+		<sheet>useItem</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>UseItemRight</name>
+		<sheet>useItem</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	
+	<!-- LINK GREEN WOODEN SWORD -->
 	<Sprite>
 		<name>WoodenSwordUp</name>
 		<sheet>woodenSword</sheet>
@@ -82,6 +138,7 @@
 		<hitY>14</hitY>
 	</Sprite>
 	
+	<!-- LINK GREEN MAGICAL SWORD -->
 	<Sprite>
 		<name>MagicalSwordUp</name>
 		<sheet>magicalSword</sheet>
@@ -122,7 +179,8 @@
 		<hitX>14</hitX>
 		<hitY>14</hitY>
 	</Sprite>
-	<!--Magical Rod######################################################################-->
+	
+	<!-- LINK GREEN MAGICAL ROD -->
 	<Sprite>
 		<name>MagicalRodUp</name>
 		<sheet>magicalRod</sheet>
@@ -163,51 +221,53 @@
 		<hitX>14</hitX>
 		<hitY>14</hitY>
 	</Sprite>
-
+	
+	<!-- LINK PINK -->
 	<Sprite>
-		<name>MagicalRodProjectileDown</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>4</totalFrames>
-		<startFrame>2</startFrame>
-		<row>5</row>
+		<name>UpPink</name>
+		<sheet>directionsPink</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
 		<originalSize>40</originalSize>
-		<hitX>10</hitX>
-		<hitY>10</hitY>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
 	</Sprite>
 	<Sprite>
-		<name>MagicalRodProjectileUp</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>4</totalFrames>
-		<startFrame>2</startFrame>
-		<row>7</row>
+		<name>DownPink</name>
+		<sheet>directionsPink</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>	
+	<Sprite>
+		<name>RightPink</name>
+		<sheet>directionsPink</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
 	</Sprite>
 	<Sprite>
-		<name>MagicalRodProjectileRight</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>4</totalFrames>
-		<startFrame>2</startFrame>
-		<row>6</row>
+		<name>LeftPink</name>
+		<sheet>directionsPink</sheet>
+		<totalFrames>2</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
 	</Sprite>
+	
+	<!-- LINK PINK PICK UP ITEM -->
 	<Sprite>
-		<name>MagicalRodProjectileLeft</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>4</totalFrames>
-		<startFrame>2</startFrame>
-		<row>8</row>
-		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
-	</Sprite>
-
-	<Sprite>
-		<name>PickUpItem</name>
-		<sheet>pickUpItem</sheet>
+		<name>PickUpItemPink</name>
+		<sheet>pickUpItemPink</sheet>
 		<totalFrames>2</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
@@ -216,9 +276,10 @@
 		<hitY>14</hitY>
 	</Sprite>
 	
+	<!-- LINK PINK USE ITEM -->
 	<Sprite>
-		<name>UseItemUp</name>
-		<sheet>useItem</sheet>
+		<name>UseItemUpPink</name>
+		<sheet>useItemPink</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>2</row>
@@ -227,8 +288,8 @@
 		<hitY>14</hitY>
 	</Sprite>
 	<Sprite>
-		<name>UseItemDown</name>
-		<sheet>useItem</sheet>
+		<name>UseItemDownPink</name>
+		<sheet>useItemPink</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
@@ -237,8 +298,8 @@
 		<hitY>14</hitY>
 	</Sprite>
 	<Sprite>
-		<name>UseItemLeft</name>
-		<sheet>useItem</sheet>
+		<name>UseItemLeftPink</name>
+		<sheet>useItemPink</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>3</row>
@@ -247,8 +308,8 @@
 		<hitY>14</hitY>
 	</Sprite>
 	<Sprite>
-		<name>UseItemRight</name>
-		<sheet>useItem</sheet>
+		<name>UseItemRightPink</name>
+		<sheet>useItemPink</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>1</row>
@@ -256,18 +317,134 @@
 		<hitX>14</hitX>
 		<hitY>14</hitY>
 	</Sprite>
-
+	
+	<!-- LINK PINK WOODEN SWORD -->
 	<Sprite>
-		<name>OldMan</name>
-		<sheet>oldMan</sheet>
-		<totalFrames>1</totalFrames>
+		<name>WoodenSwordUpPink</name>
+		<sheet>woodenSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordDownPink</name>
+		<sheet>woodenSwordPink</sheet>
+		<totalFrames>4</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>16</hitX>
-		<hitY>16</hitY>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>	
+	<Sprite>
+		<name>WoodenSwordRightPink</name>
+		<sheet>woodenSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordLeftPink</name>
+		<sheet>woodenSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
 	</Sprite>
 	
+	<!-- LINK PINK MAGICAL SWORD -->
+	<Sprite>
+		<name>MagicalSwordUpPink</name>
+		<sheet>magicalSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalSwordDownPink</name>
+		<sheet>magicalSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>	
+	<Sprite>
+		<name>MagicalSwordRightPink</name>
+		<sheet>magicalSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalSwordLeftPink</name>
+		<sheet>magicalSwordPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	
+	<!-- LINK PINK MAGICAL ROD -->
+	<Sprite>
+		<name>MagicalRodUpPink</name>
+		<sheet>magicalRodPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>2</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodLeftPink</name>
+		<sheet>magicalRodPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>3</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodRightPink</name>
+		<sheet>magicalRodPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>1</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodDownPink</name>
+		<sheet>magicalRodPink</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>14</hitX>
+		<hitY>14</hitY>
+	</Sprite>
+		
+	<!-- LINK ITEMS -->
 	<Sprite>
 		<name>ArrowUp</name>
 		<sheet>linkItems</sheet>
@@ -318,7 +495,46 @@
 		<hitX>8</hitX>
 		<hitY>8</hitY>
 	</Sprite>
-	
+	<Sprite>
+		<name>MagicalRodProjectileDown</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>5</row>
+		<originalSize>40</originalSize>
+		<hitX>10</hitX>
+		<hitY>10</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileUp</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>7</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileRight</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>6</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
+	<Sprite>
+		<name>MagicalRodProjectileLeft</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>4</totalFrames>
+		<startFrame>2</startFrame>
+		<row>8</row>
+		<originalSize>40</originalSize>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
+	</Sprite>
 	<Sprite>
 		<name>SilverArrowUp</name>
 		<sheet>linkItems</sheet>
@@ -369,7 +585,6 @@
 		<hitX>8</hitX>
 		<hitY>8</hitY>
 	</Sprite>
-
 	<Sprite>
 		<name>Fire</name>
 		<sheet>linkItems</sheet>
@@ -420,7 +635,48 @@
 		<hitX>8</hitX>
 		<hitY>8</hitY>
 	</Sprite>
-
+	<Sprite>
+		<name>WoodenSwordBeamUp</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>3</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamDown</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>1</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamRight</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>2</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	<Sprite>
+		<name>WoodenSwordBeamLeft</name>
+		<sheet>linkItems</sheet>
+		<totalFrames>1</totalFrames>
+		<startFrame>4</startFrame>
+		<row>0</row>
+		<originalSize>40</originalSize>
+		<hitX>0</hitX>
+		<hitY>0</hitY>
+	</Sprite>
+	
+	<!-- ENEMY -->
 	<Sprite>
 		<name>MoblinUp</name>
 		<sheet>moblin</sheet>
@@ -511,46 +767,15 @@
 		<hitX>8</hitX>
 		<hitY>8</hitY>
 	</Sprite>
-
 	<Sprite>
-		<name>WoodenSwordBeamUp</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>1</totalFrames>
-		<startFrame>3</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-		<hitX>0</hitX>
-		<hitY>0</hitY>
-	</Sprite>
-	<Sprite>
-		<name>WoodenSwordBeamDown</name>
-		<sheet>linkItems</sheet>
+		<name>OldMan</name>
+		<sheet>oldMan</sheet>
 		<totalFrames>1</totalFrames>
 		<startFrame>1</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>0</hitX>
-		<hitY>0</hitY>
-	</Sprite>
-	<Sprite>
-		<name>WoodenSwordBeamRight</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>1</totalFrames>
-		<startFrame>2</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-		<hitX>0</hitX>
-		<hitY>0</hitY>
-	</Sprite>
-	<Sprite>
-		<name>WoodenSwordBeamLeft</name>
-		<sheet>linkItems</sheet>
-		<totalFrames>1</totalFrames>
-		<startFrame>4</startFrame>
-		<row>0</row>
-		<originalSize>40</originalSize>
-		<hitX>0</hitX>
-		<hitY>0</hitY>
+		<hitX>16</hitX>
+		<hitY>16</hitY>
 	</Sprite>
 	
 	<Sprite>
@@ -645,8 +870,8 @@
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>24</hitX>	<!--60-->
-		<hitY>32</hitY> <!--90-->
+		<hitX>24</hitX>
+		<hitY>32</hitY> 
 	</Sprite>
 	<Sprite>
 		<name>AttackAquamentus</name>
@@ -656,7 +881,7 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 		<hitX>24</hitX>
-		<hitY>32</hitY> <!--80-->
+		<hitY>32</hitY> 
 	</Sprite>
 	<Sprite>
 		<name>AquamentusProjectile</name>
@@ -669,6 +894,7 @@
 		<hitY>10</hitY>
 	</Sprite>
 	
+	<!-- ITEMS & WEAPONS -->
 	<Sprite>
 		<name>Angel</name>
 		<sheet>items</sheet>
@@ -859,7 +1085,7 @@
 		<hitX>8</hitX>
 		<hitY>16</hitY>
 	</Sprite>
-	<!--####################################################################################################-->
+	
 	<Sprite>
 		<name>MagicalRod</name>
 		<sheet>items</sheet>
@@ -1032,7 +1258,7 @@
 		<hitY>16</hitY>
 	</Sprite>
 		
-		
+	<!-- BLOCK -->
 	<Sprite>
 		<name>Base</name>
 		<sheet>blocks</sheet>
@@ -1134,7 +1360,7 @@
 		<hitY>16</hitY>
 	</Sprite>
 	
-	
+	<!-- DOOR -->
 	<Sprite>
 		<name>DoorUp</name>
 		<sheet>doors</sheet>
@@ -1176,6 +1402,7 @@
 		<hitY>16</hitY>
 	</Sprite>
 
+	<!-- TEXT -->
 	<Sprite>
 		<name>Num1</name>
 		<sheet>inventoryItems</sheet>
