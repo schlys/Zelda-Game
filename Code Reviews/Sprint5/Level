@@ -1,0 +1,23 @@
+Author of the code review: Mulan
+
+
+Date of the code review: 12/1/21
+
+Sprint number: 5
+
+
+Name of the .cs file being reviewed: Level.cs
+
+
+Author of the .cs file being reviewed: Elise
+
+
+Number of minutes taken to complete the review: 15
+
+
+Readabiliity Review- Specific comments on what is readable and what is not: 
+all variables clearly named, constructor is clear, create dict is very long, overall very readable and understandable
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+nested for loops to read from different xml files - separate the loops into two separate loops?, not sure if this would make logical sense but the class is very long and contains a lot of methods - maybe creating a separate into a separate class with movement and scrolling between levels. 
