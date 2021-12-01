@@ -24,8 +24,11 @@ namespace Project1.StoreComponents
         private int PriceItem2;
         private int PriceItem3;
 
+        private Rectangle room;
+
         public Store(ILink link, Game1 game)
         {
+            room = GameObjectManager.Instance.GetPlayableRoomBounds();
             Link = link;
             Game = game;
 
@@ -36,7 +39,7 @@ namespace Project1.StoreComponents
             Vector2 position = new Vector2(0, 0); 
 
          
-            Item1 = new Item(position, GameVar.LifePotionKey, false);
+            Item1 = new Item(new Vector2(room.X, room.Y + 20), GameVar.LifePotionKey, false);
             PriceItem1 = 10;
 
             Item2 = new Item(position, GameVar.BombKey, false);
@@ -80,6 +83,7 @@ namespace Project1.StoreComponents
         }
         public void Update()
         {
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -92,14 +96,15 @@ namespace Project1.StoreComponents
                 Texture2D blackRectangle = new Texture2D(Game.GraphicsDevice, 1, 1);
                 blackRectangle.SetData(new[] { Color.Black });
 
-                Rectangle room = GameObjectManager.Instance.GetPlayableRoomBounds();
+                //Rectangle room = GameObjectManager.Instance.GetPlayableRoomBounds();
 
                 string StoreText1 = GameVar.StoreText;
                 string StoreText2 = GameVar.StoreSelectionText;
 
                 spriteBatch.Draw(blackRectangle, room, Color.White);
-                spriteBatch.DrawString(TitleFont, StoreText1, new Vector2(room.X + (buffer*3), room.Y), Color.White);
-                spriteBatch.DrawString(BodyFont, StoreText2, new Vector2(room.X + (buffer), room.Y + (buffer * 3)), Color.White);
+                spriteBatch.DrawString(TitleFont, StoreText1, new Vector2(room.X + (buffer*7), room.Y), Color.White);
+                Item1.Draw(spriteBatch);
+                //spriteBatch.DrawString(BodyFont, StoreText2, new Vector2(room.X + (buffer), room.Y + (buffer * 3)), Color.White);
             }
         }
 
