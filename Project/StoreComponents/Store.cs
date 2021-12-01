@@ -36,13 +36,13 @@ namespace Project1.StoreComponents
             Vector2 position = new Vector2(0, 0); 
 
          
-            Item1 = new Item(position, GameVar.LifePotionItem, false);
+            Item1 = new Item(position, GameVar.LifePotionKey, false);
             PriceItem1 = 1;
 
-            Item2 = new Item(position, GameVar.BombSolidItem, false);
+            Item2 = new Item(position, GameVar.BombKey, false);
             PriceItem1 = 1;
 
-            Item2 = new Item(position, GameVar.SilverArrowUpItem, false);
+            Item2 = new Item(position, GameVar.SilverArrowKey, false);
             PriceItem1 = 1;
 
         }

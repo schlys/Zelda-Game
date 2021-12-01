@@ -86,8 +86,6 @@ namespace Project1
 
 
         // GAME STATE ****************************************************************
-        
-
         public const int titleWidth = 257;
         public const int titleHeight = 225;
 
@@ -113,17 +111,15 @@ namespace Project1
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
 
-        public const string TriForceFragment = "TriForceFragment";
-        public const string PickUpItem = "PickUpItem";
+
         // STORE ***********************************************************************
-        public const string LifePotionItem = "LifePotion";
-        public const string BombSolidItem = "BombSolid";
-        public const string SilverArrowUpItem = "SilverArrorUp";
         public const string StoreText = "Store";
         public const string StoreSelectionText = "Press 1 - to purchase a LIFE POTION \nfor 1 Rupee" +
                     "\nPress 2 - to purchase a BOMB \nfor 1 Rupee" +
                     "\nPress 3 - to purchase a SILVER ARROW \nfor 1 Rupee" +
                     "\nPress X - to EXIT";
+
+
         // HUD ***********************************************************************
         public const int ScrollStep = 6;
         public const double HeartSpaceX = 1.5;
@@ -208,8 +204,12 @@ namespace Project1
 
         public const string BookOfMagicWeaponKey = "Fire";
 
-        public const string SilverArrowWeaponKey = "SilverArrowUp";
-        public const string ArrowWeaponKey = "ArrowUp";
+        public const string SilverArrowKey = "SilverArrowUp";
+        public const string ArrowKey = "ArrowUp";
+        public const string LifePotionKey = "LifePotion";
+        public const string BombKey = "BombSolid";
+        public const string TriForceFragmentKey = "TriforceFragment";
+        public const string PickUpItem = "PickUpItem";
 
         public const int MagicalRodDelay = 6;
         public const int WoodenSwordDelay = 3;
@@ -228,6 +228,7 @@ namespace Project1
         public const string block = "Block";
         public const string enemy = "Enemy";
         public const string door = "Door";
+
         public static Vector2 GetRoomPosition()
         {
             return new Vector2(0, 55 + (buffer)); 

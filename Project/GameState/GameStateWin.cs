@@ -15,7 +15,7 @@ namespace Project1.GameState
 
         public GameStateWin()
         {
-            TriForceFragment = SpriteFactory.Instance.GetSpriteData(GameVar.TriForceFragment);
+            TriForceFragment = SpriteFactory.Instance.GetSpriteData(GameVar.TriForceFragmentKey);
             Link = SpriteFactory.Instance.GetSpriteData(GameVar.PickUpItem);
         }
         public void Draw(SpriteBatch spriteBatch, int i)
