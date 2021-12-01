@@ -1,0 +1,19 @@
+Author of the code review: Elise Kosmides 
+
+Date of the code review: 12-1-21
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: Block.cs, IBlock.cs 
+
+Author of the .cs file being reviewed: Sam and Chaeun 
+
+Number of minutes taken to complete the review: 10
+
+Readabiliity Review- 
+- methods are short and concise 
+- variable names are logical and understandable 
+- there are a couple 'type' variables, add comments to clarify the difference between 'type' and 'typeID'. maybe rename 'type' to 'spriteKey'
+
+Code Quality Review- 
+- none, it's vert concise and understandable 
