@@ -46,11 +46,11 @@ namespace Project1.ProjectileComponents
             Counter++;
             if (Counter < MaxCounter)
             {
-                if (Direction.ID.Equals("Up"))  // up and left 
+                if (Direction.ID.Equals(GameVar.DirectionUp))  // up and left 
                     Projectile.Position += new Vector2((float)-SpeedX, -SpeedY);
-                else if (Direction.ID.Equals("Left"))
+                else if (Direction.ID.Equals(GameVar.DirectionLeft))
                     Projectile.Position += new Vector2((float)-SpeedX, 0);
-                else if (Direction.ID.Equals("Down"))   // down and left 
+                else if (Direction.ID.Equals(GameVar.DirectionDown))   // down and left 
                     Projectile.Position += new Vector2((float)-SpeedX, SpeedY);
             }
             else

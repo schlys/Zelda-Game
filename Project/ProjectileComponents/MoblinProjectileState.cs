@@ -57,13 +57,13 @@ namespace Project1.ProjectileComponents
             {
                 switch (Direction.ID)
                 {
-                    case "Up":
+                    case GameVar.DirectionUp:
                         Projectile.Position += new Vector2(0, (float)-Speed);
                         break;
-                    case "Down":
+                    case GameVar.DirectionDown:
                         Projectile.Position += new Vector2(0, (float)Speed);
                         break;
-                    case "Right":
+                    case GameVar.DirectionRight":
                         Projectile.Position += new Vector2((float)Speed, 0);
                         break;
                     default:    // Left

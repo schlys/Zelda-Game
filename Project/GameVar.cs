@@ -115,8 +115,15 @@ namespace Project1
 
         public const string TriForceFragment = "TriForceFragment";
         public const string PickUpItem = "PickUpItem";
-
-
+        // STORE ***********************************************************************
+        public const string LifePotionItem = "LifePotion";
+        public const string BombSolidItem = "BombSolid";
+        public const string SilverArrowUpItem = "SilverArrorUp";
+        public const string StoreText = "Store";
+        public const string StoreSelectionText = "Press 1 - to purchase a LIFE POTION \nfor 1 Rupee" +
+                    "\nPress 2 - to purchase a BOMB \nfor 1 Rupee" +
+                    "\nPress 3 - to purchase a SILVER ARROW \nfor 1 Rupee" +
+                    "\nPress X - to EXIT";
         // HUD ***********************************************************************
         public const int ScrollStep = 6;
         public const double HeartSpaceX = 1.5;

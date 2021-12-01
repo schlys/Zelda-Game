@@ -42,13 +42,13 @@ namespace Project1.ProjectileComponents
             Sprite.Update();
             switch (Direction.ID)
             {
-                case "Up":
+                case GameVar.DirectionUp:
                     Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - Speed);
                     break;
-                case "Down":
+                case GameVar.DirectionDown:
                     Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + Speed);
                     break;
-                case "Right":
+                case GameVar.DirectionRight:
                     Projectile.Position = new Vector2(Projectile.Position.X + Speed, Projectile.Position.Y);
                     break;
                 default:

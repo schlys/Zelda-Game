@@ -34,13 +34,15 @@ namespace Project1.StoreComponents
 
             // TODO: finalize items and price
             Vector2 position = new Vector2(0, 0); 
-            Item1 = new Item(position, "LifePotion", false);
+
+         
+            Item1 = new Item(position, GameVar.LifePotionItem, false);
             PriceItem1 = 1;
 
-            Item2 = new Item(position, "BombSolid", false);
+            Item2 = new Item(position, GameVar.BombSolidItem, false);
             PriceItem1 = 1;
 
-            Item2 = new Item(position, "SilverArrowUp", false);
+            Item2 = new Item(position, GameVar.SilverArrowUpItem, false);
             PriceItem1 = 1;
 
         }
@@ -84,11 +86,8 @@ namespace Project1.StoreComponents
 
                 Rectangle room = GameObjectManager.Instance.GetPlayableRoomBounds();
 
-                string StoreText1 = "STORE";
-                string StoreText2 = "Press 1 - to purchase a LIFE POTION \nfor 1 Rupee"+ 
-                    "\nPress 2 - to purchase a BOMB \nfor 1 Rupee" + 
-                    "\nPress 3 - to purchase a SILVER ARROW \nfor 1 Rupee" + 
-                    "\nPress X - to EXIT";
+                string StoreText1 = GameVar.StoreText;
+                string StoreText2 = GameVar.StoreSelectionText;
 
                 spriteBatch.Draw(blackRectangle, room, Color.White);
                 spriteBatch.DrawString(TitleFont, StoreText1, new Vector2(room.X + (buffer*3), room.Y), Color.White);

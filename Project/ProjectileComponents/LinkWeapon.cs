@@ -50,16 +50,16 @@ namespace Project1.ProjectileComponents
 
             switch (direction)
             {
-                case "Up":
+                case GameVar.DirectionUp:
                     Hitbox = new Rectangle(parent.X + (int)Math.Floor(.3 * parent.Width), parent.Y - length - 3, width, length);
                     break;
-                case "Down":
+                case GameVar.DirectionDown:
                     Hitbox = new Rectangle(parent.X + (int)Math.Floor(.45 * parent.Width), parent.Y + parent.Height + 3, width, length);
                     break;
-                case "Right":
+                case GameVar.DirectionRight:
                     Hitbox = new Rectangle(parent.X + parent.Width + 3, parent.Y + parent.Height/2, length, width);
                     break;
-                case "Left":
+                case GameVar.DirectionLeft:
                     Hitbox = new Rectangle(parent.X - length - 3, parent.Y + parent.Height/2, length, width);
                     break;
             }
