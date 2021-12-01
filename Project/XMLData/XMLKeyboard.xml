@@ -153,44 +153,44 @@ w
 	</LinkControl>
 	<!--Player 1 Use Item-->
 	
-	<LinkControl player="1" press="true">
+	<LinkControl player="1">
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad1</key>
 	</LinkControl>
 
-	<LinkControl player="1" press="true">
+	<LinkControl player="1">
 		<name>LinkUseItem1Cmd</name>
 		<key>D1</key>
 	</LinkControl>
 
-	<LinkControl player="1" press="true">
+	<LinkControl player="1">
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad2</key>
 	</LinkControl>
 
-	<LinkControl player="1" press="true">
+	<LinkControl player="1">
 		<name>LinkUseItem2Cmd</name>
 		<key>D2</key>
 	</LinkControl>
 
 	<!-- PLAYER 2 USE ITEM -->
 
-	<LinkControl player="2" press="true">
+	<LinkControl player="2">
 		<name>LinkUseItem1Cmd</name>
 		<key>NumPad9</key>
 	</LinkControl>
 
-	<LinkControl player="2" press="true">
+	<LinkControl player="2">
 		<name>LinkUseItem2Cmd</name>
 		<key>NumPad0</key>
 	</LinkControl>
 
-	<LinkControl player="2" press="true">
+	<LinkControl player="2">
 		<name>LinkUseItem1Cmd</name>
 		<key>D9</key>
 	</LinkControl>
 	
-	<LinkControl player="2" press="true">
+	<LinkControl player="2">
 		<name>LinkUseItem2Cmd</name>
 		<key>D0</key>
 	</LinkControl>
@@ -305,15 +305,6 @@ w
 	</LinkControl>
 
 
-	<LinkControl>
-		<name>LinkSwordAttackCmd</name>
-		<key>Z</key>
-	</LinkControl>
-
-	<LinkControl>
-		<name>LinkSwordAttackCmd</name>
-		<key>N</key>
-	</LinkControl>
 	
 	
 </Controllers>

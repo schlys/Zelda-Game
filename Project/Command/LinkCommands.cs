@@ -90,23 +90,6 @@ namespace Project1.Command
     }
 
     // TODO: remove no longer use? 
-    public class LinkSwordAttackCmd : ICommand
-    {
-        public Game1 Game { get; set; }
-        public ILink Link { get; set; }
-
-
-        public LinkSwordAttackCmd(Game1 game, ILink link)
-        {
-            Game = game;
-            Link = link;
-        }
-        public void Execute()
-        {
-            //Link.Attack();
-        }
-
-    }
     
     public class LinkUseItem1Cmd : ICommand
     {

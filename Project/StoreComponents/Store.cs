@@ -37,13 +37,13 @@ namespace Project1.StoreComponents
 
          
             Item1 = new Item(position, GameVar.LifePotionKey, false);
-            PriceItem1 = 1;
+            PriceItem1 = 10;
 
             Item2 = new Item(position, GameVar.BombKey, false);
-            PriceItem1 = 1;
+            PriceItem2 = 10;
 
-            Item2 = new Item(position, GameVar.SilverArrowKey, false);
-            PriceItem1 = 1;
+            Item3 = new Item(position, GameVar.BookOfMagicKey, false);
+            PriceItem3 = 30;
 
         }
 
@@ -62,12 +62,20 @@ namespace Project1.StoreComponents
         {
             if (GameStateManager.Instance.CanStoreMenu())
             {
+                if (Link.Inventory.SpendRupee(PriceItem2))
+                {
+                    Link.PickUpItem(Item2);
+                }
             }
         }
         public void PurchaseItem3()
         {
             if (GameStateManager.Instance.CanStoreMenu())
             {
+                if (Link.Inventory.SpendRupee(PriceItem3))
+                {
+                    Link.PickUpItem(Item3);
+                }
             }
         }
         public void Update()
