@@ -1,0 +1,19 @@
+Author of the code review: Elise Kosmides 
+
+Date of the code review: 12-1-21
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: Collision, CollisionManager, ICollidable, ICollision, ICollisionManager, NullCollision
+
+Author of the .cs file being reviewed: Sam, Chaeun, and Elise 
+
+Number of minutes taken to complete the review: 15
+
+Readabiliity Review- 
+Collision, NullCollision, & ICollision: understandable variable names, short method bodys, simple 
+CollisionManager - could add comments to clarify purpose of methods. methods short with minimal duplicate code. 
+
+Code Quality Review-  
+NullCollision - good use of a null object 
+CollisionManger - some methods are long and could be simplified. change if else in detectcollisions to something more effective? 
