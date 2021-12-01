@@ -57,10 +57,10 @@ namespace Project1.ProjectileComponents
                 case GameVar.DirectionUp:
                     Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y - Speed);
                     break;
-                case GameVar.DirectionDown":
+                case GameVar.DirectionDown:
                     Projectile.Position = new Vector2(Projectile.Position.X, Projectile.Position.Y + Speed);
                     break;
-                case GameVar.DirectionRight":
+                case GameVar.DirectionRight:
                     Projectile.Position = new Vector2(Projectile.Position.X + Speed, Projectile.Position.Y);
                     break;
                 default:

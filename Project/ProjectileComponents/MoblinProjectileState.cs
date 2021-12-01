@@ -63,7 +63,7 @@ namespace Project1.ProjectileComponents
                     case GameVar.DirectionDown:
                         Projectile.Position += new Vector2(0, (float)Speed);
                         break;
-                    case GameVar.DirectionRight":
+                    case GameVar.DirectionRight:
                         Projectile.Position += new Vector2((float)Speed, 0);
                         break;
                     default:    // Left

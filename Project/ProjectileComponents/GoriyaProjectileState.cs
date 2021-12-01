@@ -50,7 +50,7 @@ namespace Project1.ProjectileComponents
             if (Counter < CounterMax)
             {
                 switch (Direction.ID)
-                
+                { 
                     case GameVar.DirectionUp:
                         Projectile.Position += new Vector2(0, (float)-Speed);
                         break;
