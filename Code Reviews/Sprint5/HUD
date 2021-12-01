@@ -1,0 +1,24 @@
+Author of the code review: Mulan 
+
+
+Date of the code review: 12/1/21
+
+
+Sprint number: 5
+
+
+Name of the .cs file being reviewed: HUD.cs
+
+
+Author of the .cs file being reviewed: Elise
+
+
+Number of minutes taken to complete the review:15
+
+
+Specific comments on what is readable and what is not: 
+vector name variables are readable, names of text sprites could be more descripitve, texture variables are clear. constructor is somewhat readable, datadriving may help to shorten and clear it up. 
+
+Code Quality Review-  A hypothetical change to make to the game related to file
+being reviewed and how the current implementation could or could not easily support that change:
+DrawHud method is very long and includes many subparts. maybe break it up into more methods to draw each specific part of the hud. overall good!
