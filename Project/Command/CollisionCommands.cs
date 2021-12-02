@@ -184,7 +184,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            if (!Link.HasItem(Item.Kind)) Item.RemoveItem();
+            if (!Link.Inventory.HasItem(Item)) Item.RemoveItem();
         }
     }
 

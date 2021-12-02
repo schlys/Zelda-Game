@@ -220,17 +220,6 @@ namespace Project1.LinkComponents
             }
         }
 
-        public bool CanUseKey()
-        {
-            /* Returns true of Link has any key in his <Inventory>
-             */ 
-            return Inventory.CanUseKey();
-        }
-        public bool HasItem(string name)
-        {
-            return Inventory.HasItem(name);
-        }
-
         public void PickUpItem(IItem item)
         {
             /* Link picks up an item, adds it to his <Inventory>, does a specific pick up animation, 
