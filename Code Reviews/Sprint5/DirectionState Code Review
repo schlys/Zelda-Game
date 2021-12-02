@@ -1,0 +1,19 @@
+Author of the code review: Sam Chlystek
+
+Date of the code review: 12-2-21
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: DirectionState folder
+
+Author of the .cs file being reviewed: Elise, Sam
+
+Number of minutes taken to complete the review: 10
+
+Readabiliity Review- 
+Direction states are very easy to understand
+DirectionManager is simple 
+
+Code Quality Review-  
+DirectionStates are short and do not have unnecessary details.
+DirectionManager is useful for getting a certain state when needed.
