@@ -118,6 +118,10 @@ namespace Project1
                     "\nPress 2 - to purchase a BOMB \nfor 10 Rupees" +
                     "\nPress 3 - to purchase a BOOK OF MAGIC \nfor 30 Rupees" +
                     "\nPress X - to EXIT";
+        public const string StoreExitText = "Press 'X' to exit";
+        public const string Item1Text = "1/8";
+        public const string Item2Text = "2/9";
+        public const string Item3Text = "3/0";
 
 
         // HUD ***********************************************************************

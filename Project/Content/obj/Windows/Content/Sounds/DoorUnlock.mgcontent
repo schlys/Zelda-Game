@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/Sounds/DoorUnlock.wav</SourceFile>
   <SourceTime>2021-11-03T13:14:09.7267201-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/Sounds/DoorUnlock.xnb</DestFile>
-  <DestTime>2021-12-01T18:59:37.7926641-05:00</DestTime>
-=======
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/Sounds/DoorUnlock.wav</SourceFile>
-  <SourceTime>2021-12-01T18:47:43.1920383-05:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/Sounds/DoorUnlock.xnb</DestFile>
-  <DestTime>2021-12-01T18:58:41.997677-05:00</DestTime>
->>>>>>> c75e568c54495e6f2fa75d62fe307a522cb0872b
+  <DestTime>2021-12-01T19:05:50.8237226-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
