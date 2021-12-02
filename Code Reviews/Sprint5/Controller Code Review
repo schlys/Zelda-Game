@@ -1,0 +1,23 @@
+Author of the code review: Sam Chlystek
+
+Date of the code review: 12-2-21
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: IController, KeyboardController, MouseController
+
+Author of the .cs file being reviewed: Elise, Sam, Chaeun, Mulan
+
+Number of minutes taken to complete the review: 15
+
+Readabiliity Review- 
+MouseController is very easy to understand
+Keyboard Controller could use some more comments and delete old comments but is not hard to understand
+
+Code Quality Review-  
+KeyboardController: Good use of XML with distinction between press and hold commands as well as player distinct commands.
+                    Command list is a good idea to have a key be able to be used for multiple commands.
+                    The loops in update could be combined into one loop, could potentially help with performance.
+
+MouseController: This might not be needed anymore so it can potentially be deleted
+
