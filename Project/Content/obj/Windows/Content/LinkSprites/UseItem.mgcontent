@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/samch/source/repos/Project/Project/Content/LinkSprites/UseItem.png</SourceFile>
   <SourceTime>2021-09-21T09:11:52.5886787-04:00</SourceTime>
   <DestFile>C:/Users/samch/source/repos/Project/Project/Content/bin/Windows/Content/LinkSprites/UseItem.xnb</DestFile>
   <DestTime>2021-12-01T18:59:24.2098898-05:00</DestTime>
+=======
+  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/LinkSprites/UseItem.png</SourceFile>
+  <SourceTime>2021-12-01T18:47:43.1611035-05:00</SourceTime>
+  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/LinkSprites/UseItem.xnb</DestFile>
+  <DestTime>2021-12-01T18:58:40.210926-05:00</DestTime>
+>>>>>>> c75e568c54495e6f2fa75d62fe307a522cb0872b
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
