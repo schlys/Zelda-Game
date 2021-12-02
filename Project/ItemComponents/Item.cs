@@ -15,17 +15,16 @@ namespace Project1.ItemComponents
         // Properties from IItem 
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
-        
+        public string Kind { get; set; }
+        public IItemState ItemState { get; set; }
+
         // Properties from ICollidable 
         public Rectangle Hitbox { get; set; }
         public bool IsMoving { get; set; }
         public string TypeID { get; set; }
-        public string Kind { get; set; }
         
         // Other Properies 
-        private IItemState ItemState { get; set; }
         private bool IsPicked = false;
-
 
         public Item(Vector2 position, string type, bool picked = false)
         {

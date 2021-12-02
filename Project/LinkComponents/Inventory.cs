@@ -74,6 +74,7 @@ namespace Project1.LinkComponents
                 throw new IndexOutOfRangeException();
             }
 
+            // TODO: move bombcount and itemdimensions to GameVar 
             RupeeCount = 0;
             BombCount = 5;
             KeyCount = 0;
@@ -116,22 +117,25 @@ namespace Project1.LinkComponents
             {
                 Item droppedItem = new Item(Link.Position, Item1.Kind);
                 droppedItem.InitialPosition = Link.Position;
-                if (Item1 is ItemBombSolidState)
+                if (Item1.ItemState is ItemBombSolidState)
                 {
-                    if (BombCount > 0)
+                    if (BombCount > 1)
                     {
                         BombCount--;
-                    }
-                    if (BombCount == 0)
+                    } 
+                    else
                     {
-                        Items.Remove(Item1);
-                        Item1 = new NullItem();
+                        BombCount = 0;
+                        //Items.Remove(Item1);
+                        //Item1 = new NullItem();
+                        RemoveItem(droppedItem); 
                     }
                 }
                 else
                 {
-                    Items.Remove(Item1);
-                    Item1 = new NullItem();
+                    RemoveItem(droppedItem);
+                    //Items.Remove(Item1);
+                    //Item1 = new NullItem();
                 }
 
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
@@ -161,17 +165,30 @@ namespace Project1.LinkComponents
         
         public void RemoveItem(IItem item)
         {
-            /* Remove <item> from <Items> and update <Item1> or <Item2> if neccesary 
+            /* Remove all items with <item.Kind> from <Items>. Update <Item1> or <Item2> and <SelectedItem>
+             * if neccesary. 
              */
-            Items.Remove(item);
 
-            if (Item1.Kind == item.Kind)
+            Items.RemoveAll(r => r.Kind.Equals(item.Kind));
+
+            if (Item1.Kind.Equals(item.Kind))
             {
                 Item1 = new NullItem();
             }
-            else if (Item2.Kind == item.Kind)
+            else if (Item2.Kind.Equals(item.Kind))
             {
                 Item2 = new NullItem();
+            }
+
+            if(SelectedItem.Item1.Kind.Equals(item.Kind))   
+            {
+                if(Items.Count == 0)    // <Items> is empty 
+                {
+                    SelectedItem = new Tuple<IItem, int>(new NullItem(), SelectedItem.Item2); 
+                } else
+                {
+                    SelectedItem = new Tuple<IItem, int>(Items.ElementAt(0), SelectedItem.Item2); 
+                }
             }
         }
         
@@ -211,7 +228,7 @@ namespace Project1.LinkComponents
              * is for the first or second item. 
              */
 
-            if (CanItemSelect())
+            if (CanItemSelect() && !(SelectedItem.Item1 is NullItem))
             {
                 //Check legality
                 if (!Items.Contains(SelectedItem.Item1))

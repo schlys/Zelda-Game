@@ -14,6 +14,8 @@ namespace Project1.ItemComponents
         public Vector2 Position { get; set; }
         public Vector2 InitialPosition { get; set; }
         public string Kind { get; set; }
+        public IItemState ItemState { get; set; }
+
         public NullItem() { }
         public void Draw(SpriteBatch spriteBatch) { }
         public void Update() { }
