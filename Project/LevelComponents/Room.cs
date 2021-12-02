@@ -30,12 +30,14 @@ namespace Project1.LevelComponents
 
         public Color Color = Color.White;
 
-        private Vector2 TextureRoomSize; 
+        private Vector2 TextureRoomSize;
+        private Vector2 InitialPosition; 
 
         public Room(string id, Vector2 position, Vector2 sheetPosition, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
             Position = position;
+            InitialPosition = Position; 
             SheetPosition = sheetPosition;
 
             UpRoom = up;
@@ -85,6 +87,7 @@ namespace Project1.LevelComponents
         
         public void Reset()
         {
+            Position = InitialPosition; 
             // TODO: should we handle object reset here and not in gameobject manager? 
             foreach (IBlock block in Blocks)
             {
