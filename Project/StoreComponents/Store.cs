@@ -39,13 +39,13 @@ namespace Project1.StoreComponents
             Vector2 position = new Vector2(0, 0); 
 
          
-            Item1 = new Item(new Vector2(room.X, room.Y + 20), GameVar.LifePotionKey, false);
+            Item1 = new Item(new Vector2(room.X + room.Width/4, room.Y + room.Height/2), GameVar.LifePotionKey, false);
             PriceItem1 = 10;
 
-            Item2 = new Item(position, GameVar.BombKey, false);
+            Item2 = new Item(new Vector2(room.X + room.Width/2, room.Y + room.Height/2), GameVar.BombKey, false);
             PriceItem2 = 10;
 
-            Item3 = new Item(position, GameVar.BookOfMagicKey, false);
+            Item3 = new Item(new Vector2(room.X + 3*room.Width/4, room.Y + room.Height/2), GameVar.BookOfMagicKey, false);
             PriceItem3 = 30;
 
         }
@@ -104,6 +104,8 @@ namespace Project1.StoreComponents
                 spriteBatch.Draw(blackRectangle, room, Color.White);
                 spriteBatch.DrawString(TitleFont, StoreText1, new Vector2(room.X + (buffer*7), room.Y), Color.White);
                 Item1.Draw(spriteBatch);
+                Item2.Draw(spriteBatch);
+                Item3.Draw(spriteBatch);
                 //spriteBatch.DrawString(BodyFont, StoreText2, new Vector2(room.X + (buffer), room.Y + (buffer * 3)), Color.White);
             }
         }
