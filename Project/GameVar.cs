@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
-using Project1.LevelComponents;
+using Microsoft.Xna.Framework.Input;
 using Project1.DirectionState; 
 
 namespace Project1
@@ -351,6 +350,11 @@ namespace Project1
             };
 
             return LinkKey[i];
+        }
+
+        public static Keys GetLinkStopKey()
+        {
+            return Keys.B; 
         }
     }
 }

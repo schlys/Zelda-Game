@@ -88,8 +88,6 @@ namespace Project1.Command
             Link.StopMotion();
         }
     }
-
-    // TODO: remove no longer use? 
     
     public class LinkUseItem1Cmd : ICommand
     {
@@ -106,6 +104,7 @@ namespace Project1.Command
             Link.UseItem(1);
         }
     }
+    
     public class LinkUseItem2Cmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -138,7 +137,6 @@ namespace Project1.Command
         }
     }
 
-
     public class LinkItemSelectUpCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -170,6 +168,7 @@ namespace Project1.Command
             Link.Inventory.ItemDown();
         }
     }
+   
     public class LinkItemSelectLeftCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -185,6 +184,7 @@ namespace Project1.Command
             Link.Inventory.ItemLeft();
         }
     }
+    
     public class LinkItemSelectRightCmd : ICommand
     {
         public Game1 Game { get; set; }
@@ -200,6 +200,7 @@ namespace Project1.Command
             Link.Inventory.ItemRight();
         } 
     }
+    
     public class LinkDropItem1Cmd : ICommand
     {
         public Game1 Game { get; set; }
