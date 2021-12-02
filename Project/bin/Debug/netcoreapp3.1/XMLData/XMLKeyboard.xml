@@ -96,7 +96,7 @@ w
 		<key>Left</key>
 	</LinkControl>
 
-	<!-- PLAYER 1 ITEM SELECTION -->
+	<!-- PLAYER 2 ITEM SELECTION -->
 	<LinkControl player="2" press="true">
 		<name>LinkItemSelectRightCmd</name>
 		<key>Right</key>
@@ -141,12 +141,12 @@ w
 		<name>LinkSelectItemCmd</name>
 		<key>Enter</key>
 	</LinkControl>
-	<!--Player 1 Drop Item 1-->
+	<!--Player 2 Drop Item 1-->
 	<LinkControl player="2" press="true">
 		<name>LinkDropItem1Cmd</name>
 		<key>H</key>
 	</LinkControl>
-	<!--Player 2 Drop Item 1-->
+	<!--Player 1 Drop Item 1-->
 	<LinkControl player="1" press="true">
 		<name>LinkDropItem1Cmd</name>
 		<key>G</key>
@@ -195,7 +195,7 @@ w
 		<key>D0</key>
 	</LinkControl>
 
-	<!-- PLAYER 2 SELECT ITEM -->
+	<!-- PLAYER 1 SELECT ITEM -->
 
 	<LinkControl player="1" press="true">
 		<name>LinkItemSelectRightCmd</name>

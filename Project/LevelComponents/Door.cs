@@ -26,15 +26,15 @@ namespace Project1.LevelComponents
 		private bool locked;
 
 		public Door(Vector2 position, string direction, bool locked, Vector2 positionDelta)
-        {
-			//PositionDelta = new Vector2(LevelFactory.Instance.RoomBlockSize*positionDelta.X, 
-			//					LevelFactory.Instance.RoomBlockSize * positionDelta.Y);
+		{ 
 			PositionDelta = positionDelta;
 
 			DirectionState = DirectionManager.Instance.GetDirectionState(direction);
 
+			// TODO: readd locked doors before submission 
 			this.locked = locked;
 			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.DoorKey + direction);
+			
 			Position = position;
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
 			/* Correct the position to account for empty space around the hitbox */
@@ -42,6 +42,7 @@ namespace Project1.LevelComponents
 			Position -= new Vector2((RoomBlockSize - Hitbox.Width) / 2, (RoomBlockSize - Hitbox.Height) / 2);
 			/* Get correct hibox for updated position */
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);
+			
 			IsMoving = false;
 			TypeID = GameVar.DoorKey;
         }
