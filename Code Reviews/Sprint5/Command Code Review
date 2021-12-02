@@ -1,0 +1,19 @@
+Author of the code review: Sam Chlystek
+
+Date of the code review: 12-2-21
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: CollisionCommands, GameCommands, LinkCommands, RoomCommands, ICommand
+
+Author of the .cs file being reviewed: Elise, Sam, Chaeun 
+
+Number of minutes taken to complete the review: 15
+
+Readabiliity Review- 
+Many commands are repetitive though this may be unavoidable, command objects are short and easy to understand 
+There could be more comments but again, the commands are very easy to understand.
+
+Code Quality Review-  
+Good to have a null command object.
+Low coupling and logic going on in Execute methods which is good.
