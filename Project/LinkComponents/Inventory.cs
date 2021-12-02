@@ -16,9 +16,9 @@ namespace Project1.LinkComponents
     public class Inventory : IInventory
     {
         public ILink Link { get; set; }
-        public Dictionary<string, IItem> Items { get; set; }
-        public string Item1 { get; set; }
-        public string Item2 { get; set; }
+        public List<IItem> Items { get; set; }
+        public IItem Item1 { get; set; }
+        public IItem Item2 { get; set; }
         public int RupeeCount { get; set; }
         public int BombCount { get; set; }
         public int KeyCount { get; set; }
@@ -26,13 +26,8 @@ namespace Project1.LinkComponents
         public bool HasMap { get; set; }
         public bool HasCompass { get; set; }
         public bool HasSilverArrow { get; set; }
-        
-        private Tuple<string, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
-        
-        private string MapItemKey;
-        private string CompassItemKey;
 
-      
+        private Tuple<IItem, int> SelectedItem;    // represents the currently selected item and whether it is for item 1 or 2
 
         private Vector2 ItemDimentions;
 
@@ -44,41 +39,40 @@ namespace Project1.LinkComponents
         private Sprite TextNum2;
 
         public Inventory(ILink link)
-        {        
+        {
             Link = link;
             CanFreeze = false;
             HasCompass = false;
             HasMap = false;
 
-            Items = new Dictionary<string, IItem>();
-            
+            Items = new List<IItem>();
+
             // Default Items 
-            Items.Add("BombSolid", new Item(new Vector2(0,0), "BombSolid", true));
+            Items.Add(new Item(new Vector2(0, 0), "BombSolid", true));
 
-            Item1 = Items.ElementAt(0).Value.Kind;
-            Item2 = "";
+            Item1 = Items.ElementAt(0);
+            Item2 = new NullItem();
 
-            SelectedItem = new Tuple<string, int>(Item1, 1);
+            SelectedItem = new Tuple<IItem, int>(Item1, 1);
 
             SelectedItemPosition = new Vector2(61, 45) * GameVar.ScalingFactor;
             SelectedItemKeyPosition = new Vector2(48, 72) * GameVar.ScalingFactor;
             InventoryItemPosition = new Vector2(125, 45) * GameVar.ScalingFactor;
 
-            if(Link.PlayerNum == GameVar.Player1)
+            if (Link.PlayerNum == GameVar.Player1)
             {
                 TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
                 TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
-            } else if (Link.PlayerNum == GameVar.Player2)
+            }
+            else if (Link.PlayerNum == GameVar.Player2)
             {
                 TextNum1 = SpriteFactory.Instance.GetSpriteData("Num9");
                 TextNum2 = SpriteFactory.Instance.GetSpriteData("Num0");
-            } else
-            {
-                throw new IndexOutOfRangeException(); 
             }
-
-            MapItemKey = "DungeonMap";
-            CompassItemKey = "Compass";
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
 
             RupeeCount = 0;
             BombCount = 5;
@@ -86,16 +80,31 @@ namespace Project1.LinkComponents
 
             ItemDimentions = new Vector2(4, 2);
         }
+        
         public void AddItem(IItem item)
         {
-            bool has = Items.ContainsKey(item.Kind);
-            if (!has) Items.Add(item.Kind, item);
-            if (Items.Count == 2 && !has) Item2 = item.Kind;
+            bool hasItem = Items.Contains(item);
+
+            if (!hasItem)
+            {
+                Items.Add(item);
+
+                if(Item1 is NullItem)
+                {
+                    Item1 = item; 
+                } 
+                else if (Item2 is NullItem)
+                {
+                    Item2 = item; 
+                }
+            }
         }
+        
         private bool CanPlayGame()
         {
             return GameStateManager.Instance.CanPlayGame();
         }
+        
         private bool CanItemSelect()
         {
             return GameStateManager.Instance.CanItemSelect();
@@ -103,28 +112,28 @@ namespace Project1.LinkComponents
 
         public void DropItem1()
         {
-            if (!Item1.Equals(""))
+            if (!(Item1 is NullItem))
             {
-                Item droppedItem = new Item(Link.Position, Item1);
+                Item droppedItem = new Item(Link.Position, Item1.Kind);
                 droppedItem.InitialPosition = Link.Position;
-                if (Item1.Equals("BombSolid"))
+                if (Item1 is ItemBombSolidState)
                 {
-                    if (BombCount > 0) 
-                    { 
-                        BombCount--; 
+                    if (BombCount > 0)
+                    {
+                        BombCount--;
                     }
                     if (BombCount == 0)
                     {
                         Items.Remove(Item1);
-                        Item1 = "";
+                        Item1 = new NullItem();
                     }
                 }
                 else
                 {
                     Items.Remove(Item1);
-                    Item1 = "";
+                    Item1 = new NullItem();
                 }
-                
+
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
                 GameObjectManager.Instance.UpdateRoomItems();
                 GameSoundManager.Instance.PlayTextSlow();
@@ -133,16 +142,39 @@ namespace Project1.LinkComponents
 
         public void UseItem(int ItemNumber)
         {
-            string item = Item1;
-            if (ItemNumber == 2) item = Item2;
-
-            if (CanPlayGame())
+            IItem item = Item1;
+            if (ItemNumber == 2)
             {
-                if (!Items.ContainsKey(item)) return;
-                Items[item].UseItem(Link);
+                item = Item2;
+            }
+
+            if (CanPlayGame() && !(item is NullItem))
+            {
+                if (!Items.Contains(item))
+                {
+                    throw new InvalidOperationException();
+                }
+                item.UseItem(Link);
             }
 
         }
+        
+        public void RemoveItem(IItem item)
+        {
+            /* Remove <item> from <Items> and update <Item1> or <Item2> if neccesary 
+             */
+            Items.Remove(item);
+
+            if (Item1.Kind == item.Kind)
+            {
+                Item1 = new NullItem();
+            }
+            else if (Item2.Kind == item.Kind)
+            {
+                Item2 = new NullItem();
+            }
+        }
+        
         public bool CanUseKey()
         {
             /* Return true if there is a key and remove it from the inventory. false otherwise
@@ -155,21 +187,22 @@ namespace Project1.LinkComponents
 
             return false;
         }
-        public bool HasItem(string name)
+        
+        public bool HasItem(IItem item)
         {
-            return Items.ContainsKey(name);
+            return Items.Contains(item);
         }
 
         public bool SpendRupee(int n)
         {
             /* Spends <n> rupees if able to. returns whether or not the rupees were spent. 
-             */ 
-            if(RupeeCount >= n)
+             */
+            if (RupeeCount >= n)
             {
                 RupeeCount -= n;
-                return true; 
+                return true;
             }
-            return false; 
+            return false;
         }
 
         public void SelectItem()
@@ -181,19 +214,25 @@ namespace Project1.LinkComponents
             if (CanItemSelect())
             {
                 //Check legality
-                if (!Items.ContainsKey(SelectedItem.Item1))
+                if (!Items.Contains(SelectedItem.Item1))
                 {
                     throw new IndexOutOfRangeException();
                 }
 
-                string selected = SelectedItem.Item1;
+                IItem selected = SelectedItem.Item1;
                 if (SelectedItem.Item2 == 1)
                 {
-                    if (!Item2.Equals(selected)) Item1 = SelectedItem.Item1;
+                    if (!Item2.Equals(selected))
+                    {
+                        Item1 = SelectedItem.Item1;
+                    }
                 }
                 else
                 {
-                    if (!Item1.Equals(selected)) Item2 = SelectedItem.Item1;
+                    if (!Item1.Equals(selected))
+                    {
+                        Item2 = SelectedItem.Item1;
+                    }
                 }
             }
         }
@@ -203,22 +242,24 @@ namespace Project1.LinkComponents
              */
             if (CanItemSelect())
             {
-                SelectedItem = new Tuple<string, int>(SelectedItem.Item1, item);
+                SelectedItem = new Tuple<IItem, int>(SelectedItem.Item1, item);
             }
         }
-        private int FindItemIndex(string key)
+        
+        private int FindItemIndex(IItem key)
         {
             /* Given a key guarenteed to be in <Items>, find it's index. 
              */
             for (int i = 0; i < Items.Count; i++)
             {
-                if (Items.ElementAt(i).Key.Equals(key))
+                if (Items.ElementAt(i).Equals(key))
                 {
                     return i;
                 }
             }
             return -1;
         }
+        
         public void ItemUp()
         {
             if (CanItemSelect())
@@ -226,10 +267,11 @@ namespace Project1.LinkComponents
                 int newIndex = (int)(FindItemIndex(SelectedItem.Item1) - ItemDimentions.X);
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
-                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                    SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
                 }
             }
         }
+       
         public void ItemDown()
         {
             if (CanItemSelect())
@@ -237,10 +279,11 @@ namespace Project1.LinkComponents
                 int newIndex = (int)(FindItemIndex(SelectedItem.Item1) + ItemDimentions.X);
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
-                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                    SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
                 }
             }
         }
+        
         public void ItemLeft()
         {
             if (CanItemSelect())
@@ -248,10 +291,11 @@ namespace Project1.LinkComponents
                 int newIndex = FindItemIndex(SelectedItem.Item1) - 1;
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
-                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                    SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
                 }
             }
         }
+        
         public void ItemRight()
         {
             if (CanItemSelect())
@@ -259,15 +303,16 @@ namespace Project1.LinkComponents
                 int newIndex = FindItemIndex(SelectedItem.Item1) + 1;
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
-                    SelectedItem = new Tuple<string, int>(Items.ElementAt(newIndex).Key, SelectedItem.Item2);
+                    SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
                 }
             }
         }
+        
         public bool CanHighlightTreasureMap()
         {
             return HasMap && HasCompass;
         }
-        
+
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             /* Draws a maximum of 8 items that represent the first 8 items in the inventory. 
@@ -279,8 +324,8 @@ namespace Project1.LinkComponents
             int numItems = (int)(ItemDimentions.X * ItemDimentions.Y);
             for (int i = 0; i < Items.Count && i < numItems; i++)
             {
-                string ItemName = Items.ElementAt(i).Key;
-                if (ItemName.Equals(SelectedItem.Item1))
+                IItem item = Items.ElementAt(i);
+                if (item.Equals(SelectedItem.Item1))
                 {
                     Texture2D dummyTexture = new Texture2D(GameObjectManager.Instance.Game.GraphicsDevice, 1, 1);
                     dummyTexture.SetData(new Color[] { Color.White });
@@ -291,7 +336,7 @@ namespace Project1.LinkComponents
                     spriteBatch.Draw(dummyTexture, destinationRectangle, Link.AccentColor);
                 }
 
-                DrawItem(spriteBatch, ItemName, newItemPosition);
+                DrawItem(spriteBatch, item, newItemPosition);
 
                 newItemPosition.X += SpriteFactory.Instance.UniversalSize;
                 if ((i + 1) % (numItems / 2) == 0) // move to next row
@@ -318,15 +363,16 @@ namespace Project1.LinkComponents
                 TextNum2.Draw(spriteBatch, newSelectedItemKeyPosition);
             }
         }
-        public void DrawItem(SpriteBatch spriteBatch, string name, Vector2 position)
+        
+        public void DrawItem(SpriteBatch spriteBatch, IItem item, Vector2 position)
         {
             /* Precondition: <name> begines with "Item"
              * Given the <name> of an item in <Inventory>, draw the item centered at <position> 
              */
-            if (name.Length > 0)
+            if (!(item is NullItem))
             {
                 //name = name.Substring(4); // Remove "Item" keyword from start
-                Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(name);
+                Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
                 Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
                 ItemSprite.Draw(spriteBatch, SpritePosition);
             }
@@ -338,7 +384,8 @@ namespace Project1.LinkComponents
              */
             if (HasMap)
             {
-                DrawItem(spriteBatch, MapItemKey, position);
+                IItem MapItem = new Item(new Vector2(0, 0), GameVar.MapKey);
+                DrawItem(spriteBatch, MapItem, position);
             }
         }
 
@@ -348,7 +395,8 @@ namespace Project1.LinkComponents
              */
             if (HasCompass)
             {
-                DrawItem(spriteBatch, CompassItemKey, position);
+                IItem CompassItem = new Item(new Vector2(0, 0), GameVar.CompassKey);
+                DrawItem(spriteBatch, CompassItem, position);
             }
         }
 
@@ -362,6 +410,7 @@ namespace Project1.LinkComponents
             /* Get correct hibox for updated position */
             return position;
         }
+        
         public void Reset()
         {
             RupeeCount = 0;

@@ -870,8 +870,8 @@
 		<startFrame>3</startFrame>
 		<row>0</row>
 		<originalSize>40</originalSize>
-		<hitX>24</hitX>	<!--60-->
-		<hitY>32</hitY> <!--90-->
+		<hitX>24</hitX>
+		<hitY>32</hitY> 
 	</Sprite>
 	<Sprite>
 		<name>AttackAquamentus</name>
@@ -881,7 +881,7 @@
 		<row>0</row>
 		<originalSize>40</originalSize>
 		<hitX>24</hitX>
-		<hitY>32</hitY> <!--80-->
+		<hitY>32</hitY> 
 	</Sprite>
 	<Sprite>
 		<name>AquamentusProjectile</name>

@@ -47,7 +47,10 @@ namespace Project1.ItemComponents
                 link.Inventory.BombCount--;
                 link.Attack(Item.Kind);
             }
-            if (link.Inventory.BombCount == 0) link.Inventory.Items.Remove(Item.Kind);
+            if (link.Inventory.BombCount == 0)
+            {
+                link.Inventory.RemoveItem(Item);
+            }
         }
     }
 }

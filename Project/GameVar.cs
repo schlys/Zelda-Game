@@ -209,6 +209,8 @@ namespace Project1
         public const string ArrowKey = "ArrowUp";
         public const string LifePotionKey = "LifePotion";
         public const string BombKey = "BombSolid";
+        public const string MapKey = "DungeonMap";
+        public const string CompassKey = "Compass";
         public const string TriForceFragmentKey = "TriforceFragment";
         public const string PickUpItem = "PickUpItem";
 
