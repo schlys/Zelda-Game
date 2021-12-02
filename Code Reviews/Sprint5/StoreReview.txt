@@ -1,0 +1,13 @@
+Author of code review: Jake Haskins
+Date of Code Review: 12/02/2021
+Sprint Number: 5
+Name of file: Game1.cs
+Author(s) of file:  Elise Kosmides, Sam Chlystek, Chaeun Hong
+Number of minutes taken: 5 minutes
+Readability Review: File lacks comments, save for one note to change item prices. The draw method is quite long, and confusing, as the number of
+magic numbers combined with no comments makes it difficult to understand what the values mean. Other than that, the rest of the file is easy to
+read and understand.
+quite well.
+Quality Review: Firstly, I'm unsure if the update and reset functions are simply obsolete or just unfinished, but they need to be dealt with.
+Second, I'm confused as to why there are three purchase item methods instead of one that checks if any of the three items have been bought.
+Finally, the item prices need to be finalized, which is noted.

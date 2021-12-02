@@ -1,0 +1,12 @@
+Author of code review: Jake Haskins
+Date of Code Review: 12/02/2021
+Sprint Number: 5
+Name of file: Game1.cs
+Author(s) of file:  Elise Kosmides, Sam Chlystek, Chaeun Hong
+Number of minutes taken: 5 minutes
+Readability Review: The file is lacking any comments, but seeing as though it is structured quite well, and easy to understand, I don't think
+comments would be necessary. The many game state methods are a little disorganized, but ulitmately it doesn't negatively impact readibility. 
+In summation, the file is quite easy to navigate and read, seeing as though it's been here since Sprint 2, and hence has been refined and cleaned
+quite well.
+Quality Review: I have nothing to contribute on the quality of the file because it has been refactored so aggresively to the point where there
+is no fluff, no room for change, or any critiques neccesary.
