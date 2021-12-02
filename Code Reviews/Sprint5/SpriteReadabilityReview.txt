@@ -1,0 +1,8 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 12/01/2021
+Sprint Number: 5
+Name of file: Sprite.cs
+Author(s) of file:  Elise Kosmides, Sam Chlystek
+Number of minutes taken: 5 minutes
+Readability Review:
+Some helpful comments throughout file, a few more comments in some methods like Draw could improve readability. Things aren't difficult to understand. Good naming conventions were followed.

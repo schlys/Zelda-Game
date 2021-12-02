@@ -1,0 +1,8 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 12/01/2021
+Sprint Number: 5
+Name of file: Link.cs
+Author(s) of file: Elise Kosmides, Sam Chlystek, Mulan Blum, Andrew Kroh, Chaeun Hong
+Number of minutes taken: 10 minutes
+Quality Review:
+The only reference to the CanUseKey method is from the ILink interface so it doesn't look like it's being used for anything. Should probably be removed or used for something.
