@@ -1,0 +1,7 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 12/01/2021
+Sprint Number: 5
+Name of file: Sprite.cs
+Author(s) of file: Elise Kosmides, Sam Chlystek
+Number of minutes taken: 5 minutes
+Quality Review: Line of code commented out in Update method could be removed. Not a ton going on in this file, looks like it does its job. There's a magic number or two that could be removed.

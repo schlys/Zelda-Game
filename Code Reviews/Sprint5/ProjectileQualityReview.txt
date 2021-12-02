@@ -1,0 +1,7 @@
+Author of code review: Andrew Kroh
+Date of Code Review: 12/01/2021
+Sprint Number: 5
+Name of file: Projectile.cs
+Author(s) of file: Elise Kosmides, Sam Chlystek, Mulan Blum, Chaeun Hong
+Number of minutes taken: 10 minutes
+Quality Review: A line of code is commented out in the Update method, should probably be removed. String literals could possibly be refactored.
