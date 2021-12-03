@@ -16,7 +16,8 @@ namespace Project1.GameState
         public void Draw(SpriteBatch spriteBatch, int i)
         {
             int buffer = GameVar.buffer * 4;
-
+            // TODO: remove it?
+            /*
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
 
@@ -29,10 +30,11 @@ namespace Project1.GameState
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.StartText1, new Vector2(RoomSize.X / 2 - (buffer * 3), RoomSize.Y / 2 - buffer), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.StartText2, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 ), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.StartText3, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 + buffer), Color.White);
-
+            */
+            Vector2 RoomSize = GameVar.GetRoomSize() * GameVar.ScalingFactor;
             // title image
-            Rectangle sourceRectangle = new Rectangle(0, 10, GameVar.titleWidth, GameVar.titleHeight);
-            destinationRectangle = new Rectangle(0, 0, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            Rectangle sourceRectangle = new Rectangle(1, 10, GameVar.titleWidth, GameVar.titleHeight);
+            Rectangle destinationRectangle = new Rectangle(0, 0, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
             // Draw the 1 and 2 denoting the number of players and highlight the currently selected 

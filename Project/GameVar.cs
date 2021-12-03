@@ -86,13 +86,13 @@ namespace Project1
 
         // GAME STATE ****************************************************************
         public const int titleWidth = 257;
-        public const int titleHeight = 225;
+        public const int titleHeight = 224;
 
         public const int highlightWidth = 40;
         public const int highlightHeight = 55;
 
-        public const int startY = 250;  // for story
-        public const int modifier = 10;
+        public const int startY = 250; // take a image from titleScreens - for a story
+        public const int modifier = 15; // modify distances between two images - for a story
 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 

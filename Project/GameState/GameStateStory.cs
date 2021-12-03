@@ -24,7 +24,7 @@ namespace Project1.GameState
 
             // title image
             Rectangle sourceRectangle = new Rectangle(startX, GameVar.startY, GameVar.titleWidth, GameVar.titleHeight);
-            destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            destinationRectangle = new Rectangle(0, scrollY - GameVar.modifier, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
             Rectangle sourceRectangle2 = new Rectangle(startX + GameVar.titleWidth, GameVar.startY, GameVar.titleWidth, GameVar.titleHeight);
