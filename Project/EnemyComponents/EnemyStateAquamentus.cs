@@ -86,7 +86,6 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = GameVar.AquamentusFrames - 1;
-            //((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()
         {
@@ -109,7 +108,7 @@ namespace Project1.EnemyComponents
             if (Enemy.Health.Dead())
             {
                 // drop item small key 
-                Item lifePotion = new Item(Enemy.Position, "LifePotion");
+                Item lifePotion = new Item(Enemy.Position, GameVar.LifePotionKey);
                 lifePotion.InitialPosition = Enemy.Position;
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(lifePotion);
                 GameObjectManager.Instance.UpdateRoomItems();

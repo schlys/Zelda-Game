@@ -146,7 +146,7 @@ namespace Project1.EnemyComponents
             if (Enemy.Health.Dead())
             {
                 // drop item small key 
-                Item recoveryHeart = new Item(Enemy.Position, "RecoveryHeart");
+                Item recoveryHeart = new Item(Enemy.Position, GameVar.RecoveryHeartKey);
                 recoveryHeart.InitialPosition = Enemy.Position;
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(recoveryHeart);
                 GameObjectManager.Instance.UpdateRoomItems();

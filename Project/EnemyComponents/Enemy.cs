@@ -26,7 +26,6 @@ namespace Project1.EnemyComponents
         // Other Properties 
         
         private int Counter = 0;
-        private bool IsDead = false;
         private bool IsSpawning = true;
         private Sprite SpawnSprite;
         
@@ -90,13 +89,11 @@ namespace Project1.EnemyComponents
             EnemyState.TakeDamage(damage);
 
             EnemyState.Sprite.Color = GameVar.GetDamageColor();
-            
-            AvoidEnemy(direction);
-                        
-            IsDead = Health.Dead();
+
+            Knockback(direction);
         }       
 
-        public void AvoidEnemy(string direction)
+        public void Knockback(string direction)
         {
             // knockback <Position> 
             Position = Knockback(Position, direction, EnemyState.Step);
@@ -110,7 +107,6 @@ namespace Project1.EnemyComponents
             Health.Reset();
 
             IsMoving = true;
-            IsDead = false;
 
             EnemyState.Sprite.Color = GameVar.GetEnemyColor(); 
 
@@ -128,11 +124,11 @@ namespace Project1.EnemyComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (IsSpawning && !IsDead)
+            if (IsSpawning)
             {
                 SpawnSprite.Draw(spriteBatch, Position);
             }
-            else if (!IsDead)
+            else
             {
                 EnemyState.Draw(spriteBatch, Position);
             }
@@ -159,16 +155,14 @@ namespace Project1.EnemyComponents
                     Counter = 0;
                 }
 
-                if (!IsDead)
-                {
-                    IsMoving = true;
-                    EnemyState.Update();
-                    UpdateHitBox(); 
-                }
+                IsMoving = true;
+                EnemyState.Update();
+                UpdateHitBox(); 
             }
 
-            if (IsDead) // remove when dead 
+            if (Health.Dead()) // remove when dead 
             {
+                GameSoundManager.Instance.PlayEnemyDie();
                 CollisionManager.Instance.RemoveObject(this);
             }
             

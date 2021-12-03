@@ -96,7 +96,7 @@ namespace Project1.EnemyComponents
             if (Enemy.Health.Dead())
             {
                 // drop item small key 
-                Item smallKey = new Item(Enemy.Position, "SmallKey");
+                Item smallKey = new Item(Enemy.Position, GameVar.SmallKey);
                 smallKey.InitialPosition = Enemy.Position;
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(smallKey);
                 GameObjectManager.Instance.UpdateRoomItems();

@@ -207,15 +207,19 @@ namespace Project1
 
         public const string BookOfMagicWeaponKey = "Fire";
 
-        public const string SilverArrowKey = "SilverArrowUp";
-        public const string BookOfMagicKey = "BookOfMagic";
         public const string ArrowKey = "ArrowUp";
-        public const string LifePotionKey = "LifePotion";
+        public const string BlueRupeeKey = "BlueRupee"; 
         public const string BombKey = "BombSolid";
-        public const string MapKey = "DungeonMap";
+        public const string BookOfMagicKey = "BookOfMagic";
         public const string CompassKey = "Compass";
-        public const string TriForceFragmentKey = "TriforceFragment";
+        public const string LifePotionKey = "LifePotion";
+        public const string MapKey = "DungeonMap";
+        public const string OrangeRupeeKey = "OrangeRupee"; 
         public const string PickUpItem = "PickUpItem";
+        public const string RecoveryHeartKey = "RecoveryHeart";
+        public const string SilverArrowKey = "SilverArrowUp";
+        public const string SmallKey = "SmallKey"; 
+        public const string TriForceFragmentKey = "TriforceFragment";
 
         public const int MagicalRodDelay = 6;
         public const int WoodenSwordDelay = 3;

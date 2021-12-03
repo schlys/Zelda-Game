@@ -145,7 +145,7 @@ namespace Project1.EnemyComponents
             if (Enemy.Health.Dead())
             {
                 // drop item small key 
-                Item blueRupee = new Item(Enemy.Position, "BlueRupee");
+                Item blueRupee = new Item(Enemy.Position, GameVar.BlueRupeeKey);
                 blueRupee.InitialPosition = Enemy.Position;
                 GameObjectManager.Instance.Level.CurrentRoom.AddItem(blueRupee);
                 GameObjectManager.Instance.UpdateRoomItems();
