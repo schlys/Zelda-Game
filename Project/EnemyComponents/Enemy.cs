@@ -163,7 +163,8 @@ namespace Project1.EnemyComponents
             if (Health.Dead()) // remove when dead 
             {
                 GameSoundManager.Instance.PlayEnemyDie();
-                CollisionManager.Instance.RemoveObject(this);
+                //CollisionManager.Instance.RemoveObject(this);
+                GameObjectManager.Instance.EnemyDie(this); 
             }
             
         }

@@ -110,8 +110,9 @@ namespace Project1.EnemyComponents
                 // drop item small key 
                 Item lifePotion = new Item(Enemy.Position, GameVar.LifePotionKey);
                 lifePotion.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(lifePotion);
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(lifePotion);
+                GameObjectManager.Instance.DropItem(lifePotion); 
+                //GameObjectManager.Instance.UpdateRoomItems();
             }
         }
 

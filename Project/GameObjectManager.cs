@@ -42,6 +42,7 @@ namespace Project1
         //public List<IStore> Stores;
         public List<IBlock> Blocks;
         public List<IItem> Items;
+        public List<IItem> DroppedItems;
         public List<IEnemy> Enemies;
         public List<IDoor> Doors;
         private List<IProjectile> Projectiles;
@@ -64,6 +65,7 @@ namespace Project1
             //Stores = new List<IStore>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
+            DroppedItems = new List<IItem>(); 
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
             Controllers = new List<IController>();
@@ -125,11 +127,16 @@ namespace Project1
                     item.Update();
                 }
 
+                foreach (IItem item in DroppedItems)
+                {
+                    item.Update();
+                }
+
                 if (!FreezeEnemies.Item1)
                 {
-                    foreach (IEnemy enemy in Enemies)
+                    for(int i = 0; i < Enemies.Count; i++)
                     {
-                        enemy.Update();
+                        Enemies[i].Update();
                     }
                 }
 
@@ -147,16 +154,17 @@ namespace Project1
         {
             /* Called when room switch
              * Updates <Room> to be the <CurrentRoom> in LevelFactory. Updates <Items>, <Blocks> and
-             * <Enemies> to be the items in <Room>. Remove all past <Projectiles>. Removes all objects 
-             * from the CollisionManager and adds the newly added <Room> objects. 
+             * <Enemies> to be the items in <Room>. Remove all past <Projectiles> and <DroppedItems>. 
+             * Removes all objects from the CollisionManager and adds the newly added <Room> objects. 
              * Unfreeze the enemies 
              */
 
             IRoom Room = Level.CurrentRoom;
             Links = new List<ILink>(Links_copy);
             Items = Room.Items;
+            DroppedItems = new List<IItem>(); 
             Blocks = Room.Blocks;
-            Enemies = Room.Enemies;
+            Enemies = new List<IEnemy>(Room.Enemies);       // must be copy so not change original list
             Doors = Room.Doors;
             Projectiles = new List<IProjectile>();
 
@@ -210,6 +218,7 @@ namespace Project1
             Links = new List<ILink>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
+            DroppedItems = new List<IItem>(); 
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
             Projectiles = new List<IProjectile>();
@@ -225,6 +234,10 @@ namespace Project1
                 block.Draw(spriteBatch);
             }
             foreach (IItem item in Items)
+            {
+                item.Draw(spriteBatch);
+            }
+            foreach (IItem item in DroppedItems)
             {
                 item.Draw(spriteBatch);
             }
@@ -261,8 +274,8 @@ namespace Project1
             {
                 CollisionManager.Instance.RemoveObject((ICollidable)projectile);
             }
-            Projectiles = new List<IProjectile>();
-
+            //Projectiles = new List<IProjectile>();
+            //DroppedItems = new List<IItem>< IItem > (); 
             LinkCount = 1;
             Links.Clear();
             Links_copy.Clear();
@@ -286,6 +299,21 @@ namespace Project1
 
             CollisionManager.Instance.RemoveObject((ICollidable)projectile);
         }
+
+        public void DropItem(IItem item)
+        {
+            DroppedItems.Add(item);
+
+            CollisionManager.Instance.AddObject((ICollidable)item); 
+        }
+
+        public void EnemyDie(IEnemy enemy)
+        {
+            Enemies.Remove(enemy);
+
+            CollisionManager.Instance.RemoveObject((ICollidable)enemy); 
+        }
+
         public void SetLinkCount(int n)
         {
             LinkCount = n;

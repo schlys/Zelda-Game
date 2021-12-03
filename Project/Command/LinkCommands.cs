@@ -214,6 +214,7 @@ namespace Project1.Command
         public void Execute()
         {
             Link.Inventory.DropItem1();
+            Link.HitBlock(Link.DirectionState); 
         }
     }
 

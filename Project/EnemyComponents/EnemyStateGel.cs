@@ -151,8 +151,9 @@ namespace Project1.EnemyComponents
                 // drop item small key 
                 Item blueRupee = new Item(Enemy.Position, GameVar.BlueRupeeKey);
                 blueRupee.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(blueRupee);
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(blueRupee);
+                //GameObjectManager.Instance.UpdateRoomItems();
+                GameObjectManager.Instance.DropItem(blueRupee);
             }
         }
         public void Update()

@@ -98,8 +98,9 @@ namespace Project1.EnemyComponents
                 // drop item small key 
                 Item smallKey = new Item(Enemy.Position, GameVar.SmallKey);
                 smallKey.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(smallKey);
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(smallKey);
+                //GameObjectManager.Instance.UpdateRoomItems();
+                GameObjectManager.Instance.DropItem(smallKey);
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)

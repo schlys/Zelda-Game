@@ -148,8 +148,9 @@ namespace Project1.EnemyComponents
                 // drop item small key 
                 Item recoveryHeart = new Item(Enemy.Position, GameVar.RecoveryHeartKey);
                 recoveryHeart.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(recoveryHeart);
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(recoveryHeart);
+                //GameObjectManager.Instance.UpdateRoomItems();
+                GameObjectManager.Instance.DropItem(recoveryHeart);
             }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
