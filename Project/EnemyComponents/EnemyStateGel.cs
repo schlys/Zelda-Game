@@ -11,13 +11,14 @@ using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
 {
-    class EnemyStateGel: IEnemyState
+    class EnemyStateGel : IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
+        public IItem DropItem { get; set; }
 
         private int MovementTimer;
         private Random R = new Random();
@@ -30,6 +31,7 @@ namespace Project1.EnemyComponents
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = GameVar.EnemyStep;
             Rand = R.Next(0, GameVar.GelRandomRange);
+            DropItem = new Item(Enemy.Position, GameVar.BlueRupeeKey);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -136,7 +138,7 @@ namespace Project1.EnemyComponents
                 Enemy.Position += new Vector2(-Step, Step);
             }
         }
-        private void StopMoving() 
+        private void StopMoving()
         {
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -145,16 +147,7 @@ namespace Project1.EnemyComponents
         }
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
-            if (Enemy.Health.Dead())
-            {
-                // drop item small key 
-                Item blueRupee = new Item(Enemy.Position, GameVar.BlueRupeeKey);
-                blueRupee.InitialPosition = Enemy.Position;
-                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(blueRupee);
-                //GameObjectManager.Instance.UpdateRoomItems();
-                GameObjectManager.Instance.DropItem(blueRupee);
-            }
+            Enemy.Health.DecreaseHealth(damage);
         }
         public void Update()
         {

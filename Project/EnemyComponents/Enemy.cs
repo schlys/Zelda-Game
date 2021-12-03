@@ -7,10 +7,11 @@ using Project1.LevelComponents;
 using Project1.DirectionState;
 using System.Reflection;
 using System.Collections.Generic;
+using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
 {
-    public class Enemy : IEnemy, ICollidable 
+    public class Enemy : IEnemy, ICollidable
     {
         // Properties from IEnemy 
         public IEnemyState EnemyState { get; set; }
@@ -24,23 +25,23 @@ namespace Project1.EnemyComponents
         public String TypeID { get; set; }
 
         // Other Properties 
-        
+
         private int Counter = 0;
         private bool IsSpawning = true;
         private Sprite SpawnSprite;
-        
+
         public Enemy(Vector2 position, string type)
-        {       
+        {
             // Get <EnemyState> via reflection
             Assembly assem = typeof(IEnemyState).Assembly;
             Type enemyType = assem.GetType("Project1.EnemyComponents.EnemyState" + type);
-            ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy), typeof(string) });    
-            object enemyState = enemyConstructor.Invoke(new object[] { this, type});
+            ConstructorInfo enemyConstructor = enemyType.GetConstructor(new[] { typeof(IEnemy), typeof(string) });
+            object enemyState = enemyConstructor.Invoke(new object[] { this, type });
             EnemyState = (IEnemyState)enemyState;
 
             TypeID = GetType().Name.ToString() + EnemyState.ID;
 
-            Health = new EnemyHealth(GameVar.EnemyDefaultHealth, GameVar.EnemyDefaultHealth);  
+            Health = new EnemyHealth(GameVar.EnemyDefaultHealth, GameVar.EnemyDefaultHealth);
 
             /* Get accurate dimensions for the hitbox, but position is off */
             Position = position;
@@ -51,8 +52,8 @@ namespace Project1.EnemyComponents
             /* Get correct hibox for updated position */
             UpdateHitBox();
 
-            InitialPosition = Position;            
-            
+            InitialPosition = Position;
+
             IsMoving = true;
 
             SpawnSprite = SpriteFactory.Instance.GetSpriteData(GameVar.SpawnSpriteKey);
@@ -85,13 +86,13 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage, string direction)
         {
             GameSoundManager.Instance.PlayEnemyHit();
-            
+
             EnemyState.TakeDamage(damage);
 
             EnemyState.Sprite.Color = GameVar.GetDamageColor();
 
             Knockback(direction);
-        }       
+        }
 
         public void Knockback(string direction)
         {
@@ -103,15 +104,15 @@ namespace Project1.EnemyComponents
         public void Reset()
         {
             Spawn();
-            
+
             Health.Reset();
 
             IsMoving = true;
 
-            EnemyState.Sprite.Color = GameVar.GetEnemyColor(); 
+            EnemyState.Sprite.Color = GameVar.GetEnemyColor();
 
             // Update Hitbox for collisions 
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox); 
+            Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
 
             CollisionManager.Instance.AddObject(this);
         }
@@ -157,17 +158,29 @@ namespace Project1.EnemyComponents
 
                 IsMoving = true;
                 EnemyState.Update();
-                UpdateHitBox(); 
+                UpdateHitBox();
             }
 
             if (Health.Dead()) // remove when dead 
             {
-                GameSoundManager.Instance.PlayEnemyDie();
-                //CollisionManager.Instance.RemoveObject(this);
-                GameObjectManager.Instance.EnemyDie(this); 
+                Die();
             }
-            
+
         }
+
+        private void Die()
+        {
+            GameSoundManager.Instance.PlayEnemyDie();
+            GameObjectManager.Instance.EnemyDie(this);
+
+            // drop the enemystate's item 
+            if (!(EnemyState.DropItem is NullItem))
+            {
+                EnemyState.DropItem.Position = Position;
+                GameObjectManager.Instance.DropItem(EnemyState.DropItem);
+            }
+        }
+
 
         private void UpdateHitBox()
         {

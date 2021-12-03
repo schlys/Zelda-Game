@@ -9,15 +9,16 @@ using Project1.CollisionComponents;
 using Project1.LevelComponents;
 using Project1.ItemComponents;
 
-namespace Project1.EnemyComponents 
+namespace Project1.EnemyComponents
 {
     class EnemyStateMoblin : IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
-        public Sprite Sprite { get; set; }     
+        public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
+        public IItem DropItem { get; set; }
 
         private bool IsAttacking;
         private int MovementTimer = 0;
@@ -34,6 +35,7 @@ namespace Project1.EnemyComponents
             Rand = R.Next(0, GameVar.MoblinRandomRange);
             Step = GameVar.EnemyStep;
             IsAttacking = false;
+            DropItem = new Item(Enemy.Position, GameVar.OrangeRupeeKey);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -48,7 +50,7 @@ namespace Project1.EnemyComponents
                 if (!(DirectionState is DirectionStateUp) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveUp();
-                    
+
                     UpdateSprite();
                 }
 
@@ -67,7 +69,7 @@ namespace Project1.EnemyComponents
                 if (!(DirectionState is DirectionStateDown) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveDown();
-                    
+
                     UpdateSprite();
                 }
 
@@ -87,7 +89,7 @@ namespace Project1.EnemyComponents
                 if (!(DirectionState is DirectionStateRight) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveRight();
-                    
+
                     UpdateSprite();
                 }
 
@@ -107,7 +109,7 @@ namespace Project1.EnemyComponents
                 if (!(DirectionState is DirectionStateLeft) || Sprite.TotalFrames == 1)
                 {
                     DirectionState = DirectionState.MoveLeft();
-                    
+
                     UpdateSprite();
                 }
 
@@ -118,7 +120,7 @@ namespace Project1.EnemyComponents
                     Enemy.Position += new Vector2(-Step, 0);
                 }
             }
-        
+
         }
         private void StopMoving()
         {
@@ -143,15 +145,6 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(damage);
-            if (Enemy.Health.Dead())
-            {
-                // drop item small key 
-                Item orangeRupee = new Item(Enemy.Position, GameVar.OrangeRupeeKey);
-                orangeRupee.InitialPosition = Enemy.Position;
-                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(orangeRupee);
-                //GameObjectManager.Instance.UpdateRoomItems();
-                GameObjectManager.Instance.DropItem(orangeRupee);
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -176,7 +169,7 @@ namespace Project1.EnemyComponents
 
             if (MovementTimer > GameVar.MoblinCount)
             {
-                if(Sprite.CurrentFrame==1)  //Moblin shoot the arrow when it stops
+                if (Sprite.CurrentFrame == 1)  //Moblin shoot the arrow when it stops
                     Attack(DirectionState.ID);
                 Rand = R.Next(0, GameVar.MoblinRandomRange);
                 MovementTimer = 0;
