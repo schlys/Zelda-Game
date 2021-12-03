@@ -10,8 +10,6 @@ namespace Project1.GameState
     class GameStateStory:IGameState
     {
         private int startX = 0;
-        private int startY = 250;
-
         private int scrollY = GameVar.ScreenHeight;
 
         public void Draw(SpriteBatch spriteBatch, int i)
@@ -25,12 +23,12 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
 
             // title image
-            Rectangle sourceRectangle = new Rectangle(startX, startY, GameVar.titleWidth, GameVar.titleHeight);
+            Rectangle sourceRectangle = new Rectangle(startX, GameVar.startY, GameVar.titleWidth, GameVar.titleHeight);
             destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
-            Rectangle sourceRectangle2 = new Rectangle(startX+GameVar.titleWidth, startY, GameVar.titleWidth, GameVar.titleHeight);
-            Rectangle destinationRectangle2 = new Rectangle(0, scrollY+GameVar.ScreenHeight, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            Rectangle sourceRectangle2 = new Rectangle(startX + GameVar.titleWidth, GameVar.startY, GameVar.titleWidth, GameVar.titleHeight);
+            Rectangle destinationRectangle2 = new Rectangle(0, scrollY+GameVar.ScreenHeight-GameVar.modifier, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle2, sourceRectangle2, Color.White);
 
         }
@@ -40,7 +38,7 @@ namespace Project1.GameState
             {
                 scrollY--;
 
-            }else if(startX < 3* GameVar.titleWidth)
+            }else if(startX < 2* GameVar.titleWidth)
             {
                 scrollY = 0;
                 startX += GameVar.titleWidth;
