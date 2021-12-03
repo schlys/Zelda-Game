@@ -16,17 +16,30 @@ namespace Project1.GameState
 
         public void Draw(SpriteBatch spriteBatch, int i)
         {
+            Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
+            blackRectangle.SetData(new[] { Color.Black });
+
+            Vector2 RoomSize = GameVar.GetRoomSize() * GameVar.ScalingFactor;
+            Vector2 RoomPosition = GameVar.GetRoomPosition() * GameVar.ScalingFactor;
+            Rectangle destinationRectangle = new Rectangle(0, 0, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
+
             // title image
             Rectangle sourceRectangle = new Rectangle(startX, startY, GameVar.titleWidth, GameVar.titleHeight);
-            Rectangle destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
         }
         public void Update()
         {
-            if (scrollY > 0)
+            if (scrollY > -GameVar.titleHeight*2)
             {
                 scrollY--;
+
+            }else if(startX < 3* GameVar.titleWidth)
+            {
+                scrollY = 0;
+                startX += GameVar.titleWidth;
             }
         }
 
