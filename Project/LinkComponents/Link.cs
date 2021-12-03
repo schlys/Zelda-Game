@@ -281,19 +281,6 @@ namespace Project1.LinkComponents
             GameStateManager.Instance.GameOverWin();
         }
 
-        public void Reset()
-        {
-            Position = InitialPosition;
-            DirectionState = new DirectionStateUp();             // default state is up
-            Health.Reset();
-            UseItemName = "";
-            LockFrame = false;
-            Inventory = new Inventory(this);
-            
-            UpdateSprite();
-            Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
-        }
-
         public void Update()
         {
             LinkSprite.delay++;

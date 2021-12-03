@@ -35,7 +35,6 @@ namespace Project1.LinkComponents
         void IncreaseHealthHeartCount();
         void HitBlock(IDirectionState direction);
         void Win(); 
-        void Reset();
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void SetColor(Color color);

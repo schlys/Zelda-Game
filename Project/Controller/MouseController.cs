@@ -85,5 +85,10 @@ namespace Project1.Controller
 
             PreviousState = mouseState;
         }
+
+        public void Reset()
+        {
+
+        }
     }
 }

@@ -27,6 +27,12 @@ namespace Project1.Controller
             Game = game;
         }
 
+        public void Reset()
+        {
+            ControllerMappingsHoldKey.Clear();
+            ControllerMappingsPressKey.Clear();
+        }
+
         public void InitializeGameCommands()
         {
 
@@ -51,15 +57,6 @@ namespace Project1.Controller
                 ICommand cmd1 = (ICommand)command1;
 
                 RegisterPressCommand(cmd1, keyObj); // All Game Commands are press commands 
-                // Using below one, item window works well (but after using item window, game seems to be stopped.)
-                /*
-                if (node.Attributes["player"] == null || Int16.Parse(node.Attributes["player"].Value) == 1)
-                {
-                    if (node.Attributes["press"] != null)
-                        RegisterPressCommand(cmd1, keyObj);
-                    else
-                        RegisterHoldCommand(cmd1, keyObj);
-                }*/  
             }
         }
 

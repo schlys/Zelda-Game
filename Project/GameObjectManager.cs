@@ -76,8 +76,8 @@ namespace Project1
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
 
-            IController MouseController = new MouseController(Game);
-            Controllers.Add(MouseController);
+            //IController MouseController = new MouseController(Game);
+            //Controllers.Add(MouseController);
 
             LinkCount = 1;
             SetLinkCount(LinkCount);
@@ -87,8 +87,7 @@ namespace Project1
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
            
-            // Register Mouse commands 
-            MouseController.InitializeGameCommands();
+            
 
         }
 
@@ -269,22 +268,24 @@ namespace Project1
 
         public void Reset()
         {
-            Level.Reset(); 
+            Level.Reset();
 
-            UpdateRoomItems();
-
-            foreach (IProjectile projectile in Projectiles)
-            {
-                CollisionManager.Instance.RemoveObject((ICollidable)projectile);
-            }
+            //UpdateRoomItems();
             //Projectiles = new List<IProjectile>();
-            //DroppedItems = new List<IItem>< IItem > (); 
+            //DroppedItems = new List<IItem>< IItem > ();
+            foreach (IController controller in Controllers)
+            {
+                controller.Reset();
+                controller.InitializeGameCommands();
+            }
+
+            Projectiles.Clear();
             LinkCount = 1;
             Links.Clear();
             Links_copy.Clear();
             HUDs.Clear(); 
 
-            SetLinkCount(LinkCount);
+            //SetLinkCount(LinkCount);
         }
 
         public void AddProjectile(IProjectile projectile)

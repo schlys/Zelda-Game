@@ -18,6 +18,7 @@ namespace Project1.Controller
         void InitializeGameCommands();
         void InitializeLinkCommands(ILink Link, int player); 
         void Update();
+        void Reset();
     }
     
 }
