@@ -29,3 +29,4 @@ Overall, variable names and method names are easy to understand.
 Code Quality Review:
 
 Overall, codes show high cohesion and low coupling.
+There are some magic numbers on GameStateStart, need to be deleted.
