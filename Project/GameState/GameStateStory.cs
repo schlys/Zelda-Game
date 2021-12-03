@@ -10,7 +10,7 @@ namespace Project1.GameState
     class GameStateStory:IGameState
     {
         private int startX = 0;
-        private int startY = 249;
+        private int startY = 250;
 
         private int scrollY = GameVar.ScreenHeight;
 
@@ -28,6 +28,10 @@ namespace Project1.GameState
             Rectangle sourceRectangle = new Rectangle(startX, startY, GameVar.titleWidth, GameVar.titleHeight);
             destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
+
+            Rectangle sourceRectangle2 = new Rectangle(startX+GameVar.titleWidth, startY, GameVar.titleWidth, GameVar.titleHeight);
+            Rectangle destinationRectangle2 = new Rectangle(0, scrollY+GameVar.ScreenHeight, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle2, sourceRectangle2, Color.White);
 
         }
         public void Update()
