@@ -45,11 +45,11 @@ namespace Project1.GameState
             // Highlight selection  
             if (GameObjectManager.Instance.LinkCount == 1)
             {
-                destinationRectangle = new Rectangle((int)num1_position.X - 5, (int)num1_position.Y + 2, 40, 55);
+                destinationRectangle = new Rectangle((int)num1_position.X - 5, (int)num1_position.Y + 2, GameVar.highlightWidth, GameVar.highlightHeight);
             }
             else
             {
-                destinationRectangle = new Rectangle((int)num2_position.X - 5, (int)num2_position.Y + 2, 40, 55);
+                destinationRectangle = new Rectangle((int)num2_position.X - 5, (int)num2_position.Y + 2, GameVar.highlightWidth, GameVar.highlightHeight);
             }
             spriteBatch.Draw(numSelect, destinationRectangle, Color.White);
 

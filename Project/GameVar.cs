@@ -88,6 +88,9 @@ namespace Project1
         public const int titleWidth = 257;
         public const int titleHeight = 225;
 
+        public const int highlightWidth = 40;
+        public const int highlightHeight = 55;
+
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
 

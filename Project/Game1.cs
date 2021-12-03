@@ -30,6 +30,7 @@ namespace Project1
             graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
             graphics.ApplyChanges();
+
             Window.AllowUserResizing = true;
         }
         protected override void Initialize()
