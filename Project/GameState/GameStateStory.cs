@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project1.GameState
 {
-    class GameStateStory:IGameState
+    class GameStateStory : IGameState
     {
         private int startX = 0;
         private int scrollY = GameVar.ScreenHeight;
@@ -28,17 +28,18 @@ namespace Project1.GameState
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
             Rectangle sourceRectangle2 = new Rectangle(startX + GameVar.titleWidth, GameVar.startY, GameVar.titleWidth, GameVar.titleHeight);
-            Rectangle destinationRectangle2 = new Rectangle(0, scrollY+GameVar.ScreenHeight-GameVar.modifier, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            Rectangle destinationRectangle2 = new Rectangle(0, scrollY + GameVar.ScreenHeight - GameVar.modifier, GameVar.ScreenWidth, GameVar.ScreenHeight);
             spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle2, sourceRectangle2, Color.White);
 
         }
         public void Update()
         {
-            if (scrollY > -GameVar.titleHeight*2)
+            if (scrollY > -GameVar.titleHeight * 2)
             {
                 scrollY--;
 
-            }else if(startX < 2* GameVar.titleWidth)
+            }
+            else if (startX < 2 * GameVar.titleWidth)
             {
                 scrollY = 0;
                 startX += GameVar.titleWidth;

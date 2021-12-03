@@ -92,7 +92,7 @@ namespace Project1
         public const int highlightHeight = 55;
 
         public const int startY = 250;  // for story
-        public const int modifier = 5;
+        public const int modifier = 10;
 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
