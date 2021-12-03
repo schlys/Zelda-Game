@@ -7,6 +7,7 @@ using Project1.SpriteComponents;
 using Project1.EnemyComponents;
 using Project1.DirectionState;
 using Project1.CollisionComponents;
+using Project1.ItemComponents; 
 
 namespace Project1.EnemyComponents
 {
@@ -17,6 +18,7 @@ namespace Project1.EnemyComponents
         Sprite Sprite { get; set; }
         string ID { get; set; }
         int Step { get; set; }
+        IItem DropItem { get; set; }
         void Draw(SpriteBatch spriteBatch, Vector2 position);
         void Update();
         void TakeDamage(double damage);
