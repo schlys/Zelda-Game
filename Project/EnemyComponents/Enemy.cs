@@ -92,6 +92,10 @@ namespace Project1.EnemyComponents
             EnemyState.Sprite.Color = GameVar.GetDamageColor();
 
             Knockback(direction);
+            if (Health.Dead()) // remove when dead 
+            {
+                Die();
+            }
         }
 
         public void Knockback(string direction)
@@ -113,8 +117,6 @@ namespace Project1.EnemyComponents
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, EnemyState.Sprite.HitBox);
-
-            CollisionManager.Instance.AddObject(this);
         }
 
         public void Spawn()
@@ -125,13 +127,16 @@ namespace Project1.EnemyComponents
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (IsSpawning)
+            if (!Health.Dead())
             {
-                SpawnSprite.Draw(spriteBatch, Position);
-            }
-            else
-            {
-                EnemyState.Draw(spriteBatch, Position);
+                if (IsSpawning)
+                {
+                    SpawnSprite.Draw(spriteBatch, Position);
+                }
+                else
+                {
+                    EnemyState.Draw(spriteBatch, Position);
+                }
             }
         }
 
@@ -161,10 +166,7 @@ namespace Project1.EnemyComponents
                 UpdateHitBox();
             }
 
-            if (Health.Dead()) // remove when dead 
-            {
-                Die();
-            }
+            
 
         }
 

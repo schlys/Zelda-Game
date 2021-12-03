@@ -37,6 +37,7 @@ namespace Project1.ProjectileComponents
         
         public LinkWeapon(LinkHealth health, string ID, string direction, int delay, Rectangle parent)
         {
+            Damage = GameVar.SwordDamage;
             this.delay = delay;
             TypeID = ID + "Attack";
             IsMoving = true;

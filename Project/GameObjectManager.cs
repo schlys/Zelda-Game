@@ -164,7 +164,7 @@ namespace Project1
             Items = Room.Items;
             DroppedItems = new List<IItem>(); 
             Blocks = Room.Blocks;
-            Enemies = new List<IEnemy>(Room.Enemies);       // must be copy so not change original list
+            Enemies = Room.Enemies;
             Doors = Room.Doors;
             Projectiles = new List<IProjectile>();
 
@@ -184,8 +184,11 @@ namespace Project1
             }
             foreach (IEnemy enemy in Enemies)
             {
-                CollisionManager.Instance.AddObject((ICollidable)enemy);
-                enemy.Spawn();
+                if (!enemy.Health.Dead())
+                {
+                    CollisionManager.Instance.AddObject((ICollidable)enemy);
+                    enemy.Spawn();
+                }
             }
             foreach (IDoor door in Doors)
             {
@@ -309,8 +312,6 @@ namespace Project1
 
         public void EnemyDie(IEnemy enemy)
         {
-            Enemies.Remove(enemy);
-
             CollisionManager.Instance.RemoveObject((ICollidable)enemy); 
         }
 

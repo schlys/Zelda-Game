@@ -35,6 +35,7 @@ namespace Project1
         // COMMAND ******************************************************************
         public const int LinkDamage = 20;
         public const double EnemyDamage = 0.5;
+        public const double SwordDamage = 100;
 
 
         // CONTROLLER ****************************************************************
