@@ -22,6 +22,11 @@ namespace Project1.GameState
             // Draw game objects 
             GameObjectManager.Instance.Draw(spriteBatch, i);
         }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
+        }
         public IGameState Reset()
         {
             return new GameStateStart();

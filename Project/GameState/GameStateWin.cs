@@ -37,6 +37,11 @@ namespace Project1.GameState
             TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- buffer, RoomSize.Y / 2+ buffer/2));
             Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- buffer, RoomSize.Y / 2+ buffer));
         }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
+        }
         public IGameState Reset()
         {
             return new GameStateStart();

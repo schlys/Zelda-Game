@@ -53,7 +53,7 @@ namespace Project1
         protected override void Update(GameTime gameTime)
         {
             GameObjectManager.Instance.Update();
-
+            GameStateManager.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -85,6 +85,11 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             GameStateManager.Instance.Start();
+        }
+
+        public void Story()
+        {
+            GameStateManager.Instance.Story();
         }
 
         public void ItemSelection()

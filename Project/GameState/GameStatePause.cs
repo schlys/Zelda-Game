@@ -28,6 +28,11 @@ namespace Project1.GameState
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.PauseText1, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 - buffer), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.PauseText2, new Vector2(RoomSize.X / 2 - (buffer * 4), RoomSize.Y / 2 + buffer), Color.White);
         }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
+        }
         public IGameState Reset()
         {
             return new GameStateStart();

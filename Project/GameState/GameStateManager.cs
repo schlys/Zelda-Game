@@ -131,6 +131,14 @@ namespace Project1.GameState
                 CurrentState = CurrentState.StartGame();
             }
         }
+        public void Update()
+        {
+            CurrentState.Update();
+        }
+        public void Story()
+        {
+            CurrentState = CurrentState.Story();
+        }
         public void ItemSelection() 
         {
             /* Display the item selection screen

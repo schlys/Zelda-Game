@@ -82,6 +82,25 @@ namespace Project1.Command
         }
     }
 
+    class GameStoryCmd : ICommand
+    {
+        private Game1 game;
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public GameStoryCmd(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public void Execute()
+        {
+            game.Story();
+        }
+    }
+
     class GameItemSelectCmd : ICommand
     {
         private Game1 game;

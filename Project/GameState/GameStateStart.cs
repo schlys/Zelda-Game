@@ -56,7 +56,11 @@ namespace Project1.GameState
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum1, num1_position, Color.Black);
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.TextNum2, num2_position, Color.Black);
         }
-
+        public void Update() { }
+        public IGameState Story()
+        {
+            return new GameStateStory();
+        }
         public IGameState Reset()
         {
             return this;

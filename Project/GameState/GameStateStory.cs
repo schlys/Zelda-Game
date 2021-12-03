@@ -1,40 +1,51 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.LevelComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Project1.SpriteComponents;
-using Project1.LevelComponents;
 
 namespace Project1.GameState
 {
-    public class GameStateStore: IGameState
+    class GameStateStory:IGameState
     {
+        private int startX = 0;
+        private int startY = 249;
 
-        public GameStateStore()
-        {
-        }
+        private int scrollY = GameVar.ScreenHeight;
+
         public void Draw(SpriteBatch spriteBatch, int i)
         {
-            GameObjectManager.Instance.Draw(spriteBatch, i);
+            // title image
+            Rectangle sourceRectangle = new Rectangle(startX, startY, GameVar.titleWidth, GameVar.titleHeight);
+            Rectangle destinationRectangle = new Rectangle(0, scrollY, GameVar.ScreenWidth, GameVar.ScreenHeight);
+            spriteBatch.Draw(LevelFactory.Instance.GetTexture("titleScreens"), destinationRectangle, sourceRectangle, Color.White);
 
         }
-        public void Update() { }
+        public void Update()
+        {
+            if (scrollY > 0)
+            {
+                scrollY--;
+            }
+        }
+
         public IGameState Story()
         {
             return this;
         }
+
         public IGameState Reset()
         {
             return new GameStateStart();
         }
         public IGameState Pause()
         {
-            return new GameStatePause(); 
+            return this;
         }
         public IGameState StartGame()
         {
-            return this;
+            return new GameStateGamePlay();
         }
         public IGameState WinGame()
         {
@@ -56,14 +67,13 @@ namespace Project1.GameState
         {
             return this;
         }
-
         public IGameState EnterStoreMenu()
         {
             return this;
         }
         public IGameState ExitStoreMenu()
         {
-            return new GameStateGamePlay();
+            return this;
         }
     }
 }
