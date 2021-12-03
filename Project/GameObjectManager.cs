@@ -385,10 +385,6 @@ namespace Project1
         {
             Level.MoveRight(position);
         }
-        public Vector2 GetRoomSize()
-        {
-            return Level.CurrentRoom.Size; 
-        }
         public Rectangle GetPlayableRoomBounds()
         {
             return Level.GetPlayableRoomBounds(); 

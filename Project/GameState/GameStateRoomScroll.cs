@@ -10,7 +10,7 @@ namespace Project1.GameState
 {
     public class GameStateRoomScroll: IGameState
     {
-        /* Used for the room selection screen on room changes
+        /* Used for the room scroll screen on room changes
          */        
         public GameStateRoomScroll()
         {

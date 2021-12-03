@@ -10,8 +10,10 @@ using System.Windows.Forms;
 namespace Project1.GameState
 {
     /* GameStateManager is a singleton that manages the current state  for the game
-     * using <CurrentState>. The states include the start, game play, item selection screen, 
-     * game over win, game over lose, pause, game over, restart, and scrollscreen state. 
+     * using <CurrentState>. It also makes calls to GameObjectManager like drawing and 
+     * resetting at the appropriate time. The states include start, game play, item 
+     * selection, store, game over win, game over lose, pause, restart, and the 
+     * scrolling states. 
      */ 
     public sealed class GameStateManager: IGameStateManager
     {
@@ -28,7 +30,7 @@ namespace Project1.GameState
         public SpriteFont TitleFont { get; set; }
         public SpriteFont BodyFont { get; set; }
 
-        public List<Tuple<SwapChainRenderTarget, Form>> swapChain;
+        private List<Tuple<SwapChainRenderTarget, Form>> SwapChain;
         
         private GameStateManager() 
         {
@@ -42,51 +44,60 @@ namespace Project1.GameState
             TitleFont = GameStateManager.Instance.Game.Content.Load<SpriteFont>(GameVar.TitleFont);
             BodyFont = GameStateManager.Instance.Game.Content.Load<SpriteFont>(GameVar.BodyFont);
 
-            swapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
-
+            // Add the current window to <SwapChain> 
+            SwapChain = new List<Tuple<SwapChainRenderTarget, Form>>();
             Game.Window.Title = "Project1 - player 1";
         }
 
-        
         public void Draw(SpriteBatch spriteBatch) 
         {
-            for (int i = 0; i < swapChain.Count; i++)
+            /* Draw <CurrentState> in each window of <SwapChain> and afterwards
+             * redraw it on the initial window to prevent flickering. 
+             */ 
+            
+            for (int i = 0; i < SwapChain.Count; i++)
             {
-                Game.GraphicsDevice.SetRenderTarget(swapChain[i].Item1);
+                Game.GraphicsDevice.SetRenderTarget(SwapChain[i].Item1);
                 Game.GraphicsDevice.Clear(GameVar.GetLinkColor(i+1));
                 CurrentState.Draw(spriteBatch, i+1);
-                swapChain[i].Item1.Present();
+                SwapChain[i].Item1.Present();
             }
 
             Game.GraphicsDevice.SetRenderTarget(null);
             Game.GraphicsDevice.Clear(GameVar.GetLinkColor(GameVar.Player1));
-
-            // Draw first player window separately to prevent flickering
             CurrentState.Draw(spriteBatch, GameVar.Player1);
            
         }
         public void Reset() 
         {
-            // Restart the game from the beginning 
+            /* Restart the game, reset <GameObjectManager, and clear <SwapChain>. 
+             */
+            
             CurrentState = CurrentState.Reset();
             GameObjectManager.Instance.Reset();
 
-            if (swapChain.Count > 0)
+            if (SwapChain.Count > 0)
             {
-                for (int i = 0; i < swapChain.Count; i++)
+                for (int i = 0; i < SwapChain.Count; i++)
                 {
-                    swapChain[i].Item2.Visible = false;
+                    SwapChain[i].Item2.Visible = false;
                 }
-                swapChain.RemoveRange(0, swapChain.Count);
+                SwapChain.RemoveRange(0, SwapChain.Count);
             }
         }
         public void Pause() 
         {
-            // Pause the game - stop all motion
+            /* Pause the game - stop all motion
+             */ 
+            
             CurrentState = CurrentState.Pause();
         }
         public void Start() 
         {
+            /* Start the game, create a new window for [number of players - 1] since 
+             * one window already exists. Create the palyers in <GameObjectManager>. 
+             */ 
+            
             if (CurrentState is GameStateStart)
             {
                 // create a new window for each new player - 1 since one window already exists
@@ -101,7 +112,7 @@ namespace Project1.GameState
                     newForm.Location = new System.Drawing.Point(0, GameVar.ScreenWidth / 8);
                     newForm.Visible = true;
 
-                    swapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
+                    SwapChain.Add(Tuple.Create(new SwapChainRenderTarget(Game.GraphicsDevice,
                         newWindow.Handle,
                         newWindow.ClientBounds.Width,
                         newWindow.ClientBounds.Height,
@@ -113,6 +124,7 @@ namespace Project1.GameState
                         PresentInterval.Default), newForm)
                    );
                 }
+
                 GameObjectManager.Instance.CreatePlayers();
 
                 GameSoundManager.Instance.PlaySong();
@@ -121,19 +133,22 @@ namespace Project1.GameState
         }
         public void ItemSelection() 
         {
-            // Display the item selection screen
+            /* Display the item selection screen
+             */  
             CurrentState = CurrentState.ItemSelectMenu();
         }
         public void GameOverLose() 
         {
-            // Game is lost, can restart the game or exit 
+            /* Game is lost, can restart the game or exit 
+             */  
             GameSoundManager.Instance.PlayLinkDie();
             GameSoundManager.Instance.StopSong();
             CurrentState = CurrentState.LoseGame();
         }
         public void GameOverWin() 
         {
-            // Game is won, can restart the game or exit 
+            /* Game is won, can restart the game or exit 
+             */  
             CurrentState = CurrentState.WinGame();
         }
 
@@ -148,7 +163,8 @@ namespace Project1.GameState
         }
         public void StartScroll()
         {
-            // In GamePlay, trigger scroll animation
+            /* In GamePlay, trigger scroll animation
+             */  
             CurrentState = CurrentState.StartScroll();
         }
         public void StopScroll()
@@ -166,32 +182,27 @@ namespace Project1.GameState
         }
         public bool CanPlayGame()
         {
-            // True if <CurrentState> is of type GameStateGamePlay 
             return (CurrentState is GameStateGamePlay); 
         }
         public bool CanDrawHUD()
         {
-            // True if not drawing item select screen 
+            // True if not drawing item select screen or item scrolling 
             return !CanItemSelect() && !CanItemScroll();
         }
         public bool CanItemSelect()
         {
-            // True if <CurrentState> is of type GameItemSelect
             return (CurrentState is GameStateItemSelect);
         }
         public bool CanItemScroll()
         {
-            // True if <CurrentState> is of type GameItemScroll 
             return (CurrentState is GameStateItemScroll); 
         }
         public bool CanRoomScroll()
         {
-            // True if <CurrentState> is of type GameRoomScroll
             return (CurrentState is GameStateRoomScroll);
         }
         public bool CanStoreMenu()
         {
-            // True if <CurrentState> is of type GameRoomScroll
             return (CurrentState is GameStateStore);
         }
     }
