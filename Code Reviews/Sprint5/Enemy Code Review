@@ -1,0 +1,34 @@
+Author of the code review: 
+
+Chaeun Hong
+
+Date of the code review: 
+
+12/02/2021
+
+Sprint number: 
+
+5
+
+Name of the .cs file being reviewed: 
+
+All .cs files in EnemyComponents except IEnemyState.cs
+
+Author of the .cs file being reviewed:
+
+Elise Kosmides, Jake Haskins, Sam Chlystek, Andy Kroh
+
+Number of minutes taken to complete the review:
+
+30 min
+
+Readabiliity Review: 
+
+Overall, variable names and method names are easy to understand.
+For better readability, need to remove unuseful annotations.
+
+Code Quality Review:
+
+Overall, all codes are high cohesion and low coupling.
+There are not any magic numbers.
+Some .cs files have unused private methods such as StopMoving method EnemyStateGel.cs, so they are needed to be deleted.
