@@ -123,33 +123,33 @@
 				<row>5</row>
 				<column>10</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>Angel</type2>
 				<row>0</row>
 				<column>0</column>
-			</object>
-			<object>
+			</object>-->
+			<!--<object>
 				<type>Item</type>
 				<type2>RecoveryHeart</type2>
 				<row>1</row>
 				<column>0</column>
-			</object>
-			<object>
+			</object>-->
+			<!--<object>
 				<type>Item</type>
 				<type2>HeartContainer</type2>
 				<row>2</row>
 				<column>0</column>
-			</object>
+			</object>-->
 			
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>LifePotion</type2>
 				<row>4</row>
 				<column>0</column>
-			</object>
+			</object>-->
 			
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>Compass</type2>
 				<row>0</row>
@@ -160,7 +160,7 @@
 				<type2>DungeonMap</type2>
 				<row>2</row>
 				<column>1</column>
-			</object>
+			</object>-->
 		
 			<object>
 				<type>Item</type>
@@ -176,31 +176,31 @@
 				<column>2</column>
 			</object>
 			
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>Bow</type2>
 				<row>4</row>
 				<column>2</column>
-			</object>
-			<object>
+			</object>-->
+			<!--<object>
 				<type>Item</type>
 				<type2>BoomerangSolid</type2>
 				<row>5</row>
 				<column>2</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Item</type>
 				<type2>MagicalBoomerangSolid</type2>
 				<row>6</row>
 				<column>2</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>BombSolid</type2>
 				<row>0</row>
 				<column>3</column>
-			</object>
-			<object>
+			</object>-->
+			<!--<object>
 				<type>Item</type>
 				<type2>OrangeRupee</type2>
 				<row>1</row>
@@ -211,26 +211,26 @@
 				<type2>BlueRupee</type2>
 				<row>2</row>
 				<column>3</column>
-			</object>
+			</object>-->
 			
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>0</row>
 				<column>4</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Item</type>
 				<type2>SilverArrowUp</type2>
 				<row>2</row>
 				<column>7</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>BookOfMagic</type2>
 				<row>2</row>
 				<column>8</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Item</type>
 				<type2>MagicalRod</type2>
@@ -434,12 +434,12 @@
 				<row>6</row>
 				<column>3</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>6</row>
 				<column>3</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Item</type>
 				<type2>Clock</type2>
@@ -889,11 +889,17 @@
 				<row>7</row>
 				<column>5.5</column>
 			</object>
-			<object>
+			<object special="true">
 				<type>Block</type>
 				<type2>Last</type2>
 				<row>3</row>
 				<column>5</column>
+			</object>
+			<object>
+				<type>Item</type>
+				<type2>MagicalBoomerangSolid</type2>
+				<row>3.2</row>
+				<column>5.5</column>
 			</object>
 			<object>
 				<type>Enemy</type>
@@ -1255,11 +1261,17 @@
 				<row>5</row>
 				<column>10</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>6</row>
 				<column>8</column>
+			</object>-->
+			<object>
+				<type>Item</type>
+				<type2>HeartContainer</type2>
+				<row>2</row>
+				<column>0</column>
 			</object>
 		</Room>
 
@@ -1304,12 +1316,12 @@
 				<row>4</row>
 				<column>8</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>4</row>
 				<column>3</column>
-			</object>
+			</object>-->
 			<object special="true">
 				<type>Block</type>
 				<type2>Blue</type2>
@@ -1594,7 +1606,7 @@
 			<xPos>1029</xPos>
 			<yPos>177</yPos>
 			<up></up>
-			<down>room13</down>
+			<down>room12</down>
 			<left></left>
 			<right>room15</right>
 			<object locked="true">
@@ -2257,6 +2269,12 @@
 				<row>2</row>
 				<column>6</column>
 			</object>
+			<object>
+				<type>Item</type>
+				<type2>Angel</type2>
+				<row>2</row>
+				<column>6</column>
+			</object>
 
 
 		</Room>
@@ -2519,12 +2537,12 @@
 				<row>3</row>
 				<column>4</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>SmallKey</type2>
 				<row>1</row>
 				<column>6</column>
-			</object>
+			</object>-->
 		</Room>
 
 	</Level>

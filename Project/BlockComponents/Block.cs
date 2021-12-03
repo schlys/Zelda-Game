@@ -53,7 +53,7 @@ namespace Project1.BlockComponents
         public void Reset()
         {
             /* Reset <TypeID> and <Sprite> to their initial state 
-             */ 
+             */
             TypeID = InitialTypeID;
             UpdateSprite(InitialSpriteKey);
             Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);

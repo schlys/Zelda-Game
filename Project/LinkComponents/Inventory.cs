@@ -76,8 +76,8 @@ namespace Project1.LinkComponents
 
             // TODO: move bombcount and itemdimensions to GameVar 
             RupeeCount = 0;
-            BombCount = 5;
-            KeyCount = 0;
+            BombCount = 2;
+            KeyCount = 2;
 
             ItemDimentions = new Vector2(4, 2);
         }

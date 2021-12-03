@@ -34,6 +34,11 @@
 		<command1>EnemyKnockbackCmd</command1>
 		<command2>NoCmd</command2>
 	</Collision>
+	<Collision>
+		<name>EnemyBlockLast</name>
+		<command1>EnemyKnockbackCmd</command1>
+		<command2>NoCmd</command2>
+	</Collision>
 	
 	<!-- PROJECTILE -->
 	

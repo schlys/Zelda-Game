@@ -51,13 +51,13 @@ namespace Project1.StoreComponents
             Item3Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.BookOfMagicKey);
 
             Item1 = new Item(position, GameVar.LifePotionKey, false);
-            PriceItem1 = 1;
+            PriceItem1 = 10;
 
             Item2 = new Item(position, GameVar.BombKey, false);
-            PriceItem2 = 1;
+            PriceItem2 = 10;
 
             Item3 = new Item(position, GameVar.BookOfMagicKey, false);
-            PriceItem3 = 1;
+            PriceItem3 = 30;
 
         }
 

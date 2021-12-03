@@ -231,13 +231,13 @@ namespace Project1
             //LevelFactory.Instance.Draw(spriteBatch);
             Level.Draw(spriteBatch); 
 
-            foreach (IBlock block in Blocks)
-            {
-                block.Draw(spriteBatch);
-            }
             foreach (IItem item in Items)
             {
                 item.Draw(spriteBatch);
+            }
+            foreach (IBlock block in Blocks)
+            {
+                block.Draw(spriteBatch);
             }
             foreach (IItem item in DroppedItems)
             {
@@ -270,9 +270,6 @@ namespace Project1
         {
             Level.Reset();
 
-            //UpdateRoomItems();
-            //Projectiles = new List<IProjectile>();
-            //DroppedItems = new List<IItem>< IItem > ();
             foreach (IController controller in Controllers)
             {
                 controller.Reset();
@@ -284,8 +281,6 @@ namespace Project1
             Links.Clear();
             Links_copy.Clear();
             HUDs.Clear(); 
-
-            //SetLinkCount(LinkCount);
         }
 
         public void AddProjectile(IProjectile projectile)
