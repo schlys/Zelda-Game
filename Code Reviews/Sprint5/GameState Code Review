@@ -1,0 +1,32 @@
+Author of the code review: 
+
+Chaeun Hong
+
+Date of the code review: 
+
+12/02/2021
+
+Sprint number: 
+
+5
+
+Name of the .cs file being reviewed: 
+
+All .cs files in the GameState folder
+
+Author of the .cs file being reviewed:
+
+Chaeun Hong, Elise Kosmides, Sam Chlystek, Andy Kroh
+
+Number of minutes taken to complete the review:
+
+30 min
+
+Readabiliity Review: 
+
+Overall, variable names and method names are easy to understand.
+
+Code Quality Review:
+
+Overall, codes show high cohesion and low coupling.
+There are some magic numbers on GameStateStart, need to be deleted.

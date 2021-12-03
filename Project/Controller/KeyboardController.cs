@@ -1,16 +1,9 @@
+using System;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 using Project1.Command;
 using System.Collections.Generic;
 using Project1.LinkComponents;
-using Project1.BlockComponents;
-using Project1.ItemComponents;
-using Project1.EnemyComponents;
-using System;
 using System.Reflection;
-using System.Text;
 using System.Xml;
 
 using Project1.CollisionComponents;
@@ -24,7 +17,7 @@ namespace Project1.Controller
         private Dictionary<Keys, List<ICommand>> ControllerMappingsHoldKey;   // Keys can be held and continue to execute
         private Dictionary<Keys, List<ICommand>> ControllerMappingsPressKey;  // Keys are executed once per press 
 
-        private Keys LinkStopKey = Keys.B;          // any key not used in the game 
+        private Keys LinkStopKey = GameVar.GetLinkStopKey(); 
         private KeyboardState PreviousState; 
         
         public KeyboardController(Game1 game)
@@ -36,10 +29,6 @@ namespace Project1.Controller
 
         public void InitializeGameCommands()
         {
-            /* Register link movement commands in <ControllerMappingsPressKey> 
-             * Use 'q' to quit the program and 'r' to reset the program back to 
-             * its initial state 
-             */ 
 
             Assembly assem = typeof(ICommand).Assembly;
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
@@ -76,11 +65,6 @@ namespace Project1.Controller
 
         public void InitializeLinkCommands(ILink Link, int player)
         {
-            /* Use arrow keys or WSAD to cause Link to move 
-             * Use 'z' and 'n' to cause Link to attack using his sword 
-             * Use number keys(1, 2, 3, etc.) should be used to have Link use a different item
-             * Use 'e' to cause Link to become damaged
-            */
 
             Assembly assem = typeof(ICommand).Assembly;
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Keys));
@@ -158,6 +142,7 @@ namespace Project1.Controller
                     }
                 }
             }
+
             // Execute commands for held keys
             foreach (Keys key in pressedKeys)
             {
@@ -182,6 +167,7 @@ namespace Project1.Controller
                     }
                 }
             }
+            
 
             PreviousState = state; 
         }

@@ -7,16 +7,19 @@ using System.Collections.Generic;
 using System.Text;
 using Project1.CollisionComponents;
 using Project1.LevelComponents;
+using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
 {
-    class EnemyStateOldMan: IEnemyState
+    class EnemyStateOldMan : IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
+        public IItem DropItem { get; set; }
+
         public EnemyStateOldMan(IEnemy enemy, string type)
         {
             Enemy = enemy;
@@ -25,6 +28,7 @@ namespace Project1.EnemyComponents
             ID = type;
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = 0;   // no movement
+            DropItem = new NullItem();
         }
 
         public void TakeDamage(double damage)

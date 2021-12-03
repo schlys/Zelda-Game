@@ -38,8 +38,7 @@ namespace Project1.LevelComponents
 
         public void LoadAllTextures(ContentManager content)
         {
-            /* NOTE: Load the textures used for rooms, call CreateDict to create the level dictionary, set the
-             * CurrentRoom to the starting room, and set the LinkStartingPosition. 
+            /* Load the textures used for rooms and HUD from their XML files. 
              */
 
             // Load textures for room 
@@ -63,7 +62,9 @@ namespace Project1.LevelComponents
 
         public Texture2D GetTexture(String key)
         {
-            // TODO: return null texture object 
+            /* Return the room texture in <TextureDict> with <key> if found. 
+             */ 
+
             if (TextureDict.ContainsKey(key))
             {
                 return TextureDict[key];
@@ -75,7 +76,9 @@ namespace Project1.LevelComponents
         }
         public Texture2D GetHUDTexture(String key)
         {
-            // TODO: return null texture object 
+            /* Return the HUD texture in <HUDTextures> with <key> if found. 
+            */
+
             if (HUDTextures.ContainsKey(key))
             {
                 return HUDTextures[key];
@@ -85,7 +88,7 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException();
             }
         }
-
+        /*
         public IRoom GetRoom(String key)
         {
             if (LevelDict.ContainsKey(key))
@@ -96,6 +99,6 @@ namespace Project1.LevelComponents
             {
                 throw new IndexOutOfRangeException();
             }
-        }
+        }*/
     }
 }

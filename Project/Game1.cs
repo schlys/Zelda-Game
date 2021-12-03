@@ -30,6 +30,7 @@ namespace Project1
             graphics.PreferredBackBufferWidth = GameVar.ScreenWidth;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = GameVar.ScreenHeight;
             graphics.ApplyChanges();
+
             Window.AllowUserResizing = true;
         }
         protected override void Initialize()
@@ -52,7 +53,7 @@ namespace Project1
         protected override void Update(GameTime gameTime)
         {
             GameObjectManager.Instance.Update();
-
+            GameStateManager.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -84,6 +85,11 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             GameStateManager.Instance.Start();
+        }
+
+        public void Story()
+        {
+            GameStateManager.Instance.Story();
         }
 
         public void ItemSelection()

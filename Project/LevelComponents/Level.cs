@@ -25,35 +25,23 @@ namespace Project1.LevelComponents
         public ILevelMap LevelMap { get; set; }
 
         // Other Properties 
-        private IRoom NextRoom;
-
         public Vector2 CurrentRoomPosition;
+        public int PlayableWidth;
+        public int PlayableHeight;
+
+        private IRoom NextRoom;
         private static Vector2 RoomPosition;
         private Vector2 CurrentRoomInitialPosition; 
-
-        //public Vector2 LinkStartingPosition { get; set; }
-
         private static Dictionary<string, IRoom> LevelDict;
-
-        // TODO: Load in XML
-        // ****** What is the purpose of adjust? 
-        
         private static int Adjust;
-
         private static Vector2 ScrollAdjust;
         private static float ScrollStep;
-
         private static int RoomBorderSize;
         private static int RoomBlockSize;
         private static int RoomRows;
         private static int RoomColumns;
-
-        public int PlayableWidth;
-        public int PlayableHeight;
-
         private static List<Vector2> NewLinkPosition;
         private static IDirectionState NewLinkDirection;
-
         private static string StartRoom;
         
         public Level()
@@ -92,7 +80,8 @@ namespace Project1.LevelComponents
 
         private void CreateDict()
         {
-            // Initalize and load <LevelDict> with the room data from XMLLevel.XML
+            /* Initalize and load <LevelDict> with the room data from XMLLevel.XML
+            */
 
             LevelDict = new Dictionary<string, IRoom>();
 
@@ -182,8 +171,10 @@ namespace Project1.LevelComponents
         }
         public void Reset()
         {
-            /* Update <CurrentRoom> to be the <StartRoom> and reset the room.
+            /* Update <CurrentRoom> to be the <StartRoom>, reset all rooms in <LevelDict>, 
+             * and reset <LevelMap>.
              */
+
             CurrentRoomPosition = CurrentRoomInitialPosition;
 
             if (LevelDict.ContainsKey(StartRoom))
@@ -200,7 +191,6 @@ namespace Project1.LevelComponents
                 room.Reset();
             }
 
-            //CurrentRoom.Reset();
             LevelMap.Reset();
         }
         public void MoveUp(Vector2 position)
@@ -332,7 +322,8 @@ namespace Project1.LevelComponents
 
         private void Scroll()
         {
-            /* Scroll the room in the direction <step>
+            /* Scroll the rooms <NextRoom> and <CurrentRoom> by <ScrollAdjust> until <NextRoom>
+             * reaches the inital room position. 
              */
 
             if (Math.Abs(NextRoom.Position.X - CurrentRoomInitialPosition.X) <= ScrollStep &&
@@ -356,9 +347,10 @@ namespace Project1.LevelComponents
 
         public Vector2 GetItemPosition(float row, float column)
         {
-            /* NOTE: return the location of the item in the room given the row and column. 
+            /* Return the location of the item in the room given the row and column. 
              * Throw an exception if the row or column is out of the room range. 
              */
+
             if (row > RoomRows)
             {
                 throw new ArgumentException();
@@ -375,14 +367,18 @@ namespace Project1.LevelComponents
 
         public Rectangle GetPlayableRoomBounds()
         {
-            // NOTE: Return the playable space within the room 
+            /* Return the playable space within the room. 
+             */
+            
             return new Rectangle((int)RoomPosition.X + RoomBorderSize, (int)RoomPosition.Y + RoomBorderSize,
                 PlayableWidth, PlayableHeight);
         }
 
         public bool IsWithinRoomBounds(Vector2 location)
         {
-            // NOTE: Return true if the given location is within the playable space within the room 
+            /* Return true if the given location is within the playable space within the room. 
+            */
+
             Rectangle bounds = GetPlayableRoomBounds();
             if (bounds.Contains(location.X, location.Y))
             {

@@ -12,7 +12,6 @@ namespace Project1.GameState
         Game1 Game { get; set; }
         SpriteFont TitleFont { get; set; }
         SpriteFont BodyFont { get; set; }
-
         void Initialize(Game1 game);
         void Reset(); 
         void Pause();

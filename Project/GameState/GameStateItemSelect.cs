@@ -16,6 +16,11 @@ namespace Project1.GameState
             // Drawing handled in HUD.cs since it has access to needed data like Link's Inventory
             GameObjectManager.Instance.Draw(spriteBatch, i);
         }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
+        }
         public IGameState Reset()
         {
             return new GameStateStart();

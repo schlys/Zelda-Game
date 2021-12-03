@@ -11,13 +11,14 @@ using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
 {
-    class EnemyStateStalfos: IEnemyState
+    class EnemyStateStalfos : IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
+        public IItem DropItem { get; set; }
 
         private int MovementTimer;
         private Random R = new Random();
@@ -28,6 +29,7 @@ namespace Project1.EnemyComponents
             DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             Step = GameVar.EnemyStep;
+            DropItem = new Item(Enemy.Position, GameVar.SmallKey);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -93,14 +95,6 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(damage);
-            if (Enemy.Health.Dead())
-            {
-                // drop item small key 
-                Item smallKey = new Item(Enemy.Position, "SmallKey");
-                smallKey.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(smallKey);
-                GameObjectManager.Instance.UpdateRoomItems();
-            }
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {

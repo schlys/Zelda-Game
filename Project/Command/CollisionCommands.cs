@@ -152,7 +152,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Enemy.AvoidEnemy(Direction);
+            Enemy.Knockback(Direction);
         }
     }
 
@@ -169,7 +169,7 @@ namespace Project1.Command
         public void Execute()
         {
             // Avoid in the opposite direction of the collision 
-            Enemy.AvoidEnemy(DirectionManager.Instance.GetReverseDirectionState(Direction).ID);
+            Enemy.Knockback(DirectionManager.Instance.GetReverseDirectionState(Direction).ID);
         }
     }
 

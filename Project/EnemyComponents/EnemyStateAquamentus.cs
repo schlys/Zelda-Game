@@ -19,7 +19,8 @@ namespace Project1.EnemyComponents
         public Sprite Sprite { get; set; }
         public int Step { get; set; }
         public string ID { get; set; }
-        
+        public IItem DropItem { get; set; }
+
         private bool IsAttacking;
         private Random R = new Random();
         private int Rand;
@@ -28,10 +29,11 @@ namespace Project1.EnemyComponents
         public EnemyStateAquamentus(IEnemy enemy, string type)
         {
             Enemy = enemy;
-            DirectionState = new DirectionStateLeft(); 
+            DirectionState = new DirectionStateLeft();
             Sprite = SpriteFactory.Instance.GetSpriteData(type);
             IsAttacking = false;
             Step = GameVar.EnemyStep;
+            DropItem = new Item(Enemy.Position, GameVar.LifePotionKey);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -47,7 +49,7 @@ namespace Project1.EnemyComponents
                 ((ICollidable)Enemy).IsMoving = true;
                 DirectionState = DirectionState.MoveLeft();
 
-                Rectangle Hitbox = GetEnemyHitBox(); 
+                Rectangle Hitbox = GetEnemyHitBox();
                 Vector2 location = new Vector2(Hitbox.X, Hitbox.Y) + new Vector2(-Step, 0);
                 if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
@@ -58,7 +60,6 @@ namespace Project1.EnemyComponents
             {
                 StopMoving();
             }
-           
         }
 
         public void MoveRight()
@@ -86,7 +87,6 @@ namespace Project1.EnemyComponents
         private void StopMoving()
         {
             Sprite.TotalFrames = GameVar.AquamentusFrames - 1;
-            //((ICollidable)Enemy).IsMoving = false; 
         }
         public void Attack()
         {
@@ -106,14 +106,6 @@ namespace Project1.EnemyComponents
         public void TakeDamage(double damage)
         {
             Enemy.Health.DecreaseHealth(damage);
-            if (Enemy.Health.Dead())
-            {
-                // drop item small key 
-                Item lifePotion = new Item(Enemy.Position, "LifePotion");
-                lifePotion.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(lifePotion);
-                GameObjectManager.Instance.UpdateRoomItems();
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -132,10 +124,10 @@ namespace Project1.EnemyComponents
                 Attack();
                 Timer = 0;
             }
-            
+
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
             {
-                
+
                 if (IsAttacking)
                 {
                     IsAttacking = false;

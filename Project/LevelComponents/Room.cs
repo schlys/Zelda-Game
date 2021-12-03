@@ -14,6 +14,7 @@ namespace Project1.LevelComponents
 {
     public class Room : IRoom 
     {
+        // Proprties from IRoom
         public string ID { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 Size { get; set; }
@@ -28,14 +29,17 @@ namespace Project1.LevelComponents
         public List<IDoor> Doors { get; set; }
         public Texture2D Texture { get; set; }
 
+        // Other properties 
         public Color Color = Color.White;
 
-        private Vector2 TextureRoomSize; 
+        private Vector2 TextureRoomSize;
+        private Vector2 InitialPosition; 
 
         public Room(string id, Vector2 position, Vector2 sheetPosition, string up, string down, string left, string right, Texture2D texture)
         {
             ID = id;
             Position = position;
+            InitialPosition = Position; 
             SheetPosition = sheetPosition;
 
             UpRoom = up;
@@ -50,7 +54,6 @@ namespace Project1.LevelComponents
 
             Texture = texture;
 
-            // TODO: data drive 
             Size = GameVar.GetRoomSize() * GameVar.ScalingFactor;
             TextureRoomSize = GameVar.GetRoomSize(); 
         }
@@ -73,9 +76,13 @@ namespace Project1.LevelComponents
         }
         public void OpenDoor(IDirectionState direction)
         {
+            /* Try to open the room's door found in the direction <direction> 
+             * (rooms have at most one door in each direction). 
+             */
+
             foreach (IDoor door in Doors)
             {
-                if (direction.GetType().Name.Equals(door.DirectionState.GetType().Name))    // at most one door of each direction
+                if (direction.GetType().Name.Equals(door.DirectionState.GetType().Name)) 
                 { 
                     door.Unlock();
                     break;
@@ -85,7 +92,8 @@ namespace Project1.LevelComponents
         
         public void Reset()
         {
-            // TODO: should we handle object reset here and not in gameobject manager? 
+            Position = InitialPosition; 
+
             foreach (IBlock block in Blocks)
             {
                 block.Reset();

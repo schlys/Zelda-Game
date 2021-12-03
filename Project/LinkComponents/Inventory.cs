@@ -115,8 +115,9 @@ namespace Project1.LinkComponents
         {
             if (!(Item1 is NullItem))
             {
+                //Vector2 LinkPosition = new Vector2(((ICollidable)Link).Hitbox.X, ((ICollidable)Link).Hitbox.Y); 
                 Item droppedItem = new Item(Link.Position, Item1.Kind);
-                droppedItem.InitialPosition = Link.Position;
+                
                 if (Item1.ItemState is ItemBombSolidState)
                 {
                     if (BombCount > 1)
@@ -126,20 +127,17 @@ namespace Project1.LinkComponents
                     else
                     {
                         BombCount = 0;
-                        //Items.Remove(Item1);
-                        //Item1 = new NullItem();
                         RemoveItem(droppedItem); 
                     }
                 }
                 else
                 {
                     RemoveItem(droppedItem);
-                    //Items.Remove(Item1);
-                    //Item1 = new NullItem();
                 }
 
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
-                GameObjectManager.Instance.UpdateRoomItems();
+                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
+                GameObjectManager.Instance.DropItem(droppedItem); 
+                //GameObjectManager.Instance.UpdateRoomItems();
                 GameSoundManager.Instance.PlayTextSlow();
             }
         }

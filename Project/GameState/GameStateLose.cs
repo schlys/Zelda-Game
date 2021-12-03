@@ -14,17 +14,23 @@ namespace Project1.GameState
         }
         public void Draw(SpriteBatch spriteBatch, int i)
         {
-            int buffer = 40;
+            int buffer = GameVar.buffer * 4;
 
             Texture2D blackRectangle = new Texture2D(GameStateManager.Instance.Game.GraphicsDevice, 1, 1);
             blackRectangle.SetData(new[] { Color.Black });
 
-            Vector2 RoomSize = GameObjectManager.Instance.GetRoomSize();
-            Rectangle destinationRectangle = new Rectangle(0, 55 * GameVar.ScalingFactor, (int)RoomSize.X, (int)RoomSize.Y);
+            Vector2 RoomSize = GameVar.GetRoomSize() * GameVar.ScalingFactor; 
+            Vector2 RoomPosition = GameVar.GetRoomPosition() * GameVar.ScalingFactor;
+            Rectangle destinationRectangle = new Rectangle((int)RoomPosition.X, (int)RoomPosition.Y, (int)RoomSize.X, (int)RoomSize.Y);
             
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.LoseText1, new Vector2(RoomSize.X / 2 - (buffer * 3), RoomSize.Y / 2 - buffer), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.LoseText2, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 + buffer), Color.White);
+        }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
         }
         public IGameState Reset()
         {

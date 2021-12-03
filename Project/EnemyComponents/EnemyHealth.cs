@@ -25,7 +25,6 @@ namespace Project1.EnemyComponents
         {
             if (CurrNumHearts < 0)
             {
-                GameSoundManager.Instance.PlayEnemyDie();
                 return true;
             }
             return false;

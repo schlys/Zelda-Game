@@ -49,7 +49,7 @@ namespace Project1.ItemComponents
             }
             if (link.Inventory.BombCount == 0)
             {
-                link.Inventory.RemoveItem(Item);
+                link.Inventory.RemoveItem(Item); 
             }
         }
     }

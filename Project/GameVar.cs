@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
-using Project1.LevelComponents;
+using Microsoft.Xna.Framework.Input;
 using Project1.DirectionState; 
 
 namespace Project1
@@ -87,7 +86,13 @@ namespace Project1
 
         // GAME STATE ****************************************************************
         public const int titleWidth = 257;
-        public const int titleHeight = 225;
+        public const int titleHeight = 224;
+
+        public const int highlightWidth = 40;
+        public const int highlightHeight = 55;
+
+        public const int startY = 250; // take a image from titleScreens - for a story
+        public const int modifier = 15; // modify distances between two images - for a story
 
         public const int DirectionIn = 0;      // Scroll into state from GamePlay
         public const int DirectionOut = 1;     // Scroll out of state to GamePlay 
@@ -208,15 +213,19 @@ namespace Project1
 
         public const string BookOfMagicWeaponKey = "Fire";
 
-        public const string SilverArrowKey = "SilverArrowUp";
-        public const string BookOfMagicKey = "BookOfMagic";
         public const string ArrowKey = "ArrowUp";
-        public const string LifePotionKey = "LifePotion";
+        public const string BlueRupeeKey = "BlueRupee"; 
         public const string BombKey = "BombSolid";
-        public const string MapKey = "DungeonMap";
+        public const string BookOfMagicKey = "BookOfMagic";
         public const string CompassKey = "Compass";
-        public const string TriForceFragmentKey = "TriforceFragment";
+        public const string LifePotionKey = "LifePotion";
+        public const string MapKey = "DungeonMap";
+        public const string OrangeRupeeKey = "OrangeRupee"; 
         public const string PickUpItem = "PickUpItem";
+        public const string RecoveryHeartKey = "RecoveryHeart";
+        public const string SilverArrowKey = "SilverArrowUp";
+        public const string SmallKey = "SmallKey"; 
+        public const string TriForceFragmentKey = "TriforceFragment";
 
         public const int MagicalRodDelay = 6;
         public const int WoodenSwordDelay = 3;
@@ -351,6 +360,11 @@ namespace Project1
             };
 
             return LinkKey[i];
+        }
+
+        public static Keys GetLinkStopKey()
+        {
+            return Keys.B; 
         }
     }
 }

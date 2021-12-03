@@ -10,18 +10,19 @@ namespace Project1.GameState
 {
     public class GameStateStore: IGameState
     {
-        private Sprite Link;
-        private Sprite TriForceFragment;
 
         public GameStateStore()
         {
-            TriForceFragment = SpriteFactory.Instance.GetSpriteData(GameVar.TriForceFragmentKey);
-            Link = SpriteFactory.Instance.GetSpriteData(GameVar.PickUpItem);
         }
         public void Draw(SpriteBatch spriteBatch, int i)
         {
             GameObjectManager.Instance.Draw(spriteBatch, i);
 
+        }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
         }
         public IGameState Reset()
         {

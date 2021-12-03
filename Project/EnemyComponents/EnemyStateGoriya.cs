@@ -9,15 +9,16 @@ using Project1.CollisionComponents;
 using Project1.LevelComponents;
 using Project1.ItemComponents;
 
-namespace Project1.EnemyComponents 
+namespace Project1.EnemyComponents
 {
     class EnemyStateGoriya : IEnemyState
     {
         public IEnemy Enemy { get; set; }
         public IDirectionState DirectionState { get; set; }
-        public Sprite Sprite { get; set; }     
+        public Sprite Sprite { get; set; }
         public string ID { get; set; }
         public int Step { get; set; }
+        public IItem DropItem { get; set; }
 
         private bool IsAttacking;
         private int MovementTimer;
@@ -35,7 +36,8 @@ namespace Project1.EnemyComponents
             IsAttacking = false;
             Rand = R.Next(GameVar.GoriyaRandomRange);
             Step = GameVar.EnemyStep;
-            Delay = GameVar.GoriyaDelay; 
+            Delay = GameVar.GoriyaDelay;
+            DropItem = new Item(Enemy.Position, GameVar.RecoveryHeartKey);
         }
 
         private Rectangle GetEnemyHitBox()
@@ -61,7 +63,7 @@ namespace Project1.EnemyComponents
                     Enemy.Position += new Vector2(0, -Step);
                 }
             }
-            
+
         }
         private void MoveDown()
         {
@@ -81,7 +83,7 @@ namespace Project1.EnemyComponents
                 {
                     Enemy.Position += new Vector2(0, Step);
                 }
-            }           
+            }
         }
         private void MoveRight()
         {
@@ -101,7 +103,7 @@ namespace Project1.EnemyComponents
                 {
                     Enemy.Position += new Vector2(Step, 0);
                 }
-            }  
+            }
         }
         private void MoveLeft()
         {
@@ -119,8 +121,8 @@ namespace Project1.EnemyComponents
                 if (GameObjectManager.Instance.IsWithinRoomBounds(location))
                 {
                     Enemy.Position += new Vector2(-Step, 0);
-                }               
-            }  
+                }
+            }
         }
         private void StopMoving()
         {
@@ -131,7 +133,7 @@ namespace Project1.EnemyComponents
             ((ICollidable)Enemy).IsMoving = false;
             if (!IsAttacking)
             {
-                IsAttacking = true; 
+                IsAttacking = true;
                 Sprite.MaxDelay = 10;
                 GameObjectManager.Instance.AddProjectile(new Projectile(Enemy.Position, direction, SpriteKey));
             }
@@ -142,15 +144,7 @@ namespace Project1.EnemyComponents
         }
         public void TakeDamage(double damage)
         {
-            Enemy.Health.DecreaseHealth(0 + damage);
-            if (Enemy.Health.Dead())
-            {
-                // drop item small key 
-                Item recoveryHeart = new Item(Enemy.Position, "RecoveryHeart");
-                recoveryHeart.InitialPosition = Enemy.Position;
-                GameObjectManager.Instance.Level.CurrentRoom.AddItem(recoveryHeart);
-                GameObjectManager.Instance.UpdateRoomItems();
-            }
+            Enemy.Health.DecreaseHealth(damage);
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -160,23 +154,23 @@ namespace Project1.EnemyComponents
         public void Update()
         {
             Sprite.Update();
-            
+
             if (Sprite.CurrentFrame == Sprite.TotalFrames)
-            { 
+            {
                 if (IsAttacking && Delay == 0)
                 {
                     IsAttacking = false;
                     Delay = GameVar.GoriyaDelay;
                 }
             }
-            
+
             MovementTimer++;
             if (MovementTimer > 90)
             {
                 if (Sprite.CurrentFrame == 1) //Goriya shoot the arrow when it stops
-                { 
+                {
                     Attack(DirectionState.ID);
-                    Delay--; 
+                    Delay--;
                 }
                 Rand = R.Next(0, GameVar.GoriyaRandomRange);
                 MovementTimer = 0;

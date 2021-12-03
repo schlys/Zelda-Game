@@ -10,7 +10,7 @@ namespace Project1.GameState
 {
     public class GameStateRoomScroll: IGameState
     {
-        /* Used for the room selection screen on room changes
+        /* Used for the room scroll screen on room changes
          */        
         public GameStateRoomScroll()
         {
@@ -18,6 +18,11 @@ namespace Project1.GameState
         public void Draw(SpriteBatch spriteBatch, int i)
         {
             GameObjectManager.Instance.Draw(spriteBatch, i);
+        }
+        public void Update() { }
+        public IGameState Story()
+        {
+            return this;
         }
         public IGameState Reset()
         {
