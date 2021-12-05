@@ -2,13 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Project1.LevelComponents;
 using Project1.SpriteComponents;
 using Project1.GameState;
-using System.Reflection;
-using System.Xml;
 using Project1.CollisionComponents; 
 
 namespace Project1.HeadsUpDisplay
@@ -57,30 +53,10 @@ namespace Project1.HeadsUpDisplay
             Game = game;
             Link = link;
 
-            // TODO: data drive 
             BodyFont = Game.Content.Load<SpriteFont>(GameVar.BodyFont);
-
-            //Positions = new Dictionary<string, Vector2>();
 
             Position = GameVar.GetHUDPosition(); 
             InitialPosition = Position; 
-
-            /*
-            XmlDocument XMLData = new XmlDocument();
-            var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLPositions.xml";
-            XMLData.Load(path);
-            XmlNodeList Pos = XMLData.DocumentElement.SelectNodes("/Positions/Position");
-            foreach (XmlNode node in Pos)
-            {
-                string name = node.SelectSingleNode("Name").InnerText;
-                int x = Int16.Parse(node.SelectSingleNode("x").InnerText);
-                int y = Int16.Parse(node.SelectSingleNode("y").InnerText);
-
-                Positions.Add(name, (new Vector2(x, y) * GameObjectManager.Instance.ScalingFactor) + Position);
-
-            }
-            */
-
             
             MapPosition = (GameVar.GetMapPosition() * GameVar.ScalingFactor) + Position;
             MapItemSelectPosition = (GameVar.GetItemSelectPosition() * GameVar.ScalingFactor) + Position;
@@ -128,7 +104,6 @@ namespace Project1.HeadsUpDisplay
 
         public void Update()
         {
-            // Check if scroll 
             if (GameStateManager.Instance.CanItemScroll())
             {
                 Scroll(Step);
@@ -283,7 +258,6 @@ namespace Project1.HeadsUpDisplay
             Vector2 newMapPosition = MapItemSelectPosition;
             newMapPosition += position;
 
-            // TODO: bad coupling!! 
             GameObjectManager.Instance.Level.LevelMap.Draw(spriteBatch, newMapPosition, Link.Inventory.CanHighlightTreasureMap());
         }
         private void Scroll(int step)
