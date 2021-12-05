@@ -1,15 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
-using Project1.LevelComponents;
 using Project1.ItemComponents;
-using Project1.HeadsUpDisplay;
 using Project1.GameState;
 using Project1.StoreComponents; 
 
@@ -43,8 +40,7 @@ namespace Project1.LinkComponents
         private Color DefaultColor;
         public Link(Vector2 position, int player, Game1 game)
         {
-            /* Set Link's default properties: weapon is a wooden sword, direction is up, and health is 
-             * 3 hearts. 
+            /* Set Link's default properties
              */
             
             PlayerNum = player;     // 0 or 1 denoting player 1 or player 2
@@ -63,20 +59,20 @@ namespace Project1.LinkComponents
 
             SetPosition(position);  // Sets <Hitbox> 
 
-           InitialPosition = Position;
+            InitialPosition = Position;
 
-           DamageRecieved = GameVar.LinkDamageRecieved;
-           Step = GameVar.LinkStep;
-           delay = GameVar.LinkDelay; 
-       }
+            DamageRecieved = GameVar.LinkDamageRecieved;
+            Step = GameVar.LinkStep;
+            delay = GameVar.LinkDelay; 
+        }
 
        public void SetPosition(Vector2 position, IDirectionState direction=null)
        {
             /* Sets <Position> and <DirectionState> and updates <Hitbox> appropriately. 
              */ 
             if (direction != null) DirectionState = direction;
+            
             Position = position;
-
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
             /* Correct the position to account for empty space around the hitbox */
             int RoomBlockSize = SpriteFactory.Instance.UniversalSize * GameVar.ScalingFactor;
@@ -85,11 +81,13 @@ namespace Project1.LinkComponents
             Hitbox = CollisionManager.Instance.GetHitBox(Position, LinkSprite.HitBox);
         }
 
-        // NOTE: commands will be called even when the game is paused, so must check if can play
         private bool CanPlay()
         {
+            /* Commands will be called even when the game is paused, so must check if can play
+             */
             return GameStateManager.Instance.CanPlayGame();
         }
+
         public void MoveUp()
         {
             if (CanPlay() && !LockFrame)
@@ -163,7 +161,8 @@ namespace Project1.LinkComponents
 
         public void StopMotion()
         {
-            // NOTE: Stops the moving animation of Link, not actual movement
+            /* Stops the moving animation of Link, not actual movement
+             */  
             if (!LockFrame) LinkSprite.TotalFrames = 1;
         }
 
@@ -212,7 +211,6 @@ namespace Project1.LinkComponents
 
         public void UseItem(int itemNumber)
         {
-            // Remove from inventory to use 
             if (CanPlay() && !LockFrame)
             {
                 LockFrame = true;
@@ -225,6 +223,7 @@ namespace Project1.LinkComponents
             /* Link picks up an item, adds it to his <Inventory>, does a specific pick up animation, 
              * and plays a sound.
              */
+
             UpdateSprite();
             item.AddToInventory(this);
             GameSoundManager.Instance.PlayGetItem();
@@ -235,6 +234,7 @@ namespace Project1.LinkComponents
             /* Link's health decrease by <DamageRecieved>, his color is set to red, a hurt sound is 
              * played, his position is knocked back, and we check if he has died. 
              */ 
+
             GameSoundManager.Instance.PlayLinkHurt();
             Health.Decrease(DamageRecieved);
             SetColor(Color.Red);
@@ -246,19 +246,6 @@ namespace Project1.LinkComponents
             }
         }
 
-        public void IncreaseHealth()
-        {
-            GameSoundManager.Instance.PlayGetHeart();
-            Health.Increase(1); 
-        }
-        public void RestoreHealth()
-        {
-            Health.Restore();
-        }
-        public void IncreaseHealthHeartCount()
-        {
-            Health.IncreaseHeartCount(1);
-        }
         public void HitBlock(IDirectionState direction)
         {
             StopMotion();
@@ -267,17 +254,23 @@ namespace Project1.LinkComponents
 
         private void UpdateSprite(string weapon="", bool item=false)
         {
-            // NOTE: Generate appropriate LinkSprite depending on weapon, item, and direction 
+            /* Generate appropriate LinkSprite depending on weapon, item, and direction 
+             */ 
+            
             string Weapon = weapon;
-            if (item) UseItemName = "UseItem";
-            //if (LockFrame && UseItemName.Length == 0) Weapon = this.Weapon;
+            if (item)
+            {
+                UseItemName = GameVar.LinkUseItemKey;
+            }
             LinkSprite =  SpriteFactory.Instance.GetSpriteData(Weapon + UseItemName + DirectionState.ID + SpriteKey);
             SetColor(DefaultColor);
         }
+
         public void Win()
         {
-            // trigger win in <GameStateManager> and change Link sprite 
-            LinkSprite = SpriteFactory.Instance.GetSpriteData("PickUpItem");
+            /* trigger win in <GameStateManager> and change Link sprite 
+             */  
+            LinkSprite = SpriteFactory.Instance.GetSpriteData(GameVar.LinkPickUpItemKey);
             GameStateManager.Instance.GameOverWin();
         }
 

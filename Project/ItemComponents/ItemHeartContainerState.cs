@@ -14,6 +14,7 @@ namespace Project1.ItemComponents
         public bool IsMoving { get; set; }
         public string ID { get; set; }
 
+        private int HeartIncrease = 1; 
         public ItemHeartContainerState(IItem item)
         {
             Item = item;
@@ -24,8 +25,8 @@ namespace Project1.ItemComponents
         public void AddToInventory(ILink link)
         {
             // Immediately increase the number of hearts and restore the health upon collection
-            link.IncreaseHealthHeartCount();
-            link.RestoreHealth();
+            link.Health.IncreaseHeartCount(HeartIncrease);
+            link.Health.Restore();
         }
 
         public void Draw(SpriteBatch spriteBatch)

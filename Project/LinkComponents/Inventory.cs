@@ -4,10 +4,7 @@ using System.Linq;  // used for .ElementAt()
 using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.DirectionState;
 using Project1.ItemComponents;
-using Project1.HeadsUpDisplay;
-using Project1.ProjectileComponents;
 using Project1.CollisionComponents;
 using Project1.GameState;
 
@@ -48,7 +45,7 @@ namespace Project1.LinkComponents
             Items = new List<IItem>();
 
             // Default Items 
-            Items.Add(new Item(new Vector2(0, 0), "BombSolid", true));
+            Items.Add(new Item(new Vector2(0, 0), GameVar.BombKey, true));
 
             Item1 = Items.ElementAt(0);
             Item2 = new NullItem();
@@ -61,25 +58,24 @@ namespace Project1.LinkComponents
 
             if (Link.PlayerNum == GameVar.Player1)
             {
-                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num1");
-                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num2");
+                TextNum1 = SpriteFactory.Instance.GetSpriteData(GameVar.Player1Num1SpriteKey);
+                TextNum2 = SpriteFactory.Instance.GetSpriteData(GameVar.Player1Num2SpriteKey);
             }
             else if (Link.PlayerNum == GameVar.Player2)
             {
-                TextNum1 = SpriteFactory.Instance.GetSpriteData("Num9");
-                TextNum2 = SpriteFactory.Instance.GetSpriteData("Num0");
+                TextNum1 = SpriteFactory.Instance.GetSpriteData(GameVar.Player2Num1SpriteKey);
+                TextNum2 = SpriteFactory.Instance.GetSpriteData(GameVar.Player2Num2SpriteKey);
             }
             else
             {
                 throw new IndexOutOfRangeException();
             }
 
-            // TODO: move bombcount and itemdimensions to GameVar 
-            RupeeCount = 0;
-            BombCount = 2;
-            KeyCount = 0;
+            RupeeCount = GameVar.StartRupeebCount;
+            BombCount = GameVar.StartBombCount;
+            KeyCount = GameVar.StartKeyCount;
 
-            ItemDimentions = new Vector2(4, 2);
+            ItemDimentions = GameVar.GetInventoryItemDimension();
         }
         
         public void AddItem(IItem item)
@@ -115,7 +111,6 @@ namespace Project1.LinkComponents
         {
             if (!(Item1 is NullItem))
             {
-                //Vector2 LinkPosition = new Vector2(((ICollidable)Link).Hitbox.X, ((ICollidable)Link).Hitbox.Y); 
                 Item droppedItem = new Item(Link.Position, Item1.Kind);
                 
                 if (Item1.ItemState is ItemBombSolidState)
@@ -135,9 +130,7 @@ namespace Project1.LinkComponents
                     RemoveItem(droppedItem);
                 }
 
-                //GameObjectManager.Instance.Level.CurrentRoom.AddItem(droppedItem);
                 GameObjectManager.Instance.DropItem(droppedItem); 
-                //GameObjectManager.Instance.UpdateRoomItems();
                 GameSoundManager.Instance.PlayTextSlow();
             }
         }
@@ -390,7 +383,6 @@ namespace Project1.LinkComponents
              */
             if (!(item is NullItem))
             {
-                //name = name.Substring(4); // Remove "Item" keyword from start
                 Sprite ItemSprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
                 Vector2 SpritePosition = GetItemPosition(ItemSprite, position);
                 ItemSprite.Draw(spriteBatch, SpritePosition);

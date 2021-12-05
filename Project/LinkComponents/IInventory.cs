@@ -1,11 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.DirectionState;
 using Project1.ItemComponents;
-using Project1.HeadsUpDisplay;
 
 namespace Project1.LinkComponents
 {

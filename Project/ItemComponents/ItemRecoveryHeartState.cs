@@ -14,6 +14,7 @@ namespace Project1.ItemComponents
         public bool IsMoving { get; set; }
         public string ID { get; set; }
 
+        private int HeartIncrease = 1; 
         public ItemRecoveryHeartState(IItem item)
         {
             Item = item;
@@ -23,7 +24,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.IncreaseHealth();
+            link.Health.Increase(HeartIncrease);
         }
 
         public void Draw(SpriteBatch spriteBatch)

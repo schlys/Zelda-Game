@@ -22,6 +22,8 @@ namespace Project1.LinkComponents
         }
         public void Increase(double x)
         {
+            GameSoundManager.Instance.PlayGetHeart();
+
             if (CurrNumHearts  + x < TotalNumHearts)
             {
                 CurrNumHearts += x;
@@ -32,6 +34,8 @@ namespace Project1.LinkComponents
         }
         public void IncreaseHeartCount(int x)
         {
+            GameSoundManager.Instance.PlayGetHeart();
+            
             TotalNumHearts += x;
         }
         public void Decrease(double x)

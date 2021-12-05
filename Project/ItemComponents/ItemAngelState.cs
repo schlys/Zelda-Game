@@ -113,7 +113,7 @@ namespace Project1.ItemComponents
 
         public void AddToInventory(ILink link)
         {
-            link.RestoreHealth();
+            link.Health.Restore();
         }
 
         public void UseItem(ILink link)

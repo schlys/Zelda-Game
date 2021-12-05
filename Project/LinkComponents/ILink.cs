@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.DirectionState;
 using Project1.ItemComponents;
-using Project1.HeadsUpDisplay;
 using Project1.StoreComponents; 
 
 namespace Project1.LinkComponents
@@ -30,9 +27,6 @@ namespace Project1.LinkComponents
         void UseItem(int itemNumber);
         void PickUpItem(IItem item);
         void TakeDamage(string direction, int knockback);
-        void IncreaseHealth();
-        void RestoreHealth();
-        void IncreaseHealthHeartCount();
         void HitBlock(IDirectionState direction);
         void Win(); 
         void Update();

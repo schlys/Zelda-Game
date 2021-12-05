@@ -134,6 +134,9 @@ namespace Project1
         // HUD ***********************************************************************
         public const int ScrollStep = 6;
         public const double HeartSpaceX = 1.5;
+        public const int StartRupeebCount = 0;
+        public const int StartBombCount = 2;
+        public const int StartKeyCount = 0;
         public const string HUDMainSpriteKey = "HUDMain";
         public const string HUDMapSpriteKey = "HUDMap";
         public const string HUDLevelMapSpriteKey = "HUDLevelMap";
@@ -181,6 +184,10 @@ namespace Project1
         public static Vector2 GetKeyCountPosition()
         {
             return new Vector2(104, 30);
+        }
+        public static Vector2 GetInventoryItemDimension()
+        {
+            return new Vector2(4, 2); 
         }
         public static Vector2 GetInventoryItemPosition()
         {
@@ -323,7 +330,9 @@ namespace Project1
         public const int LinkLives = 3;
         public const double LinkDamageRecieved = 0.1;
         public const int LinkStep = 4;
-        public const int LinkDelay = 25; 
+        public const int LinkDelay = 25;
+        public const string LinkUseItemKey = "UseItem";
+        public const string LinkPickUpItemKey = "PickUpItem";
 
         public static Vector2 GetLinkStartPosition(int i)
         {
