@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.CollisionComponents;
+﻿using Project1.CollisionComponents;
 using Project1.LinkComponents; 
 
 namespace Project1.Command

@@ -1,13 +1,11 @@
-﻿using Project1.CollisionComponents;
+﻿using System;
+using System.Collections.Generic;
+using Project1.CollisionComponents;
 using Project1.LinkComponents;
 using Project1.EnemyComponents;
 using Project1.ItemComponents;
 using Project1.ProjectileComponents;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Project1.LevelComponents;
-using Microsoft.Xna.Framework;
 using Project1.BlockComponents;
 using Project1.DirectionState;
 using Project1.GameState; 
@@ -212,7 +210,7 @@ namespace Project1.Command
         }
         public void Execute()
         {
-            Link.HitBlock(DirectionManager.Instance.GetDirectionState(Direction)); // so no longer collide
+            Link.HitBlock(DirectionManager.Instance.GetDirectionState(Direction)); // so no longer collide with <oldman>
             GameStateManager.Instance.EnterStoreMenu();
         }
     }
