@@ -1,10 +1,7 @@
-﻿using Microsoft.Xna.Framework.Content;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Project1.LinkComponents;
 using Project1.BlockComponents;
 using Project1.ItemComponents;
 using Project1.EnemyComponents;
@@ -14,7 +11,7 @@ namespace Project1.LevelComponents
 {
     public interface IRoom
     {
-        String ID { get; set; } // OR name? 
+        String ID { get; set; } 
         Vector2 Position { get; set; }
         Vector2 Size { get; set; }
         Vector2 SheetPosition { get; set; }

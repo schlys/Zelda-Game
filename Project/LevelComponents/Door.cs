@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LinkComponents;
 using Project1.CollisionComponents;
 using Project1.DirectionState; 
 
@@ -31,9 +27,8 @@ namespace Project1.LevelComponents
 
 			DirectionState = DirectionManager.Instance.GetDirectionState(direction);
 
-			// TODO: readd locked doors before submission 
 			this.locked = locked;
-			/*if (this.locked)*/ Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.DoorKey + direction);
+			Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.DoorKey + direction);
 			
 			Position = position;
 			Hitbox = CollisionManager.Instance.GetHitBox(Position, Sprite.HitBox);

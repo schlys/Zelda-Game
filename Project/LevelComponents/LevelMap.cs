@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.SpriteComponents;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LinkComponents;
 
 namespace Project1.LevelComponents
 {
@@ -19,7 +14,7 @@ namespace Project1.LevelComponents
 		private Vector2 TriforceFragmentBlock;      // the TriforceFragment treasure is in room 15 
 		private Vector2 CurrentBlock;
 		private int BufferSize; 
-		
+
 		public LevelMap(Texture2D texture)
         {
 			Texture = texture;

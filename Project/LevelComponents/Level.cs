@@ -1,20 +1,14 @@
-﻿using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Project1.LinkComponents;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Project1.ItemComponents;
 using Project1.BlockComponents;
 using Project1.EnemyComponents;
-using Project1.LevelComponents;
 using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
 using System.Xml;
-using System.IO;
 using Project1.GameState;
 using Project1.DirectionState; 
-using System.Reflection;
 
 namespace Project1.LevelComponents
 {
@@ -106,15 +100,12 @@ namespace Project1.LevelComponents
 
                 // Load the objects within each room 
                 XmlNodeList objectsData = node.SelectNodes("object");
-                // XMLData.DocumentElement.SelectNodes("/Levels/Level/Room/objects/data");
                 foreach (XmlNode itemNode in objectsData)
                 {
                     string type = itemNode.SelectSingleNode("type").InnerText;
                     string type2 = itemNode.SelectSingleNode("type2").InnerText;
                     float row = float.Parse(itemNode.SelectSingleNode("row").InnerText);
                     float column = float.Parse(itemNode.SelectSingleNode("column").InnerText);
-
-                    //TODO: replace with reflection 
 
                     switch (type)
                     {
@@ -207,7 +198,6 @@ namespace Project1.LevelComponents
 
                 if (!position.Equals(Vector2.Zero)) // door not located in typical location
                 {
-                    // TODO: need 2 different locations for player 1 and 2
                     NewLinkPosition = new List<Vector2>();
                     NewLinkPosition.Add(GetItemPosition(position.X, position.Y));
                     NewLinkPosition.Add(GetItemPosition(position.X, position.Y));

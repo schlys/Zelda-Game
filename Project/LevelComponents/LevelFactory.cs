@@ -1,19 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LinkComponents;
-using Project1.ItemComponents;
-using Project1.BlockComponents;
-using Project1.EnemyComponents;
-using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
 using System.Xml;
-using System.IO;
-using Project1.GameState;
-using System.Reflection;
-using Project1.DirectionState; 
 
 namespace Project1.LevelComponents
 {
@@ -31,7 +20,6 @@ namespace Project1.LevelComponents
         }
 
         private static Dictionary<string, Texture2D> TextureDict;
-        private static Dictionary<string, IRoom> LevelDict;
         private static Dictionary<String, Texture2D> HUDTextures;
 
         private LevelFactory() { }
@@ -88,17 +76,5 @@ namespace Project1.LevelComponents
                 throw new IndexOutOfRangeException();
             }
         }
-        /*
-        public IRoom GetRoom(String key)
-        {
-            if (LevelDict.ContainsKey(key))
-            {
-                return LevelDict[key];
-            }
-            else
-            {
-                throw new IndexOutOfRangeException();
-            }
-        }*/
     }
 }
