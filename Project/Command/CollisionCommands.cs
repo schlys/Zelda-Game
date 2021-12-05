@@ -104,9 +104,6 @@ namespace Project1.Command
              * the door is unlocked. If the door is locked, try to unlock the door by using 
              * one of Link's keys and then enter the new room. 
              */ 
-            
-            // TODO: uncomment key code before submission 
-
            
             if (Link.DirectionState.GetType().Name.Equals(Door.DirectionState.GetType().Name))
             {
@@ -114,10 +111,6 @@ namespace Project1.Command
                 if (Door.IsLocked() && Link.Inventory.CanUseKey()) Door.Unlock();
 
                 if (!Door.IsLocked()) Door.ChangeRoom();
-
-
-                //Door.ChangeRoom();
-
             }
         }
     }

@@ -37,16 +37,7 @@
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/LinkSprites/WoodenSword.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/LinkSprites/WoodenSword2.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/NPCs/OldManWoman.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Armos.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Ghini.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Leever.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Lynel.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/MoblinAndMolblin.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Octorok.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Peahat.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Rock.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Tektite.png</File>
-    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/OverworldEnemies/Zora.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Rooms/Room1.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Rooms/Room10.png</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Rooms/Room11.png</File>
@@ -94,6 +85,7 @@
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Sounds/SwordSlash.wav</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Sounds/Text.wav</File>
     <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Sounds/TextSlow.wav</File>
+    <File>C:/Users/Elise/source/repos/3902-dream-team/Project/Project/Content/Title.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -105,14 +97,6 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/TitleFont.spritefont</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

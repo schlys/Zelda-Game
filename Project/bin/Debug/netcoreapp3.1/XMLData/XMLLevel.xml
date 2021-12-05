@@ -612,18 +612,6 @@
 				<row>4</row>
 				<column>3</column>
 			</object>
-			<object>
-				<type>Enemy</type>
-				<type2>Moblin</type2>
-				<row>5</row>
-				<column>1</column>
-			</object>
-			<object>
-				<type>Enemy</type>
-				<type2>Moblin</type2>
-				<row>6</row>
-				<column>8</column>
-			</object>
 		</Room>
 
 		<Room>
