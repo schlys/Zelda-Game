@@ -242,6 +242,7 @@ namespace Project1.LinkComponents
                         Item2 = SelectedItem.Item1;
                     }
                 }
+                GameSoundManager.Instance.PlayShield();
             }
         }
         public void SelectItem(int item)
