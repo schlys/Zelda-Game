@@ -108,9 +108,15 @@ namespace Project1.Command
             if (Link.DirectionState.GetType().Name.Equals(Door.DirectionState.GetType().Name))
             {
 
-                if (Door.IsLocked() && Link.Inventory.CanUseKey()) Door.Unlock();
+                if (Door.IsLocked() && Link.Inventory.CanUseKey())
+                {
+                    Door.Unlock();
+                }
 
-                if (!Door.IsLocked()) Door.ChangeRoom();
+                if (!Door.IsLocked())
+                {
+                    Door.ChangeRoom();
+                }
             }
         }
     }

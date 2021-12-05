@@ -1,14 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Project1.SpriteComponents;
 using Project1.CollisionComponents;
-using Project1.LevelComponents; 
-using Project1.DirectionState;
-using System;
-using System.Xml;
-using System.Reflection;
-using System.Linq;
 
 namespace Project1.BlockComponents
 {
@@ -25,11 +18,9 @@ namespace Project1.BlockComponents
 
         private string InitialSpriteKey;
         private string InitialTypeID;
-        private bool broken;
 
         public Block(Vector2 position, string type, bool special)
         {
-            broken = false;
             InitialSpriteKey = type; 
             UpdateSprite(InitialSpriteKey);
 
