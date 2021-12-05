@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LevelComponents;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project1.GameState
 {

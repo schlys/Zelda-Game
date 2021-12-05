@@ -1,10 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.SpriteComponents;
-using Project1.LevelComponents;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.GameState
 {

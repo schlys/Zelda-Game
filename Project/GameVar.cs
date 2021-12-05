@@ -117,6 +117,7 @@ namespace Project1
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";
 
+        public const string StorySpriteKey = "titleScreens"; 
 
         // STORE ***********************************************************************
         public const string StoreText = "Store";

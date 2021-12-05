@@ -2,9 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Project1.SpriteComponents;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Project1.GameState
@@ -100,7 +97,6 @@ namespace Project1.GameState
             
             if (CurrentState is GameStateStart)
             {
-                // create a new window for each new player - 1 since one window already exists
                 for (int i = 1; i < GameObjectManager.Instance.LinkCount; i++)
                 {
                     GameWindow newWindow = GameWindow.Create(Game, GameVar.ScreenWidth, GameVar.ScreenHeight);
