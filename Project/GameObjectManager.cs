@@ -76,9 +76,6 @@ namespace Project1
             IController KeyboardController = new KeyboardController(Game);
             Controllers.Add(KeyboardController);
 
-            //IController MouseController = new MouseController(Game);
-            //Controllers.Add(MouseController);
-
             LinkCount = 1;
             SetLinkCount(LinkCount);
 
@@ -86,9 +83,6 @@ namespace Project1
 
             // Register Keyboard commands 
             KeyboardController.InitializeGameCommands();
-           
-            
-
         }
 
         public void Update()
