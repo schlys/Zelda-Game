@@ -590,39 +590,27 @@
 			</object>
 			<object>
 				<type>Enemy</type>
-				<type2>Keese</type2>
+				<type2>Moblin</type2>
 				<row>0</row>
 				<column>8</column>
 			</object>
 			<object>
 				<type>Enemy</type>
-				<type2>Keese</type2>
+				<type2>Moblin</type2>
 				<row>1</row>
 				<column>1</column>
 			</object>
 			<object>
 				<type>Enemy</type>
-				<type2>Keese</type2>
+				<type2>Moblin</type2>
 				<row>3</row>
 				<column>0</column>
 			</object>
 			<object>
 				<type>Enemy</type>
-				<type2>Keese</type2>
+				<type2>Moblin</type2>
 				<row>4</row>
 				<column>3</column>
-			</object>
-			<object>
-				<type>Enemy</type>
-				<type2>Keese</type2>
-				<row>5</row>
-				<column>1</column>
-			</object>
-			<object>
-				<type>Enemy</type>
-				<type2>Keese</type2>
-				<row>6</row>
-				<column>8</column>
 			</object>
 		</Room>
 
@@ -2534,7 +2522,7 @@
 			<object>
 				<type>Enemy</type>
 				<type2>Goriya</type2>
-				<row>3</row>
+				<row>4</row>
 				<column>4</column>
 			</object>
 			<!--<object>
