@@ -283,6 +283,7 @@ namespace Project1.LinkComponents
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
                     SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
+                    GameSoundManager.Instance.PlayTextSlow();
                 }
             }
         }
@@ -295,6 +296,7 @@ namespace Project1.LinkComponents
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
                     SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
+                    GameSoundManager.Instance.PlayTextSlow();
                 }
             }
         }
@@ -307,6 +309,7 @@ namespace Project1.LinkComponents
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
                     SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
+                    GameSoundManager.Instance.PlayTextSlow();
                 }
             }
         }
@@ -319,6 +322,7 @@ namespace Project1.LinkComponents
                 if (newIndex >= 0 && newIndex < Items.Count)
                 {
                     SelectedItem = new Tuple<IItem, int>(Items.ElementAt(newIndex), SelectedItem.Item2);
+                    GameSoundManager.Instance.PlayTextSlow();
                 }
             }
         }

@@ -58,7 +58,8 @@ namespace Project1.LevelComponents
 		public void Unlock()
         {
 			locked = false;
-        }
+			GameSoundManager.Instance.PlayDoorUnlock();
+		}
 		public void ChangeRoom()
         {
 			if(DirectionState is DirectionStateUp)

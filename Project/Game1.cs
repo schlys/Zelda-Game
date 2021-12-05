@@ -85,6 +85,7 @@ namespace Project1
         {
             // Must reset before starting for cases when won / lost 
             GameStateManager.Instance.Start();
+            GameSoundManager.Instance.PlayTextSlow();
         }
 
         public void Story()
@@ -109,6 +110,7 @@ namespace Project1
         public void SetLinkCount(int n)
         {
             GameStateManager.Instance.SetLinkCount(n);
+            GameSoundManager.Instance.PlayTextSlow();
         }
 
         public void ExitStore()
