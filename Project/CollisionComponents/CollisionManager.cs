@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Project1.Command;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Xml;
+using Project1.Command;
 using Project1.SpriteComponents; 
 
 namespace Project1.CollisionComponents

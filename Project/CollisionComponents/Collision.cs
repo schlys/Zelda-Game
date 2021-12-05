@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
-using Project1.LinkComponents;
-using Project1.EnemyComponents;
-using Project1.Command;
-
+﻿
 namespace Project1.CollisionComponents
 {
     class Collision : ICollision
