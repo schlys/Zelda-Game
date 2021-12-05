@@ -229,15 +229,15 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch, int i)
         {
             //LevelFactory.Instance.Draw(spriteBatch);
-            Level.Draw(spriteBatch); 
+            Level.Draw(spriteBatch);
 
-            foreach (IItem item in Items)
-            {
-                item.Draw(spriteBatch);
-            }
             foreach (IBlock block in Blocks)
             {
                 block.Draw(spriteBatch);
+            }
+            foreach (IItem item in Items)
+            {
+                item.Draw(spriteBatch);
             }
             foreach (IItem item in DroppedItems)
             {

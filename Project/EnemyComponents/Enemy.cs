@@ -142,30 +142,32 @@ namespace Project1.EnemyComponents
 
         public void Update()
         {
-            Counter++;
-            if (IsSpawning && Counter > GameVar.SpawnTimer) // stop spawning animation
+            if (!Health.Dead())
             {
-                IsSpawning = false;
-                Counter = 0;
-            }
-            else
-            {
-                SpawnSprite.Update();
-            }
-
-            if (!IsSpawning)
-            {
-                if (Counter > GameVar.EnemyColorDelay)  // no longer show damange
+                Counter++;
+                if (IsSpawning && Counter > GameVar.SpawnTimer) // stop spawning animation
                 {
-                    EnemyState.Sprite.Color = GameVar.GetEnemyColor();
+                    IsSpawning = false;
                     Counter = 0;
                 }
+                else
+                {
+                    SpawnSprite.Update();
+                }
 
-                IsMoving = true;
-                EnemyState.Update();
-                UpdateHitBox();
+                if (!IsSpawning)
+                {
+                    if (Counter > GameVar.EnemyColorDelay)  // no longer show damange
+                    {
+                        EnemyState.Sprite.Color = GameVar.GetEnemyColor();
+                        Counter = 0;
+                    }
+
+                    IsMoving = true;
+                    EnemyState.Update();
+                    UpdateHitBox();
+                }
             }
-
             
 
         }

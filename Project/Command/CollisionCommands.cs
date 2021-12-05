@@ -107,16 +107,16 @@ namespace Project1.Command
             
             // TODO: uncomment key code before submission 
 
-            IDirectionState DoorDirection = Door.DirectionState; 
+           
             if (Link.DirectionState.GetType().Name.Equals(Door.DirectionState.GetType().Name))
             {
 
-                //if (Door.IsLocked() && Link.CanUseKey()) Door.Unlock();
+                if (Door.IsLocked() && Link.Inventory.CanUseKey()) Door.Unlock();
 
-                //if (!Door.IsLocked()) Door.ChangeRoom();
+                if (!Door.IsLocked()) Door.ChangeRoom();
 
-               
-                Door.ChangeRoom();
+
+                //Door.ChangeRoom();
 
             }
         }

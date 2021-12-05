@@ -25,9 +25,11 @@ namespace Project1.BlockComponents
 
         private string InitialSpriteKey;
         private string InitialTypeID;
+        private bool broken;
 
         public Block(Vector2 position, string type, bool special)
         {
+            broken = false;
             InitialSpriteKey = type; 
             UpdateSprite(InitialSpriteKey);
 

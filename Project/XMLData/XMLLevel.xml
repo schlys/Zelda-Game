@@ -864,7 +864,7 @@
 		<Room>
 			<name>Room9</name>
 			<sheet>room</sheet>
-			<xPos>257</xPos>
+			<xPos>257</xPos>  <!--257, 885-->
 			<yPos>354</yPos>
 			<up></up>
 			<down>room5</down>
@@ -895,12 +895,12 @@
 				<row>3</row>
 				<column>5</column>
 			</object>
-			<object>
+			<!--<object>
 				<type>Item</type>
 				<type2>MagicalBoomerangSolid</type2>
 				<row>3.2</row>
 				<column>5.5</column>
-			</object>
+			</object>-->
 			<object>
 				<type>Enemy</type>
 				<type2>Gel</type2>
