@@ -1,10 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.SpriteComponents;
-using System.Reflection;
+﻿using System;
 
 namespace Project1.DirectionState
 {

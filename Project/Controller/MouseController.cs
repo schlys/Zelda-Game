@@ -1,14 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Project1.BlockComponents;
-using Project1.Command;
-using Project1.EnemyComponents;
-using Project1.ItemComponents;
-using Project1.LinkComponents;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using Project1.LevelComponents;
+using Project1.Command;
+using Project1.LinkComponents;
 
 namespace Project1.Controller
 {

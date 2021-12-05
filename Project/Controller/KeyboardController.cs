@@ -1,13 +1,12 @@
 using System;
 using Microsoft.Xna.Framework.Input;
-using Project1.Command;
 using System.Collections.Generic;
 using Project1.LinkComponents;
 using System.Reflection;
 using System.Xml;
-
-using Project1.CollisionComponents;
 using System.ComponentModel;
+using Project1.Command;
+using Project1.CollisionComponents;
 
 namespace Project1.Controller
 {

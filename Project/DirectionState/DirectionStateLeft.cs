@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Project1.DirectionState
 {
     class DirectionStateLeft : IDirectionState
@@ -11,7 +8,6 @@ namespace Project1.DirectionState
         public DirectionStateLeft()
         {
             ID = GameVar.DirectionLeft;
-
         }
         public IDirectionState MoveDown()
         {
