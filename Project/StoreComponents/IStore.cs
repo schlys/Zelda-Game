@@ -1,9 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project1.StoreComponents
 {
@@ -13,8 +9,6 @@ namespace Project1.StoreComponents
         void PurchaseItem1();
         void PurchaseItem2();
         void PurchaseItem3();
-        void Update();
         void Draw(SpriteBatch spriteBatch);
-        void Reset();
     }
 }

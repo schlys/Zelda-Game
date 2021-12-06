@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.LinkComponents;
+﻿using Project1.LinkComponents;
 using Project1.ItemComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
@@ -43,21 +40,20 @@ namespace Project1.StoreComponents
             TitleFont = Game.Content.Load<SpriteFont>(GameVar.TitleFont);
             BodyFont = Game.Content.Load<SpriteFont>(GameVar.BodyFont);
 
-            // TODO: finalize items and price
             Vector2 position = new Vector2(0, 0);
-            Rupee = SpriteFactory.Instance.GetSpriteData("BlueRupee");
+            Rupee = SpriteFactory.Instance.GetSpriteData(GameVar.BlueRupeeKey);
             Item1Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.LifePotionKey);
             Item2Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.BombKey);
             Item3Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.BookOfMagicKey);
 
             Item1 = new Item(position, GameVar.LifePotionKey, false);
-            PriceItem1 = 10;
+            PriceItem1 = GameVar.Item1Cost;
 
             Item2 = new Item(position, GameVar.BombKey, false);
-            PriceItem2 = 10;
+            PriceItem2 = GameVar.Item2Cost;
 
             Item3 = new Item(position, GameVar.BookOfMagicKey, false);
-            PriceItem3 = 30;
+            PriceItem3 = GameVar.Item3Cost;
 
         }
 
@@ -92,18 +88,12 @@ namespace Project1.StoreComponents
                 }
             }
         }
-        public void Update()
-        {
-            
-        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
             if (GameStateManager.Instance.CanStoreMenu())
             {
-                
-
                 Texture2D blackRectangle = new Texture2D(Game.GraphicsDevice, 1, 1);
                 blackRectangle.SetData(new[] { Color.Black });
 
@@ -133,12 +123,5 @@ namespace Project1.StoreComponents
 
             }
         }
-
-        public void Reset()
-        {
-
-        }
-
-            
     }
 }

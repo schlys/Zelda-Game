@@ -130,6 +130,9 @@ namespace Project1
         public const string Item2Text = "2/9";
         public const string Item3Text = "3/0";
 
+        public const int Item1Cost = 10;
+        public const int Item2Cost = 10;
+        public const int Item3Cost = 30;
 
         // HUD ***********************************************************************
         public const int ScrollStep = 6;
