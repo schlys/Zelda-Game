@@ -87,7 +87,7 @@ Other controls
 
 
 
-Sprint 4
+# Sprint 4
 
 Submitted on 11/12/21
 
@@ -123,3 +123,11 @@ Right click to go to right room
 Other controls
 use space bar to pause
 Use 'q' to quit and 'r' to reset the program back to its initial state.
+
+# Sprint 5 
+
+Submitted on 12/5/2021 
+
+This was the final submission for the project. We extended out previous game to include multiplayer, a store, and item dropping. Two players can play at the same time, each with their own window. The windows reflect the unique color of the player to indicate which belongs to which player. When a player collides with the Old Man, a store window opens and they can purchase items for rupees. Enemies now drop items when they die. Link can drop items using the 'g' or 'h' key. 
+
+Previous game functionality remains. 
