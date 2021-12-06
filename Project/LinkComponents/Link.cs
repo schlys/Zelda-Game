@@ -198,7 +198,7 @@ namespace Project1.LinkComponents
                 UpdateSprite(weapon);
                 // sword attack is fast
                 LinkSprite.MaxDelay = meleeDelay;
-                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID, LinkSprite.startDelay, Hitbox));
+                GameObjectManager.Instance.AddProjectile(new LinkWeapon(Health, weapon, DirectionState.ID, LinkSprite.StartDelay, Hitbox));
                 GameSoundManager.Instance.PlaySwordSlash();
             }
             else
@@ -276,8 +276,8 @@ namespace Project1.LinkComponents
 
         public void Update()
         {
-            LinkSprite.delay++;
-            if (LinkSprite.delay > LinkSprite.MaxDelay)
+            LinkSprite.Delay++;
+            if (LinkSprite.Delay > LinkSprite.MaxDelay)
             {
                 SetColor(DefaultColor);
                 if (LinkSprite.CurrentFrame < LinkSprite.TotalFrames)
@@ -293,9 +293,9 @@ namespace Project1.LinkComponents
                         UpdateSprite();
                     }
                     LinkSprite.CurrentFrame = LinkSprite.StartFrame;
-                    LinkSprite.MaxDelay = LinkSprite.startDelay;
+                    LinkSprite.MaxDelay = LinkSprite.StartDelay;
                 }
-                LinkSprite.delay = 0;
+                LinkSprite.Delay = 0;
                 
             }
 

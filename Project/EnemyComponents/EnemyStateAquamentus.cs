@@ -132,7 +132,7 @@ namespace Project1.EnemyComponents
                 {
                     IsAttacking = false;
                     Sprite = SpriteFactory.Instance.GetSpriteData(GameVar.AquamentusSpriteKey);
-                    Sprite.MaxDelay = Sprite.startDelay;
+                    Sprite.MaxDelay = Sprite.StartDelay;
                 }
             }
             if (Timer % 100 == 0)

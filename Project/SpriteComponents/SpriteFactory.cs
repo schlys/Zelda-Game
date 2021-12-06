@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.LinkComponents;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Project1.EnemyComponents;
 using System.Xml;
-using System.IO;
 
 namespace Project1.SpriteComponents
 {
@@ -26,13 +21,16 @@ namespace Project1.SpriteComponents
         private static Dictionary<string, Sprite> SpriteDict;
         private static Dictionary<string, Texture2D> TextureDict;
         
-        public int UniversalSize = 40;  /* size of area sprites are in in sprite sheets */
-        public int BlockSize = 16;      /* size of area sprites are in in sprite sheets */
+        public int UniversalSize = GameVar.UniversalSize;  
+        public int BlockSize = GameVar.BlockSize;    
 
         public void LoadAllTextures(ContentManager content)
         {
+            /* Initalize and load all textures from the XML file into <TextureDict>. 
+             * Call CreateDict(); 
+             */  
+
             TextureDict = new Dictionary<string, Texture2D>();
-            SpriteDict = new Dictionary<string, Sprite>();
 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLSpriteSheets.xml";
@@ -46,13 +44,14 @@ namespace Project1.SpriteComponents
                 TextureDict.Add(name, content.Load<Texture2D>(sheet));
             }
             
-
-
             CreateDict();
         }
 
         private static void CreateDict()
         {
+            /* Initalize and loads data from the XML file into <SpriteDict>. 
+             */  
+
             SpriteDict = new Dictionary<string, Sprite>();
 
             XmlDocument XMLData = new XmlDocument();
@@ -75,14 +74,15 @@ namespace Project1.SpriteComponents
         }
         public Sprite GetSpriteData(string key)
         {
-            /* Link Key = Weapon (optional) + UseItem(optional) + Direction 
+            /* Return a copy of the Sprite found in <SpriteDict>. Throw an error if not found. 
+             * 
+             * Link Key = Weapon (optional) + UseItem(optional) + Direction 
              * Items Used by Link = Item Name + Direction 
              * Block Key = Block Name 
              * Item Key = Item Name 
              * Enemy Key = Enemy Name + Direction 
              */
 
-            // TODO: check if sprite not found 
             if (!SpriteDict.ContainsKey(key))
             {
                 throw new IndexOutOfRangeException();
