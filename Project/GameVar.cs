@@ -61,11 +61,12 @@ namespace Project1
 
         public const string AquamentusSpriteKey = "Aquamentus";
         public const string AquamentusAttackSpriteKey = "AttackAquamentus";
+        public const string AquamentusProjectileKey = "AquamentusProjectile";
         public const int AquamentusDelta = 50;
         public const int AquamentusDelay = 30;
         public const int AquamentusAttackCount = 200;
         public const int AquamentusFrames = 4;
-        public const int AquamentusRandomRange = 3; 
+        public const int AquamentusRandomRange = 3;
 
         public const int GelCount = 20;
         public const int GelRandomRange = 9; 

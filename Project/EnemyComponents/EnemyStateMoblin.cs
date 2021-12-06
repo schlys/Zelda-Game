@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Project1.SpriteComponents;
 using System;
 using Project1.ProjectileComponents;
 using Project1.DirectionState;
 using Project1.CollisionComponents;
-using Project1.LevelComponents;
 using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents

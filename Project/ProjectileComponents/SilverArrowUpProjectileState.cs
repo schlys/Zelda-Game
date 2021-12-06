@@ -1,11 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.CollisionComponents;
 using Project1.DirectionState;
 
 namespace Project1.ProjectileComponents

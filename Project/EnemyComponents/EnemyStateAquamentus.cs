@@ -4,10 +4,7 @@ using Project1.DirectionState;
 using Project1.ProjectileComponents;
 using Project1.SpriteComponents;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Project1.CollisionComponents;
-using Project1.LevelComponents;
 using Project1.ItemComponents;
 
 namespace Project1.EnemyComponents
@@ -25,6 +22,7 @@ namespace Project1.EnemyComponents
         private Random R = new Random();
         private int Rand;
         private int Timer = 0;
+        private int MovementTimer = 100; 
 
         public EnemyStateAquamentus(IEnemy enemy, string type)
         {
@@ -135,7 +133,7 @@ namespace Project1.EnemyComponents
                     Sprite.MaxDelay = Sprite.StartDelay;
                 }
             }
-            if (Timer % 100 == 0)
+            if (Timer % MovementTimer == 0)
             {
                 Rand = R.Next(GameVar.AquamentusRandomRange);
             }

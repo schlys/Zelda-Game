@@ -2,9 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteComponents;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Project1.CollisionComponents;
 using Project1.DirectionState; 
 
 namespace Project1.ProjectileComponents
@@ -27,9 +24,9 @@ namespace Project1.ProjectileComponents
         {
             Projectile = projectile;
             Direction = direction; 
-            TypeID = "AquamentusProjectile";    // used for the sprite key
+            TypeID = GameVar.AquamentusProjectileKey;       // used for the sprite key
             Sprite = SpriteFactory.Instance.GetSpriteData(TypeID);
-            TypeID = "Aquamentus";              // used for the collisions key
+            TypeID = GameVar.AquamentusSpriteKey;              // used for the collisions key
             Counter = 0;
         }
         public void StopMotion()

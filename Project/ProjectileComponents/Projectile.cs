@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Project1.SpriteComponents;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Project1.CollisionComponents;
 using Project1.DirectionState;
 using System.Reflection;
-using Project1.LevelComponents;
 using System.Xml;
 
 namespace Project1.ProjectileComponents
@@ -68,7 +65,6 @@ namespace Project1.ProjectileComponents
         public void OffsetOriginalPosition(IDirectionState direction)
         {
             // Adjust start location to be beside the sprite based on the direction
-            // TODO: not hardcode offset values 
 
             XmlDocument XMLData = new XmlDocument();
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLProjectile.xml";
@@ -104,8 +100,6 @@ namespace Project1.ProjectileComponents
         public void Update()
         {
             State.Update();
-
-            //if (Position.Equals(OriginalPosition)) InMotion = false;
 
             // Update Hitbox for collisions 
             Hitbox = CollisionManager.Instance.GetHitBox(Position, State.Sprite.HitBox);

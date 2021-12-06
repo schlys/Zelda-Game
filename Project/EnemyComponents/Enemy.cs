@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
-using Project1.LevelComponents;
-using Project1.DirectionState;
 using System.Reflection;
 using System.Collections.Generic;
 using Project1.ItemComponents;

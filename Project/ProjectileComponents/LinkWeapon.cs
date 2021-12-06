@@ -5,8 +5,6 @@ using Project1.DirectionState;
 using Project1.LinkComponents;
 using Project1.SpriteComponents;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project1.ProjectileComponents
 {
@@ -30,10 +28,8 @@ namespace Project1.ProjectileComponents
         private int counter = 0;
         private int delay;
 
-        // dont hardcode width and length
         private int width; //10
         private int length; //40
-        
         
         public LinkWeapon(LinkHealth health, string ID, string direction, int delay, Rectangle parent)
         {
@@ -65,14 +61,17 @@ namespace Project1.ProjectileComponents
                     break;
             }
         }
+        
         public void OffsetOriginalPosition(IDirectionState direction) { }
 
         public void StopMotion() { }
+        
         public void RemoveProjectile()
         {
             // Removes this from GameObjectManager 
             GameObjectManager.Instance.RemoveProjectile(this);
         }
+        
         public void Update()
         {
             counter++;
