@@ -54,6 +54,7 @@ namespace Project1
         {
             GameObjectManager.Instance.Update();
             GameStateManager.Instance.Update();
+
             base.Update(gameTime);
         }
 
@@ -83,7 +84,6 @@ namespace Project1
 
         public void StartGame()
         {
-            // Must reset before starting for cases when won / lost 
             GameStateManager.Instance.Start();
             GameSoundManager.Instance.PlayTextSlow();
         }

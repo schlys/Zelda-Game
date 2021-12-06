@@ -387,5 +387,6 @@ namespace Project1
         public const int SpriteDelayRate = 1;
         public const int BlockSize = 16;        /* size of area sprites are in in sprite sheets */
         public const int UniversalSize = 40;    /* size of area sprites are in in sprite sheets */
+
     }
 }

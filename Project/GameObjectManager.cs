@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Project1.Controller;
 using Project1.LinkComponents;
 using Project1.BlockComponents;
@@ -12,10 +11,8 @@ using Project1.CollisionComponents;
 using Microsoft.Xna.Framework;
 using Project1.LevelComponents;
 using Project1.HeadsUpDisplay;
-using System.Windows.Forms;
 using Project1.DirectionState;
 using Project1.GameState;
-using Project1.StoreComponents; 
 
 namespace Project1
 {
@@ -36,10 +33,9 @@ namespace Project1
         private GameObjectManager() { }
 
         public List<ILink> Links;
-        public List<ILink> Links_copy;  // ??? when is this used? 
-        public int LinkCount;          // Accesed in GameStateManager.cs (change its setting - at the start window, player can press 'x' without press 2 because 2 seems to be selected)
+        public List<ILink> Links_copy; 
+        public int LinkCount;          
         public List<IHUD> HUDs;
-        //public List<IStore> Stores;
         public List<IBlock> Blocks;
         public List<IItem> Items;
         public List<IItem> DroppedItems;
@@ -48,7 +44,6 @@ namespace Project1
         private List<IProjectile> Projectiles;
         private List<IController> Controllers;
 
-        //private IRoom Room;
         public ILevel Level { get; set; }
          
         private Tuple<bool, ILink> FreezeEnemies;   // when true, stores the link who is freezing enemies 
@@ -62,7 +57,6 @@ namespace Project1
             Links = new List<ILink>();
             Links_copy = new List<ILink>();
             HUDs = new List<IHUD>();
-            //Stores = new List<IStore>();
             Blocks = new List<IBlock>();
             Items = new List<IItem>();
             DroppedItems = new List<IItem>(); 
@@ -98,7 +92,6 @@ namespace Project1
                 HUD.Update();
             }
 
-            //LevelFactory.Instance.Update();
             Level.Update(); 
 
             if (GameState.GameStateManager.Instance.CanPlayGame())
@@ -222,7 +215,6 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, int i)
         {
-            //LevelFactory.Instance.Draw(spriteBatch);
             Level.Draw(spriteBatch);
 
             foreach (IBlock block in Blocks)
@@ -256,8 +248,6 @@ namespace Project1
 
             // NOTE: Draw HUD last so covers all sprites on ItemSelect screen
             if (i < HUDs.Count) HUDs[i].Draw(spriteBatch);
-
-            //if (i < Stores.Count) Stores[i].Draw(spriteBatch);
         }
 
         public void Reset()
@@ -321,8 +311,10 @@ namespace Project1
 
         public void CreatePlayers()
         {
-            // Create <LinkCount> Links and a HUD for each Link. 
-            // Parallel Construction between Link and HUDs
+            /* Create <LinkCount> Links and a HUD for each Link. 
+             * Parallel Construction between Link and HUDs
+             */ 
+            
             for (int i = 0; i < LinkCount; i++)
             {
                 ILink Link = new Link(GameVar.GetLinkStartPosition(i), i, Game);
@@ -332,9 +324,6 @@ namespace Project1
 
                 IHUD HUD = new HUD(Link, Game);
                 HUDs.Add(HUD);
-
-                //IStore Store = new Store(Link, Game);
-                //Stores.Add(Store);
 
                 foreach (IController controller in Controllers)
                 {
@@ -367,6 +356,7 @@ namespace Project1
         {
             /* Trigger stop scroll in GameStateManager, and stop scrolling in all Link <HUDs>
              */
+
             GameStateManager.Instance.StopScroll(); 
 
             foreach(IHUD hud in HUDs)
@@ -375,8 +365,7 @@ namespace Project1
             }
         }
 
-        /* Methods that connect to <Level>, better to have them go through here since other 
-         * places do not know about <Level> 
+        /* Methods that connect to <Level> 
          */
         public bool IsWithinRoomBounds(Vector2 location)
         {

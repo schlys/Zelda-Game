@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
-using Project1.BlockComponents;
-using Project1.ItemComponents;
-using Project1.EnemyComponents;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
-using Project1.LevelComponents;
 
 namespace Project1
 {
@@ -35,6 +31,9 @@ namespace Project1
 
         private void CreateDict(Game1 game)
         {
+            /* Initlaize and load <SoundDict> with the contents of the XML file. 
+             */ 
+            
             SoundDict = new Dictionary<string, SoundEffectInstance>();      // Key is name of song, Value is the SoundEffectInstance
             XmlDocument XMLData = new XmlDocument();                        // Sound effect list stored in XMLSounds.xml
             var path = AppDomain.CurrentDomain.BaseDirectory + "XMLData/XMLSounds.xml";
