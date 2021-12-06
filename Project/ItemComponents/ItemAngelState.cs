@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Project1.SpriteComponents;
 using System;
 using Project1.CollisionComponents;
-using Project1.DirectionState;
-using Project1.LevelComponents;
 using Project1.LinkComponents;
 
 namespace Project1.ItemComponents
@@ -16,16 +13,18 @@ namespace Project1.ItemComponents
         public bool IsMoving { get; set; }
         public Sprite Sprite { get; set; }
         public string ID { get; set; }
+
         private Random R = new Random();
         private int Timer = 0;
         private int Rand;
-        private int Step = 1;
+        private int Step;
         private int DeltaPosition; 
         public ItemAngelState(IItem item)
         { 
             IsMoving = true;
             Item = item;
             Sprite = SpriteFactory.Instance.GetSpriteData(item.Kind);
+            Step = GameVar.AngelStep; 
             DeltaPosition = GameVar.AngelPositionDelta; 
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -34,10 +33,9 @@ namespace Project1.ItemComponents
         }
         public void Update()
         {
-            // NOTE: Needed while use next/prev item bcause some ItemState overwrite IsMoving
-            ((ICollidable)Item).IsMoving = true;
-
-            // Switch fairy direction every 15 calls 
+            /* Switch the direction of movement every AngelDelay calls 
+             */ 
+            
             Timer++; 
             if (Timer % GameVar.AngelDelay == 0)
             {
@@ -118,7 +116,6 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            
         }
     }
 }

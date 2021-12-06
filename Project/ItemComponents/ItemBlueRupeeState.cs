@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Project1.LinkComponents;
 using Project1.SpriteComponents;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project1.ItemComponents
 {
@@ -39,7 +36,6 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-
         }
     }
 }

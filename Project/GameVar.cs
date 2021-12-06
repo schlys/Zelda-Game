@@ -212,7 +212,8 @@ namespace Project1
 
         //ITEM **********************************************************************
         public const string ItemKey = "Item";
-        
+
+        public const int AngelStep = 1; 
         public const int AngelPositionDelta = 50; 
         public const int AngelRandomRange = 4;
         public const int AngelDelay = 15; 

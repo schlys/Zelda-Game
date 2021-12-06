@@ -38,9 +38,17 @@ namespace Project1.ItemComponents
 
         public void UseItem(ILink link)
         {
-            // If possible, use a Silver Arrow, otherwise use a normal arrow 
-            if (link.Inventory.HasSilverArrow) link.Attack(GameVar.SilverArrowKey);
-            else link.Attack(GameVar.ArrowKey);
+            /* If possible, use a Silver Arrow, otherwise use a normal arrow 
+             */
+
+            if (link.Inventory.HasSilverArrow)
+            {
+                link.Attack(GameVar.SilverArrowKey);
+            }
+            else
+            {
+                link.Attack(GameVar.ArrowKey);
+            }
         }
     }
 }
