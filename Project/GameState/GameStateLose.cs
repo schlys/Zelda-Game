@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*
+ * Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
+ * Class: CSE 3902 AU21
+ */
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.GameState
@@ -22,6 +27,7 @@ namespace Project1.GameState
             spriteBatch.Draw(blackRectangle, destinationRectangle, Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.LoseText1, new Vector2(RoomSize.X / 2 - (buffer * 3), RoomSize.Y / 2 - buffer), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.LoseText2, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 + buffer), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.WinText3, new Vector2(RoomSize.X / 2 - (buffer * 6), RoomSize.Y / 2 + (buffer * 4)), Color.White);
         }
         public void Update() { }
         public IGameState Story()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/HUD/HUD.png</SourceFile>
-  <SourceTime>2021-12-03T12:16:30.3001224-05:00</SourceTime>
-  <DestFile>C:/Users/Elise/Source/Repos/3902-dream-team/Project/Project/Content/bin/Windows/Content/HUD/HUD.xnb</DestFile>
-  <DestTime>2021-12-05T19:46:32.8342156-05:00</DestTime>
+  <SourceFile>C:/Users/samch/Source/Repos/Zelda-Game/Project/Content/HUD/HUD.png</SourceFile>
+  <SourceTime>2021-12-19T11:50:22.057564-05:00</SourceTime>
+  <DestFile>C:/Users/samch/Source/Repos/Zelda-Game/Project/Content/bin/Windows/Content/HUD/HUD.xnb</DestFile>
+  <DestTime>2021-12-19T12:14:00.2386999-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

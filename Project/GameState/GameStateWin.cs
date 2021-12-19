@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*
+ * Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
+ * Class: CSE 3902 AU21
+ */
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.SpriteComponents;
 
@@ -29,6 +34,7 @@ namespace Project1.GameState
 
             spriteBatch.DrawString(GameStateManager.Instance.TitleFont, GameVar.WinText1, new Vector2(RoomSize.X / 2- (buffer * 2), RoomSize.Y / 2 - buffer), Color.White);
             spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.WinText2, new Vector2(RoomSize.X / 2 - (buffer * 2), RoomSize.Y / 2 + (buffer*2)), Color.White);
+            spriteBatch.DrawString(GameStateManager.Instance.BodyFont, GameVar.WinText3, new Vector2(RoomSize.X / 2 - (buffer * 6), RoomSize.Y / 2 + (buffer * 4)), Color.White);
 
             TriForceFragment.Draw(spriteBatch, new Vector2(RoomSize.X/2- buffer, RoomSize.Y / 2+ buffer/2));
             Link.Draw(spriteBatch, new Vector2(RoomSize.X/2- buffer, RoomSize.Y / 2+ buffer));

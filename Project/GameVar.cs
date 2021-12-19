@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
+ * Class: CSE 3902 AU21
+ */
+
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -114,6 +119,7 @@ namespace Project1
 
         public const string WinText1 = "YOU WIN!";
         public const string WinText2 = "\n\nPress 'r' to restart\n\nPress 'q' to quit";
+        public const string WinText3 = "\n\nCreated by Mulan Blum, Sam Chlystek, Jake Haskins, \nChaeun Hong, Elise Kosmides and Andy Kroh.";
 
         public const string TextNum1 = "1";
         public const string TextNum2 = "2";

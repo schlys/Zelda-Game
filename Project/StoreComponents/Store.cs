@@ -1,4 +1,9 @@
-﻿using Project1.LinkComponents;
+﻿/*
+ * Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
+ * Class: CSE 3902 AU21
+ */
+
+using Project1.LinkComponents;
 using Project1.ItemComponents;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
