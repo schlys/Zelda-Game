@@ -1,5 +1,5 @@
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 
 <!-- TABLE OF CONTENTS -->
@@ -196,5 +196,4 @@ Previous game functionality remains.
 
 [contributors-shield]: https://img.shields.io/github/contributors/schlys/Zelda-Game.svg?style=for-the-badge
 [contributors-url]: https://github.com/schlys/Zelda-Game/graphs/contributors
-[license-shield]: https://img.shields.io/github/license/schlys/Zelda-Game.svg?style=for-the-badge
-[license-url]: https://github.com/schlys/Zelda-Game/blob/main/LICENSE
+
