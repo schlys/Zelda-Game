@@ -197,4 +197,4 @@ Previous game functionality remains.
 [contributors-shield]: https://img.shields.io/github/contributors/schlys/Zelda-Game.svg?style=for-the-badge
 [contributors-url]: https://github.com/schlys/Zelda-Game/graphs/contributors
 [license-shield]: https://img.shields.io/github/license/schlys/Zelda-Game.svg?style=for-the-badge
-[license-url]: https://github.com/schlys/Zelda-Game/blob/master/LICENSE.txt 
+[license-url]: https://github.com/schlys/Zelda-Game/blob/main/LICENSE.txt 
