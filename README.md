@@ -1,3 +1,7 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![MIT License][license-shield]][license-url]
+
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -24,7 +28,8 @@
 ## About the Project
 
 ### Built With
-
+* [Visual Studio](https://visualstudio.microsoft.com/)
+* [C# Monogame](https://www.monogame.net/)
 
 
 
@@ -188,3 +193,8 @@ This was the final submission for the project. We extended out previous game to 
 
 Previous game functionality remains. 
 -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/schlys/Zelda-Game.svg?style=for-the-badge
+[contributors-url]: https://github.com/schlys/Zelda-Game/graphs/contributors
+[license-shield]: https://img.shields.io/github/license/schlys/Zelda-Game.svg?style=for-the-badge
+[license-url]: https://github.com/schlys/Zelda-Game/blob/master/LICENSE.txt
