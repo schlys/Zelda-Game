@@ -1,3 +1,59 @@
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+## About the Project
+
+### Built With
+
+
+
+
+## Getting Started
+
+### Installation
+
+
+
+
+## Usage
+
+
+
+
+## License
+
+
+
+
+## Contact
+
+
+
+
+## Acknowledgments
+dafasdfsadfds
+
+<!--
 # Project
 Names: Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh. 
 
@@ -131,3 +187,4 @@ Submitted on 12/5/2021
 This was the final submission for the project. We extended out previous game to include multiplayer, a store, and item dropping. Two players can play at the same time, each with their own window. The windows reflect the unique color of the player to indicate which belongs to which player. When a player collides with the Old Man, a store window opens and they can purchase items for rupees. Enemies now drop items when they die. Link can drop items using the 'g' or 'h' key. 
 
 Previous game functionality remains. 
+-->
