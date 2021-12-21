@@ -87,6 +87,11 @@ change Sprite appearance for game objects, change sounds, use different controls
 and change certain positionings of items and projectiles. The sheets are stores in the `XMLData` folder and must follow the
 existing format if they are changed.
 
+Below is a useful command to create a clean executable with only two files:
+```sh
+dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true --self-contained
+```
+
 ### Keyboard Controls
 * **Game Controls**
     * **`R`**: reset game to start screen, can be pressed at any time
