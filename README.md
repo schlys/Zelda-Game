@@ -36,7 +36,12 @@
 ## Getting Started
 
 ### Installation
-
+1. Download [Visual Studio](https://visualstudio.microsoft.com/)
+2. Install the Monogame extension for Visual Studio and follow [these steps](https://docs.monogame.net/articles/getting_started/1_setting_up_your_development_environment_windows.html)
+3. Clone the repo
+    ```sh
+      git clone https://github.com/schlys/Zelda-Project.git
+    ```
 
 
 
@@ -58,7 +63,11 @@ Project Link: [https://github.com/schlys/Zelda-Game](https://github.com/schlys/Z
 
 
 ## Acknowledgments
-dafasdfsadfds
+* Creators: Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh
+* [Sprites](https://www.spriters-resource.com/nes/legendofzelda/) by Mister Mike
+* [SoundEffects](https://www.ZeldaSounds.com) by HelpTheWretched
+* [Background Music](https://archive.org/details/the-legend-of-zelda-nes-soundtrack) by LEMONADE
+* [README template](https://github.com/othneildrew/Best-README-Template)
 
 <!--
 # Project
