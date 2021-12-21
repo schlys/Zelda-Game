@@ -51,7 +51,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 ## Contact
+Sam Chlystek - samchlystek20@gmail.com
 
+Project Link: [https://github.com/schlys/Zelda-Game](https://github.com/schlys/Zelda-Game)
 
 
 
