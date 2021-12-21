@@ -26,10 +26,30 @@
 </details>
 
 ## About the Project
+This 2D game is a spinoff of a portion of the original *Legend of Zelda* game with some additional features.
+This project was completed over the course of the AU21 semester for the CSE 3902 course at Ohio State.
+My team of five other classmates and I worked in an Agile workflow and kept track of our sprint planning on
+[ZenHub](https://www.zenhub.com/). Our goal was to use different design patterns to create the first dungeon
+along with implementing unique features. 
+
+Unique Features:
+* Multiplayer
+* Item Shop
+* Players and enemies drop items
+
+### Sprint Progress
+* Sprint 1
+    * Creation of game objects (Link, Enemies, Items, NPCs, Blocks) without collisions
+    * Only one instance of each object type with controls to cycle through each object
+    * Basic keyboard input (movment controls and leaving game)
+* Sprint 2
+* Sprint 3
+* Sprint 4
 
 ### Built With
 * [Visual Studio](https://visualstudio.microsoft.com/)
 * [C# Monogame](https://www.monogame.net/)
+* [Microsoft XNA](https://www.microsoft.com/en-us/download/details.aspx?id=20914)
 
 
 
@@ -64,10 +84,11 @@ Project Link: [https://github.com/schlys/Zelda-Game](https://github.com/schlys/Z
 
 ## Acknowledgments
 * Creators: Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh
+* [ZenHub](https://www.zenhub.com/)
 * [Sprites](https://www.spriters-resource.com/nes/legendofzelda/) by Mister Mike
 * [SoundEffects](https://www.ZeldaSounds.com) by HelpTheWretched
 * [Background Music](https://archive.org/details/the-legend-of-zelda-nes-soundtrack) by LEMONADE
-* [README template](https://github.com/othneildrew/Best-README-Template)
+* [README Template](https://github.com/othneildrew/Best-README-Template)
 
 <!--
 # Project
