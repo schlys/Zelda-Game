@@ -48,7 +48,14 @@ Unique Features:
     * Create start room that contains all items and enemies to test all possible collisions
     * Add all individual "rooms" each with its own subset of objects, blocks, and enemies stored in an XML file
 * Sprint 3
+    * Implement smooth room switch transitions using scrolling techniques instead of instant room switch
+    * Add sound when different actions are performed as well as the background music
+    * Add the HUD and inventory with scrolling when called for a smooth transition
+    * Continue to add and update collision instances
 * Sprint 4
+    * Update game structure and controls to support multiplayer (theoretically an infinite amount of players can be supported)
+    * Implement the item shop and currency system, enemies must drop currency, players can also drop their inventory items
+    * Clean up rooms, fix bugs, and add different aspects like secret rooms
 
 ### Built With
 * [Visual Studio](https://visualstudio.microsoft.com/)
