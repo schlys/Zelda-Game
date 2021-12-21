@@ -88,18 +88,46 @@ and change certain positionings of items and projectiles. The sheets are stores 
 existing format if they are changed.
 
 ### Keyboard Controls
-* Game Controls
+* **Game Controls**
     * **`R`**: reset game to start screen, can be pressed at any time
     * **`Q`**: exits the game and closes the window, can be pressed at any time
-* Start Screen
+* **Start Screen**
     * **`1`**: sets mode to single player
     * **`2`**: sets mode to multiplayer, only two player is supported
     * **`L`**: plays the back story of *Legend of Zelda*, can be exited by pressing **`R`**
     * **`X`**: starts the game
-* Gameplay
+* **Gameplay**
     * **`Space`**: pauses the game and goes to pause menu, press **`Space`** again to continue
     * **`I`**: goes to inventory, press **`I`** again to go back to gameplay
     * **`X`**: exits the item shop
+* **Player 1**
+    * **`W`**, **`A`**, **`S`**, **`D`**: moves Link up, down, left, and right
+    * **`1`**: uses first inventory item
+    * **`2`**: uses second inventory item
+    * **`G`**: drop first item
+    * Item Selection
+        * **`W`**, **`A`**, **`S`**, **`D`**: changes selected item
+        * **`1`**: item to replace is first item
+        * **`2`**: item to replace is second item
+        * **`CapsLock`**: replace item with selected item
+    * Item Shop
+        * **`1`**: buys first item in the shop
+        * **`2`**: buys second item in the shop
+        * **`3`**: buys third item in the shop
+* **Player 2**
+    * **`Up`**, **`Down`**, **`Right`**, **`Left`**: moves Link up, down, left, and right
+    * **`9`**: uses first inventroy item
+    * **`0`**: uses second inventory item
+    * **`H`**: drop second item
+    * Item Selection
+        * **`Up`**, **`Down`**, **`Left`**, **`Right`**: changes selected item
+        * **`9`**: item to replace is first item
+        * **`0`**: item to replace is second item
+        * **`Enter`**: replace item with selected item
+    * Item Shop
+        * **`8`**: buys first item in the shop
+        * **`9`**: buys second item in the shop
+        * **`0`**: buys third item in the shop
 
 
 ## License
