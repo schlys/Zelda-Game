@@ -9,6 +9,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#sprint-progress">Sprint Progress</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -43,6 +44,9 @@ Unique Features:
     * Only one instance of each object type with controls to cycle through each object
     * Basic keyboard input (movment controls and leaving game)
 * Sprint 2
+    * Collisions and collision handling implemented, causing state transitions and position changes when necessary
+    * Create start room that contains all items and enemies to test all possible collisions
+    * Add all individual "rooms" each with its own subset of objects, blocks, and enemies stored in an XML file
 * Sprint 3
 * Sprint 4
 
