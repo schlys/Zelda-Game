@@ -19,7 +19,12 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="keyboard-controls">Keyboard Controls</a></li>
+      </ul>
+    </li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -77,8 +82,24 @@ Unique Features:
 
 
 ## Usage
+XML sheets are used for much of the data in the game. These sheets can be swapped out to create new levels, new rooms, 
+change Sprite appearance for game objects, change sounds, use different controls, create new collisions or update existing,
+and change certain positionings of items and projectiles. The sheets are stores in the `XMLData` folder and must follow the
+existing format if they are changed.
 
-
+### Keyboard Controls
+* Game Controls
+    * **`R`**: reset game to start screen, can be pressed at any time
+    * **`Q`**: exits the game and closes the window, can be pressed at any time
+* Start Screen
+    * **`1`**: sets mode to single player
+    * **`2`**: sets mode to multiplayer, only two player is supported
+    * **`L`**: plays the back story of *Legend of Zelda*, can be exited by pressing **`R`**
+    * **`X`**: starts the game
+* Gameplay
+    * **`Space`**: pauses the game and goes to pause menu, press **`Space`** again to continue
+    * **`I`**: goes to inventory, press **`I`** again to go back to gameplay
+    * **`X`**: exits the item shop
 
 
 ## License
