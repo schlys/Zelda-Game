@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<!--
-	Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
-	Class: CSE 3902 AU21
--->
+<!--Created by Mulan Blum, Sam Chlystek, Jake Haskins, Chaeun Hong, Elise Kosmides and Andy Kroh.
+Class: CSE 3902 AU21-->
 
 <Controllers>
 	<!-- GAME COMMANDS -->
@@ -130,22 +128,22 @@ w
 
 	<LinkControl player="2" press="true">
 		<name>LinkSelectItem1Cmd</name>
-		<key>D1</key>
+		<key>D9</key>
 	</LinkControl>
 
 	<LinkControl player="2" press="true">
 		<name>LinkSelectItem1Cmd</name>
-		<key>NumPad1</key>
+		<key>NumPad9</key>
 	</LinkControl>
 
 	<LinkControl player="2" press="true">
 		<name>LinkSelectItem2Cmd</name>
-		<key>D2</key>
+		<key>D0</key>
 	</LinkControl>
 
 	<LinkControl player="2" press="true">
 		<name>LinkSelectItem2Cmd</name>
-		<key>NumPad2</key>
+		<key>NumPad0</key>
 	</LinkControl>
 
 	<LinkControl player="2" press="true">
@@ -235,22 +233,22 @@ w
 
 	<LinkControl player="1" press="true">
 		<name>LinkSelectItem1Cmd</name>
-		<key>D9</key>
+		<key>D1</key>
 	</LinkControl>
 
 	<LinkControl player="1" press="true">
 		<name>LinkSelectItem1Cmd</name>
-		<key>NumPad9</key>
+		<key>NumPad1</key>
 	</LinkControl>
 
 	<LinkControl player="1" press="true">
 		<name>LinkSelectItem2Cmd</name>
-		<key>D0</key>
+		<key>D2</key>
 	</LinkControl>
 
 	<LinkControl player="1" press="true">
 		<name>LinkSelectItem2Cmd</name>
-		<key>NumPad0</key>
+		<key>NumPad2</key>
 	</LinkControl>
 
 	<!-- PLAYER 1 STORE -->
